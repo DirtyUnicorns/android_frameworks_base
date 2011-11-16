@@ -1367,4 +1367,7 @@
     <!-- Set default number of columns for QuickSettings -->
     <integer name="config_defaultColumnsNum">5</integer>
 
+   <!-- set to false if we dont need to consider data
+         service state to display signal strength bars -->
+    <bool name="config_combined_signal">true</bool>
 </resources>
