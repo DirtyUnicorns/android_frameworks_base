@@ -18,4 +18,8 @@
     <!-- Custom default wallpaper -->
     <java-symbol type="drawable" name="custom_default_wallpaper" />
 
+    <!-- Device keyhandler -->
+    <java-symbol type="string" name="config_deviceKeyHandlerLib" />
+    <java-symbol type="string" name="config_deviceKeyHandlerClass" />
+
 </resources>
