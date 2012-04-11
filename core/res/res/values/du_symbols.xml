@@ -16,4 +16,9 @@
 
 <resources>
     <java-symbol type="array" name="config_customPermissionsList" />
+
+    <!-- Device keyhandler -->
+    <java-symbol type="string" name="config_deviceKeyHandlerLib" />
+    <java-symbol type="string" name="config_deviceKeyHandlerClass" />
+
 </resources>
