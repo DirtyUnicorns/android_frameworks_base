@@ -46,4 +46,20 @@
     <string name="halo_signal_bars_1">ONE BAR</string>
     <string name="halo_signal_bars_none">NO BARS</string>
 
+<<<<<<< HEAD:packages/SystemUI/res/values/ck_strings.xml
+=======
+    <string name="wifi_ap_disabled">WiFi AP disabled</string>
+    <string name="wifi_ap_enabled">WiFi AP enabled</string>
+
+    <!-- Dialog title for navigation bar button selection -->
+    <string name="navbar_dialog_title">Choose action to assign</string>
+    <string name="navbar_home_button">Home button</string>
+    <string name="navbar_recent_button">Recent button</string>
+    <string name="navbar_search_button">Search button</string>
+    <string name="navbar_back_button">Back button</string>
+    <string name="navbar_empty_button">Empty button</string>
+    <string name="navbar_menu_conditional_button">Menu (autoHide) button</string>
+    <string name="navbar_menu_always_button">Menu (alwaysShow) button</string>
+    <string name="navbar_menu_big_button">Menu button</string>
+>>>>>>> e4b4efb... [1/2] base: NavigationBar customization:packages/SystemUI/res/values/ok_strings.xml
 </resources>
