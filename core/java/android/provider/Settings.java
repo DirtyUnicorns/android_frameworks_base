@@ -6540,6 +6540,12 @@ public final class Settings {
         public static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
 
         /**
+         * Add or remove software navigation bar
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_VISIBLE = "navigation_bar_visible";
+
+        /**
          * The current night mode that has been selected by the user.  Owned
          * and controlled by UiModeManagerService.  Constants are as per
          * UiModeManager.
