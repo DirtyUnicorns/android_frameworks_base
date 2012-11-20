@@ -52,7 +52,6 @@ import android.media.IAudioService;
 import android.media.IRingtonePlayer;
 import android.net.Uri;
 import android.os.Binder;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -2731,7 +2730,6 @@ public class NotificationManagerService extends INotificationManager.Stub
                 }
                 pw.println("  ");
             }
-
         }
 
         synchronized (mNotificationList) {
