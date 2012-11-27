@@ -6131,8 +6131,6 @@ public final class Settings {
                 "camera_double_tap_power_gesture_disabled";
 
         /**
-
-        /**
          * Behavior of twilight on the device.
          * One of {@link #TWILIGHT_MODE_LOCKED_OFF}, {@link #TWILIGHT_MODE_LOCKED_ON}
          * or {@link #TWILIGHT_MODE_AUTO}.
@@ -6218,6 +6216,12 @@ public final class Settings {
          */
         public static final String MANAGED_PROFILE_CONTACT_REMOTE_SEARCH =
                 "managed_profile_contact_remote_search";
+
+        /**
+         * Whether to display the ADB notification.
+         * @hide
+         */
+        public static final String ADB_NOTIFY = "adb_notify";
 
         /**
          * This are the settings to be backed up.
