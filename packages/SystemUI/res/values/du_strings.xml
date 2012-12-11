@@ -89,4 +89,8 @@
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
 
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor left</string>
+    <string name="accessibility_dpad_right">Cursor right</string>
+
 </resources>
