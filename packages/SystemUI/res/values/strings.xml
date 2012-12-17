@@ -499,7 +499,8 @@
     <string name="quick_settings_brightness_dialog_title">Brightness</string>
     <!-- QuickSettings: Brightness dialog auto brightness button [CHAR LIMIT=NONE] -->
     <string name="quick_settings_brightness_dialog_auto_brightness_label">AUTO</string>
-
+    <!-- QuickSettings: Profile [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_profile_label">Profile</string>
 
     <!-- Glyph to be overlaid atop the battery when the level is extremely low. Do not translate. -->
     <string name="battery_meter_very_low_overlay_symbol">!</string>

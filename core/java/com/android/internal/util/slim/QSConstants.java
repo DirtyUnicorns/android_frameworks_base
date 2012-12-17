@@ -49,6 +49,7 @@ public class QSConstants {
         public static final String TILE_FCHARGE = "toggleFastCharge";
         public static final String TILE_THEME = "toggleTheme";
         public static final String TILE_ONTHEGO = "toggleOnTheGo";
+        public static final String TILE_PROFILE = "toggleProfile";
 
         // dynamic tiles
         public static final String TILE_ALARM = "toggleAlarm";
@@ -73,6 +74,7 @@ public class QSConstants {
             TILES_DEFAULT.add(TILE_BLUETOOTH);
             TILES_DEFAULT.add(TILE_LOCATION);
             TILES_DEFAULT.add(TILE_AUTOROTATE);
+            TILES_DEFAULT.add(TILE_PROFILE);
         }
 
         public static ArrayList<String> DYNAMIC_TILES_DEFAULT = new ArrayList<String>();
