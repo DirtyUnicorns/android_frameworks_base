@@ -562,7 +562,7 @@ class QuickSettings {
                     if (rssiState.dataTypeIconId > 0) {
                         iov.setImageResource(rssiState.dataTypeIconId);
                     } else {
-                        iov.setImageDrawable(null);
+                        iov.setImageResource(R.drawable.ic_qs_signal_data_off);
                     }
                     setActivity(view, rssiState);
 
