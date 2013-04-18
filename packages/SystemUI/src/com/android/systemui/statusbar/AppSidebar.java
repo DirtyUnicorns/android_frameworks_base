@@ -321,13 +321,6 @@ public class AppSidebar extends FrameLayout {
                     ri = apps.get(i);
                     AppInfo ai = new AppInfo();
                     ai.mInfo = ri.activityInfo;
-                    try {
-                        if (ai.mInfo != null)
-                            ai.mStats = mUsageStatsService.getPkgUsageStats(new ComponentName(ai.mInfo.packageName,
-                                    ai.mInfo.name));
-                    } catch (RemoteException e) {
-                        ai.mStats = null;
-                    }
                     ImageView iv = new ImageView(getContext());
                     iv.setImageDrawable(ai.mInfo.loadIcon(pm));
                     iv.setTag(ai);
