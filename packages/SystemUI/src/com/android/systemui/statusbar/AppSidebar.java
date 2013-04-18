@@ -45,15 +45,14 @@ public class AppSidebar extends FrameLayout {
     private SIDEBAR_STATE mState = SIDEBAR_STATE.CLOSED;
 
     private static final LinearLayout.LayoutParams SCROLLVIEW_LAYOUT_PARAMS = new LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT, // width = match_parent
-            ViewGroup.LayoutParams.MATCH_PARENT, // height = wrap_content
-            1.0f                                 // weight = 1
-    );
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            1.0f    );
 
     private static LinearLayout.LayoutParams ITEM_LAYOUT_PARAMS = new LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT, // width = wrap_content
-            ViewGroup.LayoutParams.WRAP_CONTENT, // height = match_parent
-            1.0f                                 // weight = 1
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            1.0f
     );
 
     private int mTriggerWidth;
@@ -64,6 +63,7 @@ public class AppSidebar extends FrameLayout {
     private TextView mInfoBubble;
     private LayoutParams mInfoBubbleParams;
     private int mSortType = SORT_TYPE_AZ;
+    private float mBarAlpha = 1f;
 
     private IUsageStats mUsageStatsService;
     private Context mContext;
@@ -380,6 +380,7 @@ public class AppSidebar extends FrameLayout {
         mScrollView.removeAllViews();
         mScrollView.addView(mAppContainer, SCROLLVIEW_LAYOUT_PARAMS);
         addView(mScrollView, SCROLLVIEW_LAYOUT_PARAMS);
+        mScrollView.setAlpha(mBarAlpha);
         mScrollView.setVisibility(View.GONE);
     }
 
@@ -487,6 +488,8 @@ public class AppSidebar extends FrameLayout {
                     Settings.System.APP_SIDE_BAR_ENABLED), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.APP_SIDEBAR_SORT_TYPE), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.APP_SIDEBAR_TRANSPARENCY), false, this);
             update();
         }
 
@@ -519,6 +522,14 @@ public class AppSidebar extends FrameLayout {
                 layoutItems();
             }
             mSortType = sortType;
+
+            float barAlpha = (float)(100 - Settings.System.getInt(
+                    resolver, Settings.System.APP_SIDEBAR_TRANSPARENCY, 0)) / 100f;
+            if (barAlpha != mBarAlpha) {
+                if (mScrollView != null)
+                    mScrollView.setAlpha(barAlpha);
+                mBarAlpha = barAlpha;
+            }
         }
     }
 

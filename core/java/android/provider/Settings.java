@@ -3202,6 +3202,15 @@ public final class Settings {
 
         /**
          * Whether or not to launch default music player when headset is connected
+         * How to sort and order the items in the app sidebar
+         *
+         * @hide
+         */
+        public static final String APP_SIDEBAR_TRANSPARENCY = "app_sidebar_transparency";
+
+        /**
+         * Quick Settings Panel Tiles to Use
+         *
          * @hide
          */
         public static final String HEADSET_CONNECT_PLAYER = "headset_connect_player";
