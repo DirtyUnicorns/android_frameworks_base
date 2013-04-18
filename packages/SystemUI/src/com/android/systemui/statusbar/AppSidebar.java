@@ -87,8 +87,8 @@ public class AppSidebar extends FrameLayout {
         mContext = context;
         setDrawingCacheEnabled(false);
         mLaunchCountComparator = new LaunchCountComparator();
-        mAscendingComparator = new AscendingComparator(context.getPackageManager());
-        mDescendingComparator = new DescendingComparator(context.getPackageManager());
+        mAscendingComparator = new AscendingComparator();
+        mDescendingComparator = new DescendingComparator();
     }
 
     @Override
@@ -171,9 +171,9 @@ public class AppSidebar extends FrameLayout {
         for (ImageView i : mInstalledPackages) {
             ai = (AppInfo)i.getTag();
             try {
-                if (ai.mInfo != null)
-                    ai.mStats = mUsageStatsService.getPkgUsageStats(new ComponentName(ai.mInfo.packageName,
-                            ai.mInfo.name));
+                if (ai.mPackageName != null && ai.mClassName != null)
+                    ai.mStats = mUsageStatsService.getPkgUsageStats(new ComponentName(ai.mPackageName,
+                            ai.mClassName));
             } catch (RemoteException e) {
                 ai.mStats = null;
             }
@@ -320,9 +320,11 @@ public class AppSidebar extends FrameLayout {
                 for (int i = 0; i < apps.size(); i++) {
                     ri = apps.get(i);
                     AppInfo ai = new AppInfo();
-                    ai.mInfo = ri.activityInfo;
+                    ai.mClassName = ri.activityInfo.name;
+                    ai.mPackageName = ri.activityInfo.packageName;
+                    ai.mLabel = ri.activityInfo.loadLabel(pm).toString();
                     ImageView iv = new ImageView(getContext());
-                    iv.setImageDrawable(ai.mInfo.loadIcon(pm));
+                    iv.setImageDrawable(ri.activityInfo.loadIcon(pm));
                     iv.setTag(ai);
                     mInstalledPackages.add(iv);
                 }
@@ -386,7 +388,7 @@ public class AppSidebar extends FrameLayout {
 
     private void launchApplication(AppInfo ai) {
         PackageManager pm = mContext.getPackageManager();
-        Intent intent = pm.getLaunchIntentForPackage(ai.mInfo.packageName);
+        Intent intent = pm.getLaunchIntentForPackage(ai.mPackageName);
         mContext.startActivity(intent);
         showAppContainer(false);
     }
@@ -411,7 +413,7 @@ public class AppSidebar extends FrameLayout {
                 case MotionEvent.ACTION_DOWN:
                     AppInfo ai = (AppInfo)view.getTag();
                     mInfoBubble.bringToFront();
-                    mInfoBubble.setText(ai.mInfo.loadLabel(mContext.getPackageManager()));
+                    mInfoBubble.setText(ai.mLabel);
                     mSelectedItem = view;
                     positionInfoBubble(view, mScrollView.getScrollY());
                     showInfoBubble(true);
@@ -534,7 +536,9 @@ public class AppSidebar extends FrameLayout {
     }
 
     private class AppInfo {
-        ActivityInfo mInfo;
+        String mLabel;
+        String mPackageName;
+        String mClassName;
         PkgUsageStats mStats;
     }
 
@@ -550,25 +554,17 @@ public class AppSidebar extends FrameLayout {
     }
 
     public static class AscendingComparator implements Comparator<ImageView> {
-        PackageManager mPm;
-        AscendingComparator(PackageManager pm) {
-            mPm = pm;
-        }
         public final int compare(ImageView a, ImageView b) {
-            String alabel = ((AppInfo)a.getTag()).mInfo.loadLabel(mPm).toString();
-            String blabel = ((AppInfo)b.getTag()).mInfo.loadLabel(mPm).toString();
+            String alabel = ((AppInfo)a.getTag()).mLabel;
+            String blabel = ((AppInfo)b.getTag()).mLabel;
             return alabel.compareTo(blabel);
         }
     }
 
     public static class DescendingComparator implements Comparator<ImageView> {
-        PackageManager mPm;
-        DescendingComparator(PackageManager pm) {
-            mPm = pm;
-        }
         public final int compare(ImageView a, ImageView b) {
-            String alabel = ((AppInfo)a.getTag()).mInfo.loadLabel(mPm).toString();
-            String blabel = ((AppInfo)b.getTag()).mInfo.loadLabel(mPm).toString();
+            String alabel = ((AppInfo)a.getTag()).mLabel;
+            String blabel = ((AppInfo)b.getTag()).mLabel;
             return blabel.compareTo(alabel);
         }
     }
