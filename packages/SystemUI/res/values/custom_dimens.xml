@@ -45,4 +45,7 @@
     <!-- AM/PM size in active display -->
     <dimen name="ad_ampm_font_size">32dp</dimen>
 
+    <!-- App sidebar -->
+    <dimen name="app_sidebar_item_height">64dp</dimen>
+
 </resources>

@@ -41,4 +41,8 @@
     <!-- Quick Settings -->
     <color name="qs_background_color">#FF212121</color>
     <color name="qs_background_pressed_color">#FF161616</color>
+
+    <!-- app sidebar info bubble text color -->
+    <color name="app_sidebar_info_bubble_text_color">#ff0099cc</color>
+    <color name="app_sidebar_info_bubble_text_shadow_color">#ff333333</color>
 </resources>

@@ -187,4 +187,14 @@
         <item name="android:textColor">@android:color/primary_text_dark</item>
     </style>
 
+    <style name="TextAppearance.AppSidebarInfo">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/app_sidebar_info_bubble_text_color</item>
+        <item name="android:shadowColor">@color/app_sidebar_info_bubble_text_shadow_color</item>
+        <item name="android:shadowDx">3</item>
+        <item name="android:shadowDy">3</item>
+        <item name="android:shadowRadius">1.25</item>
+    </style>
+
 </resources>
