@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.*;
@@ -67,6 +68,7 @@ public class AppSidebar extends FrameLayout {
     private float mBarSizeScale = 1f;
     private boolean mFirstTouch = false;
 
+    private List<String> mExcludedList;
     private IUsageStats mUsageStatsService;
     private Context mContext;
     private SettingsObserver mSettingsObserver;
@@ -372,11 +374,15 @@ public class AppSidebar extends FrameLayout {
         ITEM_LAYOUT_PARAMS.width = desiredHeight;
 
         for (ImageView icon : mInstalledPackages) {
-            icon.setPadding(0, padding, 0, padding);
-            mAppContainer.addView(icon, ITEM_LAYOUT_PARAMS);
-            icon.setOnClickListener(mItemClickedListener);
-            icon.setOnTouchListener(mItemTouchedListener);
-            icon.setClickable(true);
+            AppInfo ai = (AppInfo)icon.getTag();
+            if (!mExcludedList.contains(new ComponentName(ai.mPackageName,
+                    ai.mClassName).flattenToString())) {
+                icon.setPadding(0, padding, 0, padding);
+                mAppContainer.addView(icon, ITEM_LAYOUT_PARAMS);
+                icon.setOnClickListener(mItemClickedListener);
+                icon.setOnTouchListener(mItemTouchedListener);
+                icon.setClickable(true);
+            }
         }
 
         // we need our horizontal scroll view to wrap the linear layout
@@ -518,6 +524,8 @@ public class AppSidebar extends FrameLayout {
                     Settings.System.APP_SIDEBAR_TRANSPARENCY), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.APP_SIDEBAR_ITEM_SIZE), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.APP_SIDEBAR_EXCLUDE_LIST), false, this);
             update();
         }
 
@@ -564,6 +572,14 @@ public class AppSidebar extends FrameLayout {
             if (mBarSizeScale != size) {
                 mBarSizeScale = size;
                 layoutItems();
+            }
+
+            String excluded = Settings.System.getString(resolver,
+                    Settings.System.APP_SIDEBAR_EXCLUDE_LIST);
+            if (!TextUtils.isEmpty(excluded)) {
+                mExcludedList = new ArrayList<String>(Arrays.asList(excluded.split("\\|")));
+                if(mScrollView != null)
+                    layoutItems();
             }
         }
     }
