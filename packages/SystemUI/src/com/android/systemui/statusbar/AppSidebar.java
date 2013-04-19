@@ -65,6 +65,7 @@ public class AppSidebar extends FrameLayout {
     private int mSortType = SORT_TYPE_AZ;
     private float mBarAlpha = 1f;
     private float mBarSizeScale = 1f;
+    private boolean mFirstTouch = false;
 
     private IUsageStats mUsageStatsService;
     private Context mContext;
@@ -133,6 +134,7 @@ public class AppSidebar extends FrameLayout {
                     showAppContainer(true);
                     cancelAutoHideTimer();
                     mScrollView.onTouchEvent(ev);
+                    mFirstTouch = true;
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -402,7 +404,7 @@ public class AppSidebar extends FrameLayout {
     private OnClickListener mItemClickedListener = new OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (mState != SIDEBAR_STATE.OPENED)
+            if (mState != SIDEBAR_STATE.OPENED || mFirstTouch)
                 return;
 
             launchApplication((AppInfo)view.getTag());
@@ -471,6 +473,7 @@ public class AppSidebar extends FrameLayout {
             if (action == MotionEvent.ACTION_CANCEL || action == MotionEvent.ACTION_UP) {
                 showInfoBubble(false);
                 mSnapTrigger = true;
+                mFirstTouch = false;
                 updateAutoHideTimer();
                 if (mState != SIDEBAR_STATE.OPENED)
                     return false;
