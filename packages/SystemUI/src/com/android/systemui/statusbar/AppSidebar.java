@@ -132,6 +132,7 @@ public class AppSidebar extends FrameLayout {
                 if (ev.getX() <= mTriggerWidth && mState == SIDEBAR_STATE.CLOSED) {
                     showAppContainer(true);
                     cancelAutoHideTimer();
+                    mScrollView.onTouchEvent(ev);
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
@@ -480,6 +481,20 @@ public class AppSidebar extends FrameLayout {
                 }
             } else if (action == MotionEvent.ACTION_DOWN) {
                 mSnapTrigger = false;
+                // see if we touched on a child and if so show info bubble
+                final float x = ev.getX();
+                final float y = ev.getY() + getScrollY();
+                for (View v : mInstalledPackages) {
+                    if (y >= v.getY() && y <= v.getY()+v.getHeight()) {
+                        AppInfo ai = (AppInfo)v.getTag();
+                        mInfoBubble.bringToFront();
+                        mInfoBubble.setText(ai.mLabel);
+                        mSelectedItem = v;
+                        positionInfoBubble(v, mScrollView.getScrollY());
+                        showInfoBubble(true);
+                        break;
+                    }
+                }
             }
             return super.onTouchEvent(ev);
         }
