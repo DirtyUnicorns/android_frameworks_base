@@ -478,6 +478,8 @@ public class AppSidebar extends FrameLayout {
                         mInfoBubble.getVisibility() == View.VISIBLE) {
                     launchApplication((AppInfo)mSelectedItem.getTag());
                 }
+            } else if (action == MotionEvent.ACTION_DOWN) {
+                mSnapTrigger = false;
             }
             return super.onTouchEvent(ev);
         }
