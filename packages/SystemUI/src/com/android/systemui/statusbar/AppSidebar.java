@@ -97,9 +97,6 @@ public class AppSidebar extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(ACTION_HIDE_APP_CONTAINER);
-        getContext().registerReceiver(mBroadcastReceiver, filter);
         if (DEBUG_LAYOUT)
             setBackgroundColor(0xffff0000);
         getInstalledAppsList();
@@ -113,12 +110,22 @@ public class AppSidebar extends FrameLayout {
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         mSettingsObserver.observe();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(ACTION_HIDE_APP_CONTAINER);
+        getContext().registerReceiver(mBroadcastReceiver, filter);
+        filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_PACKAGE_ADDED);
+        filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        filter.addDataScheme("package");
+        getContext().registerReceiver(mAppChangeReceiver, filter);
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mSettingsObserver.unobserve();
+        mContext.unregisterReceiver(mBroadcastReceiver);
+        mContext.unregisterReceiver(mAppChangeReceiver);
     }
 
     @Override
@@ -302,6 +309,17 @@ public class AppSidebar extends FrameLayout {
         } catch (Exception e) {
         }
     }
+
+    private final BroadcastReceiver mAppChangeReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (Intent.ACTION_PACKAGE_ADDED.equals(action) ||
+                    Intent.ACTION_PACKAGE_REMOVED.equals(action)) {
+                getInstalledAppsList();
+            }
+        }
+    };
 
     private final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
         @Override
