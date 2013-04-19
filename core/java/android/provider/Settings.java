@@ -3203,10 +3203,18 @@ public final class Settings {
         /**
          * Whether or not to launch default music player when headset is connected
          * How to sort and order the items in the app sidebar
+         * User defined transparency level for sidebar
          *
          * @hide
          */
         public static final String APP_SIDEBAR_TRANSPARENCY = "app_sidebar_transparency";
+
+        /**
+         * Width and height of items in sidebar
+         *
+         * @hide
+         */
+        public static final String APP_SIDEBAR_ITEM_SIZE = "app_sidebar_item_size";
 
         /**
          * Quick Settings Panel Tiles to Use

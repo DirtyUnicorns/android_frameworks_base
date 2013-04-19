@@ -64,6 +64,7 @@ public class AppSidebar extends FrameLayout {
     private LayoutParams mInfoBubbleParams;
     private int mSortType = SORT_TYPE_AZ;
     private float mBarAlpha = 1f;
+    private float mBarSizeScale = 1f;
 
     private IUsageStats mUsageStatsService;
     private Context mContext;
@@ -85,7 +86,6 @@ public class AppSidebar extends FrameLayout {
         super(context, attrs, defStyle);
         mTriggerWidth = context.getResources().getDimensionPixelSize(R.dimen.config_app_sidebar_trigger_width);
         mContext = context;
-        setDrawingCacheEnabled(false);
         mLaunchCountComparator = new LaunchCountComparator();
         mAscendingComparator = new AscendingComparator();
         mDescendingComparator = new DescendingComparator();
@@ -360,11 +360,16 @@ public class AppSidebar extends FrameLayout {
         // set the layout height based on the item height we would like and the
         // number of items that would fit at on screen at once given the height
         // of the app sidebar
-        int desiredHeight = mContext.getResources().getDimensionPixelSize(R.dimen.app_sidebar_item_height);
+        int padding = mContext.getResources().getDimensionPixelSize(R.dimen.app_sidebar_item_padding);
+        int desiredHeight = (int)(mBarSizeScale * mContext.getResources().
+                getDimensionPixelSize(R.dimen.app_sidebar_item_size)) +
+                padding * 2;
         int numItems = (int)Math.floor(getHeight() / desiredHeight);
         ITEM_LAYOUT_PARAMS.height = getHeight() / numItems;
+        ITEM_LAYOUT_PARAMS.width = desiredHeight;
 
         for (ImageView icon : mInstalledPackages) {
+            icon.setPadding(0, padding, 0, padding);
             mAppContainer.addView(icon, ITEM_LAYOUT_PARAMS);
             icon.setOnClickListener(mItemClickedListener);
             icon.setOnTouchListener(mItemTouchedListener);
@@ -426,7 +431,6 @@ public class AppSidebar extends FrameLayout {
     private void positionInfoBubble(View v, int scrollOffset) {
         int marginTop = v.getTop() + v.getHeight()/2
                 - mInfoBubble.getHeight()/2 - scrollOffset;
-        Log.i(TAG, "positionInfoBubble: scrollOffset=" + scrollOffset + " marginTop=" + marginTop);
         mInfoBubbleParams.setMargins(mScrollView.getWidth(), marginTop, 0, 0);
         mInfoBubble.setLayoutParams(mInfoBubbleParams);
     }
@@ -492,6 +496,8 @@ public class AppSidebar extends FrameLayout {
                     Settings.System.APP_SIDEBAR_SORT_TYPE), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.APP_SIDEBAR_TRANSPARENCY), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.APP_SIDEBAR_ITEM_SIZE), false, this);
             update();
         }
 
@@ -531,6 +537,13 @@ public class AppSidebar extends FrameLayout {
                 if (mScrollView != null)
                     mScrollView.setAlpha(barAlpha);
                 mBarAlpha = barAlpha;
+            }
+
+            float size = (float)Settings.System.getInt(resolver,
+                    Settings.System.APP_SIDEBAR_ITEM_SIZE, 100) / 100f;
+            if (mBarSizeScale != size) {
+                mBarSizeScale = size;
+                layoutItems();
             }
         }
     }
