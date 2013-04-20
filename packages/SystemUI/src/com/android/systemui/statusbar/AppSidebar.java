@@ -573,7 +573,8 @@ public class AppSidebar extends FrameLayout {
                         Collections.sort(mInstalledPackages, mDescendingComparator);
                         break;
                 }
-                layoutItems();
+                if(mScrollView != null)
+                    layoutItems();
             }
             mSortType = sortType;
 
@@ -589,7 +590,8 @@ public class AppSidebar extends FrameLayout {
                     Settings.System.APP_SIDEBAR_ITEM_SIZE, 100) / 100f;
             if (mBarSizeScale != size) {
                 mBarSizeScale = size;
-                layoutItems();
+                if(mScrollView != null)
+                    layoutItems();
             }
 
             String excluded = Settings.System.getString(resolver,
