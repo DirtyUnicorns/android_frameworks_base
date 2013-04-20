@@ -393,7 +393,7 @@ public class AppSidebar extends FrameLayout {
 
         for (ImageView icon : mInstalledPackages) {
             AppInfo ai = (AppInfo)icon.getTag();
-            if (!mExcludedList.contains(new ComponentName(ai.mPackageName,
+            if (mExcludedList == null || !mExcludedList.contains(new ComponentName(ai.mPackageName,
                     ai.mClassName).flattenToString())) {
                 icon.setPadding(0, padding, 0, padding);
                 mAppContainer.addView(icon, ITEM_LAYOUT_PARAMS);
