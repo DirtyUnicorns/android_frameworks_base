@@ -407,7 +407,7 @@ public class AppSidebar extends FrameLayout {
         if (mScrollView == null) {
             mScrollView = new SnappingScrollView(mContext);
             // make the fading edge the size of a button (makes it more noticible that we can scroll
-            mScrollView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_INSET);
+            mScrollView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
             mScrollView.setOverScrollMode(View.OVER_SCROLL_NEVER);
             mScrollView.setBackgroundResource(R.drawable.app_sidebar_background);
         }
