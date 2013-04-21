@@ -421,8 +421,12 @@ public class AppSidebar extends FrameLayout {
     private void launchApplication(AppInfo ai) {
         updateAutoHideTimer(500);
         showInfoBubble(false);
+        ComponentName cn = new ComponentName(ai.mPackageName, ai.mClassName);
         PackageManager pm = mContext.getPackageManager();
-        Intent intent = pm.getLaunchIntentForPackage(ai.mPackageName);
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.setComponent(cn);
         mContext.startActivity(intent);
     }
 
