@@ -151,7 +151,7 @@ public class AppSidebar extends FrameLayout {
                 break;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                updateAutoHideTimer();
+                updateAutoHideTimer(AUTO_HIDE_DELAY);
                 if (mState != SIDEBAR_STATE.CLOSED)
                     mState = SIDEBAR_STATE.OPENED;
                 break;
@@ -169,7 +169,7 @@ public class AppSidebar extends FrameLayout {
                 return true;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                updateAutoHideTimer();
+                updateAutoHideTimer(AUTO_HIDE_DELAY);
                 break;
             case MotionEvent.ACTION_MOVE:
             default:
@@ -283,7 +283,7 @@ public class AppSidebar extends FrameLayout {
         return km.inKeyguardRestrictedInputMode();
     }
 
-    public void updateAutoHideTimer() {
+    public void updateAutoHideTimer(long delay) {
         Context ctx = getContext();
         AlarmManager am = (AlarmManager)ctx.getSystemService(Context.ALARM_SERVICE);
         Intent i = new Intent(ACTION_HIDE_APP_CONTAINER);
@@ -294,7 +294,7 @@ public class AppSidebar extends FrameLayout {
         } catch (Exception e) {
         }
         Calendar time = Calendar.getInstance();
-        time.setTimeInMillis(System.currentTimeMillis() + AUTO_HIDE_DELAY);
+        time.setTimeInMillis(System.currentTimeMillis() + delay);
         am.set(AlarmManager.RTC, time.getTimeInMillis(), pi);
     }
 
@@ -419,10 +419,11 @@ public class AppSidebar extends FrameLayout {
     }
 
     private void launchApplication(AppInfo ai) {
+        updateAutoHideTimer(500);
+        showInfoBubble(false);
         PackageManager pm = mContext.getPackageManager();
         Intent intent = pm.getLaunchIntentForPackage(ai.mPackageName);
         mContext.startActivity(intent);
-        showAppContainer(false);
     }
 
     private OnClickListener mItemClickedListener = new OnClickListener() {
@@ -498,7 +499,7 @@ public class AppSidebar extends FrameLayout {
                 showInfoBubble(false);
                 mSnapTrigger = true;
                 mFirstTouch = false;
-                updateAutoHideTimer();
+                updateAutoHideTimer(AUTO_HIDE_DELAY);
                 if (mState != SIDEBAR_STATE.OPENED)
                     return false;
 
