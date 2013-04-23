@@ -630,16 +630,16 @@ public class AppSidebar extends FrameLayout {
 
     public static class AscendingComparator implements Comparator<ImageView> {
         public final int compare(ImageView a, ImageView b) {
-            String alabel = ((AppInfo)a.getTag()).mLabel;
-            String blabel = ((AppInfo)b.getTag()).mLabel;
+            String alabel = ((AppInfo)a.getTag()).mLabel.toLowerCase();
+            String blabel = ((AppInfo)b.getTag()).mLabel.toLowerCase();
             return alabel.compareTo(blabel);
         }
     }
 
     public static class DescendingComparator implements Comparator<ImageView> {
         public final int compare(ImageView a, ImageView b) {
-            String alabel = ((AppInfo)a.getTag()).mLabel;
-            String blabel = ((AppInfo)b.getTag()).mLabel;
+            String alabel = ((AppInfo)a.getTag()).mLabel.toLowerCase();
+            String blabel = ((AppInfo)b.getTag()).mLabel.toLowerCase();
             return blabel.compareTo(alabel);
         }
     }
