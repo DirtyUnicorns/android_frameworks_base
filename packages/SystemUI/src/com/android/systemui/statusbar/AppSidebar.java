@@ -28,6 +28,7 @@ import com.android.systemui.R;
 import com.android.internal.app.IUsageStats;
 import com.android.internal.os.PkgUsageStats;
 
+import java.text.Collator;
 import java.util.*;
 
 public class AppSidebar extends FrameLayout {
@@ -67,6 +68,7 @@ public class AppSidebar extends FrameLayout {
     private float mBarAlpha = 1f;
     private float mBarSizeScale = 1f;
     private boolean mFirstTouch = false;
+    private static final Collator sCollator = Collator.getInstance();
 
     private List<String> mExcludedList;
     private IUsageStats mUsageStatsService;
@@ -630,9 +632,9 @@ public class AppSidebar extends FrameLayout {
 
     public static class AscendingComparator implements Comparator<ImageView> {
         public final int compare(ImageView a, ImageView b) {
-            String alabel = ((AppInfo)a.getTag()).mLabel.toLowerCase();
-            String blabel = ((AppInfo)b.getTag()).mLabel.toLowerCase();
-            return alabel.compareTo(blabel);
+            String alabel = ((AppInfo)a.getTag()).mLabel;
+            String blabel = ((AppInfo)b.getTag()).mLabel;
+            return sCollator.compare(alabel, blabel);
         }
     }
 
@@ -640,7 +642,7 @@ public class AppSidebar extends FrameLayout {
         public final int compare(ImageView a, ImageView b) {
             String alabel = ((AppInfo)a.getTag()).mLabel.toLowerCase();
             String blabel = ((AppInfo)b.getTag()).mLabel.toLowerCase();
-            return blabel.compareTo(alabel);
+            return sCollator.compare(blabel, alabel);
         }
     }
 }
