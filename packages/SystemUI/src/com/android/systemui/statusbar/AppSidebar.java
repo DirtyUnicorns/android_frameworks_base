@@ -513,6 +513,7 @@ public class AppSidebar extends FrameLayout {
                 }
             } else if (action == MotionEvent.ACTION_DOWN) {
                 mSnapTrigger = false;
+                cancelAutoHideTimer();
                 // see if we touched on a child and if so show info bubble
                 final float x = ev.getX();
                 final float y = ev.getY() + getScrollY();
