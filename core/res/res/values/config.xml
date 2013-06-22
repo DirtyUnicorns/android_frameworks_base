@@ -1374,4 +1374,7 @@
     <!-- Set to empty string to disable. Can be added to device overlay for device-specific path -->
     <string name="config_fastChargePath" translatable="false">/sys/kernel/fast_charge/force_fast_charge</string>
 
+    <!-- Boolean to enable adb by default on a per-device basis -->
+    <bool name="config_enableAdbByDefault">false</bool>
+
 </resources>
