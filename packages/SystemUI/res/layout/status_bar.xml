@@ -85,7 +85,9 @@
                 android:layout_marginRight="4dp"
                 android:gravity="left|center_vertical"/>
 
-           <LinearLayout android:id="@+id/statusIcons"
+            <include layout="@layout/network_stats" />
+
+            <LinearLayout android:id="@+id/statusIcons"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
