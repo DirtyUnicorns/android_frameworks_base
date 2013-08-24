@@ -53,5 +53,9 @@
     <declare-styleable name="BatteryBarController">
         <attr name="viewLocation" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="QuickSettingsContainer">
+        <attr name="singleRow" format="boolean" />
+    </declare-styleable>
 </resources>
 
