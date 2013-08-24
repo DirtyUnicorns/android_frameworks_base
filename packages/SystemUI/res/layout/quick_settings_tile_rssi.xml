@@ -19,6 +19,10 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:gravity="center">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"/>
     <FrameLayout
         android:id="@+id/image"
         android:layout_width="@dimen/qs_tile_icon_size"
@@ -55,6 +59,11 @@
             android:layout_toRightOf="@id/image"
             android:layout_alignBottom="@id/image"
             />
+    <View
+        android:id="@+id/separator_padding"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.3"/>
     <TextView
         style="@style/TextAppearance.QuickSettings.TileView"
         android:id="@+id/text"
@@ -68,4 +77,8 @@
         android:layout_below="@id/image"
         android:textAllCaps="@bool/quick_settings_rssi_tile_capitalization"
         />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"/>
 </RelativeLayout>
