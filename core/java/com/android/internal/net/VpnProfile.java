@@ -180,7 +180,7 @@ public class VpnProfile implements Cloneable, Parcelable {
             InetAddress.parseNumericAddress(server);
 
             for (String dnsServer : dnsServers.split(" +")) {
-                InetAddress.parseNumericAddress(this.dnsServers);
+                InetAddress.parseNumericAddress(dnsServer);
             }
             if (TextUtils.isEmpty(dnsServers)) {
                 Log.w(TAG, "DNS required");
