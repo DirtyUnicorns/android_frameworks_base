@@ -30,6 +30,7 @@ import android.util.DisplayMetrics;
 import android.view.DisplayInfo;
 import android.view.WindowManager;
 import android.util.Log;
+import android.provider.Settings;
 
 import com.android.internal.telephony.PhoneConstants;
 
@@ -171,6 +172,10 @@ public class DeviceUtils {
 
     public static boolean isTablet(Context con) {
         return getScreenType(con) == DEVICE_TABLET;
+    }
+
+    public static boolean adbEnabled(Context con) {
+        return (Settings.Global.getInt(con.getContentResolver(), Settings.Global.ADB_ENABLED, 0)) == 1;
     }
 
 }

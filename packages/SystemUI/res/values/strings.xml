@@ -510,4 +510,7 @@
          linebreak to position it correctly.  [CHAR LIMIT=45] -->
     <string name="ssl_ca_cert_warning">Network may\nbe monitored</string>
 
+    <string name="quick_settings_network_adb_disabled_label">Disabled</string>
+    <string name="quick_settings_network_adb_enabled_label">Enabled</string>
+
 </resources>

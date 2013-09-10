@@ -51,6 +51,7 @@ import static com.android.internal.util.slim.QSConstants.TILE_VOLUME;
 import static com.android.internal.util.slim.QSConstants.TILE_WIFI;
 import static com.android.internal.util.slim.QSConstants.TILE_WIFIAP;
 import static com.android.internal.util.slim.QSConstants.TILE_REBOOT;
+import static com.android.internal.util.slim.QSConstants.TILE_NETWORKADB;
 
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -84,6 +85,7 @@ import com.android.systemui.quicksettings.LteTile;
 import com.android.systemui.quicksettings.MobileNetworkTile;
 import com.android.systemui.quicksettings.MobileNetworkTypeTile;
 import com.android.systemui.quicksettings.MusicTile;
+import com.android.systemui.quicksettings.NetworkAdbTile;
 import com.android.systemui.quicksettings.NfcTile;
 import com.android.systemui.quicksettings.PreferencesTile;
 import com.android.systemui.quicksettings.QuickSettingsTile;
@@ -252,6 +254,9 @@ public class QuickSettingsController {
                 qs = new QuickRecordTile(mContext, this);
             } else if (tile.contains(TILE_CUSTOM)) {
                 qs = new CustomTile(mContext, this, findCustomKey(tile));
+            } else if (tile.equals(TILE_NETWORKADB)) {
+                mTileStatusUris.add(Settings.Global.getUriFor(Settings.Global.ADB_ENABLED));
+                qs = new NetworkAdbTile(mContext, this);
             }
 
             if (qs != null) {
