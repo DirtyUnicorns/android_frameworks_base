@@ -834,7 +834,7 @@
     <string name="policylab_disableKeyguardFeatures" msgid="266329104542638802">"Onemogući zaštitu tipkovnice"</string>
     <string name="policydesc_disableKeyguardFeatures" msgid="3467082272186534614">"Sprječava se upotreba nekih značajki u zaštitnom zaključavanju tipkovnice."</string>
   <string-array name="phoneTypes">
-    <item msgid="8901098336658710359">"Početna"</item>
+    <item msgid="8901098336658710359">"Privatni"</item>
     <item msgid="869923650527136615">"Mobilni"</item>
     <item msgid="7897544654242874543">"Posao"</item>
     <item msgid="1103601433382158155">"Službeni faks"</item>
@@ -844,19 +844,19 @@
     <item msgid="9192514806975898961">"Prilagođeno"</item>
   </string-array>
   <string-array name="emailAddressTypes">
-    <item msgid="8073994352956129127">"Početna"</item>
+    <item msgid="8073994352956129127">"Privatna"</item>
     <item msgid="7084237356602625604">"Posao"</item>
     <item msgid="1112044410659011023">"Ostalo"</item>
     <item msgid="2374913952870110618">"Prilagođeno"</item>
   </string-array>
   <string-array name="postalAddressTypes">
-    <item msgid="6880257626740047286">"Početna"</item>
+    <item msgid="6880257626740047286">"Privatna"</item>
     <item msgid="5629153956045109251">"Posao"</item>
     <item msgid="4966604264500343469">"Ostalo"</item>
     <item msgid="4932682847595299369">"Prilagođeno"</item>
   </string-array>
   <string-array name="imAddressTypes">
-    <item msgid="1738585194601476694">"Početna"</item>
+    <item msgid="1738585194601476694">"Privatni"</item>
     <item msgid="1359644565647383708">"Posao"</item>
     <item msgid="7868549401053615677">"Ostalo"</item>
     <item msgid="3145118944639869809">"Prilagođeno"</item>
@@ -877,7 +877,7 @@
     <item msgid="1648797903785279353">"Jabber"</item>
   </string-array>
     <string name="phoneTypeCustom" msgid="1644738059053355820">"Prilagođeno"</string>
-    <string name="phoneTypeHome" msgid="2570923463033985887">"Početna"</string>
+    <string name="phoneTypeHome" msgid="2570923463033985887">"Privatni"</string>
     <string name="phoneTypeMobile" msgid="6501463557754751037">"Mobilni"</string>
     <string name="phoneTypeWork" msgid="8863939667059911633">"Posao"</string>
     <string name="phoneTypeFaxWork" msgid="3517792160008890912">"Službeni faks"</string>
@@ -902,16 +902,16 @@
     <string name="eventTypeAnniversary" msgid="3876779744518284000">"Godišnjica"</string>
     <string name="eventTypeOther" msgid="7388178939010143077">"Drugo"</string>
     <string name="emailTypeCustom" msgid="8525960257804213846">"Prilagođeno"</string>
-    <string name="emailTypeHome" msgid="449227236140433919">"Početna"</string>
+    <string name="emailTypeHome" msgid="449227236140433919">"Privatna"</string>
     <string name="emailTypeWork" msgid="3548058059601149973">"Posao"</string>
     <string name="emailTypeOther" msgid="2923008695272639549">"Ostalo"</string>
-    <string name="emailTypeMobile" msgid="119919005321166205">"Mobilni"</string>
+    <string name="emailTypeMobile" msgid="119919005321166205">"Mobilna"</string>
     <string name="postalTypeCustom" msgid="8903206903060479902">"Prilagođeno"</string>
-    <string name="postalTypeHome" msgid="8165756977184483097">"Početna"</string>
+    <string name="postalTypeHome" msgid="8165756977184483097">"Privatna"</string>
     <string name="postalTypeWork" msgid="5268172772387694495">"Posao"</string>
     <string name="postalTypeOther" msgid="2726111966623584341">"Ostalo"</string>
     <string name="imTypeCustom" msgid="2074028755527826046">"Prilagođeno"</string>
-    <string name="imTypeHome" msgid="6241181032954263892">"Početna"</string>
+    <string name="imTypeHome" msgid="6241181032954263892">"Privatni"</string>
     <string name="imTypeWork" msgid="1371489290242433090">"Posao"</string>
     <string name="imTypeOther" msgid="5377007495735915478">"Ostalo"</string>
     <string name="imProtocolCustom" msgid="6919453836618749992">"Prilagođeno"</string>
@@ -943,7 +943,7 @@
     <string name="relationTypeSister" msgid="1735983554479076481">"Sestra"</string>
     <string name="relationTypeSpouse" msgid="394136939428698117">"Bračni partner"</string>
     <string name="sipAddressTypeCustom" msgid="2473580593111590945">"Prilagođeno"</string>
-    <string name="sipAddressTypeHome" msgid="6093598181069359295">"Početna"</string>
+    <string name="sipAddressTypeHome" msgid="6093598181069359295">"Privatno"</string>
     <string name="sipAddressTypeWork" msgid="6920725730797099047">"Posao"</string>
     <string name="sipAddressTypeOther" msgid="4408436162950119849">"Drugo"</string>
     <string name="quick_contacts_not_available" msgid="746098007828579688">"Nema aplikacije za prikazivanje tog kontakta."</string>
