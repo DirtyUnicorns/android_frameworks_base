@@ -1943,4 +1943,6 @@
   <java-symbol type="drawable" name="dirtyunicorns_bg_logo" />
   <java-symbol type="drawable" name="dirtyunicorns_logo" />
 
+  <java-symbol type="bool" name="use_motion_accel" />
+
 </resources>
