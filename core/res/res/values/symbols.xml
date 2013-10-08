@@ -2354,4 +2354,7 @@
 
   <java-symbol type="string" name="config_iccHotswapPromptForRestartDialogComponent" />
   <java-symbol type="string" name="config_packagedKeyboardName" />
+
+  <!-- Gesture Sensor -->
+  <java-symbol type="bool" name="config_enableGestureService" />
 </resources>
