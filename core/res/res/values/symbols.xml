@@ -2349,4 +2349,8 @@
 
   <!-- Doze Settings -->
   <java-symbol type="bool" name="config_dozeUseAccelerometer" />
+
+  <!-- Gesture Sensor -->
+  <java-symbol type="bool" name="config_enableGestureService" />
+
 </resources>
