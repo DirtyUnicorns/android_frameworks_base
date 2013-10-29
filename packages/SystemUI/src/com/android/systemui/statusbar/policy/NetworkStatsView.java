@@ -92,6 +92,8 @@ public class NetworkStatsView extends LinearLayout {
                     Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_TRAFFIC_HIDE), false, this);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.STATUS_BAR_TRAFFIC_COLOR), false, this);
             onChange(true);
         }
 
@@ -101,6 +103,8 @@ public class NetworkStatsView extends LinearLayout {
 
         @Override
         public void onChange(boolean selfChange) {
+            ContentResolver resolver = mContext.getContentResolver();
+            
             // check for connectivity
             ConnectivityManager cm =
                     (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -110,15 +114,27 @@ public class NetworkStatsView extends LinearLayout {
             PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
             boolean isScreenOn = pm.isScreenOn();
 
-            mActivated = (Settings.System.getInt(mContext.getContentResolver(),
+            mActivated = (Settings.System.getInt(resolver,
                     Settings.System.STATUS_BAR_NETWORK_STATS, 0)) == 1
                     && networkAvailable && isScreenOn;
 
-            mRefreshInterval = Settings.System.getLong(mContext.getContentResolver(),
+            mRefreshInterval = Settings.System.getLong(resolver,
                     Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, 500);
 
-            mNetStatsHide = (Settings.System.getInt(mContext.getContentResolver(),
+            mNetStatsHide = (Settings.System.getInt(resolver,
                     Settings.System.STATUS_BAR_TRAFFIC_HIDE, 1) == 1);
+
+            int defaultColor = Settings.System.getInt(resolver,
+                    Settings.System.STATUS_BAR_TRAFFIC_COLOR, 0xFF33b5e5);
+            int mStatusBarTrafficColor = Settings.System.getInt(resolver,
+                        Settings.System.STATUS_BAR_TRAFFIC_COLOR, -2);
+            if (mStatusBarTrafficColor == Integer.MIN_VALUE
+                || mStatusBarTrafficColor == -2) {
+                // flag to reset the color
+                mStatusBarTrafficColor = defaultColor;
+            }
+            mTextViewTx.setTextColor(mStatusBarTrafficColor);
+            mTextViewRx.setTextColor(mStatusBarTrafficColor);
 
             updateStats();
         }
