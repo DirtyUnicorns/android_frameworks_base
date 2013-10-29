@@ -29,6 +29,7 @@ public class Traffic extends TextView {
     long trafficBurstStartTime;
     long trafficBurstStartBytes;
     long keepOnUntil = Long.MIN_VALUE;
+    long mRefreshInterval;
     NumberFormat decimalFormat = new DecimalFormat("##0.0");
     NumberFormat integerFormat = NumberFormat.getIntegerInstance();
 
@@ -48,6 +49,8 @@ public class Traffic extends TextView {
                     .getUriFor(Settings.System.STATUS_BAR_TRAFFIC_COLOR), false, this);
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUS_BAR_TRAFFIC_SUMMARY), false, this);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL), false, this);
 
             updateSettings();
         }
@@ -218,7 +221,7 @@ public class Traffic extends TextView {
 
             totalRxBytes = currentRxBytes;
             lastUpdateTime = SystemClock.elapsedRealtime();
-            getHandler().postDelayed(mRunnable, 1000);
+            getHandler().postDelayed(mRunnable, mRefreshInterval);
         }
     };
 
@@ -231,6 +234,8 @@ public class Traffic extends TextView {
                 Settings.System.STATUS_BAR_TRAFFIC_HIDE, 1) == 1);
         trafficMeterSummaryTime = Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_TRAFFIC_SUMMARY, 3000);
+        mRefreshInterval = Settings.System.getLong(resolver,
+                Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, 500);
         int defaultColor = Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_TRAFFIC_COLOR, 0xFF33b5e5);
 
