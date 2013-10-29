@@ -89,6 +89,8 @@ public class NetworkStatsView extends LinearLayout {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_NETWORK_STATS), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_TRAFFIC_ENABLE), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_TRAFFIC_HIDE), false, this);
@@ -115,8 +117,10 @@ public class NetworkStatsView extends LinearLayout {
             boolean isScreenOn = pm.isScreenOn();
 
             mActivated = (Settings.System.getInt(resolver,
-                    Settings.System.STATUS_BAR_NETWORK_STATS, 0)) == 1
-                    && networkAvailable && isScreenOn;
+                    Settings.System.STATUS_BAR_NETWORK_STATS, 0) == 1)
+                    && networkAvailable && isScreenOn
+                    && (Settings.System.getInt(resolver,
+                    Settings.System.STATUS_BAR_TRAFFIC_ENABLE, 0) == 1);
 
             mRefreshInterval = Settings.System.getLong(resolver,
                     Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, 500);

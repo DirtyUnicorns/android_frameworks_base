@@ -44,6 +44,8 @@ public class Traffic extends TextView {
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUS_BAR_TRAFFIC_ENABLE), false, this);
             resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.STATUS_BAR_NETWORK_STATS), false, this);
+            resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUS_BAR_TRAFFIC_HIDE), false, this);
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUS_BAR_TRAFFIC_COLOR), false, this);
@@ -228,8 +230,12 @@ public class Traffic extends TextView {
     private void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
 
-        trafficMeterEnable = (Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_TRAFFIC_ENABLE, 0) == 1);
+        trafficMeterEnable =
+                (Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_TRAFFIC_ENABLE, 0) == 1)
+                && (Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_NETWORK_STATS, 0) == 0);
+
         trafficMeterHide = (Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_TRAFFIC_HIDE, 1) == 1);
         trafficMeterSummaryTime = Settings.System.getInt(resolver,
