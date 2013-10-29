@@ -41,6 +41,7 @@ public class NetworkStatsView extends LinearLayout {
     // state variables
     private boolean mAttached;      // whether or not attached to a window
     private boolean mActivated;     // whether or not activated due to system settings
+    private boolean mNetStatsHide;  // whether or not hide, if there is no traffic
 
     private TextView mTextViewTx;
     private TextView mTextViewRx;
@@ -89,6 +90,8 @@ public class NetworkStatsView extends LinearLayout {
                     Settings.System.STATUS_BAR_NETWORK_STATS), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_TRAFFIC_HIDE), false, this);
             onChange(true);
         }
 
@@ -114,11 +117,10 @@ public class NetworkStatsView extends LinearLayout {
             mRefreshInterval = Settings.System.getLong(mContext.getContentResolver(),
                     Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, 500);
 
-            setVisibility(mActivated ? View.VISIBLE : View.GONE);
+            mNetStatsHide = (Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_TRAFFIC_HIDE, 1) == 1);
 
-            if (mActivated && mAttached) {
-                updateStats();
-            }
+            updateStats();
         }
     }
 
@@ -172,6 +174,9 @@ public class NetworkStatsView extends LinearLayout {
 
     private void updateStats() {
         if (!mActivated || !mAttached) {
+            if (getVisibility() != GONE) {
+                setVisibility(View.GONE);
+            }
             mHandler.removeCallbacks(mUpdateRunnable);
             return;
         }
@@ -193,6 +198,16 @@ public class NetworkStatsView extends LinearLayout {
         mLastUpdateTime = currentTimeMillis;
         setTextViewSpeed(mTextViewTx, deltaBytesTx, deltaT);
         setTextViewSpeed(mTextViewRx, deltaBytesRx, deltaT);
+
+        if (mNetStatsHide && deltaBytesRx == 0 && deltaBytesTx == 0) {
+            if (getVisibility() != GONE) {
+                setVisibility(View.GONE);
+            }
+        } else {
+            if (getVisibility() != VISIBLE) {
+                setVisibility(View.VISIBLE);
+            }
+        }
 
         mHandler.removeCallbacks(mUpdateRunnable);
         mHandler.postDelayed(mUpdateRunnable, mRefreshInterval);
