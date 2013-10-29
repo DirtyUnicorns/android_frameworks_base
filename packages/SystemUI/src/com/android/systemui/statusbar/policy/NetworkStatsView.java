@@ -214,13 +214,13 @@ public class NetworkStatsView extends LinearLayout {
     }
 
     private void setTextViewSpeed(TextView tv, long speed, float deltaT) {
-        String units = "B";
+        String units = "B/s";
         float fSpeed = speed / deltaT;
         if (fSpeed >= TrafficStats.MB_IN_BYTES) {
-            units = "MB";
+            units = "MB/s";
             fSpeed = fSpeed / TrafficStats.MB_IN_BYTES;
         } else if (fSpeed >= TrafficStats.KB_IN_BYTES) {
-            units = "KB";
+            units = "KB/s";
             fSpeed = fSpeed / TrafficStats.KB_IN_BYTES;
         }
 
