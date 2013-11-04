@@ -35,6 +35,7 @@ import android.content.pm.PackageItemInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources.Theme;
+import android.database.ContentObserver;
 import android.database.sqlite.SQLiteCompatibilityWalFlags;
 import android.database.sqlite.SQLiteGlobal;
 import android.hardware.display.DisplayManagerInternal;
@@ -366,6 +367,19 @@ public final class SystemServer {
         // TODO: mRuntimeRestart will *not* be set to true if the proccess crashes before
         // sys.boot_completed is set. Fix it.
         mRuntimeRestart = "1".equals(SystemProperties.get("sys.boot_completed"));
+    }
+
+    private class AdbPortObserver extends ContentObserver {
+        public AdbPortObserver() {
+            super(null);
+        }
+        @Override
+        public void onChange(boolean selfChange) {
+            int adbPort = Settings.Secure.getInt(mContentResolver,
+                Settings.Secure.ADB_PORT, 0);
+            // setting this will control whether ADB runs on TCP/IP or USB
+            SystemProperties.set("adb.network.port", Integer.toString(adbPort));
+        }
     }
 
     private void run() {
@@ -1873,6 +1887,7 @@ public final class SystemServer {
             traceEnd();
         }
 
+
         if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_EMBEDDED)) {
             traceBeginAndSlog("StartIoTSystemService");
             mSystemServiceManager.startService(IOT_SERVICE_CLASS);
@@ -1888,6 +1903,15 @@ public final class SystemServer {
         traceBeginAndSlog("StartIncidentCompanionService");
         mSystemServiceManager.startService(IncidentCompanionService.class);
         traceEnd();
+
+        // make sure the ADB_ENABLED setting value matches the secure property value
+        Settings.Secure.putInt(mContentResolver, Settings.Secure.ADB_PORT,
+                Integer.parseInt(SystemProperties.get("service.adb.tcp.port", "-1")));
+
+        // register observer to listen for settings changes
+        mContentResolver.registerContentObserver(
+            Settings.Secure.getUriFor(Settings.Secure.ADB_PORT),
+            false, new AdbPortObserver());
 
         if (safeMode) {
             mActivityManagerService.enterSafeMode();
