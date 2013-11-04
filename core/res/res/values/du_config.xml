@@ -63,4 +63,7 @@
     <!-- True if the gesture service should be started at system start -->
     <bool name="config_enableGestureService">false</bool>
 
+    <!-- Boolean to enable stk functionality on Samsung phones -->
+    <bool name="config_samsung_stk">false</bool>
+
 </resources>
