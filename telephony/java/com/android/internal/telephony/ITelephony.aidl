@@ -1067,4 +1067,9 @@ interface ITelephony {
      * Returns a list of packages that have carrier privileges.
      */
     List<String> getPackagesWithCarrierPrivileges();
+
+    /**
+     * Return if the current radio is LTE on GSM
+     */
+    int getLteOnGsmMode();
 }
