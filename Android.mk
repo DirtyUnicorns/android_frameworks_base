@@ -52,6 +52,7 @@ LOCAL_SRC_FILES += \
 ## across process boundaries.
 ##
 ## READ ME: ########################################################
+# BEGIN privacy-added: IPrivacySettingsManager.aidl
 LOCAL_SRC_FILES += \
 	core/java/android/accessibilityservice/IAccessibilityServiceConnection.aidl \
 	core/java/android/accessibilityservice/IAccessibilityServiceClient.aidl \
@@ -261,6 +262,7 @@ LOCAL_SRC_FILES += \
 	media/java/android/media/IRemoteDisplayProvider.aidl \
 	media/java/android/media/IRemoteVolumeObserver.aidl \
 	media/java/android/media/IRingtonePlayer.aidl \
+     privacy/java/android/privacy/IPrivacySettingsManager.aidl \
 	telephony/java/com/android/internal/telephony/IPhoneStateListener.aidl \
 	telephony/java/com/android/internal/telephony/IPhoneSubInfo.aidl \
 	telephony/java/com/android/internal/telephony/ITelephony.aidl \
@@ -396,6 +398,7 @@ aidl_files := \
 	frameworks/base/location/java/android/location/FusedBatchOptions.aidl \
 	frameworks/base/location/java/com/android/internal/location/ProviderProperties.aidl \
 	frameworks/base/location/java/com/android/internal/location/ProviderRequest.aidl \
+     frameworks/base/privacy/java/android/privacy/PrivacySettings.aidl \
 	frameworks/base/telephony/java/android/telephony/ServiceState.aidl \
 	frameworks/base/telephony/java/com/android/internal/telephony/IPhoneSubInfo.aidl \
 	frameworks/base/telephony/java/com/android/internal/telephony/ITelephony.aidl \
