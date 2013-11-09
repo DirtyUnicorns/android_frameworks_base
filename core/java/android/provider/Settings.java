@@ -3259,6 +3259,17 @@ public final class Settings {
         public static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
 
         /**
+         * Custom navring actions
+         *
+         * @hide
+         */
+        public static final String[] NAVIGATION_RING_TARGETS = new String[] {
+            "navigation_ring_targets_0",
+            "navigation_ring_targets_1",
+            "navigation_ring_targets_2",
+        };
+
+        /**
          * Forces formal text input.  1 to replace emoticon key with enter key.
          * @hide
          */
