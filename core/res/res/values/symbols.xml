@@ -1803,4 +1803,7 @@
   <java-symbol type="bool" name="config_wifiApStartInterface" />
 >>>>>>> 30803ca... Base: Fix tethering (softap) startup.
 
+  <!-- Config IME switcher -->
+  <java-symbol type="bool" name="config_show_IMESwitcher" />
+
 </resources>
