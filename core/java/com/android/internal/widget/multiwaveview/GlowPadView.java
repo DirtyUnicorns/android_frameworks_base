@@ -138,6 +138,7 @@ public class GlowPadView extends View {
     private boolean mMagneticTargets = false;
     private boolean mDragging;
     private int mNewTargetResources;
+    private ArrayList<TargetDrawable> mNewTargetDrawables;
 
     private Paint mArcPaint;
     private RectF mArcRect;
@@ -207,6 +208,10 @@ public class GlowPadView extends View {
             if (mNewTargetResources != 0) {
                 internalSetTargetResources(mNewTargetResources);
                 mNewTargetResources = 0;
+                hideTargets(false, false);
+            } else if (mNewTargetDrawables != null) {
+                internalSetTargetResources(mNewTargetDrawables);
+                mNewTargetDrawables = null;
                 hideTargets(false, false);
             }
             mAnimatingTargets = false;
@@ -509,6 +514,7 @@ public class GlowPadView extends View {
                 // Force ring and targets to finish animation to final expanded state
                 mTargetAnimations.stop();
             }
+            hideTargets(false, false);
         } else {
             // Animate handle back to the center based on current state.
             hideGlow(HIDE_ANIMATION_DURATION, 0, 0.0f, mResetListenerWithPing);
@@ -670,10 +676,6 @@ public class GlowPadView extends View {
         }
     }
 
-    public int getTargetResourceId() {
-        return mTargetResourceId;
-    }
-
     public void setTargetResources(ArrayList<TargetDrawable> drawList) {
         if (mAnimatingTargets) {
             // postpone this change until we return to the initial state
@@ -681,6 +683,14 @@ public class GlowPadView extends View {
         } else {
             internalSetTargetResources(drawList);
         }
+    }
+
+    public int getTargetResourceId() {
+        return mTargetResourceId;
+    }
+
+    public ArrayList<TargetDrawable> getTargetDrawables() {
+        return mTargetDrawables;
     }
 
     /**
@@ -723,6 +733,14 @@ public class GlowPadView extends View {
      */
     public int getDirectionDescriptionsResourceId() {
         return mDirectionDescriptionsResourceId;
+    }
+
+    public boolean getMagneticTargets() {
+        return mMagneticTargets;
+    }
+
+    public void setMagneticTargets(boolean enabled) {
+        mMagneticTargets = enabled;
     }
 
     /**
@@ -1340,7 +1358,8 @@ public class GlowPadView extends View {
     }
 
     private String getTargetDescription(int index) {
-        if (mTargetDescriptions == null || mTargetDescriptions.isEmpty()) {
+        if (mTargetDescriptions == null || mTargetDescriptions.isEmpty()
+                || index >= mTargetDescriptions.size()) {
             mTargetDescriptions = loadDescriptions(mTargetDescriptionsResourceId);
             if (mTargetDrawables.size() != mTargetDescriptions.size()) {
                 Log.w(TAG, "The number of target drawables must be"
@@ -1352,7 +1371,8 @@ public class GlowPadView extends View {
     }
 
     private String getDirectionDescription(int index) {
-        if (mDirectionDescriptions == null || mDirectionDescriptions.isEmpty()) {
+        if (mDirectionDescriptions == null || mDirectionDescriptions.isEmpty()
+                || index >= mDirectionDescriptions.size()) {
             mDirectionDescriptions = loadDescriptions(mDirectionDescriptionsResourceId);
             if (mTargetDrawables.size() != mDirectionDescriptions.size()) {
                 Log.w(TAG, "The number of target drawables must be"
