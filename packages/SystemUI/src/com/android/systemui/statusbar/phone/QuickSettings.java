@@ -115,10 +115,11 @@ class QuickSettings {
     boolean mUseDefaultAvatar = false;
 
     private Handler mHandler;
+
     private QuickSettingsTileView mBatteryTile;
     private BatteryMeterView mBattery;
     private BatteryCircleMeterView mCircleBattery;
-    private int mBatteryStyle;
+    private boolean mBatteryHasPercent;
 
     // The set of QuickSettingsTiles that have dynamic spans (and need to be updated on
     // configuration change)
@@ -313,13 +314,17 @@ class QuickSettings {
     }
 
     public void updateBattery() {
-        if (mBattery == null || mModel == null) {
+        if (mBattery == null || mCircleBattery == null || mModel == null) {
             return;
         }
-        mBatteryStyle = Settings.System.getInt(mContext.getContentResolver(),
-                                Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
         mCircleBattery.updateSettings();
         mBattery.updateSettings();
+        int batteryStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.STATUS_BAR_BATTERY, 0, UserHandle.USER_CURRENT);
+        mBatteryHasPercent = batteryStyle == BatteryMeterView.BATTERY_STYLE_ICON_PERCENT
+            || batteryStyle == BatteryMeterView.BATTERY_STYLE_PERCENT
+            || batteryStyle == BatteryMeterView.BATTERY_STYLE_CIRCLE_PERCENT
+            || batteryStyle == BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE_PERCENT;
         mModel.refreshBatteryTile();
     }
 
@@ -595,13 +600,12 @@ class QuickSettings {
         // Battery
         mBatteryTile = (QuickSettingsTileView)
                 inflater.inflate(R.layout.quick_settings_tile, parent, false);
-                    mBatteryTile.setContent(R.layout.quick_settings_tile_battery, inflater);
-                    mBattery = (BatteryMeterView) mBatteryTile.findViewById(R.id.image);
-                    mBattery.setVisibility(View.GONE);
-                    mCircleBattery = (BatteryCircleMeterView)
-                            mBatteryTile.findViewById(R.id.circle_battery);
-                    updateBattery();
-                    mBatteryTile.setOnClickListener(new View.OnClickListener() {
+        mBatteryTile.setContent(R.layout.quick_settings_tile_battery, inflater);
+        mBattery = (BatteryMeterView) mBatteryTile.findViewById(R.id.image);
+        mBattery.setVisibility(View.GONE);
+        mCircleBattery = (BatteryCircleMeterView) mBatteryTile.findViewById(R.id.circle_battery);
+        updateBattery();
+        mBatteryTile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startSettingsActivity(Intent.ACTION_POWER_USAGE_SUMMARY);
@@ -616,16 +620,16 @@ class QuickSettings {
                 if (batteryState.batteryLevel == 100) {
                     t = mContext.getString(R.string.quick_settings_battery_charged_label);
                 } else {
-                    if (batteryState.pluggedIn) {
-                        t = mBatteryStyle != 3 // circle percent
-                                        ? mContext.getString(R.string.quick_settings_battery_charging_label,
-                                batteryState.batteryLevel)
-                        : mContext.getString(R.string.quick_settings_battery_charging);
-                    } else {     // battery bar or battery circle
-                        t = (mBatteryStyle == 0 || mBatteryStyle == 2)
-                            ? mContext.getString(R.string.status_bar_settings_battery_meter_format,
-                                batteryState.batteryLevel)
-                           : mContext.getString(R.string.quick_settings_battery_discharging);
+                    if (!mBatteryHasPercent) {
+                        t = batteryState.pluggedIn
+                            ? mContext.getString(R.string.quick_settings_battery_charging_label,
+                                    batteryState.batteryLevel)
+                            : mContext.getString(R.string.status_bar_settings_battery_meter_format,
+                                    batteryState.batteryLevel);
+                    } else {
+                        t = batteryState.pluggedIn
+                            ? mContext.getString(R.string.quick_settings_battery_charging)
+                            : mContext.getString(R.string.quick_settings_battery_discharging);
                     }
                 }
                 ((TextView)mBatteryTile.findViewById(R.id.text)).setText(t);
@@ -900,7 +904,7 @@ class QuickSettings {
         Resources r = mContext.getResources();
 
         // Update the model
-        mModel.refreshBatteryTile();
+        mModel.updateResources();
 
         // Update the User, Time, and Settings tiles spans, and reset everything else
         int span = r.getInteger(R.integer.quick_settings_user_time_settings_tile_span);
