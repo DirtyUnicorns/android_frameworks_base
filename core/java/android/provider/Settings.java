@@ -4516,6 +4516,12 @@ public final class Settings {
         public static final String HEADS_UP_EXPANDED = "heads_up_expanded";
 
         /**
+         * Use EdgeGesture Service for system gestures in PhoneWindowManager
+         * @hide
+         */
+        public static final String USE_EDGE_SERVICE_FOR_GESTURES = "edge_service_for_gestures";
+
+        /**
          * HALO color, default is 0xff33b5e5 (normal)
          * @hide
          */
