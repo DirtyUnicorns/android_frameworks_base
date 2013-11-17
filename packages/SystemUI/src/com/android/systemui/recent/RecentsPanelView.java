@@ -341,7 +341,7 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
                     && (mRecentTaskDescriptions.size() == 0);
             mRecentsNoApps.setAlpha(1f);
             mRecentsNoApps.setVisibility(noApps ? View.VISIBLE : View.INVISIBLE);
-            mClearRecents.setVisibility(noApps ? View.GONE : View.VISIBLE);
+	    mClearRecents.setVisibility(noApps ? View.GONE : View.VISIBLE);
 
             onAnimationEnd(null);
             setFocusable(true);
