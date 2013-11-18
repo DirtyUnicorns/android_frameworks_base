@@ -2736,9 +2736,11 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERY = "status_bar_battery";
 
         /**
-         * Show or hide clock
-         * 0 - hide
-         * 1 - show (default)
+         * Whether to show the clock in status bar
+         * of the stock battery icon
+         * 0: don't show the clock
+         * 1: show the clock
+         * default: 1
          * @hide
          */
         public static final String STATUS_BAR_CLOCK = "status_bar_clock";
@@ -2792,16 +2794,6 @@ public final class Settings {
         public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
 
         /**
-         * Whether to show the clock in status bar
-         * of the stock battery icon
-         * 0: don't show the clock
-         * 1: show the clock
-         * default: 1
-         * @hide
-         */
-        public static final String STATUS_BAR_CLOCK = "status_bar_clock";
-
-        /**
          * Whether to show the signal text or signal bars.
          * default: 0
          * 0: show signal bars
@@ -2810,13 +2802,6 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_SIGNAL_TEXT = "status_bar_signal";
-
-        /**
-         * Display style of the status bar battery information
-         * default: 0
-         * @hide
-         */
-        public static final String STATUS_BAR_BATTERY = "status_bar_battery";
 
         /**
          * Circle battery icon color
