@@ -1383,7 +1383,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
                 resolver, Settings.System.STATUS_BAR_CLOCK, 1,
                 UserHandle.USER_CURRENT) == 1);
         int clockLocation = Settings.System.getIntForUser(
-            resolver, Settings.System.STATUSBAR_CLOCK_STYLE, 0,
+            resolver, Settings.System.STATUSBAR_CLOCK_STYLE, 2,
             UserHandle.USER_CURRENT);
         if (clockLocation == 0 && clock != null) {
             clock.setVisibility(show ? (showClock ? View.VISIBLE : View.GONE) : View.GONE);

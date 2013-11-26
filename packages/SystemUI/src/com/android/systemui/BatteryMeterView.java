@@ -431,7 +431,7 @@ public class BatteryMeterView extends View implements DemoMode {
         ContentResolver resolver = mContext.getContentResolver();
 
         mBatteryStyle = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_BATTERY, 0, UserHandle.USER_CURRENT);
+                Settings.System.STATUS_BAR_BATTERY, 3, UserHandle.USER_CURRENT);
         mBatteryColor = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_BATTERY_COLOR, -2, UserHandle.USER_CURRENT);
         mPercentageColor = Settings.System.getIntForUser(resolver,
