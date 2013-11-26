@@ -514,6 +514,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         if (mBattery != null && mCircleBattery != null) {
             mBattery.updateSettings();
             mCircleBattery.updateSettings();
+
+    private void forceAddNavigationBar() {
+        // If we have no Navbar view and we should have one, create it
+        if (mNavigationBarView != null) {
+            return;
         }
     }
 
