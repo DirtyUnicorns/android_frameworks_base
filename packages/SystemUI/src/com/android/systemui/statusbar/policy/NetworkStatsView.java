@@ -129,7 +129,7 @@ public class NetworkStatsView extends LinearLayout {
                     Settings.System.STATUS_BAR_TRAFFIC_HIDE, 1) == 1);
 
             int defaultColor = Settings.System.getInt(resolver,
-                    Settings.System.STATUS_BAR_TRAFFIC_COLOR, 0xFFFFFFFF);
+                    Settings.System.STATUS_BAR_TRAFFIC_COLOR, 0xFF33b5e5);
             int mStatusBarTrafficColor = Settings.System.getInt(resolver,
                         Settings.System.STATUS_BAR_TRAFFIC_COLOR, -2);
             if (mStatusBarTrafficColor == Integer.MIN_VALUE

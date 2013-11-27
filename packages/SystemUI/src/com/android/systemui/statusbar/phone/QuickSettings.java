@@ -320,7 +320,7 @@ class QuickSettings {
         mCircleBattery.updateSettings();
         mBattery.updateSettings();
         int batteryStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
-            Settings.System.STATUS_BAR_BATTERY, 3, UserHandle.USER_CURRENT);
+            Settings.System.STATUS_BAR_BATTERY, 0, UserHandle.USER_CURRENT);
         mBatteryHasPercent = batteryStyle == BatteryMeterView.BATTERY_STYLE_ICON_PERCENT
             || batteryStyle == BatteryMeterView.BATTERY_STYLE_PERCENT
             || batteryStyle == BatteryMeterView.BATTERY_STYLE_CIRCLE_PERCENT

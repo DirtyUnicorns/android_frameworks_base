@@ -130,7 +130,7 @@ public class NotificationPanelView extends PanelView {
             boolean swipeFlipJustStarted = false;
             boolean flip = false;
             int quickPulldownMode = Settings.System.getInt(getContext().getContentResolver(),
-                    Settings.System.QS_QUICK_PULLDOWN, 2);
+                    Settings.System.QS_QUICK_PULLDOWN, 0);
 
             switch (event.getActionMasked()) {
                 case MotionEvent.ACTION_DOWN:
