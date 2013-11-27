@@ -5135,10 +5135,18 @@ public final class Settings {
         public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         /**
+<<<<<<< HEAD
          * Whether developer settings dare enabled.
          * @hide
          */
         public static final String DEVELOPER_OPTIONS_ENABLED = "developer_options_enabled";
+=======
+         * Whether to display the 'Wipe data' and 'Force close' options in the notification
+         * area and in the recent app list
+         * @hide
+         */
+        public static final String DEVELOPMENT_SHORTCUT = "development_shortcut";
+>>>>>>> da5f6c0... Development shortcut in StatusBar and Recent Panel
 
         /**
          * This are the settings to be backed up.
@@ -5189,7 +5197,13 @@ public final class Settings {
             MOUNT_UMS_PROMPT,
             MOUNT_UMS_NOTIFY_ENABLED,
             UI_NIGHT_MODE,
+<<<<<<< HEAD
             ADVANCED_REBOOT
+=======
+            UI_INVERTED_MODE,
+            ADVANCED_REBOOT,
+            DEVELOPMENT_SHORTCUT
+>>>>>>> da5f6c0... Development shortcut in StatusBar and Recent Panel
         };
 
         /**

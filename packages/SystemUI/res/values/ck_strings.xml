@@ -61,5 +61,13 @@
     <string name="navbar_menu_conditional_button">Menu (autoHide) button</string>
     <string name="navbar_menu_always_button">Menu (alwaysShow) button</string>
     <string name="navbar_menu_big_button">Menu button</string>
+<<<<<<< HEAD:packages/SystemUI/res/values/ck_strings.xml
 >>>>>>> e4b4efb... [1/2] base: NavigationBar customization:packages/SystemUI/res/values/ok_strings.xml
+=======
+
+    <!-- Development shortcut -->
+    <string name="advanced_dev_option_wipe_app">Wipe app data</string>
+    <string name="advanced_dev_option_force_stop">Force stop</string>
+
+>>>>>>> da5f6c0... Development shortcut in StatusBar and Recent Panel:packages/SystemUI/res/values/ok_strings.xml
 </resources>
