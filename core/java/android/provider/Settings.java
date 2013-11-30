@@ -2536,6 +2536,21 @@ public final class Settings {
          */
         public static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
 
+<<<<<<< HEAD
+=======
+        /**
+         * Show Screenshot in Power Menu
+         * @hide
+         */
+        public static final String SCREENSHOT_IN_POWER_MENU = "screenshot_in_power_menu";
+
+        /**
+         * Show ScreenRecord in Power Menu
+         * @hide
+         */
+        public static final String SCREENRECORD_IN_POWER_MENU = "screenrecord_in_power_menu";
+
+>>>>>>> a49cd86... [1/2] base: Power Menu: Add Screen record Option
         /** Sprint MWI Quirk: Show message wait indicator notifications
          * @hide
          */
