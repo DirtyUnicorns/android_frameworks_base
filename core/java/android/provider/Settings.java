@@ -4140,6 +4140,13 @@ public final class Settings {
          * @hide
          */
         public static final String HIDE_LOCKSCREEN_ALARM = "hide_lockscreen_alarm";
+ 
+        /**
+         * Whether to mute annoying notifications
+         * @hide
+         */
+        public static final String MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD =
+                "mute_annoying_notifications_threshold";
 
         /**
          * Whether to display the 4g or lte network icon in the statusbar
