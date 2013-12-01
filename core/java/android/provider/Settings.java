@@ -2931,6 +2931,12 @@ public final class Settings {
 		 */
         public static final String KEY_BACK_LONG_PRESS_ACTION = "key_back_long_press_action";
 
+       /**
+        * Sets the alpha (transparency) of the notification
+        * @hide
+        */
+        public static final String NOTIFICATION_ALPHA = "notification_alpha";
+
         /**
          * Action to perform when the home key is pressed. (Default is 6)
          * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
