@@ -3070,6 +3070,13 @@ public final class Settings {
 >>>>>>> 0f2f698... [1/2] Base: Change of default stream type controlled by volume rocker capabilities
 
         /**
+         * Should the non-intrsive incall ui be used
+         *
+         * @hide
+         */
+        public static final String NON_INTRUSIVE_INCALL = "non_intrusive_incall";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
