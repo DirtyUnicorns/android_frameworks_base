@@ -305,6 +305,9 @@ public class DisplayMetrics {
     }
 
     private static int getDeviceDensity() {
+        // Check for faked density
+        int density = SystemProperties.getInt("persist.sys.fake_density", 0);
+        if (density > 0) return density;
         // qemu.sf.lcd_density can be used to override ro.sf.lcd_density
         // when running in the emulator, allowing for dynamic configurations.
         // The reason for this is that ro.sf.lcd_density is write-once and is
