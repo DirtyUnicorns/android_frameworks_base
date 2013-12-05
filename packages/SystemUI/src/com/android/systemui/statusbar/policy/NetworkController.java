@@ -1131,12 +1131,16 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                             mMobileActivityIconId = R.drawable.stat_sys_signal_inout;
                             break;
                         default:
-                            mMobileActivityIconId = 0;
+                            mMobileActivityIconId = R.drawable.stat_sys_signal_noinout;
                             break;
                     }
                 } else {
+<<<<<<< HEAD
                     mMobileActivityIconId = 0;
 >>>>>>> 9adbe0f... framework: Bring back the status bar activity indicators for mobile data and wifi
+=======
+                    mMobileActivityIconId = R.drawable.stat_sys_signal_noinout;
+>>>>>>> f883bdd... Avoid layout passes when updating data activity indicators.
                 }
 
                 combinedLabel = mobileLabel;
@@ -1184,12 +1188,16 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                             mWifiActivityIconId = R.drawable.stat_sys_wifi_inout;
                             break;
                         case WifiManager.DATA_ACTIVITY_NONE:
-                            mWifiActivityIconId = 0;
+                            mWifiActivityIconId = R.drawable.stat_sys_wifi_noinout;
                             break;
                     }
                 } else {
+<<<<<<< HEAD
                     mWifiActivityIconId = 0;
 >>>>>>> 9adbe0f... framework: Bring back the status bar activity indicators for mobile data and wifi
+=======
+                    mWifiActivityIconId = R.drawable.stat_sys_wifi_noinout;
+>>>>>>> f883bdd... Avoid layout passes when updating data activity indicators.
                 }
             }
 
