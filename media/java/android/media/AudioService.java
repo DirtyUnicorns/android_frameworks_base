@@ -456,8 +456,6 @@ public class AudioService extends IAudioService.Stub {
     // If absolute volume is supported in AVRCP device
     private boolean mAvrcpAbsVolSupported = false;
 
-    private int mVolumeKeysDefault;
-
     ///////////////////////////////////////////////////////////////////////////
     // Construction
     ///////////////////////////////////////////////////////////////////////////
@@ -729,9 +727,6 @@ public class AudioService extends IAudioService.Stub {
         mLinkNotificationWithVolume = Settings.System.getIntForUser(cr,
                 Settings.System.VOLUME_LINK_NOTIFICATION, 1, UserHandle.USER_CURRENT) == 1;
 
-        mVolumeKeysDefault = Settings.System.getInt(cr,
-                Settings.System.VOLUME_KEYS_DEFAULT, 1);
-
         mMuteAffectedStreams = System.getIntForUser(cr,
                 System.MUTE_STREAMS_AFFECTED,
                 ((1 << AudioSystem.STREAM_MUSIC)|
@@ -818,10 +813,8 @@ public class AudioService extends IAudioService.Stub {
             streamType = getActiveStreamType(suggestedStreamType);
         }
 
-        if (streamType == AudioSystem.STREAM_DEFAULT) {
-            return;
         // Play sounds on STREAM_RING only and if lock screen is not on.
-        } else if ((streamType != STREAM_REMOTE_MUSIC) &&
+        if ((streamType != STREAM_REMOTE_MUSIC) &&
                 (flags & AudioManager.FLAG_PLAY_SOUND) != 0 &&
                 ((mStreamVolumeAlias[streamType] != AudioSystem.STREAM_RING)
                  || (mKeyguardManager != null && mKeyguardManager.isKeyguardLocked()))) {
@@ -1679,10 +1672,7 @@ public class AudioService extends IAudioService.Stub {
                 }
             }
             int streamType = getActiveStreamType(AudioManager.USE_DEFAULT_STREAM_TYPE);
-
-            if (streamType == AudioSystem.STREAM_DEFAULT) {
-                return 0;
-            } else if (streamType == STREAM_REMOTE_MUSIC) {
+            if (streamType == STREAM_REMOTE_MUSIC) {
                 // here handle remote media playback the same way as local playback
                 streamType = AudioManager.STREAM_MUSIC;
             }
@@ -2680,37 +2670,23 @@ public class AudioService extends IAudioService.Stub {
                     if (DEBUG_VOL)
                         Log.v(TAG, "getActiveStreamType: Forcing STREAM_MUSIC stream active");
                     return AudioSystem.STREAM_MUSIC;
-                } else {
+                } else
                     if (mMediaFocusControl.checkUpdateRemoteStateIfActive(AudioSystem.STREAM_MUSIC))
                     {
                         if (DEBUG_VOL)
                             Log.v(TAG, "getActiveStreamType: Forcing STREAM_REMOTE_MUSIC");
                         return STREAM_REMOTE_MUSIC;
                     } else {
-                        switch (mVolumeKeysDefault) {
-                            case AudioSystem.STREAM_DEFAULT:
-                                if (DEBUG_VOL)
-                                    Log.v(TAG, "getActiveStreamType: Forcing STREAM_DEFAULT b/c default setting");
-                                return AudioSystem.STREAM_DEFAULT;
-                            case AudioSystem.STREAM_MUSIC:
-                                if (DEBUG_VOL)
-                                    Log.v(TAG, "getActiveStreamType: Forcing STREAM_MUSIC b/c default setting");
-                                return AudioSystem.STREAM_MUSIC;
-                            case AudioSystem.STREAM_RING:
-                            default:
-                                if (DEBUG_VOL)
-                                    Log.v(TAG, "getActiveStreamType: Forcing STREAM_RING b/c default");
-                                return AudioSystem.STREAM_RING;
-                        }
-                    }
+                        if (DEBUG_VOL)
+                            Log.v(TAG, "getActiveStreamType: Forcing STREAM_RING b/c default");
+                        return AudioSystem.STREAM_RING;
                 }
             } else if (isAfMusicActiveRecently(0)) {
                 if (DEBUG_VOL)
                     Log.v(TAG, "getActiveStreamType: Forcing STREAM_MUSIC stream active");
                 return AudioSystem.STREAM_MUSIC;
             } else {
-                if (DEBUG_VOL)
-                    Log.v(TAG, "getActiveStreamType: Returning suggested type "
+                if (DEBUG_VOL) Log.v(TAG, "getActiveStreamType: Returning suggested type "
                         + suggestedStreamType);
                 return suggestedStreamType;
             }
@@ -2745,23 +2721,9 @@ public class AudioService extends IAudioService.Stub {
                     return AudioSystem.STREAM_MUSIC;
                 }
             } else {
-                if (suggestedStreamType == AudioManager.USE_DEFAULT_STREAM_TYPE) {
-                    switch (mVolumeKeysDefault) {
-                        case AudioSystem.STREAM_DEFAULT:
-                            if (DEBUG_VOL)
-                                Log.v(TAG, "getActiveStreamType: Forcing STREAM_DEFAULT b/c default setting");
-                            return AudioSystem.STREAM_DEFAULT;
-                        case AudioSystem.STREAM_MUSIC:
-                        default:
-                            if (DEBUG_VOL)
-                                Log.v(TAG, "getActiveStreamType: Forcing STREAM_MUSIC b/c default setting");
-                            return AudioSystem.STREAM_MUSIC;
-                    }
-                } else {
-                    if (DEBUG_VOL) Log.v(TAG, "getActiveStreamType: Returning suggested type "
-                            + suggestedStreamType);
-                    return suggestedStreamType;
-                }
+                if (DEBUG_VOL) Log.v(TAG, "getActiveStreamType: Returning suggested type "
+                        + suggestedStreamType);
+                return suggestedStreamType;
             }
         }
     }
@@ -3760,8 +3722,6 @@ public class AudioService extends IAudioService.Stub {
                 Settings.Global.DOCK_AUDIO_MEDIA_ENABLED), false, this);
             mContentResolver.registerContentObserver(Settings.System.getUriFor(
                 Settings.System.VOLUME_LINK_NOTIFICATION), false, this);
-            mContentResolver.registerContentObserver(Settings.System.getUriFor(
-                Settings.System.VOLUME_KEYS_DEFAULT), false, this);
         }
 
         @Override
@@ -3783,8 +3743,6 @@ public class AudioService extends IAudioService.Stub {
 
                 mLinkNotificationWithVolume = Settings.System.getIntForUser(mContentResolver,
                         Settings.System.VOLUME_LINK_NOTIFICATION, 1, UserHandle.USER_CURRENT) == 1;
-                mVolumeKeysDefault = Settings.System.getInt(mContentResolver,
-                    Settings.System.VOLUME_KEYS_DEFAULT, 1);
                 if (mLinkNotificationWithVolume) {
                     mStreamVolumeAlias[AudioSystem.STREAM_NOTIFICATION] = AudioSystem.STREAM_RING;
                 } else {
