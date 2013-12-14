@@ -2580,6 +2580,25 @@ public final class Settings {
         public static final String STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL = "status_bar_network_stats_update_frequency";
 
         /** Sprint MWI Quirk: Show message wait indicator notifications
+         * Show AirplaneMode in Power Menu
+         * @hide
+         */
+        public static final String AIRPLANE_MODE_IN_POWER_MENU = "airplane_mode_in_power_menu";
+
+        /**
+         * Show SoundToggle in Power Menu
+         * @hide
+         */
+        public static final String SOUND_TOGGLES_IN_POWER_MENU = "sound_toggles_in_power_menu";
+
+        /**
+         * Show MobileData in Power Menu
+         * @hide
+         */
+        public static final String MOBILE_DATA_IN_POWER_MENU = "mobile_data_in_power_menu";
+
+        /**
+         * Sprint MWI Quirk: Show message wait indicator notifications
          * @hide
          */
         public static final String ENABLE_MWI_NOTIFICATION = "enable_mwi_notification";
