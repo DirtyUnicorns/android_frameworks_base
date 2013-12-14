@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2013 The Android Open Source Project
- * Modifications Copyright (C) 2013 The OmniROM Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,10 +41,8 @@ import com.android.internal.annotations.GuardedBy;
 import com.google.android.collect.Lists;
 import com.google.android.collect.Maps;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -102,58 +99,11 @@ public class ExternalStorageProvider extends DocumentsProvider {
         mIdToRoot = Maps.newHashMap();
         mIdToPath = Maps.newHashMap();
 
-<<<<<<< HEAD
         updateVolumes();
-=======
-        ArrayList<File> mounts = null;
-        try {
-            mounts = getAllMountpoints();
-        } catch (IOException e) {
-            Log.e(TAG, "Cannot get mountpoints", e);
-
-            // Generate an empty list for fuse/rootfs
-            mounts = new ArrayList<File>();
-        }
-
-        // Add file system root
-        mounts.add(new File("/"));
-
-        Log.d(TAG, "Found " + mounts.size() + " mountpoints");
-
-        for (File mountpoint : mounts) {
-            try {
-                Log.d(TAG, "Mountpoint: " + mountpoint.getAbsolutePath());
-                final String rootId = mountpoint.getAbsolutePath();
-                final File path = mountpoint;
-                mIdToPath.put(rootId, path);
-
-                final RootInfo root = new RootInfo();
-                root.rootId = rootId;
-                // We assume that all mountpoints are writeable even if it's not the case.
-                // We tell then per-directory what is writeable and what's not.
-                root.flags = Root.FLAG_SUPPORTS_CREATE | Root.FLAG_LOCAL_ONLY | Root.FLAG_ADVANCED
-                        | Root.FLAG_SUPPORTS_SEARCH;
-
-                if (rootId.contains("sdcard0") || rootId.contains("emulated")) {
-                    root.title = getContext().getString(R.string.root_internal_storage);
-                } else if (rootId.equals("/")) {
-                    root.title = getContext().getString(R.string.root_file_system);
-                } else {
-                    root.title = getContext().getString(R.string.root_external_storage);
-                }
-                root.docId = getDocIdForFile(path);
-                mRoots.add(root);
-                mIdToRoot.put(rootId, root);
-            } catch (FileNotFoundException e) {
-                throw new IllegalStateException(e);
-            }
-        }
->>>>>>> parent of 8d6e28a... Revert "ExternalStorageProvider: Add support for root and external storage"
 
         return true;
     }
 
-<<<<<<< HEAD
     public void updateVolumes() {
         synchronized (mRootsLock) {
             updateVolumesLocked();
@@ -211,36 +161,6 @@ public class ExternalStorageProvider extends DocumentsProvider {
 
         getContext().getContentResolver()
                 .notifyChange(DocumentsContract.buildRootsUri(AUTHORITY), null, false);
-=======
-    private static ArrayList<File> getAllMountpoints() throws FileNotFoundException, IOException {
-        File voldFile = new File("/proc/mounts");
-
-        ArrayList<File> list = new ArrayList<File>();
-
-        FileReader fr = new FileReader(voldFile);
-        BufferedReader br = new BufferedReader(fr);
-        String line = br.readLine();
-        while (line != null) {
-            // We only take block mounted devices, not tmpfs
-            if (line.startsWith("/")) {
-                String[] tokens = line.split("\\s+");
-
-                // We only take storage mounted devices, not emmc partitions
-                if ((tokens[1].startsWith("/mnt") || tokens[1].startsWith("/storage"))
-                    && !tokens[1].startsWith("/mnt/asec") && !tokens[1].contains("legacy")
-                    && ("vfat".equals(tokens[2]) || "ext4".equals(tokens[2]) || "fuse".equals(tokens[2]))) {
-                    // We show the mount point only if we can read it also
-                    File mountPoint = new File(tokens[1]);
-                    if (mountPoint.isDirectory() && mountPoint.canRead()) {
-                        list.add(mountPoint);
-                    }
-                }
-            }
-            line = br.readLine();
-        }
-
-        return list;
->>>>>>> parent of 8d6e28a... Revert "ExternalStorageProvider: Add support for root and external storage"
     }
 
     private static String[] resolveRootProjection(String[] projection) {
@@ -347,7 +267,6 @@ public class ExternalStorageProvider extends DocumentsProvider {
     @Override
     public Cursor queryRoots(String[] projection) throws FileNotFoundException {
         final MatrixCursor result = new MatrixCursor(resolveRootProjection(projection));
-<<<<<<< HEAD
         synchronized (mRootsLock) {
             for (String rootId : mIdToPath.keySet()) {
                 final RootInfo root = mIdToRoot.get(rootId);
@@ -358,18 +277,6 @@ public class ExternalStorageProvider extends DocumentsProvider {
                 row.add(Root.COLUMN_FLAGS, root.flags);
                 row.add(Root.COLUMN_TITLE, root.title);
                 row.add(Root.COLUMN_DOCUMENT_ID, root.docId);
-=======
-        for (String rootId : mIdToPath.keySet()) {
-            final RootInfo root = mIdToRoot.get(rootId);
-            final File path = mIdToPath.get(rootId);
-
-            final RowBuilder row = result.newRow();
-            row.add(Root.COLUMN_ROOT_ID, root.rootId);
-            row.add(Root.COLUMN_FLAGS, root.flags);
-            row.add(Root.COLUMN_TITLE, root.title);
-            row.add(Root.COLUMN_DOCUMENT_ID, root.docId);
-            if (!path.getAbsolutePath().equals("/")) {
->>>>>>> parent of 8d6e28a... Revert "ExternalStorageProvider: Add support for root and external storage"
                 row.add(Root.COLUMN_AVAILABLE_BYTES, path.getFreeSpace());
             }
         }
@@ -451,7 +358,7 @@ public class ExternalStorageProvider extends DocumentsProvider {
         pending.add(parent);
         while (!pending.isEmpty() && result.getCount() < 24) {
             final File file = pending.removeFirst();
-            if (file.isDirectory() && file.listFiles() != null) {
+            if (file.isDirectory()) {
                 for (File child : file.listFiles()) {
                     pending.add(child);
                 }
