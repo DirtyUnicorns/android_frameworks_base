@@ -1795,23 +1795,19 @@
   <java-symbol type="integer" name="config_backKillTimeout" />
   <java-symbol type="string" name="app_killed_message" />
 
-<<<<<<< HEAD
   <!-- In WiFi AP notification -->
   <java-symbol type="string" name="notify_turn_wifi_ap_off_title" />
-=======
+
   <!-- Wifi -->
   <java-symbol type="bool" name="config_wifiApStartInterface" />
->>>>>>> 30803ca... Base: Fix tethering (softap) startup.
 
-  <!-- Config IME switcher -->
-  <java-symbol type="bool" name="config_show_IMESwitcher" />
-
-<<<<<<< HEAD
   <!-- Stylus gestures -->
   <java-symbol type="bool" name="config_stylusGestures" />
   <java-symbol type="string" name="stylus_app_not_installed" />
 
-=======
+  <!-- Config IME switcher -->
+  <java-symbol type="bool" name="config_show_IMESwitcher" />
+
   <!-- Navigation Ring -->
   <java-symbol type="drawable" name="ic_navigation_ring_blank_normal" />
   <java-symbol type="drawable" name="ic_navigation_ring_blank_activated" />
@@ -1825,5 +1821,4 @@
   <java-symbol type="drawable" name="ic_navigation_ring_torch_on" />
   <java-symbol type="drawable" name="ic_navigation_ring_torch_off" />
   <java-symbol type="drawable" name="ic_navigation_ring_vibrate" />
->>>>>>> d1381fe... Add back navigation ring customization
 </resources>

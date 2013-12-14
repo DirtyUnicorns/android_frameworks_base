@@ -141,10 +141,12 @@ public class NavigationBarView extends LinearLayout {
         public void onBackAltCleared() {
             // When dismissing ime during unlock, force the back button to run the same appearance
             // animation as home (if we catch this condition early enough).
-            if (!mBackTransitioning && getBackButton().getVisibility() == VISIBLE
-                    && mHomeAppearing && getHomeButton().getAlpha() == 0) {
-                getBackButton().setAlpha(0);
-                ValueAnimator a = ObjectAnimator.ofFloat(getBackButton(), "alpha", 0, 1);
+            View back = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_BACK);
+            View home = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_HOME);
+            if (!mBackTransitioning && back.getVisibility() == VISIBLE
+                    && mHomeAppearing && home.getAlpha() == 0) {
+                back.setAlpha(0);
+                ValueAnimator a = ObjectAnimator.ofFloat(back, "alpha", 0, 1);
                 a.setStartDelay(mStartDelay);
                 a.setDuration(mDuration);
                 a.setInterpolator(mInterpolator);
@@ -407,37 +409,17 @@ public class NavigationBarView extends LinearLayout {
 
         mNavigationIconHints = hints;
 
-<<<<<<< HEAD
-        ((ImageView)getBackButton()).setImageDrawable(backAlt
-                ? (mVertical ? mBackAltLandIcon : mBackAltIcon)
-                : (mVertical ? mBackLandIcon : mBackIcon));
-
-        ((ImageView)getRecentsButton()).setImageDrawable(mVertical ? mRecentLandIcon : mRecentIcon);
-=======
-        View button = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_HOME);
+        ImageView button = (ImageView) mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_BACK);
         if (button != null) {
-            button.setAlpha(
-                    (0 != (hints & StatusBarManager.NAVIGATION_HINT_HOME_NOP)) ? 0.5f : 1.0f);
-        }
-        button = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_RECENT);
-        if (button != null) {
-            button.setAlpha(
-                    (0 != (hints & StatusBarManager.NAVIGATION_HINT_RECENT_NOP)) ? 0.5f : 1.0f);
-        }
-        button = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_BACK);
-        if (button != null) {
-            button.setAlpha(
-                    (0 != (hints & StatusBarManager.NAVIGATION_HINT_BACK_NOP)) ? 0.5f : 1.0f);
-            ((ImageView)button).setImageDrawable(
-                    (0 != (hints & StatusBarManager.NAVIGATION_HINT_BACK_ALT))
+            button.setImageDrawable(backAlt
                     ? (mVertical ? mBackAltLandIcon : mBackAltIcon)
-                            : (mVertical ? mBackLandIcon : mBackIcon));
+                    : (mVertical ? mBackLandIcon : mBackIcon));
         }
-        button = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_RECENT);
+
+        button = (ImageView) mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_RECENT);
         if (button != null) {
-            ((ImageView) button).setImageDrawable(mVertical ? mRecentLandIcon : mRecentIcon);
+            button.setImageDrawable(mVertical ? mRecentLandIcon : mRecentIcon);
         }
->>>>>>> e4b4efb... [1/2] base: NavigationBar customization
 
         setDisabledFlags(mDisabledFlags, true);
     }
@@ -486,7 +468,6 @@ public class NavigationBarView extends LinearLayout {
         setButtonWithTagVisibility(NavbarEditor.NAVBAR_MENU_BIG, !disableRecent);
         setButtonWithTagVisibility(NavbarEditor.NAVBAR_SEARCH, !disableRecent);
 
-<<<<<<< HEAD
         final boolean showSearch = disableHome && !disableSearch;
         final boolean showCamera = showSearch && !mCameraDisabledByDpm;
         setVisibleOrGone(getSearchLight(), showSearch);
@@ -498,15 +479,6 @@ public class NavigationBarView extends LinearLayout {
     private void setVisibleOrGone(View view, boolean visible) {
         if (view != null) {
             view.setVisibility(visible ? VISIBLE : GONE);
-=======
-        final boolean shouldShowSearch = disableHome && !disableSearch;
-        getSearchLight().setVisibility(shouldShowSearch ? View.VISIBLE : View.GONE);
-
-        final View cameraButton = getCameraButton();
-        if (cameraButton != null) {
-            cameraButton.setVisibility(
-                    shouldShowSearch && !mCameraDisabledByDpm ? View.VISIBLE : View.GONE);
->>>>>>> e4b4efb... [1/2] base: NavigationBar customization
         }
     }
 
@@ -752,32 +724,15 @@ public class NavigationBarView extends LinearLayout {
                         mVertical ? "true" : "false",
                         mShowMenu ? "true" : "false"));
 
-<<<<<<< HEAD
-        dumpButton(pw, "back", getBackButton());
-        dumpButton(pw, "home", getHomeButton());
-        dumpButton(pw, "rcnt", getRecentsButton());
-        dumpButton(pw, "menu", getMenuButton());
+        View back = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_BACK);
+        View home = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_HOME);
+        View recent = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_RECENT);
+        dumpButton(pw, "back", back);
+        dumpButton(pw, "home", home);
+        dumpButton(pw, "rcnt", recent);
         dumpButton(pw, "srch", getSearchLight());
         dumpButton(pw, "cmra", getCameraButton());
 
-=======
-        final View back = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_BACK);
-        final View home = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_HOME);
-        final View recent = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_RECENT);
-
-        pw.println("      back: "
-                + PhoneStatusBar.viewInfo(back)
-                + " " + visibilityToString(back.getVisibility())
-                );
-        pw.println("      home: "
-                + PhoneStatusBar.viewInfo(home)
-                + " " + visibilityToString(home.getVisibility())
-                );
-        pw.println("      rcnt: "
-                + PhoneStatusBar.viewInfo(recent)
-                + " " + visibilityToString(recent.getVisibility())
-                );
->>>>>>> e4b4efb... [1/2] base: NavigationBar customization
         pw.println("    }");
     }
 

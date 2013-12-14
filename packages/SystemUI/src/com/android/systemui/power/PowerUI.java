@@ -113,11 +113,7 @@ public class PowerUI extends SystemUI {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY),
-<<<<<<< HEAD
-                    false, this);
-=======
                     false, this, UserHandle.USER_ALL);
->>>>>>> ed98a5c... Advanced low battery indicator options (1/2)
         }
 
         @Override
@@ -139,14 +135,9 @@ public class PowerUI extends SystemUI {
      */
 
     private void setPreferences() {
-<<<<<<< HEAD
-        int currentPref = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY, 0);
-=======
         int currentPref = Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.POWER_UI_LOW_BATTERY_WARNING_POLICY,
                     0, UserHandle.USER_CURRENT);
->>>>>>> ed98a5c... Advanced low battery indicator options (1/2)
 
         switch (currentPref) {
             case 5:

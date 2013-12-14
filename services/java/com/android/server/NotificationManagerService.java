@@ -2590,16 +2590,10 @@ public class NotificationManagerService extends INotificationManager.Stub
             }
         }
 
-<<<<<<< HEAD
-        // Don't flash while we are in a call, screen is
-        // on or we are in quiet hours with light dimmed
-        if (mLedNotification == null || mInCall
-                || (mScreenOn) || (inQuietHours() && mQuietHoursDim)) {
-=======
-
-        // Don't flash while we are in a call or screen is on or its disabled
-        if (mLedNotification == null || mInCall || mScreenOn || !mNotificationPulseEnabled) {
->>>>>>> 401a8c9... base: fix enable/disable of notification light
+        // Don't flash while we are in a call, screen is on, its disabled
+        // or we are in quiet hours with light dimmed
+        if (mLedNotification == null || mInCall || mScreenOn || !mNotificationPulseEnabled
+                || (inQuietHours() && mQuietHoursDim)) {
             mNotificationLight.turnOff();
         } else if (mNotificationPulseEnabled) {
             final Notification ledno = mLedNotification.sbn.getNotification();

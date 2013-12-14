@@ -349,6 +349,7 @@ public class RecentsPanelView extends FrameLayout implements OnItemClickListener
                     && (mRecentTaskDescriptions.size() == 0);
             mRecentsNoApps.setAlpha(1f);
             mRecentsNoApps.setVisibility(noApps ? View.VISIBLE : View.INVISIBLE);
+            mClearRecents.setVisibility(noApps ? View.GONE : View.VISIBLE);
 
             boolean showClearAllButton = Settings.System.getInt(mContext.getContentResolver(), Settings.System.SHOW_CLEAR_RECENTS_BUTTON, 1) == 1;
 

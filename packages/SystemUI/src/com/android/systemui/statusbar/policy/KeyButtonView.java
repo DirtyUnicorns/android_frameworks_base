@@ -63,14 +63,9 @@ public class KeyButtonView extends ImageView {
     float mDrawingAlpha = 1f;
     @ViewDebug.ExportedProperty(category = "drawing")
     float mQuiescentAlpha = DEFAULT_QUIESCENT_ALPHA;
-<<<<<<< HEAD
-    boolean mSupportsLongpress = true;
-    RectF mRect = new RectF();
-=======
     boolean mSupportsLongPress = true;
     boolean mInEditMode;
-    RectF mRect = new RectF(0f,0f,0f,0f);
->>>>>>> e4b4efb... [1/2] base: NavigationBar customization
+    RectF mRect = new RectF();
     AnimatorSet mPressedAnim;
     Animator mAnimateToQuiescent = new ObjectAnimator();
 

@@ -16,7 +16,6 @@
 
 package com.android.systemui;
 
-import android.database.ContentObserver;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -35,11 +34,7 @@ import android.graphics.RectF;
 import android.graphics.Typeface;
 import android.os.BatteryManager;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.os.UserHandle;
-=======
-import android.os.Handler;
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
 import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -203,6 +198,7 @@ public class BatteryMeterView extends View implements DemoMode {
 
     public BatteryMeterView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+
         final Resources res = context.getResources();
         TypedArray levels = res.obtainTypedArray(R.array.batterymeter_color_levels);
         TypedArray colors = res.obtainTypedArray(R.array.batterymeter_color_values);
@@ -240,12 +236,6 @@ public class BatteryMeterView extends View implements DemoMode {
         mBatteryPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-<<<<<<< HEAD
-=======
-        mTextPaint.setColor(0xFFFFFFFF);
-        Typeface font = Typeface.create("sans-serif", Typeface.BOLD);
-        mTextPaint.setTypeface(font);
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
         mTextPaint.setTextAlign(Paint.Align.CENTER);
 
         mWarningTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -293,17 +283,6 @@ public class BatteryMeterView extends View implements DemoMode {
             if (percent <= thresh) return color;
         }
         return color;
-    }
-
-    public void updateSettings(){
-        int batteryStyle = Settings.System.getInt(getContext().getContentResolver(),
-                                Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
-
-        mShowPercent = batteryStyle == 1;
-        boolean show = (batteryStyle == 0 || mShowPercent);
-
-        setVisibility(show ? View.VISIBLE : View.GONE);
-        postInvalidate();
     }
 
     @Override
@@ -407,7 +386,6 @@ public class BatteryMeterView extends View implements DemoMode {
                                 : (tracker.level == 100 ? 0.38f : 0.5f)));
             }
             mTextHeight = -mTextPaint.getFontMetrics().ascent;
-            mTextPaint.setShadowLayer(0.7f,1,1, Color.BLACK);
 
             String str;
             if (mPercentageOnly) {

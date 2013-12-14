@@ -24,6 +24,7 @@ import android.app.PendingIntent;
 import android.app.admin.DevicePolicyManager;
 import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -37,9 +38,9 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LevelListDrawable;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.WifiDisplayStatus;
+import android.media.MediaRouter;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
@@ -64,6 +65,7 @@ import android.view.WindowManagerGlobal;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.internal.app.MediaRouteDialogPresenter;
 import com.android.systemui.BatteryMeterView;
 import com.android.systemui.BatteryCircleMeterView;
 import com.android.systemui.R;
@@ -96,9 +98,7 @@ class QuickSettings {
     private QuickSettingsModel mModel;
     private QuickSettingsContainerView mContainerView;
 
-    private DisplayManager mDisplayManager;
     private DevicePolicyManager mDevicePolicyManager;
-    private WifiDisplayStatus mWifiDisplayStatus;
     private PhoneStatusBar mStatusBarService;
     private BluetoothState mBluetoothState;
     private BluetoothAdapter mBluetoothAdapter;
@@ -127,13 +127,11 @@ class QuickSettings {
             new ArrayList<QuickSettingsTileView>();
 
     public QuickSettings(Context context, QuickSettingsContainerView container) {
-        mDisplayManager = (DisplayManager) context.getSystemService(Context.DISPLAY_SERVICE);
         mDevicePolicyManager
             = (DevicePolicyManager) context.getSystemService(Context.DEVICE_POLICY_SERVICE);
         mContext = context;
         mContainerView = container;
         mModel = new QuickSettingsModel(context);
-        mWifiDisplayStatus = new WifiDisplayStatus();
         mBluetoothState = new QuickSettingsModel.BluetoothState();
         mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
@@ -180,7 +178,6 @@ class QuickSettings {
         mLocationController = locationController;
 
         setupQuickSettings();
-        updateWifiDisplayStatus();
         updateResources();
         applyLocationEnabledStatus();
 
@@ -338,11 +335,19 @@ class QuickSettings {
                 collapsePanels();
                 final UserManager um = UserManager.get(mContext);
                 if (um.getUsers(true).size() > 1) {
-                    try {
-                        WindowManagerGlobal.getWindowManagerService().lockNow(null);
-                    } catch (RemoteException e) {
-                        Log.e(TAG, "Couldn't show user switcher", e);
-                    }
+                    // Since keyguard and systemui were merged into the same process to save
+                    // memory, they share the same Looper and graphics context.  As a result,
+                    // there's no way to allow concurrent animation while keyguard inflates.
+                    // The workaround is to add a slight delay to allow the animation to finish.
+                    mHandler.postDelayed(new Runnable() {
+                        public void run() {
+                            try {
+                                WindowManagerGlobal.getWindowManagerService().lockNow(null);
+                            } catch (RemoteException e) {
+                                Log.e(TAG, "Couldn't show user switcher", e);
+                            }
+                        }
+                    }, 400); // TODO: ideally this would be tied to the collapse of the panel
                 } else {
                     Intent intent = ContactsContract.QuickContact.composeQuickContactsIntent(
                             mContext, v, ContactsContract.Profile.CONTENT_URI,
@@ -437,7 +442,6 @@ class QuickSettings {
         final QuickSettingsFlipTile wifiTile
                 = new QuickSettingsFlipTile(mContext, wifiTileFront, wifiTileBack);
 
-
         if (LONG_PRESS_TOGGLES) {
             wifiTileFront.setOnLongClickListener(new View.OnLongClickListener() {
                 @Override
@@ -493,15 +497,41 @@ class QuickSettings {
 
         final ConnectivityManager cm =
                 (ConnectivityManager) mContext.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        if (LONG_PRESS_TOGGLES) {
+            wifiTileBack.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    if (cm.getTetherableWifiRegexs().length != 0) {
+                        Intent intent = new Intent();
+                            intent.setComponent(new ComponentName(
+                                    "com.android.settings",
+                                    "com.android.settings.Settings$TetherSettingsActivity"));
+                            startSettingsActivity(intent);
+                    }
+                    return true;
+                }
+            });
+        }
+
         wifiTileBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (cm.getTetherableWifiRegexs().length != 0) {
-                    Intent intent = new Intent();
-                        intent.setComponent(new ComponentName(
-                                "com.android.settings",
-                                "com.android.settings.Settings$TetherSettingsActivity"));
-                        startSettingsActivity(intent);
+                int ap_state = mWifiManager.getWifiApState();
+                switch (ap_state) {
+                    case WifiManager.WIFI_AP_STATE_ENABLING:
+                    case WifiManager.WIFI_AP_STATE_ENABLED:
+                        setSoftapEnabled(false);
+                        wifiTileBack.setFunction(
+                                mContext.getString(R.string.wifi_ap_disabled));
+                        break;
+                    case WifiManager.WIFI_AP_STATE_DISABLING:
+                    case WifiManager.WIFI_AP_STATE_DISABLED:
+                    default:
+                        setSoftapEnabled(true);
+                        wifiTileBack.setFunction(
+                                mContext.getString(R.string.wifi_ap_enabled));
+                        break;
                 }
             }} );
 
@@ -516,6 +546,21 @@ class QuickSettings {
                         mContext.getString(R.string.quick_settings_wifi_tethering_label));
                 } else {
                     wifiTileBack.setFunction("");
+                }
+
+                int ap_state = mWifiManager.getWifiApState();
+                switch (ap_state) {
+                    case WifiManager.WIFI_AP_STATE_ENABLING:
+                    case WifiManager.WIFI_AP_STATE_ENABLED:
+                        wifiTileBack.setFunction(
+                                mContext.getString(R.string.wifi_ap_enabled));
+                        break;
+                    case WifiManager.WIFI_AP_STATE_DISABLING:
+                    case WifiManager.WIFI_AP_STATE_DISABLED:
+                    default:
+                        wifiTileBack.setFunction(
+                                mContext.getString(R.string.wifi_ap_disabled));
+                        break;
                 }
             }
         });
@@ -814,8 +859,19 @@ class QuickSettings {
                     mContext.sendBroadcast(closeDialog);
                 }
             }} );
-        mModel.addLocationTile(locationTile,
-                new QuickSettingsModel.BasicRefreshCallback(locationTile));
+        mModel.addLocationTile(locationTile, new QuickSettingsModel.RefreshCallback() {
+            @Override
+            public void refreshView(QuickSettingsTileView unused, State state) {
+                locationTile.setImageResource(state.iconId);
+                String locationState = mContext.getString(
+                        (state.enabled) ? R.string.accessibility_desc_on
+                                : R.string.accessibility_desc_off);
+                locationTile.setContentDescription(mContext.getString(
+                        R.string.accessibility_quick_settings_location,
+                        locationState));
+                locationTile.setText(state.label);
+            }
+        });
         parent.addView(locationTile);
     }
 
@@ -841,20 +897,33 @@ class QuickSettings {
         });
         parent.addView(alarmTile);
 
-        // Wifi Display
-        QuickSettingsBasicTile wifiDisplayTile
+        // Remote Display
+        QuickSettingsBasicTile remoteDisplayTile
                 = new QuickSettingsBasicTile(mContext);
-        wifiDisplayTile.setImageResource(R.drawable.ic_qs_remote_display);
-        wifiDisplayTile.setOnClickListener(new View.OnClickListener() {
+        remoteDisplayTile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startSettingsActivity(android.provider.Settings.ACTION_WIFI_DISPLAY_SETTINGS);
+                collapsePanels();
+
+                final Dialog[] dialog = new Dialog[1];
+                dialog[0] = MediaRouteDialogPresenter.createDialog(mContext,
+                        MediaRouter.ROUTE_TYPE_REMOTE_DISPLAY,
+                        new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog[0].dismiss();
+                        startSettingsActivity(
+                                android.provider.Settings.ACTION_WIFI_DISPLAY_SETTINGS);
+                    }
+                });
+                dialog[0].getWindow().setType(WindowManager.LayoutParams.TYPE_VOLUME_OVERLAY);
+                dialog[0].show();
             }
         });
-        mModel.addWifiDisplayTile(wifiDisplayTile,
-                new QuickSettingsModel.BasicRefreshCallback(wifiDisplayTile)
+        mModel.addRemoteDisplayTile(remoteDisplayTile,
+                new QuickSettingsModel.BasicRefreshCallback(remoteDisplayTile)
                         .setShowWhenEnabled(true));
-        parent.addView(wifiDisplayTile);
+        parent.addView(remoteDisplayTile);
 
         if (SHOW_IME_TILE || DEBUG_GONE_TILES) {
             // IME
@@ -991,15 +1060,6 @@ class QuickSettings {
         dialog.show();
     }
 
-    private void updateWifiDisplayStatus() {
-        mWifiDisplayStatus = mDisplayManager.getWifiDisplayStatus();
-        applyWifiDisplayStatus();
-    }
-
-    private void applyWifiDisplayStatus() {
-        mModel.onWifiDisplayStateChanged(mWifiDisplayStatus);
-    }
-
     private void applyBluetoothStatus() {
         mModel.onBluetoothStateChange(mBluetoothState);
     }
@@ -1023,12 +1083,7 @@ class QuickSettings {
         @Override
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
-            if (DisplayManager.ACTION_WIFI_DISPLAY_STATUS_CHANGED.equals(action)) {
-                WifiDisplayStatus status = (WifiDisplayStatus)intent.getParcelableExtra(
-                        DisplayManager.EXTRA_WIFI_DISPLAY_STATUS);
-                mWifiDisplayStatus = status;
-                applyWifiDisplayStatus();
-            } else if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
+            if (BluetoothAdapter.ACTION_STATE_CHANGED.equals(action)) {
                 int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
                         BluetoothAdapter.ERROR);
                 mBluetoothState.enabled = (state == BluetoothAdapter.STATE_ON);
@@ -1070,6 +1125,38 @@ class QuickSettings {
 
         }
     };
+
+    private void setSoftapEnabled(boolean enable) {
+        final ContentResolver cr = mContext.getContentResolver();
+        /**
+         * Disable Wifi if enabling tethering
+         */
+        int wifiState = mWifiManager.getWifiState();
+        if (enable && ((wifiState == WifiManager.WIFI_STATE_ENABLING) ||
+                    (wifiState == WifiManager.WIFI_STATE_ENABLED))) {
+            mWifiManager.setWifiEnabled(false);
+            Settings.Global.putInt(cr, Settings.Global.WIFI_SAVED_STATE, 1);
+        }
+
+        // Turn on the Wifi AP
+        mWifiManager.setWifiApEnabled(null, enable);
+
+        /**
+         *  If needed, restore Wifi on tether disable
+         */
+        if (!enable) {
+            int wifiSavedState = 0;
+            try {
+                wifiSavedState = Settings.Global.getInt(cr, Settings.Global.WIFI_SAVED_STATE);
+            } catch (Settings.SettingNotFoundException e) {
+                // Do nothing here
+            }
+            if (wifiSavedState == 1) {
+                mWifiManager.setWifiEnabled(true);
+                Settings.Global.putInt(cr, Settings.Global.WIFI_SAVED_STATE, 0);
+            }
+        }
+    }
 
     private abstract static class NetworkActivityCallback
             implements QuickSettingsModel.RefreshCallback {

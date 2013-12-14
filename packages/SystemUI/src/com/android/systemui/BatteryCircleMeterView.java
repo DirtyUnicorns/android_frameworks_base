@@ -1,9 +1,5 @@
 /*
  * Copyright (C) 2012 Sven Dawitz for the CyanogenMod Project
-<<<<<<< HEAD
-=======
- * This code has been modified. Portions copyright (C) 2013, ParanoidAndroid Project.
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,10 +38,7 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
-<<<<<<< HEAD
 import android.util.TypedValue;
-=======
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
 import android.view.View;
 import android.widget.ImageView;
 
@@ -63,11 +56,6 @@ import com.android.systemui.BatteryMeterView;
  */
 
 public class BatteryCircleMeterView extends ImageView {
-<<<<<<< HEAD
-=======
-    final static String QuickSettings = "quicksettings";
-    final static String StatusBar = "statusbar";
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
     private Handler mHandler;
     private Context mContext;
     private BatteryReceiver mBatteryReceiver = null;
@@ -75,11 +63,7 @@ public class BatteryCircleMeterView extends ImageView {
     // state variables
     private boolean mAttached;      // whether or not attached to a window
     private boolean mActivated;     // whether or not activated due to system settings
-<<<<<<< HEAD
     private boolean mPercentage;    // whether or not to show percentage number
-=======
-    private boolean mCirclePercent; // whether or not to show percentage number
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
     private boolean mIsCharging;    // whether or not device is currently charging
     private int     mLevel;         // current battery level
     private int     mAnimOffset;    // current level of charging animation
@@ -102,22 +86,14 @@ public class BatteryCircleMeterView extends ImageView {
     private Paint   mPaintGray;
     private Paint   mPaintSystem;
     private Paint   mPaintRed;
-<<<<<<< HEAD
     private int mBatteryStyle;
 
     private String mCircleBatteryView;
-=======
-    private String  mCircleBatteryView;
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
 
     private int mCircleColor;
     private int mCircleTextColor;
     private int mCircleTextChargingColor;
-<<<<<<< HEAD
     private int mCircleAnimSpeed;
-=======
-    private int mCircleAnimSpeed = 4;
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
 
     // runnable to invalidate view via mHandler.postDelayed() call
     private final Runnable mInvalidate = new Runnable() {
@@ -200,11 +176,7 @@ public class BatteryCircleMeterView extends ImageView {
                 com.android.systemui.R.styleable.BatteryIcon_batteryView);
 
         if (mCircleBatteryView == null) {
-<<<<<<< HEAD
             mCircleBatteryView = "statusbar";
-=======
-            mCircleBatteryView = StatusBar;
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
         }
 
         mContext = context;
@@ -255,7 +227,6 @@ public class BatteryCircleMeterView extends ImageView {
             usePaint = mPaintRed;
         }
         usePaint.setAntiAlias(true);
-<<<<<<< HEAD
         if (mBatteryStyle == BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE_PERCENT ||
             mBatteryStyle == BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE) {
             // change usePaint from solid to dashed
@@ -263,9 +234,6 @@ public class BatteryCircleMeterView extends ImageView {
         }else {
             usePaint.setPathEffect(null);
         }
-=======
-        usePaint.setPathEffect(null);
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
 
         // pad circle percentage to 100% once it reaches 97%
         // for one, the circle looks odd with a too small gap,
@@ -281,11 +249,7 @@ public class BatteryCircleMeterView extends ImageView {
         canvas.drawArc(drawRect, 270 + animOffset, 3.6f * padLevel, false, usePaint);
         // if chosen by options, draw percentage text in the middle
         // always skip percentage when 100, so layout doesnt break
-<<<<<<< HEAD
         if (level < 100 && mPercentage) {
-=======
-        if (level < 100 && mCirclePercent) {
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
             if (level <= 14) {
                 mPaintFont.setColor(mPaintRed.getColor());
             } else if (mIsCharging) {
@@ -319,7 +283,6 @@ public class BatteryCircleMeterView extends ImageView {
         Resources res = getResources();
         ContentResolver resolver = mContext.getContentResolver();
 
-<<<<<<< HEAD
         mBatteryStyle = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_BATTERY, 0, UserHandle.USER_CURRENT);
 
@@ -346,13 +309,6 @@ public class BatteryCircleMeterView extends ImageView {
         if (mCircleColor == -2) {
             mCircleColor = defaultColor;
         }
-=======
-        int defaultColor = res.getColor(com.android.systemui.R.color.batterymeter_charge_color);
-
-        mCircleTextColor = defaultColor;
-        mCircleTextChargingColor = defaultColor;
-        mCircleColor = defaultColor;
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
 
         /*
          * initialize vars and force redraw
@@ -361,20 +317,12 @@ public class BatteryCircleMeterView extends ImageView {
         mRectLeft = null;
         mCircleSize = 0;
 
-<<<<<<< HEAD
         mActivated = (mBatteryStyle == BatteryMeterView.BATTERY_STYLE_CIRCLE ||
                       mBatteryStyle == BatteryMeterView.BATTERY_STYLE_CIRCLE_PERCENT ||
                       mBatteryStyle == BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE ||
                       mBatteryStyle == BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE_PERCENT);
         mPercentage = (mBatteryStyle == BatteryMeterView.BATTERY_STYLE_CIRCLE_PERCENT ||
                        mBatteryStyle == BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE_PERCENT);
-=======
-        int batteryStyle = Settings.System.getInt(getContext().getContentResolver(),
-                                Settings.System.STATUS_BAR_BATTERY_STYLE, 0);
-
-        mCirclePercent = batteryStyle == 3;
-        mActivated = (batteryStyle == 2 || mCirclePercent);
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
 
         setVisibility(mActivated ? View.VISIBLE : View.GONE);
 
@@ -470,11 +418,9 @@ public class BatteryCircleMeterView extends ImageView {
 
         // calculate Y position for text
         Rect bounds = new Rect();
-        mPaintFont.getTextBounds("MM", 0, "MM".length(), bounds);
+        mPaintFont.getTextBounds("99", 0, "99".length(), bounds);
         mTextLeftX = mCircleSize / 2.0f + getPaddingLeft();
         mTextRightX = mTextLeftX + off;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
         mTextY = mCircleSize / 2.0f + (bounds.bottom - bounds.top) / 2.0f - strokeWidth / 2.0f;
 
@@ -486,15 +432,6 @@ public class BatteryCircleMeterView extends ImageView {
             mTextY = mTextY + TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 0.5f,
                     mContext.getResources().getDisplayMetrics());
         }
-=======
-        // the +1 at end of formular balances out rounding issues. works out on all resolutions
-        mTextY = mCircleSize / 2.0f + (bounds.bottom - bounds.top) / 2.0f - strokeWidth / 2.0f + 1;
-=======
-        
-        mTextY = mCircleSize / 2.0f + (bounds.bottom - bounds.top) / 2.0f;
->>>>>>> 72715a3... base: layout circle battery percent really in the center
-
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
         // force new measurement for wrap-content xml tag
         onMeasure(0, 0);
     }
@@ -508,23 +445,17 @@ public class BatteryCircleMeterView extends ImageView {
      */
     private void initSizeMeasureIconHeight() {
         Bitmap measure = null;
-<<<<<<< HEAD
         if (mCircleBatteryView.equals("quicksettings")) {
             measure = BitmapFactory.decodeResource(getResources(),
                     com.android.systemui.R.drawable.ic_qs_wifi_full_4);
         } else if (mCircleBatteryView.equals("statusbar")) {
-=======
-        if (mCircleBatteryView.equals(QuickSettings)) {
-            measure = BitmapFactory.decodeResource(getResources(),
-                    com.android.systemui.R.drawable.ic_qs_wifi_full_4);
-        } else if (mCircleBatteryView.equals(StatusBar)) {
->>>>>>> 9a8862d... [1/2] Frameworks: Optional statusbar battery icons
             measure = BitmapFactory.decodeResource(getResources(),
                     com.android.systemui.R.drawable.stat_sys_wifi_signal_4_fully);
         }
         if (measure == null) {
             return;
         }
+        final int x = measure.getWidth() / 2;
 
         mCircleSize = measure.getHeight();
     }

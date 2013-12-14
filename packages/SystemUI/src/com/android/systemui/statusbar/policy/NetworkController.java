@@ -1104,21 +1104,6 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
             // Now for things that should only be shown when actually using mobile data.
             if (mDataConnected) {
                 combinedSignalIconId = mDataSignalIconId;
-<<<<<<< HEAD
-                switch (mDataActivity) {
-                    case TelephonyManager.DATA_ACTIVITY_IN:
-                        mMobileActivityIconId = R.drawable.stat_sys_signal_in;
-                        break;
-                    case TelephonyManager.DATA_ACTIVITY_OUT:
-                        mMobileActivityIconId = R.drawable.stat_sys_signal_out;
-                        break;
-                    case TelephonyManager.DATA_ACTIVITY_INOUT:
-                        mMobileActivityIconId = R.drawable.stat_sys_signal_inout;
-                        break;
-                    default:
-                        mMobileActivityIconId = 0;
-                        break;
-=======
                 if (mDirectionArrowsEnabled) {
                     switch (mDataActivity) {
                         case TelephonyManager.DATA_ACTIVITY_IN:
@@ -1135,12 +1120,7 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                             break;
                     }
                 } else {
-<<<<<<< HEAD
-                    mMobileActivityIconId = 0;
->>>>>>> 9adbe0f... framework: Bring back the status bar activity indicators for mobile data and wifi
-=======
                     mMobileActivityIconId = R.drawable.stat_sys_signal_noinout;
->>>>>>> f883bdd... Avoid layout passes when updating data activity indicators.
                 }
 
                 combinedLabel = mobileLabel;
@@ -1161,21 +1141,6 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                 if (DEBUG) {
                     wifiLabel += "xxxxXXXXxxxxXXXX";
                 }
-<<<<<<< HEAD
-                switch (mWifiActivity) {
-                    case WifiManager.DATA_ACTIVITY_IN:
-                        mWifiActivityIconId = R.drawable.stat_sys_wifi_in;
-                        break;
-                    case WifiManager.DATA_ACTIVITY_OUT:
-                        mWifiActivityIconId = R.drawable.stat_sys_wifi_out;
-                        break;
-                    case WifiManager.DATA_ACTIVITY_INOUT:
-                        mWifiActivityIconId = R.drawable.stat_sys_wifi_inout;
-                        break;
-                    case WifiManager.DATA_ACTIVITY_NONE:
-                        mWifiActivityIconId = 0;
-                        break;
-=======
                 if (mDirectionArrowsEnabled) {
                     switch (mWifiActivity) {
                         case WifiManager.DATA_ACTIVITY_IN:
@@ -1192,12 +1157,7 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                             break;
                     }
                 } else {
-<<<<<<< HEAD
-                    mWifiActivityIconId = 0;
->>>>>>> 9adbe0f... framework: Bring back the status bar activity indicators for mobile data and wifi
-=======
                     mWifiActivityIconId = R.drawable.stat_sys_wifi_noinout;
->>>>>>> f883bdd... Avoid layout passes when updating data activity indicators.
                 }
             }
 

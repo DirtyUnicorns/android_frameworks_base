@@ -2535,10 +2535,38 @@ public final class Settings {
          * Network speed indicator
          * @hide
          */
-        public static final String STATUS_BAR_TRAFFIC = "status_bar_traffic";
+        public static final String STATUS_BAR_TRAFFIC_ENABLE = "status_bar_traffic_enable";
 
-<<<<<<< HEAD
-=======
+        /**
+         * Sets color of statusbar traffic indicator
+         * @hide
+         */
+        public static final String STATUS_BAR_TRAFFIC_COLOR = "status_bar_traffic_color";
+
+        /**
+         * Show summary of traffic.
+         * @hide
+         */
+        public static final String STATUS_BAR_TRAFFIC_SUMMARY = "status_bar_traffic_summary";
+
+        /**
+         * Hide network speed indicator when there is no traffic
+         * @hide
+         */
+        public static final String STATUS_BAR_TRAFFIC_HIDE = "status_bar_traffic_hide";
+
+        /**
+         * Whether to show the network status in the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_NETWORK_STATS = "status_bar_network_stats";
+
+        /**
+         * Frequency at which stats are updated, in milliseconds
+         * @hide
+         */
+        public static final String STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL = "status_bar_network_stats_update_frequency";
+
         /**
          * Show Screenshot in Power Menu
          * @hide
@@ -2551,7 +2579,6 @@ public final class Settings {
          */
         public static final String SCREENRECORD_IN_POWER_MENU = "screenrecord_in_power_menu";
 
->>>>>>> a49cd86... [1/2] base: Power Menu: Add Screen record Option
         /** Sprint MWI Quirk: Show message wait indicator notifications
          * @hide
          */
@@ -2813,6 +2840,12 @@ public final class Settings {
         public static final String POINTER_SPEED = "pointer_speed";
 
         /**
+         * HALO enabled, should default to 0 (no, HALO is disabled)
+         * @hide
+         */
+        public static final String HALO_ENABLED = "halo_enabled";
+
+        /**
          * HALO, should default to 0 (no, do not show)
          * @hide
          */
@@ -2882,6 +2915,116 @@ public final class Settings {
          */
         public static final String EGG_MODE = "egg_mode";
 
+        /**
+         * Display style of the status bar battery information
+         * 0: Display the stock battery information
+         * 1: Display cm battery percentage implementation / dont show stock icon
+         * 2: Display cm circle battery implementation without percentage
+         * 3: Display cm circle battery implementation with percentage
+         * 4: Hide the battery information
+         * default: 0
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY = "status_bar_battery";
+
+        /**
+         * Whether to show the clock in status bar
+         * of the stock battery icon
+         * 0: don't show the clock
+         * 1: show the clock
+         * default: 1
+         * @hide
+         */
+        public static final String STATUS_BAR_CLOCK = "status_bar_clock";
+
+        /**
+         * AM/PM Style for clock options
+         * 0 - Normal AM/PM
+         * 1 - Small AM/PM
+         * 2 - No AM/PM
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_AM_PM_STYLE = "statusbar_clock_am_pm_style";
+
+        /**
+         * Style of clock
+         * 0 - Hide Clock
+         * 1 - Right Clock
+         * 2 - Center Clock
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
+
+        /**
+         * Setting for clock color
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_COLOR = "statusbar_clock_color";
+
+        /**
+        * @hide
+        * Shows custom date before clock time
+        * 0 - No Date
+        * 1 - Small Date
+        * 2 - Normal Date
+        */
+        public static final String STATUSBAR_CLOCK_DATE_DISPLAY = "statusbar_clock_date_display";
+
+        /**
+        * @hide
+        * Sets the date string style
+        * 0 - Regular style
+        * 1 - Lowercase
+        * 2 - Uppercase
+        */
+        public static final String STATUSBAR_CLOCK_DATE_STYLE = "statusbar_clock_date_style";
+
+        /**
+        * @hide
+        * Stores the java DateFormat string for the date
+        */
+        public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
+
+        /**
+         * Whether to show the signal text or signal bars.
+         * default: 0
+         * 0: show signal bars
+         * 1: show signal text numbers
+         * 2: show signal text numbers w/small dBm appended
+         * @hide
+         */
+        public static final String STATUS_BAR_SIGNAL_TEXT = "status_bar_signal";
+
+        /**
+         * Circle battery icon color
+         * in statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_COLOR = "status_bar_battery_color";
+
+        /**
+         * Battery icon text color
+         * in statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_TEXT_COLOR = "status_bar_battery_text_color";
+
+        /**
+         * Battery icon text charging color
+         * in statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_BATTERY_TEXT_CHARGING_COLOR =
+                "status_bar_battery_text_charging_color";
+
+        /**
+         * Circle battery animation speed during charge
+         * in statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_CIRCLE_BATTERY_ANIMATIONSPEED =
+                "status_bar_circle_battery_animationspeed";
+
          /**
          * Whether to control brightness from status bar
          *
@@ -2894,6 +3037,11 @@ public final class Settings {
          * @hide
          */
         public static final String HEADSET_CONNECT_PLAYER = "headset_connect_player";
+
+        /** Allows to show the background activity back the lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_SEE_THROUGH = "lockscreen_see_through";
 
         /**
          * volume rocker wake
@@ -3051,6 +3199,11 @@ public final class Settings {
          */
         public static final String KEY_APP_SWITCH_LONG_PRESS_ACTION = "key_app_switch_long_press_action";
 
+        /** Weather to allow headsethook to launch voice commands
+         * @hide
+         */
+        public static final String HEADSETHOOK_LAUNCH_VOICE = "headsethook_launch_voice";
+
         /**
          * Enable Stylus Gestures
          *
@@ -3101,10 +3254,11 @@ public final class Settings {
         public static final String GESTURES_DOUBLE_TAP = "gestures_double_tap";
 
         /**
-         * Whether to use the custom quick unlock screen control
+         * Quick Settings Quick Pulldown
+         *
          * @hide
          */
-        public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
+        public static final String QS_QUICK_PULLDOWN = "qs_quick_pulldown";
 
         /**
          * Battery warning preferences
@@ -3120,13 +3274,12 @@ public final class Settings {
         public static final String POWER_UI_LOW_BATTERY_WARNING_POLICY = "power_ui_low_battery_warning_policy";
 
         /**
-         * Whether to use the custom status bar header or not
+         * Whether to use the custom quick unlock screen control
          * @hide
          */
-        public static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
+        public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
 
         /**
-<<<<<<< HEAD
          * Whether to enable quiet hours.
          * @hide
          */
@@ -3167,9 +3320,6 @@ public final class Settings {
          * @hide
          */
         public static final String QUIET_HOURS_DIM = "quiet_hours_dim";
-<<<<<<< HEAD
-=======
-=======
 
        /**
         * Sets the portrait background of notification drawer
@@ -3203,13 +3353,11 @@ public final class Settings {
         public static final String NAV_BUTTONS = "nav_buttons";
 
         /**
->>>>>>> e4b4efb... [1/2] base: NavigationBar customization
          * Volume key controls ringtone or media sound stream
          *
          * @hide
          */
         public static final String VOLUME_KEYS_DEFAULT = "volume_keys_default";
->>>>>>> 0f2f698... [1/2] Base: Change of default stream type controlled by volume rocker capabilities
 
         /**
          * Should the non-intrsive incall ui be used
@@ -3217,13 +3365,6 @@ public final class Settings {
          * @hide
          */
         public static final String NON_INTRUSIVE_INCALL = "non_intrusive_incall";
-
-        /**
-
-         * Setting to show the battery percentage text
-         * @hide
-         */
-        public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
         /**
          * Whether to unlock the menu key.  The value is boolean (1 or 0).
@@ -3580,6 +3721,7 @@ public final class Settings {
         @Deprecated
         public static final String WIFI_WATCHDOG_PING_TIMEOUT_MS =
             Secure.WIFI_WATCHDOG_PING_TIMEOUT_MS;
+
     }
 
     /**
@@ -5210,6 +5352,13 @@ public final class Settings {
         public static final String UI_NIGHT_MODE = "ui_night_mode";
 
         /**
+         * Whether user activated inverted UI mode or default UI mode. Owned
+         * and controlled by UiModeManagerService.
+         * @hide
+         */
+        public static final String UI_INVERTED_MODE = "ui_inverted_mode";
+
+        /**
          * Whether screensavers are enabled.
          * @hide
          */
@@ -5291,18 +5440,17 @@ public final class Settings {
         public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         /**
-<<<<<<< HEAD
-         * Whether developer settings dare enabled.
-         * @hide
-         */
-        public static final String DEVELOPER_OPTIONS_ENABLED = "developer_options_enabled";
-=======
          * Whether to display the 'Wipe data' and 'Force close' options in the notification
          * area and in the recent app list
          * @hide
          */
         public static final String DEVELOPMENT_SHORTCUT = "development_shortcut";
->>>>>>> da5f6c0... Development shortcut in StatusBar and Recent Panel
+
+        /**
+         * Whether developer settings dare enabled.
+         * @hide
+         */
+        public static final String DEVELOPER_OPTIONS_ENABLED = "developer_options_enabled";
 
         /**
          * This are the settings to be backed up.
@@ -5353,13 +5501,9 @@ public final class Settings {
             MOUNT_UMS_PROMPT,
             MOUNT_UMS_NOTIFY_ENABLED,
             UI_NIGHT_MODE,
-<<<<<<< HEAD
-            ADVANCED_REBOOT
-=======
             UI_INVERTED_MODE,
             ADVANCED_REBOOT,
             DEVELOPMENT_SHORTCUT
->>>>>>> da5f6c0... Development shortcut in StatusBar and Recent Panel
         };
 
         /**
@@ -5690,7 +5834,7 @@ public final class Settings {
          */
         public static final String STAY_ON_WHILE_PLUGGED_IN = "stay_on_while_plugged_in";
 
-        /**
+       /**
          * When the user has enable the option to have a "bug report" command
          * in the power menu.
          * @hide

@@ -143,7 +143,6 @@ public class GlowPadView extends View {
     private Paint mArcPaint;
     private RectF mArcRect;
     private float mArcAngle = 0f;
-    private ArrayList<TargetDrawable> mNewTargetDrawables;
 
     private class AnimationBundle extends ArrayList<Tweener> {
         private static final long serialVersionUID = 0xA84D78726F127468L;
