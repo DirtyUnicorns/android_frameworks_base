@@ -1081,11 +1081,11 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                             mMobileActivityIconId = R.drawable.stat_sys_signal_inout;
                             break;
                         default:
-                            mMobileActivityIconId = R.drawable.stat_sys_signal_noinout;
+                            mMobileActivityIconId = 0;
                             break;
                     }
                 } else {
-                    mMobileActivityIconId = R.drawable.stat_sys_signal_noinout;
+                    mMobileActivityIconId = 0;
                 }
 
                 combinedLabel = mobileLabel;
@@ -1118,11 +1118,11 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                             mWifiActivityIconId = R.drawable.stat_sys_wifi_inout;
                             break;
                         case WifiManager.DATA_ACTIVITY_NONE:
-                            mWifiActivityIconId = R.drawable.stat_sys_wifi_noinout;
+                            mWifiActivityIconId = 0;
                             break;
                     }
                 } else {
-                    mWifiActivityIconId = R.drawable.stat_sys_wifi_noinout;
+                    mWifiActivityIconId = 0;
                 }
             }
 
