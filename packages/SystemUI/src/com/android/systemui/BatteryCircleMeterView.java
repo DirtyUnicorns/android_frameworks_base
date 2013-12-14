@@ -390,11 +390,11 @@ public class BatteryCircleMeterView extends ImageView {
 
         // calculate Y position for text
         Rect bounds = new Rect();
-        mPaintFont.getTextBounds("MM", 0, "MM".length(), bounds);
+        mPaintFont.getTextBounds("99", 0, "99".length(), bounds);
         mTextLeftX = mCircleSize / 2.0f + getPaddingLeft();
         mTextRightX = mTextLeftX + off;
-        
-        mTextY = mCircleSize / 2.0f + (bounds.bottom - bounds.top) / 2.0f;
+        // the +1 at end of formular balances out rounding issues. works out on all resolutions
+        mTextY = mCircleSize / 2.0f + (bounds.bottom - bounds.top) / 2.0f - strokeWidth / 2.0f + 1;
 
         // force new measurement for wrap-content xml tag
         onMeasure(0, 0);
@@ -419,6 +419,7 @@ public class BatteryCircleMeterView extends ImageView {
         if (measure == null) {
             return;
         }
+        final int x = measure.getWidth() / 2;
 
         mCircleSize = measure.getHeight();
     }
