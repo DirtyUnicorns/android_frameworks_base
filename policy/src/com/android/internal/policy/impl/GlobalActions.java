@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 The Android Open Source Project
+ * Copyright (C) 2011 David van Tonder
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -79,6 +80,8 @@ import android.content.ServiceConnection;
 import android.content.ComponentName;
 import android.os.IBinder;
 import android.os.Messenger;
+import android.os.RemoteException;
+
 
 /**
  * Helper to show the global actions dialog.  Each item is an {@link Action} that
@@ -112,6 +115,13 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private boolean mHasVibrator;
     private final boolean mShowSilentToggle;
     private final boolean mShowScreenRecord;
+    private int mHiddenMenuOptions;
+    private boolean mDisableToolbox;
+
+    private static final int HIDE_REBOOT = 1;
+    private static final int HIDE_SCREENSHOT = 2;
+    private static final int HIDE_SOUND = 4;
+    private static final int HIDE_AIRPLANE = 8;
 
     /**
      * @param context everything needs a context :(
@@ -142,12 +152,11 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 mAirplaneModeObserver);
         Vibrator vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         mHasVibrator = vibrator != null && vibrator.hasVibrator();
-
         mShowSilentToggle = SHOW_SILENT_TOGGLE && !mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_useFixedVolume);
-
         mShowScreenRecord = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_enableScreenrecordChord);
+        checkSettings();
     }
 
     /**
@@ -181,6 +190,8 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
     private void handleShow() {
         awakenIfNecessary();
+        checkSettings();
+
         mDialog = createDialog();
         prepareDialog();
 
@@ -266,31 +277,30 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                     return true;
                 }
             });
+        if (!mDisableToolbox && (mHiddenMenuOptions & HIDE_REBOOT) != HIDE_REBOOT) {
+            // next: reboot
+            mItems.add(
+                new SinglePressAction(
+                        com.android.internal.R.drawable.ic_lock_reboot,
+                        R.string.global_action_reboot) {
+                    public void onPress() {
+                        mWindowManagerFuncs.reboot("null");
+                    }
 
-        // next: reboot
-        // Unlike in CM, we'll always have this here until we decide otherwise.
-        // The Settings component of this is a mess and how many people actually disable this?
-        // Someone else can readd the ability to disable this if they don't want it.
-        mItems.add(
-            new SinglePressAction(R.drawable.ic_lock_reboot, R.string.global_action_reboot) {
-                public void onPress() {
-                    mWindowManagerFuncs.reboot();
-                }
+                    public boolean onLongPress() {
+                        mWindowManagerFuncs.rebootSafeMode(true);
+                        return true;
+                    }
 
-                public boolean onLongPress() {
-                    mWindowManagerFuncs.rebootSafeMode(true);
-                    return true;
-                }
+                    public boolean showDuringKeyguard() {
+                        return true;
+                    }
 
-                public boolean showDuringKeyguard() {
-                    return true;
-                }
-
-                public boolean showBeforeProvisioning() {
-                    return true;
-                }
-            });
-
+                    public boolean showBeforeProvisioning() {
+                        return true;
+                    }
+                });
+        }
      // next: screenshot, if enabled
         if (Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.SCREENSHOT_IN_POWER_MENU, 0) != 0) {
@@ -344,7 +354,9 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         }
 
         // next: airplane mode
-        mItems.add(mAirplaneModeOn);
+        if ((mHiddenMenuOptions & HIDE_AIRPLANE) != HIDE_AIRPLANE) { 
+            mItems.add(mAirplaneModeOn);
+        }
 
         // next: bug report, if enabled
         if (Settings.Global.getInt(mContext.getContentResolver(),
@@ -396,7 +408,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         }
 
         // last: silent mode
-        if (mShowSilentToggle) {
+        if (mShowSilentToggle && (mHiddenMenuOptions & HIDE_SOUND) != HIDE_SOUND) {
             mItems.add(mSilentModeAction);
         }
 
@@ -430,6 +442,54 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         dialog.setOnDismissListener(this);
 
         return dialog;
+    }
+
+    private UserInfo getCurrentUser() {
+        try {
+            return ActivityManagerNative.getDefault().getCurrentUser();
+        } catch (RemoteException re) {
+            return null;
+        }
+    }
+
+    private boolean isCurrentUserOwner() {
+        UserInfo currentUser = getCurrentUser();
+        return currentUser == null || currentUser.isPrimary();
+    }
+
+    private void addUsersToMenu(ArrayList<Action> items) {
+        List<UserInfo> users = ((UserManager) mContext.getSystemService(Context.USER_SERVICE))
+                .getUsers();
+        if (users.size() > 1) {
+            UserInfo currentUser = getCurrentUser();
+            for (final UserInfo user : users) {
+                boolean isCurrentUser = currentUser == null
+                        ? user.id == 0 : (currentUser.id == user.id);
+                Drawable icon = user.iconPath != null ? Drawable.createFromPath(user.iconPath)
+                        : null;
+                SinglePressAction switchToUser = new SinglePressAction(
+                        com.android.internal.R.drawable.ic_menu_cc, icon,
+                        (user.name != null ? user.name : "Primary")
+                        + (isCurrentUser ? " \u2714" : "")) {
+                    public void onPress() {
+                        try {
+                            ActivityManagerNative.getDefault().switchUser(user.id);
+                        } catch (RemoteException re) {
+                            Log.e(TAG, "Couldn't switch user " + re);
+                        }
+                    }
+
+                    public boolean showDuringKeyguard() {
+                        return true;
+                    }
+
+                    public boolean showBeforeProvisioning() {
+                        return false;
+                    }
+                };
+                items.add(switchToUser);
+            }
+        }
     }
 
     /**
@@ -574,60 +634,12 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         }
     }
 
-    private UserInfo getCurrentUser() {
-        try {
-            return ActivityManagerNative.getDefault().getCurrentUser();
-        } catch (RemoteException re) {
-            return null;
-        }
-    }
-
-    private boolean isCurrentUserOwner() {
-        UserInfo currentUser = getCurrentUser();
-        return currentUser == null || currentUser.isPrimary();
-    }
-
-    private void addUsersToMenu(ArrayList<Action> items) {
-        List<UserInfo> users = ((UserManager) mContext.getSystemService(Context.USER_SERVICE))
-                .getUsers();
-        if (users.size() > 1) {
-            UserInfo currentUser = getCurrentUser();
-            for (final UserInfo user : users) {
-                boolean isCurrentUser = currentUser == null
-                        ? user.id == 0 : (currentUser.id == user.id);
-                Drawable icon = user.iconPath != null ? Drawable.createFromPath(user.iconPath)
-                        : null;
-                SinglePressAction switchToUser = new SinglePressAction(
-                        com.android.internal.R.drawable.ic_menu_cc, icon,
-                        (user.name != null ? user.name : "Primary")
-                        + (isCurrentUser ? " \u2714" : "")) {
-                    public void onPress() {
-                        try {
-                            ActivityManagerNative.getDefault().switchUser(user.id);
-                        } catch (RemoteException re) {
-                            Log.e(TAG, "Couldn't switch user " + re);
-                        }
-                    }
-
-                    public boolean showDuringKeyguard() {
-                        return true;
-                    }
-
-                    public boolean showBeforeProvisioning() {
-                        return false;
-                    }
-                };
-                items.add(switchToUser);
-            }
-        }
-    }
-
     private void prepareDialog() {
         refreshSilentMode();
         mAirplaneModeOn.updateState(mAirplaneState);
         mAdapter.notifyDataSetChanged();
         mDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
-        if (mShowSilentToggle) {
+        if (mShowSilentToggle && (mHiddenMenuOptions & HIDE_SOUND) != HIDE_SOUND) {
             IntentFilter filter = new IntentFilter(AudioManager.RINGER_MODE_CHANGED_ACTION);
             mContext.registerReceiver(mRingerModeReceiver, filter);
         }
@@ -644,7 +656,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
     /** {@inheritDoc} */
     public void onDismiss(DialogInterface dialog) {
-        if (mShowSilentToggle) {
+        if (mShowSilentToggle && (mHiddenMenuOptions & HIDE_SOUND) != HIDE_SOUND) {
             try {
                 mContext.unregisterReceiver(mRingerModeReceiver);
             } catch (IllegalArgumentException ie) {
@@ -1152,6 +1164,11 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         if (!mHasTelephony) {
             mAirplaneState = on ? ToggleAction.State.On : ToggleAction.State.Off;
         }
+    }
+
+    private void checkSettings() {
+        mDisableToolbox = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.DISABLE_TOOLBOX, 0) == 1;
     }
 
     private static final class GlobalActionsDialog extends Dialog implements DialogInterface {

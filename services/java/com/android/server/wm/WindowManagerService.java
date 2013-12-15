@@ -310,7 +310,6 @@ public class WindowManagerService extends IWindowManager.Stub
     int mCurrentUserId;
 
     final Context mContext;
-    private Context mUiContext;
 
     final boolean mHaveInputMethods;
 
@@ -808,10 +807,6 @@ public class WindowManagerService extends IWindowManager.Stub
     public InputMonitor getInputMonitor() {
         return mInputMonitor;
     }
-
-    private Context getUiContext() {
-       return mContext;
-   }
 
     @Override
     public boolean onTransact(int code, Parcel data, Parcel reply, int flags)
@@ -5188,6 +5183,12 @@ public class WindowManagerService extends IWindowManager.Stub
         ShutdownThread.rebootSafeMode(mContext, confirm);
     }
 
+    // Called by window manager policy.  Not exposed externally.
+    @Override
+    public void reboot(String reason) {
+        ShutdownThread.reboot(mContext,reason, true);
+    }
+
     @Override
     public void setInputFilter(IInputFilter filter) {
         if (!checkCallingPermission(android.Manifest.permission.FILTER_EVENTS, "setInputFilter()")) {
@@ -5199,12 +5200,6 @@ public class WindowManagerService extends IWindowManager.Stub
     @Override
     public void setTouchExplorationEnabled(boolean enabled) {
         mPolicy.setTouchExplorationEnabled(enabled);
-    }
-
-    // Called by window manager policy.  Not exposed externally.
-    @Override
-    public void reboot() {
-        ShutdownThread.reboot(getUiContext(), null, true);
     }
 
     public void setCurrentUser(final int newUserId) {
