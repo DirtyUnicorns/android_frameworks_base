@@ -1391,4 +1391,6 @@
     <!-- bool value to for enabling motion accelerometer -->
     <bool name="use_motion_accel">false</bool>
 
+    <!-- enable support for off-screen gesture support -->
+    <bool name="config_offscreenGestureSupport">false</bool>
 </resources>

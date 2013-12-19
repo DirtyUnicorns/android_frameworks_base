@@ -3180,6 +3180,12 @@ public final class Settings {
         public static final String SHOW_4G_FOR_LTE = "show_4g_for_lte";
 
         /**
+         * volume rocker music track control enable/disable
+         * @hide
+         */
+        public static final String VOLUME_MUSIC_CONTROL = "volume_music_control";
+
+        /**
          * HALO notificatoin count?, should default to 4 (both)
          *
          * @hide
