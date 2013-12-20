@@ -3290,6 +3290,42 @@ public final class Settings {
         public static final String MUSIC_TILE_MODE = "music_tile_mode";
 
         /**
+         * Custom toggle click-actions for infinite toggles: actions 1-5
+         * @hide
+         */
+        public static final String[] CUSTOM_TOGGLE_ACTIONS = new String[] {
+            "toggle_custom_action_0",
+            "toggle_custom_action_1",
+            "toggle_custom_action_2",
+            "toggle_custom_action_3",
+            "toggle_custom_action_4",
+        };
+
+        /**
+         * Custom toggle long-click-actions for infinite toggles: actions 1-5
+         * @hide
+         */
+        public static final String[] CUSTOM_TOGGLE_LONG_ACTIONS = new String[] {
+            "toggle_custom_app_longaction_0",
+            "toggle_custom_app_longaction_1",
+            "toggle_custom_app_longaction_2",
+            "toggle_custom_app_longaction_3",
+            "toggle_custom_app_longaction_4",
+        };
+
+        /**
+         * Custom toggle icons for infinite toggles: actions 1-5
+         * @hide
+         */
+        public static final String[] CUSTOM_TOGGLE_ICONS = new String[] {
+            "custom_toggle_icons_0",
+            "custom_toggle_icons_1",
+            "custom_toggle_icons_2",
+            "custom_toggle_icons_3",
+            "custom_toggle_icons_4",
+        };
+
+        /**
          * QuickSettings network modes to switch
          * @hide
          */
