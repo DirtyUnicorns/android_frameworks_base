@@ -25,6 +25,8 @@ import static com.android.internal.util.slim.QSConstants.TILE_BATTERY;
 import static com.android.internal.util.slim.QSConstants.TILE_BLUETOOTH;
 import static com.android.internal.util.slim.QSConstants.TILE_BRIGHTNESS;
 import static com.android.internal.util.slim.QSConstants.TILE_BUGREPORT;
+import static com.android.internal.util.slim.QSConstants.TILE_CUSTOM;
+import static com.android.internal.util.slim.QSConstants.TILE_CUSTOM_KEY;
 import static com.android.internal.util.slim.QSConstants.TILE_DELIMITER;
 import static com.android.internal.util.slim.QSConstants.TILE_EXPANDEDDESKTOP;
 import static com.android.internal.util.slim.QSConstants.TILE_IMESWITCHER;
@@ -72,6 +74,7 @@ import com.android.systemui.quicksettings.BatteryTile;
 import com.android.systemui.quicksettings.BluetoothTile;
 import com.android.systemui.quicksettings.BrightnessTile;
 import com.android.systemui.quicksettings.BugReportTile;
+import com.android.systemui.quicksettings.CustomTile;
 import com.android.systemui.quicksettings.ExpandedDesktopTile;
 import com.android.systemui.quicksettings.LocationTile;
 import com.android.systemui.quicksettings.InputMethodTile;
@@ -237,6 +240,8 @@ public class QuickSettingsController {
                 qs = new MusicTile(mContext, this);
             } else if (tile.equals(TILE_REBOOT)) {
                 qs = new RebootTile(mContext, this);
+            } else if (tile.contains(TILE_CUSTOM)) {
+                qs = new CustomTile(mContext, this, findCustomKey(tile));
             }
 
             if (qs != null) {
@@ -277,6 +282,11 @@ public class QuickSettingsController {
             }
         }
 
+    }
+
+    private String findCustomKey (String tile) {
+        String[] split = tile.split(TILE_CUSTOM_KEY);
+        return split[1];
     }
 
     public void shutdown() {
