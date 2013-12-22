@@ -245,7 +245,7 @@
             android:name=".DessertCaseDream"
             android:exported="true"
             android:label="@string/dessert_case"
-            android:enabled="false"
+            android:enabled="true"
             android:process=":sweetsweetdesserts"
             >
             <intent-filter>
