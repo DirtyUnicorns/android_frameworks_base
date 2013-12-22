@@ -655,28 +655,27 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
 
         updateShowSearchHoldoff();
 
-        try {
-            boolean showNav = mWindowManagerService.hasNavigationBar();
-            if (DEBUG) Log.v(TAG, "hasNavigationBar=" + showNav);
-            if (showNav) {
-                mNavigationBarView =
-                    (NavigationBarView) View.inflate(context, R.layout.navigation_bar, null);
+        if (!mRecreating) {
+            try {
+                boolean showNav = mWindowManagerService.hasNavigationBar();
+                if (DEBUG) Log.v(TAG, "hasNavigationBar=" + showNav);
+                if (showNav) {
+                    mNavigationBarView =
+                        (NavigationBarView) View.inflate(context, R.layout.navigation_bar, null);
 
-                mNavigationBarView.setDisabledFlags(mDisabled);
-                mNavigationBarView.setBar(this);
-                mNavigationBarView.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        checkUserAutohide(v, event);
-                        return false;
-                    }});
+                    mNavigationBarView.setDisabledFlags(mDisabled);
+                    mNavigationBarView.setBar(this);
+                    mNavigationBarView.setOnTouchListener(new View.OnTouchListener() {
+                        @Override
+                        public boolean onTouch(View v, MotionEvent event) {
+                            checkUserAutohide(v, event);
+                            return false;
+                        }});
+                }
+            } catch (RemoteException ex) {
+                // no window manager? good luck with that
             }
-        } catch (RemoteException ex) {
-            // no window manager? good luck with that
-        }
 
-        if (mRecreating) {
-        } else {
             addActiveDisplayView();
         }
 
@@ -3168,8 +3167,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             }
         }
         mStatusBarContainer.removeAllViews();
-        mStatusBarView.postInvalidate();
-        updateDisplaySize();
 
         // extract icons from the soon-to-be recreated viewgroup.
         int nIcons = mStatusIcons.getChildCount();
@@ -3195,8 +3192,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         if (mNavigationBarView != null && recreateNavigationBar) {
             // recreate and reposition navigationbar
             mNavigationBarView.recreateNavigationBar();
-            repositionNavigationBar();
         }
+        repositionNavigationBar();
          */
 
         // recreate StatusBarIconViews.
@@ -3207,13 +3204,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         }
 
         // recreate notifications.
-        Entry shadeEntry = null;
         for (int i = 0; i < nNotifs; i++) {
             Pair<IBinder, StatusBarNotification> notifData = notifications.get(i);
-            shadeEntry = createNotificationViews(notifData.first, notifData.second);
-        }
-        if (shadeEntry != null) {
-            addNotificationViews(shadeEntry);
+            addNotificationViews(createNotificationViews(notifData.first, notifData.second));
         }
 
         setAreThereNotifications();
@@ -3221,7 +3214,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         mStatusBarContainer.addView(mStatusBarWindow);
 
         updateExpandedViewPos(EXPANDED_LEAVE_ALONE);
-        //mNotificationShortcutsLayout.recreateShortcutLayout();
+
         mRecreating = false;
     }
 
