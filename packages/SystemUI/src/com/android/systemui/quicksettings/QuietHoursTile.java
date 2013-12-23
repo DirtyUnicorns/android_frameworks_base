@@ -55,7 +55,7 @@ public class QuietHoursTile extends QuickSettingsTile {
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.setClassName("com.android.settings",
-                    "com.android.settings.Settings$QuietHoursSettingsActivity");
+                    "com.android.settings.omnikang.QuietHours");
                 startSettingsActivity(intent);
                 return true;
             }
