@@ -38,6 +38,17 @@ public class PreferencesTile extends QuickSettingsTile{
                 startSettingsActivity(android.provider.Settings.ACTION_SETTINGS);
             }
         };
+
+        mOnLongClick = new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.setClassName("com.android.settings", "com.android.settings.slim.quicksettings.QuickSettingsTiles");
+                startSettingsActivity(intent);
+                return true;
+            }
+        };
     }
 
     @Override
