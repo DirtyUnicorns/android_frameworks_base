@@ -243,7 +243,7 @@ public class Traffic extends TextView {
         mRefreshInterval = Settings.System.getLong(resolver,
                 Settings.System.STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL, 500);
         int defaultColor = Settings.System.getInt(resolver,
-                Settings.System.STATUS_BAR_TRAFFIC_COLOR, 0xFF33b5e5);
+                Settings.System.STATUS_BAR_TRAFFIC_COLOR, 0xFFFFFFFF);
 
         int mStatusBarTrafficColor = Settings.System.getInt(resolver,
                     Settings.System.STATUS_BAR_TRAFFIC_COLOR, -2);
