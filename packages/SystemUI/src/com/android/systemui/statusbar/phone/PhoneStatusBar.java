@@ -415,6 +415,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QUICK_SETTINGS_DYNAMIC_TILES),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DISABLE_CAMERA_WIDGET),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
