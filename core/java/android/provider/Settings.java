@@ -2687,6 +2687,11 @@ public final class Settings {
         public static final String MOBILE_DATA_IN_POWER_MENU = "mobile_data_in_power_menu";
 
         /**
+         * @hide
+         */
+        public static final String DISABLE_CAMERA_WIDGET = "disable_camera_widget";
+
+        /**
          * Sprint MWI Quirk: Show message wait indicator notifications
          * @hide
          */
