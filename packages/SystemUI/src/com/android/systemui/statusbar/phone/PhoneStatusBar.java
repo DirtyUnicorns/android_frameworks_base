@@ -729,6 +729,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         if (mRecreating) {
             if (mAppSidebar != null)
                 mWindowManager.removeView(mAppSidebar);
+
         }
         mAppSidebar = (AppSidebar)View.inflate(context, R.layout.app_sidebar, null);
         mWindowManager.addView(mAppSidebar, getAppSidebarLayoutParams());
