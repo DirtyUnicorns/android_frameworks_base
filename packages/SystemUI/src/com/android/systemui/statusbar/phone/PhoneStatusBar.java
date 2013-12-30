@@ -635,10 +635,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
                         mQuickAccessLayoutLinked ? Settings.System.QUICK_SETTINGS_TILES
                             : Settings.System.QUICK_SETTINGS_RIBBON_TILES);
                 mRibbonQS.hideLiveTiles(true);
+                mRibbonQS.hideLiveTileLabels(true);
                 mRibbonQS.setService(this);
                 mRibbonQS.setBar(mStatusBarView);
                 mRibbonQS.setupQuickSettings();
-                mRibbonQS.setTileTitleVisibility(false);
             }
         }
     }
@@ -993,6 +993,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             mQuickAccessLayoutLinked = Settings.System.getIntForUser(resolver,
                     Settings.System.QS_QUICK_ACCESS_LINKED, 1, UserHandle.USER_CURRENT) == 1;
             if (mHasQuickAccessSettings) {
+                cleanupRibbon();
+                mRibbonView = null;
                 inflateRibbon();
             }
         }
