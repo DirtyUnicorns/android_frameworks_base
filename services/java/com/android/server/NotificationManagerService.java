@@ -52,7 +52,6 @@ import android.media.IAudioService;
 import android.media.IRingtonePlayer;
 import android.net.Uri;
 import android.os.Binder;
-import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -805,8 +804,7 @@ public class NotificationManagerService extends INotificationManager.Stub
             final int oldUser = info.userid;
             if (!info.isSystem) {
                 Slog.v(TAG, "disabling notification listener for user " + oldUser + ": " + component);
-                // Do not un-register HALO, we un-register only when HALO is closed
-                if (!component.getPackageName().equals("HaloComponent")) unregisterListenerService(component, info.userid);
+                unregisterListenerService(component, info.userid);
             }
         }
 
@@ -831,7 +829,7 @@ public class NotificationManagerService extends INotificationManager.Stub
         final int permission = mContext.checkCallingPermission(
                 android.Manifest.permission.SYSTEM_NOTIFICATION_LISTENER);
         if (permission == PackageManager.PERMISSION_DENIED)
-            if (!component.getPackageName().equals("HaloComponent")) checkCallerIsSystem();
+            checkCallerIsSystem();
 
         synchronized (mNotificationList) {
             try {
@@ -2731,7 +2729,6 @@ public class NotificationManagerService extends INotificationManager.Stub
                 }
                 pw.println("  ");
             }
-
         }
 
         synchronized (mNotificationList) {

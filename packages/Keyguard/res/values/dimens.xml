@@ -166,4 +166,9 @@
     <dimen name="widget_big_font_size">80dp</dimen>
     <dimen name="big_font_size">120dp</dimen>
 
+    <!-- Lockscreen Notifications -->
+    <dimen name="notification_min_height">64dp</dimen>
+    <dimen name="notification_max_height">256dp</dimen>
+    <dimen name="notification_row_min_height">70dp</dimen>
+    <dimen name="notification_row_max_height">260dp</dimen>
 </resources>

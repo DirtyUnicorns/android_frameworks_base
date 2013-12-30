@@ -375,4 +375,6 @@
         This is displayed if the phone is not connected to a carrier.-->
     <string name="keyguard_carrier_default">No service.</string>
 
+    <!-- Description of the Random button in a KeyboardView. [CHAR LIMIT=NONE] -->
+    <string name="keyboardview_keycode_random">Reload random buttons</string>
 </resources>
