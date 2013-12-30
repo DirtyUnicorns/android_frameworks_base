@@ -184,3 +184,4 @@ public class ScreenTimeoutTile extends QuickSettingsTile {
                 Settings.System.EXPANDED_SCREENTIMEOUT_MODE, MODE_15_60_300_NEVER);
     }
 }
+
