@@ -1039,6 +1039,7 @@ public final class Settings {
             MOVED_TO_SECURE.add(Secure.LOCK_PATTERN_VISIBLE);
             MOVED_TO_SECURE.add(Secure.LOCK_PATTERN_TACTILE_FEEDBACK_ENABLED);
             MOVED_TO_SECURE.add(Secure.LOCK_NUMPAD_RANDOM);
+            MOVED_TO_SECURE.add(Secure.LOCK_BEFORE_UNLOCK);
             MOVED_TO_SECURE.add(Secure.LOGGING_ID);
             MOVED_TO_SECURE.add(Secure.PARENTAL_CONTROL_ENABLED);
             MOVED_TO_SECURE.add(Secure.PARENTAL_CONTROL_LAST_UPDATE);
@@ -5161,6 +5162,42 @@ public final class Settings {
           */
 
         public static final String LOCK_NUMPAD_RANDOM = "lock_numpad_random";
+
+        /**
+         * Colorize custom lock icon true/false
+         * @hide
+         */
+        public static final String LOCKSCREEN_COLORIZE_LOCK = "lockscreen_colorize_lock";
+
+        /**
+         * Lockscreen custom lock icon
+         * @hide
+         */
+        public static final String LOCKSCREEN_LOCK_ICON = "lockscreen_lock_icon";
+
+        /**
+         * Lockscreen lock color (handle and expanded locks)
+         * @hide
+         */
+        public static final String LOCKSCREEN_LOCK_COLOR = "lockscreen_lock_color";
+
+        /**
+         * Lockscreen dots color (glowpad dots)
+         * @hide
+         */
+        public static final String LOCKSCREEN_DOTS_COLOR = "lockscreen_dots_color";
+
+        /**
+         * Lockscreen frame color (widgets/security frame color)
+         * @hide
+         */
+        public static final String LOCKSCREEN_FRAME_COLOR = "lockscreen_frame_color";
+
+        /**
+         * Whether lock before unlock is enabled or disabled
+         * @hide
+         */
+        public static final String LOCK_BEFORE_UNLOCK = "lock_before_unlock";
 
         /**
          * Whether lock pattern will vibrate as user enters (0 = false, 1 =

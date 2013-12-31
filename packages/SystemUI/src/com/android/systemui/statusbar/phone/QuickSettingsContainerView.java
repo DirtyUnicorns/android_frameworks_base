@@ -72,7 +72,7 @@ public class QuickSettingsContainerView extends FrameLayout {
     public void updateResources() {
         mCellGap = mResources.getDimension(R.dimen.quick_settings_cell_gap);
         mNumColumns = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.QUICK_TILES_PER_ROW, 3, UserHandle.USER_CURRENT);
+                Settings.System.QUICK_TILES_PER_ROW, 5, UserHandle.USER_CURRENT);
         // do not allow duplication on tablets or any device which do not have
         // flipsettings
         mDuplicateColumnsLandscape = Settings.System.getIntForUser(mContext.getContentResolver(),

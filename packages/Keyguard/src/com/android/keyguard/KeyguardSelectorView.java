@@ -40,6 +40,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.graphics.drawable.StateListDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.UserHandle;
@@ -207,13 +208,68 @@ if (mStoredTargets == null) {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+
+        Resources res = getResources();
+
+        int lockColor = Settings.Secure.getIntForUser(
+                mContext.getContentResolver(),
+                Settings.Secure.LOCKSCREEN_LOCK_COLOR, -2,
+                UserHandle.USER_CURRENT);
+
+        int dotColor = Settings.Secure.getIntForUser(
+                mContext.getContentResolver(),
+                Settings.Secure.LOCKSCREEN_DOTS_COLOR, -2,
+                UserHandle.USER_CURRENT);
+
+        String lockIcon = Settings.Secure.getStringForUser(
+                mContext.getContentResolver(),
+                Settings.Secure.LOCKSCREEN_LOCK_ICON,
+                UserHandle.USER_CURRENT);
+
         mGlowPadView = (GlowPadView) findViewById(R.id.glow_pad_view);
         mGlowPadView.setOnTriggerListener(mOnTriggerListener);
+
+        Drawable lock = null;
+
+        if (lockIcon != null && lockIcon.length() > 0) {
+            File f = new File(Uri.parse(lockIcon).getPath());
+            if (f.exists()) {
+                lock = new BitmapDrawable(
+                        mContext.getResources(), f.getAbsolutePath());
+                if (Settings.Secure.getIntForUser(
+                        mContext.getContentResolver(),
+                        Settings.Secure.LOCKSCREEN_COLORIZE_LOCK, 0,
+                        UserHandle.USER_CURRENT) == 0) {
+                    lockColor = -2;
+                }
+            }
+        }
+
+        mGlowPadView.setColoredIcons(lockColor, dotColor, lock);
+
         updateTargets();
 
         mSecurityMessageDisplay = new KeyguardMessageArea.Helper(this);
         View bouncerFrameView = findViewById(R.id.keyguard_selector_view_frame);
-        mBouncerFrame = bouncerFrameView.getBackground();
+        mBouncerFrame =
+                KeyguardSecurityViewHelper.colorizeFrame(
+                mContext, bouncerFrameView.getBackground());
+
+        final boolean lockBeforeUnlock = Settings.Secure.getIntForUser(
+                mContext.getContentResolver(),
+                Settings.Secure.LOCK_BEFORE_UNLOCK, 0,
+                UserHandle.USER_CURRENT) == 1;
+
+        // bring emergency button on slider lockscreen
+        // to front when lockBeforeUnlock is enabled
+        // to make it clickable
+        if (mLockPatternUtils != null && mLockPatternUtils.isSecure() && lockBeforeUnlock) {
+            LinearLayout ecaContainer =
+                (LinearLayout) findViewById(R.id.keyguard_selector_fade_container);
+            if (ecaContainer != null) {
+                ecaContainer.bringToFront();
+            }
+        }
     }
 
     public void setCarrierArea(View carrierArea) {
