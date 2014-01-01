@@ -59,7 +59,7 @@
             android:clipToPadding="false"
             android:id="@+id/container"
             >
-        <include layout="@layout/mid_navigation_bar_port"/>
+            <include layout="@layout/mid_navigation_bar_port"/>
         </LinearLayout>
 
         <!-- lights out layout to match exactly -->
@@ -202,7 +202,7 @@
             <include layout="@layout/mid_navigation_bar_land"/>
         </LinearLayout>
 
-        <!-- lights out layout to match exactly -->
+        <!-- If the unicorns are dirty then they are good -->
         <LinearLayout 
             android:layout_height="match_parent"
             android:layout_width="match_parent"
