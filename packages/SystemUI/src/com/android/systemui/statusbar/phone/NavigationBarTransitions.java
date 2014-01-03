@@ -96,7 +96,7 @@ public final class NavigationBarTransitions extends BarTransitions {
         View button = mView.findViewWithTag(info);
         setKeyButtonViewQuiescentAlpha(button, alpha, animate);
     }
-
+    
     private void setKeyButtonViewQuiescentAlpha(View button, float alpha, boolean animate) {
         if (button != null && button instanceof KeyButtonView) {
             ((KeyButtonView) button).setQuiescentAlpha(alpha, animate);
@@ -112,7 +112,7 @@ public final class NavigationBarTransitions extends BarTransitions {
         float backAlpha = 0;
         backAlpha = maxVisibleQuiescentAlpha(backAlpha, mView.getSearchLight());
         backAlpha = maxVisibleQuiescentAlpha(backAlpha, mView.getCameraButton());
-
+        
         View button = mView.findViewWithTag(NavbarEditor.NAVBAR_HOME);
         backAlpha = maxVisibleQuiescentAlpha(backAlpha, button);
         button = mView.findViewWithTag(NavbarEditor.NAVBAR_RECENT);
@@ -131,7 +131,7 @@ public final class NavigationBarTransitions extends BarTransitions {
         if (button != null) {
             backAlpha = maxVisibleQuiescentAlpha(backAlpha, button);
         }
-
+        
         if (backAlpha > 0) {
             setKeyButtonViewQuiescentAlpha(NavbarEditor.NAVBAR_BACK, backAlpha, animate);
         }

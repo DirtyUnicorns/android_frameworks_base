@@ -1242,6 +1242,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
 
         mNavigationBarView.setListeners(mRecentsClickListener, mRecentsLongClickListener,
                 mRecentsPreloadOnTouchListener, mHomeSearchActionListener);
+
         updateSearchPanel();
     }
 
