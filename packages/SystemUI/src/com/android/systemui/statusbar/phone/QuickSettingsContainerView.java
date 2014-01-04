@@ -38,6 +38,7 @@ public class QuickSettingsContainerView extends FrameLayout {
     // The number of columns in the QuickSettings grid
     private int mNumColumns;
     private int mNumFinalColumns;
+    private int mDefaultColumnsNum;
 
     // Duplicate number of columns in the QuickSettings grid on landscape view
     private boolean mDuplicateColumnsLandscape;
@@ -71,8 +72,11 @@ public class QuickSettingsContainerView extends FrameLayout {
 
     public void updateResources() {
         mCellGap = mResources.getDimension(R.dimen.quick_settings_cell_gap);
+        mDefaultColumnsNum = mContext.getResources().getInteger(
+                com.android.internal.R.integer.config_defaultColumnsNum);
         mNumColumns = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.QUICK_TILES_PER_ROW, 5, UserHandle.USER_CURRENT);
+                Settings.System.QUICK_TILES_PER_ROW, mDefaultColumnsNum, UserHandle.USER_CURRENT);
+
         // do not allow duplication on tablets or any device which do not have
         // flipsettings
         mDuplicateColumnsLandscape = Settings.System.getIntForUser(mContext.getContentResolver(),

@@ -1364,5 +1364,7 @@
       <!-- Workaround for devices with broken keyboards -->
     <bool name="config_forceDisableHardwareKeyboard">true</bool>
 
-     
+    <!-- Set default number of columns for QuickSettings -->
+    <integer name="config_defaultColumnsNum">5</integer>
+
 </resources>
