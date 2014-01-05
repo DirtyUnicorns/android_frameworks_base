@@ -23,7 +23,6 @@ public class QSConstants {
         public static final String TILE_BATTERY = "toggleBattery";
         public static final String TILE_SETTINGS = "toggleSettings";
         public static final String TILE_WIFI = "toggleWifi";
-        public static final String TILE_LOCATION = "toggleLocation";
         public static final String TILE_BLUETOOTH = "toggleBluetooth";
         public static final String TILE_BRIGHTNESS = "toggleBrightness";
         public static final String TILE_RINGER = "toggleSound";
@@ -45,7 +44,7 @@ public class QSConstants {
         public static final String TILE_REBOOT = "toggleReboot";
         public static final String TILE_CUSTOM = "toggleCustom";
         public static final String TILE_NETWORKADB = "toggleNetworkAdb";
-        public static final String TILE_GPS = "toggleGps";
+        public static final String TILE_LOCATION = "toggleLocation";
         public static final String TILE_FCHARGE = "toggleFastCharge";
         public static final String TILE_THEME = "toggleTheme";
         public static final String TILE_ADBLOCKER = "toggleAdblocker";
