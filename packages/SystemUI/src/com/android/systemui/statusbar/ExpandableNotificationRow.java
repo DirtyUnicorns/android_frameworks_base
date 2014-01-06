@@ -24,6 +24,7 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.provider.Settings;
 import android.service.notification.StatusBarNotification;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -485,7 +486,12 @@ public class ExpandableNotificationRow extends ActivatableNotificationView {
     }
 
     public boolean isUserExpanded() {
-        return mUserExpanded;
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FORCE_EXPANDED_NOTIFICATIONS, 0) != 1) {
+            return mUserExpanded;
+        } else {
+            return true;
+        }
     }
 
     /**
