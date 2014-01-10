@@ -513,4 +513,7 @@
     <string name="quick_settings_network_adb_disabled_label">Disabled</string>
     <string name="quick_settings_network_adb_enabled_label">Enabled</string>
 
+    <!-- GPS QS tile strings -->
+    <string name="quick_settings_gps_on_label">GPS on</string>
+    <string name="quick_settings_gps_off_label">GPS off</string>
 </resources>
