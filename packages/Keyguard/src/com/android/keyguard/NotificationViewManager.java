@@ -34,13 +34,20 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.service.notification.INotificationListener;
 import android.service.notification.StatusBarNotification;
+import android.text.TextUtils;
 import android.util.Log;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.android.internal.util.slim.QuietHoursHelper;
 
 public class NotificationViewManager {
     private final static String TAG = "Keyguard:NotificationViewManager";
 
     private final static int MIN_TIME_COVERED = 5000;
-    private static final int ANIMATION_MAX_DURATION = 500;
+    private static final int ANIMATION_MAX_DURATION = 300;
 
     public static NotificationListenerWrapper NotificationListener = null;
     private static ProximityListener ProximityListener = null;
@@ -56,6 +63,8 @@ public class NotificationViewManager {
     private PowerManager mPowerManager;
     private NotificationHostView mHostView;
 
+    private Set<String> mExcludedApps = new HashSet<String>();
+
     public static Configuration config;
 
     class Configuration extends ContentObserver {
@@ -69,6 +78,9 @@ public class NotificationViewManager {
         public boolean forceExpandedView = false;
         public boolean wakeOnNotification = false;
         public int notificationsHeight = 4;
+        public float offsetTop = 0.3f;
+        public boolean privacyMode = false;
+        public boolean dynamicWidth = true;
 
         public Configuration(Handler handler) {
             super(handler);
@@ -95,6 +107,14 @@ public class NotificationViewManager {
                     Settings.System.LOCKSCREEN_NOTIFICATIONS_WAKE_ON_NOTIFICATION), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_NOTIFICATIONS_HEIGHT), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_OFFSET_TOP), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_PRIVACY_MODE), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_DYNAMIC_WIDTH), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_EXCLUDED_APPS), false, this);
         }
 
         @Override
@@ -113,14 +133,26 @@ public class NotificationViewManager {
                     Settings.System.LOCKSCREEN_NOTIFICATIONS_HIDE_NON_CLEARABLE, hideNonClearable ? 1 : 0) == 1;
             dismissAll = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_NOTIFICATIONS_DISMISS_ALL, dismissAll ? 1 : 0) == 1;
+            privacyMode = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_PRIVACY_MODE, privacyMode ? 1 : 0) == 1;
             expandedView = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_NOTIFICATIONS_EXPANDED_VIEW, expandedView ? 1 : 0) == 1;
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_EXPANDED_VIEW, expandedView ? 1 : 0) == 1
+                    && !privacyMode;
             forceExpandedView = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_NOTIFICATIONS_FORCE_EXPANDED_VIEW, forceExpandedView ? 1 : 0) == 1;
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_FORCE_EXPANDED_VIEW, forceExpandedView ? 1 : 0) == 1
+                    && !privacyMode;
             wakeOnNotification = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_NOTIFICATIONS_WAKE_ON_NOTIFICATION, forceExpandedView ? 1 : 0) == 1;
             notificationsHeight = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.LOCKSCREEN_NOTIFICATIONS_HEIGHT, notificationsHeight);
+            offsetTop = Settings.System.getFloat(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_OFFSET_TOP, offsetTop);
+            dynamicWidth = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_DYNAMIC_WIDTH, dynamicWidth ? 1 : 0) == 1;
+            String excludedApps = Settings.System.getString(mContext.getContentResolver(),
+                    Settings.System.LOCKSCREEN_NOTIFICATIONS_EXCLUDED_APPS);
+
+            createExcludedAppsSet(excludedApps);
         }
     }
 
@@ -129,8 +161,9 @@ public class NotificationViewManager {
             if (event.sensor.equals(ProximitySensor)) {
                 if (!mIsScreenOn) {
                     if (event.values[0] >= ProximitySensor.getMaximumRange()) {
-                        if (config.pocketMode && mTimeCovered != 0 && (config.showAlways || mHostView.getNotificationCount() > 0) &&
-                                System.currentTimeMillis() - mTimeCovered > MIN_TIME_COVERED) {
+                        if (config.pocketMode && mTimeCovered != 0 && (config.showAlways || mHostView.getNotificationCount() > 0)
+                                && System.currentTimeMillis() - mTimeCovered > MIN_TIME_COVERED
+                                && !QuietHoursHelper.inQuietHours(mContext, Settings.System.QUIET_HOURS_DIM)) {
                             wakeDevice();
                             mWokenByPocketMode = true;
                             mHostView.showAllNotifications();
@@ -154,15 +187,24 @@ public class NotificationViewManager {
         @Override
         public void onNotificationPosted(final StatusBarNotification sbn) {
             boolean screenOffAndNotCovered = !mIsScreenOn && mTimeCovered == 0;
-            if (mHostView.addNotification(sbn, screenOffAndNotCovered || mIsScreenOn,
-                        config.forceExpandedView) && config.wakeOnNotification && screenOffAndNotCovered) {
+            boolean ongoingAndReposted = sbn.isOngoing() && mHostView.containsNotification(sbn);
+            if (mHostView.addNotification(sbn, (screenOffAndNotCovered || mIsScreenOn) && !ongoingAndReposted,
+                        config.forceExpandedView) && config.wakeOnNotification && screenOffAndNotCovered
+                        && !ongoingAndReposted
+                        && !QuietHoursHelper.inQuietHours(mContext, Settings.System.QUIET_HOURS_DIM)) {
                 wakeDevice();
+                mHostView.showAllNotifications();
             }
         }
         @Override
         public void onNotificationRemoved(final StatusBarNotification sbn) {
             mHostView.removeNotification(sbn, false);
         }
+
+        public boolean isValidNotification(final StatusBarNotification sbn) {
+            return (!mExcludedApps.contains(sbn.getPackageName()));
+        }
+
     }
 
     public NotificationViewManager(Context context, KeyguardViewManager viewManager) {
@@ -242,14 +284,13 @@ public class NotificationViewManager {
         if (mHostView != null) mHostView.hideAllNotifications();
         if (NotificationListener == null) {
             registerListeners();
-            mHostView.addNotifications();
         }
     }
 
     public void onScreenTurnedOn() {
         mIsScreenOn = true;
         mTimeCovered = 0;
-        mHostView.bringToFront();
+        if (mHostView != null) mHostView.bringToFront();
     }
 
     public void onDismiss() {
@@ -263,4 +304,16 @@ public class NotificationViewManager {
             }
         }, ANIMATION_MAX_DURATION);
     }
+
+    /**
+     * Create the set of excluded apps given a string of packages delimited with '|'.
+     * @param excludedApps
+     */
+    private void createExcludedAppsSet(String excludedApps) {
+        if (TextUtils.isEmpty(excludedApps))
+            return;
+        String[] appsToExclude = excludedApps.split("\\|");
+        mExcludedApps = new HashSet<String>(Arrays.asList(appsToExclude));
+    }
+
 }
