@@ -3888,6 +3888,12 @@ public final class Settings {
         public static final String APP_SIDEBAR_SHOW_TRIGGER = "app_sidebar_show_trigger";
 
         /**
+         * Disable FC Notifications
+         * @hide
+         */
+        public static final String DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
+
+        /**
          * Custom System Animations
          *
          * @hide
@@ -4552,7 +4558,7 @@ public final class Settings {
                 }
             }
 
-            
+
          //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
          //BEGIN PRIVACY
          if(name.equals(ANDROID_ID)){ //normally it should work with sNameValueCache.getString instead of sLockSettings
@@ -4907,26 +4913,26 @@ public final class Settings {
                 int userHandle) {
             return putStringForUser(cr, name, Float.toString(value), userHandle);
         }
-        
+
 		/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		//BEGIN PRIVACY 
-		
+		//BEGIN PRIVACY
+
 		private static final String PRIVACY_TAG = "PM,SecureSettings";
 		private static Context context;
-		
+
 		private static PrivacySettingsManager pSetMan;
-		
+
 		private static boolean privacyMode = false;
-		
+
 		private static IPackageManager mPm;
-		
-		//END PRIVACY 		
+
+		//END PRIVACY
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-		
-		
+
+
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 		//BEGIN PRIVACY
-		
+
 		/**
 		* {@hide}
 		* @return package names of current process which is using this object or null if something went wrong
@@ -4971,7 +4977,7 @@ public final class Settings {
 		}
 		//END PRIVACY
 		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
+
         /**
          * @deprecated Use {@link android.provider.Settings.Global#DEVELOPMENT_SETTINGS_ENABLED}
          * instead
