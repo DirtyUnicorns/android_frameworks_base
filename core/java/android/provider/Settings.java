@@ -3392,6 +3392,13 @@ public final class Settings {
         /**
          * Width and height of items in sidebar
          *
+         * Whether national data roaming should be used.
+         * @hide
+         */
+        public static final String MVNO_ROAMING = "mvno_roaming";
+
+        /**
+         * Volume rocker wake
          * @hide
          */
         public static final String APP_SIDEBAR_ITEM_SIZE = "app_sidebar_item_size";
