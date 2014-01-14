@@ -3267,6 +3267,14 @@ public final class Settings {
 
         /**
          *
+         * Whether navigation bar is placed on the left side in landscape mode
+         *
+         * @hide
+         */
+        public static final String NAVBAR_LEFT_IN_LANDSCAPE = "navigation_bar_left";
+
+        /**
+         *
          * SMOOTH PROGRESS BAR Color_1
          * @hide
          */
