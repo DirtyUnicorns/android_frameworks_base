@@ -1370,4 +1370,8 @@
    <!-- set to false if we dont need to consider data
          service state to display signal strength bars -->
     <bool name="config_combined_signal">true</bool>
+
+    <!-- Set to empty string to disable. Can be added to device overlay for device-specific path -->
+    <string name="config_fastChargePath" translatable="false">/sys/kernel/fast_charge/force_fast_charge</string>
+
 </resources>

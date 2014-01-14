@@ -48,6 +48,7 @@ public class QSConstants {
         public static final String TILE_CUSTOM = "toggleCustom";
         public static final String TILE_NETWORKADB = "toggleNetworkAdb";
         public static final String TILE_GPS = "toggleGps";
+        public static final String TILE_FCHARGE = "toggleFastCharge";
 
         // dynamic tiles
         public static final String TILE_ALARM = "toggleAlarm";

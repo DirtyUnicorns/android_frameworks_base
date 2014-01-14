@@ -34,6 +34,7 @@ import android.provider.Settings;
 
 import com.android.internal.telephony.PhoneConstants;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -176,6 +177,14 @@ public class DeviceUtils {
 
     public static boolean adbEnabled(Context con) {
         return (Settings.Global.getInt(con.getContentResolver(), Settings.Global.ADB_ENABLED, 0)) == 1;
+    }
+
+    public static boolean fchargeEnabled(Context con) {
+        String fchargePath = con.getString(com.android.internal.R.string.config_fastChargePath);
+        if (fchargePath == null || fchargePath.isEmpty() || !new File(fchargePath).exists()) {
+            return false;
+        }
+        return true;
     }
 
 }
