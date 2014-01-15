@@ -79,6 +79,9 @@
     <bool name="def_device_provisioned">false</bool>
     <integer name="def_dock_audio_media_enabled">1</integer>
 
+    <!-- type of volume overlay - Deaults to -1 so that detection occurs on first load -->
+    <integer name="def_volume_overlay_mode">1</integer>
+
     <!-- Notifications use ringer volume -->
     <bool name="def_notifications_use_ring_volume">true</bool>
 

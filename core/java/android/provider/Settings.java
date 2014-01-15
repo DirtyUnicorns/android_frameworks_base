@@ -2161,6 +2161,8 @@ public final class Settings {
         /**
          * Volume Overlay Mode, This is behaviour of the volume overlay panel
          * Defaults to 1 - which is expandable
+         * Volume Overlay Mode, This is behaviour of the volume overlay panel
+         * Defaults to 0 - which is simple
          * @hide
          */
         public static final String MODE_VOLUME_OVERLAY = "mode_volume_overlay";

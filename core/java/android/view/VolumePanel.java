@@ -116,7 +116,8 @@ public class VolumePanel extends Handler implements OnSeekBarChangeListener, Vie
     private boolean mShowCombinedVolumes;
     private boolean mVoiceCapable;
     private boolean mVolumeLinkNotification;
-    private int mCurrentOverlayStyle = -1;
+    private boolean mVolumeAdjustSound;
+    private int mCurrentOverlayStyle;
 
     // True if we want to play tones on the system stream when the master stream is specified.
     private final boolean mPlayMasterStreamTones;
@@ -187,7 +188,7 @@ public class VolumePanel extends Handler implements OnSeekBarChangeListener, Vie
         int descRes;
         int iconRes;
         int iconMuteRes;
-        // RING, VOICE_CALL & BLUETOOTH_SCO are hidden unless explicitly requested
+        // VOICE_CALL & BLUETOOTH_SCO are hidden unless explicitly requested
         boolean show;
 
         StreamResources(int streamType, int descRes, int iconRes, int iconMuteRes, boolean show) {
@@ -230,7 +231,7 @@ public class VolumePanel extends Handler implements OnSeekBarChangeListener, Vie
         public void onChange(boolean selfChange) {
             mVolumeLinkNotification = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.VOLUME_LINK_NOTIFICATION, 1) == 1;
-            int overlayStyle = Settings.System.getInt(mContext.getContentResolver(),
+            final int overlayStyle = Settings.System.getInt(mContext.getContentResolver(),
                     Settings.System.MODE_VOLUME_OVERLAY, VOLUME_OVERLAY_EXPANDABLE);
             changeOverlayStyle(overlayStyle);
         }
@@ -339,13 +340,14 @@ public class VolumePanel extends Handler implements OnSeekBarChangeListener, Vie
 
         mToneGenerators = new ToneGenerator[AudioSystem.getNumStreamTypes()];
         mVibrator = (Vibrator)context.getSystemService(Context.VIBRATOR_SERVICE);
-
         mVoiceCapable = context.getResources().getBoolean(R.bool.config_voice_capable);
 
         // Get the user's preferences
         mVolumeLinkNotification = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.VOLUME_LINK_NOTIFICATION, 1) == 1;
-        int chosenStyle = Settings.System.getInt(context.getContentResolver(),
+        mVolumeAdjustSound = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.VOLUME_ADJUST_SOUNDS_ENABLED, 1) == 1;
+        final int chosenStyle = Settings.System.getInt(context.getContentResolver(),
                 Settings.System.MODE_VOLUME_OVERLAY, VOLUME_OVERLAY_EXPANDABLE);
         changeOverlayStyle(chosenStyle);
 
@@ -363,6 +365,37 @@ public class VolumePanel extends Handler implements OnSeekBarChangeListener, Vie
 
         mMoreButton.setOnClickListener(this);
         listenToRingerMode();
+    }
+
+    public void setLayoutDirection(int layoutDirection) {
+        mPanel.setLayoutDirection(layoutDirection);
+        updateStates();
+    }
+
+    private void listenToRingerMode() {
+        final IntentFilter filter = new IntentFilter();
+        filter.addAction(AudioManager.RINGER_MODE_CHANGED_ACTION);
+        mContext.registerReceiver(new BroadcastReceiver() {
+
+            public void onReceive(Context context, Intent intent) {
+                final String action = intent.getAction();
+
+                if (AudioManager.RINGER_MODE_CHANGED_ACTION.equals(action)) {
+                    removeMessages(MSG_RINGER_MODE_CHANGED);
+                    sendMessage(obtainMessage(MSG_RINGER_MODE_CHANGED));
+                }
+            }
+        }, filter);
+    }
+
+    private boolean isMuted(int streamType) {
+        if (streamType == STREAM_MASTER) {
+            return mAudioManager.isMasterMute();
+        } else if (streamType == AudioService.STREAM_REMOTE_MUSIC) {
+            return (mAudioService.getRemoteStreamVolume() <= 0);
+        } else {
+            return mAudioManager.isStreamMute(streamType);
+        }
     }
 
     private void changeOverlayStyle(int newStyle) {
@@ -396,37 +429,6 @@ public class VolumePanel extends Handler implements OnSeekBarChangeListener, Vie
                 mShowCombinedVolumes = false;
                 mCurrentOverlayStyle = VOLUME_OVERLAY_NONE;
                 break;
-        }
-    }
-
-    public void setLayoutDirection(int layoutDirection) {
-        mPanel.setLayoutDirection(layoutDirection);
-        updateStates();
-    }
-
-    private void listenToRingerMode() {
-        final IntentFilter filter = new IntentFilter();
-        filter.addAction(AudioManager.RINGER_MODE_CHANGED_ACTION);
-        mContext.registerReceiver(new BroadcastReceiver() {
-
-            public void onReceive(Context context, Intent intent) {
-                final String action = intent.getAction();
-
-                if (AudioManager.RINGER_MODE_CHANGED_ACTION.equals(action)) {
-                    removeMessages(MSG_RINGER_MODE_CHANGED);
-                    sendMessage(obtainMessage(MSG_RINGER_MODE_CHANGED));
-                }
-            }
-        }, filter);
-    }
-
-    private boolean isMuted(int streamType) {
-        if (streamType == STREAM_MASTER) {
-            return mAudioManager.isMasterMute();
-        } else if (streamType == AudioService.STREAM_REMOTE_MUSIC) {
-            return (mAudioService.getRemoteStreamVolume() <= 0);
-        } else {
-            return mAudioManager.isStreamMute(streamType);
         }
     }
 

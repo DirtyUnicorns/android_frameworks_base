@@ -2014,6 +2014,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         loadBooleanSetting(stmt, Settings.System.HAPTIC_FEEDBACK_ENABLED,
                 R.bool.def_haptic_feedback);
 
+        loadIntegerSetting(stmt, Settings.System.MODE_VOLUME_OVERLAY,
+            R.integer.def_volume_overlay_mode);
+
         loadIntegerSetting(stmt, Settings.System.LOCKSCREEN_SOUNDS_ENABLED,
             R.integer.def_lockscreen_sounds_enabled);
     }
