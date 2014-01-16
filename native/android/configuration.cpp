@@ -101,8 +101,8 @@ int32_t AConfiguration_getScreenLong(AConfiguration* config) {
             >> ResTable_config::SHIFT_SCREENLONG;
 }
 
-int32_t AConfiguration_getUiInvertedMode(AConfiguration* config) {
-    return config->uiInvertedMode;
+int32_t AConfiguration_getUiThemeMode(AConfiguration* config) {
+    return config->uiThemeMode;
 }
 
 int32_t AConfiguration_getUiModeType(AConfiguration* config) {
@@ -196,8 +196,8 @@ void AConfiguration_setScreenLong(AConfiguration* config, int32_t screenLong) {
             | ((screenLong<<ResTable_config::SHIFT_SCREENLONG)&ResTable_config::MASK_SCREENLONG);
 }
 
-void AConfiguration_setUiInvertedMode(AConfiguration* config, int32_t uiInvertedMode) {
-    config->uiInvertedMode = uiInvertedMode;
+void AConfiguration_setUiThemeMode(AConfiguration* config, int32_t uiThemeMode) {
+    config->uiThemeMode = uiThemeMode;
 }
 
 void AConfiguration_setUiModeType(AConfiguration* config, int32_t uiModeType) {

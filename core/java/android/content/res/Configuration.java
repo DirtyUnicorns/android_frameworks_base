@@ -410,40 +410,44 @@ public final class Configuration implements Parcelable, Comparable<Configuration
      */
     public int orientation;
 
-    /** Constant for {@link #uiInvertedMode}
+    /** Constant for {@link #uiThemeMode}
      * value that corresponds to the
-     * inverted framework
+     * ui theme mode framework
      * resource qualifier.
      * value indicating that no mode has been set.
+     * @hide
     */
-    public static final int UI_INVERTED_MODE_UNDEFINED = 0;
-    /** Constant for {@link #uiInvertedMode}
+    public static final int UI_THEME_MODE_UNDEFINED = 0;
+    /** Constant for {@link #uiThemeMode}
      * value that corresponds to the
-     * inverted framework
+     * stock themed framework
      * resource qualifier.
+     * @hide
     */
-    public static final int UI_INVERTED_MODE_NORMAL = 1;
-    /** Constant for {@link #uiInvertedMode}
+    public static final int UI_THEME_MODE_NORMAL = 1;
+    /** Constant for {@link #uiThemeMode}
      * value that corresponds to the
-     * inverted framework
+     * dark themed framework
      * resource qualifier.
+     * @hide
     */
-    public static final int UI_INVERTED_MODE_YES = 2;
-    /** Constant for {@link #uiInvertedMode}
+    public static final int UI_THEME_MODE_HOLO_DARK = 2;
+    /** Constant for {@link #uiThemeMode}
      * value that corresponds to the
-     * none inverted framework
+     * light themed framework
      * resource qualifier.
+     * @hide
     */
-    public static final int UI_INVERTED_MODE_NO = 3;
+    public static final int UI_THEME_MODE_HOLO_LIGHT = 3;
 
     /**
-     * Bit for the ui inverted mode.
-     * This may be one of {@link #UI_INVERTED_MODE_UNDEFINED},
-     * {@link #UI_INVERTED_MODE_NORMAL},
-     * {@link #UI_INVERTED_MODE_YES}, {@link #UI_INVERTED_MODE_NO},
+     * Bit for the ui theme mode.
+     * This may be one of {@link #UI_THEME_MODE_UNDEFINED},
+     * {@link #UI_THEME_MODE_NORMAL},
+     * {@link #UI_THEME_MODE_HOLO_DARK}, {@link #UI_THEME_MODE_HOLO_LIGHT},
+     * @hide
      */
-    public int uiInvertedMode;
-
+    public int uiThemeMode;
 
     /** Constant for {@link #uiMode}: bits that encode the mode type. */
     public static final int UI_MODE_TYPE_MASK = 0x0f;
@@ -497,8 +501,8 @@ public final class Configuration implements Parcelable, Comparable<Configuration
      * <p>The {@link #UI_MODE_TYPE_MASK} bits define the overall ui mode of the
      * device. They may be one of {@link #UI_MODE_TYPE_UNDEFINED},
      * {@link #UI_MODE_TYPE_NORMAL}, {@link #UI_MODE_TYPE_DESK},
-     * {@link #UI_MODE_TYPE_CAR}, {@link #UI_MODE_TYPE_TELEVISION},
-     * {@link #UI_MODE_TYPE_APPLIANCE}
+     * {@link #UI_MODE_TYPE_CAR}, {@link #UI_MODE_TYPE_TELEVISION}, or
+     * {@link #UI_MODE_TYPE_APPLIANCE}.
      *
      * <p>The {@link #UI_MODE_NIGHT_MASK} defines whether the screen
      * is in a special mode. They may be one of {@link #UI_MODE_NIGHT_UNDEFINED},
@@ -605,9 +609,8 @@ public final class Configuration implements Parcelable, Comparable<Configuration
     public static final int NATIVE_CONFIG_VERSION = 0x0400;
     /** @hide Native-specific bit mask for SCREEN_LAYOUT config; DO NOT USE UNLESS YOU ARE SURE. */
     public static final int NATIVE_CONFIG_SCREEN_LAYOUT = 0x0800;
-    /** @hide Native-specific bit mask for UI_INVERTED_MODE config; DO NOT USE UNLESS YOU
-     * ARE SURE. */
-    public static final int NATIVE_CONFIG_UI_INVERTED_MODE = 0x8000;
+    /** @hide Native-specific bit mask for UI_THEME_MODE config; DO NOT USE UNLESS YOU ARE SURE. */
+    public static final int NATIVE_CONFIG_UI_THEME_MODE = 0x0900;
     /** @hide Native-specific bit mask for UI_MODE config; DO NOT USE UNLESS YOU ARE SURE. */
     public static final int NATIVE_CONFIG_UI_MODE = 0x1000;
     /** @hide Native-specific bit mask for SMALLEST_SCREEN_SIZE config; DO NOT USE UNLESS YOU
@@ -647,7 +650,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
         navigationHidden = o.navigationHidden;
         orientation = o.orientation;
         screenLayout = o.screenLayout;
-        uiInvertedMode = o.uiInvertedMode;
+        uiThemeMode = o.uiThemeMode;
         uiMode = o.uiMode;
         screenWidthDp = o.screenWidthDp;
         screenHeightDp = o.screenHeightDp;
@@ -732,12 +735,13 @@ public final class Configuration implements Parcelable, Comparable<Configuration
             case ORIENTATION_PORTRAIT: sb.append(" port"); break;
             default: sb.append(" orien="); sb.append(orientation); break;
         }
-        switch (uiInvertedMode) {
-            case UI_INVERTED_MODE_UNDEFINED: sb.append(" ?uiInvertedmode"); break;
-            case UI_INVERTED_MODE_NORMAL: break;
-            case UI_INVERTED_MODE_YES: sb.append(" inverted"); break;
-            case UI_INVERTED_MODE_NO: sb.append(" notinverted"); break;
-            default: sb.append(" uiInvertedmode="); sb.append(uiInvertedMode); break;
+        switch (uiThemeMode) {
+            case UI_THEME_MODE_UNDEFINED: sb.append(" ?uithememode"); break;
+            /* normal is not interesting to print it is default behaviour*/
+            case UI_THEME_MODE_NORMAL: break;
+            case UI_THEME_MODE_HOLO_DARK: sb.append(" holodark"); break;
+            case UI_THEME_MODE_HOLO_LIGHT: sb.append(" hololight"); break;
+            default: sb.append(" uiThemeMode="); sb.append(uiThemeMode); break;
         }
         switch ((uiMode&UI_MODE_TYPE_MASK)) {
             case UI_MODE_TYPE_UNDEFINED: sb.append(" ?uimode"); break;
@@ -819,7 +823,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
         navigationHidden = NAVIGATIONHIDDEN_UNDEFINED;
         orientation = ORIENTATION_UNDEFINED;
         screenLayout = SCREENLAYOUT_UNDEFINED;
-        uiInvertedMode = UI_INVERTED_MODE_UNDEFINED;
+        uiThemeMode = UI_THEME_MODE_UNDEFINED;
         uiMode = UI_MODE_TYPE_UNDEFINED;
         screenWidthDp = compatScreenWidthDp = SCREEN_WIDTH_DP_UNDEFINED;
         screenHeightDp = compatScreenHeightDp = SCREEN_HEIGHT_DP_UNDEFINED;
@@ -924,10 +928,10 @@ public final class Configuration implements Parcelable, Comparable<Configuration
                 screenLayout = delta.screenLayout;
             }
         }
-        if (delta.uiInvertedMode != UI_INVERTED_MODE_UNDEFINED
-                && uiInvertedMode != delta.uiInvertedMode) {
-            changed |= ActivityInfo.CONFIG_UI_INVERTED_MODE;
-            uiInvertedMode = delta.uiInvertedMode;
+        if (delta.uiThemeMode != UI_THEME_MODE_UNDEFINED
+                && uiThemeMode != delta.uiThemeMode) {
+            changed |= ActivityInfo.CONFIG_UI_THEME_MODE;
+            uiThemeMode = delta.uiThemeMode;
         }
         if (delta.uiMode != (UI_MODE_TYPE_UNDEFINED|UI_MODE_NIGHT_UNDEFINED)
                 && uiMode != delta.uiMode) {
@@ -1063,9 +1067,9 @@ public final class Configuration implements Parcelable, Comparable<Configuration
                     getScreenLayoutNoDirection(delta.screenLayout)) {
             changed |= ActivityInfo.CONFIG_SCREEN_LAYOUT;
         }
-        if (delta.uiInvertedMode != UI_INVERTED_MODE_UNDEFINED
-                && uiInvertedMode != delta.uiInvertedMode) {
-            changed |= ActivityInfo.CONFIG_UI_INVERTED_MODE;
+        if (delta.uiThemeMode != UI_THEME_MODE_UNDEFINED
+                && uiThemeMode != delta.uiThemeMode) {
+            changed |= ActivityInfo.CONFIG_UI_THEME_MODE;
         }
         if (delta.uiMode != (UI_MODE_TYPE_UNDEFINED|UI_MODE_NIGHT_UNDEFINED)
                 && uiMode != delta.uiMode) {
@@ -1167,7 +1171,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
         dest.writeInt(navigationHidden);
         dest.writeInt(orientation);
         dest.writeInt(screenLayout);
-        dest.writeInt(uiInvertedMode);
+        dest.writeInt(uiThemeMode);
         dest.writeInt(uiMode);
         dest.writeInt(screenWidthDp);
         dest.writeInt(screenHeightDp);
@@ -1196,7 +1200,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
         navigationHidden = source.readInt();
         orientation = source.readInt();
         screenLayout = source.readInt();
-        uiInvertedMode = source.readInt();
+        uiThemeMode = source.readInt();
         uiMode = source.readInt();
         screenWidthDp = source.readInt();
         screenHeightDp = source.readInt();
@@ -1264,7 +1268,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
         if (n != 0) return n;
         n = this.screenLayout - that.screenLayout;
         if (n != 0) return n;
-        n = this.uiInvertedMode - that.uiInvertedMode;
+        n = this.uiThemeMode - that.uiThemeMode;
         if (n != 0) return n;
         n = this.uiMode - that.uiMode;
         if (n != 0) return n;
@@ -1307,7 +1311,7 @@ public final class Configuration implements Parcelable, Comparable<Configuration
         result = 31 * result + navigationHidden;
         result = 31 * result + orientation;
         result = 31 * result + screenLayout;
-        result = 31 * result + uiInvertedMode;
+        result = 31 * result + uiThemeMode;
         result = 31 * result + uiMode;
         result = 31 * result + screenWidthDp;
         result = 31 * result + screenHeightDp;

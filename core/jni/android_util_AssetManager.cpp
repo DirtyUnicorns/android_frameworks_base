@@ -506,7 +506,7 @@ static void android_content_AssetManager_setConfiguration(JNIEnv* env, jobject c
                                                           jint smallestScreenWidthDp,
                                                           jint screenWidthDp, jint screenHeightDp,
                                                           jint screenLayout,
-                                                          jint uiInvertedMode, jint uiMode,
+                                                          jint uiThemeMode, jint uiMode,
                                                           jint sdkVersion)
 {
     AssetManager* am = assetManagerForJavaObject(env, clazz);
@@ -533,7 +533,7 @@ static void android_content_AssetManager_setConfiguration(JNIEnv* env, jobject c
     config.screenWidthDp = (uint16_t)screenWidthDp;
     config.screenHeightDp = (uint16_t)screenHeightDp;
     config.screenLayout = (uint8_t)screenLayout;
-    config.uiInvertedMode = (uint8_t)uiInvertedMode;
+    config.uiThemeMode = (uint8_t)uiThemeMode;
     config.uiMode = (uint8_t)uiMode;
     config.sdkVersion = (uint16_t)sdkVersion;
     config.minorVersion = 0;
