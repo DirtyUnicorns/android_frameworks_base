@@ -161,4 +161,7 @@
     <string name="quick_settings_fcharge_on_label">Fast charge</string>
     <string name="quick_settings_fcharge_off_label">Disabled</string>
 
+    <!-- QuickSettings: TRDS Switch -->
+    <string name="quick_settings_theme_switch_dark">Dark theme</string>
+    <string name="quick_settings_theme_switch_light">Light theme</string>
 </resources>

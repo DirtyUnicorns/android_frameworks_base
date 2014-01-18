@@ -44,6 +44,7 @@ import static com.android.internal.util.slim.QSConstants.TILE_SCREENTIMEOUT;
 import static com.android.internal.util.slim.QSConstants.TILE_SETTINGS;
 import static com.android.internal.util.slim.QSConstants.TILE_SLEEP;
 import static com.android.internal.util.slim.QSConstants.TILE_SYNC;
+import static com.android.internal.util.slim.QSConstants.TILE_THEME;
 import static com.android.internal.util.slim.QSConstants.TILE_TORCH;
 import static com.android.internal.util.slim.QSConstants.TILE_USBTETHER;
 import static com.android.internal.util.slim.QSConstants.TILE_USER;
@@ -97,6 +98,7 @@ import com.android.systemui.quicksettings.RingerModeTile;
 import com.android.systemui.quicksettings.ScreenTimeoutTile;
 import com.android.systemui.quicksettings.SleepScreenTile;
 import com.android.systemui.quicksettings.SyncTile;
+import com.android.systemui.quicksettings.ThemeTile;
 import com.android.systemui.quicksettings.ToggleLockscreenTile;
 import com.android.systemui.quicksettings.TorchTile;
 import com.android.systemui.quicksettings.UsbTetherTile;
@@ -265,6 +267,8 @@ public class QuickSettingsController {
                 qs = new GpsTile(mContext, this);
             } else if (tile.contains(TILE_FCHARGE)) {
                 qs = new FastChargeTile(mContext, this);
+            } else if (tile.equals(TILE_THEME)) {
+                qs = new ThemeTile(mContext, this);
             }
 
             if (qs != null) {
