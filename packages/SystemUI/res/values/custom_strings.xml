@@ -36,7 +36,6 @@
 
     <!-- Screenrecord notification title -->
     <string name="screenrecord_notif_title">Recording screen</string>
-    <string name="screenshot_delete_confirmation">Screenshot deleted</string>
 
     <!-- Screenrecord notification action: Stop -->
     <string name="screenrecord_notif_stop">Stop</string>
@@ -46,6 +45,7 @@
 
     <!-- Screen record notification error title -->
     <string name="screenrecord_notif_error">Unable to record screen</string>
+    <string name="screenshot_delete_confirmation">Screenshot deleted</string>
 
     <!-- Development shortcut -->
     <string name="advanced_dev_option_wipe_app">Wipe app data</string>
