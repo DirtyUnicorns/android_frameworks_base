@@ -3137,6 +3137,22 @@ public final class Settings {
          * HALO message box?, should default to 1 (yes, show message box on incoming notification)
          * @hide
          */
+        public static final String WAKELOCK_BLOCKING_ENABLED = "wakelock_blocking_enabled";
+
+        /**
+         * @hide
+         */
+        public static final String WAKELOCK_BLOCKING_LIST = "wakelock_blocking_list";
+
+        /**
+         * Electronic beam animation mode
+         * 0 = off,
+         * 1 = always horizontal,
+         * 2 = always vertical,
+         * 3 = dependent on orientation
+         * 4 = scale animation
+         * @hide
+         */
         public static final String HALO_MSGBOX = "halo_msgbox";
 
         /**
