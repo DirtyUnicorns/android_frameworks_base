@@ -865,7 +865,7 @@ public abstract class BaseStatusBar extends SystemUI implements
                  break;
              case MSG_OPEN_SEARCH_PANEL:
                  if (DEBUG) Log.d(TAG, "opening search panel");
-                 if (mSearchPanelView != null) {
+                 if (mSearchPanelView != null && mSearchPanelView.isAssistantAvailable()) {
                      mSearchPanelView.show(true, true);
                      onShowSearchPanel();
                  }

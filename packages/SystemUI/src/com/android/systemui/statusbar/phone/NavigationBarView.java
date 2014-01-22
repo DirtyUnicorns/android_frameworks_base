@@ -118,9 +118,10 @@ public class NavigationBarView extends LinearLayout {
         @Override
         public void startTransition(LayoutTransition transition, ViewGroup container,
                 View view, int transitionType) {
-            if (view.getId() == R.id.back) {
+            if (view == findViewWithTag(NavbarEditor.NAVBAR_BACK)) {
                 mBackTransitioning = true;
-            } else if (view.getId() == R.id.home && transitionType == LayoutTransition.APPEARING) {
+            } else if (view ==  findViewWithTag(NavbarEditor.NAVBAR_HOME)
+                    && transitionType == LayoutTransition.APPEARING) {
                 mHomeAppearing = true;
                 mStartDelay = transition.getStartDelay(transitionType);
                 mDuration = transition.getDuration(transitionType);
@@ -131,9 +132,10 @@ public class NavigationBarView extends LinearLayout {
         @Override
         public void endTransition(LayoutTransition transition, ViewGroup container,
                 View view, int transitionType) {
-            if (view.getId() == R.id.back) {
+            if (view == findViewWithTag(NavbarEditor.NAVBAR_BACK)) {
                 mBackTransitioning = false;
-            } else if (view.getId() == R.id.home && transitionType == LayoutTransition.APPEARING) {
+            } else if (view ==  findViewWithTag(NavbarEditor.NAVBAR_HOME)
+                    && transitionType == LayoutTransition.APPEARING) {
                 mHomeAppearing = false;
             }
         }
@@ -141,12 +143,12 @@ public class NavigationBarView extends LinearLayout {
         public void onBackAltCleared() {
             // When dismissing ime during unlock, force the back button to run the same appearance
             // animation as home (if we catch this condition early enough).
-            View back = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_BACK);
-            View home = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_HOME);
-            if (!mBackTransitioning && back.getVisibility() == VISIBLE
-                    && mHomeAppearing && home.getAlpha() == 0) {
-                back.setAlpha(0);
-                ValueAnimator a = ObjectAnimator.ofFloat(back, "alpha", 0, 1);
+            View backView = findViewWithTag(NavbarEditor.NAVBAR_BACK);
+            View homeView = findViewWithTag(NavbarEditor.NAVBAR_HOME);
+            if (!mBackTransitioning && backView != null && backView.getVisibility() == VISIBLE
+                    && mHomeAppearing && homeView != null && homeView.getAlpha() == 0) {
+                findViewWithTag(NavbarEditor.NAVBAR_BACK).setAlpha(0);
+                ValueAnimator a = ObjectAnimator.ofFloat(backView, "alpha", 0, 1);
                 a.setStartDelay(mStartDelay);
                 a.setDuration(mDuration);
                 a.setInterpolator(mInterpolator);
@@ -409,16 +411,17 @@ public class NavigationBarView extends LinearLayout {
 
         mNavigationIconHints = hints;
 
-        ImageView button = (ImageView) mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_BACK);
-        if (button != null) {
-            button.setImageDrawable(backAlt
+        ImageView backView = (ImageView) findViewWithTag(NavbarEditor.NAVBAR_BACK);
+        ImageView recentView = (ImageView) findViewWithTag(NavbarEditor.NAVBAR_RECENT);
+
+        if (backView != null) {
+            backView.setImageDrawable(backAlt
                     ? (mVertical ? mBackAltLandIcon : mBackAltIcon)
                     : (mVertical ? mBackLandIcon : mBackIcon));
         }
 
-        button = (ImageView) mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_RECENT);
-        if (button != null) {
-            button.setImageDrawable(mVertical ? mRecentLandIcon : mRecentIcon);
+        if (recentView != null) {
+            recentView.setImageDrawable(mVertical ? mRecentLandIcon : mRecentIcon);
         }
 
         setDisabledFlags(mDisabledFlags, true);
@@ -489,10 +492,9 @@ public class NavigationBarView extends LinearLayout {
             try {
                 final int userId = ActivityManagerNative.getDefault().getCurrentUser().id;
                 final int disabledFlags = dpm.getKeyguardDisabledFeatures(null, userId);
-                final  boolean disabledBecauseKeyguardSecure =
-                        (disabledFlags & DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA) != 0
-                        && KeyguardTouchDelegate.getInstance(getContext()).isSecure();
-                return dpm.getCameraDisabled(null) || disabledBecauseKeyguardSecure;
+                final boolean disabledInKeyguard =
+                        (disabledFlags & DevicePolicyManager.KEYGUARD_DISABLE_SECURE_CAMERA) != 0;
+                return dpm.getCameraDisabled(null) || disabledInKeyguard;
             } catch (RemoteException e) {
                 Log.e(TAG, "Can't get userId", e);
             }
@@ -597,6 +599,7 @@ public class NavigationBarView extends LinearLayout {
         if (NavbarEditor.isDevicePhone(mContext)) {
             int rotation = mDisplay.getRotation();
             mVertical = rotation == Surface.ROTATION_90 || rotation == Surface.ROTATION_270;
+            mDelegateHelper.setSwapXY(mVertical);
         } else {
             mVertical = getWidth() > 0 && getHeight() > getWidth();
         }
@@ -724,12 +727,9 @@ public class NavigationBarView extends LinearLayout {
                         mVertical ? "true" : "false",
                         mShowMenu ? "true" : "false"));
 
-        View back = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_BACK);
-        View home = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_HOME);
-        View recent = mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_RECENT);
-        dumpButton(pw, "back", back);
-        dumpButton(pw, "home", home);
-        dumpButton(pw, "rcnt", recent);
+        dumpButton(pw, "back", mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_BACK));
+        dumpButton(pw, "home", mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_HOME));
+        dumpButton(pw, "rcnt", mCurrentView.findViewWithTag(NavbarEditor.NAVBAR_RECENT));
         dumpButton(pw, "srch", getSearchLight());
         dumpButton(pw, "cmra", getCameraButton());
 

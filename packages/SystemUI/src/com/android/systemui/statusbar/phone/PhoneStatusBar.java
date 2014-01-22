@@ -56,6 +56,7 @@ import android.graphics.drawable.TransitionDrawable;
 import android.inputmethodservice.InputMethodService;
 import android.net.Uri;
 import android.os.Bundle;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.IPowerManager;
@@ -1244,7 +1245,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
 
         mNavigationBarView.setListeners(mRecentsClickListener, mRecentsLongClickListener,
                 mRecentsPreloadOnTouchListener, mHomeSearchActionListener);
-
         updateSearchPanel();
     }
 

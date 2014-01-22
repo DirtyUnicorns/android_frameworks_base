@@ -3714,6 +3714,14 @@ public final class Settings {
 
         /**
          * Up Swipe Action
+         * Navigation controls to Use
+         *
+         * @hide
+         */
+        public static final String NAV_BUTTONS = "nav_buttons";
+
+        /**
+         * Volume key controls ringtone or media sound stream
          *
          * @hide
          */
@@ -3837,25 +3845,6 @@ public final class Settings {
          * @hide
          */
         public static final String STATUS_BAR_CUSTOM_HEADER = "status_bar_custom_header";
-
-        /**
-         * Navigation controls to Use
-         *
-         * @hide
-         */
-        public static final String NAV_BUTTONS = "nav_buttons";
-
-        /**
-         * Navigation bar height when it is on protrait
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
-
-        /**
-         * Navigation bar height when it is on landscape at the right
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
 
         /**
          * Volume key controls ringtone or media sound stream
@@ -3999,17 +3988,6 @@ public final class Settings {
          * @hide
          */
         public static final String KEYBOARD_ROTATION_TIMEOUT = "keyboard_rotation_timeout";
-
-        /**
-         * Custom navring actions
-         *
-         * @hide
-         */
-        public static final String[] NAVIGATION_RING_TARGETS = new String[] {
-            "navigation_ring_targets_0",
-            "navigation_ring_targets_1",
-            "navigation_ring_targets_2",
-        };
 
         /**
          * Forces formal text input.  1 to replace emoticon key with enter key.
