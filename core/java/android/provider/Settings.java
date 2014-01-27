@@ -3861,6 +3861,13 @@ public final class Settings {
         public static final String VOLUME_KEYS_DEFAULT = "volume_keys_default";
 
         /**
+         * Disable safe volume warning with headphones
+         *
+         * @hide
+         */
+        public static final String DISABLE_SAFE_VOLUME = "disable_safe_volume";
+
+        /**
          * Should the non-intrsive incall ui be used
          *
          * @hide
