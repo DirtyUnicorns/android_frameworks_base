@@ -1897,4 +1897,8 @@
   <java-symbol type="drawable" name="stat_notify_privacy_guard_off_plus" />
   <java-symbol type="drawable" name="stat_notify_privacy_guard_custom_plus" />
 
+  <!-- DU Easter Egg -->
+  <java-symbol type="drawable" name="dirtyunicorns_bg_logo" />
+  <java-symbol type="drawable" name="dirtyunicorns_logo" />
+
 </resources>

@@ -2569,6 +2569,10 @@
                 android:excludeFromRecents="true"
                 android:process=":ui">
         </activity>
+        <activity android:name="com.android.internal.app.DirtyUnicornsActivity"
+                android:theme="@style/Theme.Wallpaper.NoTitleBar.Fullscreen"
+                android:process=":ui">
+        </activity>
         <activity android:name="com.android.internal.app.PlatLogoActivity"
                 android:theme="@style/Theme.Wallpaper.NoTitleBar.Fullscreen"
                 android:process=":ui">
