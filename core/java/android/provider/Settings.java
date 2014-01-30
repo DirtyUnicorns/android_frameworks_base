@@ -4113,6 +4113,12 @@ public final class Settings {
          */
         public static final String ANIMATION_IME_DURATION = "animation_ime_duration";
 
+        /**
+         * Defines the custom path to use for UI sound effects (null for default)
+         * @hide
+         */
+        public static final String CUSTOM_SOUND_EFFECTS_PATH = "custom_sound_effects_path";
+
          /**
          * Whether to wake the screen with the camera key half-press.
          * @hide
