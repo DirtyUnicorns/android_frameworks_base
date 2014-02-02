@@ -30,12 +30,23 @@ import android.media.session.MediaSessionLegacyHelper;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.IBinder;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 6c4a34d... Themes: Port to Marshmallow [3/5]
 import android.os.IPowerManager;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+<<<<<<< HEAD
 import android.os.UserHandle;
 import android.provider.Settings;
+=======
+import android.os.PowerManager;
+import android.provider.Settings;
+>>>>>>> 39f7484... Themes: Port to CM13 [1/3]
+>>>>>>> 6c4a34d... Themes: Port to Marshmallow [3/5]
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -47,7 +58,6 @@ import android.view.ViewRootImpl;
 import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
 import android.widget.FrameLayout;
-
 import com.android.systemui.R;
 import com.android.systemui.statusbar.BaseStatusBar;
 import com.android.systemui.statusbar.DragDownHelper;
@@ -346,6 +356,20 @@ public class StatusBarWindowView extends FrameLayout {
         }
     }
 
+    public void addContent(View content) {
+        addView(content);
+        mStackScrollLayout = (NotificationStackScrollLayout) content.findViewById(
+                R.id.notification_stack_scroller);
+        mNotificationPanel = (NotificationPanelView) content.findViewById(R.id.notification_panel);
+        mDragDownHelper = new DragDownHelper(getContext(), this, mStackScrollLayout, mService);
+        mBrightnessMirror = content.findViewById(R.id.brightness_mirror);
+
+    }
+
+    public void removeContent(View content) {
+        removeView(content);
+    }
+
     public class LayoutParams extends FrameLayout.LayoutParams {
 
         public boolean ignoreRightInset;
@@ -363,6 +387,11 @@ public class StatusBarWindowView extends FrameLayout {
             a.recycle();
         }
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 6c4a34d... Themes: Port to Marshmallow [3/5]
 
     class SettingsObserver extends ContentObserver {
         SettingsObserver(Handler handler) {
@@ -371,10 +400,15 @@ public class StatusBarWindowView extends FrameLayout {
 
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
+<<<<<<< HEAD
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN), false, this);
+=======
+            resolver.registerContentObserver(Settings.System.getUriFor(Settings.System.DOUBLE_TAP_SLEEP_GESTURE), false,
+                    this);
+>>>>>>> 6c4a34d... Themes: Port to Marshmallow [3/5]
             update();
         }
 
@@ -395,11 +429,19 @@ public class StatusBarWindowView extends FrameLayout {
 
         public void update() {
             ContentResolver resolver = mContext.getContentResolver();
+<<<<<<< HEAD
             mDoubleTapToSleepEnabled = Settings.System.getInt(
                     resolver, Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1) == 1;
             mDoubleTapToSleepLockScreen = Settings.System.getIntForUser(resolver,
                     Settings.System.DOUBLE_TAP_SLEEP_LOCK_SCREEN, 0, UserHandle.USER_CURRENT) == 1;
         }
     }
+=======
+            mDoubleTapToSleepEnabled = Settings.System
+                    .getInt(resolver, Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1) == 1;
+        }
+    }
+>>>>>>> 39f7484... Themes: Port to CM13 [1/3]
+>>>>>>> 6c4a34d... Themes: Port to Marshmallow [3/5]
 }
 
