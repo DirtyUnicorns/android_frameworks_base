@@ -17,6 +17,7 @@
 
 package android.content.pm;
 
+import android.app.ComposedIconInfo;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -456,4 +457,9 @@ interface IPackageManager {
     KeySet getSigningKeySet(String packageName);
     boolean isPackageSignedByKeySet(String packageName, in KeySet ks);
     boolean isPackageSignedByKeySetExactly(String packageName, in KeySet ks);
+
+    /** Themes */
+    void updateIconMapping(String pkgName);
+    ComposedIconInfo getComposedIconInfo();
+    int processThemeResources(String themePkgName);
 }
