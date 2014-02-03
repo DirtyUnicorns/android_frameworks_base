@@ -3155,6 +3155,12 @@ public final class Settings {
         public static final String HALO_MSGBOX = "halo_msgbox";
 
         /**
+         * Alternative recent apps integration using OmniSwitch
+         * @hide
+         */
+        public static final String RECENTS_USE_OMNISWITCH = "recents_use_omniswitch";
+
+        /**
          * HALO notificatoin count?, should default to 4 (both)
          * @hide
          */
@@ -4259,16 +4265,6 @@ public final class Settings {
          * @hide
          */
         public static final String CALL_FLIP_ACTION_KEY = "call_flip_action_key";
-
-        /**
-         * @hide
-         */
-        public static final String LARGE_RECENT_THUMBS = "large_recent_thumbs";
-
-        /**
-         * @hide
-         */
-        public static final String RECENTS_PANEL_COLOR = "recents_panel_color";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
