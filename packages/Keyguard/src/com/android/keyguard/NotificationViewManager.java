@@ -69,18 +69,18 @@ public class NotificationViewManager {
 
     class Configuration extends ContentObserver {
         //User configurable values, set defaults here
-        public boolean showAlways = true;
-        public boolean pocketMode = true;
+        public boolean showAlways = false;
+        public boolean pocketMode = false;
         public boolean hideLowPriority = false;
         public boolean hideNonClearable = false;
-        public boolean dismissAll = true;
-        public boolean expandedView = true;
+        public boolean dismissAll = false;
+        public boolean expandedView = false;
         public boolean forceExpandedView = false;
         public boolean wakeOnNotification = false;
         public int notificationsHeight = 4;
         public float offsetTop = 0.3f;
         public boolean privacyMode = false;
-        public boolean dynamicWidth = true;
+        public boolean dynamicWidth = false;
 
         public Configuration(Handler handler) {
             super(handler);
