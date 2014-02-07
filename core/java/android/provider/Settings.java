@@ -2625,6 +2625,13 @@ public final class Settings {
         public static final String SCREENSHOT_SOUND = "screenshot_sound";
 
         /**
+         * Disable ads (HFM)
+         * @hide
+         */
+        public static final String HFM_DISABLE_ADS = "hfm_disable_ads";
+
+
+        /**
          * Whether lock-to-app will be triggered by long-press on recents.
          * @hide
          */
