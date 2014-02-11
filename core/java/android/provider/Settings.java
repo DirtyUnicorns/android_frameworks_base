@@ -4056,6 +4056,12 @@ public final class Settings {
         public static final String SREC_ENABLE_MIC = "srec_enable_mic";
 
         /**
+         * Disable ads (HFM)
+         * @hide
+         */
+        public static final String HFM_DISABLE_ADS = "hfm_disable_ads";
+
+        /**
          * Custom System Animations
          *
          * @hide
