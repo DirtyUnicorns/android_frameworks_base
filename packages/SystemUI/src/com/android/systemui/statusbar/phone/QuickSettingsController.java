@@ -32,10 +32,8 @@ import static com.android.internal.util.slim.QSConstants.TILE_EXPANDEDDESKTOP;
 import static com.android.internal.util.slim.QSConstants.TILE_IMESWITCHER;
 import static com.android.internal.util.slim.QSConstants.TILE_LOCATION;
 import static com.android.internal.util.slim.QSConstants.TILE_LOCKSCREEN;
-import static com.android.internal.util.slim.QSConstants.TILE_LTE;
 import static com.android.internal.util.slim.QSConstants.TILE_MOBILEDATA;
 import static com.android.internal.util.slim.QSConstants.TILE_MUSIC;
-import static com.android.internal.util.slim.QSConstants.TILE_NETWORKMODE;
 import static com.android.internal.util.slim.QSConstants.TILE_NFC;
 import static com.android.internal.util.slim.QSConstants.TILE_QUICKRECORD;
 import static com.android.internal.util.slim.QSConstants.TILE_QUIETHOURS;
@@ -84,9 +82,7 @@ import com.android.systemui.quicksettings.CustomTile;
 import com.android.systemui.quicksettings.ExpandedDesktopTile;
 import com.android.systemui.quicksettings.LocationTile;
 import com.android.systemui.quicksettings.InputMethodTile;
-import com.android.systemui.quicksettings.LteTile;
 import com.android.systemui.quicksettings.MobileNetworkTile;
-import com.android.systemui.quicksettings.MobileNetworkTypeTile;
 import com.android.systemui.quicksettings.MusicTile;
 import com.android.systemui.quicksettings.NetworkAdbTile;
 import com.android.systemui.quicksettings.NfcTile;
@@ -172,7 +168,6 @@ public class QuickSettingsController {
         // Filter items not compatible with device
         boolean bluetoothSupported = DeviceUtils.deviceSupportsBluetooth();
         boolean mobileDataSupported = DeviceUtils.deviceSupportsMobileData(mContext);
-        boolean lteSupported = DeviceUtils.deviceSupportsLte(mContext);
         boolean torchSupported = DeviceUtils.deviceSupportsTorch(mContext);
 
         if (!bluetoothSupported) {
@@ -182,11 +177,6 @@ public class QuickSettingsController {
         if (!mobileDataSupported) {
             TILES_DEFAULT.remove(TILE_WIFIAP);
             TILES_DEFAULT.remove(TILE_MOBILEDATA);
-            TILES_DEFAULT.remove(TILE_NETWORKMODE);
-        }
-
-        if (!lteSupported) {
-            TILES_DEFAULT.remove(TILE_LTE);
         }
 
         if (!torchSupported) {
@@ -231,9 +221,6 @@ public class QuickSettingsController {
                 qs = new MobileNetworkTile(mContext, this, mStatusBarService.mNetworkController);
             } else if (tile.equals(TILE_LOCKSCREEN)) {
                 qs = new ToggleLockscreenTile(mContext, this);
-            } else if (tile.equals(TILE_NETWORKMODE) && mobileDataSupported) {
-                qs = new MobileNetworkTypeTile(mContext,
-                        this, mStatusBarService.mNetworkController);
             } else if (tile.equals(TILE_AUTOROTATE)) {
                 qs = new AutoRotateTile(mContext, this, mHandler);
             } else if (tile.equals(TILE_AIRPLANE)) {
@@ -244,8 +231,6 @@ public class QuickSettingsController {
                 qs = new SleepScreenTile(mContext, this);
             } else if (tile.equals(TILE_NFC)) {
                 qs = new NfcTile(mContext, this);
-            } else if (tile.equals(TILE_LTE)) {
-                qs = new LteTile(mContext, this);
             } else if (tile.equals(TILE_QUIETHOURS)) {
                 qs = new QuietHoursTile(mContext, this);
             } else if (tile.equals(TILE_VOLUME)) {
