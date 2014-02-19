@@ -342,4 +342,7 @@
     <!-- Doze: shake accelerometer threshold minimum is 2 and maximum is 10-->
     <integer name="doze_shake_accelerometer_threshold">10</integer>
 
+    <!-- Default value how much apps show the app screenshot on recents view entry -->
+    <integer name="expanded_items_default">2</integer>
+
 </resources>
