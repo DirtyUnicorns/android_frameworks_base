@@ -434,6 +434,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DISABLE_CAMERA_WIDGET),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.CUSTOM_RECENT),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -1246,6 +1249,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
 
     private void prepareNavigationBarView() {
         mNavigationBarView.reorient();
+        final boolean mCustomRecent = Settings.System.getBoolean(mContext.getContentResolver(),
+                        Settings.System.CUSTOM_RECENT, false);
 
         mNavigationBarView.setListeners(mRecentsClickListener, mRecentsLongClickListener,
                 mRecentsPreloadOnTouchListener, mHomeSearchActionListener);
@@ -3363,6 +3368,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         }
         repositionNavigationBar();
          */
+
+        rebuildRecentsScreen();
 
         // recreate StatusBarIconViews.
         for (int i = 0; i < nIcons; i++) {
