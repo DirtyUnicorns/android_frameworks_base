@@ -1897,10 +1897,6 @@
   <java-symbol type="drawable" name="stat_notify_privacy_guard_off_plus" />
   <java-symbol type="drawable" name="stat_notify_privacy_guard_custom_plus" />
 
-  <!-- DU Easter Egg -->
-  <java-symbol type="drawable" name="dirtyunicorns_bg_logo" />
-  <java-symbol type="drawable" name="dirtyunicorns_logo" />
-
   <!-- Profiles -->
   <java-symbol type="xml" name="profile_default" />
   <java-symbol type="string" name="wildcardProfile" />
@@ -1942,5 +1938,9 @@
   <java-symbol type="drawable" name="ic_navigation_ring_torch_on" />
   <java-symbol type="drawable" name="ic_navigation_ring_torch_off" />
   <java-symbol type="drawable" name="ic_navigation_ring_vibrate" />
+
+  <!-- DU Easter Egg -->
+  <java-symbol type="drawable" name="dirtyunicorns_bg_logo" />
+  <java-symbol type="drawable" name="dirtyunicorns_logo" />
 
 </resources>
