@@ -168,6 +168,16 @@ please see styles_device_defaults.xml.
         <item name="windowExitAnimation">@anim/slide_out_left</item>
     </style>
 
+    <style name="Animation.Toast.SlideRightLeft">
+        <item name="windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="windowExitAnimation">@anim/slide_out_left</item>
+    </style>
+
+    <style name="Animation.Toast.SlideLeftRight">
+        <item name="windowEnterAnimation">@anim/slide_in_left</item>
+        <item name="windowExitAnimation">@anim/slide_out_right</item>
+    </style>
+
     <style name="Animation.Toast.Xylon">
         <item name="windowEnterAnimation">@anim/xylon_toast_enter</item>
         <item name="windowExitAnimation">@anim/xylon_toast_exit</item>
