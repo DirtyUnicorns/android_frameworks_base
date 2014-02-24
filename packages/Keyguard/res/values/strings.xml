@@ -62,7 +62,7 @@
 
     <!-- When the lock screen is showing and the battery is low, warn user to plug
          in the phone soon. -->
-    <string name="keyguard_low_battery">Connect your charger.</string>
+    <string name="keyguard_low_battery">Connect your charger!</string>
 
     <!-- On the keyguard screen, when pattern lock is disabled, only tell them to press menu to unlock.  This is shown in small font at the bottom. -->
     <string name="keyguard_instructions_when_pattern_disabled">Press Menu to unlock.</string>
@@ -373,7 +373,7 @@
 
     <!-- On the keyguard screen, it shows the carrier the phone is connected to.
         This is displayed if the phone is not connected to a carrier.-->
-    <string name="keyguard_carrier_default">No service.</string>
+    <string name="keyguard_carrier_default">No service</string>
 
     <!-- Description of the Random button in a KeyboardView. [CHAR LIMIT=NONE] -->
     <string name="keyboardview_keycode_random">Reload random buttons</string>
