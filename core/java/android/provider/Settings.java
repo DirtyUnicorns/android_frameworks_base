@@ -2704,6 +2704,12 @@ public final class Settings {
         public static final String STATUS_BAR_TRAFFIC_HIDE = "status_bar_traffic_hide";
 
         /**
+        * ToastAnimation
+        * @hide
+        */
+        public static final String TOAST_ANIMATION = "toast_animation";
+
+        /**
          * Whether to show the network status in the status bar
          * @hide
          */
