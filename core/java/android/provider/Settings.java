@@ -2710,6 +2710,12 @@ public final class Settings {
         public static final String TOAST_ANIMATION = "toast_animation";
 
         /**
+        * Bold Clock
+        * @hide
+        */
+        public static final String STATUS_BAR_BOLD_CLOCK = "status_bar_bold_clock";
+
+        /**
          * Whether to show the network status in the status bar
          * @hide
          */
