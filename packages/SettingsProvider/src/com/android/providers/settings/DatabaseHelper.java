@@ -2004,6 +2004,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             loadIntegerSetting(stmt, Settings.System.POINTER_SPEED,
                     R.integer.def_pointer_speed);
+
+            loadBooleanSetting(stmt, Settings.System.SHOW_4G_FOR_LTE,
+                    R.bool.def_show_4g_for_lte);
+
         } finally {
             if (stmt != null) stmt.close();
         }

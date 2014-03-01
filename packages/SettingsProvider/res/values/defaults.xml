@@ -179,4 +179,8 @@
 
     <!-- Default for Settings.Global.TETHER_DUN_REQUIRED -->
     <integer name="def_tether_dun_required">0</integer>
+
+    <!-- Default setting for showing the 4G indicator -->
+    <bool name="def_show_4g_for_lte">false</bool>
+
 </resources>
