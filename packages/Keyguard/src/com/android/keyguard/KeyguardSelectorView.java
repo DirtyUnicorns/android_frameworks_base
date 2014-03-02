@@ -500,16 +500,9 @@ if (mStoredTargets == null) {
 
     private void startGlowpadTorch() {
         if (mGlowTorch) {
-            mHandler.removeCallbacks(checkDouble);
             mHandler.removeCallbacks(checkLongPress);
-            if (mTaps > 0) {
-                mHandler.postDelayed(checkLongPress,
-                        ViewConfiguration.getLongPressTimeout());
-                mTaps = 0;
-            } else {
-                mTaps += 1;
-                mHandler.postDelayed(checkDouble, 400);
-            }
+            mHandler.postDelayed(checkLongPress,
+                    ViewConfiguration.getLongPressTimeout());
         }
     }
 
@@ -537,12 +530,6 @@ if (mStoredTargets == null) {
             Intent intent = new Intent(TorchConstants.ACTION_ON);
             mContext.sendBroadcastAsUser(
                     intent, new UserHandle(UserHandle.USER_CURRENT));
-        }
-    };
-
-    final Runnable checkDouble = new Runnable () {
-        public void run() {
-            mTaps = 0;
         }
     };
 
