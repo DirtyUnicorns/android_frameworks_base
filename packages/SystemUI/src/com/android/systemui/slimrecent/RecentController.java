@@ -262,7 +262,6 @@ public class RecentController implements RecentPanelView.OnExitListener,
         if (mRecentPanelView != null) {
             mRecentPanelView.setCancelledByUser(true);
         }
-        hideRecents(false);
     }
 
     public void closeRecents() {
@@ -312,6 +311,7 @@ public class RecentController implements RecentPanelView.OnExitListener,
             mIsPreloaded = false;
             mIsToggled = false;
             mRecentPanelView.setTasksLoaded(false);
+            mRecentPanelView.dismissPopup();
             if (forceHide) {
                 if (DEBUG) Log.d(TAG, "force hide recent window");
                 mIsShowing = false;

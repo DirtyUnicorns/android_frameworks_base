@@ -208,4 +208,10 @@
         <item name="android:shadowRadius">1.25</item>
     </style>
 
+    <style name="RecentBaseStyle"  parent="@*android:style/Theme.Holo.Light">
+        <item name="android:popupMenuStyle">@style/RecentPopupMenu</item>
+    </style>
+
+    <style name="RecentPopupMenu" parent="@*android:style/Widget.Holo.Light.ListPopupWindow" />
+
 </resources>
