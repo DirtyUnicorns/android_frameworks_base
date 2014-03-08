@@ -502,7 +502,7 @@ if (mStoredTargets == null) {
         if (mGlowTorch) {
             mHandler.removeCallbacks(checkLongPress);
             mHandler.postDelayed(checkLongPress,
-                    ViewConfiguration.getLongPressTimeout());
+                    900);
         }
     }
 
