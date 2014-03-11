@@ -4450,6 +4450,8 @@ public class PackageManagerService extends IPackageManager.Stub {
                                 + " to " + scanFile);
                         updatedPkg.codePath = scanFile;
                         updatedPkg.codePathString = scanFile.toString();
+                        updatedPkg.resourcePath = scanFile;
+                        updatedPkg.resourcePathString = scanFile.toString();
                     }
                     updatedPkg.pkg = pkg;
                     throw new PackageManagerException(INSTALL_FAILED_DUPLICATE_PACKAGE, null);
