@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util;
+package com.android.internal.util.aokp;
 
 import java.util.ArrayList;
 import java.util.Random;

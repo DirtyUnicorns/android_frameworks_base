@@ -4028,7 +4028,137 @@ public final class Settings {
         public static final String QUIET_HOURS_HAPTIC = "quiet_hours_haptic";
 
         /**
-         * Whether to remove the vibration from outgoing notifications during quiet hours.
+         *
+         * @hide
+         */
+        public static final String[] ACTIVITY_ANIMATION_CONTROLS = new String[] {
+                "activity_open",
+                "activity_close",
+                "task_open",
+                "task_close",
+                "task_to_front",
+                "task_to_back",
+                "wallpaper_open",
+                "wallpaper_close",
+                "wallpaper_intra_open",
+                "wallpaper_intra_close",
+        };
+
+        /**
+         *
+         * @hide
+         */
+        public static final String ANIMATION_CONTROLS_DURATION = "animation_controls_duration";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String ANIMATION_CONTROLS_NO_SCROLL = "animation_controls_no_scroll";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String ANIMATION_CONTROLS_NO_OVERRIDE = "animation_controls_no_override";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String LISTVIEW_ANIMATION_CACHE = "listview_animation_cache";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String LISTVIEW_ANIMATION_EXCLUDED_APPS = "listview_animation_excluded_apps";
+
+        /**
+         * ListView Animations
+         * 0 == None
+         * 1 == Wave (Left)
+         * 2 == Wave (Right)
+         * 3 == Scale
+         * 4 == Alpha
+         * 5 == Stack (Top)
+         * 6 == Stack (Bottom)
+         * 7 == Translate (Left)
+         * 8 == Translate (Right)
+         * @hide
+         */
+        public static final String LISTVIEW_ANIMATION = "listview_animation";
+
+        /**
+         * ListView Interpolators
+         * 0 == None
+         * 1 == accelerate_interpolator
+         * 2 == decelerate_interpolator
+         * 3 == accelerate_decelerate_interpolator
+         * 4 == anticipate_interpolator
+         * 5 == overshoot_interpolator
+         * 6 == anticipate_overshoot_interpolator
+         * 7 == bounce_interpolator
+         * @hide
+         */
+        public static final String LISTVIEW_INTERPOLATOR = "listview_interpolator";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String LISTVIEW_DURATION = "listview_duration";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String ANIMATION_IME_DURATION = "animation_ime_duration";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String ANIMATION_IME_ENTER = "animation_ime_enter";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String ANIMATION_IME_EXIT = "animation_ime_exit";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String ANIMATION_IME_INTERPOLATOR = "animation_ime_interpolator";
+
+        /**
+         * Determine custom scroll friction.
+         * @hide
+         */
+        public static final String CUSTOM_SCROLL_FRICTION = "custom_scroll_friction";
+
+        /**
+         * Determine custom fling velocity.
+         * @hide
+         */
+        public static final String CUSTOM_FLING_VELOCITY = "custom_fling_velocity";
+
+        /**
+         * Determine custom overscroll distance.
+         * @hide
+         */
+        public static final String CUSTOM_OVERSCROLL_DISTANCE = "custom_overscroll_distance";
+
+        /**
+         * Determine custom overfling distance.
+         * @hide
+         */
+        public static final String CUSTOM_OVERFLING_DISTANCE = "custom_overfling_distance";
+
+        /**
+         * Turn screen on when pulled out of pocket even if no notifications are pending
          * @hide
          */
         public static final String QUIET_HOURS_STILL = "quiet_hours_still";
@@ -4228,26 +4358,6 @@ public final class Settings {
         public static final String HFM_DISABLE_ADS = "hfm_disable_ads";
 
         /**
-         * Custom System Animations
-         *
-         * @hide
-         */
-        public static final String[] ACTIVITY_ANIMATION_CONTROLS = new String[] {
-                "activity_open",
-                "activity_close",
-                "task_open",
-                "task_close",
-                "task_to_front",
-                "task_to_back",
-                "wallpaper_open",
-                "wallpaper_close",
-                "wallpaper_intra_open",
-                "wallpaper_intra_close",
-        };
-        public static final String ANIMATION_CONTROLS_DURATION = "animation_controls_duration";
-        public static final String ANIMATION_CONTROLS_NO_OVERRIDE = "animation_controls_no_override";
-
-        /**
          * Whether to unlock the menu key.  The value is boolean (1 or 0).
          * @hide
          */
@@ -4362,30 +4472,6 @@ public final class Settings {
         public static final String RECENTS_RAM_BAR_ACTIVE_APPS_COLOR = "recents_ram_bar_active_apps_color";
 
         /**
-         * ListView Animations
-         * 0 == None
-         * 1 == Wave (Left)
-         * 2 == Wave (Right)
-         * 3 == Scale
-         * 4 == Alpha
-         * 5 == Stack (Top)
-         * 6 == Stack (Bottom)
-         * 7 == Translate (Left)
-         * 8 == Translate (Right)
-         * @hide
-         */
-        public static final String LISTVIEW_ANIMATION = "listview_animation";
-
-        /**
-         * ListView Interpolators
-         * 0 == None
-         * 1 == accelerate_interpolator
-         * 2 == decelerate_interpolator
-         * 3 == accelerate_decelerate_interpolator
-         * 4 == anticipate_interpolator
-         * 5 == overshoot_interpolator
-         * 6 == anticipate_overshoot_interpolator
-         * 7 == bounce_interpolator
          * Show lockscreen notifications extended when possible
          * @hide
          */
@@ -4415,13 +4501,6 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_NOTIFICATIONS_EXCLUDED_APPS = "lockscreen_notifications_excluded_apps";
-
-        /**
-         * Should call status sounds be player
-         *
-         * @hide
-         */
-        public static final String LISTVIEW_INTERPOLATOR = "listview_interpolator";
 
         /**
          * Whether or not volume button music controls should be enabled to seek media tracks
