@@ -3552,6 +3552,11 @@ public final class Settings {
         public static final String EMULATE_HW_MENU_KEY = "emulate_hw_menu_key";
 
         /**
+         * @hide
+         */
+        public static final String RECENTS_PANEL_COLOR = "recents_panel_color";
+
+        /**
          * Force show overflow (3dot) menu for devices that have a hw menu key
          * Can be used for custom button assignment and force soft key use-cases
          * @hide
