@@ -209,11 +209,6 @@ if (mStoredTargets == null) {
         }
 
         @Override
-        protected void dismissKeyguardOnNextActivity() {
-            getCallback().dismiss(false);
-        }
-
-        @Override
         Context getContext() {
             return mContext;
         }
