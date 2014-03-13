@@ -171,6 +171,9 @@
     <!-- Title shown in recents popup for unlocking an app from being cleared -->
     <string name="status_bar_recent_unlock_item_title">Unlock</string>
 
+    <!-- Hide Them Shitz -->
+    <string name="status_bar_notification_hide_icon_packages">Hide notification icon</string>
+
     <!-- Slim recents -->
     <string name="status_bar_recent_playstore_item_title">Play Store</string>
     <string name="status_bar_recent_amazon_item_title">Amazon Store</string>
