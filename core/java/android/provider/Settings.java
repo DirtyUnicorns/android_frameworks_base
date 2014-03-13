@@ -3576,14 +3576,6 @@ public final class Settings {
         public static final String APP_SIDEBAR_ITEM_SIZE = "app_sidebar_item_size";
 
         /**
-         * List of apps to exclude from sidebar
-         * Should Dialer suggest nearby phone numbers
-         *
-         * @hide
-         */
-        public static final String ENABLE_DIALER_SUGGESTIONS = "enable_dialer_suggestions";
-
-        /**
          * Should Flip to Silence be used
          *
          * @hide
