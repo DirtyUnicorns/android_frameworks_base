@@ -5189,6 +5189,12 @@ public final class Settings {
         public static final String PIE_LAST_APP = "pie_last_app";
 
         /**
+         * Navigation glow time
+         * @hide
+         */
+        public static final String NAVIGATION_BUTTON_GLOW_TIME = "navigation_button_glow_time";
+
+        /**
          * Pie kill task, default to 0 (off)
          * @hide
          */
