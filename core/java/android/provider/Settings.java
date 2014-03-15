@@ -4312,6 +4312,12 @@ public final class Settings {
         public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
 
         /**
+         * Disable profiles in power menu even if is enabled
+         * @hide
+         */
+        public static final String SHOW_PROFILES = "show_profiles";
+
+        /**
          * @hide
          */
         public static final String START_SCREEN_STATE_SERVICE = "start_screen_state_service";
