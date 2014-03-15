@@ -17,16 +17,21 @@
 package com.android.systemui.nameless.onthego;
 
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CompoundButton;
 import android.widget.SeekBar;
+import android.widget.Switch;
 
+import com.android.internal.util.nameless.NamelessUtils;
 import com.android.systemui.R;
 
 public class OnTheGoDialog extends Dialog {
@@ -43,8 +48,6 @@ public class OnTheGoDialog extends Dialog {
                 OnTheGoDialog.this.dismiss();
             }
         }
-
-        ;
     };
 
     public OnTheGoDialog(Context ctx) {
@@ -52,9 +55,9 @@ public class OnTheGoDialog extends Dialog {
         mContext = ctx;
         final Resources r = mContext.getResources();
         mOnTheGoDialogLongTimeout =
-                r.getInteger(R.integer.quick_settings_brightness_dialog_long_timeout);
+                r.getInteger(R.integer.quick_settings_onthego_dialog_long_timeout);
         mOnTheGoDialogShortTimeout =
-                r.getInteger(R.integer.quick_settings_brightness_dialog_short_timeout);
+                r.getInteger(R.integer.quick_settings_onthego_dialog_short_timeout);
     }
 
     @Override
@@ -70,8 +73,10 @@ public class OnTheGoDialog extends Dialog {
         setContentView(R.layout.quick_settings_onthego_dialog);
         setCanceledOnTouchOutside(true);
 
+        final ContentResolver resolver = mContext.getContentResolver();
+
         final SeekBar mSlider = (SeekBar) findViewById(R.id.alpha_slider);
-        final float value = Settings.System.getFloat(mContext.getContentResolver(),
+        final float value = Settings.System.getFloat(resolver,
                 Settings.System.ON_THE_GO_ALPHA,
                 0.5f);
         final int progress = ((int) (value * 100));
@@ -92,6 +97,41 @@ public class OnTheGoDialog extends Dialog {
                 dismissOnTheGoDialog(mOnTheGoDialogShortTimeout);
             }
         });
+
+        if (!NamelessUtils.hasFrontCamera(getContext())) {
+            findViewById(R.id.onthego_category_1).setVisibility(View.GONE);
+        } else {
+            final Switch mServiceToggle = (Switch) findViewById(R.id.onthego_service_toggle);
+            final boolean restartService = Settings.System.getBoolean(resolver,
+                    Settings.System.ON_THE_GO_SERVICE_RESTART,
+                    false);
+            mServiceToggle.setChecked(restartService);
+            mServiceToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    Settings.System.putBoolean(resolver,
+                            Settings.System.ON_THE_GO_SERVICE_RESTART,
+                            b);
+                    dismissOnTheGoDialog(mOnTheGoDialogShortTimeout);
+                }
+            });
+
+            final Switch mCamSwitch = (Switch) findViewById(R.id.onthego_camera_toggle);
+            final boolean useFrontCam = (Settings.System.getInt(resolver,
+                    Settings.System.ON_THE_GO_CAMERA,
+                    0) == 1);
+            mCamSwitch.setChecked(useFrontCam);
+            mCamSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    Settings.System.putInt(resolver,
+                            Settings.System.ON_THE_GO_CAMERA,
+                            (b ? 1 : 0));
+                    sendCameraBroadcast();
+                    dismissOnTheGoDialog(mOnTheGoDialogShortTimeout);
+                }
+            });
+        }
     }
 
     @Override
@@ -123,4 +163,11 @@ public class OnTheGoDialog extends Dialog {
         mContext.sendBroadcast(alphaBroadcast);
     }
 
+    private void sendCameraBroadcast() {
+        final Intent cameraBroadcast = new Intent();
+        cameraBroadcast.setAction(OnTheGoService.ACTION_TOGGLE_CAMERA);
+        mContext.sendBroadcast(cameraBroadcast);
+    }
+
 }
+

@@ -516,4 +516,8 @@
     <!-- GPS QS tile strings -->
     <string name="quick_settings_gps_on_label">GPS on</string>
     <string name="quick_settings_gps_off_label">GPS off</string>
+
+    <!-- On-The-Go Mode -->
+    <string name="quick_settings_onthego_back">Rear Camera</string>
+    <string name="quick_settings_onthego_front">Front Camera</string>
 </resources>

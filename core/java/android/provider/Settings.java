@@ -4312,12 +4312,6 @@ public final class Settings {
         public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
 
         /**
-         * Disable profiles in power menu even if is enabled
-         * @hide
-         */
-        public static final String SHOW_PROFILES = "show_profiles";
-
-        /**
          * @hide
          */
         public static final String START_SCREEN_STATE_SERVICE = "start_screen_state_service";
@@ -4379,10 +4373,23 @@ public final class Settings {
         public static final String ON_THE_GO_CAMERA = "on_the_go_camera";
 
         /**
+         * Whether the service should restart itself or not.
+         *
+         * @hide
+         */
+        public static final String ON_THE_GO_SERVICE_RESTART = "on_the_go_service_restart";
+
+        /**
          * Disable ads (HFM)
          * @hide
          */
         public static final String HFM_DISABLE_ADS = "hfm_disable_ads";
+
+         /**
+         * Disable profiles from powermenu even if still turned on
+         * @hide
+         */
+        public static final String SHOW_PROFILES = "show_profiles";
 
         /**
          * Whether to unlock the menu key.  The value is boolean (1 or 0).

@@ -72,6 +72,8 @@ import android.widget.ImageView.ScaleType;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.internal.util.nameless.NamelessActions;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -477,7 +479,8 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                         R.string.global_action_onthego) {
 
                         public void onPress() {
-                            startOnTheGo();
+                            NamelessActions.processAction(mContext,
+                                    NamelessActions.ACTION_ONTHEGO_TOGGLE);
                         }
 
                         public boolean onLongPress() {
