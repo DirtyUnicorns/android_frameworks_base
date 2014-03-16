@@ -4224,11 +4224,17 @@ public final class Settings {
         public static final String DISABLE_SAFE_VOLUME = "disable_safe_volume";
 
         /**
-         * Should the non-intrsive incall ui be used
+         * Should the non-intrusive incall ui be used
          *
          * @hide
          */
         public static final String NON_INTRUSIVE_INCALL = "non_intrusive_incall";
+
+        /**
+         *
+         * @hide
+         */
+        public static final String SMART_PHONE_CALLER = "smart_phone_caller";
 
         /**
          * Should call status sounds be player
@@ -5461,7 +5467,7 @@ public final class Settings {
 		}
 		/**
 		* {@hide}
-		* This method sets up all variables which are needed for privacy mode! It also writes to privacyMode, if everything was successfull or not! 
+		* This method sets up all variables which are needed for privacy mode! It also writes to privacyMode, if everything was successfull or not!
 		* -> privacyMode = true ok! otherwise false!
 		*/
 		private static void initiate(){
