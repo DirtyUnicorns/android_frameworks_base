@@ -63,4 +63,7 @@
   <!-- On-The-Go -->
   <java-symbol type="string" name="global_action_onthego" />
   <java-symbol type="drawable" name="ic_lock_onthego" />
+
+  <!-- Camera Button Support -->
+  <java-symbol type="bool" name="config_singleStageCameraKey" />
 </resources>
