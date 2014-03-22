@@ -340,6 +340,7 @@ public class RecentPanelView {
         // Clear all relevant values.
         mTasks.clear();
         mCards.clear();
+        mCardArrayAdapter.notifyDataSetChanged();
         mTasksSize = 0;
         return true;
     }
