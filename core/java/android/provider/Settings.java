@@ -3425,6 +3425,9 @@ public final class Settings {
         /** @hide */
         public static final String SYSTEM_ICON_COLOR = "system_icon_color";
 
+        /** @hide */
+        public static final String CUSTOM_STATUS_BAR_APPLY = "custom_status_bar_apply";
+
         /**
          * Whether national data roaming should be used.
          * @hide
