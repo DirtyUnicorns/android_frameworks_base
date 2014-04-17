@@ -11655,7 +11655,8 @@ public class View implements Drawable.Callback, KeyEvent.Callback,
             scrollCache.scrollBar = new ScrollBarDrawable();
         }
 
-        if (isHorizontalScrollBarEnabled() || isVerticalScrollBarEnabled()) {
+        if (isHorizontalScrollBarEnabled() ||
+                (isVerticalScrollBarEnabled() && !isVerticalScrollBarHidden())) {
 
             if (invalidate) {
                 // Invalidate to show the scrollbars
