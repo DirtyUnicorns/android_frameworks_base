@@ -4084,7 +4084,7 @@ public class ConnectivityService extends IConnectivityManager.Stub {
             CheckMp.Params params =
                     new CheckMp.Params(checkMp.getDefaultUrl(), timeOutMs, cb);
             if (DBG) log("checkMobileProvisioning: params=" + params);
-            checkMp.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, params);
+            checkMp.execute(params);
         } finally {
             Binder.restoreCallingIdentity(token);
             if (DBG) log("checkMobileProvisioning: X");
