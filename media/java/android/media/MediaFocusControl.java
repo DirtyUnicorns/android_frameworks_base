@@ -864,7 +864,8 @@ public class MediaFocusControl implements OnFinished {
         synchronized(mRingingLock) {
             synchronized(mPRStack) {
                 if ((mMediaReceiverForCalls != null) &&
-                        (mIsRinging || (mAudioService.getMode() == AudioSystem.MODE_IN_CALL))) {
+                        (mIsRinging || (mAudioService.getMode() == AudioSystem.MODE_IN_CALL) ||
+                        (mAudioService.getMode() == AudioSystem.MODE_IN_COMMUNICATION))) {
                     dispatchMediaKeyEventForCalls(keyEvent, needWakeLock);
                     return;
                 }
