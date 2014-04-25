@@ -537,7 +537,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub {
         loadSettingsLocked(UserHandle.USER_OWNER);
         loadKeyguardSettingsLocked(UserHandle.USER_OWNER);
     }
-    
+
     private static File getWallpaperDir(int userId) {
         return Environment.getUserSystemDirectory(userId);
     }
