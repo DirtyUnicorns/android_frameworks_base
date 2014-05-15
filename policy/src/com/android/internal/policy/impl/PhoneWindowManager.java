@@ -541,8 +541,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mIsFocusPressed;
     // Behavior of volbtn/camera music controls
     boolean mCameraMusicControls;
-    private boolean mVolumeMusicControls;
-    private boolean mIsLongPress;
     private boolean mVolumeMusicControl;
     private boolean mIsVolumeKeyLongPress;
     boolean mCameraKeyPressable = false;
@@ -647,7 +645,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     Settings.System.VOLUME_WAKE_SCREEN), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.VOLUME_MUSIC_CONTROL), false, this,
+                    Settings.System.VOLUME_MUSIC_CONTROLS), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.CAMERA_WAKE_SCREEN), false, this,
@@ -696,9 +694,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.IMMERSIVE_MODE), false, this,
-                    UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.VOLUME_MUSIC_CONTROLS), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.ACCELEROMETER_ROTATION_ANGLES), false, this,
@@ -1504,13 +1499,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mCameraSleepOnRelease = ((Settings.System.getIntForUser(resolver,
                     Settings.System.CAMERA_SLEEP_ON_RELEASE, 0, UserHandle.USER_CURRENT) == 1)
                     && mCameraWakeScreen);
-            mVolumeMusicControls = Settings.System.getIntForUser(resolver,
-                    Settings.System.VOLUME_MUSIC_CONTROLS, 0, UserHandle.USER_CURRENT) != 0;
             mCameraMusicControls = ((Settings.System.getIntForUser(resolver,
                     Settings.System.CAMERA_MUSIC_CONTROLS, 1, UserHandle.USER_CURRENT) == 1)
                     && !mCameraWakeScreen);
             mVolumeMusicControl = Settings.System.getIntForUser(resolver,
-                    Settings.System.VOLUME_MUSIC_CONTROL, 0, UserHandle.USER_CURRENT) != 0;
+                    Settings.System.VOLUME_MUSIC_CONTROLS, 0, UserHandle.USER_CURRENT) != 0;
 
             updateKeyAssignments();
 
@@ -4735,8 +4728,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         }
                     }
                 }
-                if (keyCode != KeyEvent.KEYCODE_VOLUME_MUTE && (result & ACTION_PASS_TO_USER) == 0) {
-                    if (isMusicActive() && mVolumeMusicControl && down) {
+                if (isMusicActive() && (result & ACTION_PASS_TO_USER) == 0) {
+                    if (mVolumeMusicControl && down && (keyCode != KeyEvent.KEYCODE_VOLUME_MUTE)) {
                         mIsVolumeKeyLongPress = false;
                         Message msg = null;
 
@@ -4760,45 +4753,18 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             }
                         }
                         if (!isScreenOn && !mVolumeWakeScreen) {
-                            handleVolumeKey(AudioManager.STREAM_MUSIC, keyCode);
-                        }
-                    }
-
-                    if (isScreenOn || !mVolumeWakeScreen) {
-                        break;
-                    } else {
-                        result |= ACTION_WAKE_UP;
-                        break;
-                    }
-                }
-                if (isMusicActive() && (result & ACTION_PASS_TO_USER) == 0) {
-                    if (mVolumeMusicControls && down && (keyCode != KeyEvent.KEYCODE_VOLUME_MUTE)) {
-                        mIsLongPress = false;
-                        int newKeyCode = event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP ?
-                                KeyEvent.KEYCODE_MEDIA_NEXT : KeyEvent.KEYCODE_MEDIA_PREVIOUS;
-                        Message msg = mHandler.obtainMessage(MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK,
-                                new KeyEvent(event.getDownTime(), event.getEventTime(),
-                                    event.getAction(), newKeyCode, 0));
-                        msg.setAsynchronous(true);
-                        mHandler.sendMessageDelayed(msg, ViewConfiguration.getLongPressTimeout());
-                        break;
-                    } else {
-                        if (mVolumeMusicControls && !down) {
-                            mHandler.removeMessages(MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK);
-                            if (mIsLongPress) {
-                                break;
+                            if (mVolumeMusicControl) {
+                                // we will only enter this on !down
+                                handleVolumeKey(AudioManager.STREAM_MUSIC, keyCode);
+                            } else if(!down){
+                                // else we would handle it twice
+                                handleVolumeKey(AudioManager.STREAM_MUSIC, keyCode);
                             }
-                        }
-                        if (!isScreenOn && !mVolumeWakeScreen) {
-                            handleVolumeKey(AudioManager.STREAM_MUSIC, keyCode);
                         }
                     }
                 }
                 if (isScreenOn || !mVolumeWakeScreen) {
                     break;
-                } else if (keyguardActive) {
-                    keyCode = KeyEvent.KEYCODE_POWER;
-                    mPowerManager.wakeUp(SystemClock.uptimeMillis());
                 } else {
                     result |= ACTION_WAKE_UP;
                     break;
