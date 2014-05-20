@@ -51,6 +51,8 @@ public class PhoneStatusBarView extends PanelBar {
     private final PhoneStatusBarTransitions mBarTransitions;
     private GestureDetector mDoubleTapGesture;
 
+    private boolean mUseGFX;
+
     public PhoneStatusBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
@@ -77,6 +79,8 @@ public class PhoneStatusBarView extends PanelBar {
                 return true;
             }
         });
+
+        mUseGFX = ActivityManager.isHighEndGfx();
     }
 
     public BarTransitions getBarTransitions() {
@@ -187,7 +191,7 @@ public class PhoneStatusBarView extends PanelBar {
         mBar.makeExpandedInvisibleSoon();
         mFadingPanel = null;
         mLastFullyOpenedPanel = null;
-        if (mScrimColor != 0 && ActivityManager.isHighEndGfx()) {
+        if (mScrimColor != 0 && mUseGFX) {
             mBar.mStatusBarWindow.setBackgroundColor(0);
         }
     }
@@ -236,7 +240,7 @@ public class PhoneStatusBarView extends PanelBar {
         }
 
         if ((panel == mFadingPanel || mFadingPanel == null)
-                && mScrimColor != 0 && ActivityManager.isHighEndGfx()) {
+                && mScrimColor != 0 && mUseGFX) {
             if (mShouldFade) {
                 frac = mPanelExpandedFractionSum; // don't judge me
                 // let's start this 20% of the way down the screen
