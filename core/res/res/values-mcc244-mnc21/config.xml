@@ -18,7 +18,7 @@
 -->
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Don't use roaming icon for considered operators -->
+    <!-- Sunalahti: Don't use roaming icon for Elisa -->
     <string-array translatable="false" name="config_operatorConsideredNonRoaming">
         <item>24405</item>
     </string-array>
