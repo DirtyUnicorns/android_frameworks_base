@@ -385,6 +385,9 @@ public class VolumePreference extends SeekBarDialogPreference implements
         }
 
         public void onStartTrackingTouch(SeekBar seekBar) {
+            if (isSamplePlaying()) {
+                stopSample();
+            }
         }
 
         public void onStopTrackingTouch(SeekBar seekBar) {
