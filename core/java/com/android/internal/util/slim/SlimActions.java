@@ -213,6 +213,11 @@ public class SlimActions {
 
     }
 
+    public static boolean isNavBarDefault(Context context) {
+        return context.getResources().getBoolean(
+                com.android.internal.R.bool.config_showNavigationBar);
+    }
+
     private static void startActivity(Context context, IWindowManager windowManagerService,
                 boolean isKeyguardShowing, Intent intent) {
         if (intent == null) {

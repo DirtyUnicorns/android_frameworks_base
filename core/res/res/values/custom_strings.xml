@@ -17,7 +17,7 @@
     <string name="stylus_app_not_installed">%s is not installed</string>
 
     <!-- label for item that takes screenrecord in the phone options dialog -->
-    <string name="global_action_screenrecord">Screen Record</string>
+    <string name="global_action_screenrecord">Screen record</string>
 
     <!-- Button to reboot the tablet, within the Tablet Options dialog -->
     <string name="reboot_system" product="tablet">Reboot tablet</string>
@@ -124,7 +124,7 @@
     <string name="animation_random">Random</string>
 
     <!-- label for item that takes On-The-Go in the phone options dialog -->
-    <string name="global_action_onthego">On-The-Go Mode</string>
+    <string name="global_action_onthego">On-The-Go mode</string>
 
     <!-- Floating Window -->
     <string name="floating_window_snap_top">Snap top</string>
@@ -139,5 +139,12 @@
     <string name="permlab_resetBatteryStats">reset battery statistics</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
+
+    <!-- label for nav bar item in phone options dialog -->
+    <string name="global_actions_nav_bar_mode">Navigation bar</string>
+    <!-- status message in phone options dialog for when navigation bar is on -->
+    <string name="global_actions_nav_bar_mode_on_status">Navigation bar is ON</string>
+    <!-- status message in phone options dialog for when navigation bar is off -->
+    <string name="global_actions_nav_bar_mode_off_status">Navigation bar is OFF</string>
 
 </resources> 

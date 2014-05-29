@@ -5060,6 +5060,12 @@ public final class Settings {
          */
         public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
 
+        /**
+         * Wether navigation bar in power menu is enabled or not
+         * @hide
+         */
+        public static final String POWER_MENU_NAV_BAR_ENABLED = "power_menu_nav_bar_enabled";
+
     }
 
     /**
