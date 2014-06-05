@@ -63,10 +63,7 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
     private static final boolean DBG = false;
     private static final boolean DBG_LOC = false;
 
-    // BEGIN privacy-modified
-    // private static class Record {
-    public static class Record {
-    // END privacy-modified
+    private static class Record {
         String pkgForDebug;
 
         IBinder binder;
@@ -84,32 +81,29 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
         }
     }
 
-    // BEGIN privacy-modified
-    // these were all private, now protected
-
-    protected final Context mContext;
+    private final Context mContext;
 
     // access should be inside synchronized (mRecords) for these two fields
-    protected final ArrayList<IBinder> mRemoveList = new ArrayList<IBinder>();
-    protected final ArrayList<Record> mRecords = new ArrayList<Record>();
+    private final ArrayList<IBinder> mRemoveList = new ArrayList<IBinder>();
+    private final ArrayList<Record> mRecords = new ArrayList<Record>();
 
     private final IBatteryStats mBatteryStats;
 
-    protected int mCallState = TelephonyManager.CALL_STATE_IDLE;
+    private int mCallState = TelephonyManager.CALL_STATE_IDLE;
 
-    protected String mCallIncomingNumber = "";
+    private String mCallIncomingNumber = "";
 
-    protected ServiceState mServiceState = new ServiceState();
+    private ServiceState mServiceState = new ServiceState();
 
-    protected SignalStrength mSignalStrength = new SignalStrength();
+    private SignalStrength mSignalStrength = new SignalStrength();
 
-    protected boolean mMessageWaiting = false;
+    private boolean mMessageWaiting = false;
 
-    protected boolean mCallForwarding = false;
+    private boolean mCallForwarding = false;
 
-    protected int mDataActivity = TelephonyManager.DATA_ACTIVITY_NONE;
+    private int mDataActivity = TelephonyManager.DATA_ACTIVITY_NONE;
 
-    protected int mDataConnectionState = TelephonyManager.DATA_UNKNOWN;
+    private int mDataConnectionState = TelephonyManager.DATA_UNKNOWN;
 
     private boolean mDataConnectionPossible = false;
 
@@ -123,14 +117,14 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
 
     private LinkCapabilities mDataConnectionLinkCapabilities;
 
-    protected Bundle mCellLocation = new Bundle();
+    private Bundle mCellLocation = new Bundle();
 
-    protected int mDataConnectionNetworkType;
+    private int mDataConnectionNetworkType;
 
-    protected int mOtaspMode = ServiceStateTracker.OTASP_UNKNOWN;
+    private int mOtaspMode = ServiceStateTracker.OTASP_UNKNOWN;
 
-    protected List<CellInfo> mCellInfo = null;
-    // END privacy-modified
+    private List<CellInfo> mCellInfo = null;
+
     static final int PHONE_STATE_PERMISSION_MASK =
                 PhoneStateListener.LISTEN_CALL_FORWARDING_INDICATOR |
                 PhoneStateListener.LISTEN_CALL_STATE |
@@ -171,11 +165,7 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
     // calls go through a oneway interface and local calls going through a
     // handler before they get to app code.
 
-    // BEGIN privacy-modified
-    // made protected to allow subclassing
-    // TelephonyRegistry(Context context) {
-    protected TelephonyRegistry(Context context) {
-    // END privacy-modified
+    TelephonyRegistry(Context context) {
         CellLocation  location = CellLocation.getEmpty();
 
         // Note that location can be null for non-phone builds like
@@ -322,11 +312,7 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
         }
     }
 
-    // BEGIN privacy-modified
-    // made protected to allow subclassing
-    // private void remove(IBinder binder) {
-    protected void remove(IBinder binder) {
-    // END privacy-modified
+    private void remove(IBinder binder) {
         synchronized (mRecords) {
             final int recordCount = mRecords.size();
             for (int i = 0; i < recordCount; i++) {
@@ -365,15 +351,9 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
         }
         synchronized (mRecords) {
             mServiceState = state;
-            // BEGIN privacy-added
-	        mServiceState.setOperatorName("", "", "");
-	        // END privacy-added
             for (Record r : mRecords) {
                 if ((r.events & PhoneStateListener.LISTEN_SERVICE_STATE) != 0) {
                     try {
-                        // BEGIN privacy-added
-			            state.setOperatorName("", "", "");
-			            // END privacy-added
                         r.callback.onServiceStateChanged(new ServiceState(state));
                     } catch (RemoteException ex) {
                         mRemoveList.add(r.binder);
@@ -659,11 +639,7 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
     // the legacy intent broadcasting
     //
 
-    // BEGIN privacy-modified
-    // made protected to allow subclassing
-    // private void broadcastServiceStateChanged(ServiceState state) {
-    protected void broadcastServiceStateChanged(ServiceState state) {
-    // END privacy-modified
+    private void broadcastServiceStateChanged(ServiceState state) {
         long ident = Binder.clearCallingIdentity();
         try {
             mBatteryStats.notePhoneState(state.getState());
@@ -762,10 +738,7 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
         mContext.sendStickyBroadcastAsUser(intent, UserHandle.ALL);
     }
 
-    // BEGIN privacy-modified
-    // made protected to allow subclassing
-    protected boolean checkNotifyPermission(String method) {
-    // END privacy-modified
+    private boolean checkNotifyPermission(String method) {
         if (mContext.checkCallingOrSelfPermission(android.Manifest.permission.MODIFY_PHONE_STATE)
                 == PackageManager.PERMISSION_GRANTED) {
             return true;
@@ -776,10 +749,7 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
         return false;
     }
 
-    // BEGIN privacy-modified
-    // made protected to allow subclassing
-    protected void checkListenerPermission(int events) {
-    // END privacy-modified
+    private void checkListenerPermission(int events) {
         if ((events & PhoneStateListener.LISTEN_CELL_LOCATION) != 0) {
             mContext.enforceCallingOrSelfPermission(
                     android.Manifest.permission.ACCESS_COARSE_LOCATION, null);
@@ -798,10 +768,7 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
         }
     }
 
-    // BEGIN privacy-modified
-    // made protected to allow subclassing
-    protected void handleRemoveListLocked() {
-    // END privacy-modified
+    private void handleRemoveListLocked() {
         if (mRemoveList.size() > 0) {
             for (IBinder b: mRemoveList) {
                 remove(b);

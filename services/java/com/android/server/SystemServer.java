@@ -16,11 +16,6 @@
 
 package com.android.server;
 
-// BEGIN privacy-added
-import android.privacy.PrivacySettingsManagerService;
-//import android.privacy.surrogate.PrivacyTelephonyRegistry;
-// END privacy-added
-
 import android.app.ActivityManagerNative;
 import android.bluetooth.BluetoothAdapter;
 import android.content.ComponentName;
@@ -235,10 +230,7 @@ class ServerThread {
             ServiceManager.addService(Context.DISPLAY_SERVICE, display, true);
 
             Slog.i(TAG, "Telephony Registry");
-            // BEGIN privacy-modified
-            // telephonyRegistry = new TelephonyRegistry(context);
-            telephonyRegistry = new PrivacyTelephonyRegistry(context);
-            // END privacy-modified
+            telephonyRegistry = new TelephonyRegistry(context);
             ServiceManager.addService("telephony.registry", telephonyRegistry);
 
             Slog.i(TAG, "Scheduling Policy");
@@ -294,10 +286,6 @@ class ServerThread {
             Slog.i(TAG, "Content Manager");
             contentService = ContentService.main(context,
                     factoryTest == SystemServer.FACTORY_TEST_LOW_LEVEL);
-	    
-            // BEGIN privacy-added
-            addPrivacyService(context);
-            // END privacy-added
 
             Slog.i(TAG, "System Content Providers");
             ActivityManagerService.installSystemProviders();
@@ -1146,19 +1134,6 @@ class ServerThread {
         //Slog.d(TAG, "Starting service: " + intent);
         context.startServiceAsUser(intent, UserHandle.OWNER);
     }
-
-    // BEGIN privacy-added
-    private void addPrivacyService(Context context) {
-        try {
-            Slog.i(TAG, "Privacy Service");
-            ServiceManager.addService("privacy", new PrivacySettingsManagerService(context));
-        } catch (Throwable e) {
-            Log.e(TAG, "Failure starting Privacy Service", e);
-        }        
-    }
-    // END privacy-added
-
-
 }
 
 public class SystemServer {
