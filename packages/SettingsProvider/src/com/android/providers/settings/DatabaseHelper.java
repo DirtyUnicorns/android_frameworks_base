@@ -2008,6 +2008,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             loadBooleanSetting(stmt, Settings.System.SHOW_4G_FOR_LTE,
                     R.bool.def_show_4g_for_lte);
 
+            if (mContext.getResources()
+                    .getBoolean(com.android.internal.R.bool.config_voice_capable)) {
+                loadStringSetting(stmt, Settings.System.LOCKSCREEN_TARGETS,
+                        R.string.def_lockscreen_targets);
+            } else {
+                loadStringSetting(stmt, Settings.System.LOCKSCREEN_TARGETS,
+                        R.string.def_lockscreen_targets_no_telephony);
+            }
         } finally {
             if (stmt != null) stmt.close();
         }
@@ -2283,6 +2291,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             loadIntegerSetting(stmt, Settings.Global.LOW_BATTERY_SOUND_TIMEOUT,
                     R.integer.def_low_battery_sound_timeout);
+
+            loadIntegerSetting(stmt, Settings.Global.WIFI_SCAN_ALWAYS_AVAILABLE,
+                    R.integer.def_wifi_scan_always_available);
 
             // --- New global settings start here
             loadIntegerSetting(stmt, Settings.Global.TETHER_DUN_REQUIRED,
