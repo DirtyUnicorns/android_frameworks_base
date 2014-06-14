@@ -517,6 +517,10 @@
     <string name="quick_settings_gps_on_label">GPS on</string>
     <string name="quick_settings_gps_off_label">GPS off</string>
 
+    <!-- Ad Blocker -->
+    <string name="quick_settings_adblocker_on_label">Ad Blocker On</string>
+    <string name="quick_settings_adblocker_off_label">Ad Blocker Off</string>
+
     <!-- Halo -->
     <string name="quick_settings_halo_on_label">On</string>
     <string name="quick_settings_halo_off_label">Off</string>
