@@ -604,6 +604,41 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
+    private SettingsReceiver mSettingsReceiver;
+
+    private class SettingsReceiver extends BroadcastReceiver {
+        private boolean mIsRegistered = false;
+
+        public SettingsReceiver(Context context) {
+        }
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            final String action = intent.getAction();
+            if (action.equals(Intent.ACTION_SCREENSHOT)) {
+                takeScreenshot();
+            }
+
+        }
+
+        private void registerSelf() {
+            if (!mIsRegistered) {
+                mIsRegistered = true;
+
+                IntentFilter filter = new IntentFilter();
+                filter.addAction(Intent.ACTION_SCREENSHOT);
+                mContext.registerReceiver(mSettingsReceiver, filter);
+            }
+        }
+
+        private void unregisterSelf() {
+            if (mIsRegistered) {
+                mIsRegistered = false;
+                mContext.unregisterReceiver(this);
+            }
+        }
+    }
+
     private UEventObserver mHDMIObserver = new UEventObserver() {
         @Override
         public void onUEvent(UEventObserver.UEvent event) {
@@ -1116,6 +1151,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         } catch (RemoteException ex) { }
         mSettingsObserver = new SettingsObserver(mHandler);
         mSettingsObserver.observe();
+        mSettingsReceiver = new SettingsReceiver(context);
+        mSettingsReceiver.registerSelf();
         mSingleStageCameraKey = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_singleStageCameraKey);
         mShortcutManager = new ShortcutManager(context, mHandler);
