@@ -54,6 +54,7 @@ public class QSConstants {
         public static final String TILE_ONTHEGO = "toggleOnTheGo";
         public static final String TILE_PROFILE = "toggleProfile";
         public static final String TILE_COMPASS = "toggleCompass";
+        public static final String TILE_NAVBAR = "toggleNavbar";
 
         // dynamic tiles
         public static final String TILE_ALARM = "toggleAlarm";

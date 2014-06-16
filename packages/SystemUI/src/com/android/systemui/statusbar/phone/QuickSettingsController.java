@@ -59,6 +59,7 @@ import static com.android.internal.util.slim.QSConstants.TILE_HALO;
 import static com.android.internal.util.slim.QSConstants.TILE_SCREENSHOT;
 import static com.android.internal.util.slim.QSConstants.TILE_ONTHEGO;
 import static com.android.internal.util.slim.QSConstants.TILE_PROFILE;
+import static com.android.internal.util.slim.QSConstants.TILE_NAVBAR;
 
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -117,6 +118,7 @@ import com.android.systemui.quicksettings.HaloTile;
 import com.android.systemui.quicksettings.ScreenshotTile;
 import com.android.systemui.quicksettings.OnTheGoTile;
 import com.android.systemui.quicksettings.ProfileTile;
+import com.android.systemui.quicksettings.NavBarTile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -278,6 +280,8 @@ public class QuickSettingsController {
                 qs = new ProfileTile(mContext, this);
             } else if (tile.equals(TILE_COMPASS)) {
                 qs = new CompassTile(mContext, this);
+            } else if (tile.equals(TILE_NAVBAR)) {
+                qs = new NavBarTile(mContext, this);
             }
 
             if (qs != null) {
