@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 
 import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.QuickSettingsContainerView;
@@ -39,13 +40,11 @@ public class PreferencesTile extends QuickSettingsTile{
                 startSettingsActivity(android.provider.Settings.ACTION_SETTINGS);
             }
         };
-
         mOnLongClick = new View.OnLongClickListener() {
-
             @Override
             public boolean onLongClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setClassName("com.android.settings", "com.android.settings.slim.quicksettings.QuickSettingsTiles");
+                intent.setClassName("com.android.settings", "com.android.settings.Settings$DirtyTweaksActivity");
                 startSettingsActivity(intent);
                 return true;
             }
