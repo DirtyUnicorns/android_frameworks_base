@@ -20,6 +20,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
+import android.hardware.Camera;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.WifiDisplayStatus;
 import android.hardware.Sensor;
@@ -79,6 +80,10 @@ public class DeviceUtils {
         final TelephonyManager tm =
             (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return (tm.getLteOnCdmaMode() == PhoneConstants.LTE_ON_CDMA_TRUE);
+    }
+
+    public static boolean deviceSupportsCamera() {
+        return Camera.getNumberOfCameras() > 0;
     }
 
     public static boolean deviceSupportsGps(Context context) {
