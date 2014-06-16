@@ -24,6 +24,7 @@ import android.os.UserHandle;
 import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 
 import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.QuickSettingsContainerView;
@@ -43,6 +44,16 @@ public class HaloTile extends QuickSettingsTile {
                 Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_ENABLED,
                     !mEnabled ? 1 : 0);
+            }
+        };
+        mOnLongClick = new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                qsc.mBar.collapseAllPanels(true);
+                Intent intent = new Intent(Intent.ACTION_MAIN);
+                intent.setClassName("com.android.settings", "com.android.settings.Settings$HaloActivity");
+                startSettingsActivity(intent);
+                return true;
             }
         };
 
