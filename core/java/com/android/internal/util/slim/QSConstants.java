@@ -51,6 +51,7 @@ public class QSConstants {
         public static final String TILE_ADBLOCKER = "toggleAdblocker";
         public static final String TILE_HALO = "toggleHalo";
         public static final String TILE_SCREENSHOT = "toggleScreenshot";
+        public static final String TILE_APPCIRCLEBAR = "toggleAppcirclebar";
         public static final String TILE_ONTHEGO = "toggleOnTheGo";
         public static final String TILE_PROFILE = "toggleProfile";
         public static final String TILE_COMPASS = "toggleCompass";

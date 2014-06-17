@@ -57,6 +57,7 @@ import static com.android.internal.util.slim.QSConstants.TILE_FCHARGE;
 import static com.android.internal.util.slim.QSConstants.TILE_ADBLOCKER;
 import static com.android.internal.util.slim.QSConstants.TILE_HALO;
 import static com.android.internal.util.slim.QSConstants.TILE_SCREENSHOT;
+import static com.android.internal.util.slim.QSConstants.TILE_APPCIRCLEBAR;
 import static com.android.internal.util.slim.QSConstants.TILE_ONTHEGO;
 import static com.android.internal.util.slim.QSConstants.TILE_PROFILE;
 import static com.android.internal.util.slim.QSConstants.TILE_NAVBAR;
@@ -116,6 +117,7 @@ import com.android.systemui.quicksettings.FastChargeTile;
 import com.android.systemui.quicksettings.AdblockerTile;
 import com.android.systemui.quicksettings.HaloTile;
 import com.android.systemui.quicksettings.ScreenshotTile;
+import com.android.systemui.quicksettings.AppcirclebarTile;
 import com.android.systemui.quicksettings.OnTheGoTile;
 import com.android.systemui.quicksettings.ProfileTile;
 import com.android.systemui.quicksettings.NavBarTile;
@@ -272,6 +274,8 @@ public class QuickSettingsController {
                 qs = new HaloTile(mContext, this);
             } else if (tile.equals(TILE_SCREENSHOT)) {
                 qs = new ScreenshotTile(mContext, this, mHandler);
+            } else if (tile.equals(TILE_APPCIRCLEBAR)) {
+                qs = new AppcirclebarTile(mContext, this);
             } else if (tile.contains(TILE_ONTHEGO)) {
                 qs = new OnTheGoTile(mContext, this);
             } else if (tile.equals(TILE_THEME)) {
