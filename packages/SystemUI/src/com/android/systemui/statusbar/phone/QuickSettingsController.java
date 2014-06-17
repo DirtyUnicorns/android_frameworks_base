@@ -60,6 +60,7 @@ import static com.android.internal.util.slim.QSConstants.TILE_SCREENSHOT;
 import static com.android.internal.util.slim.QSConstants.TILE_ONTHEGO;
 import static com.android.internal.util.slim.QSConstants.TILE_PROFILE;
 import static com.android.internal.util.slim.QSConstants.TILE_NAVBAR;
+import static com.android.internal.util.slim.QSConstants.TILE_CAMERA;
 
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -119,6 +120,7 @@ import com.android.systemui.quicksettings.ScreenshotTile;
 import com.android.systemui.quicksettings.OnTheGoTile;
 import com.android.systemui.quicksettings.ProfileTile;
 import com.android.systemui.quicksettings.NavBarTile;
+import com.android.systemui.quicksettings.CameraTile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -180,6 +182,7 @@ public class QuickSettingsController {
         mIMETile = null;
 
         // Filter items not compatible with device
+        boolean cameraSupported = DeviceUtils.deviceSupportsCamera();
         boolean bluetoothSupported = DeviceUtils.deviceSupportsBluetooth();
         boolean mobileDataSupported = DeviceUtils.deviceSupportsMobileData(mContext);
         boolean torchSupported = DeviceUtils.deviceSupportsTorch(mContext);
@@ -282,6 +285,8 @@ public class QuickSettingsController {
                 qs = new CompassTile(mContext, this);
             } else if (tile.equals(TILE_NAVBAR)) {
                 qs = new NavBarTile(mContext, this);
+            } else if (tile.equals(TILE_CAMERA) && cameraSupported) {
+                qs = new CameraTile(mContext, this, mHandler);
             }
 
             if (qs != null) {
