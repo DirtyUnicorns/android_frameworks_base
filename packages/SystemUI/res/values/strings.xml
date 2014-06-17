@@ -522,6 +522,10 @@
     <string name="quick_settings_adblocker_on_label">Ad Blocker On</string>
     <string name="quick_settings_adblocker_off_label">Ad Blocker Off</string>
 
+    <!-- App Circle Bar Tile -->
+    <string name="quick_settings_appcirclebar_on_label">App Circle Bar On</string>
+    <string name="quick_settings_appcirclebar_off_label">App Circle Bar Off</string>
+
     <!-- NavBar Tile -->
     <string name="quick_settings_navbar_on_label">Nav Bar On</string>
     <string name="quick_settings_navbar_off_label">Nav Bar Off</string>
