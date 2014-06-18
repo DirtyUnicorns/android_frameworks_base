@@ -61,7 +61,6 @@ import static com.android.internal.util.slim.QSConstants.TILE_ONTHEGO;
 import static com.android.internal.util.slim.QSConstants.TILE_PROFILE;
 import static com.android.internal.util.slim.QSConstants.TILE_NAVBAR;
 import static com.android.internal.util.slim.QSConstants.TILE_CAMERA;
-import static com.android.internal.util.slim.QSConstants.TILE_EQUALIZER;
 
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -122,7 +121,6 @@ import com.android.systemui.quicksettings.OnTheGoTile;
 import com.android.systemui.quicksettings.ProfileTile;
 import com.android.systemui.quicksettings.NavBarTile;
 import com.android.systemui.quicksettings.CameraTile;
-import com.android.systemui.quicksettings.EqualizerTile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -289,8 +287,6 @@ public class QuickSettingsController {
                 qs = new NavBarTile(mContext, this);
             } else if (tile.equals(TILE_CAMERA) && cameraSupported) {
                 qs = new CameraTile(mContext, this, mHandler);
-            } else if (tile.equals(TILE_EQUALIZER)) {
-                qs = new EqualizerTile(mContext, this);
             }
 
             if (qs != null) {
@@ -312,12 +308,6 @@ public class QuickSettingsController {
                 UserHandle.USER_CURRENT);
         if (dynamicTiles == null) {
             dynamicTiles = TextUtils.join(TILE_DELIMITER, DYNAMIC_TILES_DEFAULT);
-        }
-        if (Settings.System.getIntForUser(resolver,
-                Settings.System.QS_DYNAMIC_EQUALIZER, 1, UserHandle.USER_CURRENT) == 1) {
-            QuickSettingsTile qs = new EqualizerTile(mContext, this);
-            qs.setupQuickSettingsTile(inflater, mContainerView);
-            mQuickSettingsTiles.add(qs);
         }
 
         // Split out the tile names and add to the list
