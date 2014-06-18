@@ -3695,13 +3695,6 @@ public final class Settings {
         public static final String REVERSE_LOOKUP_PROVIDER = "reverse_lookup_provider";
 
         /**
-         * Dynamic Equalizer Tile
-         *
-         * @hide
-         */
-        public static final String QS_DYNAMIC_EQUALIZER = "qs_dynamic_equalizer";
-
-        /**
          * QuickSettings configuration
          * @hide
          */
