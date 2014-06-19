@@ -44,6 +44,9 @@ public class ExpandedDesktopTile extends QuickSettingsTile {
                 Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.IMMERSIVE_MODE,
                     !mEnabled ? 1 : 0);
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
             }
         };
 

@@ -44,6 +44,9 @@ public class HaloTile extends QuickSettingsTile {
                 Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HALO_ENABLED,
                     !mEnabled ? 1 : 0);
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
             }
         };
         mOnLongClick = new View.OnLongClickListener() {

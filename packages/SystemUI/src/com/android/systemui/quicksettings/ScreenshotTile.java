@@ -44,6 +44,9 @@ public class ScreenshotTile extends QuickSettingsTile {
             public void onClick(View v) {
                 // enough to delay for statusbar collapsing
                 mHandler.postDelayed(mRunnable, 500);
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
             }
         };
         mOnLongClick = new View.OnLongClickListener() {
@@ -62,6 +65,9 @@ public class ScreenshotTile extends QuickSettingsTile {
                     }
                 }, 1000);
                 mHandler.postDelayed(mRunnable, delay);
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
                 return true;
             }
         };

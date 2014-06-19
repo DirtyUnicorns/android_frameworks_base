@@ -44,6 +44,9 @@ public class AdblockerTile extends QuickSettingsTile {
                 Settings.System.putInt(mContext.getContentResolver(),
                     Settings.System.HFM_DISABLE_ADS,
                     !mEnabled ? 1 : 0);
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
             }
         };
         mOnLongClick = new View.OnLongClickListener() {

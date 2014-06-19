@@ -47,6 +47,9 @@ public class OnTheGoTile extends QuickSettingsTile {
             @Override
             public void onClick(View v) {
                 NamelessActions.processAction(mContext, NamelessActions.ACTION_ONTHEGO_TOGGLE);
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
             }
         };
 

@@ -48,11 +48,10 @@ public class ThemeTile extends QuickSettingsTile {
         mOnClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // SlimAction can take care of it
-                // will collapse as well automatically
-                // the drawer to reconstruct it or show
-                // the toast message if not possible
                 SlimActions.processAction(mContext, ButtonsConstants.ACTION_THEME_SWITCH, false);
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
             }
         };
 
@@ -68,6 +67,9 @@ public class ThemeTile extends QuickSettingsTile {
                 Settings.Secure.putIntForUser(mContext.getContentResolver(),
                         Settings.Secure.UI_THEME_AUTO_MODE, mThemeAutoMode,
                         UserHandle.USER_CURRENT);
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
                 return true;
             }
         };
