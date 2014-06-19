@@ -122,6 +122,9 @@ public class CompassTile extends QuickSettingsTile implements
     public void onClick(View v) {
         mActive = !mActive;
         updateResources();
+        if (isFlipTilesEnabled()) {
+            flipTile(0);
+        }
     }
 
     private synchronized void updateTile() {

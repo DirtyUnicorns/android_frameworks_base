@@ -86,6 +86,9 @@ public class QuickRecordTile extends QuickSettingsTile {
                         stopPlaying();
                         break;
                 }
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
+                }
             }
         };
 
@@ -98,6 +101,9 @@ public class QuickRecordTile extends QuickSettingsTile {
                     case STATE_JUST_RECORDED:
                         startRecording();
                         break;
+                }
+                if (isFlipTilesEnabled()) {
+                    flipTile(0);
                 }
                 return true;
             }
