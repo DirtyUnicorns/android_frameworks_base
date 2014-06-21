@@ -4407,6 +4407,12 @@ public final class Settings {
         public static final String DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
 
         /**
+         * Disable Immersive Message
+         * @hide
+         */
+        public static final String DISABLE_IMMERSIVE_MESSAGE = "disable_immersive_message";
+
+        /**
          * Enable touches in screen recording
          * @hide
          */
