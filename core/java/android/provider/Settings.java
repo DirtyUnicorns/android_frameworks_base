@@ -2482,6 +2482,12 @@ public final class Settings {
          */
         public static final String SHOW_TOUCHES = "show_touches";
 
+         /**
+         * Disable Immersive Message
+         * @hide
+         */
+        public static final String DISABLE_IMMERSIVE_MESSAGE = "disable_immersive_message";
+
         /**
          * Log raw orientation data from
          * {@link com.android.internal.policy.impl.WindowOrientationListener} for use with the
