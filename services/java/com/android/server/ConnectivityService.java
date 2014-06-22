@@ -2628,7 +2628,8 @@ public class ConnectivityService extends IConnectivityManager.Stub {
         if (TextUtils.equals(mNetTrackers[netType].getNetworkInfo().getReason(),
                              PhoneConstants.REASON_LINK_PROPERTIES_CHANGED)) {
             if (isTetheringSupported()) {
-                mTethering.handleTetherIfaceChange(mNetTrackers[netType].getNetworkInfo());
+               // TODO: Temp disable
+               // mTethering.handleTetherIfaceChange();
             }
         }
     }

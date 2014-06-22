@@ -18,6 +18,7 @@ package android.app;
 
 import android.content.ComponentName;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.IntentSender;
@@ -57,8 +58,6 @@ import android.view.Display;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 /*package*/
@@ -772,9 +771,11 @@ final class ApplicationPackageManager extends PackageManager {
         if (app.packageName.equals("system")) {
             return mContext.mMainThread.getSystemContext().getResources();
         }
+
         Resources r = mContext.mMainThread.getTopLevelResources(
                 app.uid == Process.myUid() ? app.sourceDir : app.publicSourceDir,
-                app.resourceDirs, Display.DEFAULT_DISPLAY, null, mContext.mPackageInfo);
+                app.resourceDirs, Display.DEFAULT_DISPLAY, null, mContext.mPackageInfo, mContext,
+                app.packageName);
         if (r != null) {
             return r;
         }
@@ -785,6 +786,29 @@ final class ApplicationPackageManager extends PackageManager {
         String appPackageName) throws NameNotFoundException {
         return getResourcesForApplication(
             getApplicationInfo(appPackageName, 0));
+    }
+
+    /** @hide */
+    @Override public Resources getThemedResourcesForApplication(
+            ApplicationInfo app, String themePkgName) throws NameNotFoundException {
+        if (app.packageName.equals("system")) {
+            return mContext.mMainThread.getSystemContext().getResources();
+        }
+
+        Resources r = mContext.mMainThread.getTopLevelThemedResources(
+                app.uid == Process.myUid() ? app.sourceDir : app.publicSourceDir,
+                Display.DEFAULT_DISPLAY, mContext.mPackageInfo, app.packageName, themePkgName);
+        if (r != null) {
+            return r;
+        }
+        throw new NameNotFoundException("Unable to open " + app.publicSourceDir);
+    }
+
+    /** @hide */
+    @Override public Resources getThemedResourcesForApplication(
+            String appPackageName, String themePkgName) throws NameNotFoundException {
+        return getThemedResourcesForApplication(
+                getApplicationInfo(appPackageName, 0), themePkgName);
     }
 
     /** @hide */
@@ -1360,4 +1384,16 @@ final class ApplicationPackageManager extends PackageManager {
             = new ArrayMap<ResourceName, WeakReference<Drawable.ConstantState>>();
     private static ArrayMap<ResourceName, WeakReference<CharSequence>> sStringCache
             = new ArrayMap<ResourceName, WeakReference<CharSequence>>();
+
+    /**
+     * @hide
+     */
+    @Override
+    public void updateIconMaps(String pkgName) {
+        try {
+            mPM.updateIconMapping(pkgName);
+        } catch (RemoteException re) {
+            Log.e(TAG, "Failed to update icon maps", re);
+        }
+    }
 }

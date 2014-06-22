@@ -1,6 +1,7 @@
 /* //device/libs/android_runtime/android_util_AssetManager.cpp
 **
 ** Copyright 2006, The Android Open Source Project
+** This code has been modified.  Portions copyright (C) 2010, T-Mobile USA, Inc.
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -507,11 +508,28 @@ static jint android_content_AssetManager_addAssetPath(JNIEnv* env, jobject clazz
     return (res) ? (jint)cookie : 0;
 }
 
-static jint android_content_AssetManager_addOverlayPath(JNIEnv* env, jobject clazz,
-                                                     jstring idmapPath)
+static jint android_content_AssetManager_addIconPath(JNIEnv* env, jobject clazz,
+                                                     jstring packagePath, jstring resArscPath,
+                                                     jstring resApkPath, jstring prefixPath,
+                                                     jint pkgIdOverride)
 {
-    ScopedUtfChars idmapPath8(env, idmapPath);
-    if (idmapPath8.c_str() == NULL) {
+    ScopedUtfChars packagePath8(env, packagePath);
+    if (packagePath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars resArscPath8(env, resArscPath);
+    if (resArscPath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars resApkPath8(env, resApkPath);
+    if (resApkPath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars prefixPath8(env, prefixPath);
+    if (prefixPath8.c_str() == NULL) {
         return 0;
     }
 
@@ -521,9 +539,112 @@ static jint android_content_AssetManager_addOverlayPath(JNIEnv* env, jobject cla
     }
 
     void* cookie;
-    bool res = am->addOverlayPath(String8(idmapPath8.c_str()), &cookie);
+    bool res = am->addIconPath(String8(packagePath8.c_str()), &cookie,
+                               String8(resArscPath8.c_str()),
+                               String8(resApkPath8.c_str()),
+                               String8(prefixPath8.c_str()), pkgIdOverride);
 
     return (res) ? (jint)cookie : 0;
+}
+
+static jint android_content_AssetManager_addCommonOverlayPath(JNIEnv* env, jobject clazz,
+                                                     jstring packagePath, jstring resArscPath,
+                                                     jstring resApkPath, jstring prefixPath)
+{
+    ScopedUtfChars packagePath8(env, packagePath);
+    if (packagePath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars resArscPath8(env, resArscPath);
+    if (resArscPath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars resApkPath8(env, resApkPath);
+    if (resApkPath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars prefixPath8(env, prefixPath);
+    if (prefixPath8.c_str() == NULL) {
+        return 0;
+    }
+
+    AssetManager* am = assetManagerForJavaObject(env, clazz);
+    if (am == NULL) {
+        return 0;
+    }
+
+    void* cookie;
+    bool res = am->addCommonOverlayPath(String8(packagePath8.c_str()), &cookie,
+            String8(resArscPath8.c_str()), String8(resApkPath8.c_str()),
+            String8(prefixPath8.c_str()));
+
+    return (res) ? (jint)cookie : 0;
+}
+
+static jint android_content_AssetManager_addOverlayPath(JNIEnv* env, jobject clazz,
+                                                     jstring packagePath, jstring resArscPath,
+                                                     jstring resApkPath, jstring targetPkgPath,
+                                                     jstring prefixPath)
+{
+    ScopedUtfChars packagePath8(env, packagePath);
+    if (packagePath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars resArscPath8(env, resArscPath);
+    if (resArscPath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars resApkPath8(env, resApkPath);
+    if (resApkPath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars prefixPath8(env, prefixPath);
+    if (prefixPath8.c_str() == NULL) {
+        return 0;
+    }
+
+    ScopedUtfChars targetPkgPath8(env, targetPkgPath);
+    if (targetPkgPath8.c_str() == NULL) {
+        return 0;
+    }
+
+    AssetManager* am = assetManagerForJavaObject(env, clazz);
+    if (am == NULL) {
+        return 0;
+    }
+
+    void* cookie;
+    bool res = am->addOverlayPath(String8(packagePath8.c_str()), &cookie,
+            String8(resArscPath8.c_str()), String8(resApkPath8.c_str()),
+            String8(targetPkgPath8.c_str()), String8(prefixPath8.c_str()));
+
+    return (res) ? (jint)cookie : 0;
+}
+
+static jboolean android_content_AssetManager_removeOverlayPath(JNIEnv* env, jobject clazz,
+            jstring packageName, jint cookie)
+{
+    if (packageName == NULL) {
+        jniThrowException(env, "java/lang/NullPointerException", "packageName");
+        return JNI_FALSE;
+    }
+
+    AssetManager* am = assetManagerForJavaObject(env, clazz);
+    if (am == NULL) {
+        return JNI_FALSE;
+    }
+
+    const char* name8 = env->GetStringUTFChars(packageName, NULL);
+    bool res = am->removeOverlayPath(String8(name8), (void *)cookie);
+    env->ReleaseStringUTFChars(packageName, name8);
+
+    return res;
 }
 
 static jboolean android_content_AssetManager_isUpToDate(JNIEnv* env, jobject clazz)
@@ -832,7 +953,7 @@ static jint android_content_AssetManager_loadResourceBagValue(JNIEnv* env, jobje
 
     const ResTable::bag_entry* entry = NULL;
     uint32_t typeSpecFlags;
-    ssize_t entryCount = res.getBagLocked(ident, &entry, &typeSpecFlags);
+    ssize_t entryCount = res.getBagLocked(ident, &entry, &typeSpecFlags, true);
 
     for (ssize_t i=0; i<entryCount; i++) {
         if (((uint32_t)bagEntryId) == entry->map.name.ident) {
@@ -1056,7 +1177,7 @@ static jboolean android_content_AssetManager_applyStyle(JNIEnv* env, jobject cla
     const ResTable::bag_entry* defStyleEnt = NULL;
     uint32_t defStyleTypeSetFlags = 0;
     ssize_t bagOff = defStyleRes != 0
-            ? res.getBagLocked(defStyleRes, &defStyleEnt, &defStyleTypeSetFlags) : -1;
+            ? res.getBagLocked(defStyleRes, &defStyleEnt, &defStyleTypeSetFlags, true) : -1;
     defStyleTypeSetFlags |= defStyleBagTypeSetFlags;
     const ResTable::bag_entry* endDefStyleEnt = defStyleEnt +
         (bagOff >= 0 ? bagOff : 0);
@@ -1064,7 +1185,7 @@ static jboolean android_content_AssetManager_applyStyle(JNIEnv* env, jobject cla
     // Retrieve the style class bag, if requested.
     const ResTable::bag_entry* styleEnt = NULL;
     uint32_t styleTypeSetFlags = 0;
-    bagOff = style != 0 ? res.getBagLocked(style, &styleEnt, &styleTypeSetFlags) : -1;
+    bagOff = style != 0 ? res.getBagLocked(style, &styleEnt, &styleTypeSetFlags, true) : -1;
     styleTypeSetFlags |= styleBagTypeSetFlags;
     const ResTable::bag_entry* endStyleEnt = styleEnt +
         (bagOff >= 0 ? bagOff : 0);
@@ -1401,7 +1522,7 @@ static jint android_content_AssetManager_retrieveArray(JNIEnv* env, jobject claz
 
     const ResTable::bag_entry* arrayEnt = NULL;
     uint32_t arrayTypeSetFlags = 0;
-    ssize_t bagOff = res.getBagLocked(id, &arrayEnt, &arrayTypeSetFlags);
+    ssize_t bagOff = res.getBagLocked(id, &arrayEnt, &arrayTypeSetFlags, true);
     const ResTable::bag_entry* endArrayEnt = arrayEnt +
         (bagOff >= 0 ? bagOff : 0);
 
@@ -1704,6 +1825,49 @@ static jint android_content_AssetManager_getGlobalAssetManagerCount(JNIEnv* env,
     return AssetManager::getGlobalCount();
 }
 
+static jint android_content_AssetManager_getBasePackageCount(JNIEnv* env, jobject clazz)
+{
+    AssetManager* am = assetManagerForJavaObject(env, clazz);
+    if (am == NULL) {
+        return JNI_FALSE;
+    }
+
+    return am->getResources().getBasePackageCount();
+}
+
+static jstring android_content_AssetManager_getBasePackageName(JNIEnv* env, jobject clazz, jint index)
+{
+    AssetManager* am = assetManagerForJavaObject(env, clazz);
+    if (am == NULL) {
+        return JNI_FALSE;
+    }
+
+    String16 packageName(am->getBasePackageName(index));
+    return env->NewString((const jchar*)packageName.string(), packageName.size());
+}
+
+static jstring android_content_AssetManager_getBaseResourcePackageName(JNIEnv* env, jobject clazz,
+                                                                       jint index)
+{
+    AssetManager* am = assetManagerForJavaObject(env, clazz);
+    if (am == NULL) {
+        return JNI_FALSE;
+    }
+
+    String16 packageName(am->getResources().getBasePackageName(index));
+    return env->NewString((const jchar*)packageName.string(), packageName.size());
+}
+
+static jint android_content_AssetManager_getBasePackageId(JNIEnv* env, jobject clazz, jint index)
+{
+    AssetManager* am = assetManagerForJavaObject(env, clazz);
+    if (am == NULL) {
+        return JNI_FALSE;
+    }
+
+    return am->getResources().getBasePackageId(index);
+}
+
 // ----------------------------------------------------------------------------
 
 /*
@@ -1737,14 +1901,22 @@ static JNINativeMethod gAssetManagerMethods[] = {
         (void*) android_content_AssetManager_getAssetRemainingLength },
     { "addAssetPathNative", "(Ljava/lang/String;)I",
         (void*) android_content_AssetManager_addAssetPath },
-    { "addOverlayPath",   "(Ljava/lang/String;)I",
+    { "addOverlayPath",   "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I",
         (void*) android_content_AssetManager_addOverlayPath },
     { "getBasePackageCount", "()I",
         (void*) android_content_AssetManager_getBasePackageCount },
     { "getBasePackageName", "(I)Ljava/lang/String;",
         (void*) android_content_AssetManager_getBasePackageName },
+    { "getBaseResourcePackageName", "(I)Ljava/lang/String;",
+        (void*) android_content_AssetManager_getBaseResourcePackageName },
     { "getBasePackageId", "(I)I",
         (void*) android_content_AssetManager_getBasePackageId },
+    { "addIconPath",   "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)I",
+        (void*) android_content_AssetManager_addIconPath },
+    { "addCommonOverlayPath",   "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I",
+        (void*) android_content_AssetManager_addCommonOverlayPath },
+    { "removeOverlayPath",   "(Ljava/lang/String;I)Z",
+        (void*) android_content_AssetManager_removeOverlayPath },
     { "isUpToDate",     "()Z",
         (void*) android_content_AssetManager_isUpToDate },
 

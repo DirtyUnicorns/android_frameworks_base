@@ -2185,6 +2185,12 @@ final class Settings {
                 final String name = parser.getAttributeValue(null, ATTR_NAME);
                 final String sourcePackage = parser.getAttributeValue(null, "package");
                 final String ptype = parser.getAttributeValue(null, "type");
+                BasePermission tp = mPermissions.get(name);
+                if (tp != null) {
+                    Log.v(PackageManagerService.TAG, "Permission " + name + " became a builtin " +
+                          "since configuration was generated, skipping it");
+                    continue;
+                }
                 if (name != null && sourcePackage != null) {
                     final boolean dynamic = "dynamic".equals(ptype);
                     final BasePermission bp = new BasePermission(name, sourcePackage,
@@ -2675,8 +2681,10 @@ final class Settings {
         FileUtils.setPermissions(path.toString(), FileUtils.S_IRWXU | FileUtils.S_IRWXG
                 | FileUtils.S_IXOTH, -1, -1);
         for (PackageSetting ps : mPackages.values()) {
+            boolean installed = ((ps.pkgFlags&ApplicationInfo.FLAG_SYSTEM) != 0) ||
+                    (ps.pkg.mIsThemeApk || ps.pkg.mIsLegacyThemeApk || ps.pkg.mIsLegacyIconPackApk);
             // Only system apps are initially installed.
-            ps.setInstalled((ps.pkgFlags&ApplicationInfo.FLAG_SYSTEM) != 0, userHandle);
+            ps.setInstalled(installed, userHandle);
             // Need to create a data directory for all apps under this user.
             installer.createUserData(ps.name,
                     UserHandle.getUid(userHandle, ps.appId), userHandle);
@@ -2836,7 +2844,7 @@ final class Settings {
             if (pkgSetting.getNotLaunched(userId)) {
                 if (pkgSetting.installerPackageName != null) {
                     PackageManagerService.sendPackageBroadcast(Intent.ACTION_PACKAGE_FIRST_LAUNCH,
-                            pkgSetting.name, null,
+                            pkgSetting.name, null, null,
                             pkgSetting.installerPackageName, null, new int[] {userId});
                 }
                 pkgSetting.setNotLaunched(false, userId);

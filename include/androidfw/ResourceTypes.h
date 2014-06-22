@@ -1294,9 +1294,9 @@ public:
     ~ResTable();
 
     status_t add(const void* data, size_t size, void* cookie,
-                 bool copyData=false, const void* idmap = NULL);
+                 bool copyData=false, const void* idmap = NULL, const uint32_t pkgIdOverride=0);
     status_t add(Asset* asset, void* cookie,
-                 bool copyData=false, const void* idmap = NULL);
+                 bool copyData=false, const void* idmap = NULL, const uint32_t pkgIdOverride=0);
     status_t add(ResTable* src);
 
     status_t getError() const;
@@ -1379,7 +1379,7 @@ public:
     void lock() const;
 
     ssize_t getBagLocked(uint32_t resID, const bag_entry** outBag,
-            uint32_t* outTypeSpecFlags=NULL) const;
+            uint32_t* outTypeSpecFlags=NULL, bool performMapping=true) const;
 
     void unlock() const;
 
@@ -1558,11 +1558,13 @@ public:
     // NO_ERROR; the caller should not free outData.
     status_t createIdmap(const ResTable& overlay,
             uint32_t targetCrc, uint32_t overlayCrc,
+            time_t targetMtime, time_t overlayMtime,
             const char* targetPath, const char* overlayPath,
-            void** outData, uint32_t* outSize) const;
+            Vector<String8>& targets, Vector<String8>& overlays,
+            void** outData, size_t* outSize) const;
 
     enum {
-        IDMAP_HEADER_SIZE_BYTES = 3 * sizeof(uint32_t) + 2 * 256,
+        IDMAP_HEADER_SIZE_BYTES = 5 * sizeof(uint32_t) + 2 * 256,
     };
     // Retrieve idmap meta-data.
     //
@@ -1571,6 +1573,8 @@ public:
     static bool getIdmapInfo(const void* idmap, size_t size,
             uint32_t* pTargetCrc, uint32_t* pOverlayCrc,
             String8* pTargetPath, String8* pOverlayPath);
+
+    void removeAssetsByCookie(const String8 &packageName, void* cookie);
 
     void print(bool inclValues) const;
     static String8 normalizeForOutput(const char* input);
@@ -1583,7 +1587,7 @@ private:
     struct bag_set;
 
     status_t add(const void* data, size_t size, void* cookie,
-                 Asset* asset, bool copyData, const Asset* idmap);
+                 Asset* asset, bool copyData, const Asset* idmap, const uint32_t pkgIdOverride);
 
     ssize_t getResourcePackageIndex(uint32_t resID) const;
     ssize_t getEntry(
@@ -1592,7 +1596,10 @@ private:
         const ResTable_type** outType, const ResTable_entry** outEntry,
         const Type** outTypeClass) const;
     status_t parsePackage(
-        const ResTable_package* const pkg, const Header* const header, uint32_t idmap_id);
+        ResTable_package* const pkg, const Header* const header, uint32_t idmap_id,
+        uint32_t pkgIdOverride);
+
+    bool isResTypeAllowed(const char* type) const;
 
     void print_value(const Package* pkg, const Res_value& value) const;
     
