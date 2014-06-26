@@ -1968,6 +1968,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    private void loadHeadsUpSetting(SQLiteStatement stmt) {
+        String headsUpValues = mContext.getResources()
+                .getString(R.string.def_heads_up_notification_values);
+        if (!TextUtils.isEmpty(headsUpValues)) {
+            loadSetting(stmt, Settings.System.HEADS_UP_NOTIFICATION, "0");
+            loadSetting(stmt, Settings.System.HEADS_UP_CUSTOM_VALUES, headsUpValues);
+        }
+    }
+
     private void loadSettings(SQLiteDatabase db) {
         loadSystemSettings(db);
         loadSecureSettings(db);
@@ -2032,6 +2041,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 loadStringSetting(stmt, Settings.System.LOCKSCREEN_TARGETS,
                         R.string.def_lockscreen_targets_no_telephony);
             }
+
+            loadHeadsUpSetting(stmt);
+
         } finally {
             if (stmt != null) stmt.close();
         }

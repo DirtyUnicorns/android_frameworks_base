@@ -56,6 +56,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.os.PowerManager;
+import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
@@ -77,6 +78,7 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -127,8 +129,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     protected static final boolean ENABLE_HEADS_UP = true;
     // scores above this threshold should be displayed in heads up mode.
-    protected static final int INTERRUPTION_THRESHOLD = 11;
-    protected static final String SETTING_HEADS_UP = "heads_up_enabled";
+    protected static final int INTERRUPTION_THRESHOLD = 1;
 
     // Should match the value in PhoneWindowManager
     public static final String SYSTEM_DIALOG_REASON_RECENT_APPS = "recentapps";
@@ -978,6 +979,7 @@ public abstract class BaseStatusBar extends SystemUI implements
     }
 
     public abstract void resetHeadsUpDecayTimer();
+    public abstract void hideHeadsUp();
 
     protected class H extends Handler {
         public void handleMessage(Message m) {
@@ -1601,20 +1603,88 @@ public abstract class BaseStatusBar extends SystemUI implements
         boolean isFullscreen = notification.fullScreenIntent != null;
         boolean isAllowed = notification.extras.getInt(Notification.EXTRA_AS_HEADS_UP,
                 Notification.HEADS_UP_ALLOWED) != Notification.HEADS_UP_NEVER;
+        boolean isOngoing = sbn.isOngoing();
 
         final KeyguardTouchDelegate keyguard = KeyguardTouchDelegate.getInstance(mContext);
+        boolean keyguardNotVisible = !keyguard.isShowingAndNotHidden()
+                && !keyguard.isInputRestricted();
+
+        final InputMethodManager inputMethodManager = (InputMethodManager)
+                mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        boolean isIMEShowing = inputMethodManager.isImeShowing();
+        // filter out system uid applications
+        boolean isSystemUid = (getUidForPackage(sbn.getPackageName()) == Process.SYSTEM_UID);
+
         boolean interrupt = (isFullscreen || (isHighPriority && isNoisy))
                 && isAllowed
-                && mPowerManager.isScreenOn()
-                && !keyguard.isShowingAndNotHidden()
-                && !keyguard.isInputRestricted();
+                && keyguardNotVisible
+                && !isOngoing
+                && !isIMEShowing
+                && !isSystemUid
+                && mPowerManager.isScreenOn();
+
         try {
             interrupt = interrupt && !mDreamManager.isDreaming();
         } catch (RemoteException e) {
             Log.d(TAG, "failed to query dream manager", e);
         }
+
+        boolean permissiveInterrupt = !isHighPriority
+                && keyguardNotVisible
+                && !isOngoing
+                && !isIMEShowing
+                && !isSystemUid;
+
+        // its below our threshold priority, we might want to always display
+        // notifications from certain apps
+        if (permissiveInterrupt) {
+            // However, we don't want to interrupt if we're in an application that is
+            // in Do Not Disturb
+            if (!isPackageInDnd(getTopLevelPackage())) {
+                return true;
+            }
+        }
+
         if (DEBUG) Log.d(TAG, "interrupt: " + interrupt);
         return interrupt;
+    }
+
+    private int getUidForPackage(String packageName) {
+        int packageUid = -1;
+        try {
+            packageUid = mContext.getPackageManager().getApplicationInfo(packageName, 0).uid;
+        } catch (NameNotFoundException e) {
+            Log.d(TAG, "Unable to get uid for " + packageName);
+        }
+        return packageUid;
+    }
+
+    private String getTopLevelPackage() {
+        final ActivityManager am = (ActivityManager)
+                mContext.getSystemService(Context.ACTIVITY_SERVICE);
+        List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+        ComponentName componentInfo = taskInfo.get(0).topActivity;
+        return componentInfo.getPackageName();
+    }
+
+    private boolean isPackageInDnd(String packageName) {
+        final String baseString = Settings.System.getString(mContext.getContentResolver(),
+                Settings.System.HEADS_UP_CUSTOM_VALUES);
+
+        if (baseString != null) {
+            final String[] array = TextUtils.split(baseString, "\\|");
+            for (String item : array) {
+                if (TextUtils.isEmpty(item)) {
+                    continue;
+                }
+                if (TextUtils.equals(item, packageName)) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     // Q: What kinds of notifications should show during setup?
