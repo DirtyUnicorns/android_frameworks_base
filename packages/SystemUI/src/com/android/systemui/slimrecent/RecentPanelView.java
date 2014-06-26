@@ -20,6 +20,7 @@ package com.android.systemui.slimrecent;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.ActivityOptions;
+import android.app.INotificationManager;
 import android.app.TaskStackBuilder;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
@@ -34,6 +35,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Process;
+import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.Log;
@@ -45,6 +47,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import com.android.cards.internal.Card;
 import com.android.cards.internal.CardArrayAdapter;
@@ -76,8 +79,8 @@ public class RecentPanelView {
     public static final int EXPANDED_STATE_COLLAPSED = 2;
     public static final int EXPANDED_STATE_BY_SYSTEM = 4;
 
-    private static final int MENU_FLOAT_WINDOW_ID  = 0;
-    private static final int MENU_APP_DETAILS_ID   = 1;
+    private static final int MENU_APP_DETAILS_ID   = 0;
+    private static final int MENU_APP_FLOATING_ID  = 1;
     private static final int MENU_APP_PLAYSTORE_ID = 2;
     private static final int MENU_APP_AMAZON_ID    = 3;
 
@@ -92,6 +95,7 @@ public class RecentPanelView {
     private final ImageView mEmptyRecentView;
 
     private final RecentController mController;
+    private INotificationManager mNotificationManager;
 
     // Our array adapter holding all cards
     private CardArrayAdapter mCardArrayAdapter;
@@ -168,7 +172,7 @@ public class RecentPanelView {
         card.setOnClickListener(new Card.OnCardClickListener() {
             @Override
             public void onClick(Card card, View view) {
-                startApplication(td, false);
+                startApplication(td);
             }
         });
         // Listen for onLongClick to open popup menu
@@ -214,7 +218,7 @@ public class RecentPanelView {
      * Construct popup menu for longpress.
      */
     private void constructMenu(final View selectedView, final TaskDescription td) {
-        if (selectedView == null || td == null) {
+        if (selectedView == null) {
             return;
         }
         // Force theme change to choose custom defined menu layout.
@@ -224,18 +228,24 @@ public class RecentPanelView {
         mPopup = popup;
         final Resources res = mContext.getResources();
 
-        // Floating app.
-        popup.getMenu().add(0, MENU_FLOAT_WINDOW_ID, 0,
-                mContext.getResources().getString(R.string.app_float_item_title));
+        // initialize if null
+        if (mNotificationManager == null) {
+            mNotificationManager = INotificationManager.Stub.asInterface(
+                    ServiceManager.getService(Context.NOTIFICATION_SERVICE));
+        }
 
         // Add app detail menu entry.
         popup.getMenu().add(0, MENU_APP_DETAILS_ID, 0,
                 res.getString(R.string.status_bar_recent_inspect_item_title));
 
+        // Add floating mode menu entry
+        popup.getMenu().add(0, MENU_APP_FLOATING_ID, 0,
+                mContext.getResources().getString(R.string.status_bar_recent_floating_item_title));
+
         // Add playstore or amazon entry if it is provided by the application.
         if (checkAppInstaller(td.packageName, PLAYSTORE_REFERENCE)) {
             popup.getMenu().add(0, MENU_APP_PLAYSTORE_ID, 0,
-                    getApplicationLabel(PLAYSTORE_REFERENCE));
+                    res.getString(R.string.status_bar_recent_playstore_item_title));
         } else if (checkAppInstaller(td.packageName, AMAZON_REFERENCE)) {
             popup.getMenu().add(0, MENU_APP_AMAZON_ID, 0,
                     res.getString(R.string.status_bar_recent_amazon_item_title));
@@ -244,10 +254,18 @@ public class RecentPanelView {
         // Actually peform the actions onClick.
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             public boolean onMenuItemClick(MenuItem item) {
-                if (item.getItemId() == MENU_FLOAT_WINDOW_ID) {
-                    startApplication(td, true);
-                } else if (item.getItemId() == MENU_APP_DETAILS_ID) {
+                if (item.getItemId() == MENU_APP_DETAILS_ID) {
                     startApplicationDetailsActivity(td.packageName, null, null);
+                } else if (item.getItemId() == MENU_APP_FLOATING_ID) {
+                    selectedView.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = td.intent;
+                            intent.setFlags(Intent.FLAG_FLOATING_WINDOW
+                                    | Intent.FLAG_ACTIVITY_NEW_TASK);
+                            mContext.startActivity(intent);
+                        }
+                    });
                 } else if (item.getItemId() == MENU_APP_PLAYSTORE_ID) {
                     startApplicationDetailsActivity(null,
                             PLAYSTORE_APP_URI_QUERY + td.packageName, PLAYSTORE_REFERENCE);
@@ -297,20 +315,6 @@ public class RecentPanelView {
             if (DEBUG) Log.e(TAG, "Store is not installed: " + packagename, e);
             return false;
         }
-    }
-
-
-   /**
-     * Get application launcher label of installed references.
-     */
-    private String getApplicationLabel(String packageName) {
-        final PackageManager pm = mContext.getPackageManager();
-        final Intent intent = pm.getLaunchIntentForPackage(packageName);
-        final ResolveInfo resolveInfo = pm.resolveActivity(intent, 0);
-        if (resolveInfo != null) {
-            return resolveInfo.activityInfo.loadLabel(pm).toString();
-        }
-        return null;
     }
 
     /**
@@ -383,7 +387,7 @@ public class RecentPanelView {
     /**
      * Start application or move to forground if still active.
      */
-    private void startApplication(TaskDescription td, boolean floatingWindow) {
+    private void startApplication(TaskDescription td) {
         // Starting app is requested by the user.
         // Move it to foreground or start it with custom animation.
         final ActivityManager am = (ActivityManager)
@@ -391,28 +395,14 @@ public class RecentPanelView {
         final Bundle opts = ActivityOptions.makeCustomAnimation(
                 mContext, com.android.internal.R.anim.recent_screen_enter,
                 com.android.internal.R.anim.recent_screen_fade_out).toBundle();
-        if (td.taskId >= 0 && !floatingWindow) {
+        if (td.taskId >= 0) {
             // This is an active task; it should just go to the foreground.
             am.moveTaskToFront(td.taskId, ActivityManager.MOVE_TASK_WITH_HOME, opts);
         } else {
             final Intent intent = td.intent;
-            int flags;
-            if (floatingWindow) {
-                flags = Intent.FLAG_FLOATING_WINDOW
+            intent.addFlags(Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY
                     | Intent.FLAG_ACTIVITY_TASK_ON_HOME
-                    | Intent.FLAG_ACTIVITY_CLEAR_TASK
-                    | Intent.FLAG_ACTIVITY_NEW_TASK;
-            } else {
-                flags = Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY
-                    | Intent.FLAG_ACTIVITY_TASK_ON_HOME
-                    | Intent.FLAG_ACTIVITY_NEW_TASK;
-            }
-            intent.setFlags(flags);
-            // We may have in our intent still FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY flag. Remove
-            // it due it is not compatible with floating window.
-            if (floatingWindow) {
-                intent.setFlags(intent.getFlags() & ~Intent.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY);
-            }
+                    | Intent.FLAG_ACTIVITY_NEW_TASK);
             if (DEBUG) Log.v(TAG, "Starting activity " + intent);
             try {
                 mContext.startActivityAsUser(intent, opts,

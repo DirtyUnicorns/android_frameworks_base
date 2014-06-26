@@ -460,7 +460,6 @@ final class ActivityRecord {
             if (floatingWindow) {
                 intent.setFlags(intent.getFlags() & ~Intent.FLAG_ACTIVITY_TASK_ON_HOME);
                 intent.setFlags(intent.getFlags() & ~Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_USER_ACTION);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
@@ -485,8 +484,7 @@ final class ActivityRecord {
                 processName = aInfo.processName;
             }
 
-            if ((intent != null && (aInfo.flags & ActivityInfo.FLAG_EXCLUDE_FROM_RECENTS) != 0)
-                || floatingWindow) {
+            if (intent != null && (aInfo.flags & ActivityInfo.FLAG_EXCLUDE_FROM_RECENTS) != 0) {
                 intent.addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
             }
 
