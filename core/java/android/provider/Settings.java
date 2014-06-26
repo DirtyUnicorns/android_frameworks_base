@@ -4419,6 +4419,13 @@ public final class Settings {
         public static final String SREC_ENABLE_MIC = "srec_enable_mic";
 
         /**
+         * Heads Up in Floating Window
+         *
+         * @hide
+         */
+        public static final String HEADS_UP_FLOATING_WINDOW = "heads_up_floating_window";
+
+        /**
          * Heads Up Notifications
          *
          * @hide

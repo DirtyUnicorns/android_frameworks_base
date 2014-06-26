@@ -26,12 +26,8 @@ import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
 import android.app.admin.DevicePolicyManager;
 import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
-import android.content.ContentResolver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.*;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageDataObserver;
 import android.content.pm.PackageManager;
@@ -101,6 +97,7 @@ import com.android.systemui.SystemUI;
 import com.android.systemui.slimrecent.RecentController;
 import com.android.systemui.statusbar.appcirclesidebar.AppCircleSidebar;
 import com.android.systemui.statusbar.halo.Halo;
+import com.android.systemui.statusbar.notification.NotificationHelper;
 import com.android.systemui.statusbar.phone.KeyguardTouchDelegate;
 import com.android.systemui.statusbar.phone.PhoneStatusBar;
 import com.android.systemui.statusbar.policy.NotificationRowLayout;
@@ -181,8 +178,11 @@ public abstract class BaseStatusBar extends SystemUI implements
     protected ImageView mHaloButton;
     protected boolean mHaloButtonVisible = true;
 
-    // left-hand icons 
+    // left-hand icons
     public LinearLayout mStatusIcons;
+
+    // Notification helper
+    protected NotificationHelper mNotificationHelper;
 
     // UI-specific methods
 
@@ -350,6 +350,8 @@ public abstract class BaseStatusBar extends SystemUI implements
 
         mLocale = mContext.getResources().getConfiguration().locale;
         mLayoutDirection = TextUtils.getLayoutDirectionFromLocale(mLocale);
+
+        mNotificationHelper = new NotificationHelper(this, mContext);
 
         mStatusBarContainer = new FrameLayout(mContext);
 
@@ -1500,7 +1502,7 @@ public abstract class BaseStatusBar extends SystemUI implements
                     } else {
                         if (DEBUG) Log.d(TAG, "updating the current heads up:" + notification);
                         mInterruptingNotificationEntry.notification = notification;
-                        updateNotificationViews(mInterruptingNotificationEntry, notification);
+                        updateNotificationViews(mInterruptingNotificationEntry, notification, true);
                     }
                 }
 
@@ -1562,6 +1564,11 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     private void updateNotificationViews(NotificationData.Entry entry,
             StatusBarNotification notification) {
+        updateNotificationViews(entry, notification, false);
+    }
+
+    private void updateNotificationViews(NotificationData.Entry entry,
+            StatusBarNotification notification, boolean headsUp) {
         final RemoteViews contentView = notification.getNotification().contentView;
         final RemoteViews bigContentView = notification.getNotification().bigContentView;
         // Reapply the RemoteViews
@@ -1572,8 +1579,8 @@ public abstract class BaseStatusBar extends SystemUI implements
         // update contentIntent and floatingIntent
         final PendingIntent contentIntent = notification.getNotification().contentIntent;
         if (contentIntent != null) {
-            final View.OnClickListener listener = makeClicker(contentIntent,
-                    notification.getPackageName(), notification.getTag(), notification.getId());
+            final View.OnClickListener listener =
+                    mNotificationHelper.getNotificationClickListener(entry, headsUp);
             entry.content.setOnClickListener(listener);
             entry.floatingIntent = makeClicker(contentIntent,
                     notification.getPackageName(), notification.getTag(), notification.getId());
@@ -1594,6 +1601,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     protected boolean shouldInterrupt(StatusBarNotification sbn) {
         Notification notification = sbn.getNotification();
+
         // some predicates to make the boolean logic legible
         boolean isNoisy = (notification.defaults & Notification.DEFAULT_SOUND) != 0
                 || (notification.defaults & Notification.DEFAULT_VIBRATE) != 0
@@ -1613,15 +1621,12 @@ public abstract class BaseStatusBar extends SystemUI implements
                 mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
 
         boolean isIMEShowing = inputMethodManager.isImeShowing();
-        // filter out system uid applications
-        boolean isSystemUid = (getUidForPackage(sbn.getPackageName()) == Process.SYSTEM_UID);
 
         boolean interrupt = (isFullscreen || (isHighPriority && isNoisy))
                 && isAllowed
                 && keyguardNotVisible
                 && !isOngoing
                 && !isIMEShowing
-                && !isSystemUid
                 && mPowerManager.isScreenOn();
 
         try {
@@ -1630,34 +1635,18 @@ public abstract class BaseStatusBar extends SystemUI implements
             Log.d(TAG, "failed to query dream manager", e);
         }
 
-        boolean permissiveInterrupt = !isHighPriority
-                && keyguardNotVisible
-                && !isOngoing
-                && !isIMEShowing
-                && !isSystemUid;
-
         // its below our threshold priority, we might want to always display
         // notifications from certain apps
-        if (permissiveInterrupt) {
+        if (!isHighPriority && keyguardNotVisible && !isOngoing && !isIMEShowing) {
             // However, we don't want to interrupt if we're in an application that is
             // in Do Not Disturb
-            if (!isPackageInDnd(getTopLevelPackage())) {
+            if(!isPackageInDnd(getTopLevelPackage())) {
                 return true;
             }
         }
 
         if (DEBUG) Log.d(TAG, "interrupt: " + interrupt);
         return interrupt;
-    }
-
-    private int getUidForPackage(String packageName) {
-        int packageUid = -1;
-        try {
-            packageUid = mContext.getPackageManager().getApplicationInfo(packageName, 0).uid;
-        } catch (NameNotFoundException e) {
-            Log.d(TAG, "Unable to get uid for " + packageName);
-        }
-        return packageUid;
     }
 
     private String getTopLevelPackage() {
