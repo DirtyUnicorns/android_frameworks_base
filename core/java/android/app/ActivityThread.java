@@ -1653,8 +1653,7 @@ public final class ActivityThread {
                 ref = mResourcePackages.get(aInfo.packageName);
             }
             LoadedApk packageInfo = ref != null ? ref.get() : null;
-            if (packageInfo == null || (packageInfo.mResources != null
-                    && !packageInfo.mResources.getAssets().isUpToDate())) {
+            if (packageInfo == null) {
                 if (localLOGV) Slog.v(TAG, (includeCode ? "Loading code package "
                         : "Loading resource-only package ") + aInfo.packageName
                         + " (in " + (mBoundApplication != null
@@ -1671,6 +1670,11 @@ public final class ActivityThread {
                     mResourcePackages.put(aInfo.packageName,
                             new WeakReference<LoadedApk>(packageInfo));
                 }
+            }
+            if (packageInfo.mResources == null
+                    || !packageInfo.mResources.getAssets().isUpToDate()) {
+                packageInfo.mResources = null;
+                packageInfo.getResources(this);
             }
             return packageInfo;
         }
