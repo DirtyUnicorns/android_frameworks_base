@@ -3590,6 +3590,13 @@ public final class Settings {
         public static final String QUICK_SETTINGS_TILES_FLIP = "quick_settings_tiles_flip";
 
         /**
+         * Enable handlign of oppo input event for camera flip (F1)
+         * and start camera app
+         * @hide
+         */
+        public static final String OPPO_CAMERA_FLIP_ENABLED = "oppo_camera_flip_enable";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
