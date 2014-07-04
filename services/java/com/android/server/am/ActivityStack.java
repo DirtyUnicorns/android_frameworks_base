@@ -3413,6 +3413,7 @@ final class ActivityStack {
     boolean forceStopPackageLocked(String name, boolean doit, boolean evenPersistent, int userId) {
         boolean didSomething = false;
         TaskRecord lastTask = null;
+        ComponentName homeActivity = null;
         for (int taskNdx = mTaskHistory.size() - 1; taskNdx >= 0; --taskNdx) {
             final ArrayList<ActivityRecord> activities = mTaskHistory.get(taskNdx).mActivities;
             int numActivities = activities.size();
@@ -3430,6 +3431,14 @@ final class ActivityStack {
                             continue;
                         }
                         return true;
+                    }
+                    if (r.isHomeActivity()) {
+                        if (homeActivity != null && homeActivity.equals(r.realActivity)) {
+                            Slog.i(TAG, "Skip force-stop again " + r);
+                            continue;
+                        } else {
+                            homeActivity = r.realActivity;
+                        }
                     }
                     didSomething = true;
                     Slog.i(TAG, "  Force finishing activity " + r);
