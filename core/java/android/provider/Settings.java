@@ -3277,6 +3277,19 @@ public final class Settings {
         public static final String PROGRESSBAR_COLOR_3 = "progressbar_color_3";
 
         /**
+	* Minimum vibration duration in milliseconds (0-100ms)
+	* @hide
+	*/
+        public static final String MINIMUM_VIBRATION_DURATION = "minimum_vibration_duration";
+
+        /**
+	* Adjust the vibration multiplier to control vibration strength
+	* @hide
+	*/
+        public static final String VIBRATION_MULTIPLIER = "vibration_multiplier";
+
+        /**
+         * Navigation controls to Use
          *
          * SMOOTH PROGRESS BAR Color_4
          * @hide
