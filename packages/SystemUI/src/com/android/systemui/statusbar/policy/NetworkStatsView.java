@@ -106,7 +106,7 @@ public class NetworkStatsView extends LinearLayout {
         @Override
         public void onChange(boolean selfChange) {
             ContentResolver resolver = mContext.getContentResolver();
-            
+
             // check for connectivity
             ConnectivityManager cm =
                     (ConnectivityManager)mContext.getSystemService(Context.CONNECTIVITY_SERVICE);

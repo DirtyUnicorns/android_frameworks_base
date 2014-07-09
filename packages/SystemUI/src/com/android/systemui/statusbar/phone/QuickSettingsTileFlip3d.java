@@ -27,7 +27,7 @@ import android.view.ViewGroup;
 import android.view.View;
 
 /**
- * 
+ *
  */
 public class QuickSettingsTileFlip3d extends GestureDetector.SimpleOnGestureListener
     implements View.OnTouchListener, TimeInterpolator {

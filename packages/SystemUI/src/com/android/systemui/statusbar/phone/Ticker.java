@@ -49,9 +49,9 @@ public abstract class Ticker {
     private float mIconScale;
     private TickerCallback mEvent;
 
-    public interface TickerCallback {  
+    public interface TickerCallback {
         public void updateTicker(StatusBarNotification notification, String text);
-    }  
+    }
 
     public void setUpdateEvent(TickerCallback event) {
         mEvent = event;

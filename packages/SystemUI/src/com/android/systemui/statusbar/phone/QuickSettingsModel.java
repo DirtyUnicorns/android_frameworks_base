@@ -647,7 +647,7 @@ class QuickSettingsModel implements BluetoothStateChangeCallback,
             Set<BluetoothDevice> btDevices = adapter.getBondedDevices();
             if (btDevices.size() == 1) {
                 // Show a generic label about the number of paired bluetooth devices
-                mBluetoothBackState.label = 
+                mBluetoothBackState.label =
                     r.getString(R.string.quick_settings_bluetooth_number_paired, btDevices.size());
             } else {
                 mBluetoothBackState.label = r.getString(R.string.quick_settings_bluetooth_disabled);

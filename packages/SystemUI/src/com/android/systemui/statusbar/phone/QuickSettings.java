@@ -752,7 +752,7 @@ class QuickSettings {
                         return;
                     }
 
-                    if (mBluetoothAdapter.getScanMode() 
+                    if (mBluetoothAdapter.getScanMode()
                         != BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
                         mBluetoothAdapter.setScanMode(
                             BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE, 300);
@@ -795,7 +795,7 @@ class QuickSettings {
                             bluetoothState.stateContentDescription));
                     bluetoothTileBack.setLabel(state.label);
 
-                    if (mBluetoothAdapter.getScanMode() 
+                    if (mBluetoothAdapter.getScanMode()
                         == BluetoothAdapter.SCAN_MODE_CONNECTABLE_DISCOVERABLE) {
                         bluetoothTileBack.setFunction(
                             mContext.getString(R.string.quick_settings_bluetooth_discoverable_label));
