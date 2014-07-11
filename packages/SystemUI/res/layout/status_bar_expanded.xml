@@ -64,6 +64,11 @@
             android:layout_height="@dimen/notification_panel_header_height"
             />
 
+        <include layout="@layout/weather_header"
+            android:layout_width="match_parent"
+            android:layout_height="28dp"
+            />
+
         <ViewStub android:id="@+id/ribbon_settings_stub"
             android:layout="@layout/ribbon_settings"
             android:layout_width="match_parent"

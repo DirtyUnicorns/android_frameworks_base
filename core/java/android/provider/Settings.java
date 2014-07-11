@@ -3105,6 +3105,16 @@ public final class Settings {
         public static final String SCREENSHOT_TOGGLE_DELAY = "screenshot_toggle_delay";
 
         /**
+         * @hide
+         */
+        public static final String SYSTEMUI_WEATHER_HEADER_VIEW = "cfx_systemui_header_weather_view";
+
+        /**
+         * @hide
+         */
+        public static final String SYSTEMUI_WEATHER_NOTIFICATION = "cfx_weather_notification";
+
+        /**
          * HALO enabled, should default to 0 (no, HALO is disabled)
          * @hide
          */

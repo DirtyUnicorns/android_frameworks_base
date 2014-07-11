@@ -261,6 +261,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
     View mClearButton;
     ImageView mSettingsButton, mNotificationButton;
 
+    private View mWeatherHeader;
+    private boolean mWeatherEnabled;
+
     // carrier/wifi label
     private TextView mCarrierLabel;
     private TextView mWifiLabel;
@@ -458,6 +461,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_TIMEOUT),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SYSTEMUI_WEATHER_HEADER_VIEW),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SYSTEMUI_WEATHER_NOTIFICATION),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -507,6 +516,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         public void update() {
             final ContentResolver resolver = mContext.getContentResolver();
 
+            boolean weatherHolder = Settings.System.getBoolean(resolver,Settings.System.SYSTEMUI_WEATHER_HEADER_VIEW, false);
+            if (weatherHolder != mWeatherEnabled) {
+                mWeatherEnabled = weatherHolder;
+                enableOrDisableWeather();
+            }
+
             mNotificationShortcutsHideCarrier = Settings.System.getIntForUser(resolver,
                     Settings.System.NOTIFICATION_SHORTCUTS_HIDE_CARRIER, 0, UserHandle.USER_CURRENT) != 0;
             if (mCarrierLabel != null) {
@@ -549,6 +564,15 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         }
     }
 
+    private void enableOrDisableWeather() {
+        if (mWeatherEnabled) {
+            mWeatherHeader.setVisibility(View.VISIBLE);
+            mWeatherHeader.setEnabled(true);
+        } else {
+            mWeatherHeader.setVisibility(View.GONE);
+            mWeatherHeader.setEnabled(false);
+        }
+    }
 
     // ensure quick settings is disabled until the current user makes it through the setup wizard
     private boolean mUserSetup = false;
@@ -841,6 +865,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         mStatusHeaderImage = (ImageView) mNotificationPanelHeader.findViewById(R.id.header_background_image);
         mHeaderOverlay = res.getDrawable(R.drawable.bg_custom_header_overlay);
         updateCustomHeaderStatus();
+
+        mWeatherHeader = mStatusBarWindow.findViewById(R.id.weather_text);
+
+        mWeatherEnabled = Settings.System.getBoolean(mContext.getContentResolver(),
+                    Settings.System.SYSTEMUI_WEATHER_HEADER_VIEW, false);
 
         mClearButton = mStatusBarWindow.findViewById(R.id.clear_all_button);
         mClearButton.setOnClickListener(mClearButtonListener);
