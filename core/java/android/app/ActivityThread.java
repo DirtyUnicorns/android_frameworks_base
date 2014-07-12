@@ -1671,10 +1671,9 @@ public final class ActivityThread {
                             new WeakReference<LoadedApk>(packageInfo));
                 }
             }
-            if (packageInfo.mResources == null
-                    || !packageInfo.mResources.getAssets().isUpToDate()) {
+            if (packageInfo.mResources != null
+                    && !packageInfo.mResources.getAssets().isUpToDate()) {
                 packageInfo.mResources = null;
-                packageInfo.getResources(this);
             }
             return packageInfo;
         }
