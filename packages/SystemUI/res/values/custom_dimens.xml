@@ -76,4 +76,6 @@
     <dimen name="app_sidebar_icon_width">72dp</dimen>
     <dimen name="app_sidebar_icon_height">72dp</dimen>
 
+    <dimen name="weather_text_margin">56dp</dimen>
+
 </resources>
