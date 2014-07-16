@@ -2816,6 +2816,18 @@ public final class Settings {
         public static final String LOCKSCREEN_SEE_THROUGH = "lockscreen_see_through";
 
         /**
+         * Whether to allow killing of the foreground app by long-pressing the Back button
+         * @hide
+         */
+        public static final String KILL_APP_LONGPRESS_BACK = "kill_app_longpress_back";
+
+        /**
+         * Delay Control of Back to Kill
+         * @hide
+         */
+        public static final String KILL_APP_LONGPRESS_BACK_DELAY = "kill_app_longpress_back_delay";
+
+        /**
          * Whether the lockscreen should be completely disabled.
          * @hide
          */
@@ -3874,7 +3886,6 @@ public final class Settings {
           * 6 - home
           * 7 - back
           * 8 - toggle last app
-          * 9 - kill app
           * @hide
           */
         public static final String HARDWARE_KEY_REBINDING = "hardware_key_rebinding";
