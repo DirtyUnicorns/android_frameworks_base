@@ -111,6 +111,9 @@
                 android:description="@string/permdesc_screenshot"
                 android:label="@string/permlab_screenshot" />
 
+    <!-- WallpaperManager -->
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+
     <application
         android:persistent="true"
         android:allowClearUserData="false"
