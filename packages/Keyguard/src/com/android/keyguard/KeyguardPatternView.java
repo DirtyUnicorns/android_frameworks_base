@@ -124,13 +124,15 @@ public class KeyguardPatternView extends LinearLayout implements KeyguardSecurit
 
         mDoubleTapGesture = new GestureDetector(mContext,
                 new GestureDetector.SimpleOnGestureListener() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-                if (pm != null) pm.goToSleep(e.getEventTime());
-                return true;
-            }
-        });
+                    @Override
+                    public boolean onDoubleTap(MotionEvent e) {
+                        PowerManager pm = (PowerManager) mContext
+                                .getSystemService(Context.POWER_SERVICE);
+                        if (pm != null)
+                            pm.goToSleep(e.getEventTime());
+                        return true;
+                    }
+                });
 
         mLockPatternView = (LockPatternView) findViewById(R.id.lockPatternView);
         mLockPatternView.setSaveEnabled(false);
@@ -147,7 +149,7 @@ public class KeyguardPatternView extends LinearLayout implements KeyguardSecurit
         mLockPatternView.setLockPatternSize(mLockPatternUtils.getLockPatternSize());
 
         if (Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.DOUBLE_TAP_TO_SLEEP, 0) == 1) {
+                Settings.System.DOUBLE_TAP_SLEEP_PATTERN, 0) == 1) {
             mLockPatternView.setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {

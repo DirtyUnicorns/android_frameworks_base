@@ -110,20 +110,22 @@ public abstract class KeyguardAbsKeyInputView extends LinearLayout
 
         mDoubleTapGesture = new GestureDetector(mContext,
                 new GestureDetector.SimpleOnGestureListener() {
-            @Override
-            public boolean onDoubleTap(MotionEvent e) {
-                PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
-                if (pm != null) pm.goToSleep(e.getEventTime());
-                return true;
-            }
-        });
+                    @Override
+                    public boolean onDoubleTap(MotionEvent e) {
+                        PowerManager pm = (PowerManager) mContext
+                                .getSystemService(Context.POWER_SERVICE);
+                        if (pm != null)
+                            pm.goToSleep(e.getEventTime());
+                        return true;
+                    }
+                });
 
         mPasswordEntry = (TextView) findViewById(getPasswordTextViewId());
         mPasswordEntry.setOnEditorActionListener(this);
         mPasswordEntry.addTextChangedListener(this);
 
         if (Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.DOUBLE_TAP_TO_SLEEP, 0) == 1) {
+                Settings.System.DOUBLE_TAP_SLEEP_STATUS_PIN_PASSWORD, 0) == 1) {
             mPasswordEntry.setOnTouchListener(new OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
