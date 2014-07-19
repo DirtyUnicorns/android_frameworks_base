@@ -67,6 +67,11 @@
     <!-- Hot Reboot Progress Dialog message. Shown if the user chooses to hot reboot the device. -->
     <string name="hot_reboot_progress">Restarting android framework\u2026</string>
 
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">mimic package signature</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Allows the app to use mimic another app\'s package signature.</string>
+
     <!-- label for item that toggle mobile data -->
     <string name="global_actions_toggle_mobile_data">Mobile data</string>
 
