@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2014 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="quick_settings_wifi_tethering_label">Tethering</string>
+  <string name="quick_settings_bluetooth_not_discoverable_label">Nem felderíthető</string>
+  <string name="quick_settings_bluetooth_discoverable_label">Felderíthető</string>
+  <string name="quick_settings_bluetooth_disabled">Kikapcsolva</string>
+  <string name="quick_settings_bluetooth_number_paired"><xliff:g id="number">%d</xliff:g> eszköz párosítva</string>
+  <string name="screenrecord_notif_ticker">Képernyő felvétel folyamatban</string>
+  <string name="screenrecord_notif_title">Képernyő felvétel</string>
+  <string name="screenrecord_notif_stop">Stop</string>
+  <string name="screenrecord_notif_pointer">Mutató ki/be</string>
+  <string name="screenrecord_notif_error">Képernyő felvétel nem lehetséges</string>
+  <string name="screenshot_delete_confirmation">Képernyőmentés törölve</string>
+  <string name="advanced_dev_option_wipe_app">Alk. adatok törlése</string>
+  <string name="advanced_dev_option_force_stop">Kényszerített megállás</string>
+  <string name="quick_settings_battery_charging">Töltés</string>
+  <string name="quick_settings_battery_discharging">Merülés</string>
+  <string name="quick_settings_camera_label">Kamera</string>
+  <string name="quick_settings_camera_error_connect">Nem lehet csatlakozni a kamerához</string>
+  <string name="navbar_dialog_title">Válasszon műveletet hozzá</string>
+  <string name="navbar_home_button">Otthon gomb</string>
+  <string name="navbar_recent_button">Legutóbbi gomb</string>
+  <string name="navbar_search_button">Keresés gomb</string>
+  <string name="navbar_back_button">Vissza gomb</string>
+  <string name="navbar_empty_button">Üres gomb</string>
+  <string name="navbar_menu_conditional_button">Menü (autoRejt) gomb</string>
+  <string name="navbar_menu_always_button">Menü (mindigMutat) gomb</string>
+  <string name="navbar_menu_big_button">Menü gomb</string>
+  <string name="accessibility_halo">Halo értesítés létrehozása.</string>
+  <string name="halo_dismiss">Értesítések elutasítása</string>
+  <string name="halo_hide">Elrejtés</string>
+  <string name="halo_clear_all">Minden értesítés elutasítása</string>
+  <string name="halo_silence">Ébresztésig elrejt &amp; néma</string>
+  <string name="halo_tutorial1">Ez a HALO</string>
+  <string name="halo_tutorial2">Mozgass: 2x-érint &amp; húz</string>
+  <string name="halo_tutorial3">Feladatok tallózása: vízszintes húzás</string>
+  <string name="halo_battery_plugged">TÖLTÉS</string>
+  <string name="halo_battery_unplugged">FENNMARADÓ</string>
+  <string name="halo_battery_full">FELTÖLTVE</string>
+  <string name="halo_aeroplane1">REPÜLŐGÉP</string>
+  <string name="halo_aeroplane2">MÓD</string>
+  <string name="halo_wifi_on">Wi-Fi BE</string>
+  <string name="halo_wifi_off">WI-FI KI</string>
+  <string name="halo_signal_bars_4">TELJES</string>
+  <string name="halo_signal_bars_3">HÁROM BÁR</string>
+  <string name="halo_signal_bars_2">KÉT BÁR</string>
+  <string name="halo_signal_bars_1">EGY BÁR</string>
+  <string name="halo_signal_bars_none">NINCS BÁR</string>
+  <string name="wifi_ap_disabled">WiFi AP le van tiltva</string>
+  <string name="wifi_ap_enabled">WiFi AP engedélyezve</string>
+  <string name="quick_settings_immersive_mode_label">Immersive</string>
+  <string name="quick_settings_immersive_mode_off_label">Immersive ki</string>
+  <string name="memory">RAM</string>
+  <string name="service_free_mem"><xliff:g id="memory">%1$s</xliff:g> szabad</string>
+  <string name="service_used_mem"><xliff:g id="memory">%1$s</xliff:g> használt</string>
+  <string name="default_folder_text">Mappa</string>
+  <string name="title_activity_sidebar_configuration">Alkalmazássáv tartalom beállítása</string>
+  <string name="action_save">Mentés</string>
+  <string name="toast_items_saved">Alkalmazássáv elemek mentése megtörtént.</string>
+  <string name="content_setup_instructions">Elem AlkalmazásSávba felvételéhez a kiválasztott elemet nyomja meg hosszan a jobb oldalon, majd húzza az AlkalmazásSávba.\n\nElemek mappába való kombinálásához húzza egy már meglévő elemre az AlklamazásSávon.\n\nElem elvávolításához húzza az \@alkalmazássáv-on kívülre.</string>
+  <string name="content_setup_dismiss">Tovább</string>
+  <string name="quick_settings_gps">GPS</string>
+  <string name="quick_settings_gps_off">GPS ki</string>
+  <string name="quick_settings_screen_sleep">Menj aludni</string>
+  <string name="quick_settings_ringer_on">Hang be</string>
+  <string name="quick_settings_ringer_off">Hang ki</string>
+  <string name="quick_settings_vibration_on">Rezgés be</string>
+  <string name="quick_settings_vibration_off">Rezgés ki</string>
+  <string name="quick_settings_label_enabled">Be</string>
+  <string name="quick_settings_label_disabled">Ki</string>
+  <string name="quick_settings_ringer_normal">Hang</string>
+  <string name="quick_settings_lockscreen">Képernyő zárolás</string>
+  <string name="quick_settings_network_type">Hálózati mód</string>
+  <string name="quick_settings_report_bug">Hibajelentés</string>
+  <string name="quick_settings_sync">Szinkronizálás</string>
+  <string name="quick_settings_sync_off">Szinkronizálás ki</string>
+  <string name="quick_settings_torch">Zseblámpa</string>
+  <string name="quick_settings_torch_off">Zseblámpa ki</string>
+  <string name="quick_settings_nfc">NFC</string>
+  <string name="quick_settings_nfc_off">NFC ki</string>
+  <string name="quick_settings_screen_timeout">Időtúllépés</string>
+  <string name="quick_settings_screen_timeout_summary_never">Soha</string>
+  <string name="quick_settings_usb_tether_off_label">Leválasztva</string>
+  <string name="quick_settings_usb_tether_connected_label">Tethering ki</string>
+  <string name="quick_settings_usb_tether_on_label">Tethering</string>
+  <string name="quick_settings_wifiap">Wi-Fi AP</string>
+  <string name="quick_settings_wifiap_off">Wi-Fi AP ki</string>
+  <string name="quick_settings_quiethours">Csendes órák</string>
+  <string name="quick_settings_quiethours_off">Csendes órák ki</string>
+  <string name="quick_settings_lte">LTE</string>
+  <string name="quick_settings_lte_off">LTE ki</string>
+  <string name="quick_settings_volume">Hangerő</string>
+  <string name="quick_settings_expanded_desktop">Kiterjesztett</string>
+  <string name="quick_settings_expanded_desktop_off">Normál</string>
+  <string name="quick_settings_music_play">Lejátszás</string>
+  <string name="quick_settings_music_pause">Szünet</string>
+  <string name="quick_settings_reboot_recovery">Recovery</string>
+  <string name="quick_settings_reboot">Újraindítás</string>
+  <string name="quick_settings_custom_toggle">Egyéni</string>
+  <string name="quick_settings_quick_record_nofile">Hosszan nyomja</string>
+  <string name="quick_settings_quick_record_def">Gyors Felvétel</string>
+  <string name="quick_settings_quick_record_rec">Felvétel...</string>
+  <string name="quick_settings_quick_record_save">Mentve</string>
+  <string name="quick_settings_quick_record_play">Lejátszás...</string>
+  <string name="quick_settings_fcharge_on_label">Gyorstöltés</string>
+  <string name="quick_settings_fcharge_off_label">Kikapcsolva</string>
+  <string name="quick_settings_theme_switch_dark">Sötét téma</string>
+  <string name="quick_settings_theme_switch_light">Világos téma</string>
+  <string name="status_bar_recent_lock_item_title">Zárol</string>
+  <string name="status_bar_recent_unlock_item_title">Felold</string>
+  <string name="status_bar_notification_hide_icon_packages">Értesítési ikon elrejtése</string>
+  <string name="status_bar_recent_playstore_item_title">Play Áruház</string>
+  <string name="status_bar_recent_amazon_item_title">Amazon Bolt</string>
+  <string name="onthego_notif_ticker">On-The-Go aktiválva</string>
+  <string name="onthego_notif_title">On-The-Go aktív</string>
+  <string name="onthego_notif_stop">Stop</string>
+  <string name="onthego_notif_options">Beállítások</string>
+  <string name="onthego_notif_error">On-The-Go nem indítható</string>
+  <string name="onthego_notif_restart">On-The-Go újraindítása</string>
+  <string name="onthego_notif_camera_changed">Kamera mód megváltozott</string>
+  <string name="onthego_transparency">Átláthatóság</string>
+  <string name="onthego_front_camera">Előlapi kamera használata</string>
+  <string name="onthego_service_toggle">Automatikusan indítsa újra a szolgáltatást</string>
+  <string name="cancel">Mégse</string>
+  <string name="dlg_ok">Ok</string>
+  <string name="yes">Igen</string>
+  <string name="no">Nem</string>
+  <string name="shortcut_picker">Kamra Hivatkozások</string>
+  <string name="shortcut_chamber">Titkok Kamrája</string>
+  <string name="chamber_disabled">Titkok Kamrája zárva van</string>
+  <string name="chamber_title">Beállítások karakterlánc megadása</string>
+  <string name="chamber_message">Beállítások karakterlánc megadása, amely lehet egy be- és kikapcsoló (checkbox) függvény, vagy lista-preference. Például, quiet_hours_ringer vagy hasonló. A beállítások a Settings.java fájlban találhatóak. FIGYELMEZTETÉS: Ez a folyamat veszélyes!</string>
+  <string name="chamber_invalid">Érvénytelen adatbevitel. Csak óvatosan.</string>
+  <string name="chamber_invalid_setting">Próbálja meg a manuális változtatást, hogy megbizonyosodjon arról, hogy ez a művelet a beállítási adatbázisban létezik.</string>
+  <string name="chamber_checkbox">Jelölőnégyzet</string>
+  <string name="chamber_chk_message">Ez a beállítás egy jelölőnégyzet beállítás?</string>
+  <string name="chamber_int">Bemeneti értékek</string>
+  <string name="chamber_int_message">Adja meg az értékeket, melyek között váltani szeretne. Minden értéket vesszővel válasszon el. Szín esetén az elfogadott hex-értékek pl. #FF00aacc vagy szokásos szín meghatározás (angolul) red, green, and yellow.</string>
+  <string name="status_bar_recent_floating_item_title">Lebegő mód</string>
+  <string name="status_bar_notification_floating_item_title">Lebegő mód</string>
+  <string name="app_float_maximize_item_title">Maximalizálás</string>
+  <string name="app_float_item_title">Lebegő nézet</string>
+  <string name="app_stop_item_title">Alkalmazás kilövése</string>
+  <string name="status_bar_notification_floating_item_title">Lebegő mód</string>
+  <string name="status_bar_recent_floating_item_title">Lebegő mód</string>
+  <string name="quick_settings_compass_off">Iránytű ki</string>
+  <string name="quick_settings_compass_init">Inicializálás\u2026</string>
+</resources>

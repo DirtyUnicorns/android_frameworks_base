@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2014 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_killed_message">Alkalmazás kilőve</string>
+  <string name="permlab_revokePermissions">Megtekintheti és szerkesztheti a visszavont engedélyeket. Nem használható a normál alkalmazások esetén.</string>
+  <string name="permdesc_revokePermissions">A  visszavont engedélyek olvasását és írását teszi lehetővé. Nem használható a normál alkalmazások esetén.</string>
+  <string name="permlab_accessThemeService">A téma-kezelő szolgáltatás elérését teszi lehetővé. Nem használható a normál alkalmazások esetén.</string>
+  <string name="permdesc_accessThemeService">Egy alkalmazás témájának beállítását/visszavonását teszi lehetővé. Nem használható a normál alkalmazások esetén.</string>
+  <string name="stylus_app_not_installed">%s nincs telepítve</string>
+  <string name="global_action_screenrecord">Képernyő felvétel</string>
+  <string name="reboot_system" product="tablet">Tablet újraindítása</string>
+  <string name="reboot_system" product="default">Telefon újraindítása</string>
+  <string name="global_action_screenshot">Képernyőmentés</string>
+  <string name="global_action_reboot">Újraindítás</string>
+  <string name="reboot_reboot">Újraindítás</string>
+  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_hot">Hot Reboot</string>
+  <string name="reboot_bootmenu">Bootmenü</string>
+  <string name="reboot_fastboot">Fastboot</string>
+  <string name="reboot_download">Letöltési mód</string>
+  <string name="reboot_progress">Újraindítás\u2026</string>
+  <string name="reboot_confirm" product="tablet">Tablet újraindul.</string>
+  <string name="reboot_confirm" product="default">Telefon újraindul.</string>
+  <string name="hot_reboot_title" product="tablet">Tablet hot reboot</string>
+  <string name="hot_reboot_title" product="default">Telefon hot reboot</string>
+  <string name="hot_reboot_progress">Android framework\u2026 újraindítása</string>
+  <string name="global_actions_toggle_mobile_data">Mobil adat</string>
+  <string name="global_actions_mobile_data_on_status">Mobil adat BE</string>
+  <string name="global_actions_mobile_data_off_status">Mobil adat KI</string>
+  <string name="storage_sd_dock_card">SD kártya dokkolás</string>
+  <string name="permlab_changePrivacyGuardState">adatvédelmi őr engedélyezése vagy letiltása</string>
+  <string name="permdesc_changePrivacyGuardState">Az alkalmazás számára lehetőséget ad megváltoztatni, hogy egy másik alkalmazás Adatvédelmi Őrrel fut e. Ha egy alkalmazás Adatvédelmi Őrrel fut, akkor nem férhet hozzá a személyes adatokhoz, mint például a névjegyek, a hívás naplók, vagy az üzenetek.</string>
+  <string name="privacy_guard_notification">Adatvédelmi Őr aktív</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nem férhet hozzá a személyes adatokhoz</string>
+  <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> nem férhet hozzá az egyedi engedélyekhez</string>
+  <string name="profileNameDefault">Alapértelmezett</string>
+  <string name="profileNameWork">Munka</string>
+  <string name="profileNameHome">Otthon</string>
+  <string name="profileNameSilent">Néma</string>
+  <string name="profileNameNight">Éjszaka</string>
+  <string name="profileGroupPhone">Telefon</string>
+  <string name="profileGroupCalendar">Naptár</string>
+  <string name="profileGroupGmail">Gmail</string>
+  <string name="profileGroupEmail">E-mail</string>
+  <string name="profileGroupSMS">SMS</string>
+  <string name="wildcardProfile">Egyéb</string>
+  <string name="global_action_choose_profile">Profil</string>
+  <string name="profile_picker_title">Profilok</string>
+  <string name="profile_none">Nincs</string>
+  <string name="animation_default">Alapértelmezett</string>
+  <string name="animation_fade">Halványuló</string>
+  <string name="animation_slide_right">Beúszás jobbról</string>
+  <string name="animation_slide_left">Beúszás balról</string>
+  <string name="animation_slide_right_no_fade">Beúszás jobbról (nincs halványítás)</string>
+  <string name="animation_slide_left_no_fade">Beúszás balról (nincs halványítás)</string>
+  <string name="animation_slide_up">Beúszás alulról</string>
+  <string name="animation_slide_down">Beúszás felűlről</string>
+  <string name="animation_translucent">Áttetsző</string>
+  <string name="animation_grow_shrink">Növekvő (fent)</string>
+  <string name="animation_grow_shrink_center">Növekvő (közép)</string>
+  <string name="animation_grow_shrink_bottom">Növekvő (lent)</string>
+  <string name="animation_grow_shrink_left">Növekvő (bal)</string>
+  <string name="animation_grow_shrink_right">Növekvő (jobb)</string>
+  <string name="animation_random">Véletlenszerű</string>
+  <string name="global_action_onthego">On-The-Go mód</string>
+  <string name="floating_window_snap_top">Felülre illeszt</string>
+  <string name="floating_window_snap_bottom">Alulra illeszt</string>
+  <string name="floating_window_snap_left">Balra illeszt</string>
+  <string name="floating_window_snap_right">Jobbra illeszt</string>
+  <string name="immersive_mode_confirmation_bottom">A teljes képernyőből való kilépéshez swipe alulról felfelé.</string>
+  <string name="permlab_resetBatteryStats">akkumulátor statisztika visszaállítása</string>
+  <string name="permdesc_resetBatteryStats">Az alkalmazás részére lehető teszi, hogy a jelenlegi alacsony szintű akkumulátor adatokat  visszaállítsa.</string>
+</resources>
