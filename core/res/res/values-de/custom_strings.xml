@@ -1,19 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Dirty Unicorns Project
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="global_action_reboot">Neustart</string>
-    <!-- Button to reboot the phone, within the Phone Options dialog -->
-    <string name="reboot_system" product="tablet">Neustart Tablet</string>
-    <string name="reboot_system" product="default">Neustart Telefon</string>
-
-    <!-- Button to reboot the phone, within the Reboot Options dialog -->
-    <string name="reboot_reboot">Neustart</string>
-    <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-    <string name="reboot_bootmenu">Bootmenü</string>
-
-    <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-    <string name="reboot_progress">Starte neu\u2026</string>
-    <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-    <string name="reboot_confirm" product="tablet">Dein Tablet wird neu gestartet.</string>
-    <string name="reboot_confirm" product="default">Dein Telefon wird neu gestartet.</string>
-
+  <string name="app_killed_message">App beendet</string>
+  <string name="permlab_revokePermissions">Ermöglicht das Anzeigen und Bearbeiten von gesperrten Berechtigungen. Nicht für normale Anwendungen.</string>
+  <string name="permdesc_revokePermissions">Ermöglicht das Lesen und Schreiben für gesperrte Berechtigungen. Nicht für normale Anwendungen.</string>
+  <string name="permlab_accessThemeService">Ermöglicht den Zugriff auf den Theme Manager Dienst. Nicht für normale Anwendungen.</string>
+  <string name="permdesc_accessThemeService">Ermöglicht einer Anwendung Themen einzustelle oder zurück zusetzen. Nicht für normale Anwendungen.</string>
+  <string name="stylus_app_not_installed">%s ist nicht installiert</string>
+  <string name="global_action_screenrecord">Bildschirm Aufzeichnung</string>
+  <string name="reboot_system" product="tablet">Tablet neu starten</string>
+  <string name="reboot_system" product="default">Telefon neu starten</string>
+  <string name="global_action_screenshot">Bildschirmfoto</string>
+  <string name="global_action_reboot">Neustarten</string>
+  <string name="reboot_reboot">Neustarten</string>
+  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_hot">Schneller Neustart</string>
+  <string name="reboot_bootmenu">Boot Menü</string>
+  <string name="reboot_fastboot">Fastboot</string>
+  <string name="reboot_download">Download</string>
+  <string name="reboot_progress">Neustarten\u2026</string>
+  <string name="reboot_confirm" product="tablet">Tablet wird neu gestartet.</string>
+  <string name="reboot_confirm" product="default">Das Telefon wird neu gestartet.</string>
+  <string name="hot_reboot_title" product="tablet">Schneller Neustart Tablet</string>
+  <string name="hot_reboot_title" product="default">Schneller Neustart Telefon</string>
+  <string name="hot_reboot_progress">Android Framework wird neu gestartet\u2026</string>
+  <string name="global_actions_toggle_mobile_data">Mobile Daten</string>
+  <string name="global_actions_mobile_data_on_status">Mobile Daten an</string>
+  <string name="global_actions_mobile_data_off_status">Mobile Daten aus</string>
+  <string name="storage_sd_dock_card">Dock SD Karte</string>
+  <string name="permlab_changePrivacyGuardState">Datenschutz aktivieren oder deaktivieren</string>
+  <string name="permdesc_changePrivacyGuardState">Ermöglicht der App, den Datenschutz für andere Apps zu aktivieren oder deaktivieren. Eine App mit aktiviertem Datenschutz hat keinen Zugriff auf persönliche Daten wie Kontakte, Nachrichten oder das Anrufprotokoll.</string>
+  <string name="privacy_guard_notification">Datenschutz aktiv</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> hat keinen Zugriff auf persönliche Daten</string>
+  <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> hat keinen Zugriff auf benutzerdefinierte Berechtigungen</string>
+  <string name="profileNameDefault">Standard</string>
+  <string name="profileNameWork">Arbeit</string>
+  <string name="profileNameHome">Zuhause</string>
+  <string name="profileNameSilent">Lautlos</string>
+  <string name="profileNameNight">Nacht</string>
+  <string name="profileGroupPhone">Telefon</string>
+  <string name="profileGroupCalendar">Kalender</string>
+  <string name="profileGroupGmail">Gmail</string>
+  <string name="profileGroupEmail">Email</string>
+  <string name="profileGroupSMS">SMS</string>
+  <string name="wildcardProfile">Andere</string>
+  <string name="global_action_choose_profile">Profil</string>
+  <string name="profile_picker_title">Profile</string>
+  <string name="profile_none">Keine</string>
+  <string name="animation_default">Standard</string>
+  <string name="animation_fade">Ausblenden</string>
+  <string name="animation_slide_right">Gleiten von rechts</string>
+  <string name="animation_slide_left">Gleiten von links</string>
+  <string name="animation_slide_right_no_fade">Gleiten von rechts (ohne verblassen)</string>
+  <string name="animation_slide_left_no_fade">Gleiten von links (ohne verblassen)</string>
+  <string name="animation_slide_up">Gleiten von unten</string>
+  <string name="animation_slide_down">Gleiten von oben</string>
+  <string name="animation_translucent">Durchsichtig</string>
+  <string name="animation_grow_shrink">Wachsen nach (Oben)</string>
+  <string name="animation_grow_shrink_center">Wachsen nach (Mitte)</string>
+  <string name="animation_grow_shrink_bottom">Wachsen nach (Unten)</string>
+  <string name="animation_grow_shrink_left">Wachsen nach (Links)</string>
+  <string name="animation_grow_shrink_right">Wachsen nach (Rechts)</string>
+  <string name="animation_random">Zufällig</string>
+  <string name="global_action_onthego">On-The-Go Modus</string>
+  <string name="floating_window_snap_top">Oben einrasten</string>
+  <string name="floating_window_snap_bottom">Unten einrasten</string>
+  <string name="floating_window_snap_left">Links einrasten</string>
+  <string name="floating_window_snap_right">Rechts einrasten</string>
+  <string name="immersive_mode_confirmation_bottom">Von unten nach oben wischen, um den Vollbildmodus zu verlassen.</string>
+  <string name="permlab_resetBatteryStats">Akku Statistik zurücksetzen</string>
+  <string name="permdesc_resetBatteryStats">Ermöglicht einer App, die aktuellen \"low-level\" Akku Verlaufsdetails zurückzusetzen.</string>
 </resources>
