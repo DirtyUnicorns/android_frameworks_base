@@ -1,27 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Dirty Unicorns Project
+
+ This program is free software: you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation, either version 2 of the License, or
+ (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+-->
+
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="global_action_reboot">Reiniciar</string>
-    <!-- Button to reboot the phone, within the Phone Options dialog -->
-    <string name="reboot_system" product="tablet">Reiniciar tablet</string>
-    <string name="reboot_system" product="default">Reiniciar teléfono</string>
-
-    <!-- Button to reboot the phone, within the Reboot Options dialog -->
-    <string name="reboot_reboot">Reiniciar</string>
-    <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-    <string name="reboot_recovery">Recovery</string>
-    <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-    <string name="reboot_bootloader">Bootloader</string>
-    <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-    <string name="reboot_bootmenu">Bootmenu</string>
-    <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
-    <string name="reboot_fastboot">Fastboot</string>
-    <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-    <string name="reboot_download">Download</string>
-
-    <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-    <string name="reboot_progress">Reiniciando\u2026</string>
-    <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-    <string name="reboot_confirm" product="tablet">Se reiniciará tu tablet.</string>
-    <string name="reboot_confirm" product="default">Se reiniciará tu teléfono.</string>
-
+  <string name="app_killed_message">Aplicación finalizada</string>
+  <string name="permlab_revokePermissions">Permite ver y editar de permisos revocados. No para el uso de las aplicaciones normales.</string>
+  <string name="permdesc_revokePermissions">Descripción de un permiso que permite ver/editar permisos revocados.</string>
+  <string name="permlab_accessThemeService">Título de permiso de una aplicación que permite acceso al Servicio de Selección de Temas.</string>
+  <string name="permdesc_accessThemeService">Descripción de una aplicación que permite acceso al Servicio de Selección de Temas.</string>
+  <string name="stylus_app_not_installed">%s no está instalado
+Suporte de gestos de aguja</string>
+  <string name="global_action_screenrecord">Grabación de pantalla</string>
+  <string name="reboot_system" product="tablet">Reinicio del sistema</string>
+  <string name="reboot_system" product="default">Reiniciar teléfono</string>
+  <string name="global_action_screenshot">Captura de pantalla</string>
+  <string name="global_action_reboot">Reinicio</string>
+  <string name="reboot_reboot">Reinicio</string>
+  <string name="reboot_recovery">Reiniciar en recuperacion</string>
+  <string name="reboot_bootloader">Gestor de arranque</string>
+  <string name="reboot_hot">Reinicio rápido</string>
+  <string name="reboot_bootmenu">Menú de arranque</string>
+  <string name="reboot_fastboot">Modo Fastboot</string>
+  <string name="reboot_download">Reinicio en modo descarga</string>
+  <string name="reboot_progress">Reiniciando\u2026</string>
+  <string name="reboot_confirm" product="tablet">La tableta se reiniciará.</string>
+  <string name="reboot_confirm" product="default">El teléfono se reiniciará.</string>
+  <string name="hot_reboot_title" product="tablet">Reinicio en caliente de la tablet</string>
+  <string name="hot_reboot_title" product="default">Reinicio en caliente del telefono</string>
+  <string name="hot_reboot_progress">Reiniciar android framework\u2026</string>
+  <string name="global_actions_toggle_mobile_data">Datos de red</string>
+  <string name="global_actions_mobile_data_on_status">Datos móviles encendidos</string>
+  <string name="global_actions_mobile_data_off_status">Datos móviles apagados</string>
+  <string name="storage_sd_dock_card">Tarjeta SD de la base</string>
+  <string name="permlab_changePrivacyGuardState">habilitar o deshabilitar la privacidad</string>
+  <string name="permdesc_changePrivacyGuardState">Permite que la aplicación cambie el estado de privacidad de otra. Cuando una aplicación se ejecuta con la privacidad habilitada, no podrá acceder a los datos personales, tales como contactos, mensajes o registros de llamadas.</string>
+  <string name="privacy_guard_notification">Gestor de privacidad activo</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> no podrá acceder a los datos personales</string>
+  <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> no será capaz de acceder a permisos personalizados</string>
+  <string name="profileNameDefault">Por defecto</string>
+  <string name="profileNameWork">Trabajo</string>
+  <string name="profileNameHome">Página de inicio</string>
+  <string name="profileNameSilent">Silencio</string>
+  <string name="profileNameNight">Noche</string>
+  <string name="profileGroupPhone">Teléfono</string>
+  <string name="profileGroupCalendar">Calendario</string>
+  <string name="profileGroupGmail">Gmail</string>
+  <string name="profileGroupEmail">Correo electrónico</string>
+  <string name="profileGroupSMS">SMS</string>
+  <string name="wildcardProfile">Otros</string>
+  <string name="global_action_choose_profile">Perfil</string>
+  <string name="profile_picker_title">Perfiles</string>
+  <string name="profile_none">Ninguno</string>
+  <string name="animation_default">Por defecto</string>
+  <string name="animation_fade">Desvanecimiento</string>
+  <string name="animation_slide_right">Deslizar desde la derecha</string>
+  <string name="animation_slide_left">Deslizar desde la izquierda</string>
+  <string name="animation_slide_right_no_fade">Deslizar desde la derecha (No se descolora)</string>
+  <string name="animation_slide_left_no_fade">Deslizar desde la izquierda (No se descolora)</string>
+  <string name="animation_slide_up">Deslizar desde abajo</string>
+  <string name="animation_slide_down">Deslizar desde arriba</string>
+  <string name="animation_translucent">Translúcido</string>
+  <string name="animation_grow_shrink">Aparecer (desde arriba)</string>
+  <string name="animation_grow_shrink_center">Aparecer (en el centro)</string>
+  <string name="animation_grow_shrink_bottom">Aparecer (desde abajo)</string>
+  <string name="animation_grow_shrink_left">Aparecer (izquierda)</string>
+  <string name="animation_grow_shrink_right">Aparecer (derecha)</string>
+  <string name="animation_random">Al azar</string>
+  <string name="global_action_onthego">Modo on-The-Go</string>
+  <string name="floating_window_snap_top">Anclar en la parte superior</string>
+  <string name="floating_window_snap_bottom">Anclar en la parte inferior</string>
+  <string name="floating_window_snap_left">Anclar a la izquierda</string>
+  <string name="floating_window_snap_right">Anclar a la derecha</string>
+  <string name="immersive_mode_confirmation_bottom">Desliza el dedo hacia arriba desde el borde inferior para salir de la pantalla completa.</string>
+  <string name="permlab_resetBatteryStats">Restaurar estadísticas de la batería</string>
+  <string name="permdesc_resetBatteryStats">Permite que la aplicación restablezca los datos del uso de la batería.</string>
 </resources>
