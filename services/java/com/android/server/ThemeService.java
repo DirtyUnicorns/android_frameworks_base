@@ -668,11 +668,6 @@ public class ThemeService extends IThemeService.Stub {
                     componentMap.get(ThemesColumns.MODIFIES_STATUS_BAR) : pkgName);
         }
 
-        if (componentMap.containsKey(ThemesColumns.MODIFIES_NAVIGATION_BAR)) {
-            builder.overlay(ThemeConfig.SYSTEMUI_NAVBAR_PKG, pkgName == null ?
-                    componentMap.get(ThemesColumns.MODIFIES_NAVIGATION_BAR) : pkgName);
-        }
-
         return builder;
     }
 
