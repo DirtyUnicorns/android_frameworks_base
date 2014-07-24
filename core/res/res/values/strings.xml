@@ -5210,4 +5210,7 @@
     <string name="def_wifi_wifihotspot_pass" translatable="false"></string>
     <!-- Default wi-fi direct name -->
     <string name="def_wifi_direct_name" translatable="false"></string>
+
+    <!-- USB_PREFERENCES: Notification for when no USB options chosen.  This is the title -->
+    <string name="usb_choose_notification_title">Touch to choose USB options.</string>
 </resources>
