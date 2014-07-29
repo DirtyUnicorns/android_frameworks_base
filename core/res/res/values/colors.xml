@@ -234,5 +234,6 @@
 
     <color name="holo_yellow_dark">#ff8800</color>
     <color name="holo_purple_dark">#9933cc</color>
+    <drawable name="notification_action_list_bg">#00000000</drawable>
 </resources>
 
