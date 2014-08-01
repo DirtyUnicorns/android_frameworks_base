@@ -63,6 +63,7 @@ import static com.android.internal.util.slim.QSConstants.TILE_PROFILE;
 import static com.android.internal.util.slim.QSConstants.TILE_NAVBAR;
 import static com.android.internal.util.slim.QSConstants.TILE_HEADSUP;
 import static com.android.internal.util.slim.QSConstants.TILE_CAMERA;
+import static com.android.internal.util.slim.QSConstants.TILE_CPUFREQ;
 
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -125,6 +126,7 @@ import com.android.systemui.quicksettings.ProfileTile;
 import com.android.systemui.quicksettings.NavBarTile;
 import com.android.systemui.quicksettings.HeadsupTile;
 import com.android.systemui.quicksettings.CameraTile;
+import com.android.systemui.quicksettings.CPUFreqTile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -190,6 +192,7 @@ public class QuickSettingsController {
         boolean bluetoothSupported = DeviceUtils.deviceSupportsBluetooth();
         boolean mobileDataSupported = DeviceUtils.deviceSupportsMobileData(mContext);
         boolean torchSupported = DeviceUtils.deviceSupportsTorch(mContext);
+        boolean cpufreqSupported = DeviceUtils.deviceSupportsCPUFreq();
 
         if (!bluetoothSupported) {
             TILES_DEFAULT.remove(TILE_BLUETOOTH);
@@ -293,6 +296,10 @@ public class QuickSettingsController {
                 qs = new NavBarTile(mContext, this);
             } else if (tile.equals(TILE_HEADSUP)) {
                 qs = new HeadsupTile(mContext, this);
+            } else if (tile.contains(TILE_CPUFREQ)) {
+                if (cpufreqSupported) {
+                    qs = new CPUFreqTile(mContext, this);
+                }
             } else if (tile.equals(TILE_CAMERA) && cameraSupported) {
                 qs = new CameraTile(mContext, this, mHandler);
             }

@@ -194,6 +194,17 @@ public class DeviceUtils {
         return true;
     }
 
+    public static boolean deviceSupportsCPUFreq() {
+        /*
+         * Actually every kernel should support this,
+         * but just in case!
+         */
+        String[] paths = { "/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq", "/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq" };
+        for (String path : paths)
+            if (new File(path).exists()) return true;
+        return false;
+    }
+
     public static boolean deviceSupportsCompass(Context context) {
         SensorManager sm = (SensorManager) context.getSystemService(Context.SENSOR_SERVICE);
         return (sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER) != null
