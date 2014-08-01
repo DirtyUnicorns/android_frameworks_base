@@ -58,6 +58,7 @@ public class QSConstants {
         public static final String TILE_NAVBAR = "toggleNavbar";
         public static final String TILE_HEADSUP = "toggleHeadsup";
         public static final String TILE_CAMERA = "toggleCamera";
+        public static final String TILE_CPUFREQ = "toggleCPUFreq";
 
         // dynamic tiles
         public static final String TILE_ALARM = "toggleAlarm";
