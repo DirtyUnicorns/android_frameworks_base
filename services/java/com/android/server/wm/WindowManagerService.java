@@ -2767,11 +2767,25 @@ public class WindowManagerService extends IWindowManager.Stub
 
     public void setWindowWallpaperPositionLocked(WindowState window, float x, float y,
             float xStep, float yStep) {
-        if (window.mWallpaperX != x || window.mWallpaperY != y) {
+        setWindowWallpaperPositionLocked(window, x, y, xStep, yStep, -1, -1, -1, -1);
+    }
+
+    public void setWindowWallpaperPositionLocked(WindowState window, float x, float y,
+            float xStep, float yStep, float xOverscroll, float yOverscroll,
+            int xOverscrollMax, int yOverscrollMax) {
+        if (window.mWallpaperX != x || window.mWallpaperY != y ||
+            window.mWallpaperXOverscroll != xOverscroll ||
+            window.mWallpaperYOverscroll != yOverscroll ||
+            window.mWallpaperXOverscrollMax != xOverscrollMax ||
+            window.mWallpaperYOverscrollMax != yOverscrollMax)  {
             window.mWallpaperX = x;
             window.mWallpaperY = y;
             window.mWallpaperXStep = xStep;
             window.mWallpaperYStep = yStep;
+            window.mWallpaperXOverscroll = xOverscroll;
+            window.mWallpaperYOverscroll = yOverscroll;
+            window.mWallpaperXOverscrollMax = xOverscrollMax;
+            window.mWallpaperYOverscrollMax = yOverscrollMax;
             updateWallpaperOffsetLocked(window, true);
         }
     }
