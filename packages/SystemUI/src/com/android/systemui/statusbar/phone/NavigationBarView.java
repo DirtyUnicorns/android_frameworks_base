@@ -242,8 +242,6 @@ public class NavigationBarView extends LinearLayout {
         mNavBarReceiver = new NavBarReceiver();
         mContext.registerReceiverAsUser(mNavBarReceiver, UserHandle.ALL,
                 new IntentFilter(NAVBAR_EDIT_ACTION), null, null);
-
-        mObserver = new SettingsObserver(new Handler());
     }
 
     private void watchForDevicePolicyChanges() {
@@ -526,7 +524,7 @@ public class NavigationBarView extends LinearLayout {
         final boolean showSearch = disableHome && !disableSearch;
         final boolean showCamera = showSearch && !mCameraDisabledByDpm;
         setVisibleOrGone(getSearchLight(), showSearch);
-        setVisibleOrGone(getCameraButton(), showCamera && mModLockDisabled);
+        setVisibleOrGone(getCameraButton(), showCamera);
 
         mBarTransitions.applyBackButtonQuiescentAlpha(mBarTransitions.getMode(), true /*animate*/);
     }
@@ -590,24 +588,6 @@ public class NavigationBarView extends LinearLayout {
         mCurrentView = mRotatedViews[mContext.getResources().getConfiguration().orientation];
 
         watchForAccessibilityChanges();
-    }
-
-    @Override
-    public void onAttachedToWindow() {
-        super.onAttachedToWindow();
-
-        final Bundle keyguard_metadata = NavigationBarView
-                    .getApplicationMetadata(mContext, "com.android.keyguard");
-                if (null != keyguard_metadata &&
-                    keyguard_metadata.getBoolean("com.cyanogenmod.keyguard", false)) {
-                        mObserver.observe();
-                }
-    }
-
-    @Override
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        mObserver.unobserve();
     }
 
     private void watchForAccessibilityChanges() {
@@ -846,38 +826,5 @@ public class NavigationBarView extends LinearLayout {
         }
 
         return null;
-    }
-
-    private class SettingsObserver extends ContentObserver {
-        private boolean mObserving = false;
-
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            mObserving = true;
-            ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(
-                Settings.System.getUriFor(Settings.System.LOCKSCREEN_MODLOCK_ENABLED),
-                false, this);
-
-            // intialize mModlockDisabled
-            onChange(false);
-        }
-
-        void unobserve() {
-            if (mObserving) {
-                mContext.getContentResolver().unregisterContentObserver(this);
-                mObserving = false;
-            }
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            mModLockDisabled = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.LOCKSCREEN_MODLOCK_ENABLED, 1) == 0;
-            setDisabledFlags(mDisabledFlags, true /* force */);
-        }
     }
 }
