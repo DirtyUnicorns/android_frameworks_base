@@ -176,7 +176,7 @@
     <string name="status_bar_recent_unlock_item_title">Unlock</string>
 
     <!-- Hide Them Shitz -->
-    <string name="status_bar_notification_hide_icon_packages">Hide notification icon</string>
+    <string name="status_bar_notification_hide_icon_packages">Hide notification</string>
 
     <!-- Slim recents -->
     <string name="status_bar_recent_playstore_item_title">Play Store</string>
@@ -220,7 +220,7 @@
     <string name="status_bar_notification_floating_item_title">Floating mode</string>
 
     <!-- Spam -->
-    <string name="status_bar_notification_spam_item_title">Block messages like these</string>
+    <string name="status_bar_notification_spam_item_title">Block notification</string>
 
     <!-- App circle sidebar -->
     <string name="app_float_maximize_item_title">Maximize</string>
