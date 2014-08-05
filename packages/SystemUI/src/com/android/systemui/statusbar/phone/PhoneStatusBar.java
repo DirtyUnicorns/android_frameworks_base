@@ -281,6 +281,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
     private boolean mNotificationShortcutsHideCarrier;
     FrameLayout.LayoutParams lpCarrierLabel;
 
+    // Status bar carrier
+    private boolean mShowStatusBarCarrier;
+
     private boolean mRecreating = false;
     private boolean mTickerInProgress = false;
     private final Object mLock = new Object();
@@ -472,6 +475,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SYSTEMUI_WEATHER_NOTIFICATION),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CARRIER), false, this);
             update();
         }
 
@@ -542,6 +547,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
                     Settings.System.CUSTOM_SYSTEM_ICON_COLOR, 0, UserHandle.USER_CURRENT) == 1;
             systemColor = Settings.System.getIntForUser(resolver,
                     Settings.System.SYSTEM_ICON_COLOR, -2, UserHandle.USER_CURRENT);
+
+            mShowStatusBarCarrier = Settings.System.getInt(
+                resolver, Settings.System.STATUS_BAR_CARRIER, 0) == 1;
+            showStatusBarCarrierLabel(mShowStatusBarCarrier);
 
             updateBatteryIcons();
             updateCustomHeaderStatus();
@@ -1915,6 +1924,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         if ((diff & StatusBarManager.DISABLE_CLOCK) != 0) {
             boolean show = (state & StatusBarManager.DISABLE_CLOCK) == 0;
             showClock(show);
+            //add CarrierLabel
+            showStatusBarCarrierLabel(show);
         }
         if ((diff & StatusBarManager.DISABLE_EXPAND) != 0) {
             if ((state & StatusBarManager.DISABLE_EXPAND) != 0) {
@@ -3416,6 +3427,15 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             boolean navLeftInLandscape = Settings.System.getInt(resolver,
                     Settings.System.NAVBAR_LEFT_IN_LANDSCAPE, 0) == 1;
             mNavigationBarView.setLeftInLandscape(navLeftInLandscape);
+        }
+    }
+
+    public void showStatusBarCarrierLabel(boolean show) {
+        if (mStatusBarView == null) return;
+        ContentResolver resolver = mContext.getContentResolver();
+        View statusBarCarrierLabel = mStatusBarView.findViewById(R.id.status_bar_carrier_label);
+        if (statusBarCarrierLabel != null) {
+            statusBarCarrierLabel.setVisibility(show ? (mShowStatusBarCarrier ? View.VISIBLE : View.GONE) : View.GONE);
         }
     }
 
