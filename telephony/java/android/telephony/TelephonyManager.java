@@ -1896,14 +1896,4 @@ public class TelephonyManager {
             Log.e(TAG, "Error calling ITelephony#removeListener", e);
         }
     }
-
-    /**
-     * @hide
-     */
-    public void toggle2G(boolean twoGees) {
-        try {
-            getITelephony().toggle2G(twoGees);
-        } catch (RemoteException e) {
-        }
-    }
 }
