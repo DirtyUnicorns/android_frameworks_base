@@ -4509,6 +4509,13 @@ public final class Settings {
         public static final String HEADS_UP_CUSTOM_VALUES = "heads_up_custom_values";
 
         /**
+         * Whether heads up notification is expanded by default (default = disabled)
+         *
+         * @hide
+         */
+        public static final String HEADS_UP_EXPANDED = "heads_up_expanded";
+
+        /**
          * HALO color, default is 0xff33b5e5 (normal)
          * @hide
          */
