@@ -247,4 +247,10 @@
     <string name="accessibility_dpad_left">Cursor left</string>
     <string name="accessibility_dpad_right">Cursor right</string>
 
+    <!--Show plug type for battery tile -->
+    <string name="power_ac"> (AC)</string>
+    <string name="power_usb"> (USB)</string>
+    <string name="power_wireless"> (wireless)</string>
+    <string name="power_ac_usb"> (AC+USB)</string>
+
 </resources>
