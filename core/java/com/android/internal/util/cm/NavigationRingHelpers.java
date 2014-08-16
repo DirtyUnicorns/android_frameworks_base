@@ -34,7 +34,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 
 import static com.android.internal.util.cm.NavigationRingConstants.*;
-import com.android.internal.util.cm.TorchConstants;
+import com.android.internal.util.du.TorchConstants;
 import com.android.internal.widget.multiwaveview.GlowPadView;
 import com.android.internal.widget.multiwaveview.TargetDrawable;
 

@@ -44,6 +44,7 @@ import android.view.KeyEvent;
 import android.view.WindowManagerGlobal;
 import android.widget.Toast;
 
+import com.android.internal.util.du.TorchConstants;
 import com.android.internal.statusbar.IStatusBarService;
 
 import java.net.URISyntaxException;
