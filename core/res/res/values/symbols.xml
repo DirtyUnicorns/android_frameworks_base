@@ -1822,7 +1822,6 @@
 
   <!-- Boot message dialog -->
   <java-symbol type="drawable" name="busy_dlg_animation" />
-  <java-symbol type="drawable" name="busy_dlg_animation_0" />
   <java-symbol type="drawable" name="busy_dlg_animation_1" />
   <java-symbol type="drawable" name="busy_dlg_animation_2" />
   <java-symbol type="drawable" name="busy_dlg_animation_3" />
@@ -1834,7 +1833,25 @@
   <java-symbol type="drawable" name="busy_dlg_animation_9" />
   <java-symbol type="drawable" name="busy_dlg_animation_10" />
   <java-symbol type="drawable" name="busy_dlg_animation_11" />
-  <java-symbol type="drawable" name="busy_dlg_icon" />
+  <java-symbol type="drawable" name="busy_dlg_animation_12" />
+  <java-symbol type="drawable" name="busy_dlg_animation_13" />
+  <java-symbol type="drawable" name="busy_dlg_animation_14" />
+  <java-symbol type="drawable" name="busy_dlg_animation_15" />
+  <java-symbol type="drawable" name="busy_dlg_animation_16" />
+  <java-symbol type="drawable" name="busy_dlg_animation_17" />
+  <java-symbol type="drawable" name="busy_dlg_animation_18" />
+  <java-symbol type="drawable" name="busy_dlg_animation_19" />
+  <java-symbol type="drawable" name="busy_dlg_animation_20" />
+  <java-symbol type="drawable" name="busy_dlg_animation_21" />
+  <java-symbol type="drawable" name="busy_dlg_animation_22" />
+  <java-symbol type="drawable" name="busy_dlg_animation_23" />
+  <java-symbol type="drawable" name="busy_dlg_animation_24" />
+  <java-symbol type="drawable" name="busy_dlg_animation_25" />
+  <java-symbol type="drawable" name="busy_dlg_animation_26" />
+  <java-symbol type="drawable" name="busy_dlg_animation_27" />
+  <java-symbol type="drawable" name="busy_dlg_animation_28" />
+  <java-symbol type="drawable" name="busy_dlg_animation_29" />
+  <java-symbol type="drawable" name="busy_dlg_animation_30" />
   <java-symbol type="id" name="busy_dlg_animation" />
   <java-symbol type="id" name="busy_dlg_title" />
   <java-symbol type="layout" name="busy_dlg" />
