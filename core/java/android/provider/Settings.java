@@ -4125,6 +4125,27 @@ public final class Settings {
 
         /**
          *
+         * OverScroll Glow Color
+         * @hide
+         */
+        public static final String OVERSCROLL_GLOW_COLOR = "overscroll_glow_color";
+
+        /**
+         *
+         * OverScroll effects configuration
+         * @hide
+         */
+        public static final String OVERSCROLL_EFFECT = "overscroll_effect";
+
+        /**
+         * Sets the overscroller weight (edge bounce effect on lists)
+         * @hide
+         */
+        public static final String OVERSCROLL_WEIGHT = "overscroll_weight";
+
+        /**
+         * Display percentage in text of the battery level on the status bar
+         * default: 0
          * @hide
          */
         public static final String ANIMATION_CONTROLS_DURATION = "animation_controls_duration";
