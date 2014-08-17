@@ -49,7 +49,7 @@ import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.android.internal.statusbar.IStatusBarService;
-import com.android.internal.util.cm.TorchConstants;
+import com.android.internal.util.du.TorchConstants;
 import static com.android.internal.util.cm.NavigationRingConstants.*;
 import com.android.systemui.R;
 import com.android.systemui.screenshot.TakeScreenshotService;

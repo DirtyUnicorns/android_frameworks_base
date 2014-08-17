@@ -28,7 +28,7 @@ import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 
-import com.android.internal.util.slim.TorchConstants;
+import com.android.internal.util.du.TorchConstants;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.QuickSettingsContainerView;
 import com.android.systemui.statusbar.phone.QuickSettingsController;

@@ -35,6 +35,7 @@ import android.view.WindowManager;
 import android.util.Log;
 import android.provider.Settings;
 
+import com.android.internal.util.du.TorchConstants;
 import com.android.internal.telephony.PhoneConstants;
 
 import java.io.File;
