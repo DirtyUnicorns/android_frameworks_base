@@ -95,7 +95,7 @@
 
     <style name="TextAppearance.StatusBar.Expanded.Network" parent="@style/TextAppearance.StatusBar.Expanded.Date">
         <item name="android:textColor">#999999</item>
-	</style>
+    </style>
 
     <style name="TextAppearance.StatusBar.Expanded.Network.EmergencyOnly">
     </style>
@@ -207,11 +207,5 @@
         <item name="android:shadowDy">3</item>
         <item name="android:shadowRadius">1.25</item>
     </style>
-
-    <style name="RecentBaseStyle"  parent="@*android:style/Theme.Holo.Light">
-        <item name="android:popupMenuStyle">@style/RecentPopupMenu</item>
-    </style>
-
-    <style name="RecentPopupMenu" parent="@*android:style/Widget.Holo.Light.ListPopupWindow" />
 
 </resources>

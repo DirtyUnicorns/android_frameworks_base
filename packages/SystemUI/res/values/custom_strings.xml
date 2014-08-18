@@ -178,10 +178,6 @@
     <!-- Hide Them Shitz -->
     <string name="status_bar_notification_hide_icon_packages">Hide notification</string>
 
-    <!-- Slim recents -->
-    <string name="status_bar_recent_playstore_item_title">Play Store</string>
-    <string name="status_bar_recent_amazon_item_title">Amazon Store</string>
-
     <!-- On The Go -->
     <string name="onthego_notif_ticker">On-The-Go activated</string>
     <string name="onthego_notif_title">On-The-Go is active</string>

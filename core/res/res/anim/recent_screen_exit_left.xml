@@ -17,17 +17,8 @@
 */
 -->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center">
-
-    <com.android.systemui.slimrecent.RecentImageView
-        android:id="@+id/thumbnail"
-        android:layout_width="@dimen/recent_thumbnail_width"
-        android:layout_height="@dimen/recent_thumbnail_height"
-        android:layout_marginBottom="@dimen/recent_thumbnail_bottom_padding"
-        />
-
-</LinearLayout>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:anim/decelerate_interpolator">
+    <translate android:fromXDelta="0" android:toXDelta="-100%p"
+        android:duration="@android:integer/config_recentExitDur"/>
+</set>

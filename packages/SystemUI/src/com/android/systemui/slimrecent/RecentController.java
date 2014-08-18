@@ -23,12 +23,17 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ValueAnimator;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.ContentObserver;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.graphics.PixelFormat;
 import android.os.Handler;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -66,11 +71,12 @@ public class RecentController implements RecentPanelView.OnExitListener,
 
     // Animation control values.
     private static final int ANIMATION_STATE_NONE = 0;
-    private static final int ANIMATION_STATE_IN   = 1;
-    private static final int ANIMATION_STATE_OUT  = 2;
+    private static final int ANIMATION_STATE_OUT  = 1;
 
     // Animation state.
     private int mAnimationState = ANIMATION_STATE_NONE;
+
+    public static float DEFAULT_SCALE_FACTOR = 1.0f;
 
     private Context mContext;
     private WindowManager mWindowManager;
@@ -86,6 +92,14 @@ public class RecentController implements RecentPanelView.OnExitListener,
     private LinearLayout mRecentWarningContent;
     private ImageView mEmptyRecentView;
 
+    private int mLayoutDirection;
+    private int mMainGravity;
+    private int mUserGravity;
+    private Drawable defaultBackground;
+    private int mPanelColor;
+
+    private float mScaleFactor = DEFAULT_SCALE_FACTOR;
+
     // Main panel view.
     private RecentPanelView mRecentPanelView;
 
@@ -99,16 +113,17 @@ public class RecentController implements RecentPanelView.OnExitListener,
                 // Screen goes off or system dialogs should close.
                 // Get rid of our recents screen
                 hideRecents(false);
-        if (DEBUG) Log.d(TAG, "braodcast system dialog");
+                if (DEBUG) Log.d(TAG, "braodcast system dialog");
             } else if (Intent.ACTION_SCREEN_OFF.equals(action)){
                 hideRecents(true);
-        if (DEBUG) Log.d(TAG, "broadcast screen off");
+                if (DEBUG) Log.d(TAG, "broadcast screen off");
             }
         }
     };
 
-    public RecentController(Context context) {
+    public RecentController(Context context, int layoutDirection) {
         mContext = context;
+        mLayoutDirection = layoutDirection;
 
         mWindowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
 
@@ -147,13 +162,8 @@ public class RecentController implements RecentPanelView.OnExitListener,
                         new RecentListOnScaleGestureListener(mRecentWarningContent, cardListView));
 
         // Prepare recents panel view and set the listeners
-        cardListView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                recentListGestureDetector.onTouchEvent(event);
-                return false;
-            }
-        });
+        cardListView.setGestureDetector(recentListGestureDetector);
+
         mRecentPanelView = new RecentPanelView(mContext, this, cardListView, mEmptyRecentView);
         mRecentPanelView.setOnExitListener(this);
         mRecentPanelView.setOnTasksLoadedListener(this);
@@ -185,6 +195,9 @@ public class RecentController implements RecentPanelView.OnExitListener,
             }
         });
 
+        // Settings observer
+        SettingsObserver observer = new SettingsObserver(mHandler);
+        observer.observe();
     }
 
     /**
@@ -193,20 +206,13 @@ public class RecentController implements RecentPanelView.OnExitListener,
      */
     public void rebuildRecentsScreen() {
         // Set new layout parameters and backgrounds.
-        if (mRecentContainer != null && mRecentContent != null
-                && mEmptyRecentView != null && mRecentWarningContent != null) {
-
+        if (mRecentContainer != null) {
             final ViewGroup.LayoutParams layoutParams = mRecentContainer.getLayoutParams();
-            layoutParams.width =
-                    mContext.getResources().getDimensionPixelSize(R.dimen.recent_width);
+            layoutParams.width = (int) (mContext.getResources()
+                    .getDimensionPixelSize(R.dimen.recent_width) * mScaleFactor);
             mRecentContainer.setLayoutParams(layoutParams);
 
-            mRecentContent.setBackgroundResource(0);
-            mRecentContent.setBackgroundResource(R.drawable.recent_bg_dropshadow);
-            mRecentWarningContent.setBackgroundResource(0);
-            mRecentWarningContent.setBackgroundResource(R.drawable.recent_warning_bg_dropshadow);
-            mEmptyRecentView.setImageResource(0);
-            mEmptyRecentView.setImageResource(R.drawable.ic_empty_recent);
+            setGravityAndImageResources();
         }
         // Rebuild complete adapter and lists to force style updates.
         if (mRecentPanelView != null) {
@@ -215,11 +221,70 @@ public class RecentController implements RecentPanelView.OnExitListener,
     }
 
     /**
+     * Calculate main gravity based on layout direction and user gravity value.
+     * Set and update all resources and notify the different layouts about the change.
+     */
+    private void setGravityAndImageResources() {
+        // Calculate and set gravitiy.
+        if (mLayoutDirection == View.LAYOUT_DIRECTION_RTL) {
+            if (mUserGravity == Gravity.LEFT) {
+                mMainGravity = Gravity.RIGHT;
+            } else {
+                mMainGravity = Gravity.LEFT;
+            }
+        } else {
+            mMainGravity = mUserGravity;
+        }
+
+        // Set layout direction.
+        mRecentContainer.setLayoutDirection(mLayoutDirection);
+
+        // Reset all backgrounds.
+        mRecentContent.setBackgroundResource(0);
+        mRecentWarningContent.setBackgroundResource(0);
+        mEmptyRecentView.setImageResource(0);
+
+        // Set correct backgrounds based on calculated main gravity.
+        if (mMainGravity == Gravity.LEFT) {
+            mRecentContent.setBackgroundResource(R.drawable.recent_bg_dropshadow_left);
+            mRecentWarningContent.setBackgroundResource(
+                    R.drawable.recent_warning_bg_dropshadow_left);
+            mEmptyRecentView.setImageResource(R.drawable.ic_empty_recent_left);
+        } else {
+            mRecentContent.setBackgroundResource(R.drawable.recent_bg_dropshadow);
+            mRecentWarningContent.setBackgroundResource(
+                    R.drawable.recent_warning_bg_dropshadow);
+            mEmptyRecentView.setImageResource(R.drawable.ic_empty_recent);
+        }
+        // Notify panel view about new main gravity.
+        if (mRecentPanelView != null) {
+            mRecentPanelView.setMainGravity(mMainGravity);
+        }
+        if (mMainGravity == Gravity.LEFT) {
+            defaultBackground = mContext.getResources().getDrawable(
+                R.drawable.recent_bg_dropshadow_left).getCurrent();
+        } else {
+            defaultBackground = mContext.getResources().getDrawable(
+                R.drawable.recent_bg_dropshadow).getCurrent();
+        }
+        if (mRecentContent != null) {
+            if (mPanelColor != 0x00ffffff) {
+                mRecentContent.setBackgroundColor(mPanelColor);
+            } else {
+                mRecentContent.setBackground(defaultBackground);
+            }
+        }
+    }
+
+    /**
      * External call. Toggle recents panel.
      */
     public void toggleRecents(Display display, int layoutDirection, View statusBarView) {
         if (DEBUG) Log.d(TAG, "toggle recents panel");
-
+        if (mLayoutDirection != layoutDirection) {
+            mLayoutDirection = layoutDirection;
+            setGravityAndImageResources();
+        }
         if (mAnimationState == ANIMATION_STATE_NONE) {
             if (!isShowing()) {
                 mIsToggled = true;
@@ -246,8 +311,8 @@ public class RecentController implements RecentPanelView.OnExitListener,
      * External call. Preload recent tasks.
      */
     public void preloadRecentTasksList() {
-        if (DEBUG) Log.d(TAG, "preloading recents");
         if (mRecentPanelView != null) {
+            if (DEBUG) Log.d(TAG, "preloading recents");
             mIsPreloaded = true;
             mRecentPanelView.setCancelledByUser(false);
             mRecentPanelView.loadTasks();
@@ -258,8 +323,9 @@ public class RecentController implements RecentPanelView.OnExitListener,
      * External call. Cancel preload recent tasks.
      */
     public void cancelPreloadingRecentTasksList() {
-        if (DEBUG) Log.d(TAG, "cancel preloading recents");
-        if (mRecentPanelView != null) {
+        if (mRecentPanelView != null && !isShowing()) {
+            if (DEBUG) Log.d(TAG, "cancel preloading recents");
+            mIsPreloaded = false;
             mRecentPanelView.setCancelledByUser(true);
         }
     }
@@ -275,27 +341,34 @@ public class RecentController implements RecentPanelView.OnExitListener,
      * @return LayoutParams
      */
     private WindowManager.LayoutParams generateLayoutParameter() {
-        final int width = mContext.getResources().getDimensionPixelSize(R.dimen.recent_width);
+        final int width = (int) (mContext.getResources()
+                .getDimensionPixelSize(R.dimen.recent_width) * mScaleFactor);
         final WindowManager.LayoutParams params = new WindowManager.LayoutParams(
                 width,
                 WindowManager.LayoutParams.MATCH_PARENT,
                 WindowManager.LayoutParams.TYPE_STATUS_BAR_PANEL,
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN
-                        | WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM
                         | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL
                         | WindowManager.LayoutParams.FLAG_SPLIT_TOUCH
                         | WindowManager.LayoutParams.FLAG_WATCH_OUTSIDE_TOUCH,
                 PixelFormat.TRANSLUCENT);
-        // Set animation for our recent window
-        params.windowAnimations = com.android.internal.R.style.Animation_RecentScreen;
         // Turn on hardware acceleration for high end gfx devices.
         if (ActivityManager.isHighEndGfx()) {
             params.flags |= WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED;
             params.privateFlags |=
                     WindowManager.LayoutParams.PRIVATE_FLAG_FORCE_HARDWARE_ACCELERATED;
         }
+
         // Set gravitiy.
-        params.gravity = Gravity.CENTER_VERTICAL | Gravity.RIGHT;
+        params.gravity = Gravity.CENTER_VERTICAL | mMainGravity;
+
+        // Set animation for our recent window.
+        if (mMainGravity == Gravity.LEFT) {
+            params.windowAnimations = com.android.internal.R.style.Animation_RecentScreen_Left;
+        } else {
+            params.windowAnimations = com.android.internal.R.style.Animation_RecentScreen;
+        }
+
         // This title is for debugging only. See: dumpsys window
         params.setTitle("RecentControlPanel");
         return params;
@@ -311,22 +384,22 @@ public class RecentController implements RecentPanelView.OnExitListener,
         if (isShowing()) {
             mIsPreloaded = false;
             mIsToggled = false;
+            mIsShowing = false;
             mRecentPanelView.setTasksLoaded(false);
             mRecentPanelView.dismissPopup();
             if (forceHide) {
                 if (DEBUG) Log.d(TAG, "force hide recent window");
-                mIsShowing = false;
                 CacheController.getInstance(mContext).setRecentScreenShowing(false);
                 mAnimationState = ANIMATION_STATE_NONE;
-                mHandler.removeCallbacks(mRecentThirdStageLoader);
+                mHandler.removeCallbacks(mRecentRunnable);
                 mWindowManager.removeViewImmediate(mParentView);
                 return true;
             } else if (mAnimationState != ANIMATION_STATE_OUT) {
                 if (DEBUG) Log.d(TAG, "out animation starting");
                 mAnimationState = ANIMATION_STATE_OUT;
-                mHandler.removeCallbacks(mRecentThirdStageLoader);
-                mHandler.postDelayed(mRecentThirdStageLoader, mContext.getResources().getInteger(
-                        com.android.internal.R.integer.config_recentExitDur));
+                mHandler.removeCallbacks(mRecentRunnable);
+                mHandler.postDelayed(mRecentRunnable, mContext.getResources().getInteger(
+                        com.android.internal.R.integer.config_recentDefaultDur));
                 mWindowManager.removeView(mParentView);
                 return true;
             }
@@ -338,11 +411,9 @@ public class RecentController implements RecentPanelView.OnExitListener,
     private void showRecents() {
         if (DEBUG) Log.d(TAG, "in animation starting");
         mIsShowing = true;
+        mAnimationState = ANIMATION_STATE_NONE;
+        mHandler.removeCallbacks(mRecentRunnable);
         CacheController.getInstance(mContext).setRecentScreenShowing(true);
-        mAnimationState = ANIMATION_STATE_IN;
-        mHandler.removeCallbacks(mRecentThirdStageLoader);
-        mHandler.postDelayed(mRecentThirdStageLoader, mContext.getResources().getInteger(
-                com.android.internal.R.integer.config_recentDefaultDur));
         mWindowManager.addView(mParentView, generateLayoutParameter());
     }
 
@@ -362,36 +433,115 @@ public class RecentController implements RecentPanelView.OnExitListener,
     }
 
     /**
-     * Runnable for our last loading stage.
-     * It looks first weird to use a runable for it. But it does not harm here.
-     * It just gives our in animation a bit time before we start loading invisible
-     * content. Even in the case we are not ready and the user access allready not loaded
-     * content the content will be loaded in this moment due that it get called by either
-     * the third loading stage here or by the getView method from our cards arrayadapter.
-     * So we are save here to call the third loading stage with the default animation delay.
-     *
-     * This helps especially low end non gfx devices to play the animation proper.
+     * Runnable if recent panel closed to notify the cache controller about the state.
      */
-    private final Runnable mRecentThirdStageLoader = new Runnable() {
+    private final Runnable mRecentRunnable = new Runnable() {
         @Override
         public void run() {
-            if (mAnimationState == ANIMATION_STATE_IN) {
-                if (DEBUG) Log.d(TAG, "in animation finished");
-                // Now we can trigger 3rd loading stage and load
-                // all missing resources on invisble cards or
-                // content.
-                mRecentPanelView.updateInvisibleCards();
-                // We are now full visible. Notify to be safe the
-                // arrayadapter about this situation.
-                mRecentPanelView.notifyDataSetChanged(true);
-            } else if (mAnimationState == ANIMATION_STATE_OUT) {
+            if (mAnimationState == ANIMATION_STATE_OUT) {
                 if (DEBUG) Log.d(TAG, "out animation finished");
-                mIsShowing = false;
                 CacheController.getInstance(mContext).setRecentScreenShowing(false);
             }
             mAnimationState = ANIMATION_STATE_NONE;
         }
     };
+
+    /**
+     * Settingsobserver to take care of the user settings.
+     * Either gravity or scale factor of our recent panel can change.
+     */
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.RECENT_PANEL_GRAVITY),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.RECENT_PANEL_SCALE_FACTOR),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.RECENT_PANEL_EXPANDED_MODE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.RECENT_PANEL_SHOW_TOPMOST),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.RECENT_PANEL_BG_COLOR),
+                    false, this, UserHandle.USER_ALL);
+            update();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            super.onChange(selfChange);
+            update();
+        }
+
+        public void update() {
+            // Close recent panel if it is opened.
+            hideRecents(false);
+
+            ContentResolver resolver = mContext.getContentResolver();
+
+            // Get user gravity.
+            mUserGravity = Settings.System.getIntForUser(
+                    resolver, Settings.System.RECENT_PANEL_GRAVITY, Gravity.RIGHT,
+                    UserHandle.USER_CURRENT);
+
+            // Set main gravity and background images.
+            setGravityAndImageResources();
+
+            // Get user scale factor.
+            float scaleFactor = Settings.System.getIntForUser(
+                    resolver, Settings.System.RECENT_PANEL_SCALE_FACTOR, 100,
+                    UserHandle.USER_CURRENT) / 100.0f;
+
+            // If changed set new scalefactor, rebuild the recent panel
+            // and notify RecentPanelView about new value.
+            if (scaleFactor != mScaleFactor) {
+                mScaleFactor = scaleFactor;
+                rebuildRecentsScreen();
+            }
+            if (mRecentPanelView != null) {
+                mRecentPanelView.setScaleFactor(mScaleFactor);
+                mRecentPanelView.setExpandedMode(Settings.System.getIntForUser(
+                    resolver, Settings.System.RECENT_PANEL_EXPANDED_MODE,
+                    mRecentPanelView.EXPANDED_MODE_AUTO,
+                    UserHandle.USER_CURRENT));
+                mRecentPanelView.setShowTopTask(Settings.System.getIntForUser(
+                    resolver, Settings.System.RECENT_PANEL_SHOW_TOPMOST, 0,
+                    UserHandle.USER_CURRENT) == 1);
+            }
+
+            // Update colors in RecentPanelView
+            if (mMainGravity == Gravity.LEFT) {
+                defaultBackground = mContext.getResources().getDrawable(
+                    R.drawable.recent_bg_dropshadow_left).getCurrent();
+            } else {
+                defaultBackground = mContext.getResources().getDrawable(
+                    R.drawable.recent_bg_dropshadow).getCurrent();
+            }
+
+            mPanelColor = Settings.System.getIntForUser(resolver,
+                    Settings.System.RECENT_PANEL_BG_COLOR, -2, UserHandle.USER_CURRENT);
+
+            if (mPanelColor == Integer.MIN_VALUE
+                || mPanelColor == -2) {
+                // Flag to reset recent panel background color
+                mRecentContent.setBackground(defaultBackground);
+            } else {
+                if (mPanelColor != 0x00ffffff) {
+                    mRecentContent.setBackgroundColor(mPanelColor);
+                } else {
+                    mRecentContent.setBackground(defaultBackground);
+                }
+            }
+        }
+    }
 
     /**
      * Extended SimpleOnScaleGestureListener to take
@@ -450,6 +600,9 @@ public class RecentController implements RecentPanelView.OnExitListener,
 
         @Override
         public boolean onScaleBegin(ScaleGestureDetector detector) {
+            if (!mRecentPanelView.hasClearableTasks()) {
+                return false;
+            }
             return true;
         }
 
@@ -463,6 +616,7 @@ public class RecentController implements RecentPanelView.OnExitListener,
 
             // Gesture was detected and activated. Prepare and play the animations.
             if (mActionDetected) {
+                final boolean hasFavorite = mRecentPanelView.hasFavorite();
 
                 // Setup animation for warning content - fade out.
                 ValueAnimator animation1 = ValueAnimator.ofFloat(1.0f, 0.0f);
@@ -495,8 +649,10 @@ public class RecentController implements RecentPanelView.OnExitListener,
                 });
 
                 // Setup animation for empty recent image - fade in.
-                mEmptyRecentView.setAlpha(0.0f);
-                mEmptyRecentView.setVisibility(View.VISIBLE);
+                if (!hasFavorite) {
+                    mEmptyRecentView.setAlpha(0.0f);
+                    mEmptyRecentView.setVisibility(View.VISIBLE);
+                }
                 ValueAnimator animation4 = ValueAnimator.ofFloat(0.0f, 1.0f);
                 animation4.setDuration(ANIMATION_FADE_IN_DURATION);
                 animation4.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -509,18 +665,22 @@ public class RecentController implements RecentPanelView.OnExitListener,
                 // Start all ValueAnimator animations
                 // and listen onAnimationEnd to prepare the views for the next call.
                 AnimatorSet animationSet = new AnimatorSet();
-                animationSet.playTogether(animation1, animation2, animation3, animation4);
+                if (hasFavorite) {
+                    animationSet.playTogether(animation1, animation3);
+                } else {
+                    animationSet.playTogether(animation1, animation2, animation3, animation4);
+                }
                 animationSet.addListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
                         // Animation is finished. Prepare warning content for next call.
                         mRecentWarningContent.setVisibility(View.GONE);
                         mRecentWarningContent.setAlpha(1.0f);
-                        // Prepare listview for next recent call.
-                        mCardListView.setVisibility(View.GONE);
-                        mCardListView.setAlpha(1.0f);
                         // Remove all tasks now.
                         if (mRecentPanelView.removeAllApplications()) {
+                            // Prepare listview for next recent call.
+                            mCardListView.setVisibility(View.GONE);
+                            mCardListView.setAlpha(1.0f);
                             // Finally hide our recents screen.
                             hideRecents(false);
                         }
