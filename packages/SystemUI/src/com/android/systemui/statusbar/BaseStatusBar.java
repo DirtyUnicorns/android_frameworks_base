@@ -1636,6 +1636,11 @@ public abstract class BaseStatusBar extends SystemUI implements
         }
     }
 
+    public boolean excludeHeadsUpFromLockScreen() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.HEADS_UP_EXCLUDE_FROM_LOCK_SCREEN, 0) != 0;
+    }
+
     protected boolean shouldInterrupt(StatusBarNotification sbn) {
         Notification notification = sbn.getNotification();
 
@@ -1658,6 +1663,8 @@ public abstract class BaseStatusBar extends SystemUI implements
         final KeyguardTouchDelegate keyguard = KeyguardTouchDelegate.getInstance(mContext);
         boolean keyguardNotVisible = !keyguard.isShowingAndNotHidden()
                 && !keyguard.isInputRestricted();
+        boolean keyguardVisibleNotSecure =
+                keyguard.isShowingAndNotHidden() && !keyguard.isSecure();
 
         final InputMethodManager inputMethodManager = (InputMethodManager)
                 mContext.getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -1666,7 +1673,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
         boolean interrupt = (isFullscreen || (isHighPriority && isNoisy))
                 && isAllowed
-                && keyguardNotVisible
+                && (keyguardNotVisible || (keyguardVisibleNotSecure && !excludeHeadsUpFromLockScreen()))
                 && !isOngoing
                 && !isIMEShowing
                 && mPowerManager.isScreenOn();
