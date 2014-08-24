@@ -31,6 +31,7 @@ public class QSConstants {
         public static final String TILE_SCREENTIMEOUT = "toggleScreenTimeout";
         public static final String TILE_MOBILEDATA = "toggleMobileData";
         public static final String TILE_LOCKSCREEN = "toggleLockScreen";
+        public static final String TILE_NETWORKMODE = "toggleNetworkMode";
         public static final String TILE_AUTOROTATE = "toggleAutoRotate";
         public static final String TILE_AIRPLANE = "toggleAirplane";
         public static final String TILE_TORCH = "toggleTorch";
