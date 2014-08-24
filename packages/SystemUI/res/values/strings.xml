@@ -542,6 +542,10 @@
     <string name="quick_settings_halo_on_label">Halo On</string>
     <string name="quick_settings_halo_off_label">Halo Off</string>
 
+    <!-- PIE Tile -->
+    <string name="quick_settings_pie_on_label">Pie On</string>
+    <string name="quick_settings_pie_off_label">Pie Off</string>
+
     <!-- Heads Up Tile -->
     <string name="quick_settings_headsup_on_label">Heads Up On</string>
     <string name="quick_settings_headsup_off_label">Heads UP Off</string>
