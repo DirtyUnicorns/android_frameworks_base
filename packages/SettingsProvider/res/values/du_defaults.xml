@@ -21,4 +21,7 @@
     <!-- Default for Settings.Global.TETHER_DUN_REQUIRED -->
     <integer name="def_tether_dun_required">0</integer>
 
+    <!-- Charging sounds -->
+    <string name="def_battery_plugged_sound">/system/media/audio/ui/BatteryPlugged.ogg</string>
+
 </resources>
