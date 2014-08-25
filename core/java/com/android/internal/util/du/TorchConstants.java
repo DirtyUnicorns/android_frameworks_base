@@ -25,6 +25,11 @@ public class TorchConstants {
     public static final String APP_PACKAGE_NAME = "org.omnirom.torch";
 
     /**
+     * Package name of Google Search
+     */
+    public static final String GOOGLE_SEARCH = "com.google.android.googlequicksearchbox";
+
+    /**
      * Intent broadcast action for toggling the torch state
      */
     public static final String ACTION_TOGGLE_STATE = APP_PACKAGE_NAME + ".TOGGLE_FLASHLIGHT";

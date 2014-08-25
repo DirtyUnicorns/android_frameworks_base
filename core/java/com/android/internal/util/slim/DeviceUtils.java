@@ -101,6 +101,20 @@ public class DeviceUtils {
         return vibrator.hasVibrator();
     }
 
+    public static boolean deviceSupportsSearch(Context context) {
+        PackageManager pm = context.getPackageManager();
+        try {
+            List<ApplicationInfo> packages = pm.getInstalledApplications(0);
+                for (ApplicationInfo packageInfo : packages) {
+                    if (packageInfo.packageName.equals(TorchConstants.GOOGLE_SEARCH)) {
+                        return true;
+                    }
+                }
+        } catch (Exception e) {
+        }
+        return false;
+    }
+
     public static boolean deviceSupportsTorch(Context context) {
         PackageManager pm = context.getPackageManager();
         try {
