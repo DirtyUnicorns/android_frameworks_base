@@ -3906,6 +3906,7 @@ public final class Settings {
           * 6 - home
           * 7 - back
           * 8 - toggle last app
+          * 9 - Immersive mode
           * @hide
           */
         public static final String HARDWARE_KEY_REBINDING = "hardware_key_rebinding";

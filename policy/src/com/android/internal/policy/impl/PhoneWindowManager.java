@@ -199,6 +199,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int KEY_ACTION_HOME = 6;
     private static final int KEY_ACTION_BACK = 7;
     private static final int KEY_ACTION_LAST_APP = 8;
+    private static final int KEY_ACTION_IMMERSIVE_MODE = 9;
 
     // Masks for checking presence of hardware keys.
     // Must match values in core/res/res/values/config.xml
@@ -1197,6 +1198,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case KEY_ACTION_LAST_APP:
                 toggleLastApp();
+                break;
+            case KEY_ACTION_IMMERSIVE_MODE:
+                toggleImmersiveMode();
                 break;
             default:
                 break;
@@ -3282,6 +3286,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // re-acquire status bar service next time it is needed.
             mStatusBarService = null;
         }
+    }
+
+    private void toggleImmersiveMode() {
+        boolean on = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.IMMERSIVE_MODE, 0, UserHandle.USER_CURRENT) == 1;
+        Settings.System.putIntForUser(mContext.getContentResolver(),
+                Settings.System.IMMERSIVE_MODE, on ? 0 : 1, UserHandle.USER_CURRENT);
     }
 
     /**
