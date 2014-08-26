@@ -321,6 +321,9 @@ public class PieControlPanel extends FrameLayout implements StatusBarPanel,
             mHandler.post(mKillTask);
         } else if (buttonName.equals(PieControl.POWER_BUTTON)) {
             injectKeyDelayed(KeyEvent.KEYCODE_POWER);
+        } else if (buttonName.equals(PieControl.SCREENSHOT_BUTTON)) {
+            Intent intent = new Intent(Intent.ACTION_SCREENSHOT);
+            mContext.sendBroadcast(intent);
         } else if (buttonName.equals(PieControl.TORCH_BUTTON)) {
             Intent torch = new Intent(TorchConstants.ACTION_TOGGLE_STATE);
             mContext.sendBroadcast(torch);
