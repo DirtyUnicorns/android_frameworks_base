@@ -4996,6 +4996,12 @@ public final class Settings {
         public static final String PIE_TORCH = "pie_torch";
 
         /**
+         * Pie screenshot
+         * @hide
+         */
+        public static final String PIE_SCREENSHOT = "pie_screenshot";
+
+        /**
          * Pie action notifications, default to off
          * @hide
          */
