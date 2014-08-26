@@ -2671,6 +2671,12 @@ public final class Settings {
         public static final String KEY_VOICEMAIL_BREATH = "voicemail_breath";
 
         /**
+         * Show WiFi in Power Menu
+         * @hide
+         */
+        public static final String POWER_MENU_WIFI_ENABLED = "power_menu_wifi_enabled";
+
+        /**
          * Show Screenshot in Power Menu
          * @hide
          */

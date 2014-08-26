@@ -41,6 +41,7 @@ import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
+import android.net.wifi.WifiManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -123,6 +124,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private Action mSilentModeAction;
     private ToggleAction mAirplaneModeOn;
     private ToggleAction mMobileDataOn;
+    private ToggleAction mWifiOn;
     private ToggleAction mNavBarModeOn;
 
     private MyAdapter mAdapter;
@@ -137,6 +139,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private boolean mHasVibrator;
     private final boolean mShowSilentToggle;
     private final boolean mShowScreenRecord;
+    private WifiManager mWifiManager;
     private int mHiddenMenuOptions;
     private boolean mDisableToolbox;
 
@@ -168,6 +171,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         ConnectivityManager cm = (ConnectivityManager)
                 context.getSystemService(Context.CONNECTIVITY_SERVICE);
         mHasTelephony = cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE);
+        mWifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 
         ThemeUtils.registerThemeChangeReceiver(context, mThemeChangeReceiver);
 
@@ -329,6 +333,30 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         };
         onAirplaneModeChanged();
 
+        mWifiOn = new ToggleAction(
+                R.drawable.ic_lock_wifi,
+                R.drawable.ic_lock_wifi_off,
+                R.string.global_actions_toggle_wifi,
+                R.string.global_actions_wifi_on_status,
+                R.string.global_actions_wifi_off_status) {
+
+            void onToggle(boolean on) {
+                mWifiManager.setWifiEnabled(!mWifiManager.isWifiEnabled());
+            }
+
+            @Override
+            protected void changeStateFromPress(boolean buttonOn) {
+            }
+
+            public boolean showDuringKeyguard() {
+                return true;
+            }
+
+            public boolean showBeforeProvisioning() {
+                return false;
+            }
+        };
+
         final ContentResolver cr = mContext.getContentResolver();
         mItems = new ArrayList<Action>();
 
@@ -439,7 +467,13 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             mItems.add(mMobileDataOn);
         }
 
-     // next: screenshot, if enabled
+        // next: wifi
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.POWER_MENU_WIFI_ENABLED, 0, UserHandle.USER_CURRENT) == 1) {
+            mItems.add(mWifiOn);
+        }
+
+        // next: screenshot, if enabled
         if (Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.SCREENSHOT_IN_POWER_MENU, 0) != 0) {
             mItems.add(
@@ -890,6 +924,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         refreshSilentMode();
         mAirplaneModeOn.updateState(mAirplaneState);
         mMobileDataOn.updateState(dataEnabled() ? ToggleAction.State.On : ToggleAction.State.Off);
+        mWifiOn.updateState(mWifiManager.isWifiEnabled() ? ToggleAction.State.On : ToggleAction.State.Off);
         mAdapter.notifyDataSetChanged();
         mDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
         if (mShowSilentToggle && (mHiddenMenuOptions & HIDE_SOUND) != HIDE_SOUND) {
