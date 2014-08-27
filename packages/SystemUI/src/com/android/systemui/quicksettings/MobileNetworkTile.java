@@ -81,8 +81,8 @@ public class MobileNetworkTile extends NetworkTile {
             public boolean onLongClick(View v) {
                 Intent intent = new Intent();
                 intent.setComponent(new ComponentName(
-                        "com.android.settings",
-                        "com.android.settings.Settings$DataUsageSummaryActivity"));
+                        "com.android.phone",
+                        "com.android.phone.MobileNetworkSettings"));
                 startSettingsActivity(intent);
                 return true;
             }
