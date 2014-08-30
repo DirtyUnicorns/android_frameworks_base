@@ -260,4 +260,6 @@
     <string name="pie_hour_format_24">HH:mm</string>
     <string name="pie_am_pm">a</string>
 
+    <string name="accessibility_lock_button">Add Power button</string>
+    <string name="accessibility_add_button">Add QS button</string>
 </resources>

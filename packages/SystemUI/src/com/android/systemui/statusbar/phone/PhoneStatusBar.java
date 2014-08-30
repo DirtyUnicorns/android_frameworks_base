@@ -136,6 +136,8 @@ import com.android.systemui.statusbar.policy.OnSizeChangedListener;
 import com.android.systemui.statusbar.policy.RotationLockController;
 
 import com.android.systemui.omni.StatusHeaderMachine;
+import com.android.internal.util.slim.ButtonsConstants;
+import com.android.internal.util.slim.SlimActions;
 
 public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
     static final String TAG = "PhoneStatusBar";
@@ -262,6 +264,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
     View mNotificationPanelHeader;
     View mDateTimeView;
     View mClearButton;
+    ImageView mLockButton;
+    ImageView mAddButton;
     ImageView mSettingsButton, mNotificationButton;
 
     private View mWeatherHeader;
@@ -955,6 +959,16 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             if (mNotificationButton != null) {
                 mNotificationButton.setOnClickListener(mNotificationButtonListener);
             }
+        }
+
+        mLockButton = (ImageView) mStatusBarWindow.findViewById(R.id.lock_button);
+        if (mLockButton != null) {
+            mLockButton.setOnClickListener(mLockButtonListener);
+        }
+
+        mAddButton = (ImageView) mStatusBarWindow.findViewById(R.id.add_button);
+        if (mAddButton != null) {
+            mAddButton.setOnClickListener(mAddButtonListener);
         }
 
         mScrollView = (ScrollView)mStatusBarWindow.findViewById(R.id.scroll);
@@ -1656,6 +1670,18 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             mNotificationButton.setImageResource(R.drawable.ic_notifications);
         }
 
+        if (mLockButton != null) {
+            // Force asset reloading
+            mLockButton.setImageDrawable(null);
+            mLockButton.setImageResource(R.drawable.ic_dt_lock);
+        }
+
+        if (mAddButton != null) {
+            // Force asset reloading
+            mAddButton.setImageDrawable(null);
+            mAddButton.setImageResource(R.drawable.ic_dt_add);
+        }
+
         refreshAllStatusBarIcons();
     }
 
@@ -2175,7 +2201,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
     final int FLIP_DURATION = (FLIP_DURATION_IN + FLIP_DURATION_OUT);
 
     Animator mScrollViewAnim, mFlipSettingsViewAnim, mNotificationButtonAnim,
-        mSettingsButtonAnim, mClearButtonAnim, mHaloButtonAnim, mRibbonViewAnim;
+        mSettingsButtonAnim, mClearButtonAnim, mHaloButtonAnim, mRibbonViewAnim, mLockButtonAnim, mAddButtonAnim;
 
     @Override
     public void animateExpandNotificationsPanel() {
@@ -2200,6 +2226,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         if (mHaloButtonAnim != null) mHaloButtonAnim.cancel();
         if (mNotificationButtonAnim != null) mNotificationButtonAnim.cancel();
         if (mClearButtonAnim != null) mClearButtonAnim.cancel();
+        if (mLockButtonAnim != null) mLockButtonAnim.cancel();
+        if (mAddButtonAnim != null) mAddButtonAnim.cancel();
 
         final boolean halfWayDone = mScrollView.getVisibility() == View.VISIBLE;
         final int zeroOutDelays = halfWayDone ? 0 : 1;
@@ -2237,6 +2265,16 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
                 ObjectAnimator.ofFloat(mNotificationButton, View.ALPHA, 0f)
                     .setDuration(FLIP_DURATION),
                 mNotificationButton, View.INVISIBLE));
+        mLockButtonAnim = start(
+            setVisibilityWhenDone(
+                ObjectAnimator.ofFloat(mLockButton, View.ALPHA, 1f)
+                    .setDuration(FLIP_DURATION),
+                mLockButton, View.INVISIBLE));
+        mAddButtonAnim = start(
+            setVisibilityWhenDone(
+                ObjectAnimator.ofFloat(mAddButton, View.ALPHA, 1f)
+                    .setDuration(FLIP_DURATION),
+                mAddButton, View.INVISIBLE));
         mSettingsButton.setVisibility(View.VISIBLE);
         mSettingsButtonAnim = start(
             ObjectAnimator.ofFloat(mSettingsButton, View.ALPHA, 1f)
@@ -2295,6 +2333,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         }
         mNotificationButton.setVisibility(View.VISIBLE);
         mNotificationButton.setAlpha(1f);
+        mLockButton.setVisibility(View.VISIBLE);
+        mLockButton.setAlpha(1f);
+        mAddButton.setVisibility(View.VISIBLE);
+        mAddButton.setAlpha(1f);
         mClearButton.setVisibility(View.GONE);
     }
 
@@ -2318,6 +2360,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         if (mSettingsButtonAnim != null) mSettingsButtonAnim.cancel();
         if (mNotificationButtonAnim != null) mNotificationButtonAnim.cancel();
         if (mClearButtonAnim != null) mClearButtonAnim.cancel();
+        if (mLockButtonAnim != null) mLockButtonAnim.cancel();
+        if (mAddButtonAnim != null) mAddButtonAnim.cancel();
 
         percent = Math.min(Math.max(percent, -1f), 1f);
         if (percent < 0f) { // notifications side
@@ -2332,6 +2376,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
                 mRibbonView.setScaleX(-percent);
             }
             mNotificationButton.setVisibility(View.GONE);
+            mLockButton.setVisibility(View.GONE);
+            mAddButton.setVisibility(View.GONE);
         } else { // settings side
             mFlipSettingsView.setScaleX(percent);
             mFlipSettingsView.setVisibility(View.VISIBLE);
@@ -2344,6 +2390,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             }
             mNotificationButton.setVisibility(View.VISIBLE);
             mNotificationButton.setAlpha(percent);
+            mLockButton.setVisibility(View.VISIBLE);
+            mLockButton.setAlpha(percent);
+            mAddButton.setVisibility(View.VISIBLE);
+            mAddButton.setAlpha(percent);
         }
         mClearButton.setVisibility(View.GONE);
     }
@@ -2359,6 +2409,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         if (mHaloButtonAnim != null) mHaloButtonAnim.cancel();
         if (mNotificationButtonAnim != null) mNotificationButtonAnim.cancel();
         if (mClearButtonAnim != null) mClearButtonAnim.cancel();
+        if (mLockButtonAnim != null) mLockButtonAnim.cancel();
+        if (mAddButtonAnim != null) mAddButtonAnim.cancel();
 
         final boolean halfWayDone = mFlipSettingsView.getVisibility() == View.VISIBLE;
         final int zeroOutDelays = halfWayDone ? 0 : 1;
@@ -2407,6 +2459,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         mNotificationButton.setVisibility(View.VISIBLE);
         mNotificationButtonAnim = start(
             ObjectAnimator.ofFloat(mNotificationButton, View.ALPHA, 1f)
+                .setDuration(FLIP_DURATION));
+        mLockButton.setVisibility(View.VISIBLE);
+        mLockButtonAnim = start(
+            ObjectAnimator.ofFloat(mLockButton, View.ALPHA, 1f)
+                .setDuration(FLIP_DURATION));
+        mAddButton.setVisibility(View.VISIBLE);
+        mAddButtonAnim = start(
+            ObjectAnimator.ofFloat(mAddButton, View.ALPHA, 1f)
                 .setDuration(FLIP_DURATION));
         mClearButtonAnim = start(
             setVisibilityWhenDone(
@@ -2458,6 +2518,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             if (mHaloButtonAnim != null) mHaloButtonAnim.cancel();
             if (mNotificationButtonAnim != null) mNotificationButtonAnim.cancel();
             if (mClearButtonAnim != null) mClearButtonAnim.cancel();
+            if (mLockButtonAnim != null) mLockButtonAnim.cancel();
+            if (mAddButtonAnim != null) mAddButtonAnim.cancel();
 
             mScrollView.setScaleX(1f);
             mScrollView.setVisibility(View.VISIBLE);
@@ -2473,6 +2535,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
             mNotificationPanel.setVisibility(View.GONE);
             mFlipSettingsView.setVisibility(View.GONE);
             mNotificationButton.setVisibility(View.GONE);
+            mLockButton.setVisibility(View.GONE);
+            mAddButton.setVisibility(View.GONE);
             setAreThereNotifications(); // show the clear button
         }
 
@@ -3351,6 +3415,21 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode {
         public void onClick(View v) {
             Intent intent=Intent.makeMainSelectorActivity(Intent.ACTION_MAIN, Intent.CATEGORY_APP_CALENDAR);
             startActivityDismissingKeyguard(intent,true);
+        }
+    };
+
+    private View.OnClickListener mLockButtonListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            SlimActions.processAction(mContext, ButtonsConstants.ACTION_POWER_MENU, true);
+        }
+    };
+
+    private View.OnClickListener mAddButtonListener = new View.OnClickListener() {
+       public void onClick(View v) {
+            Intent intent = new Intent();
+            intent.setClassName("com.android.settings",
+                    "com.android.settings.Settings$QuickSettingsTilesActivity");
+            startActivityDismissingKeyguard(intent, true);
         }
     };
 
