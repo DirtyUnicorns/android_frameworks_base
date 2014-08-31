@@ -260,6 +260,11 @@
     <string name="pie_hour_format_24">HH:mm</string>
     <string name="pie_am_pm">a</string>
 
+    <!-- Lock and Add buttons -->
     <string name="accessibility_lock_button">Add Power button</string>
     <string name="accessibility_add_button">Add QS button</string>
+
+    <!-- Dirty Tweaks -->
+    <string name="quick_settings_dirtytweaks">Dirty Tweaks</string>
+
 </resources>
