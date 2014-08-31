@@ -392,9 +392,9 @@ public class BatteryMeterView extends View implements DemoMode {
             if (mPercentageOnly) {
                 DisplayMetrics metrics = mContext.getResources().getDisplayMetrics();
                 if (mBatteryTypeView.equals("statusbar")) {
-                    mTextPaint.setTextSize((int) (metrics.density * 16f));
+                    mTextPaint.setTextSize((int) (metrics.density * 14f));
                 } else if (mBatteryTypeView.equals("quicksettings")) {
-                    mTextPaint.setTextSize((int) (metrics.density * 22f + 0.5f));
+                    mTextPaint.setTextSize((int) (metrics.density * 20f + 0.5f));
                 }
             } else if (mBatteryStyle == BATTERY_STYLE_ICON_PERCENT) {
                 mTextPaint.setTextSize(height *
