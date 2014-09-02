@@ -78,13 +78,16 @@ public class QSConstants {
             TILES_DEFAULT.add(TILE_USER);
             TILES_DEFAULT.add(TILE_AIRPLANE);
             TILES_DEFAULT.add(TILE_SETTINGS);
+            TILES_DEFAULT.add(TILE_DIRTYTWEAKS);
             TILES_DEFAULT.add(TILE_REBOOT);
             TILES_DEFAULT.add(TILE_EXPANDEDDESKTOP);
             TILES_DEFAULT.add(TILE_WIFI);
             TILES_DEFAULT.add(TILE_MOBILEDATA);
             TILES_DEFAULT.add(TILE_BLUETOOTH);
             TILES_DEFAULT.add(TILE_LOCATION);
+            TILES_DEFAULT.add(TILE_SYNC);
             TILES_DEFAULT.add(TILE_AUTOROTATE);
+            TILES_DEFAULT.add(TILE_SCREENSHOT);
         }
 
         public static ArrayList<String> DYNAMIC_TILES_DEFAULT = new ArrayList<String>();
