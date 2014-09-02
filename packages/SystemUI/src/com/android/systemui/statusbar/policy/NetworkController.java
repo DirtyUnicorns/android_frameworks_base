@@ -24,6 +24,7 @@ import android.content.IntentFilter;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.net.ConnectivityManager;
+import android.database.ContentObserver;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
@@ -141,6 +142,8 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
     private Locale mLocale = null;
     private Locale mLastLocale = null;
 
+    private boolean mHideSignal;
+
     // our ui
     Context mContext;
     ContentResolver mCr;
@@ -176,6 +179,8 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
    // Whether the direction arrows are enabled by the user
    boolean mDirectionArrowsEnabled = false;
 
+    private UpdateUIListener mUpdateUIListener = null;
+
     public interface SignalCluster {
         void setWifiIndicators(boolean visible, int strengthIcon, int activityIcon,
                 String contentDescription);
@@ -195,30 +200,6 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
         void onAirplaneModeChanged(boolean enabled);
     }
 
-    private final class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            ContentResolver resolver = mContext.getContentResolver();
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_NETWORK_ACTIVITY),
-                    false, this, UserHandle.USER_ALL);
-            mDirectionArrowsEnabled = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_NETWORK_ACTIVITY,
-                    0, UserHandle.USER_CURRENT) == 0 ? false : true;
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            mDirectionArrowsEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
-                    Settings.System.STATUS_BAR_NETWORK_ACTIVITY,
-                    0, UserHandle.USER_CURRENT) == 0 ? false : true;
-            refreshViews();
-        }
-    }
-
     /**
      * Construct this controller object and register for updates.
      */
@@ -226,10 +207,6 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
         mContext = context;
         mCr = context.getContentResolver();
         final Resources res = context.getResources();
-
-        // Register settings observer and set initial preferences
-        SettingsObserver settingsObserver = new SettingsObserver(new Handler());
-        settingsObserver.observe();
 
         ConnectivityManager cm = (ConnectivityManager)mContext.getSystemService(
                 Context.CONNECTIVITY_SERVICE);
@@ -299,6 +276,9 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
         mObserver.observe();
 
         mLastLocale = mContext.getResources().getConfiguration().locale;
+
+        SettingsObserver settingsObserver = new SettingsObserver(new Handler());
+        settingsObserver.observe();
     }
 
     public boolean hasMobileDataFeature() {
@@ -621,25 +601,25 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
         if (!hasService()) {
             if (CHATTY) Log.d(TAG, "updateTelephonySignalStrength: !hasService()");
             if (mUseSixBar) {
-                mPhoneSignalIconId = R.drawable.stat_sys_signal_null_6bar;
+                mPhoneSignalIconId = (mHideSignal ? 0 : R.drawable.stat_sys_signal_null_6bar);
                 mQSPhoneSignalIconId = R.drawable.ic_qs_signal_no_signal_6bar;
-                mDataSignalIconId = R.drawable.stat_sys_signal_null_6bar;
+                mDataSignalIconId = (mHideSignal ? 0 : R.drawable.stat_sys_signal_null_6bar);
             } else {
-                mPhoneSignalIconId = R.drawable.stat_sys_signal_null;
+                mPhoneSignalIconId = (mHideSignal ? 0 : R.drawable.stat_sys_signal_null);
                 mQSPhoneSignalIconId = R.drawable.ic_qs_signal_no_signal;
-                mDataSignalIconId = R.drawable.stat_sys_signal_null;
+                mDataSignalIconId = (mHideSignal ? 0 : R.drawable.stat_sys_signal_null);
             }
         } else {
             if (mSignalStrength == null) {
                 if (CHATTY) Log.d(TAG, "updateTelephonySignalStrength: mSignalStrength == null");
                 if (mUseSixBar) {
-                    mPhoneSignalIconId = R.drawable.stat_sys_signal_null_6bar;
+                    mPhoneSignalIconId = (mHideSignal ? 0 : R.drawable.stat_sys_signal_null_6bar);
                     mQSPhoneSignalIconId = R.drawable.ic_qs_signal_no_signal_6bar;
-                    mDataSignalIconId = R.drawable.stat_sys_signal_null_6bar;
+                    mDataSignalIconId = (mHideSignal ? 0 : R.drawable.stat_sys_signal_null_6bar);
                 } else {
-                    mPhoneSignalIconId = R.drawable.stat_sys_signal_null;
+                    mPhoneSignalIconId = (mHideSignal ? 0 : R.drawable.stat_sys_signal_null);
                     mQSPhoneSignalIconId = R.drawable.ic_qs_signal_no_signal;
-                    mDataSignalIconId = R.drawable.stat_sys_signal_null;
+                    mDataSignalIconId = (mHideSignal ? 0 : R.drawable.stat_sys_signal_null);
                 }
 
                 mContentDescriptionPhoneSignal = mContext.getString(
@@ -661,7 +641,7 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
 
                 if (mUseSixBar) {
                     iconList = TelephonyIcons.TELEPHONY_SIGNAL_STRENGTH_6BAR[mInetCondition];
-                    mDataSignalIconId = TelephonyIcons.TELEPHONY_SIGNAL_STRENGTH_6BAR[mInetCondition][iconLevel];
+                    mDataSignalIconId = (mHideSignal ? 0 : TelephonyIcons.TELEPHONY_SIGNAL_STRENGTH_6BAR[mInetCondition][iconLevel]);
                     mQSPhoneSignalIconId =
                             TelephonyIcons.QS_TELEPHONY_SIGNAL_STRENGTH_6BAR[mInetCondition][iconLevel];
                 } else {
@@ -679,11 +659,11 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                             iconList = TelephonyIcons.TELEPHONY_SIGNAL_STRENGTH[mInetCondition];
                         }
                     }
-                    mDataSignalIconId = TelephonyIcons.DATA_SIGNAL_STRENGTH[mInetCondition][iconLevel];
+                    mDataSignalIconId = (mHideSignal ? 0 : TelephonyIcons.DATA_SIGNAL_STRENGTH[mInetCondition][iconLevel]);
                     mQSPhoneSignalIconId =
                             TelephonyIcons.QS_TELEPHONY_SIGNAL_STRENGTH[mInetCondition][iconLevel];
                 }
-                mPhoneSignalIconId = iconList[iconLevel];
+                mPhoneSignalIconId = (mHideSignal ? 0 : iconList[iconLevel]);
 
                 mContentDescriptionPhoneSignal = mContext.getString(
                         AccessibilityContentDescriptions.PHONE_SIGNAL_STRENGTH[iconLevel]);
@@ -1532,6 +1512,10 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                 v.setVisibility(View.VISIBLE);
             }
         }
+
+        if (mUpdateUIListener != null) {
+            mUpdateUIListener.onUpdateUI();
+        }
     }
 
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
@@ -1762,6 +1746,46 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
                 }
             }
         }
+    }
+
+    class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_NETWORK_ACTIVITY),
+                    false, this, UserHandle.USER_ALL);
+            mDirectionArrowsEnabled = Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_NETWORK_ACTIVITY,
+                    0, UserHandle.USER_CURRENT) == 0 ? false : true;
+            resolver.registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.STATUSBAR_HIDE_SIGNAL_BARS), false,
+                    this);
+            updateSettings();
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateSettings();
+        }
+    }
+
+    protected void updateSettings() {
+        mHideSignal = (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.STATUSBAR_HIDE_SIGNAL_BARS, 0) == 1);
+        updateTelephonySignalStrength();
+        updateDataNetType();
+    }
+
+    public static interface UpdateUIListener {
+        void onUpdateUI();
+    }
+
+    public void setListener(UpdateUIListener listener) {
+        mUpdateUIListener = listener;
     }
 
     private class DirtyObserver extends ContentObserver {
