@@ -4599,6 +4599,13 @@ public final class Settings {
         public static final String ON_THE_GO_SERVICE_RESTART = "on_the_go_service_restart";
 
         /**
+         * Hide Signal bars
+         *
+         * @hide
+         */
+        public static final String STATUSBAR_HIDE_SIGNAL_BARS = "statusbar_hide_signal_bars";
+
+        /**
          * Disable ads (HFM)
          * @hide
          */
