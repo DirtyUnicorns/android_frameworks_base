@@ -1,6 +1,6 @@
 #include "idmap.h"
 
-#include <memory>
+#include <UniquePtr.h>
 #include <androidfw/AssetManager.h>
 #include <androidfw/ResourceTypes.h>
 #include <androidfw/ZipFileRO.h>
@@ -15,7 +15,7 @@ using namespace android;
 namespace {
     int get_zip_entry_crc(const char *zip_path, const char *entry_name, uint32_t *crc)
     {
-        std::unique_ptr<ZipFileRO> zip(ZipFileRO::open(zip_path));
+        UniquePtr<ZipFileRO> zip(ZipFileRO::open(zip_path));
         if (zip.get() == NULL) {
             return -1;
         }
@@ -33,6 +33,7 @@ namespace {
     int open_idmap(const char *path)
     {
         int fd = TEMP_FAILURE_RETRY(open(path, O_WRONLY | O_CREAT | O_TRUNC, 0644));
+        bool needUnlink = true;
         if (fd == -1) {
             ALOGD("error: open %s: %s\n", path, strerror(errno));
             goto fail;
@@ -43,6 +44,8 @@ namespace {
         }
         if (TEMP_FAILURE_RETRY(flock(fd, LOCK_EX)) != 0) {
             ALOGD("error: flock %s: %s\n", path, strerror(errno));
+            // If the file is locked by another process, then we needn't unlink the file.
+            needUnlink = false;
             goto fail;
         }
 
@@ -50,14 +53,14 @@ namespace {
 fail:
         if (fd != -1) {
             close(fd);
-            unlink(path);
+            if (needUnlink) unlink(path);
         }
         return -1;
     }
 
     int write_idmap(int fd, const uint32_t *data, size_t size)
     {
-        if (lseek(fd, 0, SEEK_SET) < 0) {
+        if (lseek(fd, SEEK_SET, 0) < 0) {
             return -1;
         }
         size_t bytesLeft = size;
@@ -86,7 +89,7 @@ fail:
 
         char buf[N];
         size_t bytesLeft = N;
-        if (lseek(idmap_fd, 0, SEEK_SET) < 0) {
+        if (lseek(idmap_fd, SEEK_SET, 0) < 0) {
             return true;
         }
         for (;;) {

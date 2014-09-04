@@ -828,13 +828,8 @@ void _CompressedAsset::close(void)
     delete[] mBuf;
     mBuf = NULL;
 
-    StreamingZipInflater* zipInflater;
-    { // acquire lock
-        AutoMutex _l(gAssetLock);
-        zipInflater = mZipInflater;
-        mZipInflater = NULL;
-    }
-    delete zipInflater;
+    delete mZipInflater;
+    mZipInflater = NULL;
 
     if (mFd > 0) {
         ::close(mFd);
@@ -889,13 +884,8 @@ const void* _CompressedAsset::getBuffer(bool)
      * Success - now that we have the full asset in RAM we
      * no longer need the streaming inflater
      */
-    StreamingZipInflater* zipInflater;
-    { // acquire lock
-        AutoMutex _l(gAssetLock);
-        zipInflater = mZipInflater;
-        mZipInflater = NULL;
-    }
-    delete zipInflater;
+    delete mZipInflater;
+    mZipInflater = NULL;
 
     mBuf = buf;
     buf = NULL;
