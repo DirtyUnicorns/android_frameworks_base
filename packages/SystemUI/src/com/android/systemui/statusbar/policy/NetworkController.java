@@ -1769,7 +1769,6 @@ public class NetworkController extends BroadcastReceiver implements DemoMode {
             resolver.registerContentObserver(
                     Settings.System.getUriFor(Settings.System.STATUSBAR_HIDE_SIGNAL_BARS), false,
                     this);
-            updateSettings();
         }
 
         @Override
