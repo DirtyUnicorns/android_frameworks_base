@@ -64,5 +64,8 @@
     <dimen name="app_sidebar_icon_width">72dp</dimen>
     <dimen name="app_sidebar_icon_height">72dp</dimen>
 
+    <!-- The task item height in task list. -->
+    <dimen name="task_manager_item_height">40dip</dimen>
+
 </resources>
 
