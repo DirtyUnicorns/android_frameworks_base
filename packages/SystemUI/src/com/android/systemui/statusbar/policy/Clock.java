@@ -96,6 +96,7 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
     protected boolean mShowClock;
 
     private int mAmPmStyle;
+    private int mCurrentColor = -3;
 
     private SettingsObserver mSettingsObserver;
 
@@ -349,6 +350,13 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
         return formatted;
     }
 
+    public void updateSettings(int defaultColor) {
+        if (mCurrentColor != defaultColor) {
+            mCurrentColor = defaultColor;
+            updateSettings();
+        }
+    }
+
     protected void updateSettings() {
         ContentResolver resolver = mContext.getContentResolver();
 
@@ -411,12 +419,13 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
             // flag to reset the color
             clockColor = defaultColor;
         }
+        int nowColor = mCurrentColor != -3 ? mCurrentColor : clockColor;
 
         if (mAttached) {
             if (mCustomColor) {
                 setTextColor(systemColor);
             } else {
-                setTextColor(clockColor);
+                setTextColor(nowColor);
             }
             getFontStyle(mClockFontStyle);
             updateClockVisibility();
@@ -515,4 +524,3 @@ public class Clock extends TextView implements DemoMode, OnClickListener, OnLong
         }
     }
 }
-

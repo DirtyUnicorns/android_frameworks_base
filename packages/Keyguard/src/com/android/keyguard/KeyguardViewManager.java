@@ -59,10 +59,6 @@ import android.os.Parcelable;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.provider.Settings;
-import android.renderscript.Allocation;
-import android.renderscript.Allocation.MipmapControl;
-import android.renderscript.Element;
-import android.renderscript.RenderScript;
 import android.util.Log;
 import android.util.Slog;
 import android.util.SparseArray;
@@ -77,6 +73,7 @@ import android.widget.FrameLayout;
 
 import com.android.internal.policy.IKeyguardShowCallback;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.internal.util.omni.ColorUtils;
 
 import java.io.File;
 
