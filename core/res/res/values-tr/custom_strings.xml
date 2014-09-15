@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_killed_message">Uygulama sonlandırıldı</string>
+  <string name="permlab_revokePermissions">Normal uygulamalar hariç, İptal edilen görüntüleme ve düzenleme izinlerini al.</string>
+  <string name="permdesc_revokePermissions">Normal uygulamalar hariç, İptal edilen okuma ve yazma izinlerini al.</string>
+  <string name="permlab_accessThemeService">Tema Yöneticisine erişime izin ver.</string>
+  <string name="permdesc_accessThemeService">Uygulamanın temayı değiştirmesine izin ver.</string>
+  <string name="stylus_app_not_installed">%s kurulamadı.</string>
+  <string name="global_action_screenrecord">Ekran Kaydı</string>
+  <string name="reboot_system" product="tablet">Tableti Yeniden Başlat</string>
+  <string name="reboot_system" product="default">Telefonu Yeniden Başlat</string>
+  <string name="global_action_screenshot">Ekran görüntüsü</string>
+  <string name="global_action_reboot">Yeniden başlat</string>
+  <string name="reboot_reboot">Yeniden başlat</string>
+  <string name="reboot_recovery">Kurtarma modu</string>
+  <string name="reboot_bootloader">Ön yükleyici</string>
+  <string name="reboot_hot">Hızlı yeniden başlatma</string>
+  <string name="reboot_bootmenu">Açılış menüsü</string>
+  <string name="reboot_fastboot">Hızlı açılış</string>
+  <string name="reboot_download">İndirme</string>
+  <string name="reboot_progress">Yeniden başlatılıyor\u2026</string>
+  <string name="reboot_confirm" product="tablet">Tabletiniz yeniden başlatılacak.</string>
+  <string name="reboot_confirm" product="default">Telefonunuz yeniden başlatılacak.</string>
+  <string name="hot_reboot_title" product="tablet">Tableti hızlı başlatma</string>
+  <string name="hot_reboot_title" product="default">Telefonu hızlı başlatma</string>
+  <string name="hot_reboot_progress">Android framework\u2026 yeniden başlatılıyor</string>
+  <string name="global_actions_toggle_mobile_data">Mobil veri</string>
+  <string name="global_actions_mobile_data_on_status">Mobil veri açık.</string>
+  <string name="global_actions_mobile_data_off_status">Mobil veri kapalı.</string>
+  <string name="storage_sd_dock_card">SD kart genişletmesi</string>
+  <string name="permlab_changePrivacyGuardState">Özel Korumayı aç/kapat</string>
+  <string name="permdesc_changePrivacyGuardState">Uygulamaya başka bir uygulamanın Gizlilik Korumasını kullanıp kullanamayacağını belirleme olanağı verir. Bir uygulamanın Gizlilik Koruması ile çalışırken, kişiler, arama kayıtları, ya da mesajlar gibi kişisel bilgilere ulaşımı olmayacak.</string>
+  <string name="privacy_guard_notification">Gizlilik Koruması aktif</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> kişisel bilgilerinize ulaşamayacak</string>
+  <string name="privacy_guard_custom_notification_detail"><xliff:g id="app"> %1$s </xliff:g> özel izinlere erişemeyecek.</string>
+  <string name="profileNameDefault">Varsayılan</string>
+  <string name="profileNameWork">İş</string>
+  <string name="profileNameHome">Ana sayfa</string>
+  <string name="profileNameSilent">Sessiz</string>
+  <string name="profileNameNight">Gece</string>
+  <string name="profileGroupPhone">Telefon</string>
+  <string name="profileGroupCalendar">Takvim</string>
+  <string name="profileGroupGmail">Gmail</string>
+  <string name="profileGroupEmail">E-posta</string>
+  <string name="profileGroupSMS">SMS</string>
+  <string name="wildcardProfile">Diğer</string>
+  <string name="global_action_choose_profile">Profil</string>
+  <string name="profile_picker_title">Profiller</string>
+  <string name="profile_none">Hiçbiri</string>
+  <string name="animation_default">Varsayılan</string>
+  <string name="animation_fade">Soldur</string>
+  <string name="animation_slide_right">Sağa Kaydır</string>
+  <string name="animation_slide_left">Sola kaydır</string>
+  <string name="animation_slide_right_no_fade">Sağa kaydır (Solma yok)</string>
+  <string name="animation_slide_left_no_fade">Sola kaydır (Solma yok)</string>
+  <string name="animation_slide_up">Aşağıya doğru kaydır</string>
+  <string name="animation_slide_down">Yukarıya doğru kaydır</string>
+  <string name="animation_translucent">Yarı saydam</string>
+  <string name="animation_grow_shrink">Büyüt (Yukarıdan)</string>
+  <string name="animation_grow_shrink_center">Büyüt (Ortadan)</string>
+  <string name="animation_grow_shrink_bottom">Büyüt (Aşağıdan)</string>
+  <string name="animation_grow_shrink_left">Büyüt (Soldan)</string>
+  <string name="animation_grow_shrink_right">Büyüt (Sağdan)</string>
+  <string name="animation_random">Rastgele</string>
+  <string name="global_action_onthego">Yürüme Modu</string>
+  <string name="floating_window_snap_top">Yukarı çek</string>
+  <string name="floating_window_snap_bottom">Aşağı çek</string>
+  <string name="floating_window_snap_left">Sola çek</string>
+  <string name="floating_window_snap_right">Sağa çek</string>
+  <string name="immersive_mode_confirmation_bottom">Tam ekrandan çıkmak için yukarı kaydırın.</string>
+  <string name="permlab_resetBatteryStats">Pil istatistiklerini sıfırla</string>
+  <string name="permdesc_resetBatteryStats">Bir uygulamanın düşük batarya kullanım bilgisini sıfırlamasına izin verir.</string>
+</resources>
+

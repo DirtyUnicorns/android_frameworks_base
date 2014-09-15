@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="quick_settings_wifi_tethering_label">Tethering</string>
+  <string name="quick_settings_bluetooth_not_discoverable_label">Bulunamaz</string>
+  <string name="quick_settings_bluetooth_discoverable_label">Bulunabilir</string>
+  <string name="quick_settings_bluetooth_disabled">kapalı</string>
+  <string name="quick_settings_bluetooth_number_paired"><xliff:g id="number"> %d </xliff:g> Bağlantılı cihazlar</string>
+  <string name="screenrecord_notif_ticker">Ekran kaydediliyor</string>
+  <string name="screenrecord_notif_title">Ekran kaydediliyor</string>
+  <string name="screenrecord_notif_stop">Dur</string>
+  <string name="screenrecord_notif_pointer">Dokunma Noktaları aç/kapat</string>
+  <string name="screenrecord_notif_error">Ekran kaydedilemiyor</string>
+  <string name="screenshot_delete_confirmation">Ekran kaydı silindi</string>
+  <string name="advanced_dev_option_wipe_app">App verisini sil</string>
+  <string name="advanced_dev_option_force_stop">Durmaya zorla</string>
+  <string name="quick_settings_battery_charging">Şarj oluyor</string>
+  <string name="quick_settings_battery_discharging">Şarjı tükeniyor</string>
+  <string name="quick_settings_camera_label">Kamera</string>
+  <string name="quick_settings_camera_error_connect">Kamera\'ya bağlanılamıyor</string>
+  <string name="navbar_dialog_title">Atamak için işlev seçin</string>
+  <string name="navbar_home_button">Giriş düğmesi</string>
+  <string name="navbar_recent_button">Son uyg. tuşu</string>
+  <string name="navbar_search_button">Arama düğmesi</string>
+  <string name="navbar_back_button">Geri tuşu</string>
+  <string name="navbar_empty_button">Boş tuş</string>
+  <string name="navbar_menu_conditional_button">Menü (oto gizle) tuşu</string>
+  <string name="navbar_menu_always_button">Menü (hep göster) tuşu</string>
+  <string name="navbar_menu_big_button">Menü düğmesi</string>
+  <string name="accessibility_halo">Halo bildirimi oluşturun.</string>
+  <string name="halo_dismiss">Bildirimleri yoksay</string>
+  <string name="halo_hide">Gizle</string>
+  <string name="halo_clear_all">Tüm bildirimleri kapat</string>
+  <string name="halo_silence">Uyanana kadar sessizce &amp; Gizle</string>
+  <string name="halo_tutorial1">Bu HALO</string>
+  <string name="halo_tutorial2">2 paragraf boyu taşı</string>
+  <string name="halo_tutorial3">Görevlere göz atın: yatay sürükleyin</string>
+  <string name="halo_battery_plugged">Şarj Oluyor</string>
+  <string name="halo_battery_unplugged">KALAN</string>
+  <string name="halo_battery_full">DOLU</string>
+  <string name="halo_aeroplane1">UÇAK MODU</string>
+  <string name="halo_aeroplane2">MODU</string>
+  <string name="halo_wifi_on">KABLOSUZ İNTERNET ERİŞİMİ AÇIK</string>
+  <string name="halo_wifi_off">WI-FI KAPALI</string>
+  <string name="halo_signal_bars_4">DOLU</string>
+  <string name="halo_signal_bars_3">ÜÇ BAR</string>
+  <string name="halo_signal_bars_2">İKİ BAR</string>
+  <string name="halo_signal_bars_1">BİR BAR</string>
+  <string name="halo_signal_bars_none">SİNYAL YOK</string>
+  <string name="wifi_ap_disabled">WiFi AP kapalı</string>
+  <string name="wifi_ap_enabled">WiFi AP açık</string>
+  <string name="quick_settings_immersive_mode_label">Tam Ekran</string>
+  <string name="quick_settings_immersive_mode_off_label">Tam Ekran Kapalı</string>
+  <string name="memory">RAM</string>
+  <string name="service_free_mem"><xliff:g id="memory">%1$s</xliff:g> boş</string>
+  <string name="service_used_mem"><xliff:g id="memory">%1$s</xliff:g> kullanılan</string>
+  <string name="default_folder_text">Klasör</string>
+  <string name="title_activity_sidebar_configuration">App Çubuğu ayarları</string>
+  <string name="action_save">Kaydet</string>
+  <string name="toast_items_saved">App Çubuğu ayarları kaydedildi.</string>
+  <string name="content_setup_instructions">App Çubuğuna ikon eklemek için sağdaki herhangi bir yere basılı tutun ve App çubuğuna sürükleyin.\n\nÖğeleri klasörlerde birleştirmek için App Çubuğundaki varolan öğelerin üzerine sürükleyin.\n\nBir öğeyi kaldırmak için onu App Çubuğu\'nun dışına sürükleyin.</string>
+  <string name="content_setup_dismiss">Devam et</string>
+  <string name="quick_settings_gps">GPS</string>
+  <string name="quick_settings_gps_off">GPS kapalı</string>
+  <string name="quick_settings_screen_sleep">Uyu</string>
+  <string name="quick_settings_ringer_on">Ses Açık</string>
+  <string name="quick_settings_ringer_off">Ses Kapalı</string>
+  <string name="quick_settings_vibration_on">Titreşim açık</string>
+  <string name="quick_settings_vibration_off">Titreşim kapalı</string>
+  <string name="quick_settings_label_enabled">Açık</string>
+  <string name="quick_settings_label_disabled">Kapalı</string>
+  <string name="quick_settings_ringer_normal">Ses</string>
+  <string name="quick_settings_lockscreen">Kilit ekranı</string>
+  <string name="quick_settings_network_type">Ağ modu</string>
+  <string name="quick_settings_report_bug">Hata raporu</string>
+  <string name="quick_settings_sync">Senkronizasyon</string>
+  <string name="quick_settings_sync_off">Senkronizasyon kapalı</string>
+  <string name="quick_settings_torch">Fener</string>
+  <string name="quick_settings_torch_off">Fener kapalı</string>
+  <string name="quick_settings_nfc">NFC</string>
+  <string name="quick_settings_nfc_off">NFC kapalı</string>
+  <string name="quick_settings_screen_timeout">Zaman aşımı</string>
+  <string name="quick_settings_screen_timeout_summary_never">Asla</string>
+  <string name="quick_settings_usb_tether_off_label">Bağlı değil</string>
+  <string name="quick_settings_usb_tether_connected_label">Tethering kapalı</string>
+  <string name="quick_settings_usb_tether_on_label">Tethering</string>
+  <string name="quick_settings_wifiap">Wi-Fi AP</string>
+  <string name="quick_settings_wifiap_off">Wi-Fi AP Kapalı</string>
+  <string name="quick_settings_quiethours">Sessiz saatler</string>
+  <string name="quick_settings_quiethours_off">Sessiz saatler kapalı</string>
+  <string name="quick_settings_lte">LTE</string>
+  <string name="quick_settings_lte_off">LTE kapalı</string>
+  <string name="quick_settings_volume">Ses seviyesi</string>
+  <string name="quick_settings_expanded_desktop">Genişletilmiş</string>
+  <string name="quick_settings_expanded_desktop_off">Normal</string>
+  <string name="quick_settings_music_play">Çal</string>
+  <string name="quick_settings_music_pause">Durakla</string>
+  <string name="quick_settings_reboot_recovery">Recovery</string>
+  <string name="quick_settings_reboot">Yeniden Başlat</string>
+  <string name="quick_settings_custom_toggle">Özel</string>
+  <string name="quick_settings_quick_record_nofile">Uzun basma</string>
+  <string name="quick_settings_quick_record_def">Hızlı Kayıt</string>
+  <string name="quick_settings_quick_record_rec">Kayıt...</string>
+  <string name="quick_settings_quick_record_save">Kaydedildi</string>
+  <string name="quick_settings_quick_record_play">Çalınıyor...</string>
+  <string name="quick_settings_fcharge_on_label">Hızlı Şarj</string>
+  <string name="quick_settings_fcharge_off_label">Kapalı</string>
+  <string name="quick_settings_theme_switch_dark">Koyu Tema</string>
+  <string name="quick_settings_theme_switch_light">Aydın tema</string>
+  <string name="status_bar_recent_lock_item_title">Kilit</string>
+  <string name="status_bar_recent_unlock_item_title">Kilidi aç</string>
+  <string name="status_bar_notification_hide_icon_packages">Bildirim ikonunu gizle</string>
+  <string name="status_bar_recent_playstore_item_title">Play Store</string>
+  <string name="status_bar_recent_amazon_item_title">Amazon Store</string>
+  <string name="onthego_notif_ticker">On-The-Go açık</string>
+  <string name="onthego_notif_title">On-The-Go aktif</string>
+  <string name="onthego_notif_stop">Dur</string>
+  <string name="onthego_notif_options">Seçenekler</string>
+  <string name="onthego_notif_error">On-The-Go başlatılamadı</string>
+  <string name="onthego_notif_restart">On-The-Go yeniden başlat</string>
+  <string name="onthego_notif_camera_changed">Kamera modu değişti</string>
+  <string name="onthego_transparency">Şeffaflık</string>
+  <string name="onthego_front_camera">Ön kamerayı kullan</string>
+  <string name="onthego_service_toggle">Otomatik olarak servisi yeniden başlat</string>
+  <string name="cancel">İptal</string>
+  <string name="dlg_ok">Tamam</string>
+  <string name="yes">Evet</string>
+  <string name="no">Hayır</string>
+  <string name="shortcut_picker">Kısayol odası</string>
+  <string name="shortcut_chamber">Sırlar Odası</string>
+  <string name="chamber_disabled">Sırlar Odası kapalı</string>
+  <string name="chamber_title">Giriş ayarlarını diz</string>
+  <string name="chamber_message">Açık ve kapalı (onay kutusu) bir işlem ya da belki bir liste tercih ayarlar dize giriş. Örneğin, quiet_hours_ringer veya benzer. Ayarlar Settings.java dosyasında bulunabilir. Uyarı: Bu işlem tehlikeli!</string>
+  <string name="chamber_invalid">Bu geçersiz bir giriş. Dikkat et.</string>
+  <string name="chamber_invalid_setting">Veritabanının varolduğundan emin olmak için ayarları manuel gir</string>
+  <string name="chamber_checkbox">Onay Kutusu</string>
+  <string name="chamber_chk_message">Bu onay kutusu ayarı mı?</string>
+  <string name="chamber_int">Giriş değerleri</string>
+  <string name="chamber_int_message">Giriş değerleri arasında geçiş yapmak için ayarı istiyorum. Her değer virgülle ayırın. Renk ayarları hex-değerleri #FF00aacc veya kırmızı, yeşil ve sarı gibi temel renk değerlerini kabul edin.</string>
+  <string name="status_bar_recent_floating_item_title">Yüzer mod</string>
+  <string name="status_bar_notification_floating_item_title">Yüzer mod</string>
+  <string name="app_float_maximize_item_title">Maximum Büyüt</string>
+  <string name="app_float_item_title">Yüzer gösterge</string>
+  <string name="app_stop_item_title">App\'i kapat</string>
+  <string name="status_bar_notification_floating_item_title">Yüzer mod</string>
+  <string name="status_bar_recent_floating_item_title">Yüzer mod</string>
+  <string name="quick_settings_compass_off">Pusula kapalı</string>
+  <string name="quick_settings_compass_init">Başlatılıyor\u2026</string>
+</resources>
+
