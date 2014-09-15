@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="quick_settings_wifi_tethering_label">Точка доступа</string>
+  <string name="quick_settings_bluetooth_not_discoverable_label">Невидимый</string>
+  <string name="quick_settings_bluetooth_discoverable_label">Видимый</string>
+  <string name="quick_settings_bluetooth_disabled">Отключен</string>
+  <string name="quick_settings_bluetooth_number_paired"><xliff:g id="number"> %d </xliff:g> Устройства спарены</string>
+  <string name="screenrecord_notif_ticker">Началась запись экрана</string>
+  <string name="screenrecord_notif_title">Запись экрана</string>
+  <string name="screenrecord_notif_stop">Остановить</string>
+  <string name="screenrecord_notif_pointer">Указатель</string>
+  <string name="screenrecord_notif_error">Запись экрана невозможна</string>
+  <string name="screenshot_delete_confirmation">Скриншот удален</string>
+  <string name="advanced_dev_option_wipe_app">Стереть данные приложения</string>
+  <string name="advanced_dev_option_force_stop">Принудительно остановить</string>
+  <string name="quick_settings_battery_charging">Заряжается</string>
+  <string name="quick_settings_battery_discharging">Разряжается</string>
+  <string name="quick_settings_camera_label">Камера</string>
+  <string name="quick_settings_camera_error_connect">Не удается подключиться к камере</string>
+  <string name="navbar_dialog_title">Выберите действие</string>
+  <string name="navbar_home_button">Кнопка Домой</string>
+  <string name="navbar_recent_button">Кнопка Недавние</string>
+  <string name="navbar_search_button">Кнопка Поиск</string>
+  <string name="navbar_back_button">Кнопка Назад</string>
+  <string name="navbar_empty_button">Пустая кнопка</string>
+  <string name="navbar_menu_conditional_button">Кнопка Меню (автоскрытие включено)</string>
+  <string name="navbar_menu_always_button">Кнопка Меню (всегда показывать)</string>
+  <string name="navbar_menu_big_button">Кнопка Меню</string>
+  <string name="accessibility_halo">Создать уведомление halo.</string>
+  <string name="halo_dismiss">Скрыть уведомление</string>
+  <string name="halo_hide">Скрыть</string>
+  <string name="halo_clear_all">Скрыть все уведомления</string>
+  <string name="halo_silence">Скрыть и молчать до пробуждения</string>
+  <string name="halo_tutorial1">Это HALO</string>
+  <string name="halo_tutorial2">Перемещение: 2 тапа и тащить</string>
+  <string name="halo_tutorial3">Просмотр задач: свайп по горизонтали</string>
+  <string name="halo_battery_plugged">ЗАРЯДКА</string>
+  <string name="halo_battery_unplugged">ОСТАЛОСЬ</string>
+  <string name="halo_battery_full">ЗАРЯЖЕНА</string>
+  <string name="halo_aeroplane1">САМОЛЕТ</string>
+  <string name="halo_aeroplane2">РЕЖИМ</string>
+  <string name="halo_wifi_on">WI-FI ВКЛ</string>
+  <string name="halo_wifi_off">WI-FI ВЫКЛ</string>
+  <string name="halo_signal_bars_4">ОТЛ.СВЯЗЬ</string>
+  <string name="halo_signal_bars_3">ХОР.СВЯЗЬ</string>
+  <string name="halo_signal_bars_2">УД.СВЯЗЬ</string>
+  <string name="halo_signal_bars_1">ПЛОХ.СВЯЗЬ</string>
+  <string name="halo_signal_bars_none">НЕТ СВЯЗИ</string>
+  <string name="wifi_ap_disabled">WiFi AP отключен</string>
+  <string name="wifi_ap_enabled">WiFi AP включен</string>
+  <string name="quick_settings_immersive_mode_label">Расширенный</string>
+  <string name="quick_settings_immersive_mode_off_label">Обычный</string>
+  <string name="memory">ОЗУ</string>
+  <string name="service_free_mem"><xliff:g id="memory">%1$s</xliff:g> свободно</string>
+  <string name="service_used_mem"><xliff:g id="memory">%1$s</xliff:g> занято</string>
+  <string name="default_folder_text">Папка</string>
+  <string name="title_activity_sidebar_configuration">Настройка содержимого AppBar</string>
+  <string name="action_save">Сохранить</string>
+  <string name="toast_items_saved">Были сохранены элементы AppBar.</string>
+  <string name="content_setup_instructions">Добавляйте элементы в Appbar путем долгого нажатия любого элемента справа и перетаскивания его на Appbar.\n\nОбъединяйте элементы в папки, сбрасывая их на любые другие существующие элементы в Appbar.\n\nЧтобы удалить элемент просто перетащите его из \@appbar.</string>
+  <string name="content_setup_dismiss">Продолжить</string>
+  <string name="quick_settings_gps">GPS</string>
+  <string name="quick_settings_gps_off">GPS выкл</string>
+  <string name="quick_settings_screen_sleep">Спать</string>
+  <string name="quick_settings_ringer_on">Звук вкл</string>
+  <string name="quick_settings_ringer_off">Звук выкл</string>
+  <string name="quick_settings_vibration_on">Вибро вкл</string>
+  <string name="quick_settings_vibration_off">Вибро выкл</string>
+  <string name="quick_settings_label_enabled">Вкл</string>
+  <string name="quick_settings_label_disabled">Выкл</string>
+  <string name="quick_settings_ringer_normal">Звук</string>
+  <string name="quick_settings_lockscreen">Экран блокировки</string>
+  <string name="quick_settings_network_type">Режим сети</string>
+  <string name="quick_settings_report_bug">Сообщить об ошибке</string>
+  <string name="quick_settings_sync">Синхронизация</string>
+  <string name="quick_settings_sync_off">Синхронизация выкл</string>
+  <string name="quick_settings_torch">Фонарик</string>
+  <string name="quick_settings_torch_off">Фонарик выкл</string>
+  <string name="quick_settings_nfc">NFC</string>
+  <string name="quick_settings_nfc_off">NFC выкл</string>
+  <string name="quick_settings_screen_timeout">Тайм-аут</string>
+  <string name="quick_settings_screen_timeout_summary_never">Никогда</string>
+  <string name="quick_settings_usb_tether_off_label">Отключено</string>
+  <string name="quick_settings_usb_tether_connected_label">Точка доступа выкл</string>
+  <string name="quick_settings_usb_tether_on_label">Точка доступа</string>
+  <string name="quick_settings_wifiap">Wi-Fi AP</string>
+  <string name="quick_settings_wifiap_off">Wi-Fi AP выкл</string>
+  <string name="quick_settings_quiethours">Тихие часы</string>
+  <string name="quick_settings_quiethours_off">Тихие часы выкл</string>
+  <string name="quick_settings_lte">LTE</string>
+  <string name="quick_settings_lte_off">LTE выкл</string>
+  <string name="quick_settings_volume">Громкость</string>
+  <string name="quick_settings_expanded_desktop">Расширенный</string>
+  <string name="quick_settings_expanded_desktop_off">Нормальный</string>
+  <string name="quick_settings_music_play">Играть</string>
+  <string name="quick_settings_music_pause">Пауза</string>
+  <string name="quick_settings_reboot_recovery">Recovery</string>
+  <string name="quick_settings_reboot">Перезагрузка</string>
+  <string name="quick_settings_custom_toggle">Пользовательская</string>
+  <string name="quick_settings_quick_record_nofile">Длительное нажатие</string>
+  <string name="quick_settings_quick_record_def">Быстрая запись</string>
+  <string name="quick_settings_quick_record_rec">Идет запись...</string>
+  <string name="quick_settings_quick_record_save">Сохранено</string>
+  <string name="quick_settings_quick_record_play">Играет...</string>
+  <string name="quick_settings_fcharge_on_label">Быстрая зарядка</string>
+  <string name="quick_settings_fcharge_off_label">Отключено</string>
+  <string name="quick_settings_theme_switch_dark">Тёмная тема</string>
+  <string name="quick_settings_theme_switch_light">Светлая тема</string>
+  <string name="status_bar_recent_lock_item_title">Заблокировать</string>
+  <string name="status_bar_recent_unlock_item_title">Разблокировать</string>
+  <string name="status_bar_notification_hide_icon_packages">Скрыть значок уведомления</string>
+  <string name="status_bar_recent_playstore_item_title">Google Play</string>
+  <string name="status_bar_recent_amazon_item_title">Amazon</string>
+  <string name="onthego_notif_ticker">Режим \"на ходу\"  включен</string>
+  <string name="onthego_notif_title">Режим \"на ходу\" активен</string>
+  <string name="onthego_notif_stop">Остановить</string>
+  <string name="onthego_notif_options">Параметры</string>
+  <string name="onthego_notif_error">Не удается включить режим \"на ходу\"</string>
+  <string name="onthego_notif_restart">Перезапустить режим \"на ходу\"</string>
+  <string name="onthego_notif_camera_changed">Режим камеры изменен</string>
+  <string name="onthego_transparency">Прозрачность</string>
+  <string name="onthego_front_camera">Использовать переднюю камеру</string>
+  <string name="onthego_service_toggle">Автоматически перезапускать службу</string>
+  <string name="cancel">Отмена</string>
+  <string name="dlg_ok">Oк</string>
+  <string name="yes">Да</string>
+  <string name="no">Нет</string>
+  <string name="shortcut_picker">Ярлыки тайной комнаты</string>
+  <string name="shortcut_chamber">Тайная комната</string>
+  <string name="chamber_disabled">Тайная комната закрыта</string>
+  <string name="chamber_title">Строка ввода параметров</string>
+  <string name="chamber_message">Введите строку настроек, которые должны быть либо типом checkbox (со значениями вкл/выкл), либо списочным типом. Например, quiet_hours_ringer или т.п. Настройки можно найти в файле Settings.java. ВНИМАНИЕ: Эти действия рискованны!</string>
+  <string name="chamber_invalid">Ошибка при вводе, будьте аккуратны.</string>
+  <string name="chamber_invalid_setting">Попробуйте вручную переключить параметры, чтобы убедиться, что необходимые настройки в базе данных существуют.</string>
+  <string name="chamber_checkbox">Checkbox</string>
+  <string name="chamber_chk_message">Этот параметр имеет тип checkbox?</string>
+  <string name="chamber_int">Входные значения</string>
+  <string name="chamber_int_message">Введите значения, между которыми будет возможно переключение. Разделяйте друг от друга запятыми. Настройки цвета допускают шестнадцатеричное представление, в виде #FF00aacc и текстовое, как red, green, и yellow.</string>
+  <string name="status_bar_recent_floating_item_title">Оконный режим</string>
+  <string name="status_bar_notification_floating_item_title">Оконный режим</string>
+  <string name="app_float_maximize_item_title">Развернуть</string>
+  <string name="app_float_item_title">Плавающий вид</string>
+  <string name="app_stop_item_title">Закрыть приложение</string>
+  <string name="status_bar_notification_floating_item_title">Оконный режим</string>
+  <string name="status_bar_recent_floating_item_title">Оконный режим</string>
+  <string name="quick_settings_compass_off">Компас выкл</string>
+  <string name="quick_settings_compass_init">Инициализация\u2026</string>
+</resources>
+
