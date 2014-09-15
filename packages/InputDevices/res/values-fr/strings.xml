@@ -34,4 +34,21 @@
     <string name="keyboard_layout_slovenian" msgid="1735933028924982368">"Slovène"</string>
     <string name="keyboard_layout_turkish" msgid="7736163250907964898">"Turc"</string>
     <string name="keyboard_layout_ukrainian" msgid="8176637744389480417">"Ukrainien"</string>
+    <!-- Arabic keyboard layout label. [CHAR LIMIT=35] -->
+    <string name="keyboard_layout_arabic">Arabe</string>
+
+    <!-- Greek keyboard layout label. [CHAR LIMIT=35] -->
+    <string name="keyboard_layout_greek">Grecque</string>
+
+    <!-- Hebrew keyboard layout label. [CHAR LIMIT=35] -->
+    <string name="keyboard_layout_hebrew">Hébreu</string>
+
+    <!-- Lithuanian keyboard layout label. [CHAR LIMIT=35] -->
+    <string name="keyboard_layout_lithuanian">Lituanien</string>
+
+    <!-- Spanish (Latin) keyboard layout label. [CHAR LIMIT=35] -->
+    <string name="keyboard_layout_spanish_latin">Espagnol (Latin)</string>
+
+    <!-- Latvian keyboard layout label. [CHAR LIMIT=35] -->
+    <string name="keyboard_layout_latvian">Letton</string>
 </resources>
