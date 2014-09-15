@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="quick_settings_wifi_tethering_label">Wi-Fi Tethering</string>
+  <string name="quick_settings_bluetooth_not_discoverable_label">Bluetooth je nezjistitelné</string>
+  <string name="quick_settings_bluetooth_discoverable_label">Bluetooth je zjistitelné</string>
+  <string name="quick_settings_bluetooth_disabled">Bluetooth je vypnuté</string>
+  <string name="quick_settings_bluetooth_number_paired"><xliff:g id="number"> %d </xliff:g> Bluetooth zařízení spárováno</string>
+  <string name="screenrecord_notif_ticker">Obrazovka je zaznamenávána</string>
+  <string name="screenrecord_notif_title">Nahrávání obrazovky</string>
+  <string name="screenrecord_notif_stop">Nahrávání bylo zastaveno</string>
+  <string name="screenrecord_notif_pointer">Přepnout ukazatel záznamu obrazovky</string>
+  <string name="screenrecord_notif_error">Nahrávání obrazovky není možné</string>
+  <string name="screenshot_delete_confirmation">Snímek obrazovky byl smazán</string>
+  <string name="advanced_dev_option_wipe_app">Vymazat data aplikací</string>
+  <string name="advanced_dev_option_force_stop">Vynutit ukončení</string>
+  <string name="quick_settings_battery_charging">Nabíjení baterie</string>
+  <string name="quick_settings_battery_discharging">Vybíjení baterie</string>
+  <string name="quick_settings_camera_label">Fotoaparát</string>
+  <string name="quick_settings_camera_error_connect">Fotoaparát nelze spustit</string>
+  <string name="navbar_dialog_title">Vybrat akci k přiřazení</string>
+  <string name="navbar_home_button">Tlačítko Domů</string>
+  <string name="navbar_recent_button">Tlačítko Nedávné</string>
+  <string name="navbar_search_button">Tlačítko Hledat</string>
+  <string name="navbar_back_button">Tlačítko Zpět</string>
+  <string name="navbar_empty_button">Prázdné tlačítko</string>
+  <string name="navbar_menu_conditional_button">Tlačítko (skrývat) Nabídka</string>
+  <string name="navbar_menu_always_button">Tlačítko (vždy zobrazit) Nabídka</string>
+  <string name="navbar_menu_big_button">Velké tlačítko Nabídka</string>
+  <string name="accessibility_halo">Vytvořit Halo upozornění.</string>
+  <string name="halo_dismiss">Odstranit oznámení Halo</string>
+  <string name="halo_hide">Skrýt Halo</string>
+  <string name="halo_clear_all">Zrušit všechna Halo oznámení</string>
+  <string name="halo_silence">Skrýt &amp; umlčet dokud se probudí</string>
+  <string name="halo_tutorial1">Tohle je HALO</string>
+  <string name="halo_tutorial2">Přesuň si mě: 2 x-tap &amp; přetažením</string>
+  <string name="halo_tutorial3">Procházejte úkoly vodorovným taženín</string>
+  <string name="halo_battery_plugged">NABÍJENÍ</string>
+  <string name="halo_battery_unplugged">ZBÝVÁ</string>
+  <string name="halo_battery_full">ÚPLNÉ</string>
+  <string name="halo_aeroplane1">MÓD LETADLO</string>
+  <string name="halo_aeroplane2">MÓD LETADLO</string>
+  <string name="halo_wifi_on">WI-FI VYPNUTO</string>
+  <string name="halo_wifi_off">WI-FI VYPNUTO</string>
+  <string name="halo_signal_bars_4">PLNÝ</string>
+  <string name="halo_signal_bars_3">TŘI ČÁRY</string>
+  <string name="halo_signal_bars_2">DVĚ ČÁRY</string>
+  <string name="halo_signal_bars_1">JEDNA ČÁRA</string>
+  <string name="halo_signal_bars_none">ŽÁDNÉ ČÁRY</string>
+  <string name="wifi_ap_disabled">WiFi AP zakázáno</string>
+  <string name="wifi_ap_enabled">WiFi AP povoleno</string>
+  <string name="quick_settings_immersive_mode_label">Mód roztažení</string>
+  <string name="quick_settings_immersive_mode_off_label">Mód roztažení zakázán</string>
+  <string name="memory">Paměť RAM</string>
+  <string name="service_free_mem"><xliff:g id="paměťi">%1$s</xliff:g> volné</string>
+  <string name="service_used_mem"><xliff:g id="paměti">%1$s</xliff:g> využité</string>
+  <string name="default_folder_text">Obvyklý text složky</string>
+  <string name="title_activity_sidebar_configuration">Nastavení obsahu panelu aplikací</string>
+  <string name="action_save">Uložit</string>
+  <string name="toast_items_saved">Byly uloženy položky v panelu aplikací.</string>
+  <string name="content_setup_instructions">Položku lze přidat do panelu aplikací na pravé straně dlouhým stiskem a přetáhnutím.\n\nKombinovat položky do složek lze položením na libovolnou existující položku v panelu aplikací.\n\nOdebrat ji lze přetáhnutím z \@appbar.</string>
+  <string name="content_setup_dismiss">Pokračovat</string>
+  <string name="quick_settings_gps">GPS zakázáno</string>
+  <string name="quick_settings_gps_off">GPS zakázáno</string>
+  <string name="quick_settings_screen_sleep">Uspat zařízení</string>
+  <string name="quick_settings_ringer_on">Zvuk povolen</string>
+  <string name="quick_settings_ringer_off">Zvuk zakázán</string>
+  <string name="quick_settings_vibration_on">Vibrace povoleny</string>
+  <string name="quick_settings_vibration_off">Vibrace zakázány</string>
+  <string name="quick_settings_label_enabled">Rychlé nastavení povoleno</string>
+  <string name="quick_settings_label_disabled">Rychlé nastavení zakázáno</string>
+  <string name="quick_settings_ringer_normal">Obvyklý zvuk</string>
+  <string name="quick_settings_lockscreen">Zamykací obrazovka</string>
+  <string name="quick_settings_network_type">Režim sítě</string>
+  <string name="quick_settings_report_bug">Nahlásit chybu</string>
+  <string name="quick_settings_sync">Synchronizace</string>
+  <string name="quick_settings_sync_off">Synch. povolena</string>
+  <string name="quick_settings_torch">Svítilna</string>
+  <string name="quick_settings_torch_off">Svítilna vypnuta</string>
+  <string name="quick_settings_nfc">NFC</string>
+  <string name="quick_settings_nfc_off">NFC vypnuto</string>
+  <string name="quick_settings_screen_timeout">Časový limit obrazovky</string>
+  <string name="quick_settings_screen_timeout_summary_never">Žádný časový limit obrazovky</string>
+  <string name="quick_settings_usb_tether_off_label">USB tethering odpojené</string>
+  <string name="quick_settings_usb_tether_connected_label">USB tethering vypnuté</string>
+  <string name="quick_settings_usb_tether_on_label">USB tethering zapnuté</string>
+  <string name="quick_settings_wifiap">Wi-Fi AP</string>
+  <string name="quick_settings_wifiap_off">Wi-Fi AP vypnuté</string>
+  <string name="quick_settings_quiethours">Hodiny klidu</string>
+  <string name="quick_settings_quiethours_off">Čas klidu vypnuté</string>
+  <string name="quick_settings_lte">LTE</string>
+  <string name="quick_settings_lte_off">LTE vypnuté</string>
+  <string name="quick_settings_volume">Hlasitost</string>
+  <string name="quick_settings_expanded_desktop">Rozšířená plocha</string>
+  <string name="quick_settings_expanded_desktop_off">Rozšířená plocha vypnutá</string>
+  <string name="quick_settings_music_play">Hrát hudbu</string>
+  <string name="quick_settings_music_pause">Pozastavit hudbu</string>
+  <string name="quick_settings_reboot_recovery">Jít do Recovery</string>
+  <string name="quick_settings_reboot">Restartovat</string>
+  <string name="quick_settings_custom_toggle">Vlastní tlačítko</string>
+  <string name="quick_settings_quick_record_nofile">Dlouhé stlačení pro nahrávání</string>
+  <string name="quick_settings_quick_record_def">Rychlé nahrávání</string>
+  <string name="quick_settings_quick_record_rec">Nahrávání...</string>
+  <string name="quick_settings_quick_record_save">Nahrávání uloženo</string>
+  <string name="quick_settings_quick_record_play">Přehrávání rychlého nahrávání...</string>
+  <string name="quick_settings_fcharge_on_label">Rychlé nabíjení</string>
+  <string name="quick_settings_fcharge_off_label">Rychlé nabíjení vypnuté</string>
+  <string name="quick_settings_theme_switch_dark">Přepnutí na tmavé téma</string>
+  <string name="quick_settings_theme_switch_light">Přepnutí na světlé téma</string>
+  <string name="status_bar_recent_lock_item_title">Zamknout nedávné</string>
+  <string name="status_bar_recent_unlock_item_title">Odemknout nedávné</string>
+  <string name="status_bar_notification_hide_icon_packages">Skrýt oznamovací ikonu</string>
+  <string name="status_bar_recent_playstore_item_title">Obchod Play</string>
+  <string name="status_bar_recent_amazon_item_title">Obchod Amazon</string>
+  <string name="onthego_notif_ticker">On-The-Go aktivováno</string>
+  <string name="onthego_notif_title">On-The-Go je aktivní</string>
+  <string name="onthego_notif_stop">On-The-Go zastaveno</string>
+  <string name="onthego_notif_options">On-The-Go možnosti</string>
+  <string name="onthego_notif_error">On-The-Go nelze spustit</string>
+  <string name="onthego_notif_restart">On-The-Go restartováno</string>
+  <string name="onthego_notif_camera_changed">Mód kamery změněn</string>
+  <string name="onthego_transparency">OTG průhlednost</string>
+  <string name="onthego_front_camera">Použít přední kameru</string>
+  <string name="onthego_service_toggle">Automaticky restartovat OTG</string>
+  <string name="cancel">Zrušit</string>
+  <string name="dlg_ok">Ok</string>
+  <string name="yes">Ano</string>
+  <string name="no">Ne</string>
+  <string name="shortcut_picker">Komora klávesových zkratek</string>
+  <string name="shortcut_chamber">Komora tajemství</string>
+  <string name="chamber_disabled">Komora klávesových zkratek je vypnuta</string>
+  <string name="chamber_title">Vložte název</string>
+  <string name="chamber_message">Zvolte nastavení zapnout nebo vypnout funkci (zaškrtávacího tlačítka), případně v seznamu předvoleb. Například vyzvánění_hodin_klidu atp. Nastavení lze nalézt v souboru Settings.java. UPOZORNĚNÍ: Tento proces je nebezpečný!</string>
+  <string name="chamber_invalid">Jedná se neplatný název. Buďte opatrní.</string>
+  <string name="chamber_invalid_setting">Zkuste přepnout nastavení ručně, aby bylo zajištěno, že existuje databáze nastavení pro tuto akci.</string>
+  <string name="chamber_checkbox">Zaškrtávací políčko</string>
+  <string name="chamber_chk_message">Je to nastavení zaškrtávacího políčka?</string>
+  <string name="chamber_int">Vstupní hodnoty komory</string>
+  <string name="chamber_int_message">Zadejte hodnoty, mezi kterými byste chtěli v nastavení přepínat. Oddělte jednotlivé hodnoty čárkou. Nastavujte barvy jen v Hex-hodnotách, jako je #FF00aacc nebo základních barevných hodnot, jako je červená, zelená a žlutá.</string>
+  <string name="status_bar_recent_floating_item_title">Plovoucí režim přepínače aplikací</string>
+  <string name="status_bar_notification_floating_item_title">Plovoucí režim oznámení na stavovém řádku</string>
+  <string name="app_float_maximize_item_title">Maximalizovat název plovoucí položky</string>
+  <string name="app_float_item_title">Pohled na plovoucí položku</string>
+  <string name="app_stop_item_title">Ukončit aplikaci</string>
+  <string name="status_bar_notification_floating_item_title">Plovoucí režim oznámení na stavovém řádku</string>
+  <string name="status_bar_recent_floating_item_title">Plovoucí režim přepínače aplikací</string>
+  <string name="quick_settings_compass_off">Kompas vypnut</string>
+  <string name="quick_settings_compass_init">Inicializace\u2026</string>
+</resources>
+

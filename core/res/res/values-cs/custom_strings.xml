@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="app_killed_message">Aplikace byla ukončena</string>
+  <string name="permlab_revokePermissions">Umožňuje zobrazit a upravit zrušená oprávnění. Není určeno pro běžné aplikace.</string>
+  <string name="permdesc_revokePermissions">Umožňuje čtení a zápis pro zrušené oprávnění. Není určeno pro běžné aplikace.</string>
+  <string name="permlab_accessThemeService">Umožňuje přístup ke správci motivů. Není určeno pro běžné aplikace.</string>
+  <string name="permdesc_accessThemeService">Umožňuje aplikaci nastavit/zrušit motivy. Není určeno pro běžné aplikace.</string>
+  <string name="stylus_app_not_installed">%s není nainstalována</string>
+  <string name="global_action_screenrecord">Videozáznam obrazovky</string>
+  <string name="reboot_system" product="tablet">Restartovat tablet</string>
+  <string name="reboot_system" product="default">Restartovat telefon</string>
+  <string name="global_action_screenshot">Snímek obrazovky</string>
+  <string name="global_action_reboot">Restartovat</string>
+  <string name="reboot_reboot">Restartovat</string>
+  <string name="reboot_recovery">Jít do Recovery</string>
+  <string name="reboot_bootloader">Zavaděč</string>
+  <string name="reboot_hot">Tvrdý restart</string>
+  <string name="reboot_bootmenu">Restartovat do bootmenu</string>
+  <string name="reboot_fastboot">Restartovat do Fastbootu</string>
+  <string name="reboot_download">Stahování</string>
+  <string name="reboot_progress">Restartování\u2026</string>
+  <string name="reboot_confirm" product="tablet">Váš tablet bude restartován.</string>
+  <string name="reboot_confirm" product="default">Váš telefon bude restartován.</string>
+  <string name="hot_reboot_title" product="tablet">Tvrdý restart tabletu</string>
+  <string name="hot_reboot_title" product="default">Tvrdý restart telefonu</string>
+  <string name="hot_reboot_progress">Restartování android frameworku\u2026</string>
+  <string name="global_actions_toggle_mobile_data">Mobilní data</string>
+  <string name="global_actions_mobile_data_on_status">Mobilní data jsou zapnuta</string>
+  <string name="global_actions_mobile_data_off_status">Mobilní data jsou vypnuta</string>
+  <string name="storage_sd_dock_card">Vložte SD kartu</string>
+  <string name="permlab_changePrivacyGuardState">povolit či zakázat strážce soukromí</string>
+  <string name="permdesc_changePrivacyGuardState">Umožní změnit pravidla, zda bude některá aplikace spuštěna v režimu Ochrany soukromí. Pokud je aplikace spuštěna v režimu Ochrany soukromí, tato aplikace nemá umožněn přístup k osobním datům jako jsou kontakty, historie volání nebo zprávy.</string>
+  <string name="privacy_guard_notification">Strážce soukromí je aktivní</string>
+  <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> nebude mít přístup k osobním údajům</string>
+  <string name="privacy_guard_custom_notification_detail"><xliff:g id="app">%1$s</xliff:g> nebude mít přístup k vlastním oprávněním</string>
+  <string name="profileNameDefault">Standardní</string>
+  <string name="profileNameWork">V práci</string>
+  <string name="profileNameHome">Doma</string>
+  <string name="profileNameSilent">Tichý</string>
+  <string name="profileNameNight">Noc</string>
+  <string name="profileGroupPhone">Telefon</string>
+  <string name="profileGroupCalendar">Kalendář</string>
+  <string name="profileGroupGmail">Gmail</string>
+  <string name="profileGroupEmail">Email</string>
+  <string name="profileGroupSMS">SMS</string>
+  <string name="wildcardProfile">Ostatní</string>
+  <string name="global_action_choose_profile">Profil</string>
+  <string name="profile_picker_title">Profily</string>
+  <string name="profile_none">Žádný</string>
+  <string name="animation_default">Standardní animace</string>
+  <string name="animation_fade">Animace slábnutí</string>
+  <string name="animation_slide_right">Animace posunutí vpravo</string>
+  <string name="animation_slide_left">Animace posunutí vlevo</string>
+  <string name="animation_slide_right_no_fade">Animace posunutí vpravo (bez slábnutí)</string>
+  <string name="animation_slide_left_no_fade">Animace posunutí vlevo (bez slábnutí)</string>
+  <string name="animation_slide_up">Animace posunutí dolů</string>
+  <string name="animation_slide_down">Animace posunutí nahoru</string>
+  <string name="animation_translucent">Animace průhlednosti</string>
+  <string name="animation_grow_shrink">Animace nárůstu (nahoru)</string>
+  <string name="animation_grow_shrink_center">Animace nárůstu (ze středu)</string>
+  <string name="animation_grow_shrink_bottom">Animace nárůstu (dolů)</string>
+  <string name="animation_grow_shrink_left">Animace nárůstu (vlevo)</string>
+  <string name="animation_grow_shrink_right">Animace nárůstu (vpravo)</string>
+  <string name="animation_random">Náhodná animace</string>
+  <string name="global_action_onthego">On-The-Go režim</string>
+  <string name="floating_window_snap_top">Plovoucí okno přichytit nahoru</string>
+  <string name="floating_window_snap_bottom">Plovoucí okno přichytit dolů</string>
+  <string name="floating_window_snap_left">Plovoucí okno přichytit vlevo</string>
+  <string name="floating_window_snap_right">Plovoucí okno přichytit vpravo</string>
+  <string name="immersive_mode_confirmation_bottom">Tažením od spodního okraje nahoru opustíte režim celé obrazovky.</string>
+  <string name="permlab_resetBatteryStats">Obnovit statistiky baterie</string>
+  <string name="permdesc_resetBatteryStats">Umožňuje aplikaci obnovit aktuální data použití baterie na nízké úrovni.</string>
+</resources>
+
