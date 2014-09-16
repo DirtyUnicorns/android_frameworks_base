@@ -91,4 +91,15 @@
     needs to be set to false, to prevent the doze notifications from being light -->
     <bool name="config_invert_colors_on_doze">true</bool>
 
+    <!-- Configuration that determines if ACTIVATE_REJECT_GGSN is to be treated as
+         a permanent error -->
+    <bool name="config_reject_ggsn_perm_failure">true</bool>
+    <!-- Configuration that determines if PROTOCOL_ERRORS is to be treated as a
+         permanent error -->
+    <bool name="config_protocol_errors_perm_failure">true</bool>
+
+    <!-- Configuration to restart radio upon PDP_DEACTIVATE with
+         error cause as Regular deactivation(36). -->
+    <bool name="config_radio_reset_on_regular_deactivation">true</bool>
+
 </resources>

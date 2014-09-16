@@ -96,4 +96,13 @@
   <!-- Doze invert -->
   <java-symbol type="bool" name="config_invert_colors_on_doze" />
 
+  <!-- SOFTAP framework  -->
+  <java-symbol type="string" name="tethered_notification_no_device_message" />
+  <java-symbol type="string" name="tethered_notification_one_device_message" />
+  <java-symbol type="string" name="tethered_notification_multi_device_message" />
+  <java-symbol type="bool" name="config_radio_reset_on_regular_deactivation" />
+  <java-symbol type="bool" name="config_reject_ggsn_perm_failure" />
+  <java-symbol type="bool" name="config_protocol_errors_perm_failure" />
+  <java-symbol type="bool" name="config_softap_extention" />
+
 </resources>
