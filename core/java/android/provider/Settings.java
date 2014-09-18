@@ -4816,6 +4816,12 @@ public final class Settings {
         public static final String RECENTS_RAM_BAR_CACHE_COLOR = "recents_ram_bar_cache_color";
 
         /**
+         * Carrier Logo toggle
+         * @hide
+         */
+        public static final String TOGGLE_CARRIER_LOGO = "toggle_carrier_logo";
+
+        /**
          * Carrier Label Custom Color
          * @hide
          */
