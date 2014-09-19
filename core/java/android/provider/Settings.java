@@ -4606,6 +4606,13 @@ public final class Settings {
         public static final String SREC_ENABLE_MIC = "srec_enable_mic";
 
         /**
+         * Show heads up on bottom
+         *
+         * @hide
+         */
+        public static final String SHOW_HEADS_UP_BOTTOM = "show_heads_up_bottom";
+
+        /**
          * Heads up: Option to exclude from lockscreen, default is 0 (off).
          *
          * @hide
