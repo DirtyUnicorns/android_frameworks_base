@@ -234,10 +234,6 @@ LOCAL_C_INCLUDES += bionic/libc/private
 
 LOCAL_LDLIBS += -lpthread -ldl
 
-ifeq ($(WITH_MALLOC_LEAK_CHECK),true)
-	LOCAL_CFLAGS += -DMALLOC_LEAK_CHECK
-endif
-
 LOCAL_MODULE:= libandroid_runtime
 
 include external/stlport/libstlport.mk
