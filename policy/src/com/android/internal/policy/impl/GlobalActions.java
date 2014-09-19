@@ -113,7 +113,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private final WindowManagerFuncs mWindowManagerFuncs;
 
     private Context mUiContext;
-
     private final AudioManager mAudioManager;
     private final IDreamManager mDreamManager;
 
@@ -884,7 +883,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             names[i++] = profile.getName();
         }
 
-        final AlertDialog.Builder ab = new AlertDialog.Builder(mContext);
+        final AlertDialog.Builder ab = new AlertDialog.Builder(getUiContext());
 
         AlertDialog dialog = ab
                 .setTitle(R.string.global_action_choose_profile)
