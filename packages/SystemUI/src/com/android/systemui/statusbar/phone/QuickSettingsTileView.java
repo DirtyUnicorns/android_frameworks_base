@@ -36,6 +36,8 @@ import android.widget.FrameLayout;
 public class QuickSettingsTileView extends FrameLayout {
     private static final String TAG = "QuickSettingsTileView";
 
+    static final boolean DEBUG_GONE_TILES = false;
+
     private int mContentLayoutId;
     private int mColSpan;
     private boolean mPrepared;
@@ -101,7 +103,7 @@ public class QuickSettingsTileView extends FrameLayout {
 
     @Override
     public void setVisibility(int vis) {
-        if (QuickSettings.DEBUG_GONE_TILES) {
+        if (DEBUG_GONE_TILES) {
             if (vis == View.GONE) {
                 vis = View.VISIBLE;
                 setAlpha(0.25f);

@@ -19,6 +19,7 @@
 
 package com.android.systemui.quicksettings;
 
+import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -28,7 +29,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 
-import com.android.internal.util.nameless.NamelessActions;
 import com.android.internal.util.nameless.NamelessUtils;
 import com.android.systemui.R;
 import com.android.systemui.nameless.onthego.OnTheGoDialog;
@@ -46,7 +46,12 @@ public class OnTheGoTile extends QuickSettingsTile {
         mOnClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                NamelessActions.processAction(mContext, NamelessActions.ACTION_ONTHEGO_TOGGLE);
+                final ComponentName cn = new ComponentName("com.android.systemui",
+                        "com.android.systemui.nameless.onthego.OnTheGoService");
+                final Intent startIntent = new Intent();
+                startIntent.setComponent(cn);
+                startIntent.setAction("start");
+                context.startService(startIntent);
                 if (isFlipTilesEnabled()) {
                     flipTile(0);
                 }
@@ -75,26 +80,6 @@ public class OnTheGoTile extends QuickSettingsTile {
     public void updateResources() {
         updateTile();
         super.updateResources();
-    }
-
-    private void toggleCamera() {
-        final ContentResolver resolver = mContext.getContentResolver();
-        final int camera = Settings.System.getInt(resolver,
-                Settings.System.ON_THE_GO_CAMERA,
-                CAMERA_BACK);
-
-        int newValue;
-        if (camera == CAMERA_BACK) {
-            newValue = CAMERA_FRONT;
-        } else {
-            newValue = CAMERA_BACK;
-        }
-
-        Settings.System.putInt(resolver,
-                Settings.System.ON_THE_GO_CAMERA,
-                newValue);
-
-        updateResources();
     }
 
     @Override
