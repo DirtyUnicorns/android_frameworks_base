@@ -262,4 +262,60 @@
     <!-- Dirty Tweaks -->
     <string name="quick_settings_dirtytweaks">Dirty Tweaks</string>
 
+    <!-- Content description of the phone signal when it is four bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_phone_four_bars">Signal : très bon</string>
+    <!-- Content description of the phone signal when it is five bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_phone_five_bars">Signal : très très bon</string>
+
+    <!-- Content description of the data signal when it is four bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_four_bars">Signal très bon</string>
+    <!-- Content description of the data signal when it is five bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_five_bars">Signal très très bon</string>
+
+    <!-- Content description of the battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_battery_level">Batterie <xliff:g id="number">%d</xliff:g> pour cent.</string>
+
+    <!-- QuickSettings: Profile [CHAR LIMIT=NONE] -->
+    <string name="quick_settings_profile_label">Profil</string>
+    <string name="quick_settings_network_adb_disabled_label">Désactivé</string>
+    <string name="quick_settings_network_adb_enabled_label">Activé</string>
+
+    <!-- GPS QS tile strings -->
+    <string name="quick_settings_gps_on_label">GPS activé</string>
+    <string name="quick_settings_gps_off_label">GPS désactivé</string>
+
+    <!-- Ad Blocker Tile -->
+    <string name="quick_settings_adblocker_on_label">Bloqueur de Publicités activé</string>
+    <string name="quick_settings_adblocker_off_label">Bloqueur de Publicités désactivé</string>
+
+    <!-- App Circle Bar Tile -->
+    <string name="quick_settings_appcirclebar_on_label">Cercle d\'Applications activé</string>
+    <string name="quick_settings_appcirclebar_off_label">Cercle d\'Applications désactivé</string>
+
+    <!-- NavBar Tile -->
+    <string name="quick_settings_navbar_on_label">Barre de Navigation activée</string>
+    <string name="quick_settings_navbar_off_label">Barre de Navigation désactivée</string>
+
+    <!-- Halo Tile -->
+    <string name="quick_settings_halo_on_label">Halo activé</string>
+    <string name="quick_settings_halo_off_label">Halo désactivé</string>
+
+    <!-- PIE Tile -->
+    <string name="quick_settings_pie_on_label">Pie activé</string>
+    <string name="quick_settings_pie_off_label">Pie désactivé</string>
+
+    <!-- Heads Up Tile -->
+    <string name="quick_settings_headsup_on_label">Notifications Flottantes activées</string>
+    <string name="quick_settings_headsup_off_label">Notifications Flottantes désactivées</string>
+
+    <!-- Screenshot Tile -->
+    <string name="quick_settings_screenshot_label">Capture d\'écran</string>
+    <string name="screenshot_toast">Capture d\'écran dans %1$d secondes</string>
+    <string name="permdesc_screenshot">Effectuer une capture d\'écran</string>
+    <string name="permlab_screenshot">Permet à l\'application de prendre une capture d\'écran. Ceci est protégé par SystemUI.</string>
+
+    <!-- On-The-Go Mode -->
+    <string name="quick_settings_onthego_back">Appareil photo arrière</string>
+    <string name="quick_settings_onthego_front">Appareil photo frontale</string>
+
 </resources>
