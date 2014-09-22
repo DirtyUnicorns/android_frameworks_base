@@ -159,4 +159,25 @@
     <!-- status message in phone options dialog for when navigation bar is off -->
     <string name="global_actions_nav_bar_mode_off_status">Barre de Navigation désactivée</string>
 
+    <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in CHARGING mode.  This is the title -->
+    <string name="usb_charging_notification_title">Connecté en mode de charge</string>
+
+    <!-- In WiFi AP notification -->
+    <string name="notify_turn_wifi_ap_off_title">Désactiver le partage Wi-Fi</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+    <string name="permlab_setKeyguardWallpaper">modifier le fond d\'écran de verrouillage</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_setKeyguardWallpaper">Permet à une application de modifier le fond d\'écran de verrouillage.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_readThemes">lire les informations du thème</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_readThemesDesc">Permet à une application de lister vos thèmes et de déterminer celui que vous avez appliqué.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_writeThemes">modifier vos thèmes</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_writeThemesDesc">Permet à une application d\'ajouter de nouveaux thèmes et de modifier celui que vous avez appliqué.</string>
+
 </resources>
