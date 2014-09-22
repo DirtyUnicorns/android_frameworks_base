@@ -91,7 +91,7 @@ public class PieControlPanel extends FrameLayout implements StatusBarPanel,
         mDisplay = mWindowManager.getDefaultDisplay();
         mPieControl = new PieControl(context, this);
         mPieControl.setOnNavButtonPressedListener(this);
-        mOrientation = Gravity.BOTTOM;
+        mOrientation = Gravity.RIGHT;
         mMenuButton = false;
     }
 
