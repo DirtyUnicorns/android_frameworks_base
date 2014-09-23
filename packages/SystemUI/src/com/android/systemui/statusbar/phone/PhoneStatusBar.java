@@ -339,6 +339,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private ImageView mStatusHeaderImage;
     private Drawable mHeaderOverlay;
     private ImageView mCarrierLogo;
+    private boolean mCarrierLogoEnabled = false;
 
     // last theme that was applied in order to detect theme change (as opposed
     // to some other configuration change).
@@ -485,6 +486,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_CARRIER), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.TOGGLE_CARRIER_LOGO), false, this);
             update();
         }
 
@@ -545,6 +548,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mWeatherEnabled = weatherHolder;
                 enableOrDisableWeather();
             }
+
+            mCarrierLogoEnabled = Settings.System.getIntForUser(
+                    resolver, Settings.System.TOGGLE_CARRIER_LOGO, 0
+                    , UserHandle.USER_CURRENT) == 1;
+            setCarrierVisibility();
+            updateCustomHeaderStatus();
 
             mNotificationShortcutsHideCarrier = Settings.System.getIntForUser(resolver,
                     Settings.System.NOTIFICATION_SHORTCUTS_HIDE_CARRIER, 0, UserHandle.USER_CURRENT) != 0;
@@ -3512,8 +3521,16 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
     };
 
+    private void setCarrierVisibility() {
+        if (mCarrierLogo != null) {
+            mCarrierLogo.setVisibility(mCarrierLogoEnabled ? View.VISIBLE : View.GONE);
+        }
+    }
+
     public void setCarrierVisibility(int vis) {
-        mCarrierLogo.setVisibility(vis);
+        if (mCarrierLogoEnabled) {
+            mCarrierLogo.setVisibility(vis);
+        }
     }
 
     public void setCarrierImageResource(int res) {
