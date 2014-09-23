@@ -5022,8 +5022,8 @@ public final class Settings {
          * Location of the pie in the screen
          * 0 = Gravity.LEFT
          * 1 = Gravity.TOP
-         * 2 = Gravity.RIGHT
-         * 3 = Gravity.BOTTOM (default)
+         * 2 = Gravity.RIGHT (default)
+         * 3 = Gravity.BOTTOM
          * @hide
          */
         public static final String PIE_GRAVITY = "pie_gravity";
