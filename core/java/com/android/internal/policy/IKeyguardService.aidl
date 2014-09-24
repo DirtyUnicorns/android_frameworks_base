@@ -45,5 +45,4 @@ interface IKeyguardService {
     oneway void dispatch(in MotionEvent event);
     oneway void launchCamera();
     oneway void onBootCompleted();
-    oneway void setBackgroundBitmap(in Bitmap bmp);
 }

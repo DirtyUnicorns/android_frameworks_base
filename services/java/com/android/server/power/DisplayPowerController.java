@@ -763,15 +763,6 @@ final class DisplayPowerController {
             }
 
             if (changed && !mPendingRequestChangedLocked) {
-            	if (Settings.System.getInt(mContext.getContentResolver(), 
-            			Settings.System.LOCKSCREEN_BLUR_BEHIND, 0) == 1 && 
-            			request.screenState == DisplayPowerRequest.SCREEN_STATE_OFF) {
-                    Bitmap bmp = SurfaceControl.screenshot(768, 1280);
-                    if(bmp != null) {
-                        mKeyguardService.setBackgroundBitmap(bmp);
-                        bmp.recycle();
-                    }
-            	}
                 mPendingRequestChangedLocked = true;
                 sendUpdatePowerStateLocked();
             }

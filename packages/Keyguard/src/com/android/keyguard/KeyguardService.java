@@ -145,9 +145,6 @@ public class KeyguardService extends Service {
             checkPermission();
             mKeyguardViewMediator.onBootCompleted();
         }
-        public void setBackgroundBitmap(Bitmap bmp) {
-        	mKeyguardViewMediator.setBackgroundBitmap(bmp);
-        }
     };
 
 }

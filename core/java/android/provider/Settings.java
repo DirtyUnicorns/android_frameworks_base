@@ -4794,14 +4794,6 @@ public final class Settings {
         public static final String RECENTS_RAM_BAR_MODE = "recents_ram_bar_mode";
 
         /**
-         * Ram Usage Bar system mem color
-         * Allows blurring the lockscreen background
-         * @hide
-         */
-        public static final String LOCKSCREEN_BLUR_BEHIND = "lockscreen_blur_behind";
-        public static final String LOCKSCREEN_BLUR_RADIUS = "lockscreen_blur_radius";
-
-        /**
          * Should call status sounds be player
          *
          * @hide
