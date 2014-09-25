@@ -4598,6 +4598,18 @@ public final class Settings {
         public static final String SREC_ENABLE_MIC = "srec_enable_mic";
 
         /**
+         * Heads Up background color
+         * @hide
+         */
+        public static final String HEADS_UP_BG_COLOR = "heads_up_bg_color";
+
+        /**
+         * Heads Up text color
+         * @hide
+         */
+        public static final String HEADS_UP_TEXT_COLOR = "heads_up_text_color";
+
+        /**
          * Show heads up on bottom
          *
          * @hide
