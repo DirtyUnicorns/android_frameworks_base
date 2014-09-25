@@ -2647,12 +2647,6 @@ public final class Settings {
         public static final String BATTERY_LIGHT_REALLY_FULL_COLOR = "battery_light_really_full_color";
 
         /**
-         * Network speed indicator
-         * @hide
-         */
-        public static final String STATUS_BAR_TRAFFIC_ENABLE = "status_bar_traffic_enable";
-
-        /**
          * Give SMS notifications a breathing effect
          * @hide
          */
@@ -2689,24 +2683,6 @@ public final class Settings {
         public static final String SCREENRECORD_IN_POWER_MENU = "screenrecord_in_power_menu";
 
         /**
-         * Sets color of statusbar traffic indicator
-         * @hide
-         */
-        public static final String STATUS_BAR_TRAFFIC_COLOR = "status_bar_traffic_color";
-
-        /**
-         * Show summary of traffic.
-         * @hide
-         */
-        public static final String STATUS_BAR_TRAFFIC_SUMMARY = "status_bar_traffic_summary";
-
-        /**
-         * Hide network speed indicator when there is no traffic
-         * @hide
-         */
-        public static final String STATUS_BAR_TRAFFIC_HIDE = "status_bar_traffic_hide";
-
-        /**
         * ToastAnimation
         * @hide
         */
@@ -2717,18 +2693,6 @@ public final class Settings {
          * @hide
          */
         public static final String STATUSBAR_CLOCK_FONT_STYLE = "statusbar_clock_font_style";
-
-        /**
-         * Whether to show the network status in the status bar
-         * @hide
-         */
-        public static final String STATUS_BAR_NETWORK_STATS = "status_bar_network_stats";
-
-        /**
-         * Frequency at which stats are updated, in milliseconds
-         * @hide
-         */
-        public static final String STATUS_BAR_NETWORK_STATS_UPDATE_INTERVAL = "status_bar_network_stats_update_frequency";
 
         /** Sprint MWI Quirk: Show message wait indicator notifications
          * Show AirplaneMode in Power Menu
@@ -3643,6 +3607,34 @@ public final class Settings {
          * @hide
          */
         public static final String OPPO_CAMERA_FLIP_ENABLED = "oppo_camera_flip_enable";
+
+        /**
+         * Network stats Color style
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_COLOR = "network_traffic_color";
+
+        /**
+         * Whether or not to hide the network traffic indicator when there is no activity
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_AUTOHIDE = "network_traffic_autohide";
+
+        /**
+         * Network traffic inactivity threshold (default is 10 kBs)
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
+
+        /**
+         * Network traffic indicator, goes from least to greatest significant bitwise
+         * 0 = Display up-stream traffic if set
+         * 1 = Display down-stream traffic if set
+         * 2 = Show as Byte/s if set
+         * 16-31 = Refresh interval(ms)  min: 250  max: 32750  default: 1000
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
