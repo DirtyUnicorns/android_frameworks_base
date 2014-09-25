@@ -102,23 +102,18 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
 
-            <include layout="@layout/network_stats" />
+            <com.android.systemui.statusbar.policy.NetworkTraffic
+                android:id="@+id/networkTraffic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:singleLine="false"
+                android:gravity="right|center_vertical"/>
 
             <LinearLayout android:id="@+id/statusIcons"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"/>
-
-            <com.android.systemui.statusbar.policy.Traffic
-                android:id="@+id/traffic"
-                android:textAppearance="@style/TextAppearance.StatusBar.Traffic"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:singleLine="true"
-                android:layout_marginRight="4dp"
-                android:gravity="left|center_vertical"
-                />
 
             <LinearLayout
                 android:id="@+id/signal_battery_cluster"
