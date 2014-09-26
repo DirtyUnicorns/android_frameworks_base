@@ -2732,6 +2732,18 @@ public final class Settings {
         public static final String POINTER_LOCATION = "pointer_location";
 
         /**
+         * Custom toggle click/long-click/icons for infinite toggles: actions 1-5
+         * @hide
+         */
+        public static final String CUSTOM_TOGGLE_ACTIONS = "custom_toggle_actions";
+
+        /**
+         * Parsed booleans from string for infinite toggles (unlock/collapse-shade/match-icon)
+         * @hide
+         */
+        public static final String CUSTOM_TOGGLE_EXTRAS = "custom_toggle_extras";
+
+        /**
          * Show icon when stylus is used?
          * 0 = no
          * 1 = yes
@@ -3818,18 +3830,6 @@ public final class Settings {
          * @hide
          */
         public static final String MUSIC_TILE_MODE = "music_tile_mode";
-
-        /**
-         * Custom toggle click-actions for infinite toggles: actions 1-5
-         * @hide
-         */
-        public static final String[] CUSTOM_TOGGLE_ACTIONS = new String[] {
-            "toggle_custom_action_0",
-            "toggle_custom_action_1",
-            "toggle_custom_action_2",
-            "toggle_custom_action_3",
-            "toggle_custom_action_4",
-        };
 
         /**
          * Custom toggle long-click-actions for infinite toggles: actions 1-5

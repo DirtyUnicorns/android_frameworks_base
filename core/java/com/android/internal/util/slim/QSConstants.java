@@ -70,6 +70,7 @@ public class QSConstants {
 
         //Key for custom tile additive
         public static final String TILE_CUSTOM_KEY = " Key=";
+        public static final String TILE_CUSTOM_DELIMITER = " =action= ";
 
         public static final String TILE_DELIMITER = "|";
         public static ArrayList<String> TILES_DEFAULT = new ArrayList<String>();
