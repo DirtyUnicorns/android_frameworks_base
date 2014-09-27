@@ -4411,6 +4411,12 @@ public final class Settings {
         public static final String CUSTOM_FLING_VELOCITY = "custom_fling_velocity";
 
         /**
+         * Hides carrier label in keyguard
+         * @hide
+         */
+        public static final String NO_CARRIER_LABEL = "no_carrier_label";
+
+        /**
          * Determine custom overscroll distance.
          * @hide
          */
