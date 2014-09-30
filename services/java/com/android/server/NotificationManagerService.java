@@ -2700,7 +2700,7 @@ public class NotificationManagerService extends INotificationManager.Stub
         }
 
         // Don't flash while we are in a call or screen is on or its disabled
-        if (mLedNotification == null || mInCall || mScreenOn
+        if (mLedNotification == null || mInCall || (mScreenOn && (!ScreenOnNotificationLed)) || !mNotificationPulseEnabled
                 || Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.QUIET_HOURS_DIM, 0) == 2) {
             mNotificationLight.turnOff();
