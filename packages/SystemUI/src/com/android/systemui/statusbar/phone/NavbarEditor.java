@@ -157,7 +157,8 @@ public class NavbarEditor implements View.OnTouchListener {
         mButtonViews = new ArrayList<KeyButtonView>();
 
         KeyButtonView dpadLeft = (KeyButtonView) mParent.findViewById(R.id.dpad_left);
-        dpadLeft.setInfo(NAVBAR_DPAD_LEFT, orientation, true);
+        dpadLeft.setInfo(parent.isLayoutRtl() ? NAVBAR_DPAD_RIGHT
+                                              : NAVBAR_DPAD_LEFT, orientation, true);
         mButtonViews.add(dpadLeft);
 
         for (int id : BUTTON_IDS) {
@@ -165,7 +166,8 @@ public class NavbarEditor implements View.OnTouchListener {
         }
 
         KeyButtonView dpadRight = (KeyButtonView) mParent.findViewById(R.id.dpad_right);
-        dpadRight.setInfo(NAVBAR_DPAD_RIGHT, orientation, true);
+        dpadRight.setInfo(parent.isLayoutRtl() ? NAVBAR_DPAD_LEFT
+                                               : NAVBAR_DPAD_RIGHT, orientation, true);
         mButtonViews.add(dpadRight);
     }
 
