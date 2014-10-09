@@ -83,6 +83,10 @@ public class BarTransitions {
         }
     }
 
+    public String getCurrentTag() {
+        return mTag;
+    }
+
     public int getMode() {
         return mMode;
     }
