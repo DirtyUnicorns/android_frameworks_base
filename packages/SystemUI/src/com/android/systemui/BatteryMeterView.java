@@ -43,6 +43,7 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 
+import com.android.internal.util.omni.ColorUtils;
 import com.android.internal.util.cm.DevUtils;
 
 import com.android.systemui.R;
@@ -84,6 +85,9 @@ public class BatteryMeterView extends View implements DemoMode {
     private int mHeight;
     private int mWidth;
     private String mWarningString;
+    private final int mChargeColor;
+    private int mChangeColor = -3;
+    private int mBoltColor = -3;
     private final float[] mBoltPoints;
     private final Path mBoltPath = new Path();
 
@@ -254,8 +258,12 @@ public class BatteryMeterView extends View implements DemoMode {
         mWarningTextPaint.setTypeface(font);
         mWarningTextPaint.setTextAlign(Paint.Align.CENTER);
 
+        mChargeColor = getResources().getColor(R.color.batterymeter_charge_color);
+
         mBoltPaint = new Paint();
         mBoltPaint.setAntiAlias(true);
+        mBoltColor = res.getColor(R.color.batterymeter_bolt_color);
+        mBoltPaint.setColor(mBoltColor);
         mBoltPoints = loadBoltPoints(res);
         setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
@@ -290,9 +298,23 @@ public class BatteryMeterView extends View implements DemoMode {
         for (int i=0; i<mColors.length; i+=2) {
             thresh = mColors[i];
             color = mColors[i+1];
-            if (percent <= thresh) return color;
+            if (percent <= thresh) {
+                if (mChangeColor != -3) {
+                    return mChangeColor;
+                } else {
+                    return color;
+                }
+            }
+        }
+        if (mChangeColor != -3) {
+            return mChangeColor;
         }
         return color;
+    }
+
+    public void updateSettings(int color) {
+        mChangeColor = color;
+        postInvalidate();
     }
 
     @Override
@@ -341,6 +363,19 @@ public class BatteryMeterView extends View implements DemoMode {
             c.drawRect(mFrame, mFramePaint);
         }
 
+        // fill 'er up
+        int color = 0;
+        if (tracker.plugged) {
+            if (mChangeColor != -3) {
+                color = mChangeColor;
+            } else {
+                color = mChargeColor;
+            }
+        } else {
+            color = getColorForLevel(level);
+        }
+        mBatteryPaint.setColor(color);
+
         if (level >= FULL) {
             drawFrac = 1f;
         } else if (level <= EMPTY) {
@@ -362,6 +397,16 @@ public class BatteryMeterView extends View implements DemoMode {
 
         if (tracker.plugged && !mPercentageOnly) {
             // draw the bolt
+            if (mChangeColor != -3) {
+                int colorSt = Color.WHITE;
+                if (ColorUtils.isBrightColor(mChangeColor)) {
+                    colorSt = Color.BLACK;
+                }
+                mBoltPaint.setColor(colorSt);
+            } else {
+                mBoltPaint.setColor(mBoltColor);
+            }
+
             final float bl = mFrame.left + mFrame.width() / 4.5f;
             final float bt = mFrame.top + mFrame.height() / 6f;
             final float br = mFrame.right - mFrame.width() / 7f;
@@ -412,6 +457,11 @@ public class BatteryMeterView extends View implements DemoMode {
             }
             mTextHeight = -mTextPaint.getFontMetrics().ascent;
 
+            int textColor = 0xFFFFFFFF;
+            if (mChangeColor != -3) {
+                textColor = mChangeColor;
+            }
+            mTextPaint.setColor(textColor);
             String str;
             if (mPercentageOnly) {
                 str = String.valueOf(SINGLE_DIGIT_PERCENT ? (level/10) : level) + "%";

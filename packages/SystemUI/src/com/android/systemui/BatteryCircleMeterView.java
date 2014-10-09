@@ -95,6 +95,8 @@ public class BatteryCircleMeterView extends ImageView {
     private int mCircleTextChargingColor;
     private int mCircleAnimSpeed;
 
+    private int mCurrentColor = -3;
+
     private boolean mCustomColor;
     private int systemColor;
 
@@ -318,15 +320,16 @@ public class BatteryCircleMeterView extends ImageView {
                 Settings.System.SYSTEM_ICON_COLOR, -2, UserHandle.USER_CURRENT);
 
         int defaultColor = res.getColor(com.android.systemui.R.color.batterymeter_charge_color);
+        int nowColor = !mCustomColor ? (mCurrentColor != -3 ? mCurrentColor : defaultColor) : systemColor;
 
-        if (mCircleTextColor == -2) {
-            mCircleTextColor = defaultColor;
+        if (!mCustomColor) {
+            mCircleTextColor = nowColor;
         }
-        if (mCircleTextChargingColor == -2) {
-            mCircleTextChargingColor = defaultColor;
+        if (!mCustomColor) {
+            mCircleTextChargingColor = nowColor;
         }
-        if (mCircleColor == -2) {
-            mCircleColor = defaultColor;
+        if (!mCustomColor) {
+            mCircleColor = nowColor;
         }
 
         /*
@@ -351,6 +354,13 @@ public class BatteryCircleMeterView extends ImageView {
 
         if (mActivated && mAttached) {
             invalidate();
+        }
+    }
+
+    public void updateSettings(int defaultColor) {
+        if (mCurrentColor != defaultColor) {
+            mCurrentColor = defaultColor;
+            updateSettings();
         }
     }
 

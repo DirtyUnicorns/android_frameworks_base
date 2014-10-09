@@ -1202,4 +1202,24 @@ public interface WindowManagerPolicy {
      * @param enabled Whether touch exploration is enabled.
      */
     public void setTouchExplorationEnabled(boolean enabled);
+
+    /**
+     * @hide
+     */
+    public int getStatusbarDisplayHeight();
+
+    /**
+     * @hide
+     */
+    public int getNavigationbarDisplayHeight(int rotation);
+
+    /**
+     * @hide
+     */
+    public void sendActionColorBroadcast(int st_color, int ic_color);
+
+    /**
+     * @hide
+     */
+    public void sendAppColorBroadcast(int duration);
 }

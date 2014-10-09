@@ -125,6 +125,12 @@ public class SignalClusterView
         mSpacer         =             findViewById(R.id.spacer);
         mAirplane       = (ImageView) findViewById(R.id.airplane);
 
+        mStatusBar.addIconToColor(mWifi);
+        mStatusBar.addIconToColor(mMobile);
+        mStatusBar.addIconToColor(mMobileType);
+        mStatusBar.addIconToColor(mAirplane);
+        mStatusBar.addIconToReverseColor(mWifiActivity);
+        mStatusBar.addIconToReverseColor(mMobileActivity);
         apply();
     }
 
