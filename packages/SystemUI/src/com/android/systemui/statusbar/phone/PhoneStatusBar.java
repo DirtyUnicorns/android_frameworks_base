@@ -768,8 +768,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         addNavigationBar();
 
-        SettingsObserver observer = new SettingsObserver(mHandler);
-        observer.observe();
+        mSettingsObserver.observe();
         mTintedStatusbarObserver.observe();
 
         // Lastly, call to the icon policy to install/update all the icons.
@@ -3699,9 +3698,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                      public void run() {
                          mImeStatusShow = altBack;
                      }
-                }, 1000);
+                }, 1);
             }
-            setSystemUIBackgroundColor(500);
+            setSystemUIBackgroundColor(1);
         }
     }
 
@@ -3907,6 +3906,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (mNavigationBarView != null) {
             mNavigationBarView.updateSettings();
         }
+        mSettingsObserver.update();
         mTintedStatusbarObserver.update();
         mNetworkTraffic.updateSettings();
         mMiuiCarrier.updateColor();
@@ -4358,6 +4358,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             }
         }
     }
+
+    private SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
 
     private class TintedStatusbarObserver extends ContentObserver {
         TintedStatusbarObserver(Handler handler) {
