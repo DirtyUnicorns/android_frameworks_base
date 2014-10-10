@@ -66,6 +66,7 @@ import static com.android.internal.util.slim.QSConstants.TILE_HEADSUP;
 import static com.android.internal.util.slim.QSConstants.TILE_CAMERA;
 import static com.android.internal.util.slim.QSConstants.TILE_CPUFREQ;
 import static com.android.internal.util.slim.QSConstants.TILE_DIRTYTWEAKS;
+import static com.android.internal.util.slim.QSConstants.TILE_DYNAMICCOLORS;
 
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -131,6 +132,7 @@ import com.android.systemui.quicksettings.HeadsupTile;
 import com.android.systemui.quicksettings.CameraTile;
 import com.android.systemui.quicksettings.CPUFreqTile;
 import com.android.systemui.quicksettings.DirtyTweaksTile;
+import com.android.systemui.quicksettings.DynamicColorsTile;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -306,6 +308,8 @@ public class QuickSettingsController {
                 qs = new DirtyTweaksTile(mContext, this);
             } else if (tile.equals(TILE_HEADSUP)) {
                 qs = new HeadsupTile(mContext, this);
+            } else if (tile.equals(TILE_DYNAMICCOLORS)) {
+                qs = new DynamicColorsTile(mContext, this);
             } else if (tile.contains(TILE_CPUFREQ)) {
                 if (cpufreqSupported) {
                     qs = new CPUFreqTile(mContext, this);

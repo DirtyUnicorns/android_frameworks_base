@@ -61,6 +61,7 @@ public class QSConstants {
         public static final String TILE_CAMERA = "toggleCamera";
         public static final String TILE_CPUFREQ = "toggleCPUFreq";
         public static final String TILE_DIRTYTWEAKS = "toggleDirtyTweaks";
+        public static final String TILE_DYNAMICCOLORS = "toggleDynamicColors";
 
         // dynamic tiles
         public static final String TILE_ALARM = "toggleAlarm";
