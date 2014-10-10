@@ -143,6 +143,7 @@
     <string name="floating_window_snap_bottom">Aligner en bas</string>
     <string name="floating_window_snap_left">Aligner à gauche</string>
     <string name="floating_window_snap_right">Aligner à droite</string>
+    <string name="floating_window_minimize">Réduire</string>
 
     <!-- Immersive mode confirmation: Pick confirmation window from bottom when status bar is visible -->
     <string name="immersive_mode_confirmation_bottom">Glisser de bas en haut pour quitter le mode plein écran.</string>
