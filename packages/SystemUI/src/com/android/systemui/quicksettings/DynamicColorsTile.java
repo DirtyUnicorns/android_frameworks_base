@@ -87,7 +87,7 @@ public class DynamicColorsTile extends QuickSettingsTile {
                 UserHandle.USER_CURRENT) == 2;
         if (mScreenColor) {
             mDrawable = R.drawable.ic_qs_dynamiccolors_on;
-            mLabel = mContext.getString(R.string.quick_settings_dynamiccolor_on_label);
+            mLabel = mContext.getString(R.string.quick_settings_dynamiccolor_screencolor_label);
         } else {
             mDrawable = R.drawable.ic_qs_dynamiccolors_off;
             mLabel = mContext.getString(R.string.quick_settings_dynamiccolor_off_label);
@@ -98,7 +98,7 @@ public class DynamicColorsTile extends QuickSettingsTile {
                 UserHandle.USER_CURRENT) == 1;
         if (mActionBarColor) {
             mDrawable = R.drawable.ic_qs_dynamiccolors_action_on;
-            mLabel = mContext.getString(R.string.quick_settings_dynamiccolor_on_label);
+            mLabel = mContext.getString(R.string.quick_settings_dynamiccolor_actionbar_label);
         }
     }
 }
