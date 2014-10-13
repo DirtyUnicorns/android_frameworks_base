@@ -323,4 +323,10 @@
     <string name="quick_settings_dynamiccolor_actionbar_label">Barre d\'action</string>
     <string name="quick_settings_dynamiccolor_off_label">Désactivé</string>
 
+    <!-- notify changed wifi network -->
+    <string name="wifi_status_changed">Nouvelle connexion Wi-Fi\u00A0</string>
+    <string name="wifi_restored">Connexion Wi-Fi restaurée\u00A0</string>
+    <string name="wifi_address_changed">Actuellement connecté à\u00A0</string>
+    <string name="wifi_changed_ticker">Réseau Wi-Fi\u00A0:\u00A0</string>
+
 </resources>
