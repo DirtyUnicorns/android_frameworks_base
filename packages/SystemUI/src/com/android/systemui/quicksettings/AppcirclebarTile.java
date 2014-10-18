@@ -54,7 +54,7 @@ public class AppcirclebarTile extends QuickSettingsTile {
             public boolean onLongClick(View v) {
                 qsc.mBar.collapseAllPanels(true);
                 Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setClassName("com.android.settings", "com.android.settings.Settings$MiscTweaksActivity");
+                intent.setClassName("com.android.settings", "com.android.settings.Settings$AppCircleBarActivity");
                 startSettingsActivity(intent);
                 return true;
             }
