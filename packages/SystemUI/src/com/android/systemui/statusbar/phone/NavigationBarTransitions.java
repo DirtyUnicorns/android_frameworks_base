@@ -200,6 +200,9 @@ public final class NavigationBarTransitions extends BarTransitions {
         setKeyButtonViewColor(NavbarEditor.NAVBAR_ALWAYS_MENU, ic_color);
         setKeyButtonViewColor(NavbarEditor.NAVBAR_MENU_BIG, ic_color);
         setKeyButtonViewColor(NavbarEditor.NAVBAR_BACK, ic_color);
+        setKeyButtonViewColor(NavbarEditor.NAVBAR_DPAD_LEFT, ic_color);
+        setKeyButtonViewColor(NavbarEditor.NAVBAR_DPAD_RIGHT, ic_color);
+        setKeyButtonViewColor(NavbarEditor.NAVBAR_SEARCH, ic_color);
         setKeyButtonViewButtonColor(mView.getSearchLight(), ic_color);
         setKeyButtonViewButtonColor(mView.getCameraButton(), ic_color);
     }
