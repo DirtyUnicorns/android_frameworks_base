@@ -2393,8 +2393,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (mHaloButtonAnim != null) mHaloButtonAnim.cancel();
         if (mNotificationButtonAnim != null) mNotificationButtonAnim.cancel();
         if (mClearButtonAnim != null) mClearButtonAnim.cancel();
-        if (mLockButtonAnim != null) mLockButtonAnim.cancel();
-        if (mAddButtonAnim != null) mAddButtonAnim.cancel();
 
         final boolean halfWayDone = mScrollView.getVisibility() == View.VISIBLE;
         final int zeroOutDelays = halfWayDone ? 0 : 1;
@@ -2432,16 +2430,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 ObjectAnimator.ofFloat(mNotificationButton, View.ALPHA, 0f)
                     .setDuration(FLIP_DURATION),
                 mNotificationButton, View.INVISIBLE));
-        mLockButtonAnim = start(
-            setVisibilityWhenDone(
-                ObjectAnimator.ofFloat(mLockButton, View.ALPHA, 1f)
-                    .setDuration(FLIP_DURATION),
-                mLockButton, View.INVISIBLE));
-        mAddButtonAnim = start(
-            setVisibilityWhenDone(
-                ObjectAnimator.ofFloat(mAddButton, View.ALPHA, 1f)
-                    .setDuration(FLIP_DURATION),
-                mAddButton, View.INVISIBLE));
         mSettingsButton.setVisibility(View.VISIBLE);
         mSettingsButtonAnim = start(
             ObjectAnimator.ofFloat(mSettingsButton, View.ALPHA, 1f)
