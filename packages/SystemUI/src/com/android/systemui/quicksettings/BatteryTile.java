@@ -109,9 +109,8 @@ public class BatteryTile extends QuickSettingsTile implements BatteryStateChange
         mOnLongClick = new OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setClassName("com.android.settings",
-                    "com.android.settings.Settings$BatteryIconStyleSettingsActivity");
+                Intent intent = new Intent("android.intent.action.MAIN");
+                intent.setClassName("com.android.settings", "com.android.settings.Settings$BatteryIconStyleActivity");
                 startSettingsActivity(intent);
                 return true;
             }

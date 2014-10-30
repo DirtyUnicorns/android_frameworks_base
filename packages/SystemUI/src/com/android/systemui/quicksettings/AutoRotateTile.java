@@ -52,9 +52,8 @@ public class AutoRotateTile extends QuickSettingsTile {
         mOnLongClick = new OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setClassName("com.android.settings",
-                    "com.android.settings.Settings$DisplayRotationSettingsActivity");
+                Intent intent = new Intent("android.intent.action.MAIN");
+                intent.setClassName("com.android.settings", "com.android.settings.Settings$DisplayRotationActivity");
                 startSettingsActivity(intent);
                 return true;
             }
