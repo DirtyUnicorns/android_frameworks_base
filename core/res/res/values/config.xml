@@ -2244,4 +2244,8 @@
 
     <!-- Whether to start in touch mode -->
     <bool name="config_defaultInTouchMode">true</bool>
+
+    <!-- Support for disabling to fetch APN from OMH card
+         for some cdma carriers -->
+    <bool name="config_fetch_apn_from_omh_card">true</bool>
 </resources>
