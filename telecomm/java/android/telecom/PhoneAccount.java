@@ -38,8 +38,14 @@ import java.util.List;
 import java.util.MissingResourceException;
 
 /**
- * Describes a distinct account, line of service or call placement method that the system
- * can use to place phone calls.
+ * Represents a distinct method to place or receive a phone call. Apps which can place calls and
+ * want those calls to be integrated into the dialer and in-call UI should build an instance of
+ * this class and register it with the system using {@link TelecomManager#registerPhoneAccount}.
+ * <p>
+ * {@link TelecomManager} uses registered {@link PhoneAccount}s to present the user with
+ * alternative options when placing a phone call. When building a {@link PhoneAccount}, the app
+ * should supply a valid {@link PhoneAccountHandle} that references the {@link ConnectionService}
+ * implementation Telecom will use to interact with the app.
  * @hide
  */
 @SystemApi
