@@ -49,7 +49,7 @@ import com.android.internal.R;
  */
 public class Ringtone {
     private static final String TAG = "Ringtone";
-    private static final boolean LOGD = true;
+    private static final boolean LOGD = false;
 
     private static final String DEFAULT_RINGTONE_PROPERTY_PREFIX_RO = "ro.config.";
 
