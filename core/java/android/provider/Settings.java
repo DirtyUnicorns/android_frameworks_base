@@ -4117,6 +4117,12 @@ public final class Settings {
          */
         public static final String ACCENT_PICKER = "accent_picker";
 
+        /** Whether to allow one finger quick settings expansion on the right side of the statusbar.
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
+
         /**
          * Select from various styles to use on the QS tiles
          *
