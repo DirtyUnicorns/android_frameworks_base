@@ -14,21 +14,15 @@
   You should have received a copy of the GNU General Public License
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
-
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Battery Saver Dimss -->
-    <string name="battery_saver_dismiss_title">Dismiss</string>
-    <string name="battery_saver_notification_action_text_short">Turn off</string>
-
-    <!-- SystemUI Tuner Parts -->
-    <string name="systemui_tuner_statusbar_title">Statusbar Items</string>
-    <string name="systemui_tuner_qs_title">Quick Settings</string>
-
-    <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Screenshot Deleted</string>
-
-    <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
-    <string name="battery_level_template"><xliff:g id="level" example="45">%d</xliff:g>%%</string>
-
+    <array name="batterymeter_inverted_bolt_points" translatable="false">
+        <item>743</item><item>73</item>
+        <item>743</item><item>292</item>
+        <item>442</item><item>201</item>
+        <item>442</item><item>400</item>
+        <item>0</item><item>20</item>
+        <item>369</item><item>157</item>
+        <item>369</item><item>0</item>
+    </array>
 </resources>
