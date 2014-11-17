@@ -264,6 +264,10 @@ public interface MetricsConstants {
     public static final int FUELGAUGE_INACTIVE_APPS = 238;
     public static final int DIRTYTWEAKS = 239;
 
+    // Notifcation and battery settings
+    public static final int NOTIFICATION_LIGHT_SETTINGS = 245;
+    public static final int BATTERY_LIGHT_SETTINGS = 246;
+
     // These constants must match those in the analytic pipeline, do not edit.
     // Add temporary values to the top of MetricsLogger instead.
 
