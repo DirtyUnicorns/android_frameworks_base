@@ -39,6 +39,7 @@ import android.widget.FrameLayout;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.systemui.R;
+import android.widget.LinearLayout;
 import com.android.systemui.recents.Constants;
 import com.android.systemui.recents.RecentsAppWidgetHostView;
 import com.android.systemui.recents.RecentsConfiguration;
