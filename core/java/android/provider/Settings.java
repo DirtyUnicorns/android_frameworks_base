@@ -3394,6 +3394,7 @@ public final class Settings {
 
             MOVED_TO_GLOBAL = new HashSet<String>();
             MOVED_TO_GLOBAL.add(Settings.Global.ADB_ENABLED);
+            MOVED_TO_GLOBAL.add(Settings.Global.ADB_NOTIFY);
             MOVED_TO_GLOBAL.add(Settings.Global.ASSISTED_GPS_ENABLED);
             MOVED_TO_GLOBAL.add(Settings.Global.BLUETOOTH_ON);
             MOVED_TO_GLOBAL.add(Settings.Global.BUGREPORT_IN_POWER_MENU);
@@ -3887,6 +3888,14 @@ public final class Settings {
          */
         @Deprecated
         public static final String ADB_ENABLED = Global.ADB_ENABLED;
+
+       /**
+        * Whether to display the ADB notification.
+        * @deprecated Use {@link android.provider.Settings.Global#ADB_NOTIFY} instead
+        * @hide
+        */
+        @Deprecated
+        public static final String ADB_NOTIFY = "adb_notify";
 
         /**
          * The hostname for this device
@@ -5686,6 +5695,12 @@ public final class Settings {
          * Whether ADB is enabled.
          */
         public static final String ADB_ENABLED = "adb_enabled";
+
+       /**
+        * Whether to display the ADB notification.
+        * @hide
+        */
+        public static final String ADB_NOTIFY = "adb_notify";
 
         /**
          * Whether Views are allowed to save their attribute data.
