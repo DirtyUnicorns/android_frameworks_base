@@ -16,6 +16,8 @@
 
 package com.android.systemui.recents.views;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.app.ActivityOptions;
 import android.app.TaskStackBuilder;
 import android.content.ActivityNotFoundException;
@@ -29,6 +31,7 @@ import android.net.Uri;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
+import android.view.ViewAnimationUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -294,25 +297,25 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
                     mFloatingButton.getLayoutParams();
             params.topMargin = taskStackBounds.top;
             switch (clearRecentsLocation) {
-                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_LEFT:
-                    params.gravity = Gravity.TOP | Gravity.LEFT;
-                    break;
                 case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_RIGHT:
                     params.gravity = Gravity.TOP | Gravity.RIGHT;
                     break;
+                case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_LEFT:
+                    params.gravity = Gravity.TOP | Gravity.LEFT;
+                    break;
                 case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_TOP_CENTER:
                     params.gravity = Gravity.TOP | Gravity.CENTER;
-                    break;										
+                    break;
                 case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_RIGHT:
                     params.gravity = Gravity.BOTTOM | Gravity.RIGHT;
                     break;
                 case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_LEFT:
                     params.gravity = Gravity.BOTTOM | Gravity.LEFT;
                     break;
-                    default:					
+                    default:
                 case Constants.DebugFlags.App.RECENTS_CLEAR_ALL_BOTTOM_CENTER:
                     params.gravity = Gravity.BOTTOM | Gravity.CENTER;
-                    break;								
+                    break;
             }
             mFloatingButton.setLayoutParams(params);
         } else {
@@ -339,6 +342,28 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         if (mClearRecents != null) {
             mClearRecents.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void startFABanimation() {
+        // Animate the action button in
+        mClearRecents = ((View)getParent()).findViewById(R.id.clear_recents);
+        mClearRecents.animate().alpha(1f)
+                .setStartDelay(mConfig.taskBarEnterAnimDelay)
+                .setDuration(mConfig.taskBarEnterAnimDuration)
+                .setInterpolator(mConfig.fastOutLinearInInterpolator)
+                .withLayer()
+                .start();
+    }
+
+    public void endFABanimation() {
+        // Animate the action button away
+        mClearRecents = ((View)getParent()).findViewById(R.id.clear_recents);
+        mClearRecents.animate().alpha(0f)
+                .setStartDelay(0)
+                .setDuration(mConfig.taskBarExitAnimDuration)
+                .setInterpolator(mConfig.fastOutLinearInInterpolator)
+                .withLayer()
+                .start();
     }
 
     @Override
