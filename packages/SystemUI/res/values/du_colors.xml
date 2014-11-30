@@ -22,4 +22,8 @@
     <color name="gesture_overlay_background_fill_color">#80000000</color>
     <color name="gesture_color">#FF07998B</color>
 
+    <!-- Floating action button -->
+    <color name="fab_color">#ff009688</color>
+    <color name="floating_action_button_icon_color">#ffffff</color>
+
 </resources>
