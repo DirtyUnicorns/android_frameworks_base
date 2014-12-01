@@ -4309,6 +4309,13 @@ public final class Settings {
          */
         public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
 
+       /**
+         * Whether to wake the display when plugging or unplugging the charger
+         *
+         * @hide
+         */
+        public static final String WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
+
         /**
          * Whether to use icon pack for Recents
          * @hide
