@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2010 The Android Open Source Project
+ * Copyright (C) 2014-2015 The MoKee OpenSource Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,11 +33,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Messenger;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.telephony.PhoneStateListener;
 import android.telephony.ServiceState;
 import android.telephony.SignalStrength;
 import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -225,6 +228,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
         filter.addAction(TelephonyIntents.SPN_STRINGS_UPDATED_ACTION);
         filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION_IMMEDIATE);
         filter.addAction(ConnectivityManager.INET_CONDITION_ACTION);
+        filter.addAction(Intent.ACTION_CUSTOM_CARRIER_LABEL_CHANGED);
         filter.addAction(Intent.ACTION_CONFIGURATION_CHANGED);
         filter.addAction(Intent.ACTION_AIRPLANE_MODE_CHANGED);
         mWimaxSupported = mContext.getResources().getBoolean(
@@ -467,6 +471,8 @@ public class NetworkControllerImpl extends BroadcastReceiver
         } else if (action.equals(ConnectivityManager.CONNECTIVITY_ACTION_IMMEDIATE) ||
                  action.equals(ConnectivityManager.INET_CONDITION_ACTION)) {
             updateConnectivity(intent);
+            refreshViews();
+        } else if (action.equals(Intent.ACTION_CUSTOM_CARRIER_LABEL_CHANGED)) {
             refreshViews();
         } else if (action.equals(Intent.ACTION_CONFIGURATION_CHANGED)) {
             refreshLocale();
@@ -1115,6 +1121,9 @@ public class NetworkControllerImpl extends BroadcastReceiver
         int N;
         final boolean emergencyOnly = isEmergencyOnly();
 
+        final String customCarrierLabel = Settings.System.getStringForUser(context.getContentResolver(),
+                Settings.System.CUSTOM_CARRIER_LABEL, UserHandle.USER_CURRENT);
+
         if (!mHasMobileDataFeature) {
             mDataSignalIconId = mPhoneSignalIconId = 0;
             mQSPhoneSignalIconId = 0;
@@ -1241,6 +1250,11 @@ public class NetworkControllerImpl extends BroadcastReceiver
             mQSPhoneSignalIconId = mDemoMobileLevel < 0 ? R.drawable.ic_qs_signal_no_signal :
                     TelephonyIcons.QS_TELEPHONY_SIGNAL_STRENGTH[mDemoInetCondition][mDemoMobileLevel];
             mQSDataTypeIconId = mDemoQSDataTypeIconId;
+        }
+
+        if (!TextUtils.isEmpty(customCarrierLabel)) {
+            combinedLabel = customCarrierLabel;
+            mobileLabel = customCarrierLabel;
         }
 
         if (DEBUG) {
