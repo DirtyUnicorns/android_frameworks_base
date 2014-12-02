@@ -5165,6 +5165,13 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL = "lockscreen_quick_unlock_control";
         /**
+         * Whether user is allowed to pull down quick settings on secure keyguard.
+         * @hide
+         */
+        public static final String STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD
+                = "status_bar_locked_on_secure_keyguard";
+
+        /**
          * Whether to include options in power menu for rebooting into recovery and bootloader
          * @hide
          */
@@ -5317,7 +5324,8 @@ public final class Settings {
             UI_NIGHT_MODE,
             SLEEP_TIMEOUT,
             LOCKSCREEN_QUICK_UNLOCK_CONTROL,
-            ADVANCED_REBOOT
+            ADVANCED_REBOOT,
+            STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD
         };
 
         /**
