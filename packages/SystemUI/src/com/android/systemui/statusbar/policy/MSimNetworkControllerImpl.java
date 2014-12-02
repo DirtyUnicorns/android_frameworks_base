@@ -86,6 +86,7 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
     int[] mMSimDataDirectionIconId; // data + data direction on phones
     int[] mMSimDataSignalIconId;
     int[] mMSimDataTypeIconId;
+    int[] mMSimDataRoamIconId;
     int[] mNoMSimIconId;
     int[] mMSimMobileActivityIconId; // overlay arrows for data direction
 
@@ -115,7 +116,7 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
         void setWifiIndicators(boolean visible, int strengthIcon, int activityIcon,
                 String contentDescription);
         void setMobileDataIndicators(boolean visible, int strengthIcon, int activityIcon,
-                int typeIcon, String contentDescription, String typeContentDescription,
+                int typeIcon, int roamingIcon, String contentDescription, String typeContentDescription,
                 int phoneId, int noSimIcon);
         void setIsAirplaneMode(boolean is, int airplaneIcon);
     }
@@ -134,6 +135,7 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
         mMSimIconId = new int[numPhones];
         mMSimPhoneSignalIconId = new int[numPhones];
         mMSimDataTypeIconId = new int[numPhones];
+        mMSimDataRoamIconId = new int[numPhones];
         mNoMSimIconId = new int[numPhones];
         mMSimMobileActivityIconId = new int[numPhones];
         mMSimContentDescriptionPhoneSignal = new String[numPhones];
@@ -308,6 +310,7 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
                 mMSimPhoneSignalIconId[phoneId],
                 mMSimMobileActivityIconId[phoneId],
                 mMSimDataTypeIconId[phoneId],
+                mMSimDataRoamIconId[phoneId],
                 mMSimContentDescriptionPhoneSignal[phoneId],
                 mMSimContentDescriptionDataType[phoneId],
                 phoneId,
@@ -319,6 +322,7 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
                     mAlwaysShowCdmaRssi ? mPhoneSignalIconId : mWimaxIconId,
                     mMSimMobileActivityIconId[phoneId],
                     mMSimDataTypeIconId[phoneId],
+                    mMSimDataRoamIconId[phoneId],
                     mContentDescriptionWimax,
                     mMSimContentDescriptionDataType[phoneId],
                     phoneId,
@@ -331,6 +335,7 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
                         : mMSimDataSignalIconId[phoneId],
                     mMSimMobileActivityIconId[phoneId],
                     mMSimDataTypeIconId[phoneId],
+                    mMSimDataRoamIconId[phoneId],
                     mMSimContentDescriptionPhoneSignal[phoneId],
                     mMSimContentDescriptionDataType[phoneId],
                     phoneId,
@@ -822,11 +827,17 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
                 }
             }
         } else if (isRoaming(phoneId)) {
-            mMSimDataTypeIconId[phoneId] = R.drawable.stat_sys_data_fully_connected_roam;
+            if (SystemProperties.getBoolean("ro.config.always_show_roaming", false)) {
+                mMSimDataRoamIconId[phoneId] = R.drawable.stat_sys_data_msim_roam;
+            } else {
+                mMSimDataTypeIconId[phoneId] = R.drawable.stat_sys_data_fully_connected_roam;
+            }
             setQSDataTypeIcon = true;
             if (phoneId == dataSub) {
                 mQSDataTypeIconId = R.drawable.stat_sys_data_fully_connected_roam;
             }
+        } else if (!isRoaming(phoneId)) {
+            mMSimDataRoamIconId[phoneId] = 0;
         }
 
         if (setQSDataTypeIcon && phoneId == dataSub) {
@@ -1202,10 +1213,16 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
                     }
                 }
             } else if (isRoaming(phoneId)) {
-                mMSimDataTypeIconId[phoneId] = R.drawable.stat_sys_data_fully_connected_roam;
+                if (SystemProperties.getBoolean("ro.config.always_show_roaming", false)) {
+                    mMSimDataRoamIconId[phoneId] = R.drawable.stat_sys_data_msim_roam;
+                } else {
+                    mMSimDataTypeIconId[phoneId] = R.drawable.stat_sys_data_fully_connected_roam;
+                }
                 if (phoneId == dataSub) {
                     mQSDataTypeIconId = R.drawable.stat_sys_data_fully_connected_roam;
                 }
+            } else if (!isRoaming(phoneId)) {
+                mMSimDataRoamIconId[phoneId] = 0;
             }
         }
 
