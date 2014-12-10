@@ -2694,6 +2694,12 @@ public final class Settings {
          * @hide
          */
         public static final String EGG_MODE = "egg_mode";
+        /**
+         * Volume Adjust Sounds Enable, This is the noise made when using volume hard buttons
+         * Defaults to 1 - sounds enabled
+         * @hide
+         */
+        public static final String VOLUME_ADJUST_SOUND = "volume_adjust_sound";
 
         /**
           * Volume keys control cursor in text fields (default is 0)
