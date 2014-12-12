@@ -3636,6 +3636,11 @@ public final class Settings {
         public static final String STATUSBAR_CLOCK_DATE_POSITION = "statusbar_clock_date_position";
 
         /**
+         * Boolean value on whether to show weather in the statusbar
+         */
+        public static final String STATUS_BAR_SHOW_WEATHER = "status_bar_show_weather";
+
+        /**
          * AOKP Custom System Animations
          * @hide
          */
