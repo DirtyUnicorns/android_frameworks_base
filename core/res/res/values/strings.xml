@@ -4908,4 +4908,11 @@
     <string name="stk_cc_ss_to_ussd">SS request is modified to USSD request.</string>
     <string name="stk_cc_ss_to_ss">SS request is modified to new SS request.</string>
 
+    <!-- Default wi-fi hotspot ssid -->
+    <string name="def_wifi_wifihotspot_ssid" translatable="false"></string>
+    <!-- Default wi-fi hotspot pass -->
+    <string name="def_wifi_wifihotspot_pass" translatable="false"></string>
+    <!-- Default wi-fi direct name -->
+    <string name="def_wifi_direct_name" translatable="false"></string>
+
 </resources>

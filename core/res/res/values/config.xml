@@ -1911,4 +1911,30 @@
     <!-- bool value to for enabling motion accelerometer -->
     <bool name="use_motion_accel">false</bool>
 
+    <!-- Configuartion to support SIM refresh in STK command for dual mode card.-->
+    <bool name="config_sim_refresh_for_dual_mode_card">true</bool>
+
+    <!-- Whether cpu boost is enabled for overscroller fling. -->
+    <bool name="config_enableCpuBoostForOverScrollerFling">false</bool>
+
+    <!-- Whether cpu boost is enabled for horizontal scroll. -->
+    <bool name="config_enableCpuBoostForScroller">false</bool>
+
+    <!-- Configuration to enable non-default PDP during IWLAN -->
+    <bool name="config_feature_iwlan_enabled">false</bool>
+
+    <!-- Configuration that determines if ACTIVATE_REJECT_GGSN is to be treated as
+         a permanent error -->
+    <bool name="config_reject_ggsn_perm_failure">true</bool>
+    <!-- Configuration that determines if PROTOCOL_ERRORS is to be treated as a
+         permanent error -->
+    <bool name="config_protocol_errors_perm_failure">true</bool>
+
+    <!-- Configuration to restart radio upon PDP_DEACTIVATE with
+         error cause as Regular deactivation(36). -->
+    <bool name="config_radio_reset_on_regular_deactivation">true</bool>
+
+    <!-- Configuration to sending and receiving Mms when mobile data is disable.-->
+    <bool name="config_enable_mms_with_mobile_data_off">false</bool>
+
 </resources>
