@@ -2266,4 +2266,7 @@
     <!-- Support for disabling to fetch APN from OMH card
          for some cdma carriers -->
     <bool name="config_fetch_apn_from_omh_card">true</bool>
+
+    <!-- Boolean to enable adb by default on a per-device basis -->
+    <bool name="config_enableAdbByDefault">false</bool>
 </resources>
