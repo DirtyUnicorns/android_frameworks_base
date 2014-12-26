@@ -822,7 +822,7 @@ class AlarmManagerService extends SystemService {
             }
 
             setImpl(type, triggerAtTime, windowLength, interval, operation,
-                    false, workSource, alarmClock);
+                    windowLength == AlarmManager.WINDOW_EXACT, workSource, alarmClock);
         }
 
         @Override
