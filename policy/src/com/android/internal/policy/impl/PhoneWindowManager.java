@@ -75,6 +75,7 @@ import android.speech.RecognizerIntent;
 import android.telecom.TelecomManager;
 import android.service.gesture.EdgeGestureManager;
 import com.android.internal.util.du.DimensionConverter;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.EventLog;
 import android.util.Log;
@@ -6718,7 +6719,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 if (always && (currentPackageName != null)) {
                     // Only display the current package name if the main message says "Optimizing app N of M".
                     // We don't want to do this when the message says "Starting apps" or "Finishing boot", etc.
-                    mBootMsgDialog.setMessage(msg + "\n" + currentPackageName);
+//                    mBootMsgDialog.setMessage(msg + "\n" + currentPackageName);
+                    mBootMsgDialog.setMessage(Html.fromHtml(msg + "<br><b>" + currentPackageName + "</b>"));
                 }
                 else {
                     mBootMsgDialog.setMessage(msg);
