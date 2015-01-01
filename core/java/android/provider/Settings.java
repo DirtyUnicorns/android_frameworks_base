@@ -4163,6 +4163,12 @@ public final class Settings {
          */
         public static final String PIE_ICON_COLOR_MODE = "pie_icon_color_mode";
 
+        /** Whether to vibrate when quick settings tile is pressed.
+         *
+         * @hide
+         */
+        public static final String QUICK_SETTINGS_TILES_VIBRATE = "quick_settings_vibrate";
+
         /**
          * Pie button alpha
          * @hide
