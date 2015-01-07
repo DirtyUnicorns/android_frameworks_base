@@ -1617,7 +1617,6 @@
   <java-symbol type="color" name="input_method_navigation_guard" />
   <java-symbol type="drawable" name="ic_notification_ime_default" />
   <java-symbol type="drawable" name="ic_menu_refresh" />
-  <java-symbol type="drawable" name="ic_settings" />
   <java-symbol type="drawable" name="stat_notify_car_mode" />
   <java-symbol type="drawable" name="stat_notify_disabled_data" />
   <java-symbol type="drawable" name="stat_notify_disk_full" />
@@ -2146,4 +2145,10 @@
 
   <!-- Proximity check timeout -->
   <java-symbol type="integer" name="config_proximityCheckTimeout" />
+
+  <!-- Power Menu -->
+  <java-symbol type="drawable" name="ic_lock_power_screenshot" />
+  <java-symbol type="string" name="powermenu_screenshot" />
+  <java-symbol type="drawable" name="ic_settings_powermenu" />
+
 </resources>
