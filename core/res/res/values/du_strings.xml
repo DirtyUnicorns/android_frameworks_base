@@ -48,4 +48,7 @@
     <!-- screenshot in the power menu -->
     <string name="powermenu_screenshot">Screenshot</string>
 
+    <!-- screenrecord in the power menu -->
+    <string name="powermenu_screenrecord">Screen record</string>
+
 </resources>
