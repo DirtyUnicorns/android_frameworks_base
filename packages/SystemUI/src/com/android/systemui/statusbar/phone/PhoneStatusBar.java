@@ -127,7 +127,6 @@ import com.android.internal.statusbar.StatusBarIcon;
 import com.android.keyguard.KeyguardHostView.OnDismissAction;
 import com.android.keyguard.ViewMediatorCallback;
 import com.android.systemui.BatteryMeterView;
-import com.android.systemui.BatteryMeterView.BatteryMeterMode;
 import com.android.systemui.BatteryLevelTextView;
 import com.android.systemui.DemoMode;
 import com.android.systemui.EventLogTags;
@@ -178,6 +177,7 @@ import com.android.systemui.statusbar.policy.RotationLockControllerImpl;
 import com.android.systemui.statusbar.policy.SecurityControllerImpl;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
+import com.android.systemui.statusbar.policy.WeatherControllerImpl;
 import com.android.systemui.statusbar.policy.ZenModeController;
 import com.android.systemui.statusbar.stack.NotificationStackScrollLayout;
 import com.android.systemui.statusbar.stack.NotificationStackScrollLayout.OnChildLocationsChangedListener;
@@ -255,8 +255,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     BluetoothControllerImpl mBluetoothController;
     SecurityControllerImpl mSecurityController;
     BatteryController mBatteryController;
-    private BatteryMeterView mBatteryView;
-    private BatteryLevelTextView mBatteryTextView;
     LocationControllerImpl mLocationController;
     NetworkControllerImpl mNetworkController;
     HotspotControllerImpl mHotspotController;
@@ -273,6 +271,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     BrightnessMirrorController mBrightnessMirrorController;
     AccessibilityController mAccessibilityController;
     MSimNetworkControllerImpl mMSimNetworkController;
+    WeatherControllerImpl mWeatherController;
 
     int mNaturalBarHeight = -1;
     int mIconSize = -1;
@@ -425,10 +424,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SCREEN_BRIGHTNESS_MODE), false, this);
-            //resolver.registerContentObserver(Settings.System.getUriFor(
-            //        Settings.System.STATUS_BAR_BATTERY_STYLE), false, this);
-            //resolver.registerContentObserver(Settings.System.getUriFor(
-            //        Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.BATTERY_SAVER_MODE_COLOR),
                     false, this, UserHandle.USER_ALL);
@@ -458,45 +453,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC;
             mBrightnessControl = !autoBrightness && Settings.System.getInt(
                     resolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1;
-/*
-            boolean showInsidePercent = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, mCurrentUserId) == 1;
-
-            //boolean showNextPercent = Settings.System.getIntForUser(resolver,
-            //        Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, mCurrentUserId) == 2;
-
-            int batteryStyle = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_BATTERY_STYLE, 0, mCurrentUserId);
-            BatteryMeterMode meterMode = BatteryMeterMode.BATTERY_METER_ICON_PORTRAIT;
-            switch (batteryStyle) {
-                case 2:
-                    meterMode = BatteryMeterMode.BATTERY_METER_CIRCLE;
-                    break;
-
-                case 4:
-                    meterMode = BatteryMeterMode.BATTERY_METER_GONE;
-                    //showNextPercent = false;
-                    break;
-
-                case 5:
-                    meterMode = BatteryMeterMode.BATTERY_METER_ICON_LANDSCAPE;
-                    break;
-
-                case 6:
-                    meterMode = BatteryMeterMode.BATTERY_METER_TEXT;
-                    showInsidePercent = false;
-                    //showNextPercent = true;
-                    break;
-
-                default:
-                    break;
-            }
-
-            // Update Battery
-            mBatteryView.setMode(meterMode);
-            mBatteryView.setShowPercent(showInsidePercent);
-            //mBatteryTextView.setShowPercent(showNextPercent);
-*/
         }
     }
 
@@ -1084,6 +1040,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mNextAlarmController = new NextAlarmController(mContext);
         mKeyguardMonitor = new KeyguardMonitor();
         mUserSwitcherController = new UserSwitcherController(mContext, mKeyguardMonitor);
+        mWeatherController = new WeatherControllerImpl(mContext);
 
         mKeyguardUserSwitcher = new KeyguardUserSwitcher(mContext,
                 (ViewStub) mStatusBarWindow.findViewById(R.id.keyguard_user_switcher),
@@ -1144,12 +1101,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mUserInfoController.reloadUserInfo();
 
         mHeader.setBatteryController(mBatteryController);
-        mBatteryView = (BatteryMeterView) mStatusBarView.findViewById(R.id.battery);
-        mBatteryView.setBatteryController(mBatteryController);
-        mBatteryTextView = (BatteryLevelTextView) mStatusBarView.findViewById(R.id.battery_level_text);
-        mBatteryTextView.setBatteryController(mBatteryController);
+        ((BatteryMeterView) mStatusBarView.findViewById(R.id.battery)).setBatteryController(
+                mBatteryController);
+        ((BatteryLevelTextView) mStatusBarView.findViewById(R.id.battery_level_text))
+                .setBatteryController(mBatteryController);
         mKeyguardStatusBar.setBatteryController(mBatteryController);
         mHeader.setNextAlarmController(mNextAlarmController);
+        mHeader.setWeatherController(mWeatherController);
 
         PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         mBroadcastReceiver.onReceive(mContext,
