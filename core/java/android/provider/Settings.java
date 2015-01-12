@@ -3035,6 +3035,8 @@ public final class Settings {
           * 7 - back
           * 8 - toggle last app
           * 9 - kill app
+          * 10 - go to sleep
+          * 11 - OmniSwitch recents
           * @hide
           */
         public static final String HARDWARE_KEY_REBINDING = "hardware_key_rebinding";
@@ -3345,6 +3347,13 @@ public final class Settings {
          * @hide
          */
         public static final String DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
+
+        /**
+         * Should the alarm icon be show in the statusbar
+         *
+         * @hide
+         */
+        public static final String STATUSBAR_SHOW_ALARM_ICON = "statusbar_show_alarm_icon";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
