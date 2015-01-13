@@ -237,6 +237,7 @@ public class KeyButtonRipple extends Drawable {
             enterHardware();
         } else {
             exitHardware();
+            exitSoftware();
         }
     }
 
