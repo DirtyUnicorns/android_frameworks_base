@@ -23,9 +23,11 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
+import android.content.res.ThemeConfig;
 import android.content.res.XmlResourceParser;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.media.AudioManager;
@@ -71,7 +73,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // database gets upgraded properly. At a minimum, please confirm that 'upgradeVersion'
     // is properly propagated through your change.  Not doing so will result in a loss of user
     // settings.
-    private static final int DATABASE_VERSION = 113;
+    private static final int DATABASE_VERSION = 114;
 
     private Context mContext;
     private int mUserHandle;
@@ -1829,6 +1831,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if (stmt != null) stmt.close();
             }
             upgradeVersion = 113;
+        }
+
+        if (upgradeVersion < 114) {
+            // CM11 used "holo" as a system default theme. For CM12 and up its been
+            // switched to "system". So change all "holo" references in themeConfig to "system"
+            final String NAME_THEME_CONFIG = "themeConfig";
+            Cursor c = null;
+            try {
+                String[] projection = new String[]{"value"};
+                String selection = "name=?";
+                String[] selectionArgs = new String[] { NAME_THEME_CONFIG };
+                c = db.query(TABLE_SECURE, projection, selection,
+                        selectionArgs, null, null, null);
+                if (c != null && c.moveToFirst()) {
+                    String jsonConfig = c.getString(0);
+                    if (jsonConfig != null) {
+                        jsonConfig = jsonConfig.replace(
+                                "\"holo\"", '"' + ThemeConfig.SYSTEM_DEFAULT + '"');
+
+                        // Now update the entry
+                        SQLiteStatement stmt = db.compileStatement(
+                                "UPDATE " + TABLE_SECURE + " SET value = ? "
+                                        + " WHERE name = ?");
+                        stmt.bindString(1, jsonConfig);
+                        stmt.bindString(2, NAME_THEME_CONFIG);
+                        stmt.execute();
+                    }
+                }
+            } catch(SQLiteException ex) {
+                Log.e(TAG, "Unable to update theme config value", ex);
+            } finally {
+                if (c != null) c.close();
+            }
+            upgradeVersion = 114;
         }
 
         // *** Remember to update DATABASE_VERSION above!
