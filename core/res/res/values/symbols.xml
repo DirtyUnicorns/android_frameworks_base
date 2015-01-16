@@ -1888,7 +1888,10 @@
   <java-symbol type="anim" name="lock_screen_behind_enter_wallpaper" />
   <java-symbol type="anim" name="lock_screen_behind_enter_fade_in" />
   <java-symbol type="anim" name="lock_screen_wallpaper_exit" />
+<<<<<<< HEAD
   <java-symbol type="anim" name="launch_task_behind_source" />
+=======
+>>>>>>> 785f1f4... Theme Engine Port [1/5]
   <java-symbol type="anim" name="lock_screen_wallpaper_exit_noop" />
 
   <java-symbol type="bool" name="config_alwaysUseCdmaRssi" />
@@ -2315,5 +2318,9 @@
   <java-symbol type="drawable" name="ic_settings_powermenu" />
   <java-symbol type="drawable" name="ic_lock_power_screenrecord" />
   <java-symbol type="string" name="powermenu_screenrecord" />
+
+  <!-- Theme install failure notification -->
+  <java-symbol type="string" name="theme_install_error_title" />
+  <java-symbol type="string" name="theme_install_error_message" />
 
 </resources>

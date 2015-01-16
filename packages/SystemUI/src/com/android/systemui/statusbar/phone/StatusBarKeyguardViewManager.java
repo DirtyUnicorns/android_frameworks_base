@@ -432,6 +432,7 @@ public class StatusBarKeyguardViewManager {
         return mPhoneStatusBar.isGoingToNotificationShade();
     }
 
+<<<<<<< HEAD
     public boolean isSecure(int userId) {
         return mBouncer.isSecure() || mLockPatternUtils.isSecure(userId);
     }
@@ -440,6 +441,8 @@ public class StatusBarKeyguardViewManager {
         return mViewMediatorCallback.isInputRestricted();
     }
 
+=======
+>>>>>>> 785f1f4... Theme Engine Port [1/5]
     public boolean isKeyguardShowingMedia() {
         return mPhoneStatusBar.isKeyguardShowingMedia();
     }

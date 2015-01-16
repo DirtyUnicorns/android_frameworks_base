@@ -51,7 +51,8 @@ aaptSources := \
 aaptTests := \
     tests/AaptConfig_test.cpp \
     tests/AaptGroupEntry_test.cpp \
-    tests/ResourceFilter_test.cpp
+    tests/ResourceFilter_test.cpp \
+    tests/ZipReading_test.cpp \
 
 aaptCIncludes := \
     external/libpng \
@@ -105,6 +106,19 @@ include $(BUILD_HOST_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := aapt
+<<<<<<< HEAD
+=======
+
+LOCAL_SRC_FILES := $(aaptMain)
+
+LOCAL_STATIC_LIBRARIES += \
+    libaapt \
+    $(aaptHostStaticLibs)
+
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/mocks
+
+LOCAL_LDLIBS += $(aaptHostLdLibs)
+>>>>>>> 785f1f4... Theme Engine Port [1/5]
 LOCAL_CFLAGS += $(aaptCFlags)
 LOCAL_CPPFLAGS += $(aaptCppFlags)
 LOCAL_LDLIBS += $(aaptHostLdLibs)
@@ -125,7 +139,19 @@ LOCAL_CPPFLAGS += $(aaptCppFlags)
 LOCAL_LDLIBS += $(aaptHostLdLibs)
 LOCAL_SRC_FILES += $(aaptTests)
 LOCAL_C_INCLUDES += $(LOCAL_PATH)
+<<<<<<< HEAD
 LOCAL_STATIC_LIBRARIES += libaapt $(aaptHostStaticLibs)
+=======
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/mocks
+
+LOCAL_STATIC_LIBRARIES += \
+    libaapt \
+    libgmock \
+    $(aaptHostStaticLibs)
+
+LOCAL_LDLIBS += $(aaptHostLdLibs)
+LOCAL_CFLAGS += $(aaptCFlags)
+>>>>>>> 785f1f4... Theme Engine Port [1/5]
 
 include $(BUILD_HOST_NATIVE_TEST)
 

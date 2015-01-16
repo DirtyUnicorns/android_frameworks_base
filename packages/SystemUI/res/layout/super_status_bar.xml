@@ -18,11 +18,17 @@
 -->
 
 <!-- This is the combined status bar / notification panel window. -->
-<com.android.systemui.statusbar.phone.StatusBarWindowView
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+<<<<<<< HEAD
     android:fitsSystemWindows="true">
+=======
+    android:focusable="true"
+    android:fitsSystemWindows="false"
+    android:descendantFocusability="afterDescendants">
+>>>>>>> 785f1f4... Theme Engine Port [1/5]
 
     <com.android.systemui.statusbar.BackDropView
             android:id="@+id/backdrop"
@@ -84,4 +90,4 @@
         android:layout_height="match_parent"
         android:importantForAccessibility="no" />
 
-</com.android.systemui.statusbar.phone.StatusBarWindowView>
+</FrameLayout>
