@@ -3225,6 +3225,12 @@ public final class Settings {
         public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
 
         /**
+         * Change the screenshot delay
+         * @hide
+         */
+        public static final String SCREENSHOT_DELAY = "screenshot_delay";
+
+        /**
          * Whether to display settings in the power menu
          *
          * @hide
