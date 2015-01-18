@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.cm;
+package com.android.internal.util.du;
 
 import android.app.WallpaperManager;
 import android.content.Context;
