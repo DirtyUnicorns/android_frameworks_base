@@ -133,6 +133,8 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private boolean mHasVibrator;
     private final boolean mShowSilentToggle;
 
+    private int mScreenshotDelay;
+
     /**
      * @param context everything needs a context :(
      */
@@ -203,6 +205,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
     private void handleShow() {
         awakenIfNecessary();
+        checkSettings();
         prepareDialog();
 
         // If we only have 1 item and it's a simple press action, just do this action.
@@ -729,7 +732,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                         msg.arg1 = msg.arg2 = 0;
 
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(mScreenshotDelay * 1000);
                         } catch (InterruptedException ie) {
                         }
 
@@ -1314,6 +1317,11 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         if (!mHasTelephony) {
             mAirplaneState = on ? ToggleAction.State.On : ToggleAction.State.Off;
         }
+    }
+
+    private void checkSettings() {
+        mScreenshotDelay = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SCREENSHOT_DELAY, 1);
     }
 
     private static final class GlobalActionsDialog extends Dialog implements DialogInterface {
