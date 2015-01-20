@@ -42,6 +42,7 @@ import com.android.systemui.qs.tiles.BrightnessTile;
 import com.android.systemui.qs.tiles.CastTile;
 import com.android.systemui.qs.tiles.CellularTile;
 import com.android.systemui.qs.tiles.ColorInversionTile;
+import com.android.systemui.qs.tiles.CompassTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.IntentTile;
@@ -300,6 +301,8 @@ public class QSTileHost implements QSTile.Host {
                 return new HotspotTile(this);
             case QSConstants.TILE_NOTIFICATIONS:
                 return new NotificationsTile(this);
+            case QSConstants.TILE_COMPASS:
+                return new CompassTile(this);
             case QSConstants.TILE_LOCKSCREEN:
                 return new LockscreenToggleTile(this);
             case QSConstants.TILE_SCREENSHOT:
@@ -318,8 +321,8 @@ public class QSTileHost implements QSTile.Host {
                 return new BrightnessTile(this);
             case QSConstants.TILE_BATTERY_SAVER:
                 return new BatterySaverTile(this);
-	    case QSConstants.TILE_HEADS_UP:
-		return new HeadsupTile(this);
+            case QSConstants.TILE_HEADS_UP:
+                return new HeadsupTile(this);
             case QSConstants.TILE_NAVBAR:
                 return new NavBarTile(this);
             case QSConstants.TILE_APPCIRCLEBAR:
