@@ -50,6 +50,7 @@ public class QSConstants {
     public static final String TILE_APPCIRCLEBAR = "toggleAppCircleBar";
     public static final String TILE_AMBIENT_DISPLAY = "ambient_display";
     public static final String TILE_MUSIC = "music";
+    public static final String TILE_COMPASS = "compass";
     public static final String TILE_NFC = "nfc";
 
     // Order matters
@@ -86,11 +87,12 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_USB_TETHER);
         TILES_AVAILABLE.add(TILE_BRIGHTNESS);
         TILES_AVAILABLE.add(TILE_BATTERY_SAVER);
-	TILES_AVAILABLE.add(TILE_HEADS_UP);
+        TILES_AVAILABLE.add(TILE_HEADS_UP);
         TILES_AVAILABLE.add(TILE_NAVBAR);
         TILES_AVAILABLE.add(TILE_APPCIRCLEBAR);
         TILES_AVAILABLE.add(TILE_AMBIENT_DISPLAY);
         TILES_AVAILABLE.add(TILE_MUSIC);
+        TILES_AVAILABLE.add(TILE_COMPASS);
         TILES_AVAILABLE.add(TILE_NFC);
     }
 }
