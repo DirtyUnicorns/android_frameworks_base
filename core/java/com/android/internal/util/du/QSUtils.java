@@ -18,10 +18,12 @@ package com.android.internal.util.du;
 
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.net.ConnectivityManager;
+import android.nfc.NfcAdapter;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
@@ -74,6 +76,9 @@ public class QSUtils {
                     case QSConstants.TILE_BLUETOOTH:
                         removeTile = !deviceSupportsBluetooth();
                         break;
+                    case QSConstants.TILE_NFC:
+                        removeTile = !deviceSupportsNfc(context);
+                        break;
                 }
                 if (removeTile) {
                     iterator.remove();
@@ -100,6 +105,11 @@ public class QSUtils {
 
     public static boolean deviceSupportsBluetooth() {
         return BluetoothAdapter.getDefaultAdapter() != null;
+    }
+
+    public static boolean deviceSupportsNfc(Context context) {
+        PackageManager packageManager = context.getPackageManager();
+        return packageManager.hasSystemFeature(PackageManager.FEATURE_NFC);
     }
 
     public static boolean deviceSupportsFlashLight(Context context) {
