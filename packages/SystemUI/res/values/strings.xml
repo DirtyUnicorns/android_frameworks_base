@@ -954,4 +954,9 @@
     <!-- App Circle Bar tile -->
     <string name="quick_settings_appcirclebar_on">AppCircleBar On</string>
     <string name="quick_settings_appcirclebar_off">AppCircleBar Off</string>
+
+    <!-- NFC Tile -->
+    <string name="quick_settings_nfc">NFC</string>
+    <string name="quick_settings_nfc_off">NFC off</string>
+
 </resources>

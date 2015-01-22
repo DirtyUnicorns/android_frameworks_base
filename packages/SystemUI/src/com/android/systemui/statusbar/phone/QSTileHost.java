@@ -48,6 +48,7 @@ import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.LockscreenToggleTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
+import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NotificationsTile;
 import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.RebootTile;
@@ -327,6 +328,8 @@ public class QSTileHost implements QSTile.Host {
                 return new AmbientDisplayTile(this);
             case QSConstants.TILE_MUSIC:
                 return new MusicTile(this);
+            case QSConstants.TILE_NFC:
+                return new NfcTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
         }
