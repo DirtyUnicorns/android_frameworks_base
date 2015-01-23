@@ -57,4 +57,8 @@
   <java-symbol type="string" name="theme_install_error_title" />
   <java-symbol type="string" name="theme_install_error_message" />
 
+  <!-- Theme reset notification -->
+  <java-symbol type="string" name="theme_reset_notification_title" />
+  <java-symbol type="string" name="theme_reset_notification_body" />
+
 </resources>
