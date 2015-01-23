@@ -34,6 +34,7 @@ import com.android.internal.util.du.QSUtils;
 
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
+import com.android.systemui.qs.tiles.AdbOverNetworkTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
@@ -318,8 +319,8 @@ public class QSTileHost implements QSTile.Host {
                 return new BrightnessTile(this);
             case QSConstants.TILE_BATTERY_SAVER:
                 return new BatterySaverTile(this);
-	    case QSConstants.TILE_HEADS_UP:
-		return new HeadsupTile(this);
+            case QSConstants.TILE_HEADS_UP:
+                return new HeadsupTile(this);
             case QSConstants.TILE_NAVBAR:
                 return new NavBarTile(this);
             case QSConstants.TILE_APPCIRCLEBAR:
@@ -330,6 +331,8 @@ public class QSTileHost implements QSTile.Host {
                 return new MusicTile(this);
             case QSConstants.TILE_NFC:
                 return new NfcTile(this);
+            case QSConstants.TILE_ADB_NETWORK:
+                return new AdbOverNetworkTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
         }
