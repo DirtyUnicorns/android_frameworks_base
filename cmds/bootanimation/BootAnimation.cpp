@@ -883,6 +883,8 @@ void BootAnimation::playBackgroundMusic(void)
     FILE* fp = NULL;
     if ((fp = fopen("/proc/asound/cards", "r")) == NULL) {
         ALOGW("Cannot open /proc/asound/cards file to get sound card info.");
+    } else {
+        fclose(fp);
     }
 
     char value[PROPERTY_VALUE_MAX];
@@ -890,8 +892,6 @@ void BootAnimation::playBackgroundMusic(void)
     if (strncmp(value, "complete", 8) != 0) {
         ALOGW("Audio service is not initiated.");
     }
-
-    fclose(fp);
 
     char *fileName;
     if (((fileName = getBootRingtoneFileName(IMG_DATA)) != NULL && access(fileName, R_OK) == 0) ||
