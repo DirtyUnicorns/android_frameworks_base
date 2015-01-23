@@ -77,4 +77,7 @@
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
 
+    <string name="theme_reset_notification_title">Theme reset</string>
+    <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
+
 </resources>
