@@ -236,7 +236,7 @@ public class Tethering extends BaseNetworkObserver {
                     sm.start();
                 }
             } else {
-                if (isUsb(iface)) {
+                if (isUsb(iface) || isBluetooth(iface) ) {
                     // ignore usb0 down after enabling RNDIS
                     // we will handle disconnect in interfaceRemoved instead
                     if (VDBG) Log.d(TAG, "ignore interface down for " + iface);
