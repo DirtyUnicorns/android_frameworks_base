@@ -14,19 +14,31 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="reboot_system" product="tablet">Reboot tablet</string>
-  <string name="reboot_system" product="default">Reboot phone</string>
-  <string name="reboot_reboot">Reboot</string>
-  <string name="reboot_recovery">Recovery</string>
-  <string name="reboot_bootloader">Bootloader</string>
-  <string name="reboot_bootmenu">Bootmenu</string>
-  <string name="reboot_fastboot">Fastboot</string>
-  <string name="reboot_download">Download</string>
-  <string name="reboot_progress">Rebooting\u2026</string>
-  <string name="reboot_confirm">Your phone will reboot.</string>
-  <string name="global_action_reboot">Reboot</string>
-  <string name="default_string">Default</string>
-  <string name="app_killed_message">App killed</string>
-  <string name="powermenu_screenshot">Screenshot</string>
-  <string name="powermenu_screenrecord">Screen record</string>
+  <string name="reboot_system" product="tablet">태블릿 다시 시작</string>
+  <string name="reboot_system" product="default">휴대전화 다시시작</string>
+  <string name="reboot_reboot">다시시작</string>
+  <string name="reboot_recovery">리커버리</string>
+  <string name="reboot_bootloader">부트로더</string>
+  <string name="reboot_bootmenu">부트메뉴</string>
+  <string name="reboot_fastboot">빠른 재시작</string>
+  <string name="reboot_download">다운로드</string>
+  <string name="reboot_progress">다시 시작하는 중\u2026</string>
+  <string name="reboot_confirm">휴대전화가 다시 시작됩니다.</string>
+  <string name="global_action_reboot">다시시작</string>
+  <string name="default_string">기본설정</string>
+  <string name="app_killed_message">애플리케이션 종료됨</string>
+  <string name="powermenu_screenshot">스크린샷</string>
+  <string name="powermenu_screenrecord">화면 촬영</string>
+  <string name="permlab_accessThemeService">access theme service</string>
+  <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
+  <string name="permlab_readThemes">read your theme info</string>
+  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
+       determine which theme you have applied.</string>
+  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
+       modify which theme you have applied.</string>
+  <string name="theme_install_error_title">Failed to install theme</string>
+  <string name="theme_install_error_message">%s failed to install</string>
+  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
 </resources>
