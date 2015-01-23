@@ -15,21 +15,21 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="title_standalone">Files</string>
-  <string name="toast_success_delete">Files deleted</string>
-  <string name="dialog_delete_confirm_title">Delete files?</string>
+  <string name="title_standalone">Filer</string>
+  <string name="toast_success_delete">Filer borttagna</string>
+  <string name="dialog_delete_confirm_title">Ta bort filerna?</string>
   <plurals name="files_copied">
-    <item quantity="one">The file has been put in the clipboard</item>
-    <item quantity="other">%d files have been put in the clipboard</item>
+    <item quantity="one">Filen har placerats i Urklipp</item>
+    <item quantity="other">%d filer har lagts i Urklipp</item>
   </plurals>
   <plurals name="files_pasted">
-    <item quantity="one">The file has been pasted. Upload might be finishing in background.</item>
-    <item quantity="other">%d files have been pasted. Upload might be finishing in background.</item>
+    <item quantity="one">Filen har klistrats in. Uppladdningen kan slutföras i bakgrunden.</item>
+    <item quantity="other">%d filer har klistrats in. Uppladdningen kan slutföras i bakgrunden.</item>
   </plurals>
-  <string name="copy_in_progress">Copying...</string>
-  <string name="delete_in_progress">Deleting...</string>
+  <string name="copy_in_progress">Kopierar...</string>
+  <string name="delete_in_progress">Raderar...</string>
   <plurals name="dialog_delete_confirm_message">
-    <item quantity="one">This file will be permanently deleted!</item>
-    <item quantity="other">This will permanently delete the %d files selected!</item>
+    <item quantity="one">Denna fil kommer raderas permanent!</item>
+    <item quantity="other">De %d markerade filer kommer raderas permanent!</item>
   </plurals>
 </resources>
