@@ -1245,9 +1245,13 @@ public final class Settings {
             MOVED_TO_SECURE.add(Secure.WIFI_WATCHDOG_PING_DELAY_MS);
             MOVED_TO_SECURE.add(Secure.WIFI_WATCHDOG_PING_TIMEOUT_MS);
             MOVED_TO_SECURE.add(Secure.VOLUME_LINK_NOTIFICATION);
+            for (String s : Secure.NAVIGATION_RING_TARGETS) {
+                MOVED_TO_SECURE.add(s);
+
 
             // At one time in System, then Global, but now back in Secure
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
+            }
         }
 
         private static final HashSet<String> MOVED_TO_GLOBAL;
@@ -5870,6 +5874,16 @@ public final class Settings {
          * @hide
          */
         public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+
+        /**
+         * Custom navring actions
+         * @hide
+         */
+        public static final String[] NAVIGATION_RING_TARGETS = new String[] {
+                "navigation_ring_targets_0",
+                "navigation_ring_targets_1",
+                "navigation_ring_targets_2",
+        };
 
         /**
          * This are the settings to be backed up.
