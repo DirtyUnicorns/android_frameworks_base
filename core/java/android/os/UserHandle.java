@@ -240,6 +240,21 @@ public final class UserHandle implements Parcelable {
     }
 
     /**
+      * Returns a UserHandle of the user of the current process
+      * @return UserHandle of the user of the current process
+      * @hide
+      */
+    @SystemApi
+    public static final UserHandle myUserHandle() {
+        int myUserId = myUserId();
+        if (myUserId == UserHandle.USER_OWNER) {
+            return UserHandle.OWNER;
+        } else {
+            return new UserHandle(myUserId);
+        }
+    }
+
+    /**
      * Returns true if this UserHandle refers to the owner user; false otherwise.
      * @return true if this UserHandle refers to the owner user; false otherwise.
      * @hide
