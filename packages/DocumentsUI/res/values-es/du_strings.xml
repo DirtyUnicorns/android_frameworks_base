@@ -15,21 +15,21 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="title_standalone">Files</string>
-  <string name="toast_success_delete">Files deleted</string>
-  <string name="dialog_delete_confirm_title">Delete files?</string>
+  <string name="title_standalone">Archivos</string>
+  <string name="toast_success_delete">Archivo borrado</string>
+  <string name="dialog_delete_confirm_title">¿Eliminar archivos?</string>
   <plurals name="files_copied">
-    <item quantity="one">The file has been put in the clipboard</item>
-    <item quantity="other">%d files have been put in the clipboard</item>
+    <item quantity="one">El archivo esta en el portapapeles</item>
+    <item quantity="other">%d archivos han sido copiados en el portapapeles</item>
   </plurals>
   <plurals name="files_pasted">
-    <item quantity="one">The file has been pasted. Upload might be finishing in background.</item>
-    <item quantity="other">%d files have been pasted. Upload might be finishing in background.</item>
+    <item quantity="one">%d archivos han sido pegados. La subida puede ser acabada en segundo plano.</item>
+    <item quantity="other">%d archivos han sido pegados. La subida puede ser acabada en segundo plano.</item>
   </plurals>
-  <string name="copy_in_progress">Copying...</string>
-  <string name="delete_in_progress">Deleting...</string>
+  <string name="copy_in_progress">Copiando...</string>
+  <string name="delete_in_progress">Borrando...</string>
   <plurals name="dialog_delete_confirm_message">
-    <item quantity="one">This file will be permanently deleted!</item>
-    <item quantity="other">This will permanently delete the %d files selected!</item>
+    <item quantity="one">Este archivo se eliminará permanentemente!</item>
+    <item quantity="other">Se borrarán permanentemente los %d archivos seleccionados!</item>
   </plurals>
 </resources>

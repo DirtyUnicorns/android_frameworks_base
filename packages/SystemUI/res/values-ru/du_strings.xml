@@ -18,6 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="quick_settings_lockscreen">Lock screen</string>
   <string name="clear_recents">Закрыть все последние</string>
   <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <string name="app_float_maximize_item_title">Развернуть</string>
@@ -29,4 +30,6 @@
   <string name="screenrecord_notif_pointer_on">Показать указатель</string>
   <string name="screenrecord_notif_pointer_off">Скрыть указатель</string>
   <string name="screenrecord_notif_error">Невозможно записать экран</string>
+  <string name="left_shortcut_hint">Swipe right for %1$s</string>
+  <string name="right_shortcut_hint">Swipe left for %1$s</string>
 </resources>

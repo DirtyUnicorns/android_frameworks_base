@@ -29,16 +29,15 @@
   <string name="app_killed_message">Uygulama sonlandırıldı</string>
   <string name="powermenu_screenshot">Ekran Görüntüsü</string>
   <string name="powermenu_screenrecord">Ekran Kaydı</string>
-  <string name="permlab_accessThemeService">access theme service</string>
-  <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
-  <string name="permlab_readThemes">read your theme info</string>
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
-  <string name="permlab_writeThemes">modify your themes</string>
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
-  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+  <string name="permlab_accessThemeService">tema hizmetine erişim</string>
+  <string name="permdesc_accessThemeService">Bir uygulamanın tema hizmetine erişimine izin verir. Normal uygulamalar için gerekli değildir.</string>
+  <string name="permlab_readThemes">tema bilgisini oku</string>
+  <string name="permdesc_readThemesDesc">Uygulamanın temalarınızı okumasına ve hangi
+temayı uyguladığınızı belirlemesine izin verir.</string>
+  <string name="permlab_writeThemes">temalarını düzenle</string>
+  <string name="permdesc_writeThemesDesc">Uygulmaya yeni temalar eklemeye ve uyguladığınız temayı değiştirmesine izin verir.</string>
+  <string name="theme_install_error_title">Tema yüklenemedi</string>
+  <string name="theme_install_error_message">%s yüklenemedi</string>
+  <string name="permlab_setKeyguardWallpaper">tuş kilidi duvar kağıdını ayarla</string>
+  <string name="permdesc_setKeyguardWallpaper">Bir uygulamanın kilit ekranı duvar kağıdını değiştirmesine izin verir.</string>
 </resources>
