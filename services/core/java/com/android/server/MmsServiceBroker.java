@@ -224,7 +224,7 @@ public class MmsServiceBroker extends SystemService {
     }
 
     public void systemRunning() {
-        Slog.i(TAG, "Delay connecting to MmsService until an API is called");
+        Slog.i(TAG, "systemRunning");
     }
 
     private void tryConnecting() {
