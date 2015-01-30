@@ -19,17 +19,17 @@
   <string name="toast_success_delete">Dosyalar silindi</string>
   <string name="dialog_delete_confirm_title">Dosyalar silinsin mi?</string>
   <plurals name="files_copied">
-    <item quantity="one">Dosya panoya konulmuştur</item>
-    <item quantity="other">%d files have been put in the clipboard</item>
+    <item quantity="one">Dosya panoya kopyalanmıştır</item>
+    <item quantity="other">%d dosyalar panoya kopyalanmıştır</item>
   </plurals>
   <plurals name="files_pasted">
-    <item quantity="one">The file has been pasted. Upload might be finishing in background.</item>
-    <item quantity="other">%d files have been pasted. Upload might be finishing in background.</item>
+    <item quantity="one">dosya yapıştırıldı. yükleme arka planda tamamlanmalı</item>
+    <item quantity="other">%d dosyalar yapıştırıldı. yükleme arka planda tamamlanmalı.</item>
   </plurals>
   <string name="copy_in_progress">Kopyalanıyor...</string>
   <string name="delete_in_progress">Siliniyor...</string>
   <plurals name="dialog_delete_confirm_message">
     <item quantity="one">Bu dosya kalıcı olarak silinecek!</item>
-    <item quantity="other">This will permanently delete the %d files selected!</item>
+    <item quantity="other">Bu %d seçili dosyalar kalıcı olarak silinecek!</item>
   </plurals>
 </resources>
