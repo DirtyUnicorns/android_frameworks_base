@@ -20,6 +20,8 @@
     <!-- Quick Settings -->
     <string name="quick_settings_lockscreen">Lock screen</string>
     <string name="quick_settings_screenshot">Screenshot</string>
+    <string name="quick_settings_sync">Sync</string>
+    <string name="quick_settings_sync_off">Sync off</string>
 
     <!-- The text for the button in the notification window-shade that clears
          all of the currently visible notifications. [CHAR LIMIT=10]-->
