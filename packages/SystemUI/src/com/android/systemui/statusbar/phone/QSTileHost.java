@@ -37,6 +37,7 @@ import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
+import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.statusbar.policy.BluetoothController;
 import com.android.systemui.statusbar.policy.CastController;
@@ -254,6 +255,7 @@ public class QSTileHost implements QSTile.Host, Tunable {
         else if (tileSpec.equals("location")) return new LocationTile(this);
         else if (tileSpec.equals("cast")) return new CastTile(this);
         else if (tileSpec.equals("hotspot")) return new HotspotTile(this);
+        else if (tileSpec.equals("usb_tether")) return new UsbTetherTile(this);
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(this,tileSpec);
         else throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
     }
