@@ -110,7 +110,6 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
     int PHONE_ID2 = PhoneConstants.PHONE_ID2;
     private HashMap<Integer, Integer> mSubIdPhoneIdMap;
     ArrayList<MSimSignalCluster> mSimSignalClusters = new ArrayList<MSimSignalCluster>();
-    ArrayList<TextView> mSubsLabelViews = new ArrayList<TextView>();
 
     public interface MSimSignalCluster {
         void setWifiIndicators(boolean visible, int strengthIcon, int activityIcon,
@@ -456,14 +455,6 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
         }
     }
 
-    public void addSubsLabelView(TextView v) {
-        mSubsLabelViews.add(v);
-    }
-
-    public void clearSubsLabelView() {
-        mSubsLabelViews.clear();
-    }
-
     private void updateCarrierText(int sub) {
         int textResId = 0;
         if (mAirplaneMode) {
@@ -513,17 +504,10 @@ public class MSimNetworkControllerImpl extends NetworkControllerImpl {
             carrierName = carrierName + "    " + mCarrierTextSub[i];
         }
 
-        if (mContext.getResources().getBoolean(R.bool.config_showDataConnectionView)) {
-            for (int i = 0; i < mSubsLabelViews.size(); i++) {
-                TextView v = mSubsLabelViews.get(i);
-                v.setText(carrierName);
-            }
-        } else {
-            for (int i = 0; i < mMobileLabelViews.size(); i++) {
-                TextView v = mMobileLabelViews.get(i);
-                v.setText(carrierName);
-                v.setVisibility(View.VISIBLE);
-            }
+        for (int i = 0; i < mMobileLabelViews.size(); i++) {
+            TextView v = mMobileLabelViews.get(i);
+            v.setText(carrierName);
+            v.setVisibility(View.VISIBLE);
         }
     }
 
