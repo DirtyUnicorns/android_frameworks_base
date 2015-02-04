@@ -18,7 +18,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="quick_settings_lockscreen">Lock screen</string>
+  <string name="quick_settings_lockscreen">잠금 화면</string>
   <string name="clear_recents">최근 창 모두 닫기</string>
   <string name="status_bar_expanded_header_weather_format"><xliff:g id="온도">%1$s</xliff:g> - <xliff:g id="상태">%2$s</xliff:g></string>
   <string name="app_float_maximize_item_title">최대화</string>
@@ -30,6 +30,6 @@
   <string name="screenrecord_notif_pointer_on">포인터 표시</string>
   <string name="screenrecord_notif_pointer_off">포인터 숨기기</string>
   <string name="screenrecord_notif_error">화면을 녹화할 수 없습니다.</string>
-  <string name="left_shortcut_hint">Swipe right for %1$s</string>
-  <string name="right_shortcut_hint">Swipe left for %1$s</string>
+  <string name="left_shortcut_hint">밀어서 %1$s</string>
+  <string name="right_shortcut_hint">당겨서 %1$s</string>
 </resources>

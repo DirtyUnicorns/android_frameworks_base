@@ -41,4 +41,6 @@
   <string name="theme_install_error_message">%s kunde inte installeras</string>
   <string name="permlab_setKeyguardWallpaper">välj bakgrundsbild på låsskärm</string>
   <string name="permdesc_setKeyguardWallpaper">Tillåter en app att ändra låsskärmens bakgrundsbild.</string>
+  <string name="theme_reset_notification_title">Theme reset</string>
+  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
 </resources>
