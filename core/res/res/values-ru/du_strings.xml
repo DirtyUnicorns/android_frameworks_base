@@ -31,7 +31,7 @@
   <string name="powermenu_screenrecord">Запись экрана</string>
   <string name="permlab_accessThemeService">Доступ к службе тем</string>
   <string name="permdesc_accessThemeService">Приложение сможет получать доступ к службе тем. Это разрешение не используется обычными приложениями.</string>
-  <string name="permlab_readThemes">Чтение информации о теме</string>
+  <string name="permlab_readThemes">Прочитайте информацию о вашей теме</string>
   <string name="permdesc_readThemesDesc">Приложение сможет считывать темы оформления и определять, какая тема сейчас применена.</string>
   <string name="permlab_writeThemes">Изменение Ваших тем</string>
   <string name="permdesc_writeThemesDesc">Приложение сможет осуществлять установку новых тем оформления и изменять текущую тему.</string>
@@ -39,4 +39,6 @@
   <string name="theme_install_error_message">Сбой при установке «%s»</string>
   <string name="permlab_setKeyguardWallpaper">Установка обоев экрана блокировки</string>
   <string name="permdesc_setKeyguardWallpaper">Приложение сможет изменять обои экрана блокировки.</string>
+  <string name="theme_reset_notification_title">Theme reset</string>
+  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
 </resources>
