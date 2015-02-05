@@ -518,8 +518,6 @@ public class NavbarEditor implements View.OnTouchListener {
 
             // Not re-assignable
             items.remove(NAVBAR_HOME);
-            items.remove(NAVBAR_RECENT);
-            items.remove(NAVBAR_BACK);
             // menu buttons can only be assigned to side buttons
             if (!smallButtons) {
                 items.remove(NAVBAR_CONDITIONAL_MENU);
