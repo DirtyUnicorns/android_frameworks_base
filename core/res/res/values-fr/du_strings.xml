@@ -39,6 +39,4 @@
   <string name="theme_install_error_message">Impossible d\'installer %s</string>
   <string name="permlab_setKeyguardWallpaper">définir le fond d\'écran de déverrouillage</string>
   <string name="permdesc_setKeyguardWallpaper">Permet à une application de modifier le fond d\'écran de déverrouillage.</string>
-  <string name="theme_reset_notification_title">Theme reset</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
 </resources>
