@@ -150,25 +150,32 @@ final class ColorFade {
         mDisplayWidth = displayInfo.getNaturalWidth();
         mDisplayHeight = displayInfo.getNaturalHeight();
 
-        // Prepare the surface for drawing.
-        if (!(createSurface() && createEglContext() && createEglSurface() &&
-              captureScreenshotTextureAndSetViewport())) {
-            dismiss();
-            return false;
-        }
-
-        // Init GL
-        if (!attachEglContext()) {
-            return false;
-        }
-        try {
-            if(!initGLShaders(context) || !initGLBuffers() || checkGlErrors("prepare")) {
-                detachEglContext();
+        if (mMode == MODE_FADE) {
+            if (!createSurface()) {
                 dismiss();
                 return false;
             }
-        } finally {
-            detachEglContext();
+        } else {
+            // Prepare the surface for drawing.
+            if (!(createSurface() && createEglContext() && createEglSurface() &&
+                  captureScreenshotTextureAndSetViewport())) {
+                dismiss();
+                return false;
+            }
+
+            // Init GL
+            if (!attachEglContext()) {
+                return false;
+            }
+            try {
+                if(!initGLShaders(context) || !initGLBuffers() || checkGlErrors("prepare")) {
+                    detachEglContext();
+                    dismiss();
+                    return false;
+                }
+            } finally {
+                detachEglContext();
+            }
         }
 
         // Done.
