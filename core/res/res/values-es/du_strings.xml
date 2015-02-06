@@ -18,13 +18,13 @@
   <string name="reboot_system" product="default">Reiniciar teléfono</string>
   <string name="reboot_reboot">Reiniciar</string>
   <string name="reboot_recovery">Modo Recovery</string>
-  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_bootloader">Modo Bootloader</string>
   <string name="reboot_bootmenu">Menú de inicio</string>
-  <string name="reboot_fastboot">Fastboot</string>
-  <string name="reboot_download">Descarga</string>
+  <string name="reboot_fastboot">Modo Fastboot</string>
+  <string name="reboot_download">Reinicio en modo descarga</string>
   <string name="reboot_progress">Reiniciando\u2026</string>
   <string name="reboot_confirm">El teléfono se reiniciará.</string>
-  <string name="global_action_reboot">Reiniciar</string>
+  <string name="global_action_reboot">Reinicio</string>
   <string name="default_string">Por defecto</string>
   <string name="app_killed_message">Aplicación finalizada</string>
   <string name="powermenu_screenshot">Captura de pantalla</string>
@@ -39,6 +39,4 @@
   <string name="theme_install_error_message">%s falló en la instalación</string>
   <string name="permlab_setKeyguardWallpaper">Establecer el fondo de pantalla de bloqueo</string>
   <string name="permdesc_setKeyguardWallpaper">Permite que otras aplicaciones cambien el fondo de pantalla de bloqueo.</string>
-  <string name="theme_reset_notification_title">Theme reset</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
 </resources>
