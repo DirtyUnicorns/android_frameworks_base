@@ -19,6 +19,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Quick Settings -->
     <string name="quick_settings_lockscreen">Lock screen</string>
+    <string name="quick_settings_screenshot">Screenshot</string>
 
     <!-- The text for the button in the notification window-shade that clears
          all of the currently visible notifications. [CHAR LIMIT=10]-->
