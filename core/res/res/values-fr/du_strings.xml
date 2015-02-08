@@ -25,18 +25,42 @@
   <string name="reboot_progress">Redémarrage\u2026</string>
   <string name="reboot_confirm">Votre téléphone va redémarrer.</string>
   <string name="global_action_reboot">Redémarrer</string>
+  <string name="usb_charging_notification_title">Connecté en mode recharge</string>
+  <string name="progress_nomediapresent" product="default">Aucun support amovible présent\u2026</string>
+  <string name="android_upgrading_fstrim">Optimisation de stockage.</string>
+  <string name="permission_remember_choice">Se souvenir</string>
+  <string name="permission">Demande d\'autorisation</string>
+  <string name="permission_dialog_text">%1$s souhaite %2$s</string>
   <string name="default_string">Par défaut</string>
   <string name="app_killed_message">Arrêt de l\'application forcé</string>
   <string name="powermenu_screenshot">Capture d\'écran</string>
   <string name="powermenu_screenrecord">Capture vidéo</string>
-  <string name="permlab_accessThemeService">accéder au gestionnaire de thème</string>
-  <string name="permdesc_accessThemeService">Permet d\'accéder au gestionnaire de thème. Ne doit pas être utilisé par des applications normales.</string>
-  <string name="permlab_readThemes">lire les informations du thème</string>
-  <string name="permdesc_readThemesDesc">Permet à une application de lister vos thèmes et de déterminer celui que vous avez appliqué.</string>
-  <string name="permlab_writeThemes">modifier vos thèmes</string>
-  <string name="permdesc_writeThemesDesc">Permet à une application d\'installer de nouveaux thèmes et modifier le thème que vous avez appliqué.</string>
-  <string name="theme_install_error_title">Impossible d\'installer le thème</string>
-  <string name="theme_install_error_message">Impossible d\'installer %s</string>
-  <string name="permlab_setKeyguardWallpaper">définir le fond d\'écran de déverrouillage</string>
-  <string name="permdesc_setKeyguardWallpaper">Permet à une application de modifier le fond d\'écran de déverrouillage.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessThemeService">accéder au gestionnaire de thème</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessThemeService">Permet d\'accéder au gestionnaire de thème. Ne doit pas être utilisé par des applications normales.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_readThemes">lire les informations du thème</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_readThemesDesc">Permet à une application de lister vos thèmes et de déterminer celui que vous avez appliqué.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_writeThemes">modifier vos thèmes</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_writeThemesDesc">Permet à une application d\'installer de nouveaux thèmes et modifier le thème que vous avez appliqué.</string>
+
+    <!-- Theme installation error notification -->
+    <string name="theme_install_error_title">Échec d\'installation du thème</string>
+    <string name="theme_install_error_message">Impossible d\'installer %s</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+    <string name="permlab_setKeyguardWallpaper">modifier le fond d\'écran de verrouillage</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_setKeyguardWallpaper">Permet à une application de modifier le fond d\'écran de déverrouillage.</string>
+
+    <string name="theme_reset_notification_title">Réinitialisation du thème</string>
+    <string name="theme_reset_notification_body">Thème système restauré en raison de multiples plantages d\'application.</string>
+
 </resources>
