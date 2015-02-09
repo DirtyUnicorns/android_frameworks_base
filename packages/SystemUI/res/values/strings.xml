@@ -958,6 +958,10 @@
     <!-- Brightness qs tile -->
     <string name="quick_settings_brightness">Brightness</string>
 
+    <!-- Battery saver qs tile -->
+    <string name="quick_settings_battery_saver">Battery saver</string>
+    <string name="quick_settings_battery_saver_off">Battery saver off</string>
+
     <!-- Heads up toast -->
     <string name="heads_up_enabled">Heads up notifications are enabled</string>
     <string name="heads_up_disabled">Heads up notifications are disabled</string>
