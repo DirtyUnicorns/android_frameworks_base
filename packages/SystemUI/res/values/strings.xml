@@ -216,6 +216,8 @@
     <string name="phone_label">open phone</string>
     <!-- Click action label for accessibility for the phone button. [CHAR LIMIT=NONE] -->
     <string name="camera_label">open camera</string>
+    <!-- Content description of the power button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_power">Power</string>
 
     <!-- Content description of the switch input method button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_ime_switch_button">Switch input method button.</string>
@@ -965,6 +967,9 @@
     <!-- Heads up toast -->
     <string name="heads_up_enabled">Heads up notifications are enabled</string>
     <string name="heads_up_disabled">Heads up notifications are disabled</string>
+
+    <!-- Power Button for Navbar -->
+    <string name="navbar_power_button">Power button</string>
 
     <!-- NavBar tile -->
     <string name="quick_settings_navbar_on">NavBar On</string>
