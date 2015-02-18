@@ -34,7 +34,7 @@ import com.android.systemui.statusbar.policy.NetworkController.NetworkSignalChan
 
 /** Quick settings tile: Cellular **/
 public class CellularTile extends QSTile<QSTile.SignalState> {
-    private static final Intent CELLULAR_SETTINGS = new Intent().setComponent(new ComponentName(
+    private static final Intent DATA_USAGE_SETTINGS = new Intent().setComponent(new ComponentName(
             "com.android.settings", "com.android.settings.Settings$DataUsageSummaryActivity"));
 
     private final NetworkController mController;
@@ -75,7 +75,7 @@ public class CellularTile extends QSTile<QSTile.SignalState> {
         if (mController.isMobileDataSupported()) {
             showDetail(true);
         } else {
-            mHost.startSettingsActivity(CELLULAR_SETTINGS);
+            mHost.startSettingsActivity(DATA_USAGE_SETTINGS);
         }
     }
 
@@ -216,7 +216,7 @@ public class CellularTile extends QSTile<QSTile.SignalState> {
 
         @Override
         public Intent getSettingsIntent() {
-            return CELLULAR_SETTINGS;
+            return DATA_USAGE_SETTINGS;
         }
 
         @Override
