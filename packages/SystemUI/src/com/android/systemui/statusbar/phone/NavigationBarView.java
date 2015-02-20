@@ -37,6 +37,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.os.RemoteException;
+import android.os.PowerManager;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.util.AttributeSet;
@@ -48,6 +49,7 @@ import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.GestureDetector;
 import android.view.*;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
@@ -132,6 +134,8 @@ public class NavigationBarView extends LinearLayout {
 
     private SettingsObserver mSettingsObserver;
     private boolean mShowDpadArrowKeys;
+
+    private GestureDetector mDoubleTapGesture;
 
     private class NavTransitionListener implements TransitionListener {
         private boolean mBackTransitioning;
@@ -228,6 +232,17 @@ public class NavigationBarView extends LinearLayout {
 
         mNavBarReceiver = new NavBarReceiver();
         mSettingsObserver = new SettingsObserver(new Handler());
+
+        mDoubleTapGesture = new GestureDetector(mContext,
+                new GestureDetector.SimpleOnGestureListener() {
+            @Override
+            public boolean onDoubleTap(MotionEvent e) {
+                PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+                if (pm != null) pm.goToSleep(e.getEventTime());
+                return true;
+            }
+        });
+
     }
 
     @Override
@@ -276,6 +291,10 @@ public class NavigationBarView extends LinearLayout {
             boolean ret = mDelegateHelper.onInterceptTouchEvent(event);
             if (ret) return true;
         }
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.DOUBLE_TAP_SLEEP_NAVBAR, 0) == 1)
+            mDoubleTapGesture.onTouchEvent(event);
+
         return super.onTouchEvent(event);
     }
 
