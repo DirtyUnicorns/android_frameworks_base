@@ -3393,6 +3393,13 @@ public final class Settings {
         public static final String STATUS_BAR_SHOW_WEATHER = "status_bar_show_weather";
 
         /**
+         * Whether to display lock in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LOCKDOWN = "powermenu_lockdown";
+
+        /**
          * Whether to display sound panel in the power menu
          *
          * @hide

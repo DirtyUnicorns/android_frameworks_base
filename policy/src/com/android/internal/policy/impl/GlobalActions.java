@@ -339,7 +339,10 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 mItems.add(getSettingsAction());
                 }
             } else if (GLOBAL_ACTION_KEY_LOCKDOWN.equals(actionKey)) {
+                if (Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.POWERMENU_LOCKDOWN, 0) != 0) {
                 mItems.add(getLockdownAction());
+                }
             } else {
                 Log.e(TAG, "Invalid global action key " + actionKey);
             }
