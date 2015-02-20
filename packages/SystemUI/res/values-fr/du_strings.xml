@@ -31,6 +31,8 @@
     <!-- The text for the button in the notification window-shade that clears
          all of the currently visible notifications. [CHAR LIMIT=10]-->
     <string name="clear_recents">Tout fermer</string>
+    <!-- Content description of the power button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_power">Alimentation</string>
 
     <!-- App circle sidebar -->
     <string name="app_float_maximize_item_title">Maximiser</string>
@@ -62,4 +64,39 @@
     <string name="accessibility_dpad_left">Curseur gauche</string>
     <string name="accessibility_dpad_right">Curseur droit</string>
 
+    <!-- Navigation ring shortcuts -->
+    <string name="navigation_ring_title">Raccourcis de la barre de navigation</string>
+    <string name="navring_target_reset_message">Revenir à la configuration d\'origine\u00A0?</string>
+    <string name="navring_target_reset">Raccourcis de la barre de navigation réinitialisés</string>
+    <string name="navring_action_open_ime_switcher">Changer la méthode de saisie</string>
+    <string name="navring_action_kill_app">Fermer les applications</string>
+    <string name="navring_action_none">Aucun</string>
+    <string name="navring_action_take_screenshot">Effectuer une capture d\'écran</string>
+    <string name="navring_action_ring_vibrate">Sonnerie/Vibreur</string>
+    <string name="navring_action_ring_silent">Sonnerie/Silencieux</string>
+    <string name="navring_action_ring_vibrate_silent">Sonnerie/Vibreur/Silencieux</string>
+    <string name="navring_action_screen_off">Mise en veille</string>
+    <string name="navring_action_torch">Lampe torche</string>
+    <string name="navring_action_google_now">Google Now</string>
+    <string name="navring_choose_action_title">Choisir une action</string>
+    <string name="select_application">Choisir une application</string>
+    <string name="lockscreen_target_empty">Vide</string>
+
+    <!-- Heads up tile -->
+    <string name="quick_settings_heads_up_on">Notifications Flottantes activées</string>
+    <string name="quick_settings_heads_up_off">Aucune interruption</string>
+
+    <!-- Brightness qs tile -->
+    <string name="quick_settings_brightness">Luminosité</string>
+
+    <!-- Battery saver qs tile -->
+    <string name="quick_settings_battery_saver">Économiseur de batterie</string>
+    <string name="quick_settings_battery_saver_off">Économiseur de batterie désactivé</string>
+
+    <!-- Heads up toast -->
+    <string name="heads_up_enabled">Notifications Flottantes activées</string>
+    <string name="heads_up_disabled">Notifications Flottantes désactivées</string>
+
+    <!-- Power Button for Navbar -->
+    <string name="navbar_power_button">Bouton marche/arrêt</string>
 </resources>
