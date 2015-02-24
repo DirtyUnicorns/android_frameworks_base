@@ -114,6 +114,7 @@ public class MediaProjectionPermissionActivity extends Activity
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        if (mDialog != null) {
         mDialog.dismiss();
     }
 
@@ -128,7 +129,9 @@ public class MediaProjectionPermissionActivity extends Activity
             Log.e(TAG, "Error granting projection permission", e);
             setResult(RESULT_CANCELED);
         } finally {
-            mDialog.dismiss();
+            if (mDialog != null) {
+                mDialog.dismiss();
+            }
             finish();
         }
     }
