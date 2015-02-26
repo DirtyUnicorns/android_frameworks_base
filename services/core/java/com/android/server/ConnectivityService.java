@@ -203,6 +203,10 @@ public class ConnectivityService extends IConnectivityManager.Stub
     // start network sampling a minute after booting ...
     private static final int DEFAULT_START_SAMPLING_INTERVAL_IN_SECONDS = (SAMPLE_DBG ? 30 : 60);
 
+    private static final int ADV_WIN_SCALE_DEFAULT = 2;
+
+    private static final int ADV_WIN_SCALE_2G = 1;
+
     AlarmManager mAlarmManager;
 
     private Tethering mTethering;
@@ -1763,14 +1767,31 @@ public class ConnectivityService extends IConnectivityManager.Stub
             loge("Can't set TCP buffer sizes:" + e);
         }
 
-        final String defaultRwndKey = "net.tcp.default_init_rwnd";
+        String RwndKey = "net.tcp.default_init_rwnd";
+        Integer AdvWinScale = ADV_WIN_SCALE_DEFAULT;
+
+        switch (mTelephonyManager.getNetworkClass(mTelephonyManager.getNetworkType())) {
+            case TelephonyManager.NETWORK_CLASS_2_G:
+                 RwndKey = "net.tcp.2g_init_rwnd";
+                 AdvWinScale = ADV_WIN_SCALE_2G;
+                 break;
+            case TelephonyManager.NETWORK_CLASS_3_G:
+            case TelephonyManager.NETWORK_CLASS_4_G:
+            default:
+                 break;
+        }
+
+        final String defaultRwndKey = RwndKey;
         int defaultRwndValue = SystemProperties.getInt(defaultRwndKey, 0);
         Integer rwndValue = Settings.Global.getInt(mContext.getContentResolver(),
             Settings.Global.TCP_DEFAULT_INIT_RWND, defaultRwndValue);
-        final String sysctlKey = "sys.sysctl.tcp_def_init_rwnd";
+        final String sysctlKeyRwnd = "sys.sysctl.tcp_def_init_rwnd";
         if (rwndValue != 0) {
-            SystemProperties.set(sysctlKey, rwndValue.toString());
+            SystemProperties.set(sysctlKeyRwnd, rwndValue.toString());
         }
+
+        final String sysctlKeyWinScale = "sys.sysctl.tcp_adv_win_scale";
+        SystemProperties.set(sysctlKeyWinScale, AdvWinScale.toString());
     }
 
     private void flushVmDnsCache() {
