@@ -258,5 +258,8 @@
 
     <!-- Zen toast visibility duration -->
     <integer name="zen_toast_visible_duration">500</integer>
-</resources>
 
+    <!-- Doze: shake accelerometer threshold minimum is 2 and maximum is 10-->
+    <integer name="doze_shake_accelerometer_threshold">10</integer>
+
+</resources>
