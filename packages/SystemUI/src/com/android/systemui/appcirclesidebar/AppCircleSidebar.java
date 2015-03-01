@@ -164,7 +164,7 @@ public class AppCircleSidebar extends TriggerOverlayView implements PackageAdapt
             }
 
             int width = Settings.System.getInt(
-                    resolver, Settings.System.APP_CIRCLE_BAR_TRIGGER_WIDTH, 10);
+                    resolver, Settings.System.APP_CIRCLE_BAR_TRIGGER_WIDTH, 40);
             if (mTriggerWidth != width)
                 setTriggerWidth(width);
             setTopPercentage(Settings.System.getInt(
