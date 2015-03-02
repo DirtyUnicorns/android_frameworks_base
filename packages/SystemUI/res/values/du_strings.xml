@@ -18,6 +18,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Quick Settings -->
+    <string name="quick_settings_doze">Doze enabled</string>
+    <string name="quick_settings_doze_off">Doze disabled</string>
     <string name="quick_settings_lockscreen">Lock screen</string>
     <string name="quick_settings_screenshot">Screenshot</string>
     <string name="quick_settings_sync">Sync</string>
