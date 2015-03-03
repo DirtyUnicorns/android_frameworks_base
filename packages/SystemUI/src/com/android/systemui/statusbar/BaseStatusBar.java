@@ -834,7 +834,8 @@ public abstract class BaseStatusBar extends SystemUI implements
 
         if (entry.icon != null) {
             if (entry.targetSdk >= Build.VERSION_CODES.LOLLIPOP) {
-                entry.icon.setColorFilter(mContext.getResources().getColor(R.color.notify_icon_tint_color));
+                entry.icon.setColorFilter(mContext.getResources().getColor(
+                    R.color.notification_icon_color));
             } else {
                 entry.icon.setColorFilter(null);
             }
