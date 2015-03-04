@@ -48,6 +48,7 @@ import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.LockscreenToggleTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.NotificationsTile;
+import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.ScreenTimeoutTile;
@@ -296,6 +297,8 @@ public class QSTileHost implements QSTile.Host {
                 return new LockscreenToggleTile(this);
             case QSConstants.TILE_SCREENSHOT:
                 return new ScreenshotTile(this);
+            case QSConstants.TILE_REBOOT:
+                return new RebootTile(this);
             case QSConstants.TILE_SYNC:
                 return new SyncTile(this);
             case QSConstants.TILE_SCREEN_TIMEOUT:
