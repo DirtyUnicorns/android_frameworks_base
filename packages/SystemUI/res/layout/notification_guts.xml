@@ -82,7 +82,7 @@
                  android:layout_height="match_parent"
                  android:layout_weight="0"
                  android:gravity="center"
-                 android:src="@drawable/ic_settings"
+                 android:src="@drawable/notification_guts_ic_settings"
                  android:visibility="gone"
                 />
 
