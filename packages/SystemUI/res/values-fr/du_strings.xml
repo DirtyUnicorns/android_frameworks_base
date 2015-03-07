@@ -20,10 +20,17 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Quick Settings -->
+    <string name="quick_settings_doze">Mode sommeil activé</string>
+    <string name="quick_settings_doze_off">Mode sommeil désactivé</string>
     <string name="quick_settings_lockscreen">Écran de déverrouillage</string>
     <string name="quick_settings_screenshot">Capture d\'écran</string>
+    <string name="quick_settings_reboot_label">Redémarrer</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <string name="quick_settings_sync">Synchronisation</string>
     <string name="quick_settings_sync_off">Synchronisation désactivée</string>
+    <string name="quick_settings_screen_timeout_title">Mise en veille</string>
+    <string name="quick_settings_screenrecord">Capture vidéo</string>
+    <string name="quick_settings_screenrecord_on">Écran en cours d\'enregistrement\u2026</string>
 
     <!-- Content description of the battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_battery_level">Batterie <xliff:g id="number">%d</xliff:g> pour cent.</string>
