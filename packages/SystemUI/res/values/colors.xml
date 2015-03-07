@@ -126,4 +126,36 @@
 
     <!-- Shadow color for the furthest pixels around the fake shadow for recents. -->
     <color name="fake_shadow_end_color">#03000000</color>
+
+    <!-- Color for the "No recent apps" text in the recent apps list. -->
+    <color name="no_recent_apps">#bebebe</color>
+
+    <!-- Colors for the system bars -->
+    <color name="status_bar_background_opaque">@color/system_bar_background_opaque</color>
+    <color name="status_bar_background_semi_transparent">
+        @color/system_bar_background_semi_transparent
+    </color>
+    <color name="status_bar_background_transparent">@color/system_bar_background_transparent</color>
+    <color name="navigation_bar_background_opaque">@color/system_bar_background_opaque</color>
+    <color name="navigation_bar_background_semi_transparent">
+        @color/system_bar_background_semi_transparent
+    </color>
+    <color name="navigation_bar_background_transparent">
+        @color/system_bar_background_transparent
+    </color>
+    <color name="navring_check_tint">@android:color/white</color>
+    <color name="navring_edit_fill">#FF558B2F</color>
+    <color name="navring_edit_tint">#FF689F38</color>
+
+    <!-- Background of the volume panel. See also: volume_dialog_background -->
+    <color name="volume_panel_background_color">@color/system_secondary_color</color>
+
+    <!-- Battery base color -->
+    <color name="batterymeter_base_color">#FFFFFFFF</color>
+
+    <!-- Color for notification icons -->
+    <color name="notification_icon_color">#FFFFFFFF</color>
+
+    <!-- Navigation button ripple color -->
+    <color name="navbutton_ripple_color">#FFFFFFFF</color>
 </resources>
