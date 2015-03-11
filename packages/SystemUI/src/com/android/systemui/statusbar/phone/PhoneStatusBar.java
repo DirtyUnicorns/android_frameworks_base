@@ -52,7 +52,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
-import android.content.res.ThemeChangeRequest.RequestType;
 import android.content.res.ThemeConfig;
 import android.content.res.Resources;
 import android.database.ContentObserver;
@@ -773,7 +772,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 com.android.internal.R.integer.config_screenBrightnessDim);
 
         updateDisplaySize(); // populates mDisplayMetrics
-        updateResources(null);
+        updateResources();
 
         mIconSize = res.getDimensionPixelSize(com.android.internal.R.dimen.status_bar_icon_size);
 
@@ -3679,7 +3678,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
         updateDisplaySize(); // populates mDisplayMetrics
 
-        updateResources(newConfig);
+        updateResources();
         updateClockSize();
         repositionNavigationBar();
         updateExpandedViewPos(EXPANDED_LEAVE_ALONE);
@@ -3857,12 +3856,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
      * should, but getting that smooth is tough.  Someday we'll fix that.  In the
      * meantime, just update the things that we know change.
      */
-    void updateResources(Configuration newConfig) {
+    void updateResources() {
         final Context context = mContext;
+        final Resources res = context.getResources();
 
         // detect theme change.
-        ThemeConfig newTheme = newConfig != null ? newConfig.themeConfig : null;
-        if (shouldUpdateStatusbar(mCurrentTheme, newTheme)) {
+        ThemeConfig newTheme = res.getConfiguration().themeConfig;
+        if (newTheme != null &&
+                (mCurrentTheme == null || !mCurrentTheme.equals(newTheme))) {
             mCurrentTheme = (ThemeConfig)newTheme.clone();
             recreateStatusBar();
         } else {
@@ -3893,30 +3894,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             updateSearchPanel();
             checkBarModes();
         }
-    }
-
-    /**
-     * Determines if we need to recreate the status bar due to a theme change.  We currently
-     * check if the overlay for the status bar, fonts, or icons, or forced update count have
-     * changed.
-     *
-     * @param oldTheme
-     * @param newTheme
-     * @return True if we should recreate the status bar
-     */
-    private boolean shouldUpdateStatusbar(ThemeConfig oldTheme, ThemeConfig newTheme) {
-        // no newTheme, so no need to update status bar
-        if (newTheme == null) return false;
-
-        final String overlay = newTheme.getOverlayForStatusBar();
-        final String icons = newTheme.getIconPackPkgName();
-        final String fonts = newTheme.getFontPkgName();
-
-        return oldTheme == null ||
-                (overlay != null && !overlay.equals(oldTheme.getOverlayForStatusBar()) ||
-                (fonts != null && !fonts.equals(oldTheme.getFontPkgName())) ||
-                (icons != null && !icons.equals(oldTheme.getIconPackPkgName())) ||
-                newTheme.getLastThemeChangeRequestType() == RequestType.THEME_UPDATED);
     }
 
     private void updateClockSize() {
