@@ -2267,8 +2267,8 @@ public class PhoneNumberUtils
                 if (useNanp) {
                     networkDialStr = extractNetworkPortion(tempDialStr);
                 } else  {
-                    networkDialStr = extractNetworkPortionAlt(tempDialStr);
-
+                    Rlog.e("checkAndProcessPlusCode:non-NANP not supported", dialStr);
+                    return dialStr;
                 }
 
                 networkDialStr = processPlusCode(networkDialStr, useNanp);
