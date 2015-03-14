@@ -5554,12 +5554,16 @@ public class AudioService extends IAudioService.Stub
         if (device == AudioSystem.DEVICE_OUT_WIRED_HEADSET) {
             intent.setAction(Intent.ACTION_HEADSET_PLUG);
             intent.putExtra("microphone", 1);
-            startMusicPlayer();
+            if (state == 1) {
+                startMusicPlayer();
+            }
         } else if (device == AudioSystem.DEVICE_OUT_WIRED_HEADPHONE ||
                    device == AudioSystem.DEVICE_OUT_LINE) {
             intent.setAction(Intent.ACTION_HEADSET_PLUG);
             intent.putExtra("microphone",  0);
-            startMusicPlayer();
+            if (state == 1) {
+                startMusicPlayer();
+            }
         } else if (device == AudioSystem.DEVICE_OUT_USB_HEADSET) {
             intent.setAction(Intent.ACTION_HEADSET_PLUG);
             intent.putExtra("microphone",
