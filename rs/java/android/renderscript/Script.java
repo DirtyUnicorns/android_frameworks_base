@@ -198,9 +198,10 @@ public class Script extends BaseObj {
      */
     protected void forEach(int slot, Allocation[] ains, Allocation aout, FieldPacker v, LaunchOptions sc) {
         mRS.validate();
-
-        for (Allocation ain : ains) {
-          mRS.validateObject(ain);
+        if (ains != null) {
+            for (Allocation ain : ains) {
+                mRS.validateObject(ain);
+            }
         }
 
         mRS.validateObject(aout);
