@@ -1975,6 +1975,15 @@ public class AudioService extends IAudioService.Stub {
                             }
                         }
                     }
+                    // Post a persist volume msg to save that changed volume
+                    int device = getDeviceForStream(streamType);
+                    sendMsg(mAudioHandler,
+                        MSG_PERSIST_VOLUME,
+                        SENDMSG_QUEUE,
+                        device,
+                        0,
+                        mStreamStates[streamType],
+                        PERSIST_DELAY);
                 }
                 mStreamStates[streamType].mute(null, false);
                 mRingerModeMutedStreams &= ~(1 << streamType);
@@ -4538,13 +4547,15 @@ public class AudioService extends IAudioService.Stub {
                 } else if (uri.equals(Settings.Global.getUriFor(
                     Settings.Global.DOCK_AUDIO_MEDIA_ENABLED))) {
                     readDockAudioSettings(mContentResolver);
-
-                mLinkNotificationWithVolume = Settings.System.getIntForUser(mContentResolver,
-                        Settings.System.VOLUME_LINK_NOTIFICATION, 1, UserHandle.USER_CURRENT) == 1;
-                if (mLinkNotificationWithVolume) {
-                    mStreamVolumeAlias[AudioSystem.STREAM_NOTIFICATION] = AudioSystem.STREAM_RING;
-                } else {
-                    mStreamVolumeAlias[AudioSystem.STREAM_NOTIFICATION] = AudioSystem.STREAM_NOTIFICATION;
+                } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.VOLUME_LINK_NOTIFICATION))) {
+                    mLinkNotificationWithVolume = Settings.System.getIntForUser(mContentResolver,
+                            Settings.System.VOLUME_LINK_NOTIFICATION, 1, UserHandle.USER_CURRENT) == 1;
+                    if (mLinkNotificationWithVolume) {
+                        mStreamVolumeAlias[AudioSystem.STREAM_NOTIFICATION] = AudioSystem.STREAM_RING;
+                    } else {
+                        mStreamVolumeAlias[AudioSystem.STREAM_NOTIFICATION] = AudioSystem.STREAM_NOTIFICATION;
+                    }
                 }
             }
         }
