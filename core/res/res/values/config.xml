@@ -2225,6 +2225,16 @@
     <integer name="launchboost_pcdisbl_param">0</integer>
     <integer name="launchboost_ksmboost_param">0</integer>
 
+   <!-- Activities list for boost -->
+   <string-array translatable="false" name="boost_activityList">
+   </string-array>
+
+   <!-- Activity scroll boost params -->
+   <integer name="ascrollboost_timeout">0</integer>
+   <integer name="ascrollboost_schedboost">0</integer>
+   <integer name="ascrollboost_cpuboost">0</integer>
+   <integer name="ascrollboost_pcdisbl">0</integer>
+
     <!-- Configuration to play sms ringtone during MO/MT call -->
     <bool name="config_sms_ringtone_incall">false</bool>
 
