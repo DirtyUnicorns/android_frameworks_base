@@ -291,7 +291,7 @@ public final class SystemServer {
                 reason = null;
             }
 
-            ShutdownThread.rebootOrShutdown(reboot, reason);
+            ShutdownThread.rebootOrShutdown(null, reboot, reason);
         }
     }
 
