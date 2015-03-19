@@ -253,7 +253,13 @@ public class ZygoteInit {
 
     static void preload() {
         Log.d(TAG, "begin preload");
-        preloadClasses();
+        if (true == Resources.getSystem().getBoolean
+            (com.android.internal.R.bool.config_boot_opt)) {
+            Log.i(TAG, " ******* Zygote Init Preload deferred *******");
+            //preloadClasses();
+        } else {
+            preloadClasses();
+        }
         preloadResources();
         preloadOpenGL();
         preloadSharedLibraries();
@@ -749,7 +755,9 @@ public class ZygoteInit {
 
         fds.add(sServerSocket.getFileDescriptor());
         peers.add(null);
-
+        boolean mPreload = false;
+        boolean mAutoProduct = Resources.getSystem().getBoolean
+                               (com.android.internal.R.bool.config_boot_opt);
         int loopCount = GC_LOOP_COUNT;
         while (true) {
             int index;
@@ -793,6 +801,12 @@ public class ZygoteInit {
                     fds.remove(index);
                 }
             }
+           if (false == mPreload && (true == mAutoProduct ) &&
+               ("1".equals(SystemProperties.get("sys.boot_completed","0")))) {
+               Log.i(TAG," ***** zygote init.Reading after boot completed.*****");
+               preloadClasses();
+               mPreload = true;
+           }
         }
     }
 
