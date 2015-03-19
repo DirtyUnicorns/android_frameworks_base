@@ -55,6 +55,9 @@
          strictly needed. -->
     <bool name="config_sf_limitedAlpha">false</bool>
 
+    <!-- Configuration value for automotive products -->
+    <bool name="config_boot_opt">false</bool>
+
     <!-- Default value used to block data calls if ims is not
          connected.  If you use the ims apn DCT will block
          any other apn from connecting until ims apn is connected-->
