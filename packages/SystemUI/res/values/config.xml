@@ -337,6 +337,11 @@
     <!-- Enable the default volume dialog -->
     <bool name="enable_volume_ui">true</bool>
 
+    <bool name="config_enablePerfBoostForShutterAnimation">false</bool>
+    <integer name="shutteranimationboost_timeout_param">0</integer>
+    <integer name="shutteranimationboost_schedboost_param">0</integer>
+    <integer name="shutteranimationboost_cpuboost_param">0</integer>
+
     <!-- Doze: shake accelerometer threshold minimum is 2 and maximum is 10-->
     <integer name="doze_shake_accelerometer_threshold">10</integer>
 
