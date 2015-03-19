@@ -455,6 +455,7 @@ public class DocumentsActivity extends Activity {
         if (mDrawerToggle != null) {
             mDrawerToggle.syncState();
         }
+        updateActionBar();
     }
 
     public void setRootsDrawerOpen(boolean open) {
@@ -651,7 +652,8 @@ public class DocumentsActivity extends Activity {
         // Only sort by size when visible
         sortSize.setVisible(mState.showSize);
 
-        final boolean searchVisible;
+        boolean searchVisible;
+        boolean fileSizeVisible = mState.action != ACTION_MANAGE;
         if (mState.action == ACTION_CREATE || mState.action == ACTION_OPEN_TREE || mState.action == ACTION_STANDALONE) {
             createDir.setVisible(cwd != null && cwd.isCreateSupported());
             searchVisible = false;
@@ -660,6 +662,7 @@ public class DocumentsActivity extends Activity {
             if (cwd == null) {
                 grid.setVisible(false);
                 list.setVisible(false);
+                fileSizeVisible = false;
             }
 
             if (mState.action == ACTION_CREATE) {
@@ -681,7 +684,7 @@ public class DocumentsActivity extends Activity {
                 ? R.string.menu_file_size_hide : R.string.menu_file_size_show);
 
         advanced.setVisible(mState.action != ACTION_MANAGE);
-        fileSize.setVisible(mState.action != ACTION_MANAGE);
+        fileSize.setVisible(fileSizeVisible);
 
         return true;
     }
@@ -802,7 +805,6 @@ public class DocumentsActivity extends Activity {
     @Override
     protected void onRestoreInstanceState(Bundle state) {
         super.onRestoreInstanceState(state);
-        updateActionBar();
     }
 
     private BaseAdapter mStackAdapter = new BaseAdapter() {
@@ -959,9 +961,7 @@ public class DocumentsActivity extends Activity {
             if (pick != null) {
                 final CharSequence displayName = (mState.stack.size() <= 1) ? root.title
                         : cwd.displayName;
-                if (displayName != null) {
-                    pick.setPickTarget(cwd, displayName);
-                }
+                pick.setPickTarget(cwd, displayName);
             }
         }
 

@@ -12,10 +12,10 @@
 #include <utils/List.h>
 #include <utils/Errors.h>
 
-#include <stdlib.h>
+#include <cstdlib>
 #include <getopt.h>
-#include <assert.h>
 #include <ctype.h>
+#include <cassert>
 
 using namespace android;
 

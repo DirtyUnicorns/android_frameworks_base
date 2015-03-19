@@ -22,9 +22,9 @@ import android.appwidget.AppWidgetManager;
 import android.content.res.IThemeService;
 import android.content.res.ThemeManager;
 import android.os.Build;
-
 import android.service.persistentdata.IPersistentDataBlockService;
 import android.service.persistentdata.PersistentDataBlockManager;
+
 import com.android.internal.appwidget.IAppWidgetService;
 import com.android.internal.policy.PolicyManager;
 import com.android.internal.util.Preconditions;
@@ -127,6 +127,7 @@ import android.print.PrintManager;
 import android.service.fingerprint.IFingerprintService;
 import android.service.fingerprint.FingerprintManager;
 import android.telecom.TelecomManager;
+import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.content.ClipboardManager;
 import android.util.AndroidRuntimeException;
@@ -562,6 +563,11 @@ class ContextImpl extends Context {
                 public Object createService(ContextImpl ctx) {
                     return new TelephonyManager(ctx.getOuterContext());
                 }});
+
+        registerService(TELEPHONY_SUBSCRIPTION_SERVICE, new ServiceFetcher() {
+            public Object createService(ContextImpl ctx) {
+                return new SubscriptionManager(ctx.getOuterContext());
+            }});
 
         registerService(TELECOM_SERVICE, new ServiceFetcher() {
                 public Object createService(ContextImpl ctx) {
@@ -1873,6 +1879,21 @@ class ContextImpl extends Context {
         }
     }
 
+    /** @hide */
+    @Override
+    public int checkPermission(String permission, int pid, int uid, IBinder callerToken) {
+        if (permission == null) {
+            throw new IllegalArgumentException("permission is null");
+        }
+
+        try {
+            return ActivityManagerNative.getDefault().checkPermissionWithToken(
+                    permission, pid, uid, callerToken);
+        } catch (RemoteException e) {
+            return PackageManager.PERMISSION_DENIED;
+        }
+    }
+
     @Override
     public int checkCallingPermission(String permission) {
         if (permission == null) {
@@ -1961,7 +1982,19 @@ class ContextImpl extends Context {
         try {
             return ActivityManagerNative.getDefault().checkUriPermission(
                     ContentProvider.getUriWithoutUserId(uri), pid, uid, modeFlags,
-                    resolveUserId(uri));
+                    resolveUserId(uri), null);
+        } catch (RemoteException e) {
+            return PackageManager.PERMISSION_DENIED;
+        }
+    }
+
+    /** @hide */
+    @Override
+    public int checkUriPermission(Uri uri, int pid, int uid, int modeFlags, IBinder callerToken) {
+        try {
+            return ActivityManagerNative.getDefault().checkUriPermission(
+                    ContentProvider.getUriWithoutUserId(uri), pid, uid, modeFlags,
+                    resolveUserId(uri), callerToken);
         } catch (RemoteException e) {
             return PackageManager.PERMISSION_DENIED;
         }
@@ -2419,7 +2452,7 @@ class ContextImpl extends Context {
                         int res = -1;
                         try {
                             res = mount.mkdirs(getPackageName(), dir.getAbsolutePath());
-                        } catch (RemoteException e) {
+                        } catch (Exception ignored) {
                         }
                         if (res != 0) {
                             Log.w(TAG, "Failed to ensure directory: " + dir);

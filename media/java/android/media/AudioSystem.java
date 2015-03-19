@@ -16,6 +16,7 @@
 
 package android.media;
 
+import android.media.audiopolicy.AudioMix;
 import java.util.ArrayList;
 
 /* IF YOU CHANGE ANY OF THE CONSTANTS IN THIS FILE, DO NOT FORGET
@@ -55,8 +56,6 @@ public class AudioSystem
     public static final int STREAM_DTMF = 8;
     /* @hide The audio stream for text to speech (TTS) */
     public static final int STREAM_TTS = 9;
-    /* @hide The audio stream for incall music delivery */
-    public static final int STREAM_INCALL_MUSIC = 10;
     /**
      * @deprecated Use {@link #numStreamTypes() instead}
      */
@@ -92,23 +91,6 @@ public class AudioSystem
     public static final int NUM_MODES               = 4;
 
 
-    /* Call states for Voice calls */
-    /* @hide Call state for inactive call state. */
-    public static final int CALL_INACTIVE           = 0x1;
-    /* @hide Call state for active call state. */
-    public static final int CALL_ACTIVE             = 0x2;
-    /* @hide Call state for hold call state. */
-    public static final int CALL_HOLD               = 0x3;
-    /* @hide Call state for local hold call state. */
-    public static final int CALL_LOCAL_HOLD         = 0x4;
-    /* @hide Key for vsid used in setParameters */
-    public static final String VSID_KEY             = "vsid";
-
-    /* @hide Key for call_state used in setParameters */
-    public static final String CALL_STATE_KEY       = "call_state";
-
-    /* @hide Key for all_call_states used in getParameters */
-    public static final String ALL_CALL_STATES_KEY  = "all_call_states";
     /* Routing bits for the former setRouting/getRouting API */
     /** @deprecated */
     @Deprecated public static final int ROUTE_EARPIECE          = (1 << 0);
@@ -274,8 +256,7 @@ public class AudioSystem
     public static final int DEVICE_OUT_SPDIF = 0x80000;
     public static final int DEVICE_OUT_FM = 0x100000;
     public static final int DEVICE_OUT_AUX_LINE = 0x200000;
-    public static final int DEVICE_OUT_FM_TX = 0x1000000;
-    public static final int DEVICE_OUT_PROXY = 0x2000000;
+    public static final int DEVICE_OUT_SPEAKER_SAFE = 0x400000;
 
     public static final int DEVICE_OUT_DEFAULT = DEVICE_BIT_DEFAULT;
 
@@ -301,8 +282,7 @@ public class AudioSystem
                                               DEVICE_OUT_SPDIF |
                                               DEVICE_OUT_FM |
                                               DEVICE_OUT_AUX_LINE |
-                                              DEVICE_OUT_FM_TX |
-                                              DEVICE_OUT_PROXY |
+                                              DEVICE_OUT_SPEAKER_SAFE |
                                               DEVICE_OUT_DEFAULT);
     public static final int DEVICE_OUT_ALL_A2DP = (DEVICE_OUT_BLUETOOTH_A2DP |
                                                    DEVICE_OUT_BLUETOOTH_A2DP_HEADPHONES |
@@ -341,9 +321,6 @@ public class AudioSystem
     public static final int DEVICE_IN_SPDIF = DEVICE_BIT_IN | 0x10000;
     public static final int DEVICE_IN_BLUETOOTH_A2DP = DEVICE_BIT_IN | 0x20000;
     public static final int DEVICE_IN_LOOPBACK = DEVICE_BIT_IN | 0x40000;
-    public static final int DEVICE_IN_PROXY = DEVICE_BIT_IN | 0x100000;
-    public static final int DEVICE_IN_FM_RX = DEVICE_BIT_IN | 0x200000;
-    public static final int DEVICE_IN_FM_RX_A2DP = DEVICE_BIT_IN | 0x400000;
     public static final int DEVICE_IN_DEFAULT = DEVICE_BIT_IN | DEVICE_BIT_DEFAULT;
 
     public static final int DEVICE_IN_ALL = (DEVICE_IN_COMMUNICATION |
@@ -365,9 +342,6 @@ public class AudioSystem
                                              DEVICE_IN_SPDIF |
                                              DEVICE_IN_BLUETOOTH_A2DP |
                                              DEVICE_IN_LOOPBACK |
-                                             DEVICE_IN_PROXY |
-                                             DEVICE_IN_FM_RX |
-                                             DEVICE_IN_FM_RX_A2DP |
                                              DEVICE_IN_DEFAULT);
     public static final int DEVICE_IN_ALL_SCO = DEVICE_IN_BLUETOOTH_SCO_HEADSET;
     public static final int DEVICE_IN_ALL_USB = (DEVICE_IN_USB_ACCESSORY |
@@ -401,8 +375,27 @@ public class AudioSystem
     public static final String DEVICE_OUT_SPDIF_NAME = "spdif";
     public static final String DEVICE_OUT_FM_NAME = "fm_transmitter";
     public static final String DEVICE_OUT_AUX_LINE_NAME = "aux_line";
-    public static final String DEVICE_OUT_FM_TX_NAME = "fm_tx";
-    public static final String DEVICE_OUT_PROXY_NAME = "proxy";
+    public static final String DEVICE_OUT_SPEAKER_SAFE_NAME = "speaker_safe";
+
+    public static final String DEVICE_IN_COMMUNICATION_NAME = "communication";
+    public static final String DEVICE_IN_AMBIENT_NAME = "ambient";
+    public static final String DEVICE_IN_BUILTIN_MIC_NAME = "mic";
+    public static final String DEVICE_IN_BLUETOOTH_SCO_HEADSET_NAME = "bt_sco_hs";
+    public static final String DEVICE_IN_WIRED_HEADSET_NAME = "headset";
+    public static final String DEVICE_IN_AUX_DIGITAL_NAME = "aux_digital";
+    public static final String DEVICE_IN_TELEPHONY_RX_NAME = "telephony_rx";
+    public static final String DEVICE_IN_BACK_MIC_NAME = "back_mic";
+    public static final String DEVICE_IN_REMOTE_SUBMIX_NAME = "remote_submix";
+    public static final String DEVICE_IN_ANLG_DOCK_HEADSET_NAME = "analog_dock";
+    public static final String DEVICE_IN_DGTL_DOCK_HEADSET_NAME = "digital_dock";
+    public static final String DEVICE_IN_USB_ACCESSORY_NAME = "usb_accessory";
+    public static final String DEVICE_IN_USB_DEVICE_NAME = "usb_device";
+    public static final String DEVICE_IN_FM_TUNER_NAME = "fm_tuner";
+    public static final String DEVICE_IN_TV_TUNER_NAME = "tv_tuner";
+    public static final String DEVICE_IN_LINE_NAME = "line";
+    public static final String DEVICE_IN_SPDIF_NAME = "spdif";
+    public static final String DEVICE_IN_BLUETOOTH_A2DP_NAME = "bt_a2dp";
+    public static final String DEVICE_IN_LOOPBACK_NAME = "loopback";
 
     public static String getOutputDeviceName(int device)
     {
@@ -451,16 +444,60 @@ public class AudioSystem
             return DEVICE_OUT_FM_NAME;
         case DEVICE_OUT_AUX_LINE:
             return DEVICE_OUT_AUX_LINE_NAME;
-        case DEVICE_OUT_FM_TX:
-            return DEVICE_OUT_FM_TX_NAME;
-        case DEVICE_OUT_PROXY:
-            return DEVICE_OUT_PROXY_NAME;
+        case DEVICE_OUT_SPEAKER_SAFE:
+            return DEVICE_OUT_SPEAKER_SAFE_NAME;
         case DEVICE_OUT_DEFAULT:
         default:
-            return "";
+            return Integer.toString(device);
         }
     }
 
+    public static String getInputDeviceName(int device)
+    {
+        switch(device) {
+        case DEVICE_IN_COMMUNICATION:
+            return DEVICE_IN_COMMUNICATION_NAME;
+        case DEVICE_IN_AMBIENT:
+            return DEVICE_IN_AMBIENT_NAME;
+        case DEVICE_IN_BUILTIN_MIC:
+            return DEVICE_IN_BUILTIN_MIC_NAME;
+        case DEVICE_IN_BLUETOOTH_SCO_HEADSET:
+            return DEVICE_IN_BLUETOOTH_SCO_HEADSET_NAME;
+        case DEVICE_IN_WIRED_HEADSET:
+            return DEVICE_IN_WIRED_HEADSET_NAME;
+        case DEVICE_IN_AUX_DIGITAL:
+            return DEVICE_IN_AUX_DIGITAL_NAME;
+        case DEVICE_IN_TELEPHONY_RX:
+            return DEVICE_IN_TELEPHONY_RX_NAME;
+        case DEVICE_IN_BACK_MIC:
+            return DEVICE_IN_BACK_MIC_NAME;
+        case DEVICE_IN_REMOTE_SUBMIX:
+            return DEVICE_IN_REMOTE_SUBMIX_NAME;
+        case DEVICE_IN_ANLG_DOCK_HEADSET:
+            return DEVICE_IN_ANLG_DOCK_HEADSET_NAME;
+        case DEVICE_IN_DGTL_DOCK_HEADSET:
+            return DEVICE_IN_DGTL_DOCK_HEADSET_NAME;
+        case DEVICE_IN_USB_ACCESSORY:
+            return DEVICE_IN_USB_ACCESSORY_NAME;
+        case DEVICE_IN_USB_DEVICE:
+            return DEVICE_IN_USB_DEVICE_NAME;
+        case DEVICE_IN_FM_TUNER:
+            return DEVICE_IN_FM_TUNER_NAME;
+        case DEVICE_IN_TV_TUNER:
+            return DEVICE_IN_TV_TUNER_NAME;
+        case DEVICE_IN_LINE:
+            return DEVICE_IN_LINE_NAME;
+        case DEVICE_IN_SPDIF:
+            return DEVICE_IN_SPDIF_NAME;
+        case DEVICE_IN_BLUETOOTH_A2DP:
+            return DEVICE_IN_BLUETOOTH_A2DP_NAME;
+        case DEVICE_IN_LOOPBACK:
+            return DEVICE_IN_LOOPBACK_NAME;
+        case DEVICE_IN_DEFAULT:
+        default:
+            return Integer.toString(device);
+        }
+    }
 
     // phone state, match audio_mode???
     public static final int PHONE_STATE_OFFCALL = 0;
@@ -530,5 +567,7 @@ public class AudioSystem
     public static final int AUDIO_HW_SYNC_INVALID = 0;
 
     public static native int getAudioHwSyncForSession(int sessionId);
+
+    public static native int registerPolicyMixes(ArrayList<AudioMix> mixes, boolean register);
 }
 

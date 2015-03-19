@@ -20,7 +20,7 @@
 
 <com.android.systemui.statusbar.phone.NavigationBarView
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:systemui="http://schemas.android.com/apk/res/com.android.systemui"
+    xmlns:systemui="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:background="@drawable/system_bar_background"
@@ -30,26 +30,6 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         >
-
-        <RelativeLayout
-            android:layout_height="match_parent"
-            android:layout_width="match_parent">
-
-            <com.android.systemui.statusbar.policy.BatteryBarController
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:visibility="gone"
-                systemui:viewLocation="2"
-                android:layout_alignParentTop="true" />
-
-            <com.android.systemui.statusbar.policy.BatteryBarController
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:visibility="gone"
-                systemui:viewLocation="3"
-                android:layout_alignParentBottom="true" />
-
-        </RelativeLayout>
 
         <LinearLayout
             android:layout_height="match_parent"
@@ -77,7 +57,7 @@
             android:visibility="gone"
             >
             <ImageView
-                android:layout_width="80dp"
+                android:layout_width="@dimen/navigation_key_width"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_sysbar_lights_out_dot_large"
                 android:scaleType="center"
@@ -89,7 +69,7 @@
                 android:visibility="invisible"
                 />
             <ImageView
-                android:layout_width="80dp"
+                android:layout_width="@dimen/navigation_key_width"
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_sysbar_lights_out_dot_large"
                 android:scaleType="center"
@@ -180,7 +160,7 @@
                 android:visibility="invisible"
                 />
             <ImageView
-                android:layout_height="80dp"
+                android:layout_height="@dimen/navigation_key_width"
                 android:layout_width="match_parent"
                 android:src="@drawable/ic_sysbar_lights_out_dot_large"
                 android:scaleType="center"
