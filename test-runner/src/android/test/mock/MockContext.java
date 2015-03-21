@@ -97,6 +97,7 @@ public class MockContext extends Context {
         throw new UnsupportedOperationException();
     }
 
+    /** @hide */
     @Override
     public ClassLoader getClassLoader() {
         throw new UnsupportedOperationException();
