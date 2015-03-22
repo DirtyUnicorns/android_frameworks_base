@@ -94,12 +94,15 @@ public class FlashlightTile extends QSTile<QSTile.BooleanState> implements
 
         // Always show the tile when the flashlight is or was recently on. This is needed because
         // the camera is not available while it is being used for the flashlight.
-        state.visible = mWasLastOn != 0 || mFlashlightController.isAvailable();
+        state.visible = mWasLastOn != 0 || mFlashlightController.isAvailable()
+                // There is also the case where the flashlight got toggled via intent, for example
+                // from the launcher or keyhandler. In this case we also want to show the tile.
+                || mFlashlightController.isFromIntent();
         state.label = mHost.getContext().getString(R.string.quick_settings_flashlight_label);
         final AnimationIcon icon = state.value ? mEnable : mDisable;
         icon.setAllowAnimation(arg instanceof UserBoolean && ((UserBoolean) arg).userInitiated);
         state.icon = icon;
-        int onOrOffId = state.value
+        int onOrOffId = state.value || mFlashlightController.isFromIntent()
                 ? R.string.accessibility_quick_settings_flashlight_on
                 : R.string.accessibility_quick_settings_flashlight_off;
         state.contentDescription = mContext.getString(onOrOffId);

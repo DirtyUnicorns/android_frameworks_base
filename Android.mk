@@ -30,7 +30,7 @@ framework_res_source_path := APPS/framework-res_intermediates/src
 # The framework contains too many method references (>64K) for poor old DEX.
 # So we first build the framework as a monolithic static library then split it
 # up into smaller pieces.
-# ============================================================
+# =============================================================
 
 # embedded builds use nothing in frameworks/base
 ifneq ($(ANDROID_BUILD_EMBEDDED),true)

@@ -2835,6 +2835,9 @@ public class Intent implements Parcelable, Cloneable {
     /** {@hide} */
     public static final String ACTION_MASTER_CLEAR = "android.intent.action.MASTER_CLEAR";
 
+    /** {@hide} */
+    public static final String ACTION_TOGGLE_FLASHLIGHT = "android.intent.action.TOGGLE_FLASHLIGHT";
+
     // ---------------------------------------------------------------------
     // ---------------------------------------------------------------------
     // Standard intent categories (see addCategory()).
