@@ -81,6 +81,8 @@ public final class ShutdownThread extends Thread {
     // length of vibration before shutting down
     private static final int SHUTDOWN_VIBRATE_MS = 500;
 
+		private static final String SOFT_REBOOT = "soft_reboot";
+
     // state tracking
     private static Object sIsStartedGuard = new Object();
     private static boolean sIsStarted = false;
@@ -200,7 +202,10 @@ public final class ShutdownThread extends Thread {
 
                                     if (actions != null && which < actions.length)
                                         mRebootReason = actions[which];
-
+																				if (actions[which].equals(SOFT_REBOOT)) {
+																					doSoftReboot();
+																					return;
+																				}
                                     mReboot = true;
                                     beginShutdownSequence(context);
                                 }
@@ -248,6 +253,18 @@ public final class ShutdownThread extends Thread {
                 Settings.Secure.ADVANCED_REBOOT, 0);
     }
 
+		private static void doSoftReboot() {
+			try {
+			final IActivityManager am =
+			ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
+			if (am != null) {
+				am.restart();
+			}
+			} catch (RemoteException e) {
+				Log.e(TAG, "failure trying to perform soft reboot", e);
+			}
+		}
+		
     private static class CloseDialogReceiver extends BroadcastReceiver
             implements DialogInterface.OnDismissListener {
         private Context mContext;
