@@ -22,4 +22,8 @@
 
     <!-- Qs visibility -->
     <dimen name="qs_tile_height_wo_label">64dp</dimen>
+
+    <!-- QS detail view scrolling -->
+    <dimen name="qs_detail_item_height_twoline">72dp</dimen>
+
 </resources>
