@@ -92,8 +92,8 @@ public class LockscreenToggleTile extends QSTile<QSTile.BooleanState>
         state.visible = mKeyguardBound && !hideTile;
         state.label = mContext.getString(R.string.quick_settings_lockscreen);
         state.icon = mKeyguardBound && mLockscreenDisabled
-                ? ResourceIcon.get(R.drawable.ic_qs_lock_screen_on)
-                : ResourceIcon.get(R.drawable.ic_qs_lock_screen_off);
+                ? ResourceIcon.get(R.drawable.ic_qs_lock_screen_off)
+                : ResourceIcon.get(R.drawable.ic_qs_lock_screen_on);
     }
 
     @Override
