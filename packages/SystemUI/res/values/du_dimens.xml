@@ -80,5 +80,6 @@
     <dimen name="navigation_key_extra_margin_start">2dp</dimen>
     <dimen name="navigation_key_extra_margin_end">2dp</dimen>
 
-</resources>
+    <dimen name="qs_detail_item_height_twoline">72dp</dimen>
 
+</resources>
