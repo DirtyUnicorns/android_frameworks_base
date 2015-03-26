@@ -18,7 +18,10 @@
 package com.android.systemui.cm;
 
 import android.app.ActivityManager;
+import android.app.ActivityManagerNative;
+import android.app.ActivityOptions;
 import android.app.KeyguardManager;
+import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
@@ -47,7 +50,7 @@ import android.view.WindowManagerGlobal;
 import android.widget.Toast;
 
 import com.android.internal.statusbar.IStatusBarService;
-import static com.android.internal.util.cm.NavigationRingConstants.*;
+import static com.android.systemui.cm.NavigationRingConstants.*;
 import com.android.systemui.screenshot.TakeScreenshotService;
 
 import java.net.URISyntaxException;

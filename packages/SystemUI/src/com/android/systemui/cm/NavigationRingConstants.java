@@ -15,12 +15,10 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.cm;
+package com.android.systemui.cm;
 
 public class NavigationRingConstants {
     public static final String BROADCAST =                    "android.intent.action.NAVBAR_RING_EDIT";
-    public static final String EDIT_STATE_EXTRA =             "edit_state_extra";
-
     public static final String ACTION_APP =                   "app";
     public static final String ACTION_ASSIST =                "assist";
     public static final String ACTION_BACK =                  "back";

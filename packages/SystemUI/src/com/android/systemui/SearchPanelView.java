@@ -58,7 +58,9 @@ import com.android.systemui.statusbar.phone.PhoneStatusBar;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.android.internal.util.cm.NavigationRingConstants.*;
+import static com.android.systemui.cm.NavigationRingConstants.ACTION_ASSIST;
+import static com.android.systemui.cm.NavigationRingConstants.ACTION_NONE;
+import static com.android.systemui.cm.NavigationRingConstants.BROADCAST;
 
 public class SearchPanelView extends FrameLayout implements StatusBarPanel,
         View.OnClickListener, ShortcutPickHelper.OnPickListener {
@@ -409,7 +411,6 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
                 show(false, true);
                 startEditAnimation(false);
                 updateTargetVisibility();
-                mPicker.cleanup();
             } else if (v == mLogo || v == mLogoLeft || v == mLogoRight) {
                 mSelectedView = (ImageView) v;
                 mPicker.pickShortcut(v != mLogo);
@@ -483,18 +484,10 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            boolean editMode = intent.getBooleanExtra(EDIT_STATE_EXTRA, false);
-            if (editMode == mInEditMode) {
-                return;
-            }
-            mInEditMode = editMode;
-            if (mInEditMode) {
-                show(true, true);
-                startEditAnimation(true);
-                updateTargetVisibility();
-            } else {
-                mEditButton.performClick();
-            }
+            mInEditMode = true;
+            show(true, true);
+            startEditAnimation(true);
+            updateTargetVisibility();
         }
     };
 
@@ -533,8 +526,4 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
         }
     }
 
-    @Override
-    protected void onDetachedFromWindow() {
-        mPicker.cleanup();
-    }
 }
