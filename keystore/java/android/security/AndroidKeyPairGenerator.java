@@ -99,6 +99,8 @@ public class AndroidKeyPairGenerator extends KeyPairGeneratorSpi {
             throw new IllegalStateException("could not generate key in keystore");
         }
 
+        Credentials.deleteSecretKeyTypeForAlias(mKeyStore, alias);
+
         final PrivateKey privKey;
         final OpenSSLEngine engine = OpenSSLEngine.getInstance("keystore");
         try {
