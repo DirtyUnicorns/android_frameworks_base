@@ -2719,6 +2719,7 @@ public final class ActivityStackSupervisor implements DisplayListener {
                 }
                 final ActivityRecord ar = stack.findTaskLocked(r);
                 if (ar != null) {
+                    BinderInternal.modifyDelayedGcParams();
                     return ar;
                 }
             }
