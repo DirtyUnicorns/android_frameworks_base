@@ -119,8 +119,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 
@@ -233,7 +233,6 @@ public class NotificationManagerService extends SystemService {
 
     // The last key in this list owns the hardware.
     ArrayList<String> mLights = new ArrayList<>();
-    NotificationRecord mLedNotification;
 
     private HashMap<String, Long> mAnnoyingNotifications = new HashMap<String, Long>();
     private long mAnnoyingNotificationThreshold = -1;
@@ -640,7 +639,6 @@ public class NotificationManagerService extends SystemService {
                 // clear only if lockscreen is not active
                 if (mKeyguardManager != null && !mKeyguardManager.isKeyguardLocked()) {
                     mLights.clear();
-                    mLedNotification = null;
                     updateLightsLocked();
                 }
             }
@@ -821,10 +819,12 @@ public class NotificationManagerService extends SystemService {
     class LEDSettingsObserver extends ContentObserver {
         private final Uri NOTIFICATION_LIGHT_PULSE_URI
                 = Settings.System.getUriFor(Settings.System.NOTIFICATION_LIGHT_PULSE);
-        private final Uri MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD_URI
-                = Settings.System.getUriFor(Settings.System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD);
+
         private final Uri ENABLED_NOTIFICATION_LISTENERS_URI
                 = Settings.Secure.getUriFor(Settings.Secure.ENABLED_NOTIFICATION_LISTENERS);
+
+        private final Uri MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD_URI
+                = Settings.System.getUriFor(Settings.System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD);
 
         LEDSettingsObserver(Handler handler) {
             super(handler);
@@ -2010,6 +2010,26 @@ public class NotificationManagerService extends SystemService {
         idOut[0] = id;
     }
 
+    private boolean notificationIsAnnoying(String pkg) {
+        if (pkg == null
+                || mAnnoyingNotificationThreshold <= 0
+                || "android".equals(pkg)) {
+            return false;
+        }
+
+        long currentTime = System.currentTimeMillis();
+        if (mAnnoyingNotifications.containsKey(pkg)
+                && (currentTime - mAnnoyingNotifications.get(pkg)
+                < mAnnoyingNotificationThreshold)) {
+            // less than threshold; it's an annoying notification!!
+            return true;
+        } else {
+            // not in map or time to re-add
+            mAnnoyingNotifications.put(pkg, currentTime);
+            return false;
+        }
+    }
+
     /**
      * Ensures that grouped notification receive their special treatment.
      *
@@ -2100,24 +2120,6 @@ public class NotificationManagerService extends SystemService {
                     REASON_GROUP_OPTIMIZATION);
         }
         return false;
-    }
-
-    private boolean notificationIsAnnoying(String pkg) {
-        if (pkg == null
-                || mAnnoyingNotificationThreshold <= 0
-                || "android".equals(pkg)) {
-            return false;
-        }
-
-        long currentTime = System.currentTimeMillis();
-        if (mAnnoyingNotifications.containsKey(pkg)
-                && (currentTime - mAnnoyingNotifications.get(pkg)
-                < mAnnoyingNotificationThreshold)) {
-            return true;
-        } else {
-            mAnnoyingNotifications.put(pkg, currentTime);
-            return false;
-        }
     }
 
     private void buzzBeepBlinkLocked(NotificationRecord record) {
@@ -2264,10 +2266,7 @@ public class NotificationManagerService extends SystemService {
         // light
         // release the light
         boolean wasShowLights = mLights.remove(record.getKey());
-        if (mLedNotification != null && record.getKey().equals(mLedNotification.getKey())) {
-            mLedNotification = null;
-        }
-        final boolean canInterruptWithLight = canInterrupt || isLedNotificationForcedOn(record);
+        final boolean canInterruptWithLight = aboveThreshold || isLedNotificationForcedOn(record);
         if ((notification.flags & Notification.FLAG_SHOW_LIGHTS) != 0 && canInterruptWithLight) {
             mLights.add(record.getKey());
             updateLightsLocked();
@@ -2869,13 +2868,17 @@ public class NotificationManagerService extends SystemService {
     void updateLightsLocked()
     {
         // handle notification lights
-        if (mLedNotification == null) {
-            // use most recent light with highest score
+        NotificationRecord ledNotification = null;
+        while (ledNotification == null && !mLights.isEmpty()) {
+            final String owner = mLights.get(mLights.size() - 1);
+            ledNotification = mNotificationsByKey.get(owner);
             for (int i = mLights.size(); i > 0; i--) {
                 NotificationRecord r = mNotificationsByKey.get(mLights.get(i - 1));
-                if (mLedNotification == null
-                        || r.sbn.getScore() > mLedNotification.sbn.getScore()) {
-                    mLedNotification = r;
+                if (ledNotification == null
+                        || r.sbn.getScore() > ledNotification.sbn.getScore()) {
+                    ledNotification = r;
+                    Slog.wtfStack(TAG, "LED Notification does not exist: " + owner);
+                    mLights.remove(owner);
                 }
             }
         }
@@ -2883,9 +2886,9 @@ public class NotificationManagerService extends SystemService {
         // Don't flash while we are in a call or screen is on
         // (unless Notification has EXTRA_FORCE_SHOW_LGHTS)
         final boolean enableLed;
-        if (mLedNotification == null) {
+        if (ledNotification == null) {
             enableLed = false;
-        } else if (isLedNotificationForcedOn(mLedNotification)) {
+        } else if (isLedNotificationForcedOn(ledNotification)) {
             enableLed = true;
         } else if (mInCall || mScreenOn) {
             enableLed = false;
@@ -2897,8 +2900,8 @@ public class NotificationManagerService extends SystemService {
             mNotificationLight.turnOff();
             mStatusBar.notificationLightOff();
         } else {
-            final Notification ledno = mLedNotification.sbn.getNotification();
-            final NotificationLedValues ledValues = getLedValuesForNotification(mLedNotification);
+            final Notification ledno = ledNotification.sbn.getNotification();
+            final NotificationLedValues ledValues = getLedValuesForNotification(ledNotification);
             int ledARGB;
             int ledOnMS;
             int ledOffMS;
