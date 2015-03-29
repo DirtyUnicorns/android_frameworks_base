@@ -1441,4 +1441,7 @@
          the wallpaper width suggestion by the launcher may be too large for
          the GPU to handle. -->
     <integer name="config_wallpaperMaxWidth">-1</integer>
+
+    <!-- Is the device LTE capable -->
+    <bool name="config_lte_capable">true</bool>
 </resources>
