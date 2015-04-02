@@ -5202,4 +5202,6 @@
 
     <!-- USB_PREFERENCES: Notification for when no USB options chosen.  This is the title -->
     <string name="usb_choose_notification_title">Touch to choose USB options.</string>
+
+    <string name="card_string">CARD <xliff:g id="slot_id">%1$s</xliff:g></string>
 </resources>

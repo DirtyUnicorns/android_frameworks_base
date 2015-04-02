@@ -1940,4 +1940,6 @@
     <string name="muted_by" msgid="6147073845094180001">"已被<xliff:g id="THIRD_PARTY">%1$s</xliff:g>设为静音"</string>
     <string name="system_error_wipe_data" msgid="6608165524785354962">"您的设备内部出现了问题。如果不将设备恢复出厂设置，设备运行可能会不稳定。"</string>
     <string name="system_error_manufacturer" msgid="8086872414744210668">"您的设备内部出现了问题。请联系您的设备制造商了解详情。"</string>
+
+    <string name="card_string">卡 <xliff:g id="slot_id">%1$s</xliff:g></string>
 </resources>
