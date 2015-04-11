@@ -33,6 +33,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ThemeUtils;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.content.res.ThemeConfig;
 import android.media.AudioService;
 import android.media.tv.TvInputManager;
 import android.os.Build;
