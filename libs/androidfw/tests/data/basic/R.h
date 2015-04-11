@@ -27,67 +27,42 @@ namespace attr {
     };
 }
 
-namespace drawable {
-    enum {
-        drawable1   = 0x7f020000, // default
-    };
-}
-
 namespace layout {
     enum {
-        main        = 0x7f030000,  // default, fr-sw600dp-v13
+        main        = 0x7f020000,  // default, fr-sw600dp-v13
     };
 }
 
 namespace string {
     enum {
-<<<<<<< HEAD
         test1       = 0x7f030000,   // default
         test2       = 0x7f030001,   // default
         density     = 0x7f030002,   // default
 
         test3       = 0x7f080000,   // default (in feature)
         test4       = 0x7f080001,   // default (in feature)
-=======
-        test1       = 0x7f040000,   // default
-        test2       = 0x7f040001,   // default
-
-        test3       = 0x7f0a0000,   // default (in feature)
-        test4       = 0x7f0a0001,   // default (in feature)
->>>>>>> 785f1f4... Theme Engine Port [1/5]
     };
 }
 
 namespace integer {
     enum {
-        number1     = 0x7f050000,   // default, sv
-        number2     = 0x7f050001,   // default
+        number1     = 0x7f040000,   // default, sv
+        number2     = 0x7f040001,   // default
 
-<<<<<<< HEAD
         test3       = 0x7f090000,   // default (in feature)
-=======
-        test3       = 0x7f0b0000,   // default (in feature)
->>>>>>> 785f1f4... Theme Engine Port [1/5]
     };
 }
 
 namespace style {
     enum {
-        Theme1      = 0x7f060000,   // default
-        Theme2      = 0x7f060001,   // default
+        Theme1      = 0x7f050000,   // default
+        Theme2      = 0x7f050001,   // default
     };
 }
 
 namespace array {
     enum {
-        integerArray1 = 0x7f070000,   // default
-    };
-}
-
-namespace dimen {
-    enum {
-        dimen1 = 0x7f080000,   // default
-        dimen2 = 0x7f080001,   // default
+        integerArray1 = 0x7f060000,   // default
     };
 }
 

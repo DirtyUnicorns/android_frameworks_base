@@ -119,10 +119,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub {
         final KeyguardWallpaperData mKeyguardWallpaper;
         final File mWallpaperDir;
         final File mWallpaperFile;
-<<<<<<< HEAD
         final File mWallpaperInfoFile;
-=======
->>>>>>> 785f1f4... Theme Engine Port [1/5]
         final File mKeyguardWallpaperFile;
 
         public WallpaperObserver(WallpaperData wallpaper, KeyguardWallpaperData keyguardWallpaper) {
@@ -131,10 +128,7 @@ public class WallpaperManagerService extends IWallpaperManager.Stub {
             mWallpaperDir = getWallpaperDir(wallpaper.userId);
             mWallpaper = wallpaper;
             mWallpaperFile = new File(mWallpaperDir, WALLPAPER);
-<<<<<<< HEAD
             mWallpaperInfoFile = new File(mWallpaperDir, WALLPAPER_INFO);
-=======
->>>>>>> 785f1f4... Theme Engine Port [1/5]
             mKeyguardWallpaper = keyguardWallpaper;
             mKeyguardWallpaperFile = new File(mWallpaperDir, KEYGUARD_WALLPAPER);
         }

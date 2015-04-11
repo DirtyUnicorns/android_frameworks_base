@@ -93,12 +93,9 @@ public class WindowAnimator {
     boolean mKeyguardGoingAwayToNotificationShade;
     boolean mKeyguardGoingAwayDisableWindowAnimations;
     boolean mKeyguardGoingAwayShowingMedia;
-<<<<<<< HEAD
 
     /** Use one animation for all entering activities after keyguard is dismissed. */
     Animation mPostKeyguardExitAnimation;
-=======
->>>>>>> 785f1f4... Theme Engine Port [1/5]
 
     // forceHiding states.
     static final int KEYGUARD_NOT_SHOWN     = 0;

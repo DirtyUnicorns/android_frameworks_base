@@ -43,7 +43,6 @@ import android.database.sqlite.SQLiteDebug;
 import android.database.sqlite.SQLiteDebug.DbStats;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Typeface;
 import android.hardware.display.DisplayManagerGlobal;
 import android.net.ConnectivityManager;
 import android.net.IConnectivityManager;
@@ -76,7 +75,6 @@ import android.os.SystemProperties;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.provider.Settings;
-import android.text.TextUtils;
 import android.util.AndroidRuntimeException;
 import android.util.ArrayMap;
 import android.util.DisplayMetrics;
@@ -89,12 +87,8 @@ import android.util.Slog;
 import android.util.SuperNotCalledException;
 import android.view.Display;
 import android.view.HardwareRenderer;
-<<<<<<< HEAD
 import android.view.IWindowManager;
 import android.view.IWindowSessionCallback;
-=======
-import android.view.InflateException;
->>>>>>> 785f1f4... Theme Engine Port [1/5]
 import android.view.View;
 import android.view.ViewDebug;
 import android.view.ViewManager;
@@ -1667,19 +1661,9 @@ public final class ActivityThread {
      */
     Resources getTopLevelResources(String resDir, String[] splitResDirs, String[] overlayDirs,
             String[] libDirs, int displayId, Configuration overrideConfiguration,
-            LoadedApk pkgInfo, Context context, String pkgName) {
+            LoadedApk pkgInfo) {
         return mResourcesManager.getTopLevelResources(resDir, splitResDirs, overlayDirs, libDirs,
-                displayId, pkgName, overrideConfiguration, pkgInfo.getCompatibilityInfo(), null,
-                context);
-    }
-
-    /**
-     * Creates the top level resources for the given package.
-     */
-    Resources getTopLevelThemedResources(String resDir, int displayId, LoadedApk pkgInfo,
-                                         String pkgName, String themePkgName) {
-        return mResourcesManager.getTopLevelThemedResources(resDir, displayId, pkgName,
-                themePkgName, pkgInfo.getCompatibilityInfo(), null);
+                displayId, overrideConfiguration, pkgInfo.getCompatibilityInfo(), null);
     }
 
     final Handler getHandler() {
@@ -2353,13 +2337,6 @@ public final class ActivityThread {
 
         } catch (Exception e) {
             if (!mInstrumentation.onException(activity, e)) {
-                if (e instanceof InflateException) {
-                    Log.e(TAG, "Failed to inflate", e);
-                    sendAppLaunchFailureBroadcast(r);
-                } else if (e instanceof Resources.NotFoundException) {
-                    Log.e(TAG, "Failed to find resource", e);
-                    sendAppLaunchFailureBroadcast(r);
-                }
                 throw new RuntimeException(
                     "Unable to start activity " + component
                     + ": " + e.toString(), e);
@@ -2367,16 +2344,6 @@ public final class ActivityThread {
         }
 
         return activity;
-    }
-
-    private void sendAppLaunchFailureBroadcast(ActivityClientRecord r) {
-        String pkg = null;
-        if (r.packageInfo != null && !TextUtils.isEmpty(r.packageInfo.getPackageName())) {
-            pkg = r.packageInfo.getPackageName();
-        }
-        Intent intent = new Intent(Intent.ACTION_APP_LAUNCH_FAILURE,
-                (pkg != null)? Uri.fromParts("package", pkg, null) : null);
-        getSystemContext().sendBroadcast(intent);
     }
 
     private Context createBaseContextForActivity(ActivityClientRecord r,
@@ -4171,10 +4138,8 @@ public final class ActivityThread {
         if (configDiff != 0) {
             // Ask text layout engine to free its caches if there is a locale change
             boolean hasLocaleConfigChange = ((configDiff & ActivityInfo.CONFIG_LOCALE) != 0);
-            boolean hasThemeConfigChange = ((configDiff & ActivityInfo.CONFIG_THEME_RESOURCE) != 0);
-            if (hasLocaleConfigChange || hasThemeConfigChange) {
+            if (hasLocaleConfigChange) {
                 Canvas.freeTextLayoutCaches();
-                Typeface.recreateDefaults();
                 if (DEBUG_CONFIGURATION) Slog.v(TAG, "Cleared TextLayout Caches");
             }
         }

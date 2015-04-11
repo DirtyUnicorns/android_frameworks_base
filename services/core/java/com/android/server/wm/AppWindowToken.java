@@ -254,7 +254,6 @@ class AppWindowToken extends WindowToken {
 
     @Override
     void removeAllWindows() {
-<<<<<<< HEAD
         for (int winNdx = allAppWindows.size() - 1; winNdx >= 0;
                 // removeWindowLocked at bottom of loop may remove multiple entries from
                 // allAppWindows if the window to be removed has child windows. It also may
@@ -268,17 +267,6 @@ class AppWindowToken extends WindowToken {
             }
 
             win.mService.removeWindowLocked(win.mSession, win);
-=======
-        for (int winNdx = allAppWindows.size() - 1; winNdx >= 0; --winNdx) {
-            try {
-                WindowState win = allAppWindows.get(winNdx);
-                if (WindowManagerService.DEBUG_WINDOW_MOVEMENT) Slog.w(WindowManagerService.TAG,
-                        "removeAllWindows: removing win=" + win);
-                win.mService.removeWindowLocked(win.mSession, win);
-            } catch (IndexOutOfBoundsException e) {
-                Slog.e(WindowManagerService.TAG, "Error while removing window : " + e);
-            }
->>>>>>> 785f1f4... Theme Engine Port [1/5]
         }
     }
 

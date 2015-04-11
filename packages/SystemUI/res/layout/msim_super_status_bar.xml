@@ -20,12 +20,12 @@
 -->
 
 <!-- This is the combined status bar / notification panel window. -->
-<FrameLayout
+<com.android.systemui.statusbar.phone.StatusBarWindowView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
-    android:fitsSystemWindows="false"
+    android:fitsSystemWindows="true"
     android:descendantFocusability="afterDescendants">
 
     <com.android.systemui.statusbar.BackDropView
@@ -84,4 +84,4 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-</FrameLayout>
+</com.android.systemui.statusbar.phone.StatusBarWindowView>

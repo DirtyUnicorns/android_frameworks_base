@@ -66,14 +66,7 @@ public class PackageItemInfo {
      * component's icon.  From the "icon" attribute or, if not set, 0.
      */
     public int icon;
-
-    /**
-     * A drawable resource identifier in the icon pack's resources
-     * If there isn't an icon pack or not set, then 0.
-     * @hide
-     */
-    public int themedIcon;
-
+    
     /**
      * A drawable resource identifier (in the package's resources) of this
      * component's banner.  From the "banner" attribute or, if not set, 0.
@@ -117,7 +110,6 @@ public class PackageItemInfo {
         logo = orig.logo;
         metaData = orig.metaData;
         showUserIcon = orig.showUserIcon;
-        themedIcon = orig.themedIcon;
     }
 
     /**
@@ -317,9 +309,8 @@ public class PackageItemInfo {
         dest.writeBundle(metaData);
         dest.writeInt(banner);
         dest.writeInt(showUserIcon);
-        dest.writeInt(themedIcon);
     }
-
+    
     protected PackageItemInfo(Parcel source) {
         name = source.readString();
         packageName = source.readString();
@@ -331,7 +322,6 @@ public class PackageItemInfo {
         metaData = source.readBundle();
         banner = source.readInt();
         showUserIcon = source.readInt();
-        themedIcon = source.readInt();
     }
 
     /**

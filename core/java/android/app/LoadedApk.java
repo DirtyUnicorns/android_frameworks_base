@@ -531,8 +531,7 @@ public final class LoadedApk {
     public Resources getResources(ActivityThread mainThread) {
         if (mResources == null) {
             mResources = mainThread.getTopLevelResources(mResDir, mSplitResDirs, mOverlayDirs,
-                    mApplicationInfo.sharedLibraryFiles, Display.DEFAULT_DISPLAY, null, this,
-                    mainThread.getSystemContext(), mPackageName);
+                    mApplicationInfo.sharedLibraryFiles, Display.DEFAULT_DISPLAY, null, this);
         }
         return mResources;
     }

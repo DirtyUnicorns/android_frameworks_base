@@ -27,8 +27,6 @@ using namespace android;
 extern const char * const gDefaultIgnoreAssets;
 extern const char * gUserIgnoreAssets;
 
-extern bool endsWith(const char* haystack, const char* needle);
-
 bool valid_symbol_name(const String8& str);
 
 class AaptAssets;
@@ -150,7 +148,7 @@ class AaptFile : public RefBase
 {
 public:
     AaptFile(const String8& sourceFile, const AaptGroupEntry& groupEntry,
-             const String8& resType, const String8& zipFile=String8(""))
+             const String8& resType)
         : mGroupEntry(groupEntry)
         , mResourceType(resType)
         , mSourceFile(sourceFile)
@@ -158,11 +156,9 @@ public:
         , mDataSize(0)
         , mBufferSize(0)
         , mCompression(ZipEntry::kCompressStored)
-        , mZipFile(zipFile)
         {
             //printf("new AaptFile created %s\n", (const char*)sourceFile);
         }
-
     virtual ~AaptFile() {
         free(mData);
     }
@@ -194,12 +190,6 @@ public:
     // no compression is ZipEntry::kCompressStored.
     int getCompressionMethod() const { return mCompression; }
     void setCompressionMethod(int c) { mCompression = c; }
-
-    // ZIP support. In this case the sourceFile is the zip entry name
-    // and zipFile is the path to the zip File.
-    // example: sourceFile = drawable-hdpi/foo.png, zipFile = res.zip
-    const String8& getZipFile() const { return mZipFile; }
-
 private:
     friend class AaptGroup;
 
@@ -211,7 +201,6 @@ private:
     size_t mDataSize;
     size_t mBufferSize;
     int mCompression;
-    String8 mZipFile;
 };
 
 /**
@@ -553,8 +542,6 @@ public:
     void addGroupEntry(const AaptGroupEntry& entry) { mGroupEntries.add(entry); }
     
     ssize_t slurpFromArgs(Bundle* bundle);
-    ssize_t slurpResourceZip(Bundle* bundle, ZipFile* zip, const char* fullZipPath);
-    bool isEntryValid(Bundle* bundle, ZipEntry* entry);
 
     sp<AaptSymbols> getSymbolsFor(const String8& name);
 
@@ -608,11 +595,7 @@ private:
                                   const bool overwrite=false);
 
     ssize_t slurpResourceTree(Bundle* bundle, const String8& srcDir);
-
-
-    status_t addEntry(const String8& entryName, const String8& entryLeaf,
-                             const String8& entryDirFull, const String8& entryDir,
-                             const String8& zipFile, int compressionMethod);
+    ssize_t slurpResourceZip(Bundle* bundle, const char* filename);
 
     status_t filter(Bundle* bundle);
 

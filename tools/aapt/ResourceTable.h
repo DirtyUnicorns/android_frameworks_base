@@ -102,8 +102,7 @@ public:
     class Type;
     class Entry;
 
-    ResourceTable(Bundle* bundle, const String16& assetsPackage, PackageType type,
-                    ssize_t pkgIdOverride);
+    ResourceTable(Bundle* bundle, const String16& assetsPackage, PackageType type);
 
     const String16& getAssetsPackage() const {
         return mAssetsPackage;

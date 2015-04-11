@@ -464,27 +464,6 @@ public class MockPackageManager extends PackageManager {
         throw new UnsupportedOperationException();
     }
 
-    /** @hide */
-    @Override
-    public Resources getThemedResourcesForApplication(ApplicationInfo app, String themePkgName)
-            throws NameNotFoundException {
-        return null;
-    }
-
-    /** @hide */
-    @Override
-    public Resources getThemedResourcesForApplication(String appPackageName, String themePkgName)
-            throws NameNotFoundException {
-        return null;
-    }
-
-    /** @hide */
-    @Override
-    public Resources getThemedResourcesForApplicationAsUser(String appPackageName,
-            String themePkgName, int userId) throws NameNotFoundException {
-        return null;
-    }
-
     @Override
     public PackageInfo getPackageArchiveInfo(String archiveFilePath, int flags) {
         throw new UnsupportedOperationException();
@@ -826,19 +805,7 @@ public class MockPackageManager extends PackageManager {
     /**
      * @hide
      */
-<<<<<<< HEAD
     public Drawable loadUnbadgedItemIcon(PackageItemInfo itemInfo, ApplicationInfo appInfo) {
-=======
-    public void updateIconMaps(String pkgName) {
-        throw new UnsupportedOperationException();
-    }
-
-    /**
-     * @hide
-     */
-    @Override
-    public int processThemeResources(String themePkgName) {
->>>>>>> 785f1f4... Theme Engine Port [1/5]
         throw new UnsupportedOperationException();
     }
 }
