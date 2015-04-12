@@ -27,7 +27,6 @@
   <string name="global_action_reboot">Redémarrer</string>
   <string name="usb_charging_notification_title">Connecté en mode recharge</string>
   <string name="progress_nomediapresent" product="default">Aucun support amovible présent\u2026</string>
-  <string name="android_upgrading_fstrim">Optimisation de stockage.</string>
   <string name="permission_remember_choice">Se souvenir</string>
   <string name="permission">Demande d\'autorisation</string>
   <string name="permission_dialog_text">%1$s souhaite %2$s</string>
