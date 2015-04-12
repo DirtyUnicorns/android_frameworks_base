@@ -140,9 +140,11 @@ public class DozeService extends DreamService implements ProximitySensorManager.
         mUseAccelerometer = mDozeParameters.setUsingAccelerometerAsSensorPickUp();
         if (!mUseAccelerometer) {
             mSigMotionSensor = new TriggerSensor(Sensor.TYPE_SIGNIFICANT_MOTION,
-                mDozeParameters.getPulseOnSigMotion(), mDozeParameters.getVibrateOnSigMotion());
+                    mDozeParameters.getPulseOnSigMotion(), mDozeParameters.getVibrateOnSigMotion(),
+                    DozeLog.PULSE_REASON_SENSOR_SIGMOTION);
             mPickupSensor = new TriggerSensor(Sensor.TYPE_PICK_UP_GESTURE,
-                mDozeParameters.getPulseOnPickup(), mDozeParameters.getVibrateOnPickup());
+                    mDozeParameters.getPulseOnPickup(), mDozeParameters.getVibrateOnPickup(),
+                    DozeLog.PULSE_REASON_SENSOR_PICKUP);
         } else {
             mProximitySensorManager = new ProximitySensorManager(mContext, this);
             mShakeSensorManager = new ShakeSensorManager(mContext, this);
@@ -167,7 +169,7 @@ public class DozeService extends DreamService implements ProximitySensorManager.
         if (mDozeParameters.getPocketMode()) {
             startPulsingFromSensor();
         } else {
-            requestPulse();
+            requestPulse(DozeLog.PULSE_REASON_INTENT);
         }
     }
 
@@ -231,7 +233,7 @@ public class DozeService extends DreamService implements ProximitySensorManager.
                     }
                     mWakeLock.release(); // needs to be unconditional to balance acquire
                 }
-            });
+            }, DozeLog.PULSE_REASON_INTENT);
         }
     }
 
@@ -541,7 +543,7 @@ public class DozeService extends DreamService implements ProximitySensorManager.
                 if (mUseAccelerometer && mDozeParameters.getPocketMode()) {
                     requestPulseFromAccelerometer();
                 } else {
-                    requestPulse();
+                    requestPulse(DozeLog.PULSE_REASON_INTENT);
                 }
             }
             if (NOTIFICATION_PULSE_ACTION.equals(intent.getAction())) {
@@ -551,7 +553,7 @@ public class DozeService extends DreamService implements ProximitySensorManager.
                 if (mUseAccelerometer && mDozeParameters.getPocketMode()) {
                     requestPulseFromAccelerometer();
                 } else {
-                    requestPulse();
+                    requestPulse(DozeLog.PULSE_REASON_NOTIFICATION);
                 }
                 rescheduleNotificationPulse(mNotificationLightOn);
             }

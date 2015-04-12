@@ -689,11 +689,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_KEYGUARD_DRAWN_COMPLETE = 5;
     private static final int MSG_KEYGUARD_DRAWN_TIMEOUT = 6;
     private static final int MSG_WINDOW_MANAGER_DRAWN_COMPLETE = 7;
-    private static final int MSG_DISPATCH_SHOW_RECENTS = 9;
-    private static final int MSG_DISPATCH_SHOW_GLOBAL_ACTIONS = 10;
-    private static final int MSG_HIDE_BOOT_MESSAGE = 11;
-    private static final int MSG_LAUNCH_VOICE_ASSIST_WITH_WAKE_LOCK = 12;
-    private static final int MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK = 13;
+    private static final int MSG_DISPATCH_SHOW_RECENTS = 8;
+    private static final int MSG_DISPATCH_SHOW_GLOBAL_ACTIONS = 9;
+    private static final int MSG_HIDE_BOOT_MESSAGE = 10;
+    private static final int MSG_LAUNCH_VOICE_ASSIST_WITH_WAKE_LOCK = 11;
+    private static final int MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK = 12;
     boolean mWifiDisplayConnected = false;
     int     mWifiDisplayCustomRotation = -1;
     private static final int MSG_POWER_DELAYED_PRESS = 13;
