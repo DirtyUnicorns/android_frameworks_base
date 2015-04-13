@@ -202,13 +202,13 @@ final class ProcessList {
 
     // These are the low-end OOM level limits for 32bit
     private final int[] mOomMinFreeLow32Bit = new int[] {
-            8192, 12288, 16384,
-            24576, 28672, 32768
+            12288, 18432, 24576,
+            36864, 43008, 49152
     };
     // These are the high-end OOM level limits for 32bit
     private final int[] mOomMinFreeHigh32Bit = new int[] {
-            49152, 61440, 73728,
-            86016, 98304, 122880
+            61440, 76800, 92160,
+            107520, 137660, 174948
     };
     // These are the low-end OOM level limits.  This is appropriate for an
     // HVGA or smaller phone with less than 512MB.  Values are in KB.
