@@ -211,6 +211,12 @@ public abstract class Connection implements IConferenceable {
      */
     public static final int CALL_TYPE_MODIFIABLE = 0x00020000;
 
+    /**
+     * Speed up audio setup for MT call.
+     * @hide
+     */
+    public static final int CAPABILITY_SPEED_UP_MT_AUDIO = 0x00040000;
+
     // Flag controlling whether PII is emitted into the logs
     private static final boolean PII_DEBUG = Log.isLoggable(android.util.Log.DEBUG);
 
@@ -302,6 +308,9 @@ public abstract class Connection implements IConferenceable {
         }
         if (can(capabilities, ADD_PARTICIPANT)) {
             builder.append(" ADD_PARTICIPANT");
+        }
+        if (can(capabilities, CAPABILITY_SPEED_UP_MT_AUDIO)) {
+            builder.append(" CAPABILITY_SPEED_UP_IMS_MT_AUDIO");
         }
         builder.append("]");
         return builder.toString();
