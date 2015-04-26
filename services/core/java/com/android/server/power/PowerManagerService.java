@@ -451,6 +451,31 @@ public final class PowerManagerService extends SystemService
     //track the blocked uids.
     private final ArrayList<Integer> mBlockedUids = new ArrayList<Integer>();
 
+        // button brightness suppport enablement
+    private boolean mButtonBrightnessSupport = false;
+
+    private int mCurrentButtonBrightness = 0;
+
+    // value to use in manual mode
+    // can also be 0 if button light should be disabled
+    // if -1 screen brightness will be used
+    private int mCustomButtonBrightness = -1;
+
+    // always use screen brightness also for buttons
+    private boolean mButtonUseScreenBrightness = false;
+
+    // overrule and disable brightness for buttons
+    private boolean mButtonDisableBrightness = false;
+
+    // overrule and disable based on timout
+    private boolean mButtonDisabledByTimeout = false;
+
+    // overrule and disable brightness for buttons
+    private boolean mHardwareKeysDisable = false;
+
+    // timeout for button backlight automatic turning off
+    private int mButtonTimeout;
+
     private native void nativeInit();
 
     private static native void nativeAcquireSuspendBlocker(String name);
@@ -620,6 +645,25 @@ public final class PowerManagerService extends SystemService
 
             // Go.
             readConfigurationLocked();
+
+            if (mButtonBrightnessSupport){
+                resolver.registerContentObserver(
+                        Settings.System.getUriFor(Settings.System.CUSTOM_BUTTON_BRIGHTNESS),
+                        false, mSettingsObserver, UserHandle.USER_ALL);
+                resolver.registerContentObserver(
+                        Settings.System.getUriFor(Settings.System.CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS),
+                        false, mSettingsObserver, UserHandle.USER_ALL);
+                resolver.registerContentObserver(
+                        Settings.System.getUriFor(Settings.System.CUSTOM_BUTTON_DISABLE_BRIGHTNESS),
+                        false, mSettingsObserver, UserHandle.USER_ALL);
+                resolver.registerContentObserver(
+                        Settings.System.getUriFor(Settings.System.HARDWARE_KEYS_DISABLE),
+                        false, mSettingsObserver, UserHandle.USER_ALL);
+                resolver.registerContentObserver(Settings.System.getUriFor(
+                        Settings.System.BUTTON_BACKLIGHT_TIMEOUT),
+                        false, mSettingsObserver, UserHandle.USER_ALL);
+            }
+
             updateSettingsLocked();
             mDirty |= DIRTY_BATTERY_STATE;
             updatePowerStateLocked();
@@ -673,6 +717,10 @@ public final class PowerManagerService extends SystemService
                     "ProximityWakeLock");
         }
 
+        mButtonBrightnessSupport = resources.getBoolean(
+                com.android.internal.R.bool.config_button_brightness_support);
+        mCustomButtonBrightness = resources.getInteger(
+                com.android.internal.R.integer.config_button_brightness_default);
     }
 
     private void updateSettingsLocked() {
@@ -735,6 +783,7 @@ public final class PowerManagerService extends SystemService
             updateLowPowerModeLocked();
         }
 
+        updateButtonLightSettings();
         mDirty |= DIRTY_SETTINGS;
     }
 
@@ -1589,13 +1638,13 @@ public final class PowerManagerService extends SystemService
                     nextTimeout = mLastUserActivityTime
                             + screenOffTimeout - screenDimDuration;
                     if (now < nextTimeout) {
-                        if (now > mLastUserActivityTime + BUTTON_ON_DURATION) {
-                            mButtonsLight.setBrightness(0);
-                            mKeyboardLight.setBrightness(0);
-                        } else {
-                            mButtonsLight.setBrightness(mDisplayPowerRequest.screenBrightness);
-                            mKeyboardLight.setBrightness(mKeyboardVisible ? mDisplayPowerRequest.screenBrightness : 0);
-                            nextTimeout = now + BUTTON_ON_DURATION;
+                        if (mSystemReady && mButtonTimeout != 0){
+                            if (now > mLastUserActivityTime + mButtonTimeout) {
+                                mButtonDisabledByTimeout = true;
+                            } else {
+                                mButtonDisabledByTimeout = false;
+                                nextTimeout = now + mButtonTimeout;
+                            }
                         }
                         mUserActivitySummary = USER_ACTIVITY_SCREEN_BRIGHT;
                     } else {
@@ -1991,6 +2040,8 @@ public final class PowerManagerService extends SystemService
                 mDisplayPowerRequest.dozeScreenState = Display.STATE_UNKNOWN;
                 mDisplayPowerRequest.dozeScreenBrightness = PowerManager.BRIGHTNESS_DEFAULT;
             }
+
+            updateButtonLight();
 
             mDisplayReady = mDisplayManagerInternal.requestPowerState(mDisplayPowerRequest,
                     mRequestWaitForNegativeProximity);
@@ -2484,6 +2535,12 @@ public final class PowerManagerService extends SystemService
 
     private void powerHintInternal(int hintId, int data) {
         nativeSendPowerHint(hintId, data);
+    }
+
+    private void setTemporaryButtonBrightnessSettingOverrideInternal(int brightness) {
+        if (mButtonBrightnessSupport){
+            mLightsManager.getLight(LightsManager.LIGHT_ID_BUTTONS).setBrightness(brightness);
+        }
     }
 
     /**
@@ -3544,6 +3601,28 @@ public final class PowerManagerService extends SystemService
                 }
             }
         }
+        /**
+         * Used by the settings application and brightness control widgets to
+         * temporarily override the current button brightness setting so that the
+         * user can observe the effect of an intended settings change without applying
+         * it immediately.
+         *
+         * The override will be canceled when the setting value is next updated.
+         *
+         * @param brightness The overridden brightness.
+         */
+        @Override // Binder call
+        public void setTemporaryButtonBrightnessSettingOverride(int brightness) {
+            mContext.enforceCallingOrSelfPermission(
+                    android.Manifest.permission.DEVICE_POWER, null);
+
+            final long ident = Binder.clearCallingIdentity();
+            try {
+                setTemporaryButtonBrightnessSettingOverrideInternal(brightness);
+            } finally {
+                Binder.restoreCallingIdentity(ident);
+            }
+        }
     }
 
     private final class LocalService extends PowerManagerInternal {
@@ -3605,5 +3684,67 @@ public final class PowerManagerService extends SystemService
                 mLowPowerModeListeners.add(listener);
             }
         }
+    }
+
+    private void updateButtonLightSettings() {
+        final ContentResolver resolver = mContext.getContentResolver();
+        if (mButtonBrightnessSupport){
+            mCustomButtonBrightness = Settings.System.getIntForUser(
+                    mContext.getContentResolver(), Settings.System.CUSTOM_BUTTON_BRIGHTNESS, 
+                    mCustomButtonBrightness, UserHandle.USER_CURRENT);
+            mButtonUseScreenBrightness = Settings.System.getIntForUser(
+                    mContext.getContentResolver(), Settings.System.CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS,
+                    0, UserHandle.USER_CURRENT) != 0;
+            mButtonDisableBrightness = Settings.System.getIntForUser(
+                    mContext.getContentResolver(), Settings.System.CUSTOM_BUTTON_DISABLE_BRIGHTNESS,
+                    0, UserHandle.USER_CURRENT) != 0;
+            mHardwareKeysDisable = Settings.System.getIntForUser(
+                    mContext.getContentResolver(), Settings.System.HARDWARE_KEYS_DISABLE,
+                    0, UserHandle.USER_CURRENT) != 0;
+            mButtonTimeout = Settings.System.getIntForUser(resolver,
+                    Settings.System.BUTTON_BACKLIGHT_TIMEOUT,
+                    0, UserHandle.USER_CURRENT) * 1000;
+        }
+    }
+
+    private void updateButtonLight() {
+        if (mDisplayPowerRequest == null || !mButtonBrightnessSupport){
+            return;
+        }
+
+        boolean buttonlight_on =  mDisplayPowerRequest.policy == DisplayPowerRequest.POLICY_BRIGHT;
+        int currentButtonBrightness = 0;
+
+        if (buttonlight_on){
+            currentButtonBrightness = calcButtonLight();
+        } else {
+            currentButtonBrightness = 0;
+        }
+        if (currentButtonBrightness == mCurrentButtonBrightness) {
+            return;
+        }
+        mCurrentButtonBrightness = currentButtonBrightness;
+
+        if(DEBUG){
+            Slog.d(TAG, "mCurrentButtonBrightness="+mCurrentButtonBrightness);
+        }
+
+        mLightsManager.getLight(LightsManager.LIGHT_ID_BUTTONS).setBrightness(mCurrentButtonBrightness);
+    }
+
+    private int calcButtonLight() {
+        int buttonBrightness = 0;
+
+        if (mButtonDisableBrightness || mButtonDisabledByTimeout || mHardwareKeysDisable){
+            buttonBrightness = 0;
+        } else {
+            if (mCustomButtonBrightness == -1 || mButtonUseScreenBrightness){
+                // use same value as screen
+                buttonBrightness = mScreenBrightnessSetting;
+            } else {
+                buttonBrightness = mCustomButtonBrightness;
+            }
+        }
+        return buttonBrightness;
     }
 }

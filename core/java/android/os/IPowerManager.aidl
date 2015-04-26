@@ -68,4 +68,8 @@ interface IPowerManager
     void setKeyboardLight(boolean on, int key);
 
 	void wakeUpWithProximityCheck(long time);
+
+    // temporarily overrides the button brightness settings to allow the user to
+    // see the effect of a settings change without applying it immediately
+    void setTemporaryButtonBrightnessSettingOverride(int brightness);
 }
