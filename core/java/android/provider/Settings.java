@@ -3453,6 +3453,18 @@ public final class Settings {
         public static final String STATUS_BAR_SHOW_WEATHER = "status_bar_show_weather";
 
         /**
+         * Whether to disable the torch when the screen turns off
+         * @hide
+         */
+        public static final String DISABLE_TORCH_ON_SCREEN_OFF = "disable_torch_on_screen_off";
+
+        /**
+         * Delay to disable the torch when the screen turns off
+         * @hide
+         */
+        public static final String DISABLE_TORCH_ON_SCREEN_OFF_DELAY = "disable_torch_on_screen_off_delay";
+
+        /**
          * Whether to display lock in the power menu
          *
          * @hide
