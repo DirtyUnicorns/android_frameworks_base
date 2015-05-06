@@ -124,6 +124,7 @@ import com.android.internal.widget.PointerLocationView;
 import com.android.server.LocalServices;
 import com.android.internal.util.du.TaskUtils;
 import com.android.internal.util.du.OmniSwitchConstants;
+import com.android.internal.util.du.DeviceUtils;
 
 import dalvik.system.DexClassLoader;
 
@@ -878,6 +879,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HARDWARE_KEYS_DISABLE), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.NAVIGATION_BAR_SHOW), false, this,
                     UserHandle.USER_ALL);
 
             updateSettings();
@@ -1772,6 +1776,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean hasAppSwitch = (mDeviceHardwareKeys & KEY_MASK_APP_SWITCH) != 0;
         final ContentResolver resolver = mContext.getContentResolver();
 
+        mHardwareKeysDisable = Settings.System.getIntForUser(resolver,
+                Settings.System.HARDWARE_KEYS_DISABLE,
+                0,
+                UserHandle.USER_CURRENT) != 0;
+
         // initialize all assignments to sane defaults
         mPressOnHomeBehavior = KEY_ACTION_HOME;
         mPressOnMenuBehavior = KEY_ACTION_MENU;
@@ -1856,7 +1865,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         if (mHardwareKeysDisable){
-            mPressOnHomeBehavior = KEY_ACTION_NOTHING;
+            mPressOnHomeBehavior = KEY_ACTION_HOME;
             mLongPressOnHomeBehavior = KEY_ACTION_NOTHING;
             mDoubleTapOnHomeBehavior = KEY_ACTION_NOTHING;;
             mPressOnMenuBehavior = KEY_ACTION_NOTHING;
@@ -1941,17 +1950,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         // Allow the navigation bar to move on small devices (phones).
         mNavigationBarCanMove = shortSizeDp < 600;
 
-        setHasNavigationBar();
-        // Allow a system property to override this. Used by the emulator.
-        // See also hasNavigationBar().
-        String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
-        if ("1".equals(navBarOverride)) {
-            mHasNavigationBar = false;
-            mOverWriteHasNavigationBar = true;
-        } else if ("0".equals(navBarOverride)) {
-            mHasNavigationBar = true;
-            mOverWriteHasNavigationBar = true;
-        }
+        mHasNavigationBar = DeviceUtils.deviceSupportNavigationBar(mContext);
 
         // For demo purposes, allow the rotation of the HDMI display to be controlled.
         // By default, HDMI locks rotation to landscape.
@@ -2053,6 +2052,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             // volume rocker music control
             mVolBtnMusicControls = (Settings.System.getIntForUser(resolver,
                     Settings.System.VOLUME_ROCKER_MUSIC_CONTROLS, 0, UserHandle.USER_CURRENT) == 1);
+
+            mHasNavigationBar = DeviceUtils.deviceSupportNavigationBar(mContext);
 
             // Configure wake gesture.
             boolean wakeGestureEnabledSetting = Settings.Secure.getIntForUser(resolver,
@@ -3153,6 +3154,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
                 if (canceled) {
                     Log.i(TAG, "Ignoring HOME; event canceled.");
+                    return -1;
+                }
+
+                if (mPressOnHomeBehavior == KEY_ACTION_NOTHING && !virtualKey) {
                     return -1;
                 }
 
