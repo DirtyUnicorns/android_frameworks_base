@@ -395,6 +395,8 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         boolean wouldLaunchResolverActivity = PreviewInflater.wouldLaunchResolverActivity(
                 mContext, intent, mLockPatternUtils.getCurrentUser());
         if (intent == SECURE_CAMERA_INTENT && !wouldLaunchResolverActivity) {
+            intent.setFlags(
+                    Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
             mContext.startActivityAsUser(intent, UserHandle.CURRENT);
         } else {
 
