@@ -26,6 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -1024,7 +1025,7 @@ public class AppOpsService extends IAppOpsService.Stub {
                 boolean success = false;
                 try {
                     XmlPullParser parser = Xml.newPullParser();
-                    parser.setInput(stream, null);
+                    parser.setInput(stream, StandardCharsets.UTF_8.name());
                     int type;
                     while ((type = parser.next()) != XmlPullParser.START_TAG
                             && type != XmlPullParser.END_DOCUMENT) {
@@ -1194,7 +1195,7 @@ public class AppOpsService extends IAppOpsService.Stub {
 
             try {
                 XmlSerializer out = new FastXmlSerializer();
-                out.setOutput(stream, "utf-8");
+                out.setOutput(stream, StandardCharsets.UTF_8.name());
                 out.startDocument(null, true);
                 out.startTag(null, "app-ops");
 
