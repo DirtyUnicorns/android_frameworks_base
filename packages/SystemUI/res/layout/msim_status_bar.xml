@@ -30,8 +30,7 @@
     android:focusable="true"
     android:descendantFocusability="afterDescendants"
     >
-
-    <ImageView
+   <ImageView
         android:id="@+id/notification_lights_out"
         android:layout_width="@dimen/status_bar_icon_size"
         android:layout_height="match_parent"
@@ -45,8 +44,8 @@
     <LinearLayout android:id="@+id/status_bar_contents"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingStart="6dip"
-        android:paddingEnd="6dip"
+        android:paddingStart="6dp"
+        android:paddingEnd="8dp"
         android:orientation="horizontal"
         >
 
@@ -57,6 +56,7 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             >
+
             <!-- The alpha of this area is both controlled from PhoneStatusBarTransitions and
                  PhoneStatusBar (DISABLE_NOTIFICATION_ICONS), so we need two views here. -->
             <com.android.keyguard.AlphaOptimizedLinearLayout
@@ -86,6 +86,16 @@
 
                 </com.android.keyguard.AlphaOptimizedLinearLayout>
 
+                <com.android.systemui.statusbar.widget.CarrierLabel
+                    android:id="@+id/status_bar_carrier_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textAppearance="@style/TextAppearance.StatusBar.CarrierLabel"
+                    android:singleLine="true"
+                    android:visibility="gone"
+                    android:ellipsize="end"/>
+
                 <com.android.systemui.statusbar.StatusBarIconView android:id="@+id/moreIcon"
                     android:layout_width="@dimen/status_bar_icon_size"
                     android:layout_height="match_parent"
@@ -107,6 +117,13 @@
             android:orientation="horizontal"
             >
 
+            <com.android.systemui.statusbar.policy.NetworkTraffic
+                android:id="@+id/networkTraffic"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:singleLine="false"
+                android:gravity="right|center_vertical"/>
+
             <include layout="@layout/msim_system_icons" />
 
             <com.android.systemui.BatteryLevelTextView android:id="@+id/battery_level_text"
@@ -123,11 +140,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:singleLine="true"
-                android:paddingStart="6dip"
+                android:paddingStart="7dp"
                 android:gravity="center_vertical|start"
                 />
         </com.android.keyguard.AlphaOptimizedLinearLayout>
     </LinearLayout>
+
+    <com.android.keyguard.AlphaOptimizedLinearLayout
+        android:id="@+id/center_clock_layout"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.android.systemui.statusbar.policy.ClockCenter
+            android:id="@+id/center_clock"
+            android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:singleLine="true"
+            />
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
 
     <ViewStub
         android:id="@+id/ticker_stub"
