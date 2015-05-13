@@ -1687,8 +1687,13 @@ class MountService extends IMountService.Stub
 
                 if (state.equals(Environment.MEDIA_MOUNTED)) {
                     // Post a unmount message.
-                    ShutdownCallBack ucb = new ShutdownCallBack(path, mountShutdownLatch);
-                    mHandler.sendMessage(mHandler.obtainMessage(H_UNMOUNT_PM_UPDATE, ucb));
+                    final StorageVolume volume = mVolumesByPath.get(path);
+                    if (volume.isEmulated()) {
+                        mountShutdownLatch.countDown();
+                    } else {
+                        ShutdownCallBack ucb = new ShutdownCallBack(path, mountShutdownLatch);
+                        mHandler.sendMessage(mHandler.obtainMessage(H_UNMOUNT_PM_UPDATE, ucb));
+                    }
                 } else if (observer != null) {
                     /*
                      * Count down, since nothing will be done. The observer will be
