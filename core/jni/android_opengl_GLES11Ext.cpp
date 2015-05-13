@@ -122,6 +122,116 @@ getPointer(JNIEnv *_env, jobject buffer, jarray *array, jint *remaining, jint *o
     return NULL;
 }
 
+class ByteArrayGetter {
+public:
+    static void* Get(JNIEnv* _env, jbyteArray array, jboolean* is_copy) {
+        return _env->GetByteArrayElements(array, is_copy);
+    }
+};
+class BooleanArrayGetter {
+public:
+    static void* Get(JNIEnv* _env, jbooleanArray array, jboolean* is_copy) {
+        return _env->GetBooleanArrayElements(array, is_copy);
+    }
+};
+class CharArrayGetter {
+public:
+    static void* Get(JNIEnv* _env, jcharArray array, jboolean* is_copy) {
+        return _env->GetCharArrayElements(array, is_copy);
+    }
+};
+class ShortArrayGetter {
+public:
+    static void* Get(JNIEnv* _env, jshortArray array, jboolean* is_copy) {
+        return _env->GetShortArrayElements(array, is_copy);
+    }
+};
+class IntArrayGetter {
+public:
+    static void* Get(JNIEnv* _env, jintArray array, jboolean* is_copy) {
+        return _env->GetIntArrayElements(array, is_copy);
+    }
+};
+class LongArrayGetter {
+public:
+    static void* Get(JNIEnv* _env, jlongArray array, jboolean* is_copy) {
+        return _env->GetLongArrayElements(array, is_copy);
+    }
+};
+class FloatArrayGetter {
+public:
+    static void* Get(JNIEnv* _env, jfloatArray array, jboolean* is_copy) {
+        return _env->GetFloatArrayElements(array, is_copy);
+    }
+};
+class DoubleArrayGetter {
+public:
+    static void* Get(JNIEnv* _env, jdoubleArray array, jboolean* is_copy) {
+        return _env->GetDoubleArrayElements(array, is_copy);
+    }
+};
+
+template<typename JTYPEARRAY, typename ARRAYGETTER>
+static void*
+getArrayPointer(JNIEnv *_env, JTYPEARRAY array, jboolean* is_copy) {
+    return ARRAYGETTER::Get(_env, array, is_copy);
+}
+
+class ByteArrayReleaser {
+public:
+    static void Release(JNIEnv* _env, jbyteArray array, jbyte* data, jboolean commit) {
+        _env->ReleaseByteArrayElements(array, data, commit ? 0 : JNI_ABORT);
+    }
+};
+class BooleanArrayReleaser {
+public:
+    static void Release(JNIEnv* _env, jbooleanArray array, jboolean* data, jboolean commit) {
+        _env->ReleaseBooleanArrayElements(array, data, commit ? 0 : JNI_ABORT);
+    }
+};
+class CharArrayReleaser {
+public:
+    static void Release(JNIEnv* _env, jcharArray array, jchar* data, jboolean commit) {
+        _env->ReleaseCharArrayElements(array, data, commit ? 0 : JNI_ABORT);
+    }
+};
+class ShortArrayReleaser {
+public:
+    static void Release(JNIEnv* _env, jshortArray array, jshort* data, jboolean commit) {
+        _env->ReleaseShortArrayElements(array, data, commit ? 0 : JNI_ABORT);
+    }
+};
+class IntArrayReleaser {
+public:
+    static void Release(JNIEnv* _env, jintArray array, jint* data, jboolean commit) {
+        _env->ReleaseIntArrayElements(array, data, commit ? 0 : JNI_ABORT);
+    }
+};
+class LongArrayReleaser {
+public:
+    static void Release(JNIEnv* _env, jlongArray array, jlong* data, jboolean commit) {
+        _env->ReleaseLongArrayElements(array, data, commit ? 0 : JNI_ABORT);
+    }
+};
+class FloatArrayReleaser {
+public:
+    static void Release(JNIEnv* _env, jfloatArray array, jfloat* data, jboolean commit) {
+        _env->ReleaseFloatArrayElements(array, data, commit ? 0 : JNI_ABORT);
+    }
+};
+class DoubleArrayReleaser {
+public:
+    static void Release(JNIEnv* _env, jdoubleArray array, jdouble* data, jboolean commit) {
+        _env->ReleaseDoubleArrayElements(array, data, commit ? 0 : JNI_ABORT);
+    }
+};
+
+template<typename JTYPEARRAY, typename NTYPEARRAY, typename ARRAYRELEASER>
+static void
+releaseArrayPointer(JNIEnv *_env, JTYPEARRAY array, NTYPEARRAY data, jboolean commit) {
+    ARRAYRELEASER::Release(_env, array, data, commit);
+}
+
 static void
 releasePointer(JNIEnv *_env, jarray array, void *data, jboolean commit)
 {
@@ -225,7 +335,8 @@ static int getNeededCount(GLint pname) {
     return needed;
 }
 
-template <typename JTYPEARRAY, typename CTYPE, void GET(GLenum, CTYPE*)>
+template <typename JTYPEARRAY, typename ARRAYGETTER, typename NTYPEARRAY,
+          typename ARRAYRELEASER, typename CTYPE, void GET(GLenum, CTYPE*)>
 static void
 get
   (JNIEnv *_env, jobject _this, jint pname, JTYPEARRAY params_ref, jint offset) {
@@ -260,8 +371,8 @@ get
         _exceptionMessage = "length - offset < needed";
         goto exit;
     }
-    params_base = (CTYPE *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+    params_base = (CTYPE *) getArrayPointer<JTYPEARRAY, ARRAYGETTER>(
+        _env, params_ref, (jboolean *)0);
     params = params_base + offset;
 
     GET(
@@ -271,8 +382,8 @@ get
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
-            _exception ? JNI_ABORT: 0);
+        releaseArrayPointer<JTYPEARRAY, NTYPEARRAY, ARRAYRELEASER>(
+            _env, params_ref, params_base, !_exception);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -280,20 +391,21 @@ exit:
 }
 
 
-template <typename CTYPE, void GET(GLenum, CTYPE*)>
+template <typename CTYPE, typename JTYPEARRAY, typename ARRAYGETTER, typename NTYPEARRAY,
+          typename ARRAYRELEASER, void GET(GLenum, CTYPE*)>
 static void
 getarray
   (JNIEnv *_env, jobject _this, jint pname, jobject params_buf) {
     jint _exception = 0;
     const char * _exceptionType;
     const char * _exceptionMessage;
-    jarray _array = (jarray) 0;
+    JTYPEARRAY _array = (JTYPEARRAY) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     CTYPE *params = (CTYPE *) 0;
     int _needed = 0;
 
-    params = (CTYPE *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (CTYPE *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     _remaining /= sizeof(CTYPE);    // convert from bytes to item count
     _needed = getNeededCount(pname);
     // if we didn't find this pname, we just assume the user passed
@@ -306,7 +418,8 @@ getarray
         goto exit;
     }
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *) getArrayPointer<JTYPEARRAY, ARRAYGETTER>(
+            _env, _array, (jboolean *) 0);
         params = (CTYPE *) (_paramsBase + _bufferOffset);
     }
     GET(
@@ -316,7 +429,8 @@ getarray
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, params, _exception ? JNI_FALSE : JNI_TRUE);
+        releaseArrayPointer<JTYPEARRAY, NTYPEARRAY, ARRAYRELEASER>(
+            _env, _array, (NTYPEARRAY)params, _exception ? JNI_FALSE : JNI_TRUE);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -425,7 +539,7 @@ android_glDrawTexsvOES___3SI
         goto exit;
     }
     coords_base = (GLshort *)
-        _env->GetPrimitiveArrayCritical(coords_ref, (jboolean *)0);
+        _env->GetShortArrayElements(coords_ref, (jboolean *)0);
     coords = coords_base + offset;
 
     glDrawTexsvOES(
@@ -434,7 +548,7 @@ android_glDrawTexsvOES___3SI
 
 exit:
     if (coords_base) {
-        _env->ReleasePrimitiveArrayCritical(coords_ref, coords_base,
+        _env->ReleaseShortArrayElements(coords_ref, (jshort*)coords_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -449,12 +563,12 @@ android_glDrawTexsvOES__Ljava_nio_ShortBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jshortArray _array = (jshortArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLshort *coords = (GLshort *) 0;
 
-    coords = (GLshort *)getPointer(_env, coords_buf, &_array, &_remaining, &_bufferOffset);
+    coords = (GLshort *)getPointer(_env, coords_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < 5) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -462,7 +576,7 @@ android_glDrawTexsvOES__Ljava_nio_ShortBuffer_2
         goto exit;
     }
     if (coords == NULL) {
-        char * _coordsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _coordsBase = (char *)_env->GetShortArrayElements(_array, (jboolean *) 0);
         coords = (GLshort *) (_coordsBase + _bufferOffset);
     }
     glDrawTexsvOES(
@@ -471,7 +585,7 @@ android_glDrawTexsvOES__Ljava_nio_ShortBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, coords, JNI_FALSE);
+        _env->ReleaseShortArrayElements(_array, (jshort*)coords, JNI_ABORT);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -509,7 +623,7 @@ android_glDrawTexivOES___3II
         goto exit;
     }
     coords_base = (GLint *)
-        _env->GetPrimitiveArrayCritical(coords_ref, (jboolean *)0);
+        _env->GetIntArrayElements(coords_ref, (jboolean *)0);
     coords = coords_base + offset;
 
     glDrawTexivOES(
@@ -518,7 +632,7 @@ android_glDrawTexivOES___3II
 
 exit:
     if (coords_base) {
-        _env->ReleasePrimitiveArrayCritical(coords_ref, coords_base,
+        _env->ReleaseIntArrayElements(coords_ref, (jint*)coords_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -533,12 +647,12 @@ android_glDrawTexivOES__Ljava_nio_IntBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLint *coords = (GLint *) 0;
 
-    coords = (GLint *)getPointer(_env, coords_buf, &_array, &_remaining, &_bufferOffset);
+    coords = (GLint *)getPointer(_env, coords_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < 5) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -546,7 +660,7 @@ android_glDrawTexivOES__Ljava_nio_IntBuffer_2
         goto exit;
     }
     if (coords == NULL) {
-        char * _coordsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _coordsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         coords = (GLint *) (_coordsBase + _bufferOffset);
     }
     glDrawTexivOES(
@@ -555,7 +669,7 @@ android_glDrawTexivOES__Ljava_nio_IntBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, coords, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)coords, JNI_ABORT);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -593,7 +707,7 @@ android_glDrawTexxvOES___3II
         goto exit;
     }
     coords_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(coords_ref, (jboolean *)0);
+        _env->GetIntArrayElements(coords_ref, (jboolean *)0);
     coords = coords_base + offset;
 
     glDrawTexxvOES(
@@ -602,7 +716,7 @@ android_glDrawTexxvOES___3II
 
 exit:
     if (coords_base) {
-        _env->ReleasePrimitiveArrayCritical(coords_ref, coords_base,
+        _env->ReleaseIntArrayElements(coords_ref, (jint*)coords_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -617,12 +731,12 @@ android_glDrawTexxvOES__Ljava_nio_IntBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *coords = (GLfixed *) 0;
 
-    coords = (GLfixed *)getPointer(_env, coords_buf, &_array, &_remaining, &_bufferOffset);
+    coords = (GLfixed *)getPointer(_env, coords_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < 5) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -630,7 +744,7 @@ android_glDrawTexxvOES__Ljava_nio_IntBuffer_2
         goto exit;
     }
     if (coords == NULL) {
-        char * _coordsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _coordsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         coords = (GLfixed *) (_coordsBase + _bufferOffset);
     }
     glDrawTexxvOES(
@@ -639,7 +753,7 @@ android_glDrawTexxvOES__Ljava_nio_IntBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, coords, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)coords, JNI_ABORT);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -690,7 +804,7 @@ android_glDrawTexfvOES___3FI
         goto exit;
     }
     coords_base = (GLfloat *)
-        _env->GetPrimitiveArrayCritical(coords_ref, (jboolean *)0);
+        _env->GetFloatArrayElements(coords_ref, (jboolean *)0);
     coords = coords_base + offset;
 
     glDrawTexfvOES(
@@ -699,7 +813,7 @@ android_glDrawTexfvOES___3FI
 
 exit:
     if (coords_base) {
-        _env->ReleasePrimitiveArrayCritical(coords_ref, coords_base,
+        _env->ReleaseFloatArrayElements(coords_ref, (jfloat*)coords_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -714,12 +828,12 @@ android_glDrawTexfvOES__Ljava_nio_FloatBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jfloatArray _array = (jfloatArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfloat *coords = (GLfloat *) 0;
 
-    coords = (GLfloat *)getPointer(_env, coords_buf, &_array, &_remaining, &_bufferOffset);
+    coords = (GLfloat *)getPointer(_env, coords_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < 5) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -727,7 +841,7 @@ android_glDrawTexfvOES__Ljava_nio_FloatBuffer_2
         goto exit;
     }
     if (coords == NULL) {
-        char * _coordsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _coordsBase = (char *)_env->GetFloatArrayElements(_array, (jboolean *) 0);
         coords = (GLfloat *) (_coordsBase + _bufferOffset);
     }
     glDrawTexfvOES(
@@ -736,7 +850,7 @@ android_glDrawTexfvOES__Ljava_nio_FloatBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, coords, JNI_FALSE);
+        _env->ReleaseFloatArrayElements(_array, (jfloat*)coords, JNI_ABORT);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -752,7 +866,7 @@ android_glEGLImageTargetTexture2DOES__ILjava_nio_Buffer_2
     jint _remaining;
     GLeglImageOES image = (GLeglImageOES) 0;
 
-    image = (GLeglImageOES)getPointer(_env, image_buf, &_array, &_remaining, &_bufferOffset);
+    image = (GLeglImageOES)getPointer(_env, image_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (image == NULL) {
         char * _imageBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
         image = (GLeglImageOES) (_imageBase + _bufferOffset);
@@ -775,7 +889,7 @@ android_glEGLImageTargetRenderbufferStorageOES__ILjava_nio_Buffer_2
     jint _remaining;
     GLeglImageOES image = (GLeglImageOES) 0;
 
-    image = (GLeglImageOES)getPointer(_env, image_buf, &_array, &_remaining, &_bufferOffset);
+    image = (GLeglImageOES)getPointer(_env, image_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (image == NULL) {
         char * _imageBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
         image = (GLeglImageOES) (_imageBase + _bufferOffset);
@@ -845,7 +959,7 @@ android_glClipPlanexOES__I_3II
     }
     _remaining = _env->GetArrayLength(equation_ref) - offset;
     equation_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(equation_ref, (jboolean *)0);
+        _env->GetIntArrayElements(equation_ref, (jboolean *)0);
     equation = equation_base + offset;
 
     glClipPlanexOES(
@@ -855,7 +969,7 @@ android_glClipPlanexOES__I_3II
 
 exit:
     if (equation_base) {
-        _env->ReleasePrimitiveArrayCritical(equation_ref, equation_base,
+        _env->ReleaseIntArrayElements(equation_ref, (jint*)equation_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -867,14 +981,14 @@ exit:
 static void
 android_glClipPlanexOES__ILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint plane, jobject equation_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *equation = (GLfixed *) 0;
 
-    equation = (GLfixed *)getPointer(_env, equation_buf, &_array, &_remaining, &_bufferOffset);
+    equation = (GLfixed *)getPointer(_env, equation_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (equation == NULL) {
-        char * _equationBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _equationBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         equation = (GLfixed *) (_equationBase + _bufferOffset);
     }
     glClipPlanexOES(
@@ -882,7 +996,7 @@ android_glClipPlanexOES__ILjava_nio_IntBuffer_2
         (GLfixed *)equation
     );
     if (_array) {
-        releasePointer(_env, _array, equation, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)equation, JNI_ABORT);
     }
 }
 
@@ -943,7 +1057,7 @@ android_glFogxvOES__I_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glFogxvOES(
@@ -953,7 +1067,7 @@ android_glFogxvOES__I_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -965,14 +1079,14 @@ exit:
 static void
 android_glFogxvOES__ILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glFogxvOES(
@@ -980,7 +1094,7 @@ android_glFogxvOES__ILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, JNI_ABORT);
     }
 }
 
@@ -1029,7 +1143,7 @@ android_glGetClipPlanexOES__I_3II
         goto exit;
     }
     eqn_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(eqn_ref, (jboolean *)0);
+        _env->GetIntArrayElements(eqn_ref, (jboolean *)0);
     eqn = eqn_base + offset;
 
     glGetClipPlanexOES(
@@ -1039,7 +1153,7 @@ android_glGetClipPlanexOES__I_3II
 
 exit:
     if (eqn_base) {
-        _env->ReleasePrimitiveArrayCritical(eqn_ref, eqn_base,
+        _env->ReleaseIntArrayElements(eqn_ref, (jint*)eqn_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -1054,12 +1168,12 @@ android_glGetClipPlanexOES__ILjava_nio_IntBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *eqn = (GLfixed *) 0;
 
-    eqn = (GLfixed *)getPointer(_env, eqn_buf, &_array, &_remaining, &_bufferOffset);
+    eqn = (GLfixed *)getPointer(_env, eqn_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < 4) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -1067,7 +1181,7 @@ android_glGetClipPlanexOES__ILjava_nio_IntBuffer_2
         goto exit;
     }
     if (eqn == NULL) {
-        char * _eqnBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _eqnBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         eqn = (GLfixed *) (_eqnBase + _bufferOffset);
     }
     glGetClipPlanexOES(
@@ -1077,7 +1191,7 @@ android_glGetClipPlanexOES__ILjava_nio_IntBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, eqn, _exception ? JNI_FALSE : JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)eqn, _exception ? JNI_ABORT : 0);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -1109,7 +1223,7 @@ android_glGetFixedvOES__I_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetFixedvOES(
@@ -1119,7 +1233,7 @@ android_glGetFixedvOES__I_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -1131,14 +1245,14 @@ exit:
 static void
 android_glGetFixedvOES__ILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glGetFixedvOES(
@@ -1146,7 +1260,7 @@ android_glGetFixedvOES__ILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, 0);
     }
 }
 
@@ -1175,7 +1289,7 @@ android_glGetLightxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetLightxvOES(
@@ -1186,7 +1300,7 @@ android_glGetLightxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -1198,14 +1312,14 @@ exit:
 static void
 android_glGetLightxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint light, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glGetLightxvOES(
@@ -1214,7 +1328,7 @@ android_glGetLightxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, 0);
     }
 }
 
@@ -1243,7 +1357,7 @@ android_glGetMaterialxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetMaterialxvOES(
@@ -1254,7 +1368,7 @@ android_glGetMaterialxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -1266,14 +1380,14 @@ exit:
 static void
 android_glGetMaterialxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint face, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glGetMaterialxvOES(
@@ -1282,7 +1396,7 @@ android_glGetMaterialxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, 0);
     }
 }
 
@@ -1311,7 +1425,7 @@ android_glGetTexEnvxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetTexEnvxvOES(
@@ -1322,7 +1436,7 @@ android_glGetTexEnvxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -1334,14 +1448,14 @@ exit:
 static void
 android_glGetTexEnvxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint env, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glGetTexEnvxvOES(
@@ -1350,7 +1464,7 @@ android_glGetTexEnvxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, 0);
     }
 }
 
@@ -1379,7 +1493,7 @@ android_glGetTexParameterxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetTexParameterxvOES(
@@ -1390,7 +1504,7 @@ android_glGetTexParameterxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -1402,14 +1516,14 @@ exit:
 static void
 android_glGetTexParameterxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint target, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glGetTexParameterxvOES(
@@ -1418,7 +1532,7 @@ android_glGetTexParameterxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, 0);
     }
 }
 
@@ -1457,7 +1571,7 @@ android_glLightModelxvOES__I_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glLightModelxvOES(
@@ -1467,7 +1581,7 @@ android_glLightModelxvOES__I_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -1479,14 +1593,14 @@ exit:
 static void
 android_glLightModelxvOES__ILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glLightModelxvOES(
@@ -1494,7 +1608,7 @@ android_glLightModelxvOES__ILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, JNI_ABORT);
     }
 }
 
@@ -1534,7 +1648,7 @@ android_glLightxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glLightxvOES(
@@ -1545,7 +1659,7 @@ android_glLightxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -1557,14 +1671,14 @@ exit:
 static void
 android_glLightxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint light, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glLightxvOES(
@@ -1573,7 +1687,7 @@ android_glLightxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, JNI_ABORT);
     }
 }
 
@@ -1611,7 +1725,7 @@ android_glLoadMatrixxOES___3II
     }
     _remaining = _env->GetArrayLength(m_ref) - offset;
     m_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(m_ref, (jboolean *)0);
+        _env->GetIntArrayElements(m_ref, (jboolean *)0);
     m = m_base + offset;
 
     glLoadMatrixxOES(
@@ -1620,7 +1734,7 @@ android_glLoadMatrixxOES___3II
 
 exit:
     if (m_base) {
-        _env->ReleasePrimitiveArrayCritical(m_ref, m_base,
+        _env->ReleaseIntArrayElements(m_ref, (jint*)m_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -1632,21 +1746,21 @@ exit:
 static void
 android_glLoadMatrixxOES__Ljava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jobject m_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *m = (GLfixed *) 0;
 
-    m = (GLfixed *)getPointer(_env, m_buf, &_array, &_remaining, &_bufferOffset);
+    m = (GLfixed *)getPointer(_env, m_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (m == NULL) {
-        char * _mBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _mBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         m = (GLfixed *) (_mBase + _bufferOffset);
     }
     glLoadMatrixxOES(
         (GLfixed *)m
     );
     if (_array) {
-        releasePointer(_env, _array, m, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)m, JNI_ABORT);
     }
 }
 
@@ -1686,7 +1800,7 @@ android_glMaterialxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glMaterialxvOES(
@@ -1697,7 +1811,7 @@ android_glMaterialxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -1709,14 +1823,14 @@ exit:
 static void
 android_glMaterialxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint face, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glMaterialxvOES(
@@ -1725,7 +1839,7 @@ android_glMaterialxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, JNI_ABORT);
     }
 }
 
@@ -1754,7 +1868,7 @@ android_glMultMatrixxOES___3II
     }
     _remaining = _env->GetArrayLength(m_ref) - offset;
     m_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(m_ref, (jboolean *)0);
+        _env->GetIntArrayElements(m_ref, (jboolean *)0);
     m = m_base + offset;
 
     glMultMatrixxOES(
@@ -1763,7 +1877,7 @@ android_glMultMatrixxOES___3II
 
 exit:
     if (m_base) {
-        _env->ReleasePrimitiveArrayCritical(m_ref, m_base,
+        _env->ReleaseIntArrayElements(m_ref, (jint*)m_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -1775,21 +1889,21 @@ exit:
 static void
 android_glMultMatrixxOES__Ljava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jobject m_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *m = (GLfixed *) 0;
 
-    m = (GLfixed *)getPointer(_env, m_buf, &_array, &_remaining, &_bufferOffset);
+    m = (GLfixed *)getPointer(_env, m_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (m == NULL) {
-        char * _mBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _mBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         m = (GLfixed *) (_mBase + _bufferOffset);
     }
     glMultMatrixxOES(
         (GLfixed *)m
     );
     if (_array) {
-        releasePointer(_env, _array, m, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)m, JNI_ABORT);
     }
 }
 
@@ -1866,7 +1980,7 @@ android_glPointParameterxvOES__I_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glPointParameterxvOES(
@@ -1876,7 +1990,7 @@ android_glPointParameterxvOES__I_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -1888,14 +2002,14 @@ exit:
 static void
 android_glPointParameterxvOES__ILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glPointParameterxvOES(
@@ -1903,7 +2017,7 @@ android_glPointParameterxvOES__ILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, JNI_ABORT);
     }
 }
 
@@ -1995,7 +2109,7 @@ android_glTexEnvxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glTexEnvxvOES(
@@ -2006,7 +2120,7 @@ android_glTexEnvxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -2018,14 +2132,14 @@ exit:
 static void
 android_glTexEnvxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint target, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glTexEnvxvOES(
@@ -2034,7 +2148,7 @@ android_glTexEnvxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, JNI_ABORT);
     }
 }
 
@@ -2074,7 +2188,7 @@ android_glTexParameterxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glTexParameterxvOES(
@@ -2085,7 +2199,7 @@ android_glTexParameterxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -2097,14 +2211,14 @@ exit:
 static void
 android_glTexParameterxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint target, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glTexParameterxvOES(
@@ -2113,7 +2227,7 @@ android_glTexParameterxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, JNI_ABORT);
     }
 }
 
@@ -2180,7 +2294,7 @@ android_glDeleteRenderbuffersOES__I_3II
         goto exit;
     }
     renderbuffers_base = (GLuint *)
-        _env->GetPrimitiveArrayCritical(renderbuffers_ref, (jboolean *)0);
+        _env->GetIntArrayElements(renderbuffers_ref, (jboolean *)0);
     renderbuffers = renderbuffers_base + offset;
 
     glDeleteRenderbuffersOES(
@@ -2190,7 +2304,7 @@ android_glDeleteRenderbuffersOES__I_3II
 
 exit:
     if (renderbuffers_base) {
-        _env->ReleasePrimitiveArrayCritical(renderbuffers_ref, renderbuffers_base,
+        _env->ReleaseIntArrayElements(renderbuffers_ref, (jint*)renderbuffers_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -2205,12 +2319,12 @@ android_glDeleteRenderbuffersOES__ILjava_nio_IntBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLuint *renderbuffers = (GLuint *) 0;
 
-    renderbuffers = (GLuint *)getPointer(_env, renderbuffers_buf, &_array, &_remaining, &_bufferOffset);
+    renderbuffers = (GLuint *)getPointer(_env, renderbuffers_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < n) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -2218,7 +2332,7 @@ android_glDeleteRenderbuffersOES__ILjava_nio_IntBuffer_2
         goto exit;
     }
     if (renderbuffers == NULL) {
-        char * _renderbuffersBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _renderbuffersBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         renderbuffers = (GLuint *) (_renderbuffersBase + _bufferOffset);
     }
     glDeleteRenderbuffersOES(
@@ -2228,7 +2342,7 @@ android_glDeleteRenderbuffersOES__ILjava_nio_IntBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, renderbuffers, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)renderbuffers, JNI_ABORT);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -2266,7 +2380,7 @@ android_glGenRenderbuffersOES__I_3II
         goto exit;
     }
     renderbuffers_base = (GLuint *)
-        _env->GetPrimitiveArrayCritical(renderbuffers_ref, (jboolean *)0);
+        _env->GetIntArrayElements(renderbuffers_ref, (jboolean *)0);
     renderbuffers = renderbuffers_base + offset;
 
     glGenRenderbuffersOES(
@@ -2276,7 +2390,7 @@ android_glGenRenderbuffersOES__I_3II
 
 exit:
     if (renderbuffers_base) {
-        _env->ReleasePrimitiveArrayCritical(renderbuffers_ref, renderbuffers_base,
+        _env->ReleaseIntArrayElements(renderbuffers_ref, (jint*)renderbuffers_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -2291,12 +2405,12 @@ android_glGenRenderbuffersOES__ILjava_nio_IntBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLuint *renderbuffers = (GLuint *) 0;
 
-    renderbuffers = (GLuint *)getPointer(_env, renderbuffers_buf, &_array, &_remaining, &_bufferOffset);
+    renderbuffers = (GLuint *)getPointer(_env, renderbuffers_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < n) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -2304,7 +2418,7 @@ android_glGenRenderbuffersOES__ILjava_nio_IntBuffer_2
         goto exit;
     }
     if (renderbuffers == NULL) {
-        char * _renderbuffersBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _renderbuffersBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         renderbuffers = (GLuint *) (_renderbuffersBase + _bufferOffset);
     }
     glGenRenderbuffersOES(
@@ -2314,7 +2428,7 @@ android_glGenRenderbuffersOES__ILjava_nio_IntBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, renderbuffers, _exception ? JNI_FALSE : JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)renderbuffers, _exception ? JNI_ABORT : 0);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -2364,7 +2478,7 @@ android_glGetRenderbufferParameterivOES__II_3II
         goto exit;
     }
     params_base = (GLint *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetRenderbufferParameterivOES(
@@ -2375,7 +2489,7 @@ android_glGetRenderbufferParameterivOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -2390,12 +2504,12 @@ android_glGetRenderbufferParameterivOES__IILjava_nio_IntBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLint *params = (GLint *) 0;
 
-    params = (GLint *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLint *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < 1) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -2403,7 +2517,7 @@ android_glGetRenderbufferParameterivOES__IILjava_nio_IntBuffer_2
         goto exit;
     }
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLint *) (_paramsBase + _bufferOffset);
     }
     glGetRenderbufferParameterivOES(
@@ -2414,7 +2528,7 @@ android_glGetRenderbufferParameterivOES__IILjava_nio_IntBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, params, _exception ? JNI_FALSE : JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, _exception ? JNI_ABORT : 0);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -2473,7 +2587,7 @@ android_glDeleteFramebuffersOES__I_3II
         goto exit;
     }
     framebuffers_base = (GLuint *)
-        _env->GetPrimitiveArrayCritical(framebuffers_ref, (jboolean *)0);
+        _env->GetIntArrayElements(framebuffers_ref, (jboolean *)0);
     framebuffers = framebuffers_base + offset;
 
     glDeleteFramebuffersOES(
@@ -2483,7 +2597,7 @@ android_glDeleteFramebuffersOES__I_3II
 
 exit:
     if (framebuffers_base) {
-        _env->ReleasePrimitiveArrayCritical(framebuffers_ref, framebuffers_base,
+        _env->ReleaseIntArrayElements(framebuffers_ref, (jint*)framebuffers_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -2498,12 +2612,12 @@ android_glDeleteFramebuffersOES__ILjava_nio_IntBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLuint *framebuffers = (GLuint *) 0;
 
-    framebuffers = (GLuint *)getPointer(_env, framebuffers_buf, &_array, &_remaining, &_bufferOffset);
+    framebuffers = (GLuint *)getPointer(_env, framebuffers_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < n) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -2511,7 +2625,7 @@ android_glDeleteFramebuffersOES__ILjava_nio_IntBuffer_2
         goto exit;
     }
     if (framebuffers == NULL) {
-        char * _framebuffersBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _framebuffersBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         framebuffers = (GLuint *) (_framebuffersBase + _bufferOffset);
     }
     glDeleteFramebuffersOES(
@@ -2521,7 +2635,7 @@ android_glDeleteFramebuffersOES__ILjava_nio_IntBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, framebuffers, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)framebuffers, JNI_ABORT);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -2559,7 +2673,7 @@ android_glGenFramebuffersOES__I_3II
         goto exit;
     }
     framebuffers_base = (GLuint *)
-        _env->GetPrimitiveArrayCritical(framebuffers_ref, (jboolean *)0);
+        _env->GetIntArrayElements(framebuffers_ref, (jboolean *)0);
     framebuffers = framebuffers_base + offset;
 
     glGenFramebuffersOES(
@@ -2569,7 +2683,7 @@ android_glGenFramebuffersOES__I_3II
 
 exit:
     if (framebuffers_base) {
-        _env->ReleasePrimitiveArrayCritical(framebuffers_ref, framebuffers_base,
+        _env->ReleaseIntArrayElements(framebuffers_ref, (jint*)framebuffers_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -2584,12 +2698,12 @@ android_glGenFramebuffersOES__ILjava_nio_IntBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLuint *framebuffers = (GLuint *) 0;
 
-    framebuffers = (GLuint *)getPointer(_env, framebuffers_buf, &_array, &_remaining, &_bufferOffset);
+    framebuffers = (GLuint *)getPointer(_env, framebuffers_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < n) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -2597,7 +2711,7 @@ android_glGenFramebuffersOES__ILjava_nio_IntBuffer_2
         goto exit;
     }
     if (framebuffers == NULL) {
-        char * _framebuffersBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _framebuffersBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         framebuffers = (GLuint *) (_framebuffersBase + _bufferOffset);
     }
     glGenFramebuffersOES(
@@ -2607,7 +2721,7 @@ android_glGenFramebuffersOES__ILjava_nio_IntBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, framebuffers, _exception ? JNI_FALSE : JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)framebuffers, _exception ? JNI_ABORT : 0);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -2681,7 +2795,7 @@ android_glGetFramebufferAttachmentParameterivOES__III_3II
         goto exit;
     }
     params_base = (GLint *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetFramebufferAttachmentParameterivOES(
@@ -2693,7 +2807,7 @@ android_glGetFramebufferAttachmentParameterivOES__III_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -2708,12 +2822,12 @@ android_glGetFramebufferAttachmentParameterivOES__IIILjava_nio_IntBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLint *params = (GLint *) 0;
 
-    params = (GLint *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLint *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < 1) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -2721,7 +2835,7 @@ android_glGetFramebufferAttachmentParameterivOES__IIILjava_nio_IntBuffer_2
         goto exit;
     }
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLint *) (_paramsBase + _bufferOffset);
     }
     glGetFramebufferAttachmentParameterivOES(
@@ -2733,7 +2847,7 @@ android_glGetFramebufferAttachmentParameterivOES__IIILjava_nio_IntBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, params, _exception ? JNI_FALSE : JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, _exception ? JNI_ABORT : 0);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -2876,7 +2990,7 @@ android_glClipPlanefOES__I_3FI
     }
     _remaining = _env->GetArrayLength(equation_ref) - offset;
     equation_base = (GLfloat *)
-        _env->GetPrimitiveArrayCritical(equation_ref, (jboolean *)0);
+        _env->GetFloatArrayElements(equation_ref, (jboolean *)0);
     equation = equation_base + offset;
 
     glClipPlanefOES(
@@ -2886,7 +3000,7 @@ android_glClipPlanefOES__I_3FI
 
 exit:
     if (equation_base) {
-        _env->ReleasePrimitiveArrayCritical(equation_ref, equation_base,
+        _env->ReleaseFloatArrayElements(equation_ref, (jfloat*)equation_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -2898,14 +3012,14 @@ exit:
 static void
 android_glClipPlanefOES__ILjava_nio_FloatBuffer_2
   (JNIEnv *_env, jobject _this, jint plane, jobject equation_buf) {
-    jarray _array = (jarray) 0;
+    jfloatArray _array = (jfloatArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfloat *equation = (GLfloat *) 0;
 
-    equation = (GLfloat *)getPointer(_env, equation_buf, &_array, &_remaining, &_bufferOffset);
+    equation = (GLfloat *)getPointer(_env, equation_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (equation == NULL) {
-        char * _equationBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _equationBase = (char *)_env->GetFloatArrayElements(_array, (jboolean *) 0);
         equation = (GLfloat *) (_equationBase + _bufferOffset);
     }
     glClipPlanefOES(
@@ -2913,7 +3027,7 @@ android_glClipPlanefOES__ILjava_nio_FloatBuffer_2
         (GLfloat *)equation
     );
     if (_array) {
-        releasePointer(_env, _array, equation, JNI_FALSE);
+        _env->ReleaseFloatArrayElements(_array, (jfloat*)equation, JNI_ABORT);
     }
 }
 
@@ -2948,7 +3062,7 @@ android_glGetClipPlanefOES__I_3FI
         goto exit;
     }
     eqn_base = (GLfloat *)
-        _env->GetPrimitiveArrayCritical(eqn_ref, (jboolean *)0);
+        _env->GetFloatArrayElements(eqn_ref, (jboolean *)0);
     eqn = eqn_base + offset;
 
     glGetClipPlanefOES(
@@ -2958,7 +3072,7 @@ android_glGetClipPlanefOES__I_3FI
 
 exit:
     if (eqn_base) {
-        _env->ReleasePrimitiveArrayCritical(eqn_ref, eqn_base,
+        _env->ReleaseFloatArrayElements(eqn_ref, (jfloat*)eqn_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -2973,12 +3087,12 @@ android_glGetClipPlanefOES__ILjava_nio_FloatBuffer_2
     jint _exception = 0;
     const char * _exceptionType = NULL;
     const char * _exceptionMessage = NULL;
-    jarray _array = (jarray) 0;
+    jfloatArray _array = (jfloatArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfloat *eqn = (GLfloat *) 0;
 
-    eqn = (GLfloat *)getPointer(_env, eqn_buf, &_array, &_remaining, &_bufferOffset);
+    eqn = (GLfloat *)getPointer(_env, eqn_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (_remaining < 4) {
         _exception = 1;
         _exceptionType = "java/lang/IllegalArgumentException";
@@ -2986,7 +3100,7 @@ android_glGetClipPlanefOES__ILjava_nio_FloatBuffer_2
         goto exit;
     }
     if (eqn == NULL) {
-        char * _eqnBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _eqnBase = (char *)_env->GetFloatArrayElements(_array, (jboolean *) 0);
         eqn = (GLfloat *) (_eqnBase + _bufferOffset);
     }
     glGetClipPlanefOES(
@@ -2996,7 +3110,7 @@ android_glGetClipPlanefOES__ILjava_nio_FloatBuffer_2
 
 exit:
     if (_array) {
-        releasePointer(_env, _array, eqn, _exception ? JNI_FALSE : JNI_TRUE);
+        _env->ReleaseFloatArrayElements(_array, (jfloat*)eqn, _exception ? JNI_ABORT : 0);
     }
     if (_exception) {
         jniThrowException(_env, _exceptionType, _exceptionMessage);
@@ -3048,7 +3162,7 @@ android_glTexGenfvOES__II_3FI
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfloat *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetFloatArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glTexGenfvOES(
@@ -3059,7 +3173,7 @@ android_glTexGenfvOES__II_3FI
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseFloatArrayElements(params_ref, (jfloat*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -3071,14 +3185,14 @@ exit:
 static void
 android_glTexGenfvOES__IILjava_nio_FloatBuffer_2
   (JNIEnv *_env, jobject _this, jint coord, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jfloatArray _array = (jfloatArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfloat *params = (GLfloat *) 0;
 
-    params = (GLfloat *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfloat *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetFloatArrayElements(_array, (jboolean *) 0);
         params = (GLfloat *) (_paramsBase + _bufferOffset);
     }
     glTexGenfvOES(
@@ -3087,7 +3201,7 @@ android_glTexGenfvOES__IILjava_nio_FloatBuffer_2
         (GLfloat *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseFloatArrayElements(_array, (jfloat*)params, JNI_ABORT);
     }
 }
 
@@ -3127,7 +3241,7 @@ android_glTexGenivOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLint *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glTexGenivOES(
@@ -3138,7 +3252,7 @@ android_glTexGenivOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -3150,14 +3264,14 @@ exit:
 static void
 android_glTexGenivOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint coord, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLint *params = (GLint *) 0;
 
-    params = (GLint *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLint *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLint *) (_paramsBase + _bufferOffset);
     }
     glTexGenivOES(
@@ -3166,7 +3280,7 @@ android_glTexGenivOES__IILjava_nio_IntBuffer_2
         (GLint *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, JNI_ABORT);
     }
 }
 
@@ -3206,7 +3320,7 @@ android_glTexGenxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glTexGenxvOES(
@@ -3217,7 +3331,7 @@ android_glTexGenxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             JNI_ABORT);
     }
     if (_exception) {
@@ -3229,14 +3343,14 @@ exit:
 static void
 android_glTexGenxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint coord, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glTexGenxvOES(
@@ -3245,7 +3359,7 @@ android_glTexGenxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_FALSE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, JNI_ABORT);
     }
 }
 
@@ -3274,7 +3388,7 @@ android_glGetTexGenfvOES__II_3FI
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfloat *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetFloatArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetTexGenfvOES(
@@ -3285,7 +3399,7 @@ android_glGetTexGenfvOES__II_3FI
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseFloatArrayElements(params_ref, (jfloat*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -3297,14 +3411,14 @@ exit:
 static void
 android_glGetTexGenfvOES__IILjava_nio_FloatBuffer_2
   (JNIEnv *_env, jobject _this, jint coord, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jfloatArray _array = (jfloatArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfloat *params = (GLfloat *) 0;
 
-    params = (GLfloat *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfloat *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetFloatArrayElements(_array, (jboolean *) 0);
         params = (GLfloat *) (_paramsBase + _bufferOffset);
     }
     glGetTexGenfvOES(
@@ -3313,7 +3427,7 @@ android_glGetTexGenfvOES__IILjava_nio_FloatBuffer_2
         (GLfloat *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_TRUE);
+        _env->ReleaseFloatArrayElements(_array, (jfloat*)params, 0);
     }
 }
 
@@ -3342,7 +3456,7 @@ android_glGetTexGenivOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLint *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetTexGenivOES(
@@ -3353,7 +3467,7 @@ android_glGetTexGenivOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -3365,14 +3479,14 @@ exit:
 static void
 android_glGetTexGenivOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint coord, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLint *params = (GLint *) 0;
 
-    params = (GLint *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLint *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLint *) (_paramsBase + _bufferOffset);
     }
     glGetTexGenivOES(
@@ -3381,7 +3495,7 @@ android_glGetTexGenivOES__IILjava_nio_IntBuffer_2
         (GLint *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, 0);
     }
 }
 
@@ -3410,7 +3524,7 @@ android_glGetTexGenxvOES__II_3II
     }
     _remaining = _env->GetArrayLength(params_ref) - offset;
     params_base = (GLfixed *)
-        _env->GetPrimitiveArrayCritical(params_ref, (jboolean *)0);
+        _env->GetIntArrayElements(params_ref, (jboolean *)0);
     params = params_base + offset;
 
     glGetTexGenxvOES(
@@ -3421,7 +3535,7 @@ android_glGetTexGenxvOES__II_3II
 
 exit:
     if (params_base) {
-        _env->ReleasePrimitiveArrayCritical(params_ref, params_base,
+        _env->ReleaseIntArrayElements(params_ref, (jint*)params_base,
             _exception ? JNI_ABORT: 0);
     }
     if (_exception) {
@@ -3433,14 +3547,14 @@ exit:
 static void
 android_glGetTexGenxvOES__IILjava_nio_IntBuffer_2
   (JNIEnv *_env, jobject _this, jint coord, jint pname, jobject params_buf) {
-    jarray _array = (jarray) 0;
+    jintArray _array = (jintArray) 0;
     jint _bufferOffset = (jint) 0;
     jint _remaining;
     GLfixed *params = (GLfixed *) 0;
 
-    params = (GLfixed *)getPointer(_env, params_buf, &_array, &_remaining, &_bufferOffset);
+    params = (GLfixed *)getPointer(_env, params_buf, (jarray*)&_array, &_remaining, &_bufferOffset);
     if (params == NULL) {
-        char * _paramsBase = (char *)_env->GetPrimitiveArrayCritical(_array, (jboolean *) 0);
+        char * _paramsBase = (char *)_env->GetIntArrayElements(_array, (jboolean *) 0);
         params = (GLfixed *) (_paramsBase + _bufferOffset);
     }
     glGetTexGenxvOES(
@@ -3449,7 +3563,7 @@ android_glGetTexGenxvOES__IILjava_nio_IntBuffer_2
         (GLfixed *)params
     );
     if (_array) {
-        releasePointer(_env, _array, params, JNI_TRUE);
+        _env->ReleaseIntArrayElements(_array, (jint*)params, 0);
     }
 }
 
