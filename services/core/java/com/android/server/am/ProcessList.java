@@ -284,11 +284,6 @@ final class ProcessList {
         }
 
         final boolean is64bit = Build.SUPPORTED_64_BIT_ABIS.length > 0;
-        if (is64bit) {
-            // Increase the high min-free levels for cached processes for 64-bit
-            mOomMinFreeHigh[4] = 225000;
-            mOomMinFreeHigh[5] = 325000;
-        }
 
         for (int i=0; i<mOomAdj.length; i++) {
             int low = 0;
