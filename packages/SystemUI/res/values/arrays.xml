@@ -104,6 +104,9 @@
         <item>drawable/stat_sys_data_fully_connected_3g</item>
         <!--4G-->
         <item>drawable/stat_sys_data_fully_connected_4g</item>
+        <!--4G+-->
+        <item>drawable/stat_sys_data_fully_connected_4g_plus</item>
+
     </string-array>
 
     <!--data type description-->

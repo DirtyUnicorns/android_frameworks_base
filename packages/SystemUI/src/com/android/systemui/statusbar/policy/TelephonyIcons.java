@@ -474,10 +474,16 @@ class TelephonyIcons {
                     mSelectedSignalStreagthIndex[sub] = SIGNAL_STRENGTH_TYPE_3G;
                 break;
             case TelephonyManager.NETWORK_TYPE_LTE:
+            case TelephonyManager.NETWORK_TYPE_LTE_CA:
                 if (show4GforLte) {
                     mSelectedDataActivityIndex[sub] = DATA_TYPE_4G;
                     mSelectedDataTypeIcon[sub] = mRes.getIdentifier(
-                            mDataTypeGenerationArray[1], null, NS);
+                        mDataTypeGenerationArray[1], null, NS);
+                    if ( type == TelephonyManager.NETWORK_TYPE_LTE_CA) {
+                        //Select 4G+ icon.
+                        mSelectedDataTypeIcon[sub] = mRes.getIdentifier(
+                                mDataTypeGenerationArray[2], null, NS);
+                    }
                     mSelectedQSDataTypeIcon[sub] = QS_DATA_4G[inetCondition];
                     mSelectedDataTypeDesc[sub] = mDataTypeGenerationDescArray[1];
                     mSelectedSignalStreagthIndex[sub] = SIGNAL_STRENGTH_TYPE_4G;
