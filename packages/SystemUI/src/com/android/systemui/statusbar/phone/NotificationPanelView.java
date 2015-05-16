@@ -348,15 +348,7 @@ public class NotificationPanelView extends PanelView implements
         updateHeader();
         mNotificationStackScroller.updateIsSmallScreen(
                 mHeader.getCollapsedHeight() + mQsPeekHeight);
-
-        // If we are running a size change animation, the animation takes care of the height of
-        // the container. However, if we are not animating, we always need to make the QS container
-        // the desired height so when closing the QS detail, it stays smaller after the size change
-        // animation is finished but the detail view is still being animated away (this animation
-        // takes longer than the size change animation).
-        if (mQsSizeChangeAnimator == null) {
-            mQsContainer.setHeightOverride(mQsContainer.getDesiredHeight());
-        }
+        requestPanelHeightUpdate();
     }
 
     @Override
