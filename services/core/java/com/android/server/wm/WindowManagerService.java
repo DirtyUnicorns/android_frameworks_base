@@ -952,7 +952,7 @@ public class WindowManagerService extends IWindowManager.Stub
 
         // Load hardware rotation from prop
         mSfHwRotation = android.os.SystemProperties.getInt("ro.sf.hwrotation",0) / 90;
-        ThemeUtils.registerThemeChangeReceiver(context, mThemeChangeReceiver);
+        ThemeUtils.registerThemeChangeReceiver(mContext, mThemeChangeReceiver);
         updateCircularDisplayMaskIfNeeded();
         showEmulatorDisplayOverlayIfNeeded();
     }
@@ -960,6 +960,7 @@ public class WindowManagerService extends IWindowManager.Stub
     private Context getUiContext() {
         if (mUiContext == null) {
             mUiContext = ThemeUtils.createUiContext(mContext);
+            mUiContext.setTheme(android.R.style.Theme_DeviceDefault_Light_DarkActionBar);
         }
         return mUiContext != null ? mUiContext : mContext;
     }
@@ -5758,12 +5759,6 @@ public class WindowManagerService extends IWindowManager.Stub
         synchronized (mWindowMap) {
             mCurrentProfileIds = currentProfileIds;
         }
-    }
-
-    // Called by window manager policy. Not exposed externally.
-    @Override
-    public void reboot() {
-        ShutdownThread.reboot(mContext, null, true);
     }
 
     public void setCurrentUser(final int newUserId, final int[] currentProfileIds) {
