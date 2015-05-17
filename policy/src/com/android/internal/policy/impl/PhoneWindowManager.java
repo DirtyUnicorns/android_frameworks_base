@@ -168,10 +168,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     static final boolean ENABLE_CAR_DOCK_HOME_CAPTURE = true;
     static final boolean ENABLE_DESK_DOCK_HOME_CAPTURE = false;
 
-    // QuickBoot time settings
-    static final int DEFAULT_LONG_PRESS_POWERON_TIME = 500;
-    static final int QUICKBOOT_LAUNCH_TIMEOUT = 2000;
-
     static final int SHORT_PRESS_POWER_NOTHING = 0;
     static final int SHORT_PRESS_POWER_GO_TO_SLEEP = 1;
     static final int SHORT_PRESS_POWER_REALLY_GO_TO_SLEEP = 2;
@@ -306,7 +302,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
      * where the window manager is calling in with its own lock held.)
      */
     private final Object mLock = new Object();
-    private final Object mQuickBootLock = new Object();
 
     Context mContext;
     IWindowManager mWindowManager;
@@ -464,7 +459,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mHasAppSwitchKey;
     boolean mBackKillPending;
 
-    int mLongPressPoweronTime = DEFAULT_LONG_PRESS_POWERON_TIME;
     // The last window we were told about in focusChanged.
     WindowState mFocusedWindow;
     IApplicationToken mFocusedApp;
@@ -678,7 +672,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     SettingsObserver mSettingsObserver;
     ShortcutManager mShortcutManager;
     PowerManager.WakeLock mBroadcastWakeLock;
-    PowerManager.WakeLock mQuickBootWakeLock;
     PowerManager.WakeLock mPowerKeyWakeLock;
     boolean mHavePendingMediaKeyRepeatWithWakeLock;
 
@@ -1584,10 +1577,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mPowerManager = (PowerManager)context.getSystemService(Context.POWER_SERVICE);
         mBroadcastWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 "PhoneWindowManager.mBroadcastWakeLock");
-        mQuickBootWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
-                "PhoneWindowManager.mQuickBootWakeLock");
-        mLongPressPoweronTime = SystemProperties.getInt("ro.quickboot.press_duration",
-                DEFAULT_LONG_PRESS_POWERON_TIME);
         mPowerKeyWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
                 "PhoneWindowManager.mPowerKeyWakeLock");
         mEnableShiftMenuBugReports = "1".equals(SystemProperties.get("ro.debuggable"));
@@ -5362,58 +5351,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
-    private final Runnable mQuickBootPowerLongPress = new Runnable() {
-
-        public void run() {
-
-            Intent intent = new Intent("org.codeaurora.action.QUICKBOOT");
-            intent.putExtra("mode", 1);
-            try {
-                mContext.startActivityAsUser(intent,UserHandle.CURRENT);
-            } catch (ActivityNotFoundException e) {
-                e.printStackTrace();
-                releaseQuickBootWakeLock();
-                return;
-            }
-
-            BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
-
-                public void onReceive(Context context, Intent intent) {
-
-                    synchronized (mQuickBootLock) {
-                        mQuickBootLock.notifyAll();
-                    }
-                }
-            };
-
-            IntentFilter filter = new IntentFilter("org.codeaurora.quickboot.poweron_start");
-            mContext.registerReceiver(broadcastReceiver,filter,
-                    "android.permission.DEVICE_POWER",null);
-
-            synchronized (mQuickBootLock) {
-                try {
-                    mQuickBootLock.wait(QUICKBOOT_LAUNCH_TIMEOUT);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            releaseQuickBootWakeLock();
-        }
-    };
-
-    private void acquireQuickBootWakeLock() {
-        if (!mQuickBootWakeLock.isHeld())  {
-            mQuickBootWakeLock.acquire();
-        }
-    }
-
-    private void releaseQuickBootWakeLock() {
-        if (mQuickBootWakeLock.isHeld()) {
-            mQuickBootWakeLock.release();
-        }
-    }
-
     // Assume this is called from the Handler thread.
     private void takeScreenrecord() {
         synchronized (mScreenrecordLock) {
@@ -5476,21 +5413,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
         final boolean canceled = event.isCanceled();
         final int keyCode = event.getKeyCode();
-
-        if (SystemProperties.getInt("sys.quickboot.enable", 0) == 1) {
-
-            if (keyCode == KeyEvent.KEYCODE_POWER && !interactive) {
-                if(down){
-                    acquireQuickBootWakeLock();
-                    mHandler.postDelayed(mQuickBootPowerLongPress, mLongPressPoweronTime);
-                } else {
-                    releaseQuickBootWakeLock();
-                    mHandler.removeCallbacks(mQuickBootPowerLongPress);
-                }
-            }
-            // ignore this event
-            return 0;
-        }
 
         final boolean isInjected = (policyFlags & WindowManagerPolicy.FLAG_INJECTED) != 0;
 
@@ -6100,12 +6022,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     };
 
-    private void disableQbCharger() {
-        if (SystemProperties.getInt("sys.quickboot.enable", 0) == 1) {
-            SystemProperties.set("sys.qbcharger.enable", "false");
-        }
-    }
-
     // Called on the PowerManager's Notifier thread.
     @Override
     public void goingToSleep(int why) {
@@ -6145,9 +6061,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     public void wakingUp() {
         EventLog.writeEvent(70000, 1);
         if (DEBUG_WAKEUP) Slog.i(TAG, "Waking up...");
-
-        // To disable qbcharger process when screen turning on
-        disableQbCharger();
 
         // Since goToSleep performs these functions synchronously, we must
         // do the same here.  We cannot post this work to a handler because
