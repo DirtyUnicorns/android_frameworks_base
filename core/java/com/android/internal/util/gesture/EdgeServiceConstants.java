@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod Project (Jens Doll)
+ * Copyright (C) 2013-2015 The CyanogenMod Project (Jens Doll)
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -41,7 +41,7 @@ public final class EdgeServiceConstants {
      * Sensitivity influences the speed of the swipe, the trigger area, and trigger distance that
      * is needed to activate the edge gesture.
      */
-    public static final int SENSITIVITY_MASK = 0x70000000;
+    public static final int SENSITIVITY_MASK = 0xf0000000;
 
     /**
      * Number of bits to shift left, to get a integer within the {@link #SENSITIVITY_MASK}.
@@ -56,7 +56,7 @@ public final class EdgeServiceConstants {
     /**
      * Default sensitivity, picked by the edge gesture service automatically.
      */
-    public static final int SENSITIVITY_DEFAULT = 2;
+    public static final int SENSITIVITY_DEFAULT = 5;
 
     /**
      * Lowest valid sensitivity value.
@@ -66,7 +66,7 @@ public final class EdgeServiceConstants {
     /**
      * Highest sensitivity value.
      */
-    public static final int SENSITIVITY_HIGHEST = 4;
+    public static final int SENSITIVITY_HIGHEST = 10;
 
     /**
      * Do not cut 10% area on th edges
@@ -78,5 +78,10 @@ public final class EdgeServiceConstants {
      * because it interrupt in motion events.
      */
     public static final int LONG_LIVING = 0x20;
+
+    /**
+     * Allow IME to reduce left and right trigger height.
+     */
+    public static final int IME_CONTROL = 0x10;
 
 }
