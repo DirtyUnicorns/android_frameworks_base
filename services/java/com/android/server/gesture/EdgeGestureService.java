@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod Project (Jens Doll)
+ * Copyright (C) 2013-2015 The CyanogenMod Project (Jens Doll)
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -78,7 +78,7 @@ public class EdgeGestureService extends IEdgeGestureService.Stub {
     private EdgeGestureInputFilter mInputFilter;
 
     private int mGlobalPositions = 0;
-    private int mGlobalSensitivity = 3;
+    private int mGlobalSensitivity = 5;
 
     private final class EdgeGestureActivationListenerRecord extends IEdgeGestureHostCallback.Stub implements DeathRecipient {
         private boolean mActive;
@@ -169,6 +169,7 @@ public class EdgeGestureService extends IEdgeGestureService.Stub {
         public final IEdgeGestureActivationListener listener;
         public boolean longLiving = false;
     }
+
     private final List<EdgeGestureActivationListenerRecord> mEdgeGestureActivationListener =
             new ArrayList<EdgeGestureActivationListenerRecord>();
     // end of lock guarded variables
@@ -295,6 +296,24 @@ public class EdgeGestureService extends IEdgeGestureService.Stub {
             // update input filter only when #systemReady() was called
             if (mHandler != null) {
                 mHandler.sendEmptyMessage(MSG_UPDATE_SERVICE);
+            }
+        }
+    }
+
+    // called through Binder
+    public void setImeIsActive(boolean enabled) {
+        synchronized (mLock) {
+            if (mInputFilter != null) {
+                mInputFilter.setImeIsActive(enabled);
+            }
+        }
+    }
+
+    // called through Binder
+    public void setOverwriteImeIsActive(boolean enabled) {
+        synchronized (mLock) {
+            if (mInputFilter != null) {
+                mInputFilter.setOverwriteImeIsActive(enabled);
             }
         }
     }
