@@ -133,12 +133,9 @@ public class ShortcutPickHelper {
         dialog.show();
     }
 
-    public void pickShortcut(boolean showNone) {
-        if (showNone) {
-            mActions.addAction(ACTION_NONE, R.string.navring_action_none, 0);
-        } else {
-            mActions.removeAction(ACTION_NONE);
-        }
+    public void pickShortcut() {
+        mActions.addAction(ACTION_NONE, R.string.navring_action_none, 0);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext)
                 .setTitle(mContext.getString(R.string.navbar_dialog_title))
                 .setItems(mActions.getEntries(), new DialogInterface.OnClickListener() {
