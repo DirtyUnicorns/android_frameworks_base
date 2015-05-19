@@ -33,8 +33,8 @@ public class InterfaceConfiguration implements Parcelable {
     private LinkAddress mAddr;
     private HashSet<String> mFlags = Sets.newHashSet();
 
-    private static final String FLAG_UP = "up";
-    private static final String FLAG_DOWN = "down";
+    public static final String FLAG_UP = "up";
+    public static final String FLAG_DOWN = "down";
 
     @Override
     public String toString() {
