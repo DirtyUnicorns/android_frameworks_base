@@ -83,7 +83,4 @@
          This allows for the first block in PathEffect to fade -->
     <integer name="config_pulseDbFuzz">2</integer>
 
-    <!-- Whether to enable to show task manager or not -->
-    <bool name="config_showTaskManagerSwitcher">true</bool>
-
 </resources>
