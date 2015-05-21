@@ -2925,6 +2925,12 @@ public final class Settings {
         public static final String SCREENSHOT_SOUND = "screenshot_sound";
 
         /**
+         * Enable built in CAF task manager
+         * @hide
+         */
+        public static final String ENABLE_TASK_MANAGER = "enable_task_manager";
+
+        /**
          * Disable ads (HFM)
          * @hide
          */
