@@ -62,4 +62,21 @@
     <string name="theme_reset_notification_title">Réinitialisation du thème</string>
     <string name="theme_reset_notification_body">Thème système restauré en raison de multiples plantages d\'application.</string>
 
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Fondu</string>
+    <string name="animation_slide_right">Glisser à droite</string>
+    <string name="animation_slide_left">Glisser à gauche</string>
+    <string name="animation_slide_right_no_fade">Glisser à droite (sans Fondu)</string>
+    <string name="animation_slide_left_no_fade">Glisser à gauche (sans Fondu)</string>
+    <string name="animation_slide_up">Glisser en bas</string>
+    <string name="animation_slide_down">Glisser en haut</string>
+    <string name="animation_default">Par défaut</string>
+    <string name="animation_translucent">Transparent</string>
+    <string name="animation_grow_shrink">Agrandissement (Haut)</string>
+    <string name="animation_grow_shrink_center">Agrandissement (Centre)</string>
+    <string name="animation_grow_shrink_bottom">Agrandissement (Bas)</string>
+    <string name="animation_grow_shrink_left">Agrandissement (Gauche)</string>
+    <string name="animation_grow_shrink_right">Agrandissement (Droit)</string>
+    <string name="action_null">Aucune</string>
+
 </resources>
