@@ -8711,7 +8711,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         final int callingUid = Binder.getCallingUid();
         enforceCrossUserPermission(callingUid, userId, true, true, "installPackageAsUser");
 
-        if (isUserRestricted(userId, UserManager.DISALLOW_INSTALL_APPS)) {
+        if (isUserRestricted(UserHandle.getUserId(callingUid), UserManager.DISALLOW_INSTALL_APPS)) {
             try {
                 if (observer != null) {
                     observer.onPackageInstalled("", INSTALL_FAILED_USER_RESTRICTED, null, null);
@@ -8899,7 +8899,7 @@ public class PackageManagerService extends IPackageManager.Stub {
         final int uid = Binder.getCallingUid();
         enforceCrossUserPermission(uid, userId, true, true, "installExistingPackage for user "
                 + userId);
-        if (isUserRestricted(userId, UserManager.DISALLOW_INSTALL_APPS)) {
+        if (isUserRestricted(UserHandle.getUserId(uid), UserManager.DISALLOW_INSTALL_APPS)) {
             return PackageManager.INSTALL_FAILED_USER_RESTRICTED;
         }
 
@@ -11472,7 +11472,7 @@ public class PackageManagerService extends IPackageManager.Stub {
                     android.Manifest.permission.INTERACT_ACROSS_USERS_FULL,
                     "deletePackage for user " + userId);
         }
-        if (isUserRestricted(userId, UserManager.DISALLOW_UNINSTALL_APPS)) {
+        if (isUserRestricted(UserHandle.getUserId(uid), UserManager.DISALLOW_UNINSTALL_APPS)) {
             try {
                 observer.onPackageDeleted(packageName,
                         PackageManager.DELETE_FAILED_USER_RESTRICTED, null);
