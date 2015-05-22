@@ -3108,6 +3108,12 @@ public final class Settings {
         public static final String VOLUME_ADJUST_SOUND = "volume_adjust_sound";
 
         /**
+         * Whether notification is enabled when headset is plugged in
+         * @hide
+         */
+        public static final String HEADSET_PLUGGED_IN = "headset_plugged_in";
+
+        /**
          * Locale for secondary overlay on dialer for t9 search input
          * @hide
          */
