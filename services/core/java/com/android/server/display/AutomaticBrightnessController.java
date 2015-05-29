@@ -250,6 +250,7 @@ class AutomaticBrightnessController {
         if (enable) {
             if (!mLightSensorEnabled) {
                 mLightSensorEnabled = true;
+                mAmbientLuxValid = true;
                 mLightSensorEnableTime = SystemClock.uptimeMillis();
                 mSensorManager.registerListener(mLightSensorListener, mLightSensor,
                         LIGHT_SENSOR_RATE_MILLIS * 1000, mHandler);
