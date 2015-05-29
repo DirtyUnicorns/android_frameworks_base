@@ -674,17 +674,18 @@ public class KeyguardViewMediator extends SystemUI {
         final ContentResolver cr = mContext.getContentResolver();
 
         // From DisplaySettings
-        long displayTimeout = Settings.System.getInt(cr, SCREEN_OFF_TIMEOUT,
-                KEYGUARD_DISPLAY_TIMEOUT_DELAY_DEFAULT);
+        int currentUserId = mLockPatternUtils.getCurrentUser();
+        long displayTimeout = Settings.System.getIntForUser(cr, SCREEN_OFF_TIMEOUT,
+                KEYGUARD_DISPLAY_TIMEOUT_DELAY_DEFAULT, currentUserId);
 
         // From SecuritySettings
-        final long lockAfterTimeout = Settings.Secure.getInt(cr,
+        final long lockAfterTimeout = Settings.Secure.getIntForUser(cr,
                 Settings.Secure.LOCK_SCREEN_LOCK_AFTER_TIMEOUT,
-                KEYGUARD_LOCK_AFTER_DELAY_DEFAULT);
+                KEYGUARD_LOCK_AFTER_DELAY_DEFAULT, currentUserId);
 
         // From DevicePolicyAdmin
         final long policyTimeout = mLockPatternUtils.getDevicePolicyManager()
-                .getMaximumTimeToLock(null, mLockPatternUtils.getCurrentUser());
+                .getMaximumTimeToLock(null, currentUserId);
 
         long timeout;
         if (policyTimeout > 0) {
@@ -1263,7 +1264,8 @@ public class KeyguardViewMediator extends SystemUI {
     private void playSound(int soundId) {
         if (soundId == 0) return;
         final ContentResolver cr = mContext.getContentResolver();
-        if (Settings.System.getInt(cr, Settings.System.LOCKSCREEN_SOUNDS_ENABLED, 1) == 1) {
+        if (Settings.System.getIntForUser(cr, Settings.System.LOCKSCREEN_SOUNDS_ENABLED,
+                1, mLockPatternUtils.getCurrentUser()) == 1) {
 
             mLockSounds.stop(mLockSoundStreamId);
             // Init mAudioManager
