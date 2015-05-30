@@ -5995,6 +5995,12 @@ public final class Settings {
         };
 
         /**
+         * Whether newly installed apps should run with privacy guard by default
+         * @hide
+         */
+        public static final String PRIVACY_GUARD_DEFAULT = "privacy_guard_default";
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
@@ -6047,7 +6053,8 @@ public final class Settings {
             SLEEP_TIMEOUT,
             LOCKSCREEN_QUICK_UNLOCK_CONTROL,
             ADVANCED_REBOOT,
-            STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD
+            STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
+            PRIVACY_GUARD_DEFAULT
         };
 
         /**
