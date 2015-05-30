@@ -285,7 +285,7 @@ public class VolumePanel extends Handler implements DemoMode {
         @Override
         public void onChange(boolean selfChange) {
             mVolumeLinkNotification = Settings.Secure.getInt(mContext.getContentResolver(),
-                    Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+                    Settings.System.VOLUME_LINK_NOTIFICATION, 1) == 1;
         }
     };
 
@@ -461,10 +461,10 @@ public class VolumePanel extends Handler implements DemoMode {
         mVoiceCapable = context.getResources().getBoolean(R.bool.config_voice_capable);
 
         mVolumeLinkNotification = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+                Settings.System.VOLUME_LINK_NOTIFICATION, 1) == 1;
 
         context.getContentResolver().registerContentObserver(
-                Settings.Secure.getUriFor(Settings.Secure.VOLUME_LINK_NOTIFICATION), false,
+                Settings.System.getUriFor(Settings.System.VOLUME_LINK_NOTIFICATION), false,
                 mSettingsObserver);
 
         if (mZenController != null && !useMasterVolume) {
