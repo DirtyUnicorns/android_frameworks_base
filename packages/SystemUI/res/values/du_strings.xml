@@ -32,6 +32,9 @@
     <string name="quick_settings_screenrecord">Screenrecord</string>
     <string name="quick_settings_screenrecord_on">Recording ...</string>
     <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="quick_settings_compass_value" translatable="false"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_off">Compass off</string>
+    <string name="quick_settings_compass_init">Initializing\u2026</string>
 
     <!-- The text for the button in the notification window-shade that clears
          all of the currently visible notifications. [CHAR LIMIT=10]-->
