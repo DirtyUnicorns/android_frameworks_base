@@ -157,4 +157,8 @@
     <string name="tasklist_memory_usage">"Mémoire Libre/Totale : [<xliff:g id="number">%s</xliff:g>] / [<xliff:g id="name">%s</xliff:g>]"</string>
     <string name="message_keep_one_launcher">Gardez au moins l\'activité d\'accueil !</string>
 
+    <!-- NFC Tile -->
+    <string name="quick_settings_nfc">NFC</string>
+    <string name="quick_settings_nfc_off">NFC désactivé</string>
+
 </resources>
