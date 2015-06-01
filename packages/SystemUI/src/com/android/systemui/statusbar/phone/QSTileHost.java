@@ -34,6 +34,7 @@ import com.android.internal.util.du.QSConstants;
 import com.android.internal.util.du.QSUtils;
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
+import com.android.systemui.qs.tiles.AdbOverNetworkTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.ApnTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
@@ -351,6 +352,8 @@ public class QSTileHost implements QSTile.Host {
                 return new MusicTile(this);
             case QSConstants.TILE_NFC:
                 return new NfcTile(this);
+            case QSConstants.TILE_ADB_NETWORK:
+                return new AdbOverNetworkTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
         }

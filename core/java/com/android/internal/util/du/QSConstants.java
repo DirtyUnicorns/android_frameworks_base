@@ -52,6 +52,7 @@ public class QSConstants {
     public static final String TILE_MUSIC = "music";
     public static final String TILE_COMPASS = "compass";
     public static final String TILE_NFC = "nfc";
+    public static final String TILE_ADB_NETWORK = "adb_network";
 
     // Order matters
     protected static final ArrayList<String> TILES_DEFAULT = new ArrayList<String>();
@@ -94,5 +95,6 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_MUSIC);
         TILES_AVAILABLE.add(TILE_COMPASS);
         TILES_AVAILABLE.add(TILE_NFC);
+        TILES_AVAILABLE.add(TILE_ADB_NETWORK);
     }
 }
