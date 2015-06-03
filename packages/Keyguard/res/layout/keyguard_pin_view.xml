@@ -190,7 +190,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:paddingBottom="11sp"
-                    android:src="@drawable/sym_keyboard_random_holo"
+                    android:src="@drawable/sym_keyboard_random_holo_tint"
                     android:background="@drawable/ripple_drawable"
                     android:contentDescription="@string/keyboardview_keycode_random"
                     android:visibility="invisible"
