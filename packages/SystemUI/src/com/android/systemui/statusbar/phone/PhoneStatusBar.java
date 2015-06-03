@@ -525,7 +525,15 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                         mBatterySaverWarningColor = mContext.getResources()
                                 .getColor(com.android.internal.R.color.battery_saver_mode_color);
                     }
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.ENABLE_TASK_MANAGER))) {
+                    mShowTaskManager = Settings.System.getIntForUser(
+                            mContext.getContentResolver(),
+                            Settings.System.ENABLE_TASK_MANAGER,
+                            0, UserHandle.USER_CURRENT) == 1;
+                             recreateStatusBar();
             }
+
             update();
         }
 
