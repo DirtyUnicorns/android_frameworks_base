@@ -367,31 +367,62 @@ public class GpsNetInitiatedHandler {
                 ", title: " + title +
                 ", message: " + message);
 
-        // Construct Notification
-        if (mNiNotification == null) {
-            mNiNotification = new Notification();
-            mNiNotification.icon = com.android.internal.R.drawable.stat_sys_gps_on; /* Change notification icon here */
-            mNiNotification.when = 0;
-        }
-
-        if (mPlaySounds) {
-            mNiNotification.defaults |= Notification.DEFAULT_SOUND;
-        } else {
-            mNiNotification.defaults &= ~Notification.DEFAULT_SOUND;
-        }
-
-        mNiNotification.flags = Notification.FLAG_ONGOING_EVENT | Notification.FLAG_AUTO_CANCEL;
-        mNiNotification.tickerText = getNotifTicker(notif, mContext);
 
         // if not to popup dialog immediately, pending intent will open the dialog
         Intent intent = !mPopupImmediately ? getDlgIntent(notif) : new Intent();
         PendingIntent pi = PendingIntent.getBroadcast(mContext, 0, intent, 0);
-        mNiNotification.color = mContext.getResources().getColor(
-                com.android.internal.R.color.system_notification_accent_color);
-        mNiNotification.setLatestEventInfo(mContext, title, message, pi);
+        mNiNotification = buildBigTextStyleNotification(mContext,
+                                                        mNiNotification != null ? mNiNotification : new Notification(),
+                                                        com.android.internal.R.drawable.stat_sys_gps_on,
+                                                        0,
+                                                        mPlaySounds,
+                                                        Notification.FLAG_ONGOING_EVENT | Notification.FLAG_AUTO_CANCEL,
+                                                        getNotifTicker(notif, mContext),
+                                                        mContext.getResources()
+                                                                .getColor(com.android.internal.R.color.system_notification_accent_color),
+                                                        title,
+                                                        message,
+                                                        pi);
 
         notificationManager.notifyAsUser(null, notif.notificationId, mNiNotification,
                 UserHandle.ALL);
+    }
+
+    // Build big text styled notification
+    private Notification buildBigTextStyleNotification(Context context,
+                                                       Notification currentNotif,
+                                                       int icon,
+                                                       long when,
+                                                       boolean playSounds,
+                                                       int flags,
+                                                       CharSequence tickerText,
+                                                       int color,
+                                                       String title,
+                                                       String message,
+                                                       PendingIntent pi) {
+        Notification resultNotif = null;
+
+        //  Use Builder to update title and text in BigTextStyle into current notification
+        Notification.Builder builder = new Notification.Builder(context);
+
+        builder.setSmallIcon(icon)
+               .setWhen(when)
+               .setTicker(tickerText)
+               .setColor(color)
+               .setDefaults(playSounds ? 
+                                currentNotif.defaults | Notification.DEFAULT_SOUND | Notification.DEFAULT_VIBRATE : 
+                                currentNotif.defaults & ~Notification.DEFAULT_SOUND);
+
+        if (title != null) {
+            builder.setContentTitle(title);
+        }
+        if (message != null) {
+            builder.setContentText(message).setStyle(new Notification.BigTextStyle().bigText(message));
+        }
+        resultNotif = builder.setContentIntent(pi).buildInto(currentNotif);
+        resultNotif.flags = flags;
+
+        return resultNotif;
     }
 
     // Opens the notification dialog and waits for user input
