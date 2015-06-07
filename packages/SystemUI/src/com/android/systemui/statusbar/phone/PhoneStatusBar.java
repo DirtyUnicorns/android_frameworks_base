@@ -171,7 +171,6 @@ import com.android.systemui.statusbar.policy.BluetoothControllerImpl;
 import com.android.systemui.statusbar.policy.BrightnessMirrorController;
 import com.android.systemui.statusbar.policy.CastControllerImpl;
 import com.android.systemui.statusbar.policy.Clock;
-import com.android.systemui.statusbar.policy.FlashlightController;
 import com.android.systemui.statusbar.policy.HeadsUpNotificationView;
 import com.android.systemui.statusbar.policy.HotspotControllerImpl;
 import com.android.systemui.statusbar.policy.KeyButtonView;
@@ -278,7 +277,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     CastControllerImpl mCastController;
     VolumeComponent mVolumeComponent;
     KeyguardUserSwitcher mKeyguardUserSwitcher;
-    FlashlightController mFlashlightController;
     UserSwitcherController mUserSwitcherController;
     NextAlarmController mNextAlarmController;
     KeyguardMonitor mKeyguardMonitor;
@@ -1186,8 +1184,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 //                    updateCarrierLabelVisibility(false);
         }
 
-        mFlashlightController = new FlashlightController(mContext);
-        mKeyguardBottomArea.setFlashlightController(mFlashlightController);
         mKeyguardBottomArea.setPhoneStatusBar(this);
         mAccessibilityController = new AccessibilityController(mContext);
         mKeyguardBottomArea.setAccessibilityController(mAccessibilityController);
@@ -1209,16 +1205,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 qsh = new QSTileHost(mContext, this,
                     mBluetoothController, mLocationController, mRotationLockController,
                     mMSimNetworkController, mZenModeController, mVolumeComponent,
-                    mHotspotController, mCastController, mFlashlightController,
-                    mUserSwitcherController, mKeyguardMonitor,
-                    mSecurityController);
+                    mHotspotController, mCastController, mUserSwitcherController,
+                    mKeyguardMonitor, mSecurityController);
             } else {
                 qsh = new QSTileHost(mContext, this,
                     mBluetoothController, mLocationController, mRotationLockController,
                     mNetworkController, mZenModeController, mVolumeComponent,
-                    mHotspotController, mCastController, mFlashlightController,
-                    mUserSwitcherController, mKeyguardMonitor,
-                    mSecurityController);
+                    mHotspotController, mCastController, mUserSwitcherController,
+                    mKeyguardMonitor, mSecurityController);
             }
             mQSPanel.setHost(qsh);
             mQSPanel.setTiles(qsh.getTiles());
@@ -1271,7 +1265,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_SCREEN_ON);
         filter.addAction(Intent.ACTION_KEYGUARD_WALLPAPER_CHANGED);
-        filter.addAction(Intent.ACTION_TOGGLE_FLASHLIGHT);
         if (DEBUG_MEDIA_FAKE_ARTWORK) {
             filter.addAction("fake_artwork");
         }
@@ -3729,8 +3722,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 }
             } else if (Intent.ACTION_KEYGUARD_WALLPAPER_CHANGED.equals(action)) {
                 updateMediaMetaData(true);
-            } else if (Intent.ACTION_TOGGLE_FLASHLIGHT.equals(action)) {
-                mFlashlightController.toggleFlashlight();
             }
         }
     };

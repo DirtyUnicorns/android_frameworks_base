@@ -66,8 +66,6 @@ public class FlashlightController {
     private SurfaceTexture mSurfaceTexture;
     private Surface mSurface;
 
-    private boolean mFromIntent;
-
     public FlashlightController(Context mContext) {
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
         initialize();
@@ -94,12 +92,6 @@ public class FlashlightController {
         }
     }
 
-    public synchronized void toggleFlashlight() {
-        mFlashlightEnabled = !mFlashlightEnabled;
-        mFromIntent = mFlashlightEnabled;
-        postUpdateFlashlight();
-    }
-
     public void killFlashlight() {
         boolean enabled;
         synchronized (this) {
@@ -112,10 +104,6 @@ public class FlashlightController {
 
     public synchronized boolean isAvailable() {
         return mCameraAvailable;
-    }
-
-    public synchronized boolean isFromIntent() {
-        return mFromIntent;
     }
 
     public void addListener(FlashlightListener l) {
@@ -215,7 +203,6 @@ public class FlashlightController {
                 }
             } else {
                 if (mCameraDevice != null) {
-                    mFromIntent = false;
                     mCameraDevice.close();
                     teardown();
                 }
@@ -242,7 +229,6 @@ public class FlashlightController {
     private void handleError() {
         synchronized (this) {
             mFlashlightEnabled = false;
-            mFromIntent = false;
         }
         dispatchError();
         dispatchOff();

@@ -30,7 +30,7 @@ framework_res_source_path := APPS/framework-res_intermediates/src
 # The framework contains too many method references (>64K) for poor old DEX.
 # So we first build the framework as a monolithic static library then split it
 # up into smaller pieces.
-# =============================================================
+# ============================================================
 
 # embedded builds use nothing in frameworks/base
 ifneq ($(ANDROID_BUILD_EMBEDDED),true)
@@ -159,6 +159,8 @@ LOCAL_SRC_FILES += \
 	core/java/android/hardware/IConsumerIrService.aidl \
 	core/java/android/hardware/IProCameraUser.aidl \
 	core/java/android/hardware/IProCameraCallbacks.aidl \
+	core/java/android/hardware/ITorchService.aidl \
+	core/java/android/hardware/ITorchCallback.aidl \
 	core/java/android/hardware/camera2/ICameraDeviceUser.aidl \
 	core/java/android/hardware/camera2/ICameraDeviceCallbacks.aidl \
 	core/java/android/hardware/ISerialManager.aidl \
