@@ -85,4 +85,9 @@
   <java-symbol type="string" name="privacy_guard_notification_detail" />
   <java-symbol type="string" name="privacy_guard_dialog_title" />
   <java-symbol type="string" name="privacy_guard_dialog_summary" />
+
+    <!-- Flashlight notification -->
+    <java-symbol type="string" name="quick_settings_tile_flashlight_not_title" />
+    <java-symbol type="string" name="quick_settings_tile_flashlight_not_summary" />
+    <java-symbol type="drawable" name="ic_signal_flashlight_disable" />
 </resources>
