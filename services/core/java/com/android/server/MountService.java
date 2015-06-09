@@ -1079,6 +1079,9 @@ class MountService extends IMountService.Stub
         } else if (newState == VolumeState.NoMedia) {
             // NoMedia is handled via Disk Remove events
         } else if (newState == VolumeState.Idle) {
+            synchronized (mVolumesLock) {
+                volume.setIsFormatting(false);
+            }
             /*
              * Don't notify if we're in BAD_REMOVAL, NOFS, UNMOUNTABLE, or
              * if we're in the process of enabling UMS
