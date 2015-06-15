@@ -26,6 +26,7 @@ import android.app.KeyguardManager;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.IBluetoothManager;
+import android.content.pm.ThemeUtils;
 import android.media.AudioAttributes;
 import android.nfc.NfcAdapter;
 import android.nfc.INfcAdapter;
@@ -171,10 +172,13 @@ public final class ShutdownThread extends Thread {
 
         if (confirm) {
             final CloseDialogReceiver closer = new CloseDialogReceiver(context);
+
+            final Context uiContext = getUiContext(context);
             if (sConfirmDialog != null) {
                 sConfirmDialog.dismiss();
                 sConfirmDialog = null;
             }
+
             if (mReboot && !mRebootSafeMode) {
                 // Determine if primary user is logged in
                 boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
@@ -188,7 +192,7 @@ public final class ShutdownThread extends Thread {
 
                 if ((advancedReboot == 1 && !locked) || advancedReboot == 2) {
                     // Include options in power menu for rebooting into recovery or bootloader
-                    sConfirmDialog = new AlertDialog.Builder(context)
+                    sConfirmDialog = new AlertDialog.Builder(uiContext)
                             .setTitle(titleResourceId)
                             .setSingleChoiceItems(
                                     com.android.internal.R.array.shutdown_reboot_options,
@@ -873,5 +877,14 @@ public final class ShutdownThread extends Thread {
         if (!done[0]) {
             Log.w(TAG, "Timed out waiting for uncrypt.");
         }
+    }
+
+    private static Context getUiContext(Context context) {
+        Context uiContext = null;
+        if (context != null) {
+            uiContext = ThemeUtils.createUiContext(context);
+            uiContext.setTheme(com.android.internal.R.style.Theme_Power_Dialog);
+        }
+        return uiContext != null ? uiContext : context;
     }
 }
