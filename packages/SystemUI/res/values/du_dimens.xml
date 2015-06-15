@@ -15,6 +15,7 @@
      limitations under the License.
 -->
 <resources>
+
     <dimen name="detail_radio_group_padding_left">16dp</dimen>
     <dimen name="detail_radio_group_padding">8dp</dimen>
 
@@ -34,5 +35,8 @@
 
     <!-- Side padding for the Quick Settings panel -->
     <dimen name="qs_panel_side_padding">@dimen/notification_side_padding</dimen>
+
+    <!-- Padding end for weather text -->
+    <dimen name="status_bar_weather_padding_end">16dp</dimen>
 
 </resources>
