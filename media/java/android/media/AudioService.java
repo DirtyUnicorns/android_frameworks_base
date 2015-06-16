@@ -1739,11 +1739,25 @@ public class AudioService extends IAudioService.Stub {
         }
         int streamAlias = mStreamVolumeAlias[streamType];
         if (isStreamAffectedByMute(streamAlias)) {
+
+            int dtmfStreamAlias;
+
+            switch (mPlatformType) {
+            case PLATFORM_VOICE:
+                dtmfStreamAlias = AudioSystem.STREAM_RING;
+                break;
+            case PLATFORM_TELEVISION:
+                dtmfStreamAlias = AudioSystem.STREAM_MUSIC;
+                break;
+            default:
+                dtmfStreamAlias = AudioSystem.STREAM_RING;
+            }
+
             if (streamAlias == AudioSystem.STREAM_MUSIC) {
                 setSystemAudioMute(state);
             }
             for (int stream = 0; stream < mStreamStates.length; stream++) {
-                if (streamAlias == mStreamVolumeAlias[stream]) {
+                if (streamAlias == ((stream == AudioSystem.STREAM_DTMF)? dtmfStreamAlias : mStreamVolumeAlias[stream])) {
                     mStreamStates[stream].mute(cb, state);
 
                     Intent intent = new Intent(AudioManager.STREAM_MUTE_CHANGED_ACTION);
