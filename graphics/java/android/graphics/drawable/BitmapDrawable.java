@@ -715,9 +715,14 @@ public class BitmapDrawable extends Drawable {
         super.inflate(r, parser, attrs, theme);
 
         final TypedArray a = obtainAttributes(r, theme, attrs, R.styleable.BitmapDrawable);
-        updateStateFromTypedArray(a);
-        verifyState(a);
-        a.recycle();
+        try {
+            updateStateFromTypedArray(a);
+            verifyState(a);
+        } catch (XmlPullParserException e) {
+            android.util.Log.e("BitmapDrawable", e.getMessage(), e);
+        } finally {
+            a.recycle();
+        }
     }
 
     /**
