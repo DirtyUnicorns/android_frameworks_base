@@ -453,13 +453,17 @@ public class VectorDrawable extends Drawable {
         state.mVPathRenderer = pathRenderer;
 
         final TypedArray a = obtainAttributes(res, theme, attrs, R.styleable.VectorDrawable);
-        updateStateFromTypedArray(a);
-        a.recycle();
+        try {
+            updateStateFromTypedArray(a);
+            a.recycle();
 
-        state.mCacheDirty = true;
-        inflateInternal(res, parser, attrs, theme);
+            state.mCacheDirty = true;
+            inflateInternal(res, parser, attrs, theme);
 
-        mTintFilter = updateTintFilter(mTintFilter, state.mTint, state.mTintMode);
+            mTintFilter = updateTintFilter(mTintFilter, state.mTint, state.mTintMode);
+        } catch (XmlPullParserException e) {
+            android.util.Log.e("VectorDrawable", e.getMessage(), e);
+        }
     }
 
     private void updateStateFromTypedArray(TypedArray a) throws XmlPullParserException {

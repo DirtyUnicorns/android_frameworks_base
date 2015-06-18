@@ -399,8 +399,13 @@ public class NinePatchDrawable extends Drawable {
         super.inflate(r, parser, attrs, theme);
 
         final TypedArray a = obtainAttributes(r, theme, attrs, R.styleable.NinePatchDrawable);
-        updateStateFromTypedArray(a);
-        a.recycle();
+        try {
+            updateStateFromTypedArray(a);
+        } catch (XmlPullParserException e) {
+            android.util.Log.e("NinePatchDrawable", e.getMessage(), e);
+        } finally {
+            a.recycle();
+        }
     }
 
     /**
