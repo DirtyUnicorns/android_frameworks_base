@@ -510,6 +510,13 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                         ? 1 : 0, UserHandle.USER_CURRENT) == 1;
                 initTickerView();
             } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.ENABLE_TASK_MANAGER))) {
+                    mShowTaskManager = Settings.System.getIntForUser(
+                            mContext.getContentResolver(),
+                            Settings.System.ENABLE_TASK_MANAGER,
+                            0, UserHandle.USER_CURRENT) == 1;
+                             recreateStatusBar();
+            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.USE_SLIM_RECENTS))) {
                 updateRecents();
             } else if (uri.equals(Settings.System.getUriFor(
