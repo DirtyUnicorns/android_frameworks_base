@@ -87,4 +87,13 @@
     <string name="privacy_guard_dialog_title">Protection des données</string>
     <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> souhaite <xliff:g id="op">%2$s</xliff:g>.</string>
 
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessTorchService">accéder au service Lampe de poche</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessTorchService">Permet à l\'application d\'accéder au service Lampe de poche. Ne devrait jamais être nécessaire pour les applications normales</string>
+
+    <!-- Notification which notifies user flashlight is enabled -->
+    <string name="quick_settings_tile_flashlight_not_title">Lampe de poche activée</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Appuyer pour éteindre</string>
+
 </resources>
