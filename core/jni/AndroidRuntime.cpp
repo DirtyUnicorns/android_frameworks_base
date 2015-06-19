@@ -534,6 +534,7 @@ int AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv)
 {
     int result = -1;
     JavaVMInitArgs initArgs;
+    char zygoteMaxFailedBootsBuf[sizeof("-XzygoteMaxFailedBoots")-1 + PROPERTY_VALUE_MAX];
     char propBuf[PROPERTY_VALUE_MAX];
     char stackTraceFileBuf[sizeof("-Xstacktracefile:")-1 + PROPERTY_VALUE_MAX];
     char dexoptFlagsBuf[PROPERTY_VALUE_MAX];
@@ -664,6 +665,10 @@ int AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv)
      */
     parseRuntimeOption("dalvik.vm.heapstartsize", heapstartsizeOptsBuf, "-Xms", "4m");
     parseRuntimeOption("dalvik.vm.heapsize", heapsizeOptsBuf, "-Xmx", "16m");
+
+    parseRuntimeOption("dalvik.vm.zygotemaxfailedboots",
+                       zygoteMaxFailedBootsBuf,
+                       "-XzygoteMaxFailedBoots:");
 
     // Increase the main thread's interpreter stack size for bug 6315322.
     addOption("-XX:mainThreadStackSize=24K");
