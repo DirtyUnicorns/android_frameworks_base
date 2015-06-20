@@ -49,6 +49,9 @@ public class Build {
     /** The name of the underlying board, like "goldfish". */
     public static final String BOARD = getString("ro.product.board");
 
+    /** The name of the device for the du updater, like "hammerhead" or "mako". */
+    public static final String UPDATER = getString("ro.du.updater");
+
     /**
      * The name of the instruction set (CPU type + ABI convention) of native code.
      *
