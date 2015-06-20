@@ -27,7 +27,6 @@ import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.provider.AlarmClock;
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -341,9 +340,9 @@ public class KeyguardStatusView extends GridLayout implements
         if (mIconColor == -2) {
             mWeatherConditionImage.setImageDrawable(weatherIcon);
         } else {
-            Bitmap coloredWeatherIcon =
-                    ImageHelper.getColoredBitmap(weatherIcon, mIconColor);
-            mWeatherConditionImage.setImageBitmap(coloredWeatherIcon);
+            Drawable coloredWeatherIcon =
+                    ImageHelper.getColoredDrawable(weatherIcon, mIconColor);
+            mWeatherConditionImage.setImageDrawable(coloredWeatherIcon);
         }
     }
 
