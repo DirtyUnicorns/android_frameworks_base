@@ -440,10 +440,14 @@ public class NavigationBarView extends LinearLayout {
             View one = getCurrentView().findViewById(mVertical ? R.id.six : R.id.one);
             View six = getCurrentView().findViewById(mVertical ? R.id.one : R.id.six);
             if (showingIme) {
-                mSlotOneVisibility = one.getVisibility();
-                mSlotSixVisibility = six.getVisibility();
-                setVisibleOrGone(one, false);
-                setVisibleOrGone(six, false);
+                if (mSlotOneVisibility == View.VISIBLE) {
+                    mSlotOneVisibility = one.getVisibility();
+                    setVisibleOrGone(one, false);
+                }
+                if (mSlotSixVisibility == View.VISIBLE) {
+                    mSlotSixVisibility = six.getVisibility();
+                    setVisibleOrGone(six, false);
+                }
             } else {
                 if (mSlotOneVisibility != -1) {
                     one.setVisibility(mSlotOneVisibility);
@@ -665,23 +669,13 @@ public class NavigationBarView extends LinearLayout {
         boolean isLayoutRtl = getResources().getConfiguration()
                 .getLayoutDirection() == LAYOUT_DIRECTION_RTL;
         if (mIsLayoutRtl != isLayoutRtl) {
-
-            // We swap all children of the 90 and 270 degree layouts, since they are vertical
-            View rotation90 = mRotatedViews[Surface.ROTATION_90];
-            swapChildrenOrderIfVertical(rotation90.findViewById(R.id.nav_buttons));
-            adjustExtraKeyGravity(rotation90, isLayoutRtl);
-
-            View rotation270 = mRotatedViews[Surface.ROTATION_270];
-            if (rotation90 != rotation270) {
-                swapChildrenOrderIfVertical(rotation270.findViewById(R.id.nav_buttons));
-                adjustExtraKeyGravity(rotation270, isLayoutRtl);
-            }
             mIsLayoutRtl = isLayoutRtl;
+            reorient();
         }
     }
 
     private void adjustExtraKeyGravity(View navBar, boolean isLayoutRtl) {
-        View menu = getBackButton();
+        View menu = navBar.findViewWithTag(NavbarEditor.NAVBAR_CONDITIONAL_MENU);
         View imeSwitcher = navBar.findViewById(R.id.ime_switcher);
         if (menu != null) {
             FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) menu.getLayoutParams();
@@ -692,28 +686,6 @@ public class NavigationBarView extends LinearLayout {
             FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) imeSwitcher.getLayoutParams();
             lp.gravity = isLayoutRtl ? Gravity.BOTTOM : Gravity.TOP;
             imeSwitcher.setLayoutParams(lp);
-        }
-    }
-
-    /**
-     * Swaps the children order of a LinearLayout if it's orientation is Vertical
-     *
-     * @param group The LinearLayout to swap the children from.
-     */
-    private void swapChildrenOrderIfVertical(View group) {
-        if (group instanceof LinearLayout) {
-            LinearLayout linearLayout = (LinearLayout) group;
-            if (linearLayout.getOrientation() == VERTICAL) {
-                int childCount = linearLayout.getChildCount();
-                ArrayList<View> childList = new ArrayList<>(childCount);
-                for (int i = 0; i < childCount; i++) {
-                    childList.add(linearLayout.getChildAt(i));
-                }
-                linearLayout.removeAllViews();
-                for (int i = childCount - 1; i >= 0; i--) {
-                    linearLayout.addView(childList.get(i));
-                }
-            }
         }
     }
 
