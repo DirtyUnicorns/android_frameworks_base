@@ -1784,8 +1784,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mLongPressOnAppSwitchBehavior = KEY_ACTION_NOTHING;
         mPressOnBackBehavior = KEY_ACTION_BACK;
         mLongPressOnBackBehavior = KEY_ACTION_NOTHING;
-        mPressOnAppSwitchBehavior = KEY_ACTION_NOTHING;
-        mLongPressOnAppSwitchBehavior = KEY_ACTION_NOTHING;
         mPressOnAssistBehavior = KEY_ACTION_NOTHING;
         mLongPressOnAssistBehavior = KEY_ACTION_NOTHING;
 
