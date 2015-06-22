@@ -46,7 +46,6 @@ public class QSConstants {
     public static final String TILE_BRIGHTNESS = "brightness";
     public static final String TILE_BATTERY_SAVER = "battery_saver";
     public static final String TILE_HEADS_UP = "toggleHeadsUp";
-    public static final String TILE_NAVBAR = "toggleNavBar";
     public static final String TILE_APPCIRCLEBAR = "toggleAppCircleBar";
     public static final String TILE_AMBIENT_DISPLAY = "ambient_display";
     public static final String TILE_MUSIC = "music";
@@ -89,12 +88,12 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_BRIGHTNESS);
         TILES_AVAILABLE.add(TILE_BATTERY_SAVER);
         TILES_AVAILABLE.add(TILE_HEADS_UP);
-        TILES_AVAILABLE.add(TILE_NAVBAR);
         TILES_AVAILABLE.add(TILE_APPCIRCLEBAR);
         TILES_AVAILABLE.add(TILE_AMBIENT_DISPLAY);
         TILES_AVAILABLE.add(TILE_MUSIC);
         TILES_AVAILABLE.add(TILE_COMPASS);
         TILES_AVAILABLE.add(TILE_NFC);
         TILES_AVAILABLE.add(TILE_ADB_NETWORK);
+        TILES_AVAILABLE.add(TILE_HEADS_UP);
     }
 }
