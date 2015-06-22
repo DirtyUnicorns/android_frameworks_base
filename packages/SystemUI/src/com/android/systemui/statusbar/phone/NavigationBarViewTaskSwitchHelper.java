@@ -73,11 +73,9 @@ public class NavigationBarViewTaskSwitchHelper extends GestureDetector.SimpleOnG
                 boolean exceededTouchSlop = !mIsVertical
                         ? xDiff > mScrollTouchSlop && xDiff > yDiff
                         : yDiff > mScrollTouchSlop && yDiff > xDiff;
-                // This feature is disabled currently as is, and is consuming our lateral
-                // events. Lets disable ignore them.
-//                if (exceededTouchSlop) {
-//                    return true;
-//                }
+                if (exceededTouchSlop) {
+                    return true;
+                }
                 break;
             }
             case MotionEvent.ACTION_CANCEL:

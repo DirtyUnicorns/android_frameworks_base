@@ -22,10 +22,6 @@
     <color name="gesture_overlay_background_fill_color">#80000000</color>
     <color name="gesture_color">#FF07998B</color>
 
-    <color name="navring_check_tint">@android:color/white</color>
-    <color name="navring_edit_fill">#FF558B2F</color>
-    <color name="navring_edit_tint">#FF689F38</color>
-
     <!-- Task Manager -->
     <color name="memory_usage_item_background">#00000000</color>
     <color name="task_manager_title_text">#ffffffff</color>
