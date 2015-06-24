@@ -31,11 +31,6 @@
   <java-symbol type="array" name="config_disabledComponents" />
   <java-symbol type="array" name="config_forceEnabledComponents" />
 
-  <!-- HW button mapping -->
-  <java-symbol type="integer" name="config_deviceHardwareKeys" />
-  <java-symbol type="integer" name="config_backKillTimeout" />
-  <java-symbol type="string" name="app_killed_message" />
-
   <!-- AOKP custom system animations -->
   <java-symbol type="string" name="action_null"/>
   <java-symbol type="string" name="animation_fade"/>
@@ -86,10 +81,10 @@
   <java-symbol type="string" name="privacy_guard_dialog_title" />
   <java-symbol type="string" name="privacy_guard_dialog_summary" />
 
-    <!-- Flashlight notification -->
-    <java-symbol type="string" name="quick_settings_tile_flashlight_not_title" />
-    <java-symbol type="string" name="quick_settings_tile_flashlight_not_summary" />
-    <java-symbol type="drawable" name="ic_signal_flashlight_disable" />
+  <!-- Flashlight notification -->
+  <java-symbol type="string" name="quick_settings_tile_flashlight_not_title" />
+  <java-symbol type="string" name="quick_settings_tile_flashlight_not_summary" />
+  <java-symbol type="drawable" name="ic_signal_flashlight_disable" />
 
   <!-- Slim recent app screen-->
   <java-symbol type="integer" name="config_recentDefaultDur" />
@@ -99,4 +94,20 @@
   <java-symbol type="anim" name="recent_screen_enter" />
   <java-symbol type="anim" name="recent_screen_enter_left" />
   <java-symbol type="anim" name="recent_screen_fade_out" />
+
+  <!-- Hardware key rebinding -->
+  <java-symbol type="integer" name="config_deviceHardwareKeys" />
+
+  <!-- Pie controls -->
+  <java-symbol type="string" name="global_actions_pie_mode_on_status" />
+  <java-symbol type="string" name="global_actions_pie_mode_off_status" />
+  <java-symbol type="drawable" name="ic_lock_pie" />
+  <java-symbol type="string" name="disable_pie_navigation_error" />
+
+  <!-- Navigation bar -->
+  <java-symbol type="string" name="global_actions_nav_bar_mode_on_status" />
+  <java-symbol type="string" name="global_actions_nav_bar_mode_off_status" />
+  <java-symbol type="drawable" name="ic_lock_navbar" />
+  <java-symbol type="string" name="disable_navigation_pie_error" />
+
 </resources>

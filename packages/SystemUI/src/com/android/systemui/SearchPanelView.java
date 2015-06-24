@@ -16,54 +16,33 @@
 
 package com.android.systemui;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
 import android.app.ActivityOptions;
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
-import android.content.BroadcastReceiver;
 import android.content.ComponentName;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
-import android.database.ContentObserver;
-import android.graphics.drawable.Drawable;
 import android.media.AudioAttributes;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.UserHandle;
 import android.os.Vibrator;
 import android.provider.Settings;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.AnticipateOvershootInterpolator;
-import android.view.animation.OvershootInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import com.android.systemui.cm.ActionTarget;
-import com.android.systemui.cm.NavigationRingHelpers;
-import com.android.systemui.cm.ShortcutPickHelper;
+
 import com.android.systemui.statusbar.BaseStatusBar;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.StatusBarPanel;
 import com.android.systemui.statusbar.phone.PhoneStatusBar;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static com.android.systemui.cm.NavigationRingConstants.ACTION_ASSIST;
-import static com.android.systemui.cm.NavigationRingConstants.ACTION_NONE;
-import static com.android.systemui.cm.NavigationRingConstants.BROADCAST;
-
-public class SearchPanelView extends FrameLayout implements StatusBarPanel,
-        View.OnClickListener, ShortcutPickHelper.OnPickListener {
+public class SearchPanelView extends FrameLayout implements StatusBarPanel {
 
     private static final String TAG = "SearchPanelView";
     private static final String ASSIST_ICON_METADATA_NAME =
@@ -90,14 +69,6 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
     private float mStartTouch;
     private float mStartDrag;
     private boolean mLaunchPending;
-    private String[] mTargetActivities;
-    private boolean mInEditMode;
-    private View mEditButton;
-    private ImageView mSelectedView;
-    private List<ImageView> mTargetViews;
-    private ImageView mLogoRight, mLogoLeft;
-    private final ActionTarget mActionTarget;
-    private ShortcutPickHelper mPicker;
 
     public SearchPanelView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -107,14 +78,6 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
         super(context, attrs, defStyle);
         mContext = context;
         mThreshold = context.getResources().getDimensionPixelSize(R.dimen.search_panel_threshold);
-        mActionTarget = new ActionTarget(context);
-        mPicker = new ShortcutPickHelper(mContext, this);
-        mTargetViews = new ArrayList<ImageView>();
-        // Instantiate receiver/observer
-        IntentFilter filter = new IntentFilter();
-        filter.addAction(BROADCAST);
-        mContext.registerReceiver(mReceiver, filter);
-        new SettingsObserver(new Handler());
     }
 
     private void startAssistActivity() {
@@ -149,47 +112,18 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
         mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mCircle = (SearchPanelCircleView) findViewById(R.id.search_panel_circle);
         mLogo = (ImageView) findViewById(R.id.search_logo);
-        mLogo.setOnClickListener(this);
         mScrim = findViewById(R.id.search_panel_scrim);
-
-        mEditButton = findViewById(R.id.nav_ring_edit);
-        mEditButton.setOnClickListener(this);
-
-        mLogoLeft = (ImageView) findViewById(R.id.search_logo1);
-        mLogoLeft.setOnClickListener(this);
-
-        mLogoRight = (ImageView) findViewById(R.id.search_logo2);
-        mLogoRight.setOnClickListener(this);
-
-        // Order matters
-        mTargetViews.add(mLogoLeft);
-        mTargetViews.add(mLogo);
-        mTargetViews.add(mLogoRight);
-
-        mCircle.initializeAdditionalTargets(this);
-        updateDrawables();
     }
 
-    private void maybeSwapSearchIcon(ImageView view) {
+    private void maybeSwapSearchIcon() {
         Intent intent = ((SearchManager) mContext.getSystemService(Context.SEARCH_SERVICE))
                 .getAssistIntent(mContext, false, UserHandle.USER_CURRENT);
         if (intent != null) {
             ComponentName component = intent.getComponent();
-            replaceDrawable(view, component, ASSIST_ICON_METADATA_NAME);
+            replaceDrawable(mLogo, component, ASSIST_ICON_METADATA_NAME);
         } else {
             mLogo.setImageDrawable(null);
         }
-    }
-
-    private boolean hasItemsToShow() {
-        for (int i = 0; i < mTargetViews.size(); i++) {
-            View v = mTargetViews.get(i);
-            View parent = (View) v.getParent();
-            if (parent.getVisibility() == View.VISIBLE) {
-                return true;
-            }
-        }
-        return false;
     }
 
     public void replaceDrawable(ImageView v, ComponentName component, String name) {
@@ -235,7 +169,8 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
     }
 
     public void show(final boolean show, boolean animate) {
-        if (show && (mInEditMode || hasItemsToShow())) {
+        if (show) {
+            maybeSwapSearchIcon();
             if (getVisibility() != View.VISIBLE) {
                 setVisibility(View.VISIBLE);
                 vibrate();
@@ -249,7 +184,6 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
             setFocusableInTouchMode(true);
             requestFocus();
         } else {
-            if (mInEditMode) return;
             if (animate) {
                 startAbortAnimation();
             } else {
@@ -271,7 +205,6 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
     }
 
     private void startAbortAnimation() {
-        if (mInEditMode) return;
         mCircle.startAbortAnimation(new Runnable() {
                     @Override
                     public void run() {
@@ -288,7 +221,6 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
     }
 
     public void hide(boolean animate) {
-        if (mInEditMode) return;
         if (mBar != null) {
             // This will indirectly cause show(false, ...) to get called
             mBar.animateCollapsePanels(CommandQueue.FLAG_EXCLUDE_NONE);
@@ -333,8 +265,8 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        if (mLaunching || mLaunchPending || mInEditMode) {
-            return super.onTouchEvent(event);
+        if (mLaunching || mLaunchPending) {
+            return false;
         }
         int action = event.getActionMasked();
         switch (action) {
@@ -355,9 +287,8 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
                 if (mDragging) {
                     float offset = Math.max(mStartDrag - currentTouch, 0.0f);
                     mCircle.setDragDistance(offset);
-                    int indexOfIntersect = mCircle.isIntersecting(event);
-                    mDraggedFarEnough = indexOfIntersect != -1;
-                    mCircle.setDraggedFarEnough(mDraggedFarEnough, indexOfIntersect);
+                    mDraggedFarEnough = Math.abs(mStartTouch - currentTouch) > mThreshold;
+                    mCircle.setDraggedFarEnough(mDraggedFarEnough);
                 }
                 break;
             case MotionEvent.ACTION_UP:
@@ -389,9 +320,7 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
             return;
         }
         mLaunching = true;
-        if (!mActionTarget.launchAction(mTargetActivities[mCircle.mIntersectIndex])) {
-            startAssistActivity();
-        }
+        startAssistActivity();
         vibrate();
         mCircle.setAnimatingOut(true);
         mCircle.startExitAnimation(new Runnable() {
@@ -413,125 +342,4 @@ public class SearchPanelView extends FrameLayout implements StatusBarPanel,
         mHorizontal = horizontal;
         mCircle.setHorizontal(horizontal);
     }
-
-    @Override
-    public void onClick(View v) {
-        if (mInEditMode) {
-            if (v == mEditButton) {
-                mInEditMode = false;
-                show(false, true);
-                startEditAnimation(false);
-                updateTargetVisibility();
-            } else if (v == mLogo || v == mLogoLeft || v == mLogoRight) {
-                mSelectedView = (ImageView) v;
-                mPicker.pickShortcut();
-            }
-        }
-    }
-
-    @Override
-    public void shortcutPicked(String uri) {
-        if (uri != null) {
-            int index = mTargetViews.indexOf(mSelectedView);
-            Settings.Secure.putString(mContext.getContentResolver(),
-                    Settings.Secure.NAVIGATION_RING_TARGETS[index], uri);
-        }
-    }
-
-    private class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-            observe();
-        }
-
-        void observe() {
-            ContentResolver resolver = mContext.getContentResolver();
-            for (int i = 0; i < NavigationRingHelpers.MAX_ACTIONS; i++) {
-                resolver.registerContentObserver(
-                        Settings.Secure.getUriFor(Settings.Secure.NAVIGATION_RING_TARGETS[i]),
-                        false, this);
-            }
-        }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            updateDrawables();
-        }
-    }
-
-    private void updateDrawables() {
-        mTargetActivities = NavigationRingHelpers.getTargetActions(mContext);
-        boolean assistantAvailable = isAssistantAvailable();
-        for (int i = 0; i < NavigationRingHelpers.MAX_ACTIONS; i++) {
-            ImageView target = mTargetViews.get(i);
-            String action = mTargetActivities[i];
-
-            if (assistantAvailable && ((TextUtils.isEmpty(action) && target == mLogo)
-                    || ACTION_ASSIST.equals(action))) {
-                maybeSwapSearchIcon(target);
-                continue;
-            }
-
-            target.setImageDrawable(NavigationRingHelpers.getTargetDrawable(
-                        mContext, mTargetActivities[i]));
-        }
-        updateTargetVisibility();
-    }
-
-    private void updateTargetVisibility() {
-        for (int i = 0; i < mTargetViews.size(); i++) {
-            View v = mTargetViews.get(i);
-            View parent = (View) v.getParent();
-            String action = mTargetActivities[i];
-            boolean visible = mInEditMode
-                    || (!TextUtils.isEmpty(action) && !ACTION_NONE.equals(action));
-            parent.setVisibility(visible ? View.VISIBLE : View.GONE);
-        }
-    }
-
-    private BroadcastReceiver mReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            mInEditMode = true;
-            show(true, true);
-            startEditAnimation(true);
-            updateTargetVisibility();
-        }
-    };
-
-    private void startEditAnimation(boolean show) {
-        if (show) {
-            mEditButton.setScaleX(0);
-            mEditButton.setScaleY(0);
-            mEditButton.setAlpha(0f);
-            mEditButton
-                    .animate()
-                    .scaleX(1)
-                    .scaleY(1)
-                    .alpha(1)
-                    .setDuration(400)
-                    .setInterpolator(new OvershootInterpolator())
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationStart(Animator animation) {
-                            mEditButton.setVisibility(View.VISIBLE);
-                        }
-                    });
-        } else {
-            mEditButton
-                    .animate()
-                    .scaleX(0)
-                    .scaleY(0)
-                    .alpha(0)
-                    .setDuration(500)
-                    .setInterpolator(new AnticipateOvershootInterpolator())
-                    .setListener(new AnimatorListenerAdapter() {
-                        @Override
-                        public void onAnimationEnd(Animator animation) {
-                            mEditButton.setVisibility(View.GONE);
-                        }
-                    });
-        }
-    }
-
 }

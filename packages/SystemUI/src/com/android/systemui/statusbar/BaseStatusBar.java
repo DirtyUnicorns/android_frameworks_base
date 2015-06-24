@@ -16,6 +16,7 @@
 
 package com.android.systemui.statusbar;
 
+import android.service.gesture.EdgeGestureManager;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.TimeInterpolator;
@@ -23,7 +24,9 @@ import android.annotation.ChaosLab;
 import android.annotation.ChaosLab.Classification;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.ActivityManagerNative;
+import android.app.IActivityManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -44,6 +47,7 @@ import android.content.pm.UserInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.content.res.ThemeConfig;
+import android.content.ServiceConnection;
 import android.database.ContentObserver;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
@@ -54,7 +58,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.Messenger;
 import android.os.PowerManager;
+import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
@@ -90,12 +96,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.internal.statusbar.StatusBarIconList;
 import com.android.internal.util.NotificationColorUtil;
 import com.android.internal.widget.LockPatternUtils;
+import com.android.internal.util.slim.DeviceUtils;
 import com.android.systemui.R;
 import com.android.systemui.RecentsComponent;
 import com.android.systemui.SearchPanelView;
@@ -103,11 +111,13 @@ import com.android.systemui.slimrecent.RecentController;
 import com.android.systemui.SwipeHelper;
 import com.android.systemui.SystemUI;
 import com.android.systemui.chaos.lab.gestureanywhere.GestureAnywhereView;
-import com.android.systemui.statusbar.NotificationData.Entry;
 import com.android.systemui.statusbar.appcirclesidebar.AppCircleSidebar;
+import com.android.systemui.statusbar.NotificationData.Entry;
+import com.android.systemui.statusbar.phone.NavigationBarOverlay;
 import com.android.systemui.statusbar.phone.NavigationBarView;
 import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.policy.HeadsUpNotificationView;
+import com.android.systemui.statusbar.policy.PieController;
 import com.android.systemui.statusbar.policy.PreviewInflater;
 import com.android.systemui.statusbar.stack.NotificationStackScrollLayout;
 
@@ -140,6 +150,10 @@ public abstract class BaseStatusBar extends SystemUI implements
     protected static final int MSG_HIDE_HEADS_UP = 1029;
     protected static final int MSG_ESCALATE_HEADS_UP = 1030;
     protected static final int MSG_DECAY_HEADS_UP = 1031;
+    protected static final int MSG_TOGGLE_LAST_APP = 1032;
+    protected static final int MSG_TOGGLE_KILL_APP = 1033;
+    protected static final int MSG_TOGGLE_SCREENSHOT = 1034;
+    protected static final int MSG_SET_PIE_TRIGGER_MASK = 1035;
 
     protected static final boolean ENABLE_HEADS_UP = true;
     // scores above this threshold should be displayed in heads up mode.
@@ -215,6 +229,38 @@ public abstract class BaseStatusBar extends SystemUI implements
     private NotificationColorUtil mNotificationColorUtil;
 
     private UserManager mUserManager;
+
+    /**
+     * An interface for navigation key bars to allow status bars to signal which keys are
+     * currently of interest to the user.<br>
+     * See {@link NavigationBarView} in Phone UI for an example.
+     */
+    public interface NavigationBarCallback {
+        /**
+         * @param hints flags from StatusBarManager (NAVIGATION_HINT...) to indicate which key is
+         * available for navigation
+         * @see StatusBarManager
+         */
+        public abstract void setNavigationIconHints(int hints);
+        /**
+         * @param showMenu {@code true} when an menu key should be displayed by the navigation bar.
+         */
+        public abstract void setMenuVisibility(boolean showMenu);
+        /**
+         * @param disabledFlags flags from View (STATUS_BAR_DISABLE_...) to indicate which key
+         * is currently disabled on the navigation bar.
+         * {@see View}
+         */
+        public void setDisabledFlags(int disabledFlags);
+    };
+    private ArrayList<NavigationBarCallback> mNavigationCallbacks =
+            new ArrayList<NavigationBarCallback>();
+
+    // Pie Control
+    private PieController mPieController;
+    protected NavigationBarOverlay mNavigationBarOverlay;
+
+    private EdgeGestureManager mEdgeGestureManager;
 
     // UI-specific methods
 
@@ -431,6 +477,9 @@ public abstract class BaseStatusBar extends SystemUI implements
                 updateLockscreenNotificationSetting();
 
                 userSwitched(mCurrentUserId);
+                if (mPieController != null) {
+                    mPieController.refreshContainer();
+                }
             } else if (Intent.ACTION_USER_ADDED.equals(action)) {
                 updateCurrentProfilesCache();
             } else if (DevicePolicyManager.ACTION_DEVICE_POLICY_MANAGER_STATE_CHANGED.equals(
@@ -658,6 +707,8 @@ public abstract class BaseStatusBar extends SystemUI implements
                    ));
         }
 
+        initPieController();
+
         mCurrentUserId = ActivityManager.getCurrentUser();
         setHeadsUpUser(mCurrentUserId);
 
@@ -670,6 +721,29 @@ public abstract class BaseStatusBar extends SystemUI implements
         mContext.registerReceiver(mBroadcastReceiver, filter);
 
         updateCurrentProfilesCache();
+    }
+
+    private void initPieController() {
+        if (mEdgeGestureManager == null) {
+            mEdgeGestureManager = EdgeGestureManager.getInstance();
+        }
+        if (mNavigationBarOverlay == null) {
+            mNavigationBarOverlay = new NavigationBarOverlay();
+        }
+        if (mPieController == null) {
+            mPieController = new PieController(
+                    mContext, this, mEdgeGestureManager, mNavigationBarOverlay);
+            addNavigationBarCallback(mPieController);
+        }
+    }
+
+    protected void attachPieContainer(boolean enabled) {
+        initPieController();
+        if (enabled) {
+            mPieController.attachContainer();
+        } else {
+            mPieController.detachContainer(false);
+        }
     }
 
     protected void notifyUserAboutHiddenNotifications() {
@@ -718,6 +792,12 @@ public abstract class BaseStatusBar extends SystemUI implements
             NotificationManager noMan =
                     (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
             noMan.notify(HIDDEN_NOTIFICATION_ID, note.build());
+        }
+    }
+
+    public void setOverwriteImeIsActive(boolean enabled) {
+        if (mEdgeGestureManager != null) {
+            mEdgeGestureManager.setOverwriteImeIsActive(enabled);
         }
     }
 
@@ -1093,7 +1173,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     @Override
     public void showSearchPanel() {
-        if (mSearchPanelView != null) {
+        if (mSearchPanelView != null && mSearchPanelView.isAssistantAvailable()) {
             mSearchPanelView.show(true, true);
         }
     }
@@ -1103,6 +1183,35 @@ public abstract class BaseStatusBar extends SystemUI implements
         int msg = MSG_CLOSE_SEARCH_PANEL;
         mHandler.removeMessages(msg);
         mHandler.sendEmptyMessage(msg);
+    }
+
+    @Override
+    public void toggleLastApp() {
+        int msg = MSG_TOGGLE_LAST_APP;
+        mHandler.removeMessages(msg);
+        mHandler.sendEmptyMessage(msg);
+    }
+
+    @Override
+    public void toggleKillApp() {
+        int msg = MSG_TOGGLE_KILL_APP;
+        mHandler.removeMessages(msg);
+        mHandler.sendEmptyMessage(msg);
+    }
+
+    @Override
+    public void toggleScreenshot() {
+        int msg = MSG_TOGGLE_SCREENSHOT;
+        mHandler.removeMessages(msg);
+        mHandler.sendEmptyMessage(msg);
+    }
+
+    @Override
+    public void setPieTriggerMask(int newMask, boolean lock) {
+        int msg = MSG_SET_PIE_TRIGGER_MASK;
+        mHandler.removeMessages(msg);
+        mHandler.obtainMessage(MSG_SET_PIE_TRIGGER_MASK,
+                newMask, lock ? 1 : 0, null).sendToTarget();
     }
 
     protected abstract WindowManager.LayoutParams getSearchLayoutParams(
@@ -1120,6 +1229,11 @@ public abstract class BaseStatusBar extends SystemUI implements
         LinearLayout tmpRoot = new LinearLayout(mContext);
         mSearchPanelView = (SearchPanelView) LayoutInflater.from(mContext).inflate(
                  R.layout.status_bar_search_panel, tmpRoot, false);
+
+         boolean navbarCanMove = Settings.System.getIntForUser(mContext.getContentResolver(),
+                   Settings.System.NAVIGATION_BAR_CAN_MOVE,
+                   DeviceUtils.isPhone(mContext) ? 1 : 0, UserHandle.USER_CURRENT) == 1;
+
         mSearchPanelView.setOnTouchListener(
                  new TouchOutsideListener(MSG_CLOSE_SEARCH_PANEL, mSearchPanelView));
         mSearchPanelView.setVisibility(View.GONE);
@@ -1345,6 +1459,21 @@ public abstract class BaseStatusBar extends SystemUI implements
                  if (mSearchPanelView != null && mSearchPanelView.isShowing()) {
                      mSearchPanelView.show(false, true);
                  }
+                 break;
+             case MSG_TOGGLE_LAST_APP:
+                 if (DEBUG) Slog.d(TAG, "toggle last app");
+                 getLastApp();
+                 break;
+             case MSG_TOGGLE_KILL_APP:
+                 if (DEBUG) Slog.d(TAG, "toggle kill app");
+                 mHandler.post(mKillTask);
+                 break;
+             case MSG_TOGGLE_SCREENSHOT:
+                 if (DEBUG) Slog.d(TAG, "toggle screenshot");
+                 takeScreenshot();
+                 break;
+             case MSG_SET_PIE_TRIGGER_MASK:
+                 updatePieTriggerMask(m.arg1, m.arg2 != 0);
                  break;
             }
         }
@@ -2291,6 +2420,41 @@ public abstract class BaseStatusBar extends SystemUI implements
         }
     }
 
+    public void addNavigationBarCallback(NavigationBarCallback callback) {
+        mNavigationCallbacks.add(callback);
+    }
+
+    protected void propagateNavigationIconHints(int hints) {
+        for (NavigationBarCallback callback : mNavigationCallbacks) {
+            callback.setNavigationIconHints(hints);
+        }
+    }
+
+    protected void propagateMenuVisibility(boolean showMenu) {
+        for (NavigationBarCallback callback : mNavigationCallbacks) {
+            callback.setMenuVisibility(showMenu);
+        }
+    }
+
+    protected void propagateDisabledFlags(int disabledFlags) {
+        for (NavigationBarCallback callback : mNavigationCallbacks) {
+            callback.setDisabledFlags(disabledFlags);
+        }
+    }
+
+    // Pie Controls
+    public void updatePieTriggerMask(int newMask, boolean lock) {
+        if (mPieController != null) {
+            mPieController.updatePieTriggerMask(newMask, lock);
+        }
+    }
+
+    public void restorePieTriggerMask() {
+        if (mPieController != null) {
+            mPieController.restorePieTriggerMask();
+        }
+    }
+
     /**
      * @return a PackageManger for userId or if userId is < 0 (USER_ALL etc) then
      *         return PackageManager for mContext
@@ -2401,5 +2565,159 @@ public abstract class BaseStatusBar extends SystemUI implements
         lp.setTitle("AppCircleSidebar");
 
         return lp;
+    }
+
+    Runnable mKillTask = new Runnable() {
+        public void run() {
+            try {
+                final Intent intent = new Intent(Intent.ACTION_MAIN);
+                String defaultHomePackage = "com.android.launcher";
+                intent.addCategory(Intent.CATEGORY_HOME);
+                final ResolveInfo res = mContext.getPackageManager().resolveActivity(intent, 0);
+                if (res.activityInfo != null && !res.activityInfo.packageName.equals("android")) {
+                    defaultHomePackage = res.activityInfo.packageName;
+                }
+                boolean targetKilled = false;
+                IActivityManager am = ActivityManagerNative.getDefault();
+                List<RunningAppProcessInfo> apps = am.getRunningAppProcesses();
+                for (RunningAppProcessInfo appInfo : apps) {
+                    int uid = appInfo.uid;
+                    // Make sure it's a foreground user application (not system,
+                    // root, phone, etc.)
+                    if (uid >= Process.FIRST_APPLICATION_UID && uid <= Process.LAST_APPLICATION_UID
+                            && appInfo.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND) {
+                        if (appInfo.pkgList != null && (appInfo.pkgList.length > 0)) {
+                            for (String pkg : appInfo.pkgList) {
+                                if (!pkg.equals("com.android.systemui")
+                                        && !pkg.equals(defaultHomePackage)) {
+                                    am.forceStopPackage(pkg, UserHandle.USER_CURRENT);
+                                    targetKilled = true;
+                                    break;
+                                }
+                            }
+                        } else {
+                            Process.killProcess(appInfo.pid);
+                            targetKilled = true;
+                        }
+                    }
+                    if (targetKilled) {
+                        Toast.makeText(mContext,
+                                R.string.app_killed_message, Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                }
+            } catch (RemoteException e) {}
+        }
+    };
+
+    final Runnable mScreenshotTimeout = new Runnable() {
+        @Override
+        public void run() {
+            synchronized (mScreenshotLock) {
+                if (mScreenshotConnection != null) {
+                    mContext.unbindService(mScreenshotConnection);
+                    mScreenshotConnection = null;
+                }
+            }
+        }
+    };
+
+    private final Object mScreenshotLock = new Object();
+    private ServiceConnection mScreenshotConnection = null;
+    private Handler mHDL = new Handler();
+
+    private void takeScreenshot() {
+        synchronized (mScreenshotLock) {
+            if (mScreenshotConnection != null) {
+                return;
+            }
+            ComponentName cn = new ComponentName("com.android.systemui",
+                    "com.android.systemui.screenshot.TakeScreenshotService");
+            Intent intent = new Intent();
+            intent.setComponent(cn);
+            ServiceConnection conn = new ServiceConnection() {
+                @Override
+                public void onServiceConnected(ComponentName name, IBinder service) {
+                    synchronized (mScreenshotLock) {
+                        if (mScreenshotConnection != this) {
+                            return;
+                        }
+                        Messenger messenger = new Messenger(service);
+                        Message msg = Message.obtain(null, 1);
+                        final ServiceConnection myConn = this;
+                        Handler h = new Handler(mHDL.getLooper()) {
+                            @Override
+                            public void handleMessage(Message msg) {
+                                synchronized (mScreenshotLock) {
+                                    if (mScreenshotConnection == myConn) {
+                                        mContext.unbindService(mScreenshotConnection);
+                                        mScreenshotConnection = null;
+                                        mHDL.removeCallbacks(mScreenshotTimeout);
+                                    }
+                                }
+                            }
+                        };
+                        msg.replyTo = new Messenger(h);
+                        msg.arg1 = msg.arg2 = 0;
+
+                        /*
+                         * remove for the time being if (mStatusBar != null &&
+                         * mStatusBar.isVisibleLw()) msg.arg1 = 1; if
+                         * (mNavigationBar != null &&
+                         * mNavigationBar.isVisibleLw()) msg.arg2 = 1;
+                         */
+
+                        /* wait for the dialog box to close */
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException ie) {
+                        }
+
+                        /* take the screenshot */
+                        try {
+                            messenger.send(msg);
+                        } catch (RemoteException e) {
+                        }
+                    }
+                }
+
+                @Override
+                public void onServiceDisconnected(ComponentName name) {
+                }
+            };
+            if (mContext.bindService(intent, conn, mContext.BIND_AUTO_CREATE)) {
+                mScreenshotConnection = conn;
+                mHDL.postDelayed(mScreenshotTimeout, 10000);
+            }
+        }
+    }
+
+    private void getLastApp() {
+        int lastAppId = 0;
+        int looper = 1;
+        String packageName;
+        final Intent intent = new Intent(Intent.ACTION_MAIN);
+        final ActivityManager am = (ActivityManager) mContext
+                .getSystemService(Activity.ACTIVITY_SERVICE);
+        String defaultHomePackage = "com.android.launcher";
+        intent.addCategory(Intent.CATEGORY_HOME);
+        final ResolveInfo res = mContext.getPackageManager().resolveActivity(intent, 0);
+        if (res.activityInfo != null && !res.activityInfo.packageName.equals("android")) {
+            defaultHomePackage = res.activityInfo.packageName;
+        }
+        List <ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(5);
+        // lets get enough tasks to find something to switch to
+        // Note, we'll only get as many as the system currently has - up to 5
+        while ((lastAppId == 0) && (looper < tasks.size())) {
+            packageName = tasks.get(looper).topActivity.getPackageName();
+            if (!packageName.equals(defaultHomePackage)
+                    && !packageName.equals("com.android.systemui")) {
+                lastAppId = tasks.get(looper).id;
+            }
+            looper++;
+        }
+        if (lastAppId != 0) {
+            am.moveTaskToFront(lastAppId, am.MOVE_TASK_NO_USER_ACTION);
+        }
     }
 }

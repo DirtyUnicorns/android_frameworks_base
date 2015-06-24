@@ -58,6 +58,7 @@ interface IStatusBarService
     void setSystemUiVisibility(int vis, int mask, String cause);
     void setWindowState(int window, int state);
 
+    void setPieTriggerMask(int newMask, boolean lock);
     void showRecentApps(boolean triggeredFromAltTab);
     void hideRecentApps(boolean triggeredFromAltTab, boolean triggeredFromHomeKey);
     void toggleRecentApps();
@@ -65,4 +66,7 @@ interface IStatusBarService
     void cancelPreloadRecentApps();
     void setAutoRotate(boolean enabled);
     void showCustomIntentAfterKeyguard(inout Intent intent);
+    void toggleScreenshot();
+    void toggleLastApp();
+    void toggleKillApp();
 }

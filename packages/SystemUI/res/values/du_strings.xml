@@ -60,34 +60,20 @@
     <string name="left_shortcut_hint">Swipe right for %1$s</string>
     <string name="right_shortcut_hint">Swipe left for %1$s</string>
 
-    <!-- Dialog title for navigation bar button selection -->
-    <string name="navbar_dialog_title">Choose action to assign</string>
-    <string name="navbar_home_button">Home button</string>
-    <string name="navbar_recent_button">Recent button</string>
-    <string name="navbar_search_button">Search button</string>
-    <string name="navbar_back_button">Back button</string>
-    <string name="navbar_empty_button">Empty button</string>
-    <string name="navbar_menu_conditional_button">Menu (autoHide) button</string>
-    <string name="navbar_menu_always_button">Menu (alwaysShow) button</string>
-    <string name="navbar_menu_big_button">Menu button</string>
-    <string name="accessibility_dpad_left">Cursor left</string>
-    <string name="accessibility_dpad_right">Cursor right</string>
+    <!-- Kill app toast -->
+    <string name="app_killed_message">App Killed</string>
 
-    <!-- Navigation ring shortcuts -->
-    <string name="navigation_ring_title">Quick launch shortcuts</string>
-    <string name="navring_target_reset_message">Delete all user created navigation bar shortcuts and restore to default?</string>
-    <string name="navring_target_reset">Navigation bar shortcuts reset to default</string>
-    <string name="navring_action_open_ime_switcher">Open IME Switcher</string>
-    <string name="navring_action_kill_app">Kill app</string>
-    <string name="navring_action_none">None</string>
-    <string name="navring_action_take_screenshot">Take screenshot</string>
-    <string name="navring_action_ring_vibrate">Ring/Vibration</string>
-    <string name="navring_action_ring_silent">Ring/Silent</string>
-    <string name="navring_action_ring_vibrate_silent">Ring/Vibration/Silent</string>
-    <string name="navring_action_screen_off">Screen off</string>
-    <string name="navring_action_torch">Toggle torch</string>
-    <string name="navring_action_google_now">Google Now</string>
-    <string name="navring_choose_action_title">Choose action</string>
-    <string name="select_application">Select application</string>
-    <string name="lockscreen_target_empty">Empty</string>
+    <!-- Screenshot -->
+    <string name="shortcut_screenshot">Screenshot</string>
+
+    <!-- Battery status in pie controls -->
+    <string name="pie_battery_status_charging">Charging (<xliff:g id="percent">%d</xliff:g>%%)</string>
+    <string name="pie_battery_status_full">Charged</string>
+    <string name="pie_battery_status_discharging"><xliff:g id="percent">%d</xliff:g>%% remaining</string>
+
+    <!-- Phone status in pie controls -->
+    <string name="pie_phone_status_no_service">No service</string>
+    <string name="pie_phone_status_airplane_mode">Airplane mode on</string>
+    <string name="pie_phone_status_emergency_only">Emergency calls only</string>
+
 </resources>

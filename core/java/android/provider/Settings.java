@@ -1245,13 +1245,9 @@ public final class Settings {
             MOVED_TO_SECURE.add(Secure.WIFI_WATCHDOG_PING_COUNT);
             MOVED_TO_SECURE.add(Secure.WIFI_WATCHDOG_PING_DELAY_MS);
             MOVED_TO_SECURE.add(Secure.WIFI_WATCHDOG_PING_TIMEOUT_MS);
-            for (String s : Secure.NAVIGATION_RING_TARGETS) {
-                MOVED_TO_SECURE.add(s);
-
 
             // At one time in System, then Global, but now back in Secure
             MOVED_TO_SECURE.add(Secure.INSTALL_NON_MARKET_APPS);
-            }
         }
 
         private static final HashSet<String> MOVED_TO_GLOBAL;
@@ -1796,12 +1792,6 @@ public final class Settings {
          * @hide
          */
         public static final int ADVANCED_SETTINGS_DEFAULT = 0;
-
-        /**
-         * Navigation controls to Use
-         * @hide
-         */
-        public static final String NAV_BUTTONS = "nav_buttons";
 
         /**
          * @deprecated Use {@link android.provider.Settings.Global#AIRPLANE_MODE_ON} instead
@@ -3253,102 +3243,6 @@ public final class Settings {
          */
         public static final String FORMAL_TEXT_INPUT = "formal_text_input";
 
-         /**
-          * Action to perform when the key is pressed
-          * 0 - Nothing
-          * 1 - Menu
-          * 2 - App-switch
-          * 3 - Search
-          * 4 - Voice search
-          * 5 - In-app search
-          * 6 - home
-          * 7 - back
-          * 8 - toggle last app
-          * 9 - kill app
-          * 10 - go to sleep
-          * 11 - OmniSwitch recents
-          * @hide
-          */
-        public static final String HARDWARE_KEY_REBINDING = "hardware_key_rebinding";
-
-        /**
-		 * Action to perform when the back key is pressed. (Default is 7)
-		 * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-		 * @hide
-		 */
-        public static final String KEY_BACK_ACTION = "key_back_action";
-
-        /**
-	     * Action to perform when the back key is long-pressed. (Default is 0)
-		 * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-		 * @hide
-		 */
-        public static final String KEY_BACK_LONG_PRESS_ACTION = "key_back_long_press_action";
-
-        /**
-         * Action to perform when the home key is pressed. (Default is 6)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_HOME_ACTION = "key_home_action";
-
-        /**
-         * Action to perform when the home key is long-pressed. (Default is 2)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_HOME_LONG_PRESS_ACTION = "key_home_long_press_action";
-
-        /**
-         * Action to perform when the home key is double taped (Default is 0)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_HOME_DOUBLE_TAP_ACTION = "key_home_double_tap_action";
-
-        /**
-         * Action to perform when the menu key is pressed. (Default is 1)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_MENU_ACTION = "key_menu_action";
-
-        /**
-         * Action to perform when the menu key is long-pressed.
-         * (Default is 0 on devices with a search key, 3 on devices without)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_MENU_LONG_PRESS_ACTION = "key_menu_long_press_action";
-
-        /**
-         * Action to perform when the assistant (search) key is pressed. (Default is 3)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_ASSIST_ACTION = "key_assist_action";
-
-        /**
-         * Action to perform when the assistant (search) key is long-pressed. (Default is 4)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_ASSIST_LONG_PRESS_ACTION = "key_assist_long_press_action";
-
-        /**
-         * Action to perform when the app switch key is pressed. (Default is 2)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_APP_SWITCH_ACTION = "key_app_switch_action";
-
-        /**
-         * Action to perform when the app switch key is long-pressed. (Default is 0)
-         * (See KEY_HOME_LONG_PRESS_ACTION for valid values)
-         * @hide
-         */
-        public static final String KEY_APP_SWITCH_LONG_PRESS_ACTION = "key_app_switch_long_press_action";
-
         /**
          * Volume rocker wake
          * @hide
@@ -3692,30 +3586,6 @@ public final class Settings {
         public static final String HEADS_UP_NOTIFCATION_DECAY = "heads_up_notification_decay";
 
         /**
-         * Navigation bar height when it is on protrait
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
-
-        /**
-         * Navigation bar height when it is on landscape
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_HEIGHT_LANDSCAPE = "navigation_bar_height_landscape";
-
-        /**
-         * Navigation bar height when it is on landscape at the right
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
-
-        /**
-         * Wether navigation bar is enabled or not
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_SHOW = "navigation_bar_show";
-
-        /**
          * AOKP Custom System Animations
          * @hide
          */
@@ -3754,12 +3624,6 @@ public final class Settings {
          * @hide
          */
         public static final String CUSTOM_BUTTON_DISABLE_BRIGHTNESS = "custom_button_use_disable_brightness";
-
-        /**
-         * Disable hw buttons - actions, brightness, haptic feedback, overflow menu
-         * @hide
-         */
-        public static final String HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
 
         /**
          * Timeout value for button lights. 0 = disabled
@@ -3804,7 +3668,6 @@ public final class Settings {
 
         /**
          * Boolean value whether to link ringtone and notification volume
-         *
          * @hide
          */
         public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
@@ -3910,6 +3773,357 @@ public final class Settings {
          * @hide
          */
         public static final String DISABLE_TORCH_ON_SCREEN_OFF_DELAY = "disable_torch_on_screen_off_delay";
+
+        /**
+         * Whether custom hardware key rebinding is enabled
+         * @hide
+         */
+        public static final String HARDWARE_KEY_REBINDING = "hardware_key_rebinding";
+
+        /**
+         * Action to perform when the back key is pressed (default: ACTION_BACK)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_BACK_ACTION = "key_back_action";
+
+        /**
+         * Action to perform when the back key is long-pressed. (default: ACTION_NULL)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_BACK_LONG_PRESS_ACTION = "key_back_long_press_action";
+
+        /**
+         * Action to perform when the back key is double tapped. (default: ACTION_NULL)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_BACK_DOUBLE_TAP_ACTION = "key_back_double_tap_action";
+
+        /**
+         * Action to perform when the home key is pressed. (default: ACTION_HOME)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_HOME_ACTION = "key_home_action";
+
+        /**
+         * Action to perform when the home key is long-pressed. (default: ACTION_RECENTS)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_HOME_LONG_PRESS_ACTION = "key_home_long_press_action";
+
+        /**
+         * Action to perform when the home key is double taped. (default: ACTION_NULL)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_HOME_DOUBLE_TAP_ACTION = "key_home_double_tap_action";
+
+        /**
+         * Whether pie triggers on the left and right edge should be reduced if IME shows up.
+         * Default = 1 (enabled)
+         * @hide
+         */
+        public static final String PIE_IME_CONTROL = "pie_ime_control";
+
+        /**
+         * Action to perform when the menu key is pressed. (default: ACTION_MENU)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_MENU_ACTION = "key_menu_action";
+
+        /**
+         * Action to perform when the menu key is long-pressed.
+         * (Default is ACTION_NULL on devices with a search key, ACTION_SEARCH on devices without)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_MENU_LONG_PRESS_ACTION = "key_menu_long_press_action";
+
+        /**
+         * Action to perform when the menu key is double tapped. (default: ACTION_NULL)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_MENU_DOUBLE_TAP_ACTION = "key_menu_double_tap_action";
+
+        /**
+         * Action to perform when the assistant (search) key is pressed. (default: ACTION_SEARCH)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_ASSIST_ACTION = "key_assist_action";
+
+        /**
+         * Action to perform when the assistant (search) key is long-pressed.
+         * (default: ACTION_VOICE_SEARCH)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_ASSIST_LONG_PRESS_ACTION = "key_assist_long_press_action";
+
+        /**
+         * Action to perform when the assistant (search) key is double tapped.
+         * (default: ACTION_NULL) (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_ASSIST_DOUBLE_TAP_ACTION = "key_assist_double_tap_action";
+
+        /**
+         * Action to perform when the app switch key is pressed. (default: ACTION_RECENTS)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_APP_SWITCH_ACTION = "key_app_switch_action";
+
+        /**
+         * Action to perform when the app switch key is long-pressed. (default: ACTION_NULL)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_APP_SWITCH_LONG_PRESS_ACTION =
+                "key_app_switch_long_press_action";
+
+        /**
+         * Action to perform when the app switch key is double tapped. (default: ACTION_NULL)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_APP_SWITCH_DOUBLE_TAP_ACTION =
+                "key_app_switch_double_tap_action";
+
+        /**
+         * Action to perform when the camera key is pressed. (default: LAUNCH_CAMERA)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_CAMERA_ACTION = "key_camera_action";
+
+        /**
+         * Action to perform when the camera key is long-pressed. (default: ACTION_NULL)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_CAMERA_LONG_PRESS_ACTION =
+                "key_camera_long_press_action";
+
+        /**
+         * Action to perform when the camera key is double tapped. (default: ACTION_NULL)
+         * (See ButtonsConstants.java for valid values)
+         * @hide
+         */
+        public static final String KEY_CAMERA_DOUBLE_TAP_ACTION =
+                "key_camera_double_tap_action";
+
+        /**
+         * Navigation bar button color
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_BUTTON_TINT = "navigation_bar_button_tint";
+
+        /**
+         * Option To Colorize Navigation bar buttons in different modes
+         * 0 = all, 1 = system icons, 2 = system icons + custom user icons
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_BUTTON_TINT_MODE = "navigation_bar_button_tint_mode";
+
+        /**
+         * Navigation bar glow color
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_GLOW_TINT = "navigation_bar_glow_tint";
+
+        /**
+         * Wether navigation bar is enabled or not
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_SHOW = "navigation_bar_show";
+
+        /**
+         * Wether navigation bar is on landscape on the bottom or on the right
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_CAN_MOVE = "navigation_bar_can_move";
+
+        /**
+         * Navigation bar height when it is on protrait
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+
+        /**
+         * Navigation bar height when it is on landscape at the bottom
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_HEIGHT_LANDSCAPE = "navigation_bar_height_landscape";
+
+        /**
+         * Navigation bar height when it is on landscape at the right
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_WIDTH = "navigation_bar_width";
+
+        /**
+         * Custom navigation bar intent and action configuration
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_CONFIG = "navigation_bar_config";
+
+        /**
+         * Wether the navbar menu button is on the left/right/both
+         * @hide
+         */
+        public static final String MENU_LOCATION = "menu_location";
+
+        /**
+         * Wether the navbar menu button should show or not
+         * @hide
+         */
+        public static final String MENU_VISIBILITY = "menu_visibility";
+
+        /**
+         * Whether pie controls are enabled
+         * @hide
+         */
+        public static final String PIE_CONTROLS = "pie_controls";
+
+        /**
+         * Whether dynamic menu button is shown or not or dynamic (default)
+         * @hide
+         */
+        public static final String PIE_MENU = "pie_menu";
+
+        /**
+         * Whether right edge PIE is mirrored or not
+         * @hide
+         */
+        public static final String PIE_MIRROR_RIGHT = "pie_mirror_right";
+
+        /**
+         * Pie show text (0 or 1)
+         * @hide
+         */
+        public static final String PIE_SHOW_TEXT = "pie_show_text";
+
+        /**
+         * Pie show snap (0 or 1)
+         * @hide
+         */
+        public static final String PIE_SHOW_SNAP = "pie_show_snap";
+
+        /**
+         * Pie show background (0 or 1)
+         * @hide
+         */
+        public static final String PIE_SHOW_BACKGROUND = "pie_show_background";
+
+        /**
+         * Locations of the pie in the screen.
+         * (1<<0) = LEFT
+         * (1<<1) = BOTTOM
+         * (1<<2) = RIGHT
+         * (1<<3) = TOP
+         * Default: LEFT
+         * @hide
+         */
+        public static final String PIE_GRAVITY = "pie_gravity";
+
+        /**
+         * Relative pie size (fraction)
+         * Default: 1.0f
+         * @hide
+         */
+        public static final String PIE_SIZE = "pie_size";
+
+        /**
+         * Pie button color
+         * @hide
+         */
+        public static final String PIE_BUTTON_COLOR = "pie_button_color";
+
+        /**
+         * Pie button press color
+         * @hide
+         */
+        public static final String PIE_BUTTON_PRESSED_COLOR = "pie_button_pressed_color";
+
+        /**
+         * Pie button long press color
+         * @hide
+         */
+        public static final String PIE_BUTTON_LONG_PRESSED_COLOR = "pie_button_long_pressed_color";
+
+        /**
+         * Pie button outline color
+         * @hide
+         */
+        public static final String PIE_BUTTON_OUTLINE_COLOR = "pie_button_outline_color";
+
+        /**
+         * Pie background color
+         * @hide
+         */
+        public static final String PIE_BACKGROUND_COLOR = "pie_background_color";
+
+        /**
+         * Pie snap color
+         * @hide
+         */
+        public static final String PIE_SNAP_COLOR = "pie_snap_color";
+
+        /**
+         * Pie text color
+         * @hide
+         */
+        public static final String PIE_TEXT_COLOR = "pie_text_color";
+
+        /**
+         * Pie icon color
+         * @hide
+         */
+        public static final String PIE_ICON_COLOR = "pie_icon_color";
+
+        /**
+         * Pie icon color mode
+         * @hide
+         */
+        public static final String PIE_ICON_COLOR_MODE = "pie_icon_color_mode";
+
+        /**
+         * Pie button alpha
+         * @hide
+         */
+        public static final String PIE_BUTTON_ALPHA = "pie_button_alpha";
+
+        /**
+         * Pie button pressed and long pressed alpha
+         * @hide
+         */
+        public static final String PIE_BUTTON_PRESSED_ALPHA = "pie_button_pressed_alpha";
+
+        /**
+         * Pie background alpha
+         * @hide
+         */
+        public static final String PIE_BACKGROUND_ALPHA = "pie_background_alpha";
+
+        /**
+         * Pie buttons configuration first layer
+         * @hide
+         */
+        public static final String PIE_BUTTONS_CONFIG = "pie_buttons_config";
+
+        /**
+         * Pie buttons configuration second layer
+         * @hide
+         */
+        public static final String PIE_BUTTONS_CONFIG_SECOND_LAYER =
+                "pie_buttons_config_second_layer";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -4243,13 +4457,6 @@ public final class Settings {
         @Deprecated
         public static final String WIFI_WATCHDOG_PING_TIMEOUT_MS =
             Secure.WIFI_WATCHDOG_PING_TIMEOUT_MS;
-
-        /**
-         * boolean value. toggles using arrow key locations on nav bar
-         * as left and right dpad keys
-         * @hide
-         */
-        public static final String NAVIGATION_BAR_MENU_ARROW_KEYS = "navigation_bar_menu_arrow_keys";
 
         /**
          * Whether or not to launch default music player when headset is connected
@@ -6261,16 +6468,6 @@ public final class Settings {
          * @hide
          */
         public static final String THEME_PREV_BOOT_API_LEVEL = "theme_prev_boot_api_level";
-
-        /**
-         * Custom navring actions
-         * @hide
-         */
-        public static final String[] NAVIGATION_RING_TARGETS = new String[] {
-                "navigation_ring_targets_0",
-                "navigation_ring_targets_1",
-                "navigation_ring_targets_2",
-        };
 
         /**
          * Whether newly installed apps should run with privacy guard by default

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013 The CyanogenMod Project (Jens Doll)
+ * Copyright (C) 2013-2015 The CyanogenMod Project (Jens Doll)
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -203,6 +203,24 @@ public class EdgeGestureInputFilter implements IInputFilter {
     // called from handler thread (lock taken)
     public void updateSensitivity(int sensitivity) {
         mSensitivity = sensitivity;
+    }
+
+    // called from handler thread
+    public void setImeIsActive(boolean enabled) {
+        synchronized (mLock) {
+            if (mTracker != null) {
+                mTracker.setImeIsActive(enabled);
+            }
+        }
+    }
+
+    // called from handler thread
+    public void setOverwriteImeIsActive(boolean enabled) {
+        synchronized (mLock) {
+            if (mTracker != null) {
+                mTracker.setOverwriteImeIsActive(enabled);
+            }
+        }
     }
 
     // called from handler thread

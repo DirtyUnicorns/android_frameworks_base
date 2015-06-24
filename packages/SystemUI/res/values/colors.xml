@@ -149,9 +149,6 @@
     <color name="navigation_bar_background_transparent">
         @color/system_bar_background_transparent
     </color>
-    <color name="navring_check_tint">@android:color/white</color>
-    <color name="navring_edit_fill">#FF558B2F</color>
-    <color name="navring_edit_tint">#FF689F38</color>
 
     <!-- Background of the volume panel. See also: volume_dialog_background -->
     <color name="volume_panel_background_color">@color/system_secondary_color</color>
@@ -162,6 +159,17 @@
     <!-- Color for notification icons -->
     <color name="notification_icon_color">#FFFFFFFF</color>
 
-    <!-- Navigation button ripple color -->
-    <color name="navbutton_ripple_color">#FFFFFFFF</color>
+    <!-- Navigation bar -->
+    <color name="navigationbar_button_default_color">#FFFFFFFF</color>
+
+    <!-- Pie controls -->
+    <color name="pie_overlay_color">#ff000000</color>
+    <color name="pie_snap_color">#ffffffff</color>
+    <color name="pie_text_color">#ffffffff</color>
+    <color name="pie_foreground_color">#ffffffff</color>
+    <color name="pie_background_color">#ff000000</color>
+    <color name="pie_selected_color">#ff5c5c5c</color>
+    <color name="pie_long_pressed_color">#ff8c8c8c</color>
+    <color name="pie_outline_color">#ff5c5c5c</color>
+
 </resources>
