@@ -44,19 +44,21 @@ public class ActionChecker {
             String configsString = Settings.System.getStringForUser(context.getContentResolver(),
                     mConfigs.get(i), UserHandle.USER_CURRENT);
 
-            if (configsString.contains(SlimActionConstants.ACTION_BACK)) {
-                String input = configsString;
-                int index = input.indexOf(SlimActionConstants.ACTION_BACK);
-                int count = 0;
-                while (index != -1) {
-                    count++;
-                    input = input.substring(index + 1);
-                    index = input.indexOf(SlimActionConstants.ACTION_BACK);
-                }
-                if (count <= 1) {
-                    return false;
-                } else {
-                    return true;
+            if (configsString != null) {
+                if (configsString.contains(SlimActionConstants.ACTION_BACK)) {
+                    String input = configsString;
+                    int index = input.indexOf(SlimActionConstants.ACTION_BACK);
+                    int count = 0;
+                    while (index != -1) {
+                        count++;
+                        input = input.substring(index + 1);
+                        index = input.indexOf(SlimActionConstants.ACTION_BACK);
+                    }
+                    if (count <= 1) {
+                        return false;
+                    } else {
+                        return true;
+                    }
                 }
             }
         }
