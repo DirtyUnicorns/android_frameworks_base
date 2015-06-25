@@ -132,4 +132,7 @@
     <!-- Error message if user want to try to disable all navigation options -->
     <string name="disable_navigation_pie_error">You cannot disable the navigation bar. No other navigation is enabled. Enable first pie controls to turn off the navigation bar.</string>
 
+    <!-- Powermenu Torch -->
+    <string name="global_action_torch">Flashlight</string>
+
 </resources>

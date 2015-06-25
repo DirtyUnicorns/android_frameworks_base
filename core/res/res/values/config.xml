@@ -1862,6 +1862,7 @@
          "bugreport" = Take bug report, if available
          "silent" = silent mode
          "users" = list of users
+         "torch" = Toggle torch
          -->
     <string-array translatable="false" name="config_globalActionsList">
         <item>power</item>
@@ -1869,6 +1870,7 @@
         <item>screenshot</item>
         <item>screenrecord</item>
         <item>airplane</item>
+        <item>torch</item>
         <item>settings</item>
         <item>lockdown</item>
         <item>bugreport</item>

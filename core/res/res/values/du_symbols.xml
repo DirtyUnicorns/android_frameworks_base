@@ -115,4 +115,7 @@
   <java-symbol type="drawable" name="ic_lock_navbar" />
   <java-symbol type="string" name="disable_navigation_pie_error" />
 
+  <!-- Powermenu Torch -->
+  <java-symbol type="drawable" name="ic_lock_torch" />
+  <java-symbol type="string" name="global_action_torch" />
 </resources>

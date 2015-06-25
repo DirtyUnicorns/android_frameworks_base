@@ -36,6 +36,7 @@ import android.content.pm.ThemeUtils;
 import android.content.pm.UserInfo;
 import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
+import android.hardware.TorchManager;
 import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.os.Build;
@@ -92,7 +93,7 @@ import android.os.RemoteException;
  * may show depending on whether the keyguard is showing, and whether the device
  * is provisioned.
  */
-class GlobalActions implements DialogInterface.OnDismissListener, DialogInterface.OnClickListener  {
+class GlobalActions implements DialogInterface.OnDismissListener, DialogInterface.OnClickListener {
 
     private static final String TAG = "GlobalActions";
 
@@ -110,6 +111,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private static final String GLOBAL_ACTION_KEY_USERS = "users";
     private static final String GLOBAL_ACTION_KEY_SETTINGS = "settings";
     private static final String GLOBAL_ACTION_KEY_LOCKDOWN = "lockdown";
+    private static final String GLOBAL_ACTION_KEY_TORCH = "torch";
 
     private final Context mContext;
     private final WindowManagerFuncs mWindowManagerFuncs;
@@ -344,6 +346,11 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                         Settings.System.POWERMENU_LOCKDOWN, 0) != 0) {
                 mItems.add(getLockdownAction());
                 }
+            } else if (GLOBAL_ACTION_KEY_TORCH.equals(actionKey)) {
+                if (Settings.System.getInt(mContext.getContentResolver(),
+                        Settings.System.POWERMENU_TORCH, 0) != 0) {
+                mItems.add(getTorchToggleAction());
+                }
             } else {
                 Log.e(TAG, "Invalid global action key " + actionKey);
             }
@@ -434,6 +441,32 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
             public void onPress() {
                 takeScreenshot();
+            }
+
+            public boolean showDuringKeyguard() {
+                return true;
+            }
+
+            public boolean showBeforeProvisioning() {
+                return false;
+            }
+        };
+    }
+
+    private Action getTorchToggleAction() {
+        return new SinglePressAction(com.android.internal.R.drawable.ic_lock_torch,
+                R.string.global_action_torch) {
+
+            public void onPress() {
+                // toggle torch the new way
+                TorchManager torchManager =
+                        (TorchManager) mContext.getSystemService(Context.TORCH_SERVICE);
+                if (!torchManager.isTorchOn()) {
+                    torchManager.setTorchEnabled(true);
+                } else {
+                    torchManager.setTorchEnabled(false);
+                }
+                return;
             }
 
             public boolean showDuringKeyguard() {
