@@ -278,14 +278,6 @@ public class RecentsActivity extends Activity implements RecentsView.RecentsView
                     refreshSearchWidgetView();
                 }
             }
-
-            // Update search bar space height
-            if (showSearchBar) {
-                mConfig.searchBarSpaceHeightPx = getResources().getDimensionPixelSize(
-                    R.dimen.recents_search_bar_space_height);
-            } else {
-                mConfig.searchBarSpaceHeightPx = 0;
-            }
         }
 
         // Animate the SystemUI scrims into view

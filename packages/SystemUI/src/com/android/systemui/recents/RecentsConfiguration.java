@@ -269,6 +269,8 @@ public class RecentsConfiguration {
         altTabKeyDelay = res.getInteger(R.integer.recents_alt_tab_key_delay);
         fakeShadows = res.getBoolean(R.bool.config_recents_fake_shadows);
         svelteLevel = res.getInteger(R.integer.recents_svelte_level);
+
+        updateShowSearch(context);
     }
 
     /** Updates the system insets */
@@ -284,6 +286,14 @@ public class RecentsConfiguration {
         lockToAppEnabled = ssp.getSystemSetting(context,
                 Settings.System.LOCK_TO_APP_ENABLED) != 0;
         multiStackEnabled = "true".equals(ssp.getSystemProperty("persist.sys.debug.multi_window"));
+        updateShowSearch(context);
+    }
+
+    private void updateShowSearch(Context context) {
+        boolean showSearchBar = Settings.System.getInt(context.getContentResolver(),
+                Settings.System.RECENTS_SHOW_SEARCH_BAR, 1) == 1;
+        searchBarSpaceHeightPx = showSearchBar ? context.getResources().getDimensionPixelSize(
+                R.dimen.recents_search_bar_space_height): 0;
     }
 
     /** Called when the configuration has changed, and we want to reset any configuration specific
