@@ -53,6 +53,7 @@ public class QSConstants {
     public static final String TILE_NFC = "nfc";
     public static final String TILE_ADB_NETWORK = "adb_network";
     public static final String TILE_NAVBAR = "toggleNavBar";
+    public static final String TILE_PIE = "pie";
 
     // Order matters
     protected static final ArrayList<String> TILES_DEFAULT = new ArrayList<String>();
@@ -96,5 +97,6 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_NFC);
         TILES_AVAILABLE.add(TILE_ADB_NETWORK);
         TILES_AVAILABLE.add(TILE_NAVBAR);
+        TILES_AVAILABLE.add(TILE_PIE);
     }
 }

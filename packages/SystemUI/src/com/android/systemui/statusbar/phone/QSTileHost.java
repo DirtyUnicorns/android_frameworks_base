@@ -55,6 +55,7 @@ import com.android.systemui.qs.tiles.LockscreenToggleTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NotificationsTile;
 import com.android.systemui.qs.tiles.MusicTile;
+import com.android.systemui.qs.tiles.PieTile;
 import com.android.systemui.qs.tiles.RoamingTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
@@ -345,6 +346,8 @@ public class QSTileHost implements QSTile.Host {
                 return new AdbOverNetworkTile(this);
             case QSConstants.TILE_NAVBAR:
                 return new NavBarTile(this);
+            case QSConstants.TILE_PIE:
+                return new PieTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
         }

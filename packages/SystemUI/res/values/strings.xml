@@ -978,4 +978,8 @@
 
     <!-- NavBar tile -->
     <string name="quick_settings_navbar">NavBar</string>
+
+    <!-- Pie tile -->
+    <string name="quick_settings_pie">Pie</string>
+
 </resources>
