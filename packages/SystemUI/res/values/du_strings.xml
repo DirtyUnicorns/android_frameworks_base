@@ -43,6 +43,9 @@
     <!-- Weather string format in expanded statusbar header -->
     <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
 
+    <!-- Battery Saver Dimss -->
+    <string name="battery_saver_dismiss_title">Dismiss</string>
+
     <!-- App circle sidebar -->
     <string name="app_float_maximize_item_title">Maximize</string>
     <string name="app_float_item_title">Float view</string>
