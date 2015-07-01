@@ -559,7 +559,7 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         }
 
         if (clickAction.startsWith("**")) {
-            v.setScaleType(KeyButtonView.ScaleType.CENTER);
+            v.setScaleType(KeyButtonView.ScaleType.CENTER_INSIDE);
         }
 
         boolean colorize = true;
@@ -598,7 +598,7 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         KeyButtonView v = new KeyButtonView(mContext, null);
         int width = mContext.getResources().getDimensionPixelSize(R.dimen.navigation_extra_key_width);
         v.setLayoutParams(getLayoutParams(landscape, width));
-        v.setScaleType(KeyButtonView.ScaleType.CENTER);
+        v.setScaleType(KeyButtonView.ScaleType.CENTER_INSIDE);
         if (keyId == KEY_MENU_LEFT || keyId == KEY_MENU_RIGHT) {
             v.setClickAction(SlimActionConstants.ACTION_MENU);
             v.setLongpressAction(SlimActionConstants.ACTION_NULL);
