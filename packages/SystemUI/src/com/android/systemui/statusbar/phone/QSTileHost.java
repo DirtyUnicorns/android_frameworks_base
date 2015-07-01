@@ -47,6 +47,7 @@ import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.CompassTile;
 import com.android.systemui.qs.tiles.DataTile;
 import com.android.systemui.qs.tiles.DdsTile;
+import com.android.systemui.qs.tiles.ExpandedDesktopTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.IntentTile;
@@ -348,6 +349,8 @@ public class QSTileHost implements QSTile.Host {
                 return new NavBarTile(this);
             case QSConstants.TILE_PIE:
                 return new PieTile(this);
+            case QSConstants.TILE_EXPANDED_DESKTOP:
+                return new ExpandedDesktopTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
         }
