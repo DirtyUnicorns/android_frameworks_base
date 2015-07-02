@@ -3681,6 +3681,12 @@ public final class Settings {
         public static final String CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS = "custom_button_use_screen_brightness";
 
         /**
+         * Disable hw buttons - actions, brightness, haptic feedback, overflow menu
+         * @hide
+         */
+        public static final String HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
+
+        /**
          * disable all button brightness (manual and auto mode)
          *
          * @hide

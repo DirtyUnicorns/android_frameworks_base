@@ -476,6 +476,9 @@ public final class PowerManagerService extends SystemService
     // overrule and disable based on timout
     private boolean mButtonDisabledByTimeout = false;
 
+    // overrule and disable brightness for buttons
+    private boolean mHardwareKeysDisable = false;
+
     // timeout for button backlight automatic turning off
     private int mButtonTimeout;
 
@@ -664,6 +667,9 @@ public final class PowerManagerService extends SystemService
                         false, mSettingsObserver, UserHandle.USER_ALL);
                 resolver.registerContentObserver(
                         Settings.System.getUriFor(Settings.System.CUSTOM_BUTTON_DISABLE_BRIGHTNESS),
+                        false, mSettingsObserver, UserHandle.USER_ALL);
+                resolver.registerContentObserver(
+                        Settings.System.getUriFor(Settings.System.HARDWARE_KEYS_DISABLE),
                         false, mSettingsObserver, UserHandle.USER_ALL);
                 resolver.registerContentObserver(Settings.System.getUriFor(
                         Settings.System.BUTTON_BACKLIGHT_TIMEOUT),
@@ -3749,13 +3755,16 @@ public final class PowerManagerService extends SystemService
         final ContentResolver resolver = mContext.getContentResolver();
         if (mButtonBrightnessSupport){
             mCustomButtonBrightness = Settings.System.getIntForUser(
-                    mContext.getContentResolver(), Settings.System.CUSTOM_BUTTON_BRIGHTNESS, 
+                    mContext.getContentResolver(), Settings.System.CUSTOM_BUTTON_BRIGHTNESS,
                     mCustomButtonBrightness, UserHandle.USER_CURRENT);
             mButtonUseScreenBrightness = Settings.System.getIntForUser(
                     mContext.getContentResolver(), Settings.System.CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS,
                     0, UserHandle.USER_CURRENT) != 0;
             mButtonDisableBrightness = Settings.System.getIntForUser(
                     mContext.getContentResolver(), Settings.System.CUSTOM_BUTTON_DISABLE_BRIGHTNESS,
+                    0, UserHandle.USER_CURRENT) != 0;
+            mHardwareKeysDisable = Settings.System.getIntForUser(
+                    mContext.getContentResolver(), Settings.System.HARDWARE_KEYS_DISABLE,
                     0, UserHandle.USER_CURRENT) != 0;
             mButtonTimeout = Settings.System.getIntForUser(resolver,
                     Settings.System.BUTTON_BACKLIGHT_TIMEOUT,
@@ -3791,7 +3800,7 @@ public final class PowerManagerService extends SystemService
     private int calcButtonLight() {
         int buttonBrightness = 0;
 
-        if (mButtonDisableBrightness || mButtonDisabledByTimeout){
+        if (mButtonDisableBrightness || mButtonDisabledByTimeout || mHardwareKeysDisable){
             buttonBrightness = 0;
         } else {
             if (mCustomButtonBrightness == -1 || mButtonUseScreenBrightness){

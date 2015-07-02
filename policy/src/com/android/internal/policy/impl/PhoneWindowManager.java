@@ -598,7 +598,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // Custom hardware key rebinding
     private int mDeviceHardwareKeys;
     private boolean mDisableVibration;
- 
+
     // Tracks user-customisable behavior for certain key events
     private String mPressOnHomeBehavior          = SlimActionConstants.ACTION_NULL;
     private String mLongPressOnHomeBehavior      = SlimActionConstants.ACTION_NULL;
@@ -669,6 +669,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mHavePendingMediaKeyRepeatWithWakeLock;
 
     private int mCurrentUserId;
+
+    private boolean mHardwareKeysDisable;
 
     // Maps global key codes to the components that will handle them.
     private GlobalKeyManager mGlobalKeyManager;
@@ -914,6 +916,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.KEY_CAMERA_DOUBLE_TAP_ACTION), false, this,
+                    UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HARDWARE_KEYS_DISABLE), false, this,
                     UserHandle.USER_ALL);
             updateKeyAssignments();
         }
@@ -1762,6 +1767,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean noAppSwitch = (mDeviceHardwareKeys & KEY_MASK_APP_SWITCH) == 0;
         final boolean noCamera = (mDeviceHardwareKeys & KEY_MASK_CAMERA) == 0;
 
+        boolean mHardwareKeysDisable = Settings.System.getIntForUser(
+                mContext.getContentResolver(),
+                Settings.System.HARDWARE_KEYS_DISABLE, 0,
+                UserHandle.USER_CURRENT) != 0;
+
         // Setup hardware keys
         boolean keyRebindingDisabled = Settings.System.getIntForUser(
                 mContext.getContentResolver(),
@@ -1833,6 +1843,27 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         mDoubleTapOnCameraBehavior =
                 HwKeyHelper.getDoubleTapOnCameraBehavior(
                         mContext, noCamera || keyRebindingDisabled);
+
+        if (mHardwareKeysDisable){
+            mPressOnHomeBehavior = SlimActionConstants.ACTION_NULL;
+            mLongPressOnHomeBehavior = SlimActionConstants.ACTION_NULL;
+            mDoubleTapOnHomeBehavior = SlimActionConstants.ACTION_NULL;
+            mPressOnMenuBehavior = SlimActionConstants.ACTION_NULL;
+            mLongPressOnMenuBehavior = SlimActionConstants.ACTION_NULL;
+            mDoubleTapOnMenuBehavior = SlimActionConstants.ACTION_NULL;
+            mPressOnBackBehavior = SlimActionConstants.ACTION_NULL;
+            mLongPressOnBackBehavior = SlimActionConstants.ACTION_NULL;
+            mDoubleTapOnBackBehavior = SlimActionConstants.ACTION_NULL;
+            mPressOnAppSwitchBehavior = SlimActionConstants.ACTION_NULL;
+            mLongPressOnAppSwitchBehavior = SlimActionConstants.ACTION_NULL;
+            mDoubleTapOnAppSwitchBehavior = SlimActionConstants.ACTION_NULL;
+            mPressOnAssistBehavior = SlimActionConstants.ACTION_NULL;
+            mLongPressOnAssistBehavior = SlimActionConstants.ACTION_NULL;
+            mDoubleTapOnAssistBehavior = SlimActionConstants.ACTION_NULL;
+            mPressOnCameraBehavior = SlimActionConstants.ACTION_NULL;
+            mLongPressOnCameraBehavior = SlimActionConstants.ACTION_NULL;
+            mDoubleTapOnCameraBehavior = SlimActionConstants.ACTION_NULL;
+        }
     }
 
     @Override
@@ -5738,9 +5769,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             return result;
         }
 
+        boolean mHardwareKeysDisable = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.HARDWARE_KEYS_DISABLE, 0, UserHandle.USER_CURRENT) != 0;
+
         boolean useHapticFeedback = down
                 && (policyFlags & WindowManagerPolicy.FLAG_VIRTUAL) != 0
-                && event.getRepeatCount() == 0;
+                && event.getRepeatCount() == 0
+                && !mHardwareKeysDisable;
 
         // Specific device key handling
         if (mDeviceKeyHandler != null) {
