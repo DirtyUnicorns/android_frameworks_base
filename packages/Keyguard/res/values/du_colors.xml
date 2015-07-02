@@ -18,4 +18,9 @@
     <!-- Pin Shuffler -->
     <color name="keyguard_pin_shuffler_icon">@android:color/white</color>
 
+    <!-- Keyguard weather colors -->
+    <color name="keyguard_default_primary_text_color">#ffffffff</color>
+    <color name="keyguard_default_secondary_text_color">#b3ffffff</color>
+    <color name="keyguard_default_icon_color">#ffffffff</color>
+
 </resources>
