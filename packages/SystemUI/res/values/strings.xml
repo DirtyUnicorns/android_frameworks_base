@@ -976,4 +976,6 @@
     <string name="quick_settings_network_adb_enabled_label">Enabled</string>
     <string name="quick_settings_network_adb_disabled_label">Disabled</string>
 
+    <!-- NavBar tile -->
+    <string name="quick_settings_navbar">NavBar</string>
 </resources>
