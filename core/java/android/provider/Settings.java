@@ -4086,6 +4086,20 @@ public final class Settings {
                 "pie_buttons_config_second_layer";
 
         /**
+         * Should the storage removed notification be shown
+         *
+         * @hide
+         */
+        public static final String STORAGE_MEDIA_REMOVED_NOTIFICTION = "storage_media_removed_notification";
+
+        /**
+         * Enable ongoing mount notifications for those storage volumes
+         *
+         * @hide
+         */
+        public static final String STORAGE_MOUNT_NOTIFICATION = "storage_mount_notification";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
