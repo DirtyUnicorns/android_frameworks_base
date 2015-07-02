@@ -46,6 +46,7 @@ import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.CompassTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HotspotTile;
+import com.android.systemui.qs.tiles.PieTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
 import com.android.systemui.qs.tiles.LockscreenToggleTile;
@@ -317,6 +318,8 @@ public class QSTileHost implements QSTile.Host {
                 return new HeadsupTile(this);
             case QSConstants.TILE_APPCIRCLEBAR:
                 return new AppCircleBarTile(this);
+            case QSConstants.TILE_PIE:
+                return new PieTile(this);
             case QSConstants.TILE_AMBIENT_DISPLAY:
                 return new AmbientDisplayTile(this);
             case QSConstants.TILE_MUSIC:

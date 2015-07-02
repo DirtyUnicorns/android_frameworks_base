@@ -37,6 +37,7 @@ public class QSConstants {
     public static final String TILE_ROAMING = "roaming";
     public static final String TILE_DDS = "dds";
     public static final String TILE_APN = "apn";
+    public static final String TILE_PIE = "pie";
     public static final String TILE_REBOOT = "reboot";
     public static final String TILE_SCREENSHOT = "screenshot";
     public static final String TILE_SCREENRECORD = "screenrecord";
@@ -89,6 +90,7 @@ public class QSConstants {
         TILES_AVAILABLE.add(TILE_BRIGHTNESS);
         TILES_AVAILABLE.add(TILE_BATTERY_SAVER);
         TILES_AVAILABLE.add(TILE_HEADS_UP);
+        TILES_AVAILABLE.add(TILE_PIE);
         TILES_AVAILABLE.add(TILE_APPCIRCLEBAR);
         TILES_AVAILABLE.add(TILE_AMBIENT_DISPLAY);
         TILES_AVAILABLE.add(TILE_MUSIC);
