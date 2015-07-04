@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
 /**
  * Copyright (c) 2009, The Android Open Source Project
  *
- * Licensed under the Apache License, Version 2.0 (the "License"); 
- * you may not use this file except in compliance with the License. 
- * You may obtain a copy of the License at 
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
  *
- *     http://www.apache.org/licenses/LICENSE-2.0 
+ *     http://www.apache.org/licenses/LICENSE-2.0
  *
- * Unless required by applicable law or agreed to in writing, software 
- * distributed under the License is distributed on an "AS IS" BASIS, 
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. 
- * See the License for the specific language governing permissions and 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
  * limitations under the License.
  */
  -->
@@ -36,9 +36,11 @@
     <string name="quick_settings_usb_tether_label">Partage de connexion USB</string>
     <string name="quick_settings_compass_off">Boussole désactivée</string>
     <string name="quick_settings_compass_init">Initialisation\u2026</string>
+    <string name="quick_settings_expanded_desktop">Étendu</string>
+    <string name="quick_settings_expanded_desktop_off">Normal</string>
 
     <!-- Battery Saver Dimss -->
-    <string name="battery_saver_dismiss_title">Annuler</string>
+    <string name="battery_saver_dismiss_title">Ignorer</string>
 
     <!-- Content description of the battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_battery_level">Batterie <xliff:g id="number">%d</xliff:g> pour cent.</string>
@@ -108,6 +110,9 @@
     <string name="quick_settings_battery_saver">Économiseur de batterie</string>
     <string name="quick_settings_battery_saver_off">Économiseur de batterie désactivé</string>
 
+    <!-- Pie tile -->
+    <string name="quick_settings_pie">Pie</string>
+
     <!-- Heads up toast -->
     <string name="heads_up_enabled">Notifications flottantes activées</string>
     <string name="heads_up_disabled">Notifications flottantes désactivées</string>
@@ -170,6 +175,9 @@
     <string name="quick_settings_network_adb_enabled_label">Activé</string>
     <string name="quick_settings_network_adb_disabled_label">Désactivé</string>
 
+    <!-- NavBar tile -->
+    <string name="quick_settings_navbar">Barre de navigation</string>
+
     <!-- Kill app toast -->
     <string name="app_killed_message">Application arrêtée</string>
 
@@ -185,5 +193,14 @@
     <string name="pie_phone_status_no_service">Aucun service</string>
     <string name="pie_phone_status_airplane_mode">Mode avion activé</string>
     <string name="pie_phone_status_emergency_only">Appels d\'urgence uniquement</string>
+
+    <!-- mount notifications -->
+    <string name="ext_media_mounted_notification_title">monté</string>
+    <string name="ext_media_unmounted_notification_title">démonté</string>
+    <string name="ext_media_unmounted_notification_message">Le support de stockage retiré en toute sécurité</string>
+    <string name="ext_media_unmount_action">Démonter</string>
+    <string name="ext_media_mount_action">Monter</string>
+    <string name="ext_media_unmounting_notification_title">démontage en cours\u2026</string>
+    <string name="ext_media_mounting_notification_title">montage en cours\u2026</string>
 
 </resources>
