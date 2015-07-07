@@ -943,39 +943,8 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         boolean isLayoutRtl = getResources().getConfiguration()
                 .getLayoutDirection() == LAYOUT_DIRECTION_RTL;
         if (mIsLayoutRtl != isLayoutRtl) {
-
-            // We swap all children of the 90 and 270 degree layouts, since they are vertical
-            View rotation90 = mRotatedViews[Surface.ROTATION_90];
-            swapChildrenOrderIfVertical(rotation90.findViewById(R.id.nav_buttons));
-
-            View rotation270 = mRotatedViews[Surface.ROTATION_270];
-            if (rotation90 != rotation270) {
-                swapChildrenOrderIfVertical(rotation270.findViewById(R.id.nav_buttons));
-            }
             mIsLayoutRtl = isLayoutRtl;
-        }
-    }
-
-
-    /**
-     * Swaps the children order of a LinearLayout if it's orientation is Vertical
-     *
-     * @param group The LinearLayout to swap the children from.
-     */
-    private void swapChildrenOrderIfVertical(View group) {
-        if (group instanceof LinearLayout) {
-            LinearLayout linearLayout = (LinearLayout) group;
-            if (linearLayout.getOrientation() == VERTICAL) {
-                int childCount = linearLayout.getChildCount();
-                ArrayList<View> childList = new ArrayList<>(childCount);
-                for (int i = 0; i < childCount; i++) {
-                    childList.add(linearLayout.getChildAt(i));
-                }
-                linearLayout.removeAllViews();
-                for (int i = childCount - 1; i >= 0; i--) {
-                    linearLayout.addView(childList.get(i));
-                }
-            }
+            reorient();
         }
     }
 
