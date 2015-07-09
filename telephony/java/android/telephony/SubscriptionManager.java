@@ -26,12 +26,15 @@ import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.telephony.Rlog;
 import android.os.Handler;
 import android.os.Message;
 import android.os.ServiceManager;
 import android.os.RemoteException;
+import android.util.DisplayMetrics;
 
 import com.android.internal.telephony.ISub;
 import com.android.internal.telephony.IOnSubscriptionsChangedListener;
@@ -1247,6 +1250,30 @@ public class SubscriptionManager {
             return false;
         }
         return TelephonyManager.getDefault().isNetworkRoaming(subId);
+    }
+
+    /**
+     * Returns the resources related to Subscription.
+     * @param Context object
+     * @param Subscription Id of Subscription who's resources are required
+     * @return Resources of the Sub.
+     * @hide
+     */
+    public static Resources getResourcesForSubId(Context context, int subId) {
+        String operatorNumeric = TelephonyManager.getDefault().getSimOperator(subId);
+
+        Configuration config = context.getResources().getConfiguration();
+        Configuration newConfig = new Configuration();
+        newConfig.setTo(config);
+        if (operatorNumeric != null) {
+            newConfig.mcc = Integer.parseInt(operatorNumeric.substring(0,3));
+            newConfig.mnc = Integer.parseInt(operatorNumeric.substring(3));
+        }
+        logd("getResourcesForSubId: " + subId + ", mccmnc = " + newConfig.mcc + newConfig.mnc);
+        DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        DisplayMetrics newMetrics = new DisplayMetrics();
+        newMetrics.setTo(metrics);
+        return new Resources(context.getResources().getAssets(), newMetrics, newConfig);
     }
 
     /**
