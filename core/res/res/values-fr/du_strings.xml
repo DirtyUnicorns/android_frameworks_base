@@ -114,4 +114,9 @@
     <!-- Error message if user want to try to disable all navigation options -->
     <string name="disable_navigation_pie_error">Impossible de désactiver la barre de navigation. Activer d\'abord SlimPie, puis désactiver la barre de navigation.</string>
 
+    <!-- Strings for tethered notification -->
+    <!-- Shown when the device is tethered -->
+    <string name="tethered_notification_no_device_message">Aucun appareil connecté</string>
+    <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> appareil connecté</string>
+    <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> appareils connectés</string>
 </resources>
