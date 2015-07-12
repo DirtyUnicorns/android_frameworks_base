@@ -20,8 +20,6 @@ import android.os.IBinder;
 import android.os.SystemClock;
 import android.util.EventLog;
 
-import dalvik.system.VMRuntime;
-
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
@@ -98,7 +96,7 @@ public class BinderInternal {
     
     public static void forceGc(String reason) {
         EventLog.writeEvent(2741, reason);
-        VMRuntime.getRuntime().requestConcurrentGC();
+        Runtime.getRuntime().gc();
     }
     
     static void forceBinderGc() {
