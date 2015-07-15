@@ -3700,6 +3700,12 @@ public final class Settings {
         public static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
 
         /**
+         * Whether the notification light will be allowed when in zen mode during downtime
+         * @hide
+         */
+        public static final String ALLOW_LIGHTS = "allow_lights";
+
+        /**
          * ListView Animations
          * 0 == None
          * 1 == Wave (Left)
@@ -4273,7 +4279,8 @@ public final class Settings {
             STATUS_BAR_BATTERY_STYLE,
             INCREASING_RING,
             INCREASING_RING_START_VOLUME,
-            INCREASING_RING_RAMP_UP_TIME
+            INCREASING_RING_RAMP_UP_TIME,
+            ALLOW_LIGHTS
         };
 
         /**
