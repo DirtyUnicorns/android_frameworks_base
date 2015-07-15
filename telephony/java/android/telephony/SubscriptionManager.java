@@ -34,6 +34,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.os.ServiceManager;
 import android.os.RemoteException;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
 import com.android.internal.telephony.ISub;
@@ -1265,7 +1266,7 @@ public class SubscriptionManager {
         Configuration config = context.getResources().getConfiguration();
         Configuration newConfig = new Configuration();
         newConfig.setTo(config);
-        if (operatorNumeric != null) {
+        if (!TextUtils.isEmpty(operatorNumeric)) {
             newConfig.mcc = Integer.parseInt(operatorNumeric.substring(0,3));
             newConfig.mnc = Integer.parseInt(operatorNumeric.substring(3));
         }
