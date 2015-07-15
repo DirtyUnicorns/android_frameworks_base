@@ -62,4 +62,9 @@
     <!-- Expanded Status Bar Battery Level Text Color -->
     <color name="status_bar_battery_level_text_color">#ffffff</color>
 
+    <!-- Navigation ring target -->
+    <color name="navring_check_tint">@android:color/white</color>
+    <color name="navring_edit_fill">#FF558B2F</color>
+    <color name="navring_edit_tint">#FF689F38</color>
+
 </resources>
