@@ -52,4 +52,7 @@
   <java-symbol type="array" name="notification_light_package_mapping" />
   <java-symbol type="array" name="config_notificationNoAlertsVibePattern" />
 
+  <!-- Notification and battery LED Pulse -->
+  <java-symbol type="bool" name="config_ledCanPulse" />
+
 </resources>
