@@ -3576,6 +3576,12 @@ public final class Settings {
         public static final String POWERMENU_POWER = "powermenu_power";
 
         /**
+         * Whether to show the IME arrows in the navigation bar
+         * @hide
+         */
+        public static final String NAVIGATION_BAR_IME_ARROWS = "navigation_bar_ime_arrows";
+
+        /**
          * show clear all recents button
          *  @hide
          */
