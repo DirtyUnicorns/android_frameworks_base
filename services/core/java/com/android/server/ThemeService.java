@@ -499,6 +499,7 @@ public class ThemeService extends IThemeService.Stub {
     }
 
     private boolean updateIcons(String pkgName) {
+        ThemeUtils.clearIconCache();
         try {
             if (pkgName.equals(SYSTEM_DEFAULT)) {
                 mPM.updateIconMaps(null);
