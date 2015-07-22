@@ -2178,6 +2178,12 @@ public final class Settings {
         public static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
 
         /**
+         * Statusbar DU logo color setting
+         * @hide
+         */
+        public static final String STATUS_BAR_DU_LOGO_COLOR = "status_bar_du_logo_color";
+
+        /**
          * Control whether the process CPU usage meter should be shown.
          *
          * @deprecated Use {@link Global#SHOW_PROCESSES} instead
