@@ -22,6 +22,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.content.res.ThemeConfig;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -176,6 +177,45 @@ public class ActionHelper {
                     config);
     }
 
+    public static String getNavbarThemePkgName(Context context) {
+        if (context == null) return null;
+        String res = null;
+        ThemeConfig themeConfig = context.getResources().getConfiguration().themeConfig;
+        if (themeConfig == null) return res;
+        try {
+            final String navbarThemePkgName = themeConfig.getOverlayForNavBar();
+            final String sysuiThemePkgName = themeConfig.getOverlayForStatusBar();
+            if (navbarThemePkgName != null) {
+                res = navbarThemePkgName;
+            } else {
+                res = sysuiThemePkgName;
+            }
+        } catch (Exception e) {
+        }
+        return res;
+    }
+
+    public static Resources getNavbarThemedResources(Context context) {
+        if (context == null) return null;
+        ThemeConfig themeConfig = context.getResources().getConfiguration().themeConfig;
+        Resources res = null;
+        if (themeConfig != null) {
+            try {
+                final String navbarThemePkgName = themeConfig.getOverlayForNavBar();
+                final String sysuiThemePkgName = themeConfig.getOverlayForStatusBar();
+                // Check if the same theme is applied for systemui, if so we can skip this
+                if (navbarThemePkgName != null && !navbarThemePkgName.equals(sysuiThemePkgName)) {
+                    res = context.getPackageManager().getThemedResourcesForApplication(
+                            context.getPackageName(), navbarThemePkgName);
+                }
+            } catch (PackageManager.NameNotFoundException e) {
+                // don't care since we'll handle res being null below
+            }
+        }
+
+        return res != null ? res : context.getResources();
+    }
+
     // General methods to retrieve the correct icon for the respective action.
     public static Drawable getActionIconImage(Context context,
             String clickAction, String customIcon) {
@@ -188,7 +228,8 @@ public class ActionHelper {
 
         Resources systemUiResources;
         try {
-            systemUiResources = pm.getResourcesForApplication(SYSTEMUI_METADATA_NAME);
+            //systemUiResources = pm.getResourcesForApplication(SYSTEMUI_METADATA_NAME);
+            systemUiResources = ActionHelper.getNavbarThemedResources(context);
         } catch (Exception e) {
             Log.e("ActionHelper:", "can't access systemui resources",e);
             return null;
