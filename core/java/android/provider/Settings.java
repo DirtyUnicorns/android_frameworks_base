@@ -6147,6 +6147,12 @@ public final class Settings {
         public static final String DOZE_NOTIFICATION_INVERT_ENABLED = "doze_notification_invert_enabled";
 
         /**
+         * Statusbar DU logo
+         * @hide
+         */
+        public static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
+
+        /**
          * The current night mode that has been selected by the user.  Owned
          * and controlled by UiModeManagerService.  Constants are as per
          * UiModeManager.
