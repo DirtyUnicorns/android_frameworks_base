@@ -66,6 +66,7 @@ import com.android.systemui.qs.tiles.HeadsupTile;
 import com.android.systemui.qs.tiles.AppCircleBarTile;
 import com.android.systemui.qs.tiles.NavBarTile;
 import com.android.systemui.qs.tiles.WifiTile;
+import com.android.systemui.qs.tiles.ThemesTile;
 import com.android.systemui.settings.CurrentUserTracker;
 import com.android.systemui.statusbar.policy.BluetoothController;
 import com.android.systemui.statusbar.policy.CastController;
@@ -336,6 +337,8 @@ public class QSTileHost implements QSTile.Host {
                 return new NavBarTile(this);
             case QSConstants.TILE_EXPANDED_DESKTOP:
                 return new ExpandedDesktopTile(this);
+            case QSConstants.TILE_THEMES:
+                return new ThemesTile(this);
             default:
                 throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
         }
