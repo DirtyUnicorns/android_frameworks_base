@@ -2163,6 +2163,12 @@ public final class Settings {
         public static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
 
         /**
+         * Statusbar DU logo color setting
+         * @hide
+         */
+        public static final String STATUS_BAR_DU_LOGO_COLOR = "status_bar_du_logo_color";
+
+        /**
          * Defines the shortcuts to be shown on lockscreen
          * Usage is like this: target:icon|target:icon|target:icon
          * if :icon is not set, default application icon will be used
