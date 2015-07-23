@@ -948,6 +948,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (mNavigationBarView == null) {
             mNavigationBarView =
                 (NavigationBarView) View.inflate(context, R.layout.navigation_bar, null);
+            mNavigationBarView.updateResources(ActionHelper.getNavbarThemedResources(mContext));
         }
 
         mNavigationBarView.setDisabledFlags(mDisabled);
@@ -1492,6 +1493,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     }
 
     private void prepareNavigationBarView() {
+        if (mNavigationBarView == null) return;
         mNavigationBarView.reorient();
 
         View home = mNavigationBarView.getHomeButton();
@@ -1560,18 +1562,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         lp.setTitle("NavigationBar");
         lp.windowAnimations = 0;
         return lp;
-    }
-
-    private Resources getNavbarThemedResources() {
-        String pkgName = mCurrentTheme.getOverlayPkgNameForApp(ThemeConfig.SYSTEMUI_NAVBAR_PKG);
-        Resources res = null;
-        try {
-            res = mContext.getPackageManager().getThemedResourcesForApplication(
-                    mContext.getPackageName(), pkgName);
-        } catch (PackageManager.NameNotFoundException e) {
-            res = mContext.getResources();
-        }
-        return res;
     }
 
     private void addHeadsUpView() {
@@ -1793,6 +1783,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     protected void refreshLayout(int layoutDirection) {
         if (mNavigationBarView != null) {
             mNavigationBarView.setLayoutDirection(layoutDirection);
+            mNavigationBarView.updateResources(ActionHelper.getNavbarThemedResources(mContext));
         }
         refreshAllStatusBarIcons();
     }
@@ -3857,7 +3848,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         repositionNavigationBar();
         addHeadsUpView();
         if (mNavigationBarView != null) {
-            mNavigationBarView.updateResources(getNavbarThemedResources());
         }
 
         // recreate StatusBarIconViews.
@@ -3960,7 +3950,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
 
         if (mNavigationBarView != null)  {
-            mNavigationBarView.updateResources(getNavbarThemedResources());
+            mNavigationBarView.updateResources(ActionHelper.getNavbarThemedResources(mContext));
             updateSearchPanel();
             checkBarModes();
         }
