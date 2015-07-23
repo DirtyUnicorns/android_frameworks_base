@@ -63,6 +63,7 @@ import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.PointF;
 import android.graphics.PorterDuff;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
@@ -380,6 +381,11 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     // Status bar carrier
     private boolean mShowStatusBarCarrier;
 
+    // DU logo
+    private boolean mDuLogo;
+    private int mDuLogoColor;
+    private ImageView duLogo;
+
     // position
     int[] mPositionTmp = new int[2];
     boolean mExpandedVisible;
@@ -505,6 +511,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.PIE_CONTROLS), false, this,
                     UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_DU_LOGO),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_DU_LOGO_COLOR),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -597,6 +609,12 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mShowStatusBarCarrier = Settings.System.getIntForUser(resolver,
                 Settings.System.STATUS_BAR_CARRIER, 0, mCurrentUserId) == 1;
             showStatusBarCarrierLabel(mShowStatusBarCarrier);
+
+            mDuLogo = Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_DU_LOGO, 0, mCurrentUserId) == 1;
+            mDuLogoColor = Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_DU_LOGO_COLOR, 0xFFFFFFFF, mCurrentUserId);
+            showDuLogo(mDuLogo, mDuLogoColor);
 
             mShowTaskManager = Settings.System.getIntForUser(resolver,
                     Settings.System.ENABLE_TASK_MANAGER, 0, UserHandle.USER_CURRENT) == 1;
@@ -3747,6 +3765,16 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             }
         }
     };
+
+    public void showDuLogo(boolean show, int color) {
+        if (mStatusBarView == null) return;
+        ContentResolver resolver = mContext.getContentResolver();
+        duLogo = (ImageView) mStatusBarView.findViewById(R.id.du_logo);
+        duLogo.setColorFilter(color, Mode.SRC_IN);
+        if (duLogo != null) {
+            duLogo.setVisibility(show ? (mDuLogo ? View.VISIBLE : View.GONE) : View.GONE);
+        }
+    }
 
     public void showStatusBarCarrierLabel(boolean show) {
         if (mStatusBarView == null) return;
