@@ -2157,6 +2157,12 @@ public final class Settings {
         public static final String DOZE_TIME_MODE = "doze_time_mode";
 
         /**
+         * Statusbar DU logo
+         * @hide
+         */
+        public static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
+
+        /**
          * Defines the shortcuts to be shown on lockscreen
          * Usage is like this: target:icon|target:icon|target:icon
          * if :icon is not set, default application icon will be used
