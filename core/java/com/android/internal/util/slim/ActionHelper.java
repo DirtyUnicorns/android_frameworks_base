@@ -37,6 +37,8 @@ import java.util.ArrayList;
 
 public class ActionHelper {
 
+    public static boolean useSystemUI = false;
+
     private static final String SYSTEM_METADATA_NAME = "android";
     private static final String SYSTEMUI_METADATA_NAME = "com.android.systemui";
     private static final String SETTINGS_METADATA_NAME = "com.android.settings";
@@ -228,8 +230,11 @@ public class ActionHelper {
 
         Resources systemUiResources;
         try {
-            //systemUiResources = pm.getResourcesForApplication(SYSTEMUI_METADATA_NAME);
-            systemUiResources = ActionHelper.getNavbarThemedResources(context);
+            if (useSystemUI) {
+                systemUiResources = pm.getResourcesForApplication(SYSTEMUI_METADATA_NAME);
+            } else {
+                systemUiResources = ActionHelper.getNavbarThemedResources(context);
+            }
         } catch (Exception e) {
             Log.e("ActionHelper:", "can't access systemui resources",e);
             return null;
