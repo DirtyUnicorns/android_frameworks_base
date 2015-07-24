@@ -257,7 +257,7 @@ class SaveImageInBackgroundTask extends AsyncTask<SaveImageInBackgroundData, Voi
             trashIntent.setClass(context, TrashScreenshot.class);
             trashIntent.putExtra(TrashScreenshot.SCREENSHOT_URI, uri.toString());
 
-            mNotificationBuilder.addAction(android.R.drawable.ic_menu_delete,
+            mNotificationBuilder.addAction(R.drawable.ic_menu_delete,
                      r.getString(com.android.internal.R.string.delete),
                      PendingIntent.getBroadcast(context, 0, trashIntent,
                              PendingIntent.FLAG_CANCEL_CURRENT));
