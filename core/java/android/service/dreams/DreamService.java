@@ -506,9 +506,18 @@ public class DreamService extends Service implements Window.Callback {
             mFullscreen = fullscreen;
             int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
             applyWindowFlags(mFullscreen ? flag : 0, flag);
+            updateSystemUIControls();
         }
     }
 
+    private void updateSystemUIControls() {
+        mWindow.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            | View.SYSTEM_UI_FLAG_FULLSCREEN
+            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+    }
     /**
      * Returns whether or not this dream is in fullscreen mode. Defaults to false.
      *
