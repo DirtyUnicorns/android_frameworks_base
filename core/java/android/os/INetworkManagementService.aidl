@@ -425,4 +425,9 @@ interface INetworkManagementService
 
     void addInterfaceToLocalNetwork(String iface, in List<RouteInfo> routes);
     void removeInterfaceFromLocalNetwork(String iface);
+
+    /**
+     * set Iptable rule to block/unblock DNS ping.
+     */
+    void setBlockAllDataRule(boolean isBlockAllData);
 }

@@ -1708,6 +1708,15 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                 .sendToTarget();
     }
 
+    public void blockAllData(boolean isBlockAllData) {
+        try {
+            mNetworkManager.setBlockAllDataRule(isBlockAllData);
+        } catch (IllegalStateException e) {
+            Log.wtf(TAG, "Problem setting zero balance rules to block all data", e);
+        } catch (RemoteException e) {
+        }
+    }
+
     public boolean getRestrictBackground2() {
         mContext.enforceCallingOrSelfPermission(MANAGE_NETWORK_POLICY, TAG);
 
