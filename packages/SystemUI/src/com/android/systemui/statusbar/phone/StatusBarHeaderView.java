@@ -66,7 +66,7 @@ import com.android.systemui.statusbar.policy.UserInfoController;
 /**
  * The view to manage the header area in the expanded status bar.
  */
-public class StatusBarHeaderView extends RelativeLayout implements View.OnClickListener,
+public class StatusBarHeaderView extends RelativeLayout implements View.OnClickListener, View.OnLongClickListener,
         BatteryController.BatteryStateChangeCallback, NextAlarmController.NextAlarmChangeCallback,
         WeatherController.Callback {
 
@@ -169,6 +169,7 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         mDateExpanded = (TextView) findViewById(R.id.date_expanded);
         mSettingsButton = findViewById(R.id.settings_button);
         mSettingsButton.setOnClickListener(this);
+        mSettingsButton.setOnLongClickListener(this);
         mTaskManagerButton = findViewById(R.id.task_manager_button);
         mQsDetailHeader = findViewById(R.id.qs_detail_header);
         mQsDetailHeader.setAlpha(0);
@@ -576,9 +577,24 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
         }
     }
 
+    @Override
+    public boolean onLongClick(View v) {
+        if (v == mSettingsButton) {
+            startSettingsLongClickActivity();
+        }
+        return false;
+    }
+
     private void startSettingsActivity() {
         mActivityStarter.startActivity(new Intent(android.provider.Settings.ACTION_SETTINGS),
                 true /* dismissShade */);
+    }
+
+    private void startSettingsLongClickActivity() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+	intent.setClassName("com.android.settings",
+            "com.android.settings.Settings$DirtyTweaksActivity");
+        mActivityStarter.startActivity(intent, true /* dismissShade */);
     }
 
     private void startBatteryActivity() {
