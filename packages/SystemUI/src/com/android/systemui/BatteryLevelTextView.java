@@ -38,21 +38,16 @@ public class BatteryLevelTextView extends TextView implements
 
     private BatteryController mBatteryController;
     private boolean mBatteryCharging;
-    private boolean mShow;
     private boolean mForceShow;
     private boolean mAttached;
     private int mRequestedVisibility;
 
-    private ContentObserver mObserver = new ContentObserver(new Handler()) {
-        public void onChange(boolean selfChange, Uri uri) {
-            loadShowBatteryTextSetting();
-        }
-    };
+    private int mStyle;
+    private int mPercentMode;
 
     public BatteryLevelTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mRequestedVisibility = getVisibility();
-        loadShowBatteryTextSetting();
     }
 
     public void setForceShown(boolean forceShow) {
@@ -85,10 +80,9 @@ public class BatteryLevelTextView extends TextView implements
     @Override
     public void onBatteryLevelChanged(int level, boolean pluggedIn, boolean charging) {
         setText(getResources().getString(R.string.battery_level_template, level));
-        boolean changed = mBatteryCharging != charging;
-        mBatteryCharging = charging;
-        if (changed) {
-            loadShowBatteryTextSetting();
+        if (mBatteryCharging != charging) {
+            mBatteryCharging = charging;
+            updateVisibility();
         }
     }
 
@@ -98,16 +92,19 @@ public class BatteryLevelTextView extends TextView implements
     }
 
     @Override
+    public void onBatteryStyleChanged(int style, int percentMode) {
+        mStyle = style;
+        mPercentMode = percentMode;
+        updateVisibility();
+    }
+
+    @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
 
         if (mBatteryController != null) {
             mBatteryController.addStateChangedCallback(this);
         }
-        getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                STATUS_BAR_BATTERY_STYLE), false, mObserver);
-        getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                STATUS_BAR_SHOW_BATTERY_PERCENT), false, mObserver);
         mAttached = true;
     }
 
@@ -115,7 +112,6 @@ public class BatteryLevelTextView extends TextView implements
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         mAttached = false;
-        getContext().getContentResolver().unregisterContentObserver(mObserver);
 
         if (mBatteryController != null) {
             mBatteryController.removeStateChangedCallback(this);
@@ -123,35 +119,18 @@ public class BatteryLevelTextView extends TextView implements
     }
 
     private void updateVisibility() {
-        if (mShow || mForceShow) {
+        boolean showNextPercent = mPercentMode == BatteryController.PERCENTAGE_MODE_OUTSIDE
+                || (mBatteryCharging && mPercentMode == BatteryController.PERCENTAGE_MODE_INSIDE);
+        if (mStyle == BatteryController.STYLE_GONE) {
+            showNextPercent = false;
+        } else if (mStyle == BatteryController.STYLE_TEXT) {
+            showNextPercent = true;
+        }
+
+        if (showNextPercent || mForceShow) {
             super.setVisibility(mRequestedVisibility);
         } else {
             super.setVisibility(GONE);
         }
-    }
-
-    private void loadShowBatteryTextSetting() {
-        ContentResolver resolver = getContext().getContentResolver();
-        int currentUserId = ActivityManager.getCurrentUser();
-        int mode = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT, 0, currentUserId);
-
-        boolean showNextPercent = (mBatteryCharging && mode == 1) || mode == 2;
-        int batteryStyle = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_BATTERY_STYLE, 0, currentUserId);
-
-        switch (batteryStyle) {
-            case 4: //BATTERY_METER_GONE
-                showNextPercent = false;
-                break;
-            case 6: //BATTERY_METER_TEXT
-                showNextPercent = true;
-                break;
-            default:
-                break;
-        }
-
-        mShow = showNextPercent;
-        updateVisibility();
     }
 }
