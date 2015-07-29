@@ -3240,7 +3240,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         } else if (keyCode == KeyEvent.KEYCODE_MENU) {
             // Hijack modified menu keys for debugging features
             final int chordBug = KeyEvent.META_SHIFT_ON;
- 
+
             // If we have released the menu key, and didn't do anything else
             // while it was pressed, then it is time to process the menu action!
             if (!down && mMenuPressed) {
@@ -5754,7 +5754,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         final boolean down = event.getAction() == KeyEvent.ACTION_DOWN;
         final boolean canceled = event.isCanceled();
         final int keyCode = event.getKeyCode();
-
+        final boolean virtualKey = event.getDeviceId() == KeyCharacterMap.VIRTUAL_KEYBOARD;
         final boolean isInjected = (policyFlags & WindowManagerPolicy.FLAG_INJECTED) != 0;
 
         // If screen is off then we treat the case where the keyguard is open but hidden
@@ -5781,7 +5781,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         final boolean isHomeWakeKey = !isScreenOn()
                 && (keyCode == KeyEvent.KEYCODE_HOME);
-        
+
         boolean isWakeKey = (policyFlags & WindowManagerPolicy.FLAG_WAKE) != 0
                 || event.isWakeKey() || isVolumeRockerWake || isHomeWakeKey;
 
@@ -5815,13 +5815,14 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             return result;
         }
 
-        boolean mHardwareKeysDisable = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.HARDWARE_KEYS_DISABLE, 0, UserHandle.USER_CURRENT) != 0;
+        // if mHardwareKeysDisable is true we have disabled all button rebindings
+        // so we can be sure that events that are !virtuaKey are only for real buttons
+        boolean disableFeeedback = !virtualKey && mHardwareKeysDisable;
 
         boolean useHapticFeedback = down
                 && (policyFlags & WindowManagerPolicy.FLAG_VIRTUAL) != 0
                 && event.getRepeatCount() == 0
-                && !mHardwareKeysDisable;
+                && !disableFeeedback;
 
         // Specific device key handling
         if (mDeviceKeyHandler != null) {
