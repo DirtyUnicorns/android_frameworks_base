@@ -1260,7 +1260,7 @@ public class SubscriptionManager {
      * @hide
      */
     public static Resources getResourcesForSubId(Context context, int subId) {
-        String operatorNumeric = TelephonyManager.getDefault().getSimOperator(subId);
+        String operatorNumeric = TelephonyManager.getDefault().getIccOperatorNumeric(subId);
 
         Configuration config = context.getResources().getConfiguration();
         Configuration newConfig = new Configuration();
