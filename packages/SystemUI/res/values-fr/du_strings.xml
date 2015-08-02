@@ -195,9 +195,9 @@
     <string name="pie_phone_status_emergency_only">Appels d\'urgence uniquement</string>
 
     <!-- mount notifications -->
-    <string name="ext_media_mounted_notification_title">monté</string>
-    <string name="ext_media_unmounted_notification_title">démonté</string>
-    <string name="ext_media_unmounted_notification_message">Le support de stockage retiré en toute sécurité</string>
+    <string name="ext_media_mounted_notification_title">montée</string>
+    <string name="ext_media_unmounted_notification_title">démontée</string>
+    <string name="ext_media_unmounted_notification_message">Mémoire de stockage retirée en toute sécurité</string>
     <string name="ext_media_unmount_action">Démonter</string>
     <string name="ext_media_mount_action">Monter</string>
     <string name="ext_media_unmounting_notification_title">démontage en cours\u2026</string>
