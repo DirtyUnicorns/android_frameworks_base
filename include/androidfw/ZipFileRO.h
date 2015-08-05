@@ -151,6 +151,8 @@ public:
 
     ~ZipFileRO();
 
+    int getFileDescriptor() const;
+
 private:
     /* these are private and not defined */
     ZipFileRO(const ZipFileRO& src);
