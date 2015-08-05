@@ -274,7 +274,7 @@ public class Tethering extends BaseNetworkObserver {
     }
 
     public void interfaceStatusChanged(String iface, boolean up) {
-        if (VDBG) Log.d(TAG, "interfaceStatusChanged " + iface + ", " + up);
+        if (DBG) Log.d(TAG, "interfaceStatusChanged " + iface + ", " + up);
         boolean found = false;
         boolean usb = false;
         synchronized (mPublicSync) {
@@ -341,7 +341,7 @@ public class Tethering extends BaseNetworkObserver {
     }
 
     public void interfaceAdded(String iface) {
-        if (VDBG) Log.d(TAG, "interfaceAdded " + iface);
+        if (DBG) Log.d(TAG, "interfaceAdded " + iface);
         boolean found = false;
         boolean usb = false;
         synchronized (mPublicSync) {
@@ -365,6 +365,24 @@ public class Tethering extends BaseNetworkObserver {
                 if (VDBG) Log.d(TAG, "active iface (" + iface + ") reported as added, ignoring");
                 return;
             }
+
+            // If interface is down, TetherInterfaceSM is not supposed to create.
+            // Instead, it will be created when interface is up.
+            if (!usb) {
+                InterfaceConfiguration ifcg = null;
+                try {
+                    ifcg = mNMService.getInterfaceConfig(iface);
+                } catch (Exception e) {
+                    Log.d(TAG, "Error getInterfaceConfig " + ifcg + ", :" + e);
+                    return;
+                }
+
+                if (ifcg == null || ifcg.hasFlag(InterfaceConfiguration.FLAG_DOWN)) {
+                    Log.d(TAG, iface + " is down, ignoring");
+                    return;
+                }
+            }
+
             sm = new TetherInterfaceSM(iface, mLooper, usb);
             mIfaces.put(iface, sm);
             sm.start();
@@ -372,7 +390,7 @@ public class Tethering extends BaseNetworkObserver {
     }
 
     public void interfaceRemoved(String iface) {
-        if (VDBG) Log.d(TAG, "interfaceRemoved " + iface);
+        if (DBG) Log.d(TAG, "interfaceRemoved " + iface);
         synchronized (mPublicSync) {
             TetherInterfaceSM sm = mIfaces.get(iface);
             if (sm == null) {
