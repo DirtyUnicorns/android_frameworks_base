@@ -3720,7 +3720,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             cancelPreloadRecentApps();
                         }
                         performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
-                        Action.processAction(mContext, mLongPressOnBackBehavior, false);
+                        if (!unpinActivity()) {
+                            Action.processAction(mContext, mLongPressOnBackBehavior, false);
+                        }
                         mBackConsumed = true;
                     }
                 }
@@ -3856,6 +3858,20 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         // Let the application handle the key.
         return 0;
+    }
+
+    private boolean unpinActivity() {
+        if (!hasNavigationBar()) {
+            try {
+                if (ActivityManagerNative.getDefault().isInLockTaskMode()) {
+                    ActivityManagerNative.getDefault().stopLockTaskModeOnCurrent();
+                    return true;
+                }
+            } catch (RemoteException e) {
+                // ignored
+            }
+        }
+        return false;
     }
 
     /** {@inheritDoc} */
