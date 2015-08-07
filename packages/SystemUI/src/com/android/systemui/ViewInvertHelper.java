@@ -19,10 +19,11 @@ package com.android.systemui;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
-import android.content.res.Resources;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
@@ -74,8 +75,7 @@ public class ViewInvertHelper {
     }
 
     public void update(boolean invert) {
-        if (invert && Resources.getSystem().getBoolean(
-                com.android.internal.R.bool.config_invert_colors_on_doze)) {
+        if (invert && isInvertEnabled()) {
             updateInvertPaint(1f);
             mTarget.setLayerType(View.LAYER_TYPE_HARDWARE, mDarkPaint);
         } else {
@@ -99,5 +99,10 @@ public class ViewInvertHelper {
         mGrayscaleMatrix.setSaturation(1 - intensity);
         mMatrix.preConcat(mGrayscaleMatrix);
         mDarkPaint.setColorFilter(new ColorMatrixColorFilter(mMatrix));
+    }
+
+    private boolean isInvertEnabled() {
+        return Settings.Secure.getIntForUser(mTarget.getContext().getContentResolver(),
+                Settings.Secure.DOZE_NOTIFICATION_INVERT_ENABLED, 1, UserHandle.USER_CURRENT) == 1;
     }
 }
