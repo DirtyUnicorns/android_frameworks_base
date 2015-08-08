@@ -4686,6 +4686,12 @@ public final class Settings {
         public static final String RECENT_CARD_BG_COLOR = "recent_card_bg_color";
 
         /**
+         * Three Finger Gesture from Oppo
+         * @hide
+         */
+        public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
+
+        /**
          * Recent card text color
          *
          * @hide
