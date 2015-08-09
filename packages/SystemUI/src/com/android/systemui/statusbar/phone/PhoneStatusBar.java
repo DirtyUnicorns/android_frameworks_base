@@ -352,8 +352,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private TaskManager mTaskManager;
     private LinearLayout mTaskManagerPanel;
     private ImageButton mTaskManagerButton;
+    // task manager enabled
     private boolean mShowTaskManager;
-    private boolean showTaskList = false;
+    // task manager click state
+    private boolean mShowTaskList = false;
 
     // top bar
     StatusBarHeaderView mHeader;
@@ -553,8 +555,22 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mDuLogoColor = Settings.System.getIntForUser(resolver,
                     Settings.System.STATUS_BAR_DU_LOGO_COLOR, 0xFFFFFFFF, mCurrentUserId);
             showDuLogo(mDuLogo, mDuLogoColor);
-            mShowTaskManager = Settings.System.getIntForUser(resolver,
+
+            boolean showTaskManager = Settings.System.getIntForUser(resolver,
                     Settings.System.ENABLE_TASK_MANAGER, 0, UserHandle.USER_CURRENT) == 1;
+	    if (mShowTaskManager != showTaskManager) {
+                if (!mShowTaskManager) {
+                    // explicitly reset click state when disabled
+                    mShowTaskList = false;
+                }
+                mShowTaskManager = showTaskManager;
+                if (mHeader != null) {
+                    mHeader.setTaskManagerEnabled(showTaskManager);
+                }
+                if (mNotificationPanel != null) {
+                    mNotificationPanel.setTaskManagerEnabled(showTaskManager);
+                }
+            }
         }
     }
 
@@ -1192,10 +1208,15 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mTaskManagerButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                showTaskList = !showTaskList;
-                mNotificationPanel.setTaskManagerVisibility(showTaskList);
+                mShowTaskList = !mShowTaskList;
+                mNotificationPanel.setTaskManagerVisibility(mShowTaskList);
             }
         });
+        if (mRecreating) {
+            mHeader.setTaskManagerEnabled(mShowTaskManager);
+            mNotificationPanel.setTaskManagerEnabled(mShowTaskManager);
+            mShowTaskList = false;
+        }
 
         // User info. Trigger first load.
         mHeader.setUserInfoController(mUserInfoController);
