@@ -121,6 +121,11 @@
     <!-- Powermenu Torch -->
     <string name="global_action_torch">Lampe de poche</string>
 
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">imiter la signature d\'une application</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Permet à l\'application d\'imiter la signature d\'une autre application</string>
+
     <!-- Strings for tethered notification -->
     <!-- Shown when the device is tethered -->
     <string name="tethered_notification_no_device_message">Aucun appareil connecté</string>
