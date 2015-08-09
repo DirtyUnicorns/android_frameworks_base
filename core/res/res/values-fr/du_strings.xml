@@ -114,9 +114,22 @@
     <!-- Error message if user want to try to disable all navigation options -->
     <string name="disable_navigation_pie_error">Impossible de désactiver la barre de navigation. Activer d\'abord SlimPie, puis désactiver la barre de navigation.</string>
 
+    <!-- DU-ify Boot messages -->
+    <string name="android_upgrading_title">Mise à jour de Dirty Unicorns…</string>
+    <string name="android_start_title">Démarrage de Dirty Unicorns en cours</string>
+
+    <!-- Powermenu Torch -->
+    <string name="global_action_torch">Lampe de poche</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">imiter la signature d\'une application</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Permet à l\'application d\'imiter la signature d\'une autre application</string>
+
     <!-- Strings for tethered notification -->
     <!-- Shown when the device is tethered -->
     <string name="tethered_notification_no_device_message">Aucun appareil connecté</string>
     <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> appareil connecté</string>
     <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> appareils connectés</string>
+
 </resources>
