@@ -252,6 +252,8 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
     volatile boolean mScreenOn;
     volatile boolean mRestrictBackground;
+    volatile boolean mZeroBalanceRestricted = false;
+    volatile boolean mLastUserSetting;
     volatile boolean mRestrictPower;
 
     private final boolean mSuppressDefaultPolicy;
@@ -910,6 +912,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
      * has been enabled.
      */
     private void enqueueRestrictedNotification(String tag) {
+        if (mZeroBalanceRestricted) return;
         final Resources res = mContext.getResources();
         final Notification.Builder builder = new Notification.Builder(mContext);
 
@@ -1370,7 +1373,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
                     }
                 }
             }
-
+            mLastUserSetting = mRestrictBackground;
         } catch (FileNotFoundException e) {
             // missing policy is okay, probably first boot
             upgradeLegacyBackgroundData();
@@ -1684,6 +1687,33 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         }
     }
 
+    public void setRestrictBackground2(boolean restrictBackground) {
+        mContext.enforceCallingOrSelfPermission(MANAGE_NETWORK_POLICY, TAG);
+        mZeroBalanceRestricted = restrictBackground;
+
+        maybeRefreshTrustedTime();
+        synchronized (mRulesLock) {
+            if (!restrictBackground && mLastUserSetting) {
+                mRestrictBackground = mLastUserSetting;
+            } else if (mRestrictBackground != restrictBackground) {
+                mRestrictBackground = restrictBackground;
+                updateRulesForGlobalChangeLocked(false);
+            }
+            updateNotificationsLocked();
+        }
+
+        mHandler.obtainMessage(MSG_RESTRICT_BACKGROUND_CHANGED, restrictBackground ? 1 : 0, 0)
+                .sendToTarget();
+    }
+
+    public boolean getRestrictBackground2() {
+        mContext.enforceCallingOrSelfPermission(MANAGE_NETWORK_POLICY, TAG);
+
+        synchronized (mRulesLock) {
+            return mZeroBalanceRestricted;
+        }
+    }
+
     @Override
     public void setRestrictBackground(boolean restrictBackground) {
         mContext.enforceCallingOrSelfPermission(MANAGE_NETWORK_POLICY, TAG);
@@ -1691,6 +1721,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         maybeRefreshTrustedTime();
         synchronized (mRulesLock) {
             mRestrictBackground = restrictBackground;
+            mLastUserSetting = mRestrictBackground;
             updateRulesForGlobalChangeLocked(false);
             updateNotificationsLocked();
             writePolicyLocked();
