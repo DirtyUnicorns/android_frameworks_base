@@ -87,6 +87,11 @@ public class HwKeyHelper {
         String defaultValue = SlimActionConstants.ACTION_MENU_BIG;
         if (getDefault) {
             return defaultValue;
+        } else {
+            defaultValue = SlimActionConstants.ACTION_MENU_LEGACY;
+        }
+        if (getDefault) {
+            return defaultValue;
         }
         String value = Settings.System.getStringForUser(
                 context.getContentResolver(),

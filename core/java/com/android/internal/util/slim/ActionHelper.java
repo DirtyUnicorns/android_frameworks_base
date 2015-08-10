@@ -311,6 +311,9 @@ public class ActionHelper {
         } else if (clickAction.equals(SlimActionConstants.ACTION_MENU_BIG)) {
             resId = systemUiResources.getIdentifier(
                         SYSTEMUI_METADATA_NAME + ":drawable/ic_sysbar_menu", null, null);
+        } else if (clickAction.equals(SlimActionConstants.ACTION_MENU_LEGACY)) {
+            resId = systemUiResources.getIdentifier(
+                        SYSTEMUI_METADATA_NAME + ":drawable/ic_sysbar_menu_legacy", null, null);
         } else if (clickAction.equals(SlimActionConstants.ACTION_IME)) {
             resId = systemUiResources.getIdentifier(
                         SYSTEMUI_METADATA_NAME + ":drawable/ic_sysbar_ime_switcher", null, null);

@@ -26,6 +26,7 @@ public class SlimActionConstants {
     public static final String ACTION_VOICE_SEARCH         = "**voice_search**";
     public static final String ACTION_MENU                 = "**menu**";
     public static final String ACTION_MENU_BIG             = "**menu_big**";
+    public static final String ACTION_MENU_LEGACY          = "**menu_legacy**";
     public static final String ACTION_POWER                = "**power**";
     public static final String ACTION_NOTIFICATIONS        = "**notifications**";
     public static final String ACTION_SETTINGS_PANEL       = "**settings_panel**";

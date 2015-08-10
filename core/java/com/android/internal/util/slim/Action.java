@@ -149,6 +149,9 @@ public class Action {
                     || action.equals(SlimActionConstants.ACTION_MENU_BIG)) {
                 triggerVirtualKeypress(KeyEvent.KEYCODE_MENU, isLongpress);
                 return;
+            } else if (action.equals(SlimActionConstants.ACTION_MENU_LEGACY)) {
+                triggerVirtualKeypress(KeyEvent.KEYCODE_MENU, isLongpress);
+                return;
             } else if (action.equals(SlimActionConstants.ACTION_IME_NAVIGATION_LEFT)) {
                 triggerVirtualKeypress(KeyEvent.KEYCODE_DPAD_LEFT, isLongpress);
                 return;
@@ -381,6 +384,7 @@ public class Action {
                 || action.equals(SlimActionConstants.ACTION_SEARCH)
                 || action.equals(SlimActionConstants.ACTION_MENU)
                 || action.equals(SlimActionConstants.ACTION_MENU_BIG)
+                || action.equals(SlimActionConstants.ACTION_MENU_LEGACY)
                 || action.equals(SlimActionConstants.ACTION_NULL)) {
             return true;
         }
