@@ -642,15 +642,20 @@ static int findSupportedAbi(JNIEnv *env, jlong apkHandle, jobjectArray supported
             }
         }
     }
+    int asset_status = NO_NATIVE_LIBRARIES;
 
-    if (!isFilterLib) {
+    if (status >= 0 && !isFilterLib) {
         int rc = initAssetsVerifierLib();
         if (rc == LIB_INITED_AND_SUCCESS) {
-            status = GetAssetsStatusFunc(zipFile, supportedAbis, numAbis);
+            asset_status = GetAssetsStatusFunc(zipFile, supportedAbis, numAbis);
         } else {
             ALOGE("Failed to load assets verifier: %d", rc);
         }
     }
+    if (asset_status != NO_NATIVE_LIBRARIES) {
+        status = asset_status;
+    }
+
     for (int i = 0; i < numAbis; ++i) {
         delete supportedAbis[i];
     }
