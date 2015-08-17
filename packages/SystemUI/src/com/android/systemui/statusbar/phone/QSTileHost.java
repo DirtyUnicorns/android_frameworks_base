@@ -62,6 +62,7 @@ import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
+import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.ScreenrecordTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.ScreenTimeoutTile;
@@ -317,6 +318,8 @@ public class QSTileHost implements QSTile.Host {
                 return new ApnTile(this);
             case QSConstants.TILE_LOCKSCREEN:
                 return new LockscreenToggleTile(this);
+            case QSConstants.TILE_VOLUME:
+                return new VolumeTile(this);
             case QSConstants.TILE_SCREENSHOT:
                 return new ScreenshotTile(this);
             case QSConstants.TILE_REBOOT:
