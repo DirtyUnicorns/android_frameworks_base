@@ -92,4 +92,14 @@
     <string name="ext_media_mount_action">Mount</string>
     <string name="ext_media_unmounting_notification_title">unmounting\u2026</string>
     <string name="ext_media_mounting_notification_title">mounting\u2026</string>
+
+    <!-- Navigation ring target shortcuts -->
+    <string name="navbar_dialog_title">Choose action to assign</string>
+    <string name="navigation_ring_title">Quick launch shortcuts</string>
+    <string name="navring_target_reset_message">Delete all user created navigation bar shortcuts and restore to default?</string>
+    <string name="navring_target_reset">Navigation bar shortcuts reset to default</string>
+    <string name="navring_action_none">None</string>
+    <string name="navring_choose_action_title">Choose action</string>
+    <string name="select_application">Select application</string>
+    <string name="lockscreen_target_empty">Empty</string>
 </resources>
