@@ -119,4 +119,7 @@
 
   <java-symbol type="bool" name="config_button_brightness_support" />
   <java-symbol type="integer" name="config_button_brightness_default" />
+
+  <!-- Non-themeable packages -->
+  <java-symbol type="array" name="non_themeable_packages" />
 </resources>
