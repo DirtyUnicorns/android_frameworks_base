@@ -164,6 +164,13 @@ public class NetworkPolicyManager {
         }
     }
 
+    public void setRestrictBackground2(boolean restrictBackground) {
+        try {
+            mService.setRestrictBackground2(restrictBackground);
+        } catch (RemoteException e) {
+        }
+    }
+
     public void setRestrictBackground(boolean restrictBackground) {
         try {
             mService.setRestrictBackground(restrictBackground);
@@ -174,6 +181,14 @@ public class NetworkPolicyManager {
     public boolean getRestrictBackground() {
         try {
             return mService.getRestrictBackground();
+        } catch (RemoteException e) {
+            return false;
+        }
+    }
+
+    public boolean getRestrictBackground2() {
+        try {
+            return mService.getRestrictBackground2();
         } catch (RemoteException e) {
             return false;
         }
