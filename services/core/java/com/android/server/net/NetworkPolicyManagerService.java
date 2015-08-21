@@ -119,6 +119,7 @@ import android.os.MessageQueue.IdleHandler;
 import android.os.PowerManagerInternal;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -301,6 +302,7 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
 
     // TODO: migrate notifications to SystemUI
 
+    private static final String PKG_BROWSER = "com.android.browser";
     public NetworkPolicyManagerService(Context context, IActivityManager activityManager,
             IPowerManager powerManager, INetworkStatsService networkStats,
             INetworkManagementService networkManagement) {
@@ -2041,6 +2043,26 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
         return false;
     }
 
+    private boolean isUidValidForRulesBrowser(int uid) {
+        // allow rules on specific  brwoser ibsystem services, and any apps
+        if(mContext.getResources().getBoolean(R.bool.config_zero_balance_operator) &&
+                SystemProperties.get("sys.background.data.disable").equals("true")) {
+        /// system property set zero balance set
+
+            final boolean uidForeground = isUidForegroundLocked(uid);
+            String pkg_name = mContext.getPackageManager().getNameForUid(uid);
+            //Log.d("ZeroBalance", "App Name : "+pkg_name+" uid :"+uid);
+            if (uidForeground && (pkg_name!=null && (pkg_name.equals(PKG_BROWSER)))) {
+                Log.d("ZeroBalance", "In Whitelist so allow" );
+                mUidRules.delete(uid);
+                return true;
+            } else {
+                return false ;
+            }
+        }
+        return true;
+    }
+
     void updateRulesForUidLocked(int uid) {
         if (!isUidValidForRules(uid)) return;
 
@@ -2068,6 +2090,9 @@ public class NetworkPolicyManagerService extends INetworkPolicyManager.Stub {
             }
         }
 
+        if(!isUidValidForRulesBrowser(uid)) {
+            uidRules = RULE_REJECT_METERED;
+        }
         // TODO: only dispatch when rules actually change
 
         if (uidRules == RULE_ALLOW_ALL) {
