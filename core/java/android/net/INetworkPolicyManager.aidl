@@ -57,6 +57,7 @@ interface INetworkPolicyManager {
     /** Control if background data is restricted by operator. */
     void setRestrictBackground2(boolean restrictBackground);
     boolean getRestrictBackground2();
+    void blockAllData(boolean isBlockAllData);
 
     NetworkQuotaInfo getNetworkQuotaInfo(in NetworkState state);
     boolean isNetworkMetered(in NetworkState state);

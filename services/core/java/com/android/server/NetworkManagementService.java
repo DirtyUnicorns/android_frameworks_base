@@ -1741,6 +1741,21 @@ public class NetworkManagementService extends INetworkManagementService.Stub
         }
     }
 
+     @Override
+     public void setBlockAllDataRule(boolean isBlockAllData) {
+        mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);
+
+        // silently discard when control disabled
+        // TODO: eventually migrate to be always enabled
+        if (!mBandwidthControlEnabled) return;
+        try {
+            mConnector.execute("bandwidth",
+                    isBlockAllData ? "blockAllData" : "unblockAllData");
+        } catch (NativeDaemonConnectorException e) {
+            throw e.rethrowAsParcelableException();
+        }
+    }
+
     @Override
     public boolean isBandwidthControlEnabled() {
         mContext.enforceCallingOrSelfPermission(CONNECTIVITY_INTERNAL, TAG);

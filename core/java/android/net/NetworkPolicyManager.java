@@ -171,6 +171,13 @@ public class NetworkPolicyManager {
         }
     }
 
+    public void blockAllData(boolean isBlockAllData) {
+        try {
+            mService.blockAllData(isBlockAllData);
+        } catch (RemoteException e) {
+        }
+    }
+
     public void setRestrictBackground(boolean restrictBackground) {
         try {
             mService.setRestrictBackground(restrictBackground);
