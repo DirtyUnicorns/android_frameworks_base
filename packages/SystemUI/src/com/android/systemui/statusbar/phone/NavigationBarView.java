@@ -559,7 +559,7 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         }
 
         if (clickAction.startsWith("**")) {
-            v.setScaleType(KeyButtonView.ScaleType.CENTER);
+            v.setScaleType(KeyButtonView.ScaleType.CENTER_INSIDE);
         }
 
         boolean colorize = true;
@@ -585,10 +585,9 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         Drawable d = ActionHelper.getActionIconImage(mContext, clickAction, iconUri);
         if (d != null) {
             if (colorize && mNavBarButtonColorMode != 3) {
-                v.setImageBitmap(ColorHelper.getColoredBitmap(d, mNavBarButtonColor));
-            } else {
-                v.setImageDrawable(d);
+                d = ColorHelper.getColoredDrawable(d, mNavBarButtonColor);
             }
+            v.setImageBitmap(ColorHelper.drawableToBitmap(d));
         }
         v.setRippleColor(mRippleColor);
         return v;
@@ -599,7 +598,7 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         KeyButtonView v = new KeyButtonView(mContext, null);
         int width = mContext.getResources().getDimensionPixelSize(R.dimen.navigation_extra_key_width);
         v.setLayoutParams(getLayoutParams(landscape, width));
-        v.setScaleType(KeyButtonView.ScaleType.CENTER);
+        v.setScaleType(KeyButtonView.ScaleType.CENTER_INSIDE);
         if (keyId == KEY_MENU_LEFT || keyId == KEY_MENU_RIGHT) {
             v.setClickAction(SlimActionConstants.ACTION_MENU);
             v.setLongpressAction(SlimActionConstants.ACTION_NULL);
@@ -633,13 +632,11 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         if (mNavBarButtonColorMode != 3) {
             if (d instanceof VectorDrawable) {
                 d.setTint(mNavBarButtonColor);
-                v.setImageDrawable(d);
             } else {
-                v.setImageBitmap(ColorHelper.getColoredBitmap(d, mNavBarButtonColor));
+                d = ColorHelper.getColoredDrawable(d, mNavBarButtonColor);
             }
-        } else {
-            v.setImageDrawable(d);
         }
+        v.setImageBitmap(ColorHelper.drawableToBitmap(d));
         v.setRippleColor(mRippleColor);
 
         return v;
