@@ -49,7 +49,7 @@
 
 namespace android {
 
-#ifdef HAVE_WINSOCK
+#if defined(_WIN32)
 #undef  nhtol
 #undef  htonl
 
