@@ -19,6 +19,7 @@
   <string name="reboot_reboot">Redémarrer</string>
   <string name="reboot_recovery">Recovery</string>
   <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_hot">Hot Reboot</string>
   <string name="reboot_bootmenu">Bootmenu</string>
   <string name="reboot_fastboot">Fastboot</string>
   <string name="reboot_download">Download</string>
