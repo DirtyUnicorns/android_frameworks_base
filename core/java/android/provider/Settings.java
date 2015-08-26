@@ -3584,6 +3584,12 @@ public final class Settings {
         public static final String DISABLE_TORCH_ON_SCREEN_OFF_DELAY = "disable_torch_on_screen_off_delay";
 
         /**
+         * This preference enables showing the power menu on LockScreen.
+         * @hide
+         */
+        public static final String POWER_MENU_LOCKSCREEN = "power_menu_lockscreen";
+
+        /**
          * Whether to display the torch option in the power menu
          *
          * @hide
