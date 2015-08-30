@@ -1855,7 +1855,7 @@ public final class BatteryStatsImpl extends BatteryStats {
     public SamplingTimer getKernelWakelockTimerLocked(String name) {
         SamplingTimer kwlt = mKernelWakelockStats.get(name);
         if (kwlt == null) {
-            kwlt = new SamplingTimer(mOnBatteryScreenOffTimeBase, true /* track reported values */);
+            kwlt = new SamplingTimer(mOnBatteryTimeBase, true /* track reported values */);
             mKernelWakelockStats.put(name, kwlt);
         }
         return kwlt;
@@ -5273,7 +5273,7 @@ public final class BatteryStatsImpl extends BatteryStats {
 
             void readFromParcelLocked(TimeBase timeBase, TimeBase screenOffTimeBase, Parcel in) {
                 mTimerPartial = readTimerFromParcel(WAKE_TYPE_PARTIAL,
-                        mPartialTimers, screenOffTimeBase, in);
+                        mPartialTimers, timeBase, in);
                 mTimerFull = readTimerFromParcel(WAKE_TYPE_FULL,
                         mFullTimers, timeBase, in);
                 mTimerWindow = readTimerFromParcel(WAKE_TYPE_WINDOW,
@@ -5303,7 +5303,7 @@ public final class BatteryStatsImpl extends BatteryStats {
                         t = mTimerPartial;
                         if (t == null) {
                             t = new StopwatchTimer(Uid.this, WAKE_TYPE_PARTIAL,
-                                    mPartialTimers, mOnBatteryScreenOffTimeBase);
+                                    mPartialTimers, mOnBatteryTimeBase);
                             mTimerPartial = t;
                         }
                         return t;
@@ -6744,7 +6744,7 @@ public final class BatteryStatsImpl extends BatteryStats {
 
         if (mKernelWakelockStats.size() > 0) {
             for (SamplingTimer timer : mKernelWakelockStats.values()) {
-                mOnBatteryScreenOffTimeBase.remove(timer);
+                mOnBatteryTimeBase.remove(timer);
             }
             mKernelWakelockStats.clear();
         }
@@ -7117,7 +7117,7 @@ public final class BatteryStatsImpl extends BatteryStats {
 
             SamplingTimer kwlt = mKernelWakelockStats.get(name);
             if (kwlt == null) {
-                kwlt = new SamplingTimer(mOnBatteryScreenOffTimeBase,
+                kwlt = new SamplingTimer(mOnBatteryTimeBase,
                         true /* track reported val */);
                 mKernelWakelockStats.put(name, kwlt);
             }
@@ -8582,7 +8582,7 @@ public final class BatteryStatsImpl extends BatteryStats {
         for (int ikw = 0; ikw < NKW; ikw++) {
             if (in.readInt() != 0) {
                 String wakelockName = in.readString();
-                SamplingTimer kwlt = new SamplingTimer(mOnBatteryScreenOffTimeBase, in);
+                SamplingTimer kwlt = new SamplingTimer(mOnBatteryTimeBase, in);
                 mKernelWakelockStats.put(wakelockName, kwlt);
             }
         }
