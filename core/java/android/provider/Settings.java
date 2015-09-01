@@ -6447,6 +6447,13 @@ public final class Settings {
          * @hide
          */
         public static final String SMS_DEFAULT_APPLICATION = "sms_default_application";
+
+        /**
+         * Whether privacy guard notification should show.
+         * @hide
+         */
+        public static final String PRIVACY_GUARD_NOTIFICATION = "privacy_guard_notification";
+
         /**
          * Whether to use the custom quick unlock screen control
          * @hide
@@ -6672,7 +6679,8 @@ public final class Settings {
             LOCKSCREEN_QUICK_UNLOCK_CONTROL,
             ADVANCED_REBOOT,
             STATUS_BAR_LOCKED_ON_SECURE_KEYGUARD,
-            PRIVACY_GUARD_DEFAULT
+            PRIVACY_GUARD_DEFAULT,
+ 	    PRIVACY_GUARD_NOTIFICATION
         };
 
         /**
