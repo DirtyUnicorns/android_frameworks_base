@@ -1080,7 +1080,7 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         }
 
         mNavBarButtonColorMode = Settings.System.getIntForUser(resolver,
-                Settings.System.NAVIGATION_BAR_BUTTON_TINT_MODE, 0, UserHandle.USER_CURRENT);
+                Settings.System.NAVIGATION_BAR_BUTTON_TINT_MODE, 3, UserHandle.USER_CURRENT);
 
         mButtonsConfig = ActionHelper.getNavBarConfig(mContext);
 
