@@ -4172,6 +4172,12 @@ public final class Settings {
         public static final String MENU_VISIBILITY = "menu_visibility";
 
         /**
+         * Timeout for volume panel
+         * @hide
+         */
+        public static final String VOLUME_PANEL_TIMEOUT = "volume_panel_timeout";
+
+        /**
          * Whether pie controls are enabled
          * @hide
          */
