@@ -1754,6 +1754,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 && !mAccessibilityManager.isTouchExplorationEnabled();
     }
 
+    public boolean needsNavigationBar() {
+        return mHasNavigationBar;
+    }
+
     @Override
     public boolean isDefaultOrientationForced() {
         return mForceDefaultOrientation;
