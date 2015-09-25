@@ -7240,6 +7240,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 && !mAccessibilityManager.isTouchExplorationEnabled();
     }
 
+    public boolean needsNavigationBar() {
+        return mHasNavigationBar;
+    }
+
     // Use this instead of checking config_showNavigationBar so that it can be consistently
     // overridden by qemu.hw.mainkeys in the emulator.
     @Override
