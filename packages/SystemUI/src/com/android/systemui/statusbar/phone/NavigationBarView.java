@@ -31,6 +31,8 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.Point;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -586,7 +588,9 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
 
         Drawable d = ActionHelper.getActionIconImage(mContext, clickAction, iconUri);
         if (d != null) {
-            if (colorize && mNavBarButtonColorMode != 3) {
+            d.mutate();
+            if (colorize && mNavBarButtonColorMode != 3
+                    && !clickAction.equals(SlimActionConstants.ACTION_BACK)) {
                 d = ColorHelper.getColoredDrawable(d, mNavBarButtonColor);
             }
             v.setImageBitmap(ColorHelper.drawableToBitmap(d));
@@ -717,6 +721,12 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         }
 
         mNavigationIconHints = hints;
+        if (getBackButton() != null ) {
+            ((ImageView) getBackButton()).setImageDrawable(null);
+            ((ImageView) getBackButton()).setImageDrawable(mVertical ? mBackLandIcon : mBackIcon);
+        }
+        mBackLandIcon.setImeVisible(backAlt);
+        mBackIcon.setImeVisible(backAlt);
 
         final boolean showImeButton = ((hints & StatusBarManager.NAVIGATION_HINT_IME_SHOWN) != 0
                     && !mImeArrowVisibility);
@@ -1098,6 +1108,37 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
                 Settings.System.NAVIGATION_BAR_IME_ARROWS, HIDE_IME_ARROW,
                 UserHandle.USER_CURRENT) == SHOW_IME_ARROW);
 
+        // update back button colors
+        Drawable backIcon, backIconLand;
+        ActionConfig actionConfig;
+        String backIconUri = SlimActionConstants.ICON_EMPTY;
+        for (int j = 0; j < mButtonsConfig.size(); j++) {
+            actionConfig = mButtonsConfig.get(j);
+            final String action = actionConfig.getClickAction();
+            if (action.equals(SlimActionConstants.ACTION_BACK)) {
+                backIconUri = actionConfig.getIcon();
+            }
+        }
+
+        if (backIconUri.equals(SlimActionConstants.ICON_EMPTY)) {
+            backIcon = mContext.getResources().getDrawable(
+                    R.drawable.ic_sysbar_back);
+            backIconLand = mContext.getResources().getDrawable(
+                    R.drawable.ic_sysbar_back_land);
+        } else {
+            backIcon = ActionHelper.getActionIconImage(mContext,
+                    SlimActionConstants.ACTION_BACK, backIconUri);
+            backIconLand = backIcon;
+        }
+        boolean shouldColor = true;
+        if (backIconUri != null && !backIconUri.equals(SlimActionConstants.ICON_EMPTY)
+                && !backIconUri.startsWith(SlimActionConstants.SYSTEM_ICON_IDENTIFIER)
+                && mNavBarButtonColorMode == 1) {
+            shouldColor = false;
+        }
+
+        updateBackButtonDrawables(backIcon, backIconLand, shouldColor);
+
         // construct the navigationbar
         makeBar();
 
@@ -1131,6 +1172,19 @@ public class NavigationBarView extends LinearLayout implements BaseStatusBar.Nav
         }
     }
 
+    private void updateBackButtonDrawables(
+            Drawable iconBack, Drawable iconBackLand, boolean color) {
+        iconBack.mutate();
+        iconBackLand.mutate();
+        iconBack.setTintMode(PorterDuff.Mode.MULTIPLY);
+        iconBackLand.setTintMode(PorterDuff.Mode.MULTIPLY);
+        if (color && mNavBarButtonColorMode != 3) {
+            iconBack.setTint(mNavBarButtonColor);
+            iconBackLand.setTint(mNavBarButtonColor);
+        }
+        mBackIcon = new BackButtonDrawable(iconBack);
+        mBackLandIcon = new BackButtonDrawable(iconBackLand);
+    }
 
     public void setForgroundColor(Drawable drawable) {
         if (mRot0 != null) {
