@@ -6739,6 +6739,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
 
             final int preferredRotation;
+            final int MAX_PREFERRED_ROTATION = 4; // Rotation Array size (e.g. mNavigationBarHeightForRotation) are declared as 4
             if (mLidState == LID_OPEN && mLidOpenRotation >= 0) {
                 // Ignore sensor when lid switch is open and rotation is forced.
                 preferredRotation = mLidOpenRotation;
@@ -6896,7 +6897,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 default:
                     // For USER, UNSPECIFIED, NOSENSOR, SENSOR and FULL_SENSOR,
                     // just return the preferred orientation we already calculated.
-                    if (preferredRotation >= 0) {
+                    // added extra check for MAX_PREFERRED_ROTATION
+                    if (preferredRotation >= 0 && preferredRotation < MAX_PREFERRED_ROTATION) {
                         return preferredRotation;
                     }
                     return mPanelOrientation;
