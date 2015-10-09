@@ -203,5 +203,7 @@
     <string name="ext_media_mount_action">Monter</string>
     <string name="ext_media_unmounting_notification_title">démontage en cours\u2026</string>
     <string name="ext_media_mounting_notification_title">montage en cours\u2026</string>
+    <!-- Themes Tile -->
+    <string name="quick_settings_themes">Thèmes</string>
 
 </resources>
