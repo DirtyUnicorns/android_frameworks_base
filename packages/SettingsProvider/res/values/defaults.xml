@@ -212,4 +212,8 @@
 
     <!-- Default for Settings.Secure.NFC_PAYMENT_COMPONENT -->
     <string name="def_nfc_payment_component"></string>
+
+    <!-- Default for Settings.Global.TETHER_DUN_REQUIRED -->
+    <integer name="def_tether_dun_required">0</integer>
+
 </resources>
