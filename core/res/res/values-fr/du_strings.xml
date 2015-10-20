@@ -24,4 +24,8 @@
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="android_upgrading_title">Mise à jour de Dirty Unicorns\u2026</string>
     <string name="android_start_title">Démarrage de Dirty Unicorns en cours\u2026</string>
+    <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog for each .apk that is optimized. -->
+    <string name="android_upgrading_apk">Dirtyfication de l\'application
+        <xliff:g id="number" example="123">%1$d</xliff:g> sur
+        <xliff:g id="number" example="123">%2$d</xliff:g>.</string>
 </resources>
