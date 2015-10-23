@@ -103,7 +103,6 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.PathInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.android.internal.logging.MetricsLogger;
@@ -152,7 +151,6 @@ import com.android.systemui.statusbar.policy.BrightnessMirrorController;
 import com.android.systemui.statusbar.policy.CastControllerImpl;
 import com.android.systemui.statusbar.policy.FlashlightController;
 import com.android.systemui.statusbar.policy.HeadsUpManager;
-import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.HotspotControllerImpl;
 import com.android.systemui.statusbar.policy.KeyButtonView;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
@@ -310,12 +308,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     Object mQueueLock = new Object();
 
     StatusBarIconController mIconController;
-
-    // center clock
-    LinearLayout mCenterClockLayout;
-
-    private boolean mShowClock;
-    private int mClockLocation;
 
     // expanded notifications
     NotificationPanelView mNotificationPanel; // the sliding/resizing panel within the notification window
@@ -778,12 +770,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         // figure out which pixel-format to use for the status bar.
         mPixelFormat = PixelFormat.OPAQUE;
-
-        mCenterClockLayout = (LinearLayout)mStatusBarView.findViewById(R.id.center_clock_layout);
-        Clock cclock = (Clock) mStatusBarView.findViewById(R.id.center_clock);
-        if (cclock != null) {
-            cclock.setPhoneStatusBar(this);
-        }
 
         mStackScroller = (NotificationStackScrollLayout) mStatusBarWindowContent.findViewById(
                 R.id.notification_stack_scroller);
@@ -1874,24 +1860,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
     }
 
-    public void showClock(boolean show) {
-        if (mStatusBarView == null) return;
-        ContentResolver resolver = mContext.getContentResolver();
-        View clock = mStatusBarView.findViewById(R.id.clock);
-        View cclock = mStatusBarView.findViewById(R.id.center_clock);
-        if (mClockLocation == 0 && clock != null) {
-            clock.setVisibility(show ? (mShowClock ? View.VISIBLE : View.GONE) : View.GONE);
-        }
-        if (mClockLocation == 1 && cclock != null) {
-            cclock.setVisibility(show ? (mShowClock ? View.VISIBLE : View.GONE) : View.GONE);
-        }
-    }
-
-    public void setClockAndDateStatus(int width, int mode, boolean enabled) {
-        mClockLocation = mode;
-        mShowClock = enabled;
-	}
-
     private int adjustDisableFlags(int state) {
         if (!mLaunchTransitionFadingAway && !mKeyguardFadingAway
                 && (mExpandedVisible || mBouncerShowing || mWaitingForKeyguardExit)) {
@@ -1951,7 +1919,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         Log.d(TAG, flagdbg.toString());
 
         if ((diff1 & StatusBarManager.DISABLE_SYSTEM_INFO) != 0) {
-            mCenterClockLayout.animate().cancel();
             if ((state1 & StatusBarManager.DISABLE_SYSTEM_INFO) != 0) {
                 mIconController.hideSystemIconArea(animate);
             } else {
