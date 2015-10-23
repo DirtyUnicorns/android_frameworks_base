@@ -69,5 +69,6 @@ oneway interface IStatusBar
 
     void showAssistDisclosure();
     void startAssist(in Bundle args);
+    void setAutoRotate(boolean enabled);
 }
 
