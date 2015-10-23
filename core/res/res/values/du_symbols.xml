@@ -16,6 +16,7 @@
 */
 -->
 <resources>
+
   <!-- Notification and battery light -->
   <java-symbol type="bool" name="config_intrusiveNotificationLed" />
   <java-symbol type="bool" name="config_multiColorNotificationLed" />
@@ -23,4 +24,14 @@
   <java-symbol type="bool" name="config_multiColorBatteryLed" />
   <java-symbol type="array" name="notification_light_package_mapping" />
   <java-symbol type="array" name="config_notificationNoAlertsVibePattern" />
+
+  <!-- Config Power Menu -->
+  <java-symbol type="drawable" name="ic_lock_reboot" />
+  <java-symbol type="string" name="global_action_reboot" />
+  <java-symbol type="string" name="reboot_reboot" />
+  <java-symbol type="array" name="shutdown_reboot_actions" />
+  <java-symbol type="array" name="shutdown_reboot_options" />
+  <java-symbol type="string" name="reboot_system" />
+  <java-symbol type="string" name="reboot_progress" />
+
 </resources>
