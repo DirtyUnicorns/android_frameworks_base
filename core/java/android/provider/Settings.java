@@ -4105,6 +4105,12 @@ public final class Settings {
         /**
 
         /**
+         * Whether to show media art on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_METADATA = "lockscreen_media_metadata";
+
+        /**
          * Select various accents to go along with system themes
          *
          * @hide
