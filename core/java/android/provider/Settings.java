@@ -6357,8 +6357,8 @@ public final class Settings {
             PREFERRED_TTY_MODE,
             ENHANCED_VOICE_PRIVACY_ENABLED,
             TTY_MODE_ENABLED,
-            INCALL_POWER_BUTTON_BEHAVIOR
-            ADVANCED_REBOOT,
+            INCALL_POWER_BUTTON_BEHAVIOR,
+            ADVANCED_REBOOT
         };
 
         /**
