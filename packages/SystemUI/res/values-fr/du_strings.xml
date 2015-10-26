@@ -17,6 +17,11 @@
 -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
     <!-- Content description of the battery level icon for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_battery_level">Batterie <xliff:g id="number">%d</xliff:g> pour cent.</string>
+
+    <!-- Battery Saver Dimss -->
+    <string name="battery_saver_dismiss_title">Effacer</string>
+    <string name="battery_saver_notification_action_text_short">Désactiver</string>
 </resources>
