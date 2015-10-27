@@ -24,4 +24,8 @@
     <!-- Battery Saver Dimss -->
     <string name="battery_saver_dismiss_title">Effacer</string>
     <string name="battery_saver_notification_action_text_short">Désactiver</string>
+
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_statusbar_title">Barre d\'état</string>
+    <string name="systemui_tuner_qs_title">Volet des paramètres</string>
 </resources>
