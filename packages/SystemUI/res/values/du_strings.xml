@@ -25,4 +25,7 @@
     <string name="systemui_tuner_statusbar_title">Statusbar Items</string>
     <string name="systemui_tuner_qs_title">Quick Settings</string>
 
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Screenshot Deleted</string>
+
 </resources>
