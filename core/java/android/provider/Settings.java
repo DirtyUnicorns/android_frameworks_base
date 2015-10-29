@@ -3041,6 +3041,12 @@ public final class Settings {
                 "notification_light_pulse_default_color";
 
         /**
+         * Disable FC Notifications
+         * @hide
+         */
+        public static final String DISABLE_FC_NOTIFICATIONS = "disable_fc_notifications";
+
+        /**
          * Disable Immersive Message
          * @hide
          */
