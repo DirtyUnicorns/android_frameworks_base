@@ -3041,6 +3041,12 @@ public final class Settings {
                 "notification_light_pulse_default_color";
 
         /**
+         * Disable Immersive Message
+         * @hide
+         */
+        public static final String DISABLE_IMMERSIVE_MESSAGE = "disable_immersive_message";
+
+        /**
          * Force expanded notifications on all apps that support it.
          * @hide
          */
