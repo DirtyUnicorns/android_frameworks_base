@@ -126,4 +126,7 @@
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
   <java-symbol type="string" name="system_error_vendorprint" />
 
+  <!-- Last app switch animations -->
+  <java-symbol type="anim" name="last_app_in" />
+  <java-symbol type="anim" name="last_app_out" />
 </resources>
