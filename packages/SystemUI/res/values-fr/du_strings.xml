@@ -28,4 +28,7 @@
     <!-- SystemUI Tuner Parts -->
     <string name="systemui_tuner_statusbar_title">Barre d\'état</string>
     <string name="systemui_tuner_qs_title">Volet des paramètres</string>
+
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Capture d\'écran supprimée</string>
 </resources>
