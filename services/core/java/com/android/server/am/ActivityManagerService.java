@@ -1427,10 +1427,9 @@ public final class ActivityManagerService extends ActivityManagerNative
                         return;
                     }
                     if (mShowDialogs && !mSleeping && !mShuttingDown) {
-<<<<<<< HEAD
                         if (Settings.System.getInt(mContext.getContentResolver(),
                                 Settings.System.DISABLE_FC_NOTIFICATIONS, 0) != 1) {
-                            Dialog d = new AppErrorDialog(mContext,
+                            Dialog d = new AppErrorDialog(getUiContext(),
                                     ActivityManagerService.this, res, proc);
                             d.show();
                             proc.crashDialog = d;
@@ -1438,12 +1437,6 @@ public final class ActivityManagerService extends ActivityManagerNative
                             Slog.w(TAG, "Skipping crash dialog of " + proc + ": disabled");
                             res.set(0);
                         }
-=======
-                        Dialog d = new AppErrorDialog(getUiContext(),
-                                ActivityManagerService.this, res, proc);
-                        d.show();
-                        proc.crashDialog = d;
->>>>>>> 6c4a34d... Themes: Port to Marshmallow [3/5]
                     } else {
                         // The device is asleep, so just pretend that the user
                         // saw a crash dialog and hit "force quit".

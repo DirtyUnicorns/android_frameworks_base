@@ -91,7 +91,7 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/header_battery_margin_expanded"
             android:paddingEnd="@dimen/battery_level_padding_end"
-            android:textColor="@color/status_bar_battery_level_text_color"
+            android:textColor="#ffffff"
             android:textSize="@dimen/battery_level_text_size"
             android:importantForAccessibility="noHideDescendants"/>
     </LinearLayout>
@@ -153,7 +153,7 @@
         android:layout_marginBottom="4dp"
         android:drawablePadding="6dp"
         android:drawableStart="@drawable/ic_access_alarms_small"
-        android:textColor="@color/status_bar_alarm_status_text_color"
+        android:textColor="#64ffffff"
         android:textAppearance="@style/TextAppearance.StatusBar.Expanded.Date"
         android:paddingEnd="6dp"
         android:paddingStart="6dp"

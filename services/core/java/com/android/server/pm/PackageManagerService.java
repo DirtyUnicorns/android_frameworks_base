@@ -865,17 +865,12 @@ public class PackageManagerService extends IPackageManager.Stub {
 
     private IntentFilterVerifier mIntentFilterVerifier;
 
-<<<<<<< HEAD
-=======
     private IconPackHelper mIconPackHelper;
 
     private Map<String, Long> mAvailableCommonResources = new ArrayMap<String, Long>();
 
     private ThemeConfig mBootThemeConfig;
 
-    ArrayList<ComponentName> mDisabledComponentsList;
-
->>>>>>> 6c4a34d... Themes: Port to Marshmallow [3/5]
     // Set of pending broadcasts for aggregating enable/disable of components.
     static class PendingPackageBroadcasts {
         // for each user id, a map of <package name -> components within that package>

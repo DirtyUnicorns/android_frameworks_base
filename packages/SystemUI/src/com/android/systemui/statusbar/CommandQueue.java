@@ -296,21 +296,20 @@ public class CommandQueue extends IStatusBar.Stub {
         }
     }
 
-<<<<<<< HEAD
     public void setAutoRotate(boolean enabled) {
         synchronized (mList) {
             mHandler.removeMessages(MSG_SET_AUTOROTATE_STATUS);
             mHandler.obtainMessage(MSG_SET_AUTOROTATE_STATUS,
                 enabled ? 1 : 0, 0, null).sendToTarget();
         }
-=======
+    }
+
     public void pause() {
         mPaused = true;
     }
 
     public void resume() {
         mPaused = false;
->>>>>>> 6c4a34d... Themes: Port to Marshmallow [3/5]
     }
 
     private final class H extends Handler {
