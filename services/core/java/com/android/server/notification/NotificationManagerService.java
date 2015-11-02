@@ -23,6 +23,7 @@ import static org.xmlpull.v1.XmlPullParser.END_DOCUMENT;
 import static org.xmlpull.v1.XmlPullParser.END_TAG;
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
+import android.annotation.Nullable;
 import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.AppGlobals;
@@ -59,6 +60,9 @@ import android.media.AudioManager;
 import android.media.AudioManagerInternal;
 import android.media.AudioSystem;
 import android.media.IRingtonePlayer;
+import android.media.session.MediaController;
+import android.media.session.MediaSessionManager;
+import android.media.session.PlaybackState;
 import android.net.Uri;
 import android.os.Binder;
 import android.os.Build;
@@ -286,6 +290,8 @@ public class NotificationManagerService extends SystemService {
     private NotificationListeners mListeners;
     private ConditionProviders mConditionProviders;
     private NotificationUsageStats mUsageStats;
+    private boolean mDisableDuckingWhileMedia;
+    private boolean mActiveMedia;
 
     private static final int MY_UID = Process.myUid();
     private static final int MY_PID = Process.myPid();
@@ -851,6 +857,9 @@ public class NotificationManagerService extends SystemService {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.NOTIFICATION_LIGHT_SCREEN_ON),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.Global.ZEN_DISABLE_DUCKING_DURING_MEDIA_PLAYBACK), false,
+                    this, UserHandle.USER_ALL);
             update(null);
         }
 
@@ -896,6 +905,22 @@ public class NotificationManagerService extends SystemService {
                     mScreenOnDefault ? 1 : 0, UserHandle.USER_CURRENT) != 0);
 
             updateNotificationPulse();
+
+            mDisableDuckingWhileMedia = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.Global.ZEN_DISABLE_DUCKING_DURING_MEDIA_PLAYBACK, 0) == 1;
+            updateDisableDucking();
+        }
+    }
+
+    private void updateDisableDucking() {
+        if (!mSystemReady) {
+            return;
+        }
+        final MediaSessionManager mediaSessionManager = (MediaSessionManager) mContext
+                .getSystemService(Context.MEDIA_SESSION_SERVICE);
+        mediaSessionManager.removeOnActiveSessionsChangedListener(mSessionListener);
+        if (mDisableDuckingWhileMedia) {
+            mediaSessionManager.addOnActiveSessionsChangedListener(mSessionListener, null);
         }
     }
 
@@ -1096,6 +1121,7 @@ public class NotificationManagerService extends SystemService {
             // Grab our optional AudioService
             mAudioManager = (AudioManager) getContext().getSystemService(Context.AUDIO_SERVICE);
             mAudioManagerInternal = getLocalService(AudioManagerInternal.class);
+            updateDisableDucking();
             mZenModeHelper.onSystemReady();
         } else if (phase == SystemService.PHASE_THIRD_PARTY_APPS_CAN_START) {
             // This observer will force an update when observe is called, causing us to
@@ -2302,6 +2328,21 @@ public class NotificationManagerService extends SystemService {
         idOut[0] = id;
     }
 
+    private MediaSessionManager.OnActiveSessionsChangedListener mSessionListener =
+            new MediaSessionManager.OnActiveSessionsChangedListener() {
+        @Override
+        public void onActiveSessionsChanged(@Nullable List<MediaController> controllers) {
+            for (MediaController activeSession : controllers) {
+                PlaybackState playbackState = activeSession.getPlaybackState();
+                if (playbackState != null && playbackState.getState() == PlaybackState.STATE_PLAYING) {
+                    mActiveMedia = true;
+                    return;
+                }
+            }
+            mActiveMedia = false;
+        }
+    };
+
     /**
      * Ensures that grouped notification receive their special treatment.
      *
@@ -2463,7 +2504,7 @@ public class NotificationManagerService extends SystemService {
                 hasValidSound = (soundUri != null);
             }
 
-            if (hasValidSound) {
+            if (hasValidSound && (!mDisableDuckingWhileMedia || !mActiveMedia)) {
                 boolean looping =
                         (notification.flags & Notification.FLAG_INSISTENT) != 0;
                 AudioAttributes audioAttributes = audioAttributesForNotification(notification);
