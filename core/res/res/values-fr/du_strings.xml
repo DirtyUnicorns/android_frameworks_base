@@ -58,4 +58,25 @@
 
     <!-- screenshot in the power menu -->
     <string name="powermenu_screenshot">Capture d\'écran</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessThemeService">accéder au gestionnaire de thème</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessThemeService">Permet d\'accéder au gestionnaire de thème. Ne doit pas être utilisé par des applications normales.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_readThemes">lire les informations du thème</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_readThemesDesc">Permet à une application de lister vos thèmes et de déterminer celui que vous avez appliqué.</string>
+
+    <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_writeThemes">modifier vos thèmes</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_writeThemesDesc">Permet à une application d\'installer de nouveaux thèmes et modifier le thème que vous avez appliqué.</string>
+
+    <!-- Theme installation error notification -->
+    <string name="theme_install_error_title">Échec d\'installation du thème</string>
+    <string name="theme_install_error_message">Impossible d\'installer %s</string>
+    <string name="theme_reset_notification_title">Réinitialisation du thème</string>
+    <string name="theme_reset_notification_body">Thème système restauré en raison de multiples plantages d\'application.</string>
 </resources>
