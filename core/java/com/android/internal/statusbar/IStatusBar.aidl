@@ -70,5 +70,12 @@ oneway interface IStatusBar
     void showAssistDisclosure();
     void startAssist(in Bundle args);
     void setAutoRotate(boolean enabled);
+
+    /**
+     * Notifies the status bar that a camera launch gesture has been detected.
+     *
+     * @param source the identifier for the gesture, see {@link StatusBarManager}
+     */
+    void onCameraLaunchGestureDetected(int source);
 }
 

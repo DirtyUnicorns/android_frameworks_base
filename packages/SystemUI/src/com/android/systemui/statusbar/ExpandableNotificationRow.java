@@ -25,6 +25,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.provider.Settings;
+import android.graphics.drawable.RippleDrawable;
 import android.service.notification.StatusBarNotification;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -110,6 +111,8 @@ public class ExpandableNotificationRow extends ActivatableNotificationView {
                     !mChildrenExpanded);
         }
     };
+
+    private boolean mJustClicked;
 
     public NotificationContentView getPrivateLayout() {
         return mPrivateLayout;
@@ -300,6 +303,21 @@ public class ExpandableNotificationRow extends ActivatableNotificationView {
 
     public int getHeadsUpHeight() {
         return mHeadsUpHeight;
+    }
+
+    /**
+     * Mark whether this notification was just clicked, i.e. the user has just clicked this
+     * notification in this frame.
+     */
+    public void setJustClicked(boolean justClicked) {
+        mJustClicked = justClicked;
+    }
+
+    /**
+     * @return true if this notification has been clicked in this frame, false otherwise
+     */
+    public boolean wasJustClicked() {
+        return mJustClicked;
     }
 
     public interface ExpansionLogger {

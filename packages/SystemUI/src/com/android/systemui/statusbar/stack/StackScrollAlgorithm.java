@@ -130,13 +130,7 @@ public class StackScrollAlgorithm {
         mCollapseSecondCardPadding = context.getResources().getDimensionPixelSize(
                 R.dimen.notification_collapse_second_card_padding);
         mScaleDimmed = context.getResources().getDisplayMetrics().densityDpi
-                >= DisplayMetrics.DENSITY_XXHIGH;
-
-        // We don't want to clip the notification if a theme overrides the corner radius with
-        // a value larger than the default.
-        mPerformClipping = context.getResources()
-                .getDimension(R.dimen.notification_material_rounded_rect_radius) <=
-                DEFAULT_CORNER_RADIUS * context.getResources().getDisplayMetrics().density;
+                >= DisplayMetrics.DENSITY_420;
     }
 
     public boolean shouldScaleDimmed() {
