@@ -3354,6 +3354,13 @@ public final class Settings {
                 new InclusiveFloatRangeValidator(-7, 7);
 
         /**
+         * Disable ads (HFM)
+         * @hide
+         */
+        public static final String HFM_DISABLE_ADS = "hfm_disable_ads";
+
+
+        /**
          * Whether lock-to-app will be triggered by long-press on recents.
          * @hide
          */
