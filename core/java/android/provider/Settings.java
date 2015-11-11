@@ -3344,7 +3344,7 @@ public final class Settings {
          * This is an integer value in a range between -7 and +7, so there are 15 possible values.
          *   -7 = slowest
          *    0 = default speed
-         *   +7 = fastest   
+         *   +7 = fastest
          * @hide
          */
         public static final String POINTER_SPEED = "pointer_speed";
@@ -3354,11 +3354,10 @@ public final class Settings {
                 new InclusiveFloatRangeValidator(-7, 7);
 
         /**
-         * Disable ads (HFM)
+         * Disable ads
          * @hide
          */
-        public static final String HFM_DISABLE_ADS = "hfm_disable_ads";
-
+        public static final String ADBLOCKER_DISABLE_ADS = "adblocker_disable_ads";
 
         /**
          * Whether lock-to-app will be triggered by long-press on recents.
