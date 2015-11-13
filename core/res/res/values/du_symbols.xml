@@ -158,4 +158,7 @@
   <java-symbol type="drawable" name="weather_thunderstorms" />
   <java-symbol type="drawable" name="weather_windy" />
 
+  <!-- Vendor mismatched fingerprint warning -->
+  <java-symbol type="string" name="system_error_vendorprint" />
+
 </resources>
