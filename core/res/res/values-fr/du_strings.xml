@@ -97,4 +97,7 @@
     <string name="animation_grow_shrink_right">Agrandissement (Droit)</string>
     <string name="action_null">Aucune</string>
 
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Votre \"vendor image\" est obsolète. Veuillez installer la dernière version disponible pour votre appareil.</string>
+
 </resources>
