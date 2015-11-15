@@ -2472,6 +2472,12 @@ public final class Settings {
          */
         public static final int SCREEN_BRIGHTNESS_MODE_AUTOMATIC = 1;
 
+        /**
+         * Enable/disable brightness control in statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
+
         /** Whether to show the brightness slider in quick settings panel.
          *
          * @hide
