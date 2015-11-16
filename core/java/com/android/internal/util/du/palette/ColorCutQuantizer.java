@@ -14,13 +14,13 @@
  * limitations under the License.
  */
 
-package com.android.internal.util.cm.palette;
+package com.android.internal.util.du.palette;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.util.SparseIntArray;
 
-import com.android.internal.util.cm.palette.Palette.Swatch;
+import com.android.internal.util.du.palette.Palette.Swatch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -75,7 +75,7 @@ final class ColorCutQuantizer {
         final int[] pixels = new int[width * height];
         bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
 
-        return new ColorCutQuantizer(new com.android.internal.util.cm.palette.ColorHistogram(pixels), maxColors);
+        return new ColorCutQuantizer(new com.android.internal.util.du.palette.ColorHistogram(pixels), maxColors);
     }
 
     /**
@@ -84,7 +84,7 @@ final class ColorCutQuantizer {
      * @param colorHistogram histogram representing an image's pixel data
      * @param maxColors The maximum number of colors that should be in the result palette.
      */
-    private ColorCutQuantizer(com.android.internal.util.cm.palette.ColorHistogram colorHistogram, int maxColors) {
+    private ColorCutQuantizer(com.android.internal.util.du.palette.ColorHistogram colorHistogram, int maxColors) {
         final int rawColorCount = colorHistogram.getNumberOfColors();
         final int[] rawColors = colorHistogram.getColors();
         final int[] rawColorCounts = colorHistogram.getColorCounts();
@@ -403,7 +403,7 @@ final class ColorCutQuantizer {
     }
 
     private boolean shouldIgnoreColor(int color) {
-        com.android.internal.util.cm.palette.ColorUtils.RGBtoHSL(Color.red(color), Color.green(color), Color.blue(color), mTempHsl);
+        com.android.internal.util.du.palette.ColorUtils.RGBtoHSL(Color.red(color), Color.green(color), Color.blue(color), mTempHsl);
         return shouldIgnoreColor(mTempHsl);
     }
 

@@ -44,7 +44,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.util.Log;
 import android.util.TypedValue;
-import com.android.internal.util.cm.palette.Palette;
+import com.android.internal.util.du.palette.Palette;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
