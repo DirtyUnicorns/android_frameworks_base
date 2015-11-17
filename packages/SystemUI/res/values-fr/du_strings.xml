@@ -31,4 +31,14 @@
 
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Capture d\'écran supprimée</string>
+
+    <!-- Strings for lockscreen shortcut hints -->
+    <string name="left_shortcut_hint">Glisser à droite pour %1$s</string>
+    <string name="right_shortcut_hint">Glisser à gauche pour %1$s</string>
+    <string name="lockscreen_message">Appuyez sur une icône à gauche ou à droite pour attribuer un raccourci sur l\'écran de déverrouillage.</string>
+    <string name="lockscreen_default_target">Par défaut</string>
+    <string name="select_application">Choisir une application</string>
+    <string name="lockscreen_choose_action_title">Raccourci</string>
+    <string name="lockscreen_none_target">Aucun</string>
+
 </resources>

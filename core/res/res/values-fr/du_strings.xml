@@ -100,4 +100,9 @@
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
     <string name="system_error_vendorprint">Votre \"vendor image\" est obsolète. Veuillez installer la dernière version disponible pour votre appareil.</string>
 
+    <string name="tethered_notification_no_device_message">Aucun appareil connecté</string>
+    <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> appareil connecté</string>
+    <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> appareils connectés</string>
+
+
 </resources>
