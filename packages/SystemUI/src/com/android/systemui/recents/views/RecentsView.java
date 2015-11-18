@@ -43,7 +43,6 @@ import android.widget.FrameLayout;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.systemui.R;
-import android.widget.LinearLayout;
 import com.android.systemui.recents.Constants;
 import com.android.systemui.recents.RecentsAppWidgetHostView;
 import com.android.systemui.recents.RecentsConfiguration;
@@ -52,8 +51,6 @@ import com.android.systemui.recents.model.RecentsPackageMonitor;
 import com.android.systemui.recents.model.RecentsTaskLoader;
 import com.android.systemui.recents.model.Task;
 import com.android.systemui.recents.model.TaskStack;
-
-import com.android.systemui.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -356,6 +353,7 @@ public class RecentsView extends FrameLayout implements TaskStackView.TaskStackV
         Rect taskStackBounds = new Rect();
         mConfig.getAvailableTaskStackBounds(width, height, mConfig.systemInsets.top,
                 mConfig.systemInsets.right, searchBarSpaceBounds, taskStackBounds);
+
         if (mFloatingButton != null && showClearAllRecents) {
             int clearRecentsLocation = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.RECENTS_CLEAR_ALL_LOCATION,
