@@ -41,4 +41,8 @@
     <string name="lockscreen_choose_action_title">Raccourci</string>
     <string name="lockscreen_none_target">Aucun</string>
 
+    <!-- The text for the button in the notification window-shade that clears
+         all of the currently visible notifications. [CHAR LIMIT=10]-->
+    <string name="clear_recents">Tout fermer</string>
+
 </resources>
