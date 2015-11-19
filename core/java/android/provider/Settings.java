@@ -3683,6 +3683,12 @@ public final class Settings {
         public static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
         /**
+         * Whether notification is enabled when headset is plugged in
+         * @hide
+         */
+        public static final String HEADSET_PLUGGED_IN = "headset_plugged_in";
+
+        /**
          * Show or hide clock
          * 0 - hide
          * 1 - show (default)
