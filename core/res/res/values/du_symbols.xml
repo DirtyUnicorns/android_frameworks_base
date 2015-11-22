@@ -135,4 +135,7 @@
   <!-- Config IME switcher -->
   <java-symbol type="bool" name="config_show_IMESwitcher" />
 
+  <!-- Fix screen rotation for olderdevices -->
+  <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+
 </resources>
