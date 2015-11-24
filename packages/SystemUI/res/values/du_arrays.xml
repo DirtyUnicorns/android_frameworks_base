@@ -25,4 +25,10 @@
         <item>369</item><item>157</item>
         <item>369</item><item>0</item>
     </array>
+
+    <string-array name="telephony_data_type_sim">
+        <!--NETWORK_TYPE_HSPAP-->
+        <item>drawable/stat_sys_data_fully_connected_hp</item>
+    </string-array>
+
 </resources>
