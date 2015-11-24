@@ -1161,7 +1161,14 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
 
     private static Spline createAutoBrightnessSpline(int[] lux, int[] brightness) {
         try {
-            final int n = brightness.length;
+            int n = brightness.length;
+            final int m = lux.length;
+            if (n == 0 || m == 0) {
+              return null;
+            }
+            if (m < n) {
+              n = m;
+            }
             float[] x = new float[n];
             float[] y = new float[n];
             y[0] = normalizeAbsoluteBrightness(brightness[0]);
@@ -1180,6 +1187,9 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             return spline;
         } catch (IllegalArgumentException ex) {
             Slog.e(TAG, "Could not create auto-brightness spline.", ex);
+            return null;
+        } catch (ArrayIndexOutOfBoundsException ex) {
+            Slog.e(TAG, "Could not create auto-brightness spline (index fault).", ex);
             return null;
         }
     }
