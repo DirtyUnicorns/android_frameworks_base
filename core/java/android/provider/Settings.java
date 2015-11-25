@@ -3978,11 +3978,18 @@ public final class Settings {
          */
         public static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
-       /**
+        /**
          * Whether the notification light will be allowed when in zen mode during downtime
          * @hide
          */
         public static final String ALLOW_LIGHTS = "allow_lights";
+
+        /**
+         * Should the alarm be shown in fullscreen instead of heads-up
+         *
+         * @hide
+         */
+        public static final String SHOW_ALARM_FULLSCREEN = "show_alarm_fullscreen";
 
         /**
          * Whether to use gesture anywhere feature.
@@ -4144,6 +4151,7 @@ public final class Settings {
             PUBLIC_SETTINGS.add(SOUND_EFFECTS_ENABLED);
             PUBLIC_SETTINGS.add(HAPTIC_FEEDBACK_ENABLED);
             PUBLIC_SETTINGS.add(SHOW_WEB_SUGGESTIONS);
+            PUBLIC_SETTINGS.add(SHOW_ALARM_FULLSCREEN);
         }
 
         /**
