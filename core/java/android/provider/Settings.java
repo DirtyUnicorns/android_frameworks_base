@@ -3820,6 +3820,12 @@ public final class Settings {
         public static final String HEADSET_PLUGGED_IN = "headset_plugged_in";
 
         /**
+         * Alternative recent apps integration using OmniSwitch
+         * @hide
+         */
+        public static final String RECENTS_USE_OMNISWITCH = "recents_use_omniswitch";
+
+        /**
          * Show or hide clock
          * 0 - hide
          * 1 - show (default)
