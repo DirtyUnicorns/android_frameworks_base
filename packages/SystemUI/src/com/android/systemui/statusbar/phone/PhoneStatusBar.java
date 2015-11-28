@@ -1414,7 +1414,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
         boolean isHeadsUped = mUseHeadsUp && shouldInterrupt(shadeEntry);
         if (isHeadsUped) {
-            mHeadsUpManager.showNotification(shadeEntry);
             // filter out alarms if required
             if (notification.getNotification().category != null &&
                     notification.getNotification().category.equals(Notification.CATEGORY_ALARM)) {
