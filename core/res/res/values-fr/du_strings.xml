@@ -104,5 +104,10 @@
     <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> appareil connecté</string>
     <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> appareils connectés</string>
 
+    <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
+    <string name="permlab_setKeyguardWallpaper">modifier le fond d\'écran de verrouillage</string>
+    <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_setKeyguardWallpaper">Permet à une application de modifier le fond d\'écran de déverrouillage.</string>
+
 
 </resources>
