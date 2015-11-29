@@ -56,4 +56,42 @@
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_data_connection_HP">HSPA+</string>
 
+    <!-- USB tether QS tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+
+    <!-- Ambient Display QS tile -->
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display turned on</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display turned on</string>
+    <string name="quick_settings_ambient_display_label">Ambient Display</string>
+
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Screenshot</string>
+
+    <!-- NFC QS tile -->
+    <string name="quick_settings_nfc_label">NFC</string>
+
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Sync</string>
+    <string name="accessibility_quick_settings_sync_off">Sync off</string>
+    <string name="accessibility_quick_settings_sync_on">Sync on</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+
+    <!-- Screen off QS tile -->
+    <string name="quick_settings_screen_off">Screen off</string>
+
+    <!-- Screen timeout QS tile -->
+    <string name="quick_settings_timeout_label">Timeout</string>
+    <string name="quick_settings_screen_timeout_detail_title">Screen timeout</string>
+
 </resources>
