@@ -3598,6 +3598,12 @@ public final class Settings {
          public static final String VOLUME_KEY_CURSOR_CONTROL = "volume_key_cursor_control";
 
         /**
+        * Volume rocker wake
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
+        /**
          * Override and forcefully disable the fullscreen keyboard
          * @hide
          */
