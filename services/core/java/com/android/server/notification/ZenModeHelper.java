@@ -91,6 +91,7 @@ public class ZenModeHelper {
     private AudioManagerInternal mAudioManager;
     private boolean mEffectsSuppressed;
     private boolean mAllowLights;
+    private int mPreviousZenMode = -1;
 
     public ZenModeHelper(Context context, Looper looper, ConditionProviders conditionProviders) {
         mContext = context;
@@ -385,6 +386,7 @@ public class ZenModeHelper {
             applyZenToRingerMode();
         }
         applyRestrictions();
+        mPreviousZenMode = mZenMode;
         mHandler.postDispatchOnZenModeChanged();
         return true;
     }
@@ -680,6 +682,25 @@ public class ZenModeHelper {
         @Override
         public boolean canVolumeDownEnterSilent() {
             return mZenMode == Global.ZEN_MODE_OFF || mZenMode == Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS;
+        }
+
+        @Override
+        public boolean canVolumeUpExitSilent() {
+            return mZenMode == Global.ZEN_MODE_OFF || mZenMode == Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS;
+        }
+
+        @Override
+        public void onVolumeDownInSilent(VolumePolicy policy) {
+            if (policy.doNotDisturbWhenVolumeDownInSilent) {
+                int newZen = -1;
+                if (mZenMode != Global.ZEN_MODE_NO_INTERRUPTIONS
+                        && mZenMode != Global.ZEN_MODE_ALARMS) {
+                    newZen = Global.ZEN_MODE_ALARMS;
+                }
+                if (newZen != -1) {
+                    setManualZenMode(newZen, null, "onVolumeDownInSilent", false /*setRingerMode*/);
+                }
+            }
         }
 
         @Override

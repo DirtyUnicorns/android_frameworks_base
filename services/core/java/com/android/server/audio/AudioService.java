@@ -3339,13 +3339,15 @@ public class AudioService extends IAudioService.Stub {
             } else if (direction == AudioManager.ADJUST_RAISE
                     || direction == AudioManager.ADJUST_TOGGLE_MUTE
                     || direction == AudioManager.ADJUST_UNMUTE) {
-                if (!mVolumePolicy.volumeUpToExitSilent) {
-                    result |= AudioManager.FLAG_SHOW_SILENT_HINT;
-                } else {
-                    // from vibrate we always go back to normal
-                    // no need to go via vibrate again
+                if (mVolumePolicy.volumeUpToExitSilent && mRingerModeDelegate.canVolumeUpExitSilent()) {
+                     // go straight back to normal.
                     ringerMode = RINGER_MODE_NORMAL;
+                } else {
+                    result |= AudioManager.FLAG_SHOW_SILENT_HINT;
                 }
+            } else if (direction == AudioManager.ADJUST_LOWER) {
+                // volume down when already in silent
+                mRingerModeDelegate.onVolumeDownInSilent(mVolumePolicy);
             }
             result &= ~FLAG_ADJUST_VOLUME;
             break;

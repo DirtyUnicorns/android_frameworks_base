@@ -48,7 +48,8 @@ public class VolumeDialogComponent implements VolumeComponent {
             true,  // volumeDownToEnterSilent
             true,  // volumeUpToExitSilent
             false,  // doNotDisturbWhenSilent
-            400    // vibrateToSilentDebounce
+            400,    // vibrateToSilentDebounce
+            true    // doNotDisturbWhenVolumeDownInSilent
     );
 
     public VolumeDialogComponent(SystemUI sysui, Context context, Handler handler,
