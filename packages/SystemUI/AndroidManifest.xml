@@ -135,6 +135,9 @@
             android:protectionLevel="signature" />
     <uses-permission android:name="com.android.systemui.permission.SELF" />
 
+    <!-- Kill app permission -->
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
+
     <!-- Weather -->
     <uses-permission android:name="com.cyanogenmod.lockclock.permission.READ_WEATHER" />
 
