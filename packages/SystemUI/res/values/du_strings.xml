@@ -216,4 +216,6 @@
     <!-- IME selector Tile -->
     <string name="quick_settings_ime_label">IME</string>
 
+    <string name="toast_airplane_mode_hotspot">Disable airplane mode before enabling</string>
+
 </resources>
