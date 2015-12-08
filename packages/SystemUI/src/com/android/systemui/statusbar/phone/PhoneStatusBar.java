@@ -94,6 +94,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
+import android.view.View.OnClickListener;
 import android.view.ThreadedRenderer;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -116,7 +117,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.LinearLayout;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.navigation.BarTransitions;
 import com.android.internal.navigation.NavigationController;
