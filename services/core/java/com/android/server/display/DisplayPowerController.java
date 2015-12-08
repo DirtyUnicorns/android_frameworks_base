@@ -838,6 +838,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             setScreenState(Display.STATE_OFF);
             mPendingScreenOff = false;
             mPowerState.dismissColorFade();
+            mPowerState.dismissColorFadeResources();
         }
 
         if (target == Display.STATE_ON) {
@@ -912,6 +913,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
                 setScreenState(Display.STATE_OFF);
                 mPendingScreenOff = false;
                 mPowerState.dismissColorFade();
+                mPowerState.dismissColorFadeResources();
             } else if (performScreenOffTransition
                     && mPowerState.prepareColorFade(mContext,
                             mColorFadeFadesConfig ?

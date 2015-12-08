@@ -21,12 +21,14 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.content.res.ThemeConfig;
+import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.hardware.input.InputManager;
 import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.HapticFeedbackConstants;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
@@ -46,6 +48,7 @@ import static android.view.accessibility.AccessibilityNodeInfo.ACTION_LONG_CLICK
 
 public class KeyButtonView extends ImageView {
 
+    private int mContentDescriptionRes;
     private long mDownTime;
     private int mCode;
     private int mTouchSlop;
@@ -82,12 +85,27 @@ public class KeyButtonView extends ImageView {
 
         mSupportsLongpress = a.getBoolean(R.styleable.KeyButtonView_keyRepeat, true);
 
+        TypedValue value = new TypedValue();
+        if (a.getValue(R.styleable.KeyButtonView_android_contentDescription, value)) {
+            mContentDescriptionRes = value.resourceId;
+        }
+
         a.recycle();
+
 
         setClickable(true);
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         mAudioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
         setBackground(new KeyButtonRipple(context, this));
+    }
+
+    @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if (mContentDescriptionRes != 0) {
+            setContentDescription(mContext.getString(mContentDescriptionRes));
+        }
     }
 
     @Override

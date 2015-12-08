@@ -33,6 +33,7 @@ package com.android.documentsui;
 import static com.android.documentsui.BaseActivity.State.ACTION_BROWSE;
 import static com.android.documentsui.BaseActivity.State.ACTION_BROWSE_ALL;
 import static com.android.documentsui.BaseActivity.State.ACTION_CREATE;
+import static com.android.documentsui.BaseActivity.State.ACTION_GET_CONTENT;
 import static com.android.documentsui.BaseActivity.State.ACTION_MANAGE;
 import static com.android.documentsui.BaseActivity.State.ACTION_STANDALONE;
 import static com.android.documentsui.BaseActivity.State.MODE_GRID;
@@ -611,11 +612,11 @@ public class DirectoryFragment extends Fragment {
                 boolean valid = false;
                 boolean hasFolder = false;
 
+                final State state = getDisplayState(DirectoryFragment.this);
                 final Cursor cursor = mAdapter.getItem(position);
                 if (cursor != null) {
                     final String docMimeType = getCursorString(cursor, Document.COLUMN_MIME_TYPE);
                     final int docFlags = getCursorInt(cursor, Document.COLUMN_FLAGS);
-                    final State state = getDisplayState(DirectoryFragment.this);
                     if (Document.MIME_TYPE_DIR.equals(docMimeType)) {
                         hasFolder = true;
                     }
