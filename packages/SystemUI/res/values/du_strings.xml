@@ -127,4 +127,27 @@
     <string name="quick_settings_expanded_desktop">Expanded</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
 
+    <!-- Bindable action labels -->
+    <string name="label_action_no_action">No action</string>
+    <string name="label_action_settings_panel">Settings panel</string>
+    <string name="label_action_notification_panel">Notification panel</string>
+    <string name="label_action_screenshot">Screenshot</string>
+    <string name="label_action_screenrecord">Record screen</string>
+    <string name="label_action_expanded_desktop">Expanded desktop</string>
+    <string name="label_action_screen_off">Turn off screen</string>
+    <string name="label_action_force_close_app">Force close app</string>
+    <string name="label_action_search_assistant">Search assistant</string>
+    <string name="label_action_google_now_on_tap">Google Now On Tap</string>
+    <string name="label_action_voice_search">Voice search</string>
+    <string name="label_action_flashlight">Flashlight</string>
+    <string name="label_action_bluetooth">Bluetooth</string>
+    <string name="label_action_wifi">WiFi</string>
+    <string name="label_action_hotspot">Hotspot</string>
+    <string name="label_action_last_app">Last app</string>
+    <string name="label_action_overview">Overview</string>
+    <string name="label_action_power_menu">Power menu</string>
+    <string name="label_action_menu">Menu</string>
+    <string name="label_action_back">Back</string>
+    <string name="label_action_home">Home</string>
+
 </resources>
