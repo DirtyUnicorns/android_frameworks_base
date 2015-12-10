@@ -122,4 +122,27 @@
     <string name="quick_settings_expanded_desktop">Étendu</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
 
+    <!-- Bindable action labels -->
+    <string name="label_action_no_action">Aucune action</string>
+    <string name="label_action_settings_panel">Paramètres</string>
+    <string name="label_action_notification_panel">Notification</string>
+    <string name="label_action_screenshot">Capture d\'écran</string>
+    <string name="label_action_screenrecord">Capture vidéo</string>
+    <string name="label_action_expanded_desktop">Bureau étendu</string>
+    <string name="label_action_screen_off">Mise en veille</string>
+    <string name="label_action_force_close_app">Forcer l\'arrêt de l\'application</string>
+    <string name="label_action_search_assistant">Recherche</string>
+    <string name="label_action_google_now_on_tap">Google Now On Tap</string>
+    <string name="label_action_voice_search">Recherche vocale</string>
+    <string name="label_action_flashlight">Lampe de poche</string>
+    <string name="label_action_bluetooth">Bluetooth</string>
+    <string name="label_action_wifi">Wi-Fi</string>
+    <string name="label_action_hotspot">Partage de connexion</string>
+    <string name="label_action_last_app">Dernière application</string>
+    <string name="label_action_overview">Applications récentes</string>
+    <string name="label_action_power_menu">Menu marche/arrêt</string>
+    <string name="label_action_menu">Menu</string>
+    <string name="label_action_back">Retour</string>
+    <string name="label_action_home">Accueil</string>
+
 </resources>
