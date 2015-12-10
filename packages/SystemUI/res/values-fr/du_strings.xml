@@ -114,4 +114,12 @@
     <!-- Screen record notification error title -->
     <string name="screenrecord_notif_error">Impossible d\'enregistrer l\'écran</string>
 
+    <!-- Battery Saver QS Tile -->
+    <string name="quick_settings_battery_saver">Économiseur de batterie</string>
+    <string name="quick_settings_battery_saver_off">Économiseur de batterie désactivé</string>
+
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop">Étendu</string>
+    <string name="quick_settings_expanded_desktop_off">Normal</string>
+
 </resources>
