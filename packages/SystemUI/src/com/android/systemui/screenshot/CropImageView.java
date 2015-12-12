@@ -610,7 +610,6 @@ public class CropImageView extends ImageView {
 
     // Touch Event /////////////////////////////////////////////////////////////////////////////////
     boolean firstTouch = false;
-    long cachedTime = 0;
     Point blurStart = new Point();
     Point blurFinish = new Point();
     Point current = new Point();
@@ -628,7 +627,6 @@ public class CropImageView extends ImageView {
 
         // Catch double tap to show/hide the button bar
         if(event.getAction() == MotionEvent.ACTION_DOWN){
-            if(firstTouch && (System.currentTimeMillis() - cachedTime) <= 300) {
                 final Intent intent = new Intent();
                 intent.setAction(BROADCAST_BUTTON_BAR_VISIBILITY);
                 getContext().sendBroadcast(intent);
@@ -636,8 +634,6 @@ public class CropImageView extends ImageView {
 
             } else {
                 firstTouch = true;
-                cachedTime = System.currentTimeMillis();
-            }
         }
 
         if (!mIsCropEnabled && !mIsDrawEnabled && !mIsBlurEnabled) return false;

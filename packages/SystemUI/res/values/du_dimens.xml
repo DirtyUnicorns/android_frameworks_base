@@ -82,11 +82,11 @@
     <dimen name="recent_thumbnail_bottom_padding">3dp</dimen>
 
     <!-- Screenshot Crop & Share -->
-    <dimen name="fab_margin">16dp</dimen>
-    <dimen name="text_size_m">24sp</dimen>
-    <dimen name="text_size_s">17sp</dimen>
-    <dimen name="button_height">40dp</dimen>
     <dimen name="crop_buttons">48dp</dimen>
     <dimen name="crop_buttons_inlet">32dp</dimen>
+
+    <!-- QS location sensors mode -->
+    <dimen name="detail_radio_group_padding_left">16dp</dimen>
+    <dimen name="detail_radio_group_padding">8dp</dimen>
 
 </resources>

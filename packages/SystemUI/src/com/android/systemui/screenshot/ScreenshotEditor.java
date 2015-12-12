@@ -21,7 +21,6 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
-import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
@@ -80,8 +79,6 @@ public class ScreenshotEditor extends Service implements View.OnClickListener {
     private boolean receiverRegistered = false;
     Handler mainHandler;
     HandlerThread handlerThread = null;
-
-    CountDownTimer countDownTimer;
 
     public static final int WORK_MODE_CROP = 0;
     public static String KEY_SERVICE_SWITCH = "service_switch";
@@ -181,32 +178,6 @@ public class ScreenshotEditor extends Service implements View.OnClickListener {
             public void run() {
 
                 screenshot = BitmapFactory.decodeFile(screenshotPath);
-              /*  countDownTimer = new CountDownTimer(10000, 500) {
-                    long millis = 0;
-
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        millis = millisUntilFinished;
-                        if (screenshot == null)
-                            screenshot = BitmapFactory.decodeFile(screenshotPath);
-                        else {
-                            this.cancel();
-                            onFinish();
-                        }
-                    }
-
-                    @Override
-                    public void onFinish() {
-                        if (screenshot != null) {
-                            cropView.setImageBitmap(screenshot);
-                            if (!isShowing)
-                                wm.addView(mainLayout, getParams());
-                            else
-                                wm.updateViewLayout(mainLayout, getParams());
-                            isShowing = true;
-                        }
-                    }
-                }.start();*/
 		cropView.setImageBitmap(screenshot);
                 if (!isShowing)
                     wm.addView(mainLayout, getParams());
@@ -451,7 +422,7 @@ public class ScreenshotEditor extends Service implements View.OnClickListener {
                 deleteBitmap(screenshotPath);
                 break;
             case R.id.share:
-                cropView.mergeBlur(); 
+                cropView.mergeBlur();
                 boolean cropAnytime = Settings.System.getInt(getContentResolver(), Settings.System.SCREENSHOT_CROP_BEHAVIOR, 1) != 0;
                 bm = cropAnytime ? cropView.getCroppedBitmap() : cropView.getImageBitmap();
                 cropView.setCropEnabled(false);
@@ -461,7 +432,7 @@ public class ScreenshotEditor extends Service implements View.OnClickListener {
                 removeView();
                 break;
             case R.id.save:
-                cropView.mergeBlur(); 
+                cropView.mergeBlur();
                 cropAnytime = Settings.System.getInt(getContentResolver(), Settings.System.SCREENSHOT_CROP_BEHAVIOR, 1) != 0;
                 bm = cropAnytime ? cropView.getCroppedBitmap() : cropView.getImageBitmap();
                 if (saveBitmap(bm))
