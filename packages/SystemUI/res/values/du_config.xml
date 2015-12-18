@@ -82,4 +82,5 @@
          less than config_pulsePathEffect_1, measured in pixels
          This allows for the first block in PathEffect to fade -->
     <integer name="config_pulseDbFuzz">2</integer>
+
 </resources>

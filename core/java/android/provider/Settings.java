@@ -3579,6 +3579,12 @@ public final class Settings {
         public static final String ADBLOCKER_DISABLE_ADS = "adblocker_disable_ads";
 
         /**
+         * Enable built in CAF task manager
+         * @hide
+         */
+        public static final String ENABLE_TASK_MANAGER = "enable_task_manager";
+
+        /**
          * Whether lock-to-app will be triggered by long-press on recents.
          * @hide
          */
