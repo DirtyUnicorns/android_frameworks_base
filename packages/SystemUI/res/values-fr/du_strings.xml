@@ -145,4 +145,11 @@
     <string name="label_action_back">Retour</string>
     <string name="label_action_home">Accueil</string>
 
+    <!-- Task Manager -->
+    <string name="task_manager_title">Gestionnaire de tâches</string>
+    <string name="message_switch_fail">Impossible de basculer vers cette tâche, car elle ne possède pas d\'interface</string>
+    <string name="tasklist_killall">Tout arrêter</string>
+    <string name="tasklist_memory_usage">"Mémoire Libre/Totale : <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
+    <string name="message_keep_one_launcher">Gardez au moins l\'activité d\'accueil !</string>
+
 </resources>
