@@ -55,8 +55,9 @@
     <dimen name="floating_action_button_height">56dp</dimen>
     <dimen name="floating_action_button_width">56dp</dimen>
     <dimen name="floating_action_button_translation_z">6dp</dimen>
-    <dimen name="floating_action_button_margin_side">16dp</dimen>
-    <dimen name="floating_action_button_margin_bottom">64dp</dimen>
+    <dimen name="floating_action_button_margin_side">36dp</dimen>
+    <dimen name="floating_action_button_margin_bottom">72dp</dimen>
+    <dimen name="floating_action_button_margin_top">24dp</dimen>
 
     <!-- App circle sidebar -->
     <dimen name="app_sidebar_trigger_width">12dip</dimen>
