@@ -18,6 +18,8 @@ package com.android.systemui.statusbar.phone;
 
 import android.animation.LayoutTransition;
 import android.animation.LayoutTransition.TransitionListener;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
@@ -49,6 +51,7 @@ import android.view.ViewGroup;
 import android.view.ViewRootImpl;
 import android.view.WindowManager;
 import android.view.GestureDetector;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
@@ -70,6 +73,9 @@ import java.util.ArrayList;
 public class NavigationBarView extends BaseNavigationBar {
     final static boolean DEBUG = false;
     final static String TAG = "PhoneStatusBar/NavigationBarView";
+    final static float PULSE_ALPHA_FADE = 0.3f; // take bar alpha low so keys are vaguely visible but not intrusive during Pulse
+    final static int PULSE_FADE_OUT_DURATION = 250;
+    final static int PULSE_FADE_IN_DURATION = 200;
 
     int mBarSize;
     boolean mShowMenu;
@@ -579,15 +585,47 @@ public class NavigationBarView extends BaseNavigationBar {
         }
     }
 
+    boolean isBarPulseFaded() {
+        if (mPulse == null) {
+            return false;
+        } else {
+            return mPulse.shouldDrawPulse();
+        }
+    }
+
     @Override
     public boolean onStartPulse(Animation animatePulseIn) {
-        // TODO Auto-generated method stub
-        return false;
+        final View currentNavButtons = getCurrentView().findViewById(R.id.nav_buttons);
+        final View hiddenNavButtons = getHiddenView().findViewById(R.id.nav_buttons);
+
+        // no need to animate the GONE view, but keep alpha inline since onStartPulse
+        // is a oneshot call
+        hiddenNavButtons.setAlpha(PULSE_ALPHA_FADE);
+        currentNavButtons.animate()
+                .alpha(PULSE_ALPHA_FADE)
+                .setDuration(PULSE_FADE_OUT_DURATION)
+                .setListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator _a) {
+                        // shouldn't be null, mPulse just called into us
+                        if (mPulse != null) {
+                            mPulse.turnOnPulse();
+                        }
+                    }
+                })
+                .start();
+        return true;
     }
 
     @Override
     public void onStopPulse(Animation animatePulseOut) {
-        // TODO Auto-generated method stub
-        
+        final View currentNavButtons = getCurrentView().findViewById(R.id.nav_buttons);
+        final View hiddenNavButtons = getHiddenView().findViewById(R.id.nav_buttons);
+
+        hiddenNavButtons.setAlpha(1.0f);
+        currentNavButtons.animate()
+                .alpha(1.0f)
+                .setDuration(PULSE_FADE_IN_DURATION)
+                .start();
     }
 }

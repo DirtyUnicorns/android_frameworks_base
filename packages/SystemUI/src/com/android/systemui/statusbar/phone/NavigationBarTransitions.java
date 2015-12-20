@@ -69,12 +69,13 @@ public final class NavigationBarTransitions extends BarTransitions {
 
         final View navButtons = mView.getCurrentView().findViewById(R.id.nav_buttons);
         final View lowLights = mView.getCurrentView().findViewById(R.id.lights_out);
+        final boolean isBarPulseFaded = mView.isBarPulseFaded();
 
         // ok, everyone, stop it right there
         navButtons.animate().cancel();
         lowLights.animate().cancel();
 
-        final float navButtonsAlpha = lightsOut ? 0f : 1f;
+        final float navButtonsAlpha = lightsOut ? 0f : isBarPulseFaded ? NavigationBarView.PULSE_ALPHA_FADE : 1f;
         final float lowLightsAlpha = lightsOut ? 1f : 0f;
 
         if (!animate) {
