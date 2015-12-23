@@ -3839,6 +3839,12 @@ public final class Settings {
         public static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
         /**
+         * Configure the vibration when double tapping the power button to launch right LS target
+         * @hide
+         */
+        public static final String DT2L_TARGET_VIBRATE_CONFIG = "dt2l_target_vibrate_config";
+
+        /**
          * Whether to display recents in full screen
          * @hide
          */
