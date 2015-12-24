@@ -135,9 +135,6 @@
     <!-- The maximum number of items to be displayed in quick settings -->
     <integer name="quick_settings_detail_max_item_count">7</integer>
 
-    <!-- Should "4G" be shown instead of "LTE" when the network is NETWORK_TYPE_LTE? -->
-    <bool name="config_show4GForLTE">true</bool>
-
     <!-- milliseconds before the heads up notification auto-dismisses. -->
     <integer name="heads_up_notification_decay">5000</integer>
 

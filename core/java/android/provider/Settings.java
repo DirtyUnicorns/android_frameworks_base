@@ -3680,6 +3680,12 @@ public final class Settings {
         public static final String VOLUME_ROCKER_MUSIC_CONTROLS = "volume_rocker_music_controls";
 
         /**
+         * Show four g instead of lte
+         * @hide
+         */
+        public static final String SHOW_FOURG = "show_fourg";
+
+        /**
          * Override and forcefully disable the fullscreen keyboard
          * @hide
          */
