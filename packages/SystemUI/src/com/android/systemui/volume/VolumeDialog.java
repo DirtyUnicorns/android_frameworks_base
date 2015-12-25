@@ -759,9 +759,9 @@ public class VolumeDialog {
         row.icon.setContentDescription(ss.name);
 
         // notification slider is disabled when vibrate or silent - only ringer slider can be used
-        final boolean enableSlider = isNotificationStream ? (!zenMuted && !isRingVibrate && !isNotificationSilent) : !zenMuted;
+        final boolean enableSlider = isNotificationStream ? (!zenMuted && !isRingVibrate && !isRingSilent && !isNotificationSilent) : !zenMuted;
         // update slider value - 0 if silent or vibrate
-        final int vlevel = row.ss.muted && (isNotificationSilent || isRingVibrate && !zenMuted) ? 0
+        final int vlevel = row.ss.muted && (isRingSilent || isNotificationSilent || isRingVibrate && !zenMuted) ? 0
                 : row.ss.level;
         updateVolumeRowSliderH(row, enableSlider, vlevel, maxChanged);
     }
