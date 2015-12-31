@@ -152,4 +152,9 @@
     <string name="tasklist_memory_usage">"Mémoire Libre/Totale : <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
     <string name="message_keep_one_launcher">Gardez au moins l\'activité d\'accueil !</string>
 
+    <!-- 4G LTE switch -->
+    <string name="show_fourg_title">Afficher 4G plutôt que LTE</string>
+    <string name="show_fourg_summary">Utiliser l\'icône 4G dans la barre d\'état plutôt que LTE</string>
+    <string name="statusbar_tuner_category_title">Masquer des éléments de la barre d\'état</string>
+
 </resources>
