@@ -143,4 +143,7 @@
   <java-symbol type="style" name="PowerMenuBottomAnimation" />
   <java-symbol type="style" name="PowerMenuTopAnimation" />
 
+  <!-- google webview -->
+  <java-symbol type="string" name="config_alternateWebViewPackageName" />
+
 </resources>
