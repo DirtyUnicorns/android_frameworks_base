@@ -380,6 +380,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     boolean mExpandedVisible;
 
+    private int mMaxKeyguardNotifConfig;
+    private boolean mCustomMaxKeyguard;
+
     private int mDt2lTargetVibrateConfig;
 
     // DU logo
@@ -523,6 +526,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SHOW_FOURG),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -577,6 +583,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mDuLogoColor = Settings.System.getIntForUser(resolver,
                     Settings.System.STATUS_BAR_DU_LOGO_COLOR, 0xFFFFFFFF, mCurrentUserId);
             showDuLogo(mDuLogo, mDuLogoColor);
+
+            mMaxKeyguardNotifConfig = Settings.System.getIntForUser(resolver,
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 5, mCurrentUserId);
 
             mDt2lTargetVibrateConfig = Settings.System.getIntForUser(resolver,
                     Settings.System.DT2L_TARGET_VIBRATE_CONFIG, 1, mCurrentUserId);
@@ -4565,7 +4574,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     @Override
     protected int getMaxKeyguardNotifications() {
-        return mKeyguardMaxNotificationCount;
+        mCustomMaxKeyguard = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.LOCK_SCREEN_CUSTOM_NOTIF, 0, UserHandle.USER_CURRENT) == 1;
+
+        if (mCustomMaxKeyguard) {
+            return mMaxKeyguardNotifConfig;
+        } else {
+            return mKeyguardMaxNotificationCount;
+        }        
     }
 
     public Navigator getNavigationBarView() {
