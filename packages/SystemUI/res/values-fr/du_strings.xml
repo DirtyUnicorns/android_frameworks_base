@@ -122,6 +122,11 @@
     <string name="quick_settings_expanded_desktop">Étendu</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
 
+    <!-- ADB over network Tile -->
+    <string name="quick_settings_adb_network">ADB par le réseau</string>
+    <string name="quick_settings_network_adb_enabled_label">Activé</string>
+    <string name="quick_settings_network_adb_disabled_label">Désactivé</string>
+
     <!-- Bindable action labels -->
     <string name="label_action_no_action">Aucune action</string>
     <string name="label_action_settings_panel">Paramètres</string>
@@ -132,7 +137,7 @@
     <string name="label_action_screen_off">Mise en veille</string>
     <string name="label_action_force_close_app">Forcer l\'arrêt de l\'application</string>
     <string name="label_action_search_assistant">Recherche</string>
-    <string name="label_action_google_now_on_tap">Google Now On Tap</string>
+    <string name="label_action_google_now_on_tap">Google On Tap</string>
     <string name="label_action_voice_search">Recherche vocale</string>
     <string name="label_action_flashlight">Lampe de poche</string>
     <string name="label_action_bluetooth">Bluetooth</string>
@@ -155,6 +160,6 @@
     <!-- 4G LTE switch -->
     <string name="show_fourg_title">Afficher 4G plutôt que LTE</string>
     <string name="show_fourg_summary">Utiliser l\'icône 4G dans la barre d\'état plutôt que LTE</string>
-    <string name="statusbar_tuner_category_title">Masquer des éléments de la barre d\'état</string>
+    <string name="statusbar_tuner_category_title">Éléments de la barre d\'état affichés</string>
 
 </resources>
