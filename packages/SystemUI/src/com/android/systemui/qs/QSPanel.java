@@ -110,6 +110,10 @@ public class QSPanel extends ViewGroup {
         mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         updateResources();
 
+        boolean brightnessIconEnabled = Settings.System.getIntForUser(
+            mContext.getContentResolver(), Settings.System.BRIGHTNESS_ICON,
+                0, UserHandle.USER_CURRENT) == 1;
+
         mBrightnessController = new BrightnessController(getContext(),
                 (ImageView) findViewById(R.id.brightness_icon),
                 (ToggleSlider) findViewById(R.id.brightness_slider));
@@ -132,16 +136,23 @@ public class QSPanel extends ViewGroup {
         boolean brightnessSliderEnabled = Settings.System.getIntForUser(
             mContext.getContentResolver(), Settings.System.QS_SHOW_BRIGHTNESS_SLIDER,
                 1, UserHandle.USER_CURRENT) == 1;
+        boolean brightnessIconEnabled = Settings.System.getIntForUser(
+            mContext.getContentResolver(), Settings.System.BRIGHTNESS_ICON,
+                0, UserHandle.USER_CURRENT) == 1;
         ToggleSlider brightnessSlider = (ToggleSlider) findViewById(R.id.brightness_slider);
         ImageView brightnessIcon = (ImageView) findViewById(R.id.brightness_icon);
         if (brightnessSliderEnabled) {
             mBrightnessView.setVisibility(VISIBLE);
             brightnessSlider.setVisibility(VISIBLE);
-            brightnessIcon.setVisibility(View.VISIBLE);
+            if (brightnessIconEnabled) {
+                brightnessIcon.setVisibility(VISIBLE);
+            } else {
+                brightnessIcon.setVisibility(GONE);
+            }
         } else {
             mBrightnessView.setVisibility(GONE);
             brightnessSlider.setVisibility(GONE);
-            brightnessIcon.setVisibility(View.GONE);
+            brightnessIcon.setVisibility(GONE);
         }
         updateResources();
         return brightnessSliderEnabled;
@@ -691,3 +702,4 @@ public class QSPanel extends ViewGroup {
         void onScanStateChanged(boolean state);
     }
 }
+
