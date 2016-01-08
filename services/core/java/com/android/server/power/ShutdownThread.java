@@ -202,9 +202,7 @@ public final class ShutdownThread extends Thread {
 
                                     if (actions != null && which < actions.length) {
                                         mRebootReason = actions[which];
-                                        if (actions[which].equals(HOT_REBOOT)) {
-                                            mRebootHot = true;
-                                        }
+                                        mRebootHot = actions[which].equals(HOT_REBOOT);
                                     }
                                 }
                             })
