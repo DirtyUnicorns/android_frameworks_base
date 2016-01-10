@@ -207,4 +207,10 @@
     <string name="smartbar_editor_toast_stopping">Stopping navigation editor</string>
     <string name="smartbar_editor_toast_unavailable">Navigation editor unavailable</string>
 
+    <!-- Navigation bar Tile -->
+    <string name="quick_settings_navigation_bar">Navigation bar</string>
+    <string name="quick_settings_smartbar_off">Navigation bar off</string>
+    <string name="quick_settings_smartbar">SmartBar</string>
+    <string name="quick_settings_fling">Fling gesture</string>
+
 </resources>
