@@ -4264,7 +4264,7 @@ public final class Settings {
          * show location of the clear all recents FAB
          * @hide
          */
-        public static final String  RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
+        public static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
 
         /**
          * show the membar in recents
@@ -4418,6 +4418,12 @@ public final class Settings {
          * @hide
          */
         public static final String FP_UNLOCK_KEYSTORE = "fp_unlock_keystore";
+
+        /**
+         * whether to enable or disable vibration on succesful fingerprint auth
+         * @hide
+         */
+        public static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
