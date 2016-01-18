@@ -3888,10 +3888,14 @@ public final class Settings {
         public static final String DT2L_TARGET_VIBRATE_CONFIG = "dt2l_target_vibrate_config";
 
         /**
-         * Whether to display recents in full screen
-         * @hide
+         * Immersive recents options
+         *
+         * 0 = Default AOSP look
+         * 1 = Statusbar only
+         * 2 = Navbar only
+         * 3 = Fullscreen
          */
-        public static final String RECENTS_FULL_SCREEN = "recents_full_screen";
+        public static final String IMMERSIVE_RECENTS = "immersive_recents";
 
         /**
          * Change fonts for the system lockscreen clock widget
