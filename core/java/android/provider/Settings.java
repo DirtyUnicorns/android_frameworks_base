@@ -4072,6 +4072,12 @@ public final class Settings {
         public static final String RECENTS_USE_OMNISWITCH = "recents_use_omniswitch";
 
         /**
+         * Whether to display dashboard tiles in a double line layout
+         * @hide
+         */
+        public static final String DASHBOARD_TILEVIEW_DOUBLE_LINES = "dashboard_tileview_double_lines";
+
+        /**
          * Show or hide clock
          * 0 - hide
          * 1 - show (default)
