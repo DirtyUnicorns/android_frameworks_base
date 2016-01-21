@@ -164,7 +164,6 @@ import com.android.systemui.statusbar.NotificationOverflowContainer;
 import com.android.systemui.statusbar.ScrimView;
 import com.android.systemui.statusbar.SignalClusterView;
 import com.android.systemui.statusbar.SpeedBumpView;
-import com.android.systemui.statusbar.StatusBarIconView;
 import com.android.systemui.statusbar.StatusBarState;
 import com.android.systemui.statusbar.phone.UnlockMethodCache.OnUnlockMethodChangedListener;
 import com.android.systemui.statusbar.policy.AccessibilityController;
@@ -3636,21 +3635,22 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         mStatusBarWindow.removeContent(mStatusBarWindowContent);
         mStatusBarWindow.clearDisappearingChildren();
 
+        RankingMap rankingMap = mNotificationData.getRankingMap();
         // extract icons from the soon-to-be recreated viewgroup.
-        ViewGroup statusIcons = mIconController.getStatusIcons();
-        int nIcons = statusIcons != null ? statusIcons.getChildCount() : 0;
+        /*
+        int nIcons = mStatusIcons != null ? mStatusIcons.getChildCount() : 0;
         ArrayList<StatusBarIcon> icons = new ArrayList<StatusBarIcon>(nIcons);
         ArrayList<String> iconSlots = new ArrayList<String>(nIcons);
         for (int i = 0; i < nIcons; i++) {
-            StatusBarIconView iconView = (StatusBarIconView) statusIcons.getChildAt(i);
+            StatusBarIconView iconView = (StatusBarIconView)mStatusIcons.getChildAt(i);
             icons.add(iconView.getStatusBarIcon());
             iconSlots.add(iconView.getStatusBarSlot());
         }
+        */
 
         removeAllViews(mStatusBarWindowContent);
 
         // extract notifications.
-        RankingMap rankingMap = mNotificationData.getRankingMap();
         int nNotifs = mNotificationData.size();
         ArrayList<Pair<String, StatusBarNotification>> notifications =
                 new ArrayList<Pair<String, StatusBarNotification>>(nNotifs);
@@ -3660,12 +3660,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         makeStatusBarView();
         repositionNavigationBar();
 
-        // re-add status icons
+        // recreate StatusBarIconViews.
+        /*
         for (int i = 0; i < nIcons; i++) {
             StatusBarIcon icon = icons.get(i);
             String slot = iconSlots.get(i);
             addIcon(slot, i, i, icon);
         }
+        */
 
         // recreate notifications.
         for (int i = 0; i < nNotifs; i++) {
