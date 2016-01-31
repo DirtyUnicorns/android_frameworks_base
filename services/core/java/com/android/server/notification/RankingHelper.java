@@ -57,10 +57,7 @@ public class RankingHelper implements RankingConfig {
     private static final boolean DEFAULT_PEEKABLE = true;
     private static final int DEFAULT_VISIBILITY =
             NotificationListenerService.Ranking.VISIBILITY_NO_OVERRIDE;
-    private static final int DEFAULT_KEYGUARD =
-            // By default, show only non ongoing notifications on lockscreen
-            Notification.SHOW_ALL_NOTI_ON_KEYGUARD
-                    + Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
+    private static final int DEFAULT_KEYGUARD = Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
 
     private final NotificationSignalExtractor[] mSignalExtractors;
     private final NotificationComparator mPreliminaryComparator = new NotificationComparator();
