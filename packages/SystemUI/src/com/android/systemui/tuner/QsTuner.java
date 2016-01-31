@@ -212,6 +212,7 @@ public class QsTuner extends Fragment implements Callback {
         else if (spec.equals("reboot")) return R.string.quick_settings_reboot_label;
         else if (spec.equals("battery_saver")) return R.string.quick_settings_battery_saver;
         else if (spec.equals("expanded_desktop")) return R.string.quick_settings_expanded_desktop;
+        else if (spec.equals("themes")) return R.string.quick_settings_themes;
         else if (spec.equals("adb_network")) return R.string.quick_settings_adb_network;
         else if (spec.equals("compass")) return R.string.quick_settings_compass;
         return 0;
