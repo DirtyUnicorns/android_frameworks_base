@@ -36,6 +36,8 @@ import static com.android.documentsui.BaseActivity.State.ACTION_CREATE;
 import static com.android.documentsui.BaseActivity.State.ACTION_GET_CONTENT;
 import static com.android.documentsui.BaseActivity.State.ACTION_MANAGE;
 import static com.android.documentsui.BaseActivity.State.ACTION_STANDALONE;
+import static com.android.documentsui.BaseActivity.State.ACTION_OPEN;
+import static com.android.documentsui.BaseActivity.State.ACTION_OPEN_TREE;
 import static com.android.documentsui.BaseActivity.State.MODE_GRID;
 import static com.android.documentsui.BaseActivity.State.MODE_LIST;
 import static com.android.documentsui.BaseActivity.State.MODE_UNKNOWN;
@@ -617,11 +619,20 @@ public class DirectoryFragment extends Fragment {
                 if (cursor != null) {
                     final String docMimeType = getCursorString(cursor, Document.COLUMN_MIME_TYPE);
                     final int docFlags = getCursorInt(cursor, Document.COLUMN_FLAGS);
+                    switch (state.action) {
+                        case ACTION_OPEN:
+                        case ACTION_CREATE:
+                        case ACTION_GET_CONTENT:
+                        case ACTION_OPEN_TREE:
+                            valid = isDocumentEnabled(docMimeType, docFlags)
+                                    && !Document.MIME_TYPE_DIR.equals(docMimeType);
+                            break;
+                        default:
+                            valid = isDocumentEnabled(docMimeType, docFlags);
+                            break;
+                    }
                     if (Document.MIME_TYPE_DIR.equals(docMimeType)) {
                         hasFolder = true;
-                    }
-                    if (!Document.MIME_TYPE_DIR.equals(docMimeType) || state.action == ACTION_STANDALONE) {
-                        valid = isDocumentEnabled(docMimeType, docFlags);
                     }
                 }
 
