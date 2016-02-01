@@ -57,10 +57,7 @@ public class RankingHelper implements RankingConfig {
     private static final boolean DEFAULT_PEEKABLE = true;
     private static final int DEFAULT_VISIBILITY =
             NotificationListenerService.Ranking.VISIBILITY_NO_OVERRIDE;
-    private static final int DEFAULT_KEYGUARD =
-            // By default, show only non ongoing notifications on lockscreen
-            Notification.SHOW_ALL_NOTI_ON_KEYGUARD
-                    + Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
+    private static final int DEFAULT_KEYGUARD = Notification.SHOW_ALL_NOTI_ON_KEYGUARD;
 
     private final NotificationSignalExtractor[] mSignalExtractors;
     private final NotificationComparator mPreliminaryComparator = new NotificationComparator();
@@ -209,7 +206,7 @@ public class RankingHelper implements RankingConfig {
         for (int i = N - 1; i >= 0; i--) {
             final Record r = mRecords.valueAt(i);
             if (r.priority == DEFAULT_PRIORITY && r.peekable == DEFAULT_PEEKABLE
-                    && r.visibility == DEFAULT_VISIBILITY) {
+                    && r.visibility == DEFAULT_VISIBILITY && r.keyguard == DEFAULT_KEYGUARD) {
                 mRecords.remove(i);
             }
         }
@@ -236,11 +233,11 @@ public class RankingHelper implements RankingConfig {
             if (r.visibility != DEFAULT_VISIBILITY) {
                 out.attribute(null, ATT_VISIBILITY, Integer.toString(r.visibility));
             }
+            if (r.keyguard != DEFAULT_KEYGUARD) {
+                out.attribute(null, ATT_KEYGUARD, Integer.toString(r.keyguard));
+            }
             if (!forBackup) {
                 out.attribute(null, ATT_UID, Integer.toString(r.uid));
-            }
-            if (r.keyguard != DEFAULT_KEYGUARD) {
-                out.attribute(null, ATT_KEYGUARD, Integer.toString(r.uid));
             }
             out.endTag(null, TAG_PACKAGE);
         }
@@ -389,8 +386,6 @@ public class RankingHelper implements RankingConfig {
         updateConfig();
     }
 
-
-
     @Override
     public int getShowNotificationForPackageOnKeyguard(String packageName, int uid) {
         final Record r = mRecords.get(recordKey(packageName, uid));
@@ -406,6 +401,7 @@ public class RankingHelper implements RankingConfig {
         removeDefaultRecords();
         updateConfig();
     }
+
     public void dump(PrintWriter pw, String prefix, NotificationManagerService.DumpFilter filter) {
         if (filter == null) {
             final int N = mSignalExtractors.length;
@@ -449,6 +445,10 @@ public class RankingHelper implements RankingConfig {
                 if (r.visibility != DEFAULT_VISIBILITY) {
                     pw.print(" visibility=");
                     pw.print(Notification.visibilityToString(r.visibility));
+                }
+                if (r.keyguard != DEFAULT_KEYGUARD) {
+                    pw.print(" keyguard=");
+                    pw.print(r.keyguard);
                 }
                 pw.println();
             }
