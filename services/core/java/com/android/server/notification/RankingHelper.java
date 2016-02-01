@@ -51,11 +51,16 @@ public class RankingHelper implements RankingConfig {
     private static final String ATT_PRIORITY = "priority";
     private static final String ATT_PEEKABLE = "peekable";
     private static final String ATT_VISIBILITY = "visibility";
+    private static final String ATT_KEYGUARD = "keyguard";
 
     private static final int DEFAULT_PRIORITY = Notification.PRIORITY_DEFAULT;
     private static final boolean DEFAULT_PEEKABLE = true;
     private static final int DEFAULT_VISIBILITY =
             NotificationListenerService.Ranking.VISIBILITY_NO_OVERRIDE;
+    private static final int DEFAULT_KEYGUARD =
+            // By default, show only non ongoing notifications on lockscreen
+            Notification.SHOW_ALL_NOTI_ON_KEYGUARD
+                    + Notification.SHOW_NO_ONGOING_NOTI_ON_KEYGUARD;
 
     private final NotificationSignalExtractor[] mSignalExtractors;
     private final NotificationComparator mPreliminaryComparator = new NotificationComparator();
@@ -143,6 +148,7 @@ public class RankingHelper implements RankingConfig {
                     int priority = safeInt(parser, ATT_PRIORITY, DEFAULT_PRIORITY);
                     boolean peekable = safeBool(parser, ATT_PEEKABLE, DEFAULT_PEEKABLE);
                     int vis = safeInt(parser, ATT_VISIBILITY, DEFAULT_VISIBILITY);
+                    int keyguard = safeInt(parser, ATT_KEYGUARD, DEFAULT_KEYGUARD);
                     String name = parser.getAttributeValue(null, ATT_NAME);
 
                     if (!TextUtils.isEmpty(name)) {
@@ -171,6 +177,9 @@ public class RankingHelper implements RankingConfig {
                         }
                         if (vis != DEFAULT_VISIBILITY) {
                             r.visibility = vis;
+                        }
+                        if (keyguard != DEFAULT_KEYGUARD) {
+                            r.keyguard = keyguard;
                         }
                     }
                 }
@@ -229,6 +238,9 @@ public class RankingHelper implements RankingConfig {
             }
             if (!forBackup) {
                 out.attribute(null, ATT_UID, Integer.toString(r.uid));
+            }
+            if (r.keyguard != DEFAULT_KEYGUARD) {
+                out.attribute(null, ATT_KEYGUARD, Integer.toString(r.uid));
             }
             out.endTag(null, TAG_PACKAGE);
         }
@@ -377,6 +389,23 @@ public class RankingHelper implements RankingConfig {
         updateConfig();
     }
 
+
+
+    @Override
+    public int getShowNotificationForPackageOnKeyguard(String packageName, int uid) {
+        final Record r = mRecords.get(recordKey(packageName, uid));
+        return r != null ? r.keyguard : DEFAULT_KEYGUARD;
+    }
+
+    @Override
+    public void setShowNotificationForPackageOnKeyguard(String packageName, int uid, int keyguard) {
+        if (keyguard == getShowNotificationForPackageOnKeyguard(packageName, uid)) {
+            return;
+        }
+        getOrCreateRecord(packageName, uid).keyguard = keyguard;
+        removeDefaultRecords();
+        updateConfig();
+    }
     public void dump(PrintWriter pw, String prefix, NotificationManagerService.DumpFilter filter) {
         if (filter == null) {
             final int N = mSignalExtractors.length;
@@ -459,6 +488,7 @@ public class RankingHelper implements RankingConfig {
         int priority = DEFAULT_PRIORITY;
         boolean peekable = DEFAULT_PEEKABLE;
         int visibility = DEFAULT_VISIBILITY;
+        int keyguard = DEFAULT_KEYGUARD;
     }
 
 }
