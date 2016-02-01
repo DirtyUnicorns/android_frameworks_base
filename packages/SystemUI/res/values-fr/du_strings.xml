@@ -162,4 +162,9 @@
     <string name="show_fourg_summary">Utiliser l\'icône 4G dans la barre d\'état plutôt que LTE</string>
     <string name="statusbar_tuner_category_title">Éléments de la barre d\'état affichés</string>
 
+    <!-- Compass QS Tile -->
+    <string name="quick_settings_compass">Boussole</string>
+    <string name="quick_settings_compass_off">Boussole désactivée</string>
+    <string name="quick_settings_compass_init">Initialisation\u2026</string>
+
 </resources>
