@@ -154,6 +154,12 @@
     <string name="label_action_menu">Menu</string>
     <string name="label_action_back">Back</string>
     <string name="label_action_home">Home</string>
+    <string name="label_action_ime_switcher">IME Changer</string>
+    <string name="label_action_stop_screenpinning">Stop screen pinning</string>
+    <string name="label_action_ime_down">Input method cursor down</string>
+    <string name="label_action_ime_left">Input method cursor left</string>
+    <string name="label_action_ime_right">Input method cursor right</string>
+    <string name="label_action_ime_up">Input method cursor up</string>
 
     <!-- Task Manager -->
     <string name="task_manager_title">Task Manager</string>
@@ -172,5 +178,23 @@
     <string name="quick_settings_compass_value" translatable="false"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
     <string name="quick_settings_compass_off">Compass off</string>
     <string name="quick_settings_compass_init">Initializing\u2026</string>
+
+    <!-- Smartbar -->
+    <string name="label_smartbar_actions">Actions</string>
+    <string name="label_smartbar_icon">Icon</string>
+    <string name="label_smartbar_add">Add</string>
+    <string name="label_smartbar_remove">Remove</string>
+    <string name="label_smartbar_cancel">Cancel</string>
+    <string name="label_smartbar_finish">Finish</string>
+    <string name="label_smartbar_single_tap">Single tap</string>
+    <string name="label_smartbar_double_tap">Double tap</string>
+    <string name="label_smartbar_long_press">Long press</string>
+    <string name="label_smartbar_icon_pack">Icon pack</string>
+    <string name="label_smartbar_icon_gallery">Gallery</string>
+    <string name="label_smartbar_icon_color">Color</string>
+    <string name="label_smartbar_icon_reset">Reset</string>
+    <string name="smartbar_editor_toast_starting">Starting navigation editor</string>
+    <string name="smartbar_editor_toast_stopping">Stopping navigation editor</string>
+    <string name="smartbar_editor_toast_unavailable">Navigation editor unavailable</string>
 
 </resources>

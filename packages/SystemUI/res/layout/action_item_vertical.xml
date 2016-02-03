@@ -1,0 +1,26 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="fill_parent"
+    android:layout_height="96dp"
+	android:clickable="true"
+	android:focusable="true"
+	android:background="@drawable/action_item_btn">
+        	
+	<ImageView
+		android:id="@+id/iv_icon" 
+		android:layout_width="32dp" 
+		android:layout_height="32dp"
+		android:scaleType="center" />
+
+	<TextView 
+		android:id="@+id/tv_title"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent" 
+		android:gravity="center_vertical"
+		android:paddingLeft="12dp"
+		android:paddingRight="10dp"
+		android:textSize="18dp"
+		android:textColor="@color/smartbar_editor_popup_text"/>
+									         
+</LinearLayout>         
