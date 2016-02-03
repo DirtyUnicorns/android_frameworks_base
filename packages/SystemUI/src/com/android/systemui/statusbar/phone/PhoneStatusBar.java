@@ -4848,7 +4848,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     }
 
     public void showScreenPinningRequest(boolean allowCancel) {
-        mScreenPinningRequest.showPrompt(allowCancel);
+        //mScreenPinningRequest.showPrompt(allowCancel);
+        try {
+            ActivityManagerNative.getDefault().startLockTaskModeOnCurrent();
+        } catch (RemoteException e) {}
     }
 
     public boolean hasActiveNotifications() {
