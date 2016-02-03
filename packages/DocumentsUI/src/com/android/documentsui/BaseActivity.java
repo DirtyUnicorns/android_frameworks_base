@@ -755,9 +755,11 @@ abstract class BaseActivity extends Activity {
          *     search currently.
          */
         boolean cancelSearch() {
-            if (mActionBar.hasExpandedActionView()) {
-                mActionBar.collapseActionView();
-                return true;
+            if(mActionBar != null) {
+                if (mActionBar.hasExpandedActionView()) {
+                    mActionBar.collapseActionView();
+                    return true;
+                }
             }
             return false;
         }
