@@ -194,4 +194,11 @@
     <!-- bt only connected switch -->
     <string name="status_bar_btcon">Bluetooth only when connected</string>
 
+    <!-- Caffeine Tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
+    <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+
 </resources>
