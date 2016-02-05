@@ -156,6 +156,15 @@
     <string name="label_action_ime_right">Curseur droit</string>
     <string name="label_action_ime_up">Curseur haut</string>
 
+    <!-- Themes QS Tile -->
+    <string name="quick_settings_themes">Thèmes</string>
+    <string name="quick_settings_themes_icon_packs">Packs d\'icônes</string>
+    <string name="quick_settings_themes_app_theme">Thème application</string>
+    <string name="quick_settings_themes_system_theme">Thème système</string>
+    <string name="quick_settings_themes_changing_complete">Installation du thème effectuée</string>
+    <string name="quick_settings_themes_default_theme">Par défaut</string>
+    <string name="quick_settings_themes_match_system">Correspond au thème système</string>
+
     <!-- Task Manager -->
     <string name="task_manager_title">Gestionnaire de tâches</string>
     <string name="message_switch_fail">Impossible de basculer vers cette tâche, car elle ne possède pas d\'interface</string>
