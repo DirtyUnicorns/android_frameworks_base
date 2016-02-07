@@ -528,6 +528,9 @@ public class AudioService extends IAudioService.Stub {
 
     private boolean mDockAudioMediaEnabled = true;
 
+    private boolean mForceAnalogDeskDock;
+    private boolean mForceAnalogCarDock;
+
     private int mDockState = Intent.EXTRA_DOCK_STATE_UNDOCKED;
 
     private boolean mVolumeKeysControlMediaStream;
@@ -641,6 +644,11 @@ public class AudioService extends IAudioService.Stub {
 
         mUseFixedVolume = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_useFixedVolume);
+
+        mForceAnalogDeskDock = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_forceAnalogDeskDock);
+        mForceAnalogCarDock = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_forceAnalogCarDock);
 
         mLinkNotificationWithVolume = Settings.System.getIntForUser(mContentResolver,
                 Settings.System.VOLUME_LINK_NOTIFICATION, 1, UserHandle.USER_CURRENT) == 1;
@@ -5135,10 +5143,12 @@ public class AudioService extends IAudioService.Stub {
                 int config;
                 switch (dockState) {
                     case Intent.EXTRA_DOCK_STATE_DESK:
-                        config = AudioSystem.FORCE_BT_DESK_DOCK;
+                        config = mForceAnalogDeskDock ? AudioSystem.FORCE_ANALOG_DOCK :
+                                                        AudioSystem.FORCE_BT_DESK_DOCK;
                         break;
                     case Intent.EXTRA_DOCK_STATE_CAR:
-                        config = AudioSystem.FORCE_BT_CAR_DOCK;
+                        config = mForceAnalogCarDock ? AudioSystem.FORCE_ANALOG_DOCK :
+                                                       AudioSystem.FORCE_BT_CAR_DOCK;
                         break;
                     case Intent.EXTRA_DOCK_STATE_LE_DESK:
                         config = AudioSystem.FORCE_ANALOG_DOCK;
