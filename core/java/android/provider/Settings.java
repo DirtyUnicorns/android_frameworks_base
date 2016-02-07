@@ -3855,6 +3855,12 @@ public final class Settings {
         public static final String HIDE_LOCKSCREEN_DATE = "hide_lockscreen_date";
 
         /**
+         * Hide lockscreen alarm
+         * @hide
+         */
+        public static final String HIDE_LOCKSCREEN_ALARM = "hide_lockscreen_alarm";
+
+        /**
          * Hide lockscreen clock
          * @hide
          */
