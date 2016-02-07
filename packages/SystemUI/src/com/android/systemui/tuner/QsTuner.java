@@ -215,7 +215,7 @@ public class QsTuner extends Fragment implements Callback {
         else if (spec.equals("themes")) return R.string.quick_settings_themes;
         else if (spec.equals("adb_network")) return R.string.quick_settings_adb_network;
         else if (spec.equals("compass")) return R.string.quick_settings_compass;
-        else if (spec.equals("navigation_bar")) return R.string.quick_settings_smartbar;
+        else if (spec.equals("navigation_bar")) return R.string.quick_settings_navigation_bar;
         return 0;
     }
 
