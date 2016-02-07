@@ -17,6 +17,8 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <string name="accessibility_battery_level">Akku <xliff:g id="number">%d</xliff:g> Prozent</string>
+
     <!-- Battery Saver Dimss -->
     <string name="battery_saver_dismiss_title">Verwerfen</string>
     <string name="battery_saver_notification_action_text_short">Ausschalten</string>
@@ -157,6 +159,14 @@
     <string name="label_action_ime_right">Eingabecursor rechts</string>
     <string name="label_action_ime_up">Eingabecursor oben</string>
 
+    <!-- Themes QS Tile -->
+    <string name="quick_settings_themes">Designs</string>
+    <string name="quick_settings_themes_icon_packs">Symbolpakete</string>
+    <string name="quick_settings_themes_app_theme">App-Design</string>
+    <string name="quick_settings_themes_system_theme">System-Design</string>
+    <string name="quick_settings_themes_changing_complete">Designwechsel abgeschlossen</string>
+    <string name="quick_settings_themes_default_theme">Standard</string>
+    <string name="quick_settings_themes_match_system">System-Design anpassen</string>
 
     <!-- Task Manager -->
     <string name="task_manager_title">Task Manager</string>
@@ -193,5 +203,12 @@
     <string name="smartbar_editor_toast_starting">Bearbeitungsmodus gestartet</string>
     <string name="smartbar_editor_toast_stopping">Bearbeitungsmodus beendet</string>
     <string name="smartbar_editor_toast_unavailable">Bearbeitungsmodus nicht verfügbar</string>
+
+    <!-- Navigation bar Tile -->
+    <string name="quick_settings_navigation_bar">Navigationsleiste</string>
+    <string name="quick_settings_smartbar">SmartBar</string>
+    <string name="quick_settings_smartbar_off">SmartBar aus</string>
+    <string name="quick_settings_fling">Fling</string>
+    <string name="quick_settings_fling_off">Fling aus</string>
 
 </resources>
