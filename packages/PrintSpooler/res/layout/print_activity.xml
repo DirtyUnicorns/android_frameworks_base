@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:paddingStart="8dip"
         android:elevation="@dimen/preview_controls_elevation"
-        android:background="@drawable/static_content_background">
+        android:background="?android:attr/colorPrimary">
 
         <Spinner
             android:id="@+id/destination_spinner"
@@ -52,7 +52,7 @@
         android:paddingEnd="16dip"
         android:orientation="horizontal"
         android:elevation="@dimen/preview_controls_elevation"
-        android:background="@drawable/summary_content_background">
+        android:background="?android:attr/colorPrimary">
 
         <TextView
             android:layout_width="wrap_content"
