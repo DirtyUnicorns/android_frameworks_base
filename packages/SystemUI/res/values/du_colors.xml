@@ -96,4 +96,22 @@
     <color name="smartbar_editor_popup_icon_fill">@*android:color/material_deep_teal_500</color>
     <color name="smartbar_editor_popup_horiz_separator">@*android:color/material_deep_teal_500</color>
 
+    <!-- Recents -->
+    <color name="recents_empty_dark_color">#ff4d4d4d</color>
+    <color name="recents_empty_light_color">#ffb3b3b3</color>
+
+    <!-- Slim recent -->
+    <color name="recent_background">#80000000</color>
+
+    <!-- Card Color -->
+    <color name="card_background">#ffffffff</color>
+    <color name="card_background_header">#00ffffff</color>
+    <color name="card_backgroundExpand">#00ffffff</color>
+
+    <color name="card_text_color_header">#ff000000</color>
+
+    <!-- Used by selector -->
+    <color name="card_pressed">#7e3c3c3c</color>
+
+
 </resources>

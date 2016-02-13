@@ -83,4 +83,7 @@
          This allows for the first block in PathEffect to fade -->
     <integer name="config_pulseDbFuzz">2</integer>
 
+    <!-- Default value how much apps show the app screenshot on recents view entry -->
+    <integer name="expanded_items_default">2</integer>
+
 </resources>

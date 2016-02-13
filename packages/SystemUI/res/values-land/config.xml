@@ -32,4 +32,7 @@
 
     <!-- We have only space for one notification on phone landscape layouts. -->
     <integer name="keyguard_max_notification_count">1</integer>
+    
+<!-- Default value how much apps show the app screenshot on recents view entry -->
+    <integer name="expanded_items_default">1</integer>
 </resources>

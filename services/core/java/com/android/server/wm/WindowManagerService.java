@@ -12088,5 +12088,11 @@ public class WindowManagerService extends IWindowManager.Stub
                 mAppTransition.registerListenerLocked(listener);
             }
         }
+
+    }
+    /* @hide */
+    @Override
+    public int getSystemUIVisibility() {
+        return mLastStatusBarVisibility;
     }
 }

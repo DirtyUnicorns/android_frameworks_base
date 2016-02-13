@@ -26,4 +26,9 @@
          Fall back to config_webViewPackageName if not available. -->
     <string name="config_alternateWebViewPackageName" translatable="false">com.google.android.webview</string>
 
+    <!-- Slim recents -->
+    <!-- The duration (in milliseconds) of recent app screen animation. -->
+    <integer name="config_recentDefaultDur">300</integer>
+    <!-- The duration (in milliseconds) of recent app screen exit animation. -->
+    <integer name="config_recentExitDur">450</integer>
 </resources>
