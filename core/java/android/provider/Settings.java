@@ -4096,14 +4096,14 @@ public final class Settings {
          */
         public static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
 
-	/**
+        /**
          * Change quick settings tiles animation style
          *
          * @hide
          */
         public static final String ANIM_TILE_STYLE = "anim_tile_style";
 
-	/**
+        /**
          * Change quick settings tiles animation duration
          *
          * @hide
@@ -5887,6 +5887,12 @@ public final class Settings {
          * @hide
          */
         public static final String LOCK_QS_DISABLED = "lockscreen_qs_disabled";
+
+        /**
+         * Whether to show statusbar clock in the keyguard
+         * @hide
+         */
+        public static final String KEYGUARD_SHOW_CLOCK = "keyguard_show_clock";
 
         /**
          * Hide lockscreen bottom shortcuts
@@ -10856,3 +10862,4 @@ public final class Settings {
         return packages[0];
     }
 }
+
