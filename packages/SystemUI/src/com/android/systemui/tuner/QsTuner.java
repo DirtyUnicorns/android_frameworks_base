@@ -142,6 +142,7 @@ public class QsTuner extends Fragment implements Callback {
             @Override
             public void onDrop(String sourceText) {
                 mTileHost.remove(sourceText);
+                mQsPanel.refreshAllTiles();
             }
         });
     }
@@ -186,6 +187,7 @@ public class QsTuner extends Fragment implements Callback {
     @Override
     public void onTilesChanged() {
         mQsPanel.setTiles(mTileHost.getTiles());
+        mQsPanel.refreshAllTiles();
     }
 
     private static int getLabelResource(String spec) {
