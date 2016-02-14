@@ -213,4 +213,7 @@
     <string name="quick_settings_fling">Fling gesture</string>
     <string name="quick_settings_fling_off">Fling gesture off</string>
 
+    <!-- IME selector Tile -->
+    <string name="quick_settings_ime_label">IME</string>
+
 </resources>
