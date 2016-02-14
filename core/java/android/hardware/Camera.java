@@ -4766,16 +4766,6 @@ public class Camera {
         **/
         public static final String AE_BRACKET = "AE-Bracket";
 
-        // Values for Power mode.
-        /** @hide
-        * LOW_POWER
-        **/
-        public static final String LOW_POWER = "Low_Power";
-        /** @hide
-        * NORMAL_POWER
-        **/
-        public static final String NORMAL_POWER = "Normal_Power";
-
         // Values for HFR settings.
         /** @hide
         * VIDEO_HFR_OFF
@@ -4932,17 +4922,6 @@ public class Camera {
          */
          public List<String> getSupportedSceneDetectModes() {
             String str = get(KEY_QC_SCENE_DETECT + SUPPORTED_VALUES_SUFFIX);
-            return split(str);
-         }
-
-         /** @hide
-         * Gets the supported ISO values.
-         *
-         * @return a List of FLASH_MODE_XXX string constants. null if flash mode
-         *         setting is not supported.
-         */
-         public List<String> getSupportedIsoValues() {
-            String str = get(KEY_QC_ISO_MODE + SUPPORTED_VALUES_SUFFIX);
             return split(str);
          }
 
@@ -5198,14 +5177,6 @@ public class Camera {
          }
 
          /** @hide
-         * @return true if full size video snapshot is supported.
-         */
-         public boolean isPowerModeSupported() {
-            String str = get(KEY_QC_POWER_MODE_SUPPORTED);
-            return TRUE.equals(str);
-         }
-
-         /** @hide
          * Get Sharpness level
          *
          * @return sharpness level
@@ -5388,53 +5359,12 @@ public class Camera {
          }
 
          /** @hide
-         * Sets the Power mode.
-         *
-         * @param value Power mode.
-         * @see #getPowerMode()
-         */
-         public void setPowerMode(String value) {
-            set(KEY_QC_POWER_MODE, value);
-         }
-
-         /** @hide
-         * Gets the current power mode setting.
-         *
-         * @return current power mode. null if power mode setting is not
-         *         supported.
-         * @see #POWER_MODE_LOW
-         * @see #POWER_MODE_NORMAL
-         */
-         public String getPowerMode() {
-            return get(KEY_QC_POWER_MODE);
-         }
-
-         /** @hide
          * Set HDR-Bracketing Level
          *
          * @param value HDR-Bracketing
          */
          public void setAEBracket(String value){
             set(KEY_QC_AE_BRACKET_HDR, value);
-         }
-
-         /** @hide
-         * Gets the current ISO setting.
-         *
-         * @return one of ISO_XXX string constant. null if ISO
-         *         setting is not supported.
-         */
-         public String getISOValue() {
-            return get(KEY_QC_ISO_MODE);
-         }
-
-         /** @hide
-         * Sets the ISO.
-         *
-         * @param iso ISO_XXX string constant.
-         */
-         public void setISOValue(String iso) {
-            set(KEY_QC_ISO_MODE, iso);
          }
 
          /** @hide
