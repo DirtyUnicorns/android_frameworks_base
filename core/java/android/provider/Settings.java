@@ -4233,6 +4233,12 @@ public final class Settings {
         public static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
         /**
+         * Whether to show statusbar clock in the keyguard
+         * @hide
+         */
+        public static final String KEYGUARD_SHOW_CLOCK = "keyguard_show_clock";
+
+        /**
          * Whether the notification light will be allowed when in zen mode during downtime
          * @hide
          */

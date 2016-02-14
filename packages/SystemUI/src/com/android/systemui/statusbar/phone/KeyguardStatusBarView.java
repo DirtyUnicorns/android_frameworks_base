@@ -62,6 +62,9 @@ public class KeyguardStatusBarView extends RelativeLayout {
     private TextView mCarrierLabel;
     private int mShowCarrierLabel;
 
+    private TextView mKeyguardClock;
+    private int mShowKeyguardClock;
+
     private BatteryController mBatteryController;
     private KeyguardUserSwitcher mKeyguardUserSwitcher;
 
@@ -71,6 +74,7 @@ public class KeyguardStatusBarView extends RelativeLayout {
     private ContentObserver mObserver = new ContentObserver(new Handler()) {
         public void onChange(boolean selfChange, Uri uri) {
             showStatusBarCarrier();
+            showKeyguardClock();
             updateVisibilities();
         }
     };
@@ -78,11 +82,17 @@ public class KeyguardStatusBarView extends RelativeLayout {
     public KeyguardStatusBarView(Context context, AttributeSet attrs) {
         super(context, attrs);
         showStatusBarCarrier();
+        showKeyguardClock();
     }
 
     private void showStatusBarCarrier() {
         mShowCarrierLabel = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.STATUS_BAR_SHOW_CARRIER, 1, UserHandle.USER_CURRENT);
+    }
+
+    private void showKeyguardClock() {
+        mShowKeyguardClock = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.KEYGUARD_SHOW_CLOCK, 1, UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -91,6 +101,7 @@ public class KeyguardStatusBarView extends RelativeLayout {
         mSystemIconsSuperContainer = findViewById(R.id.system_icons_super_container);
         mMultiUserSwitch = (MultiUserSwitch) findViewById(R.id.multi_user_switch);
         mMultiUserAvatar = (ImageView) findViewById(R.id.multi_user_avatar);
+        mKeyguardClock = (TextView) findViewById(R.id.keyguard_clock);
         mCarrierLabel = (TextView) findViewById(R.id.keyguard_carrier_text);
         if (DuUtils.isWifiOnly(getContext())) {
             mCarrierLabel.setText("");
@@ -111,6 +122,9 @@ public class KeyguardStatusBarView extends RelativeLayout {
         mCarrierLabel.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(
                         com.android.internal.R.dimen.text_size_small_material));
+        mKeyguardClock.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(
+                        com.android.internal.R.dimen.text_size_small_material));
     }
 
     private void loadDimens() {
@@ -128,6 +142,13 @@ public class KeyguardStatusBarView extends RelativeLayout {
             removeView(mMultiUserSwitch);
         }
         mBatteryLevel.setVisibility(View.VISIBLE);
+
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.KEYGUARD_SHOW_CLOCK, 0) == 1) {
+            mKeyguardClock.setVisibility(View.VISIBLE);
+        } else {
+            mKeyguardClock.setVisibility(View.GONE);
+        }
 
         if (mCarrierLabel != null) {
             if (mShowCarrierLabel == 1) {
@@ -257,6 +278,8 @@ public class KeyguardStatusBarView extends RelativeLayout {
         super.onAttachedToWindow();
         getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
                 "status_bar_show_carrier"), false, mObserver);
+        getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                "keyguard_show_clock"), false, mObserver);
     }
 
     @Override
