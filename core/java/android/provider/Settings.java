@@ -4671,6 +4671,12 @@ public final class Settings {
          */
         public static final String RECENT_CARD_TEXT_COLOR = "recent_card_text_color";
 
+	/**
+         * Whether the phone volume up / down effect should be played
+         * @hide
+         */
+        public static final String VOLUME_ADJUST_SOUNDS_ENABLED = "volume_adjust_sounds_enabled";
+
         /**
          * Whether the phone ringtone should be played in an increasing manner
          * @hide
