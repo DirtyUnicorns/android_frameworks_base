@@ -1699,7 +1699,8 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
     }
 
     private boolean shouldShowImeSwitcherLocked(int visibility) {
-        if (!mShowOngoingImeSwitcherForPhones) return false;
+        // Don't use this config here since it's not hard coded anymore
+//      if (!mShowOngoingImeSwitcherForPhones) return false;
         if (mSwitchingDialog != null) return false;
         if (isScreenLocked()) return false;
         if ((visibility & InputMethodService.IME_ACTIVE) == 0) return false;
@@ -1805,30 +1806,33 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
                 mStatusBar.setImeWindowStatus(token, vis, backDisposition,
                         needsToShowImeSwitcher);
             }
-            final InputMethodInfo imi = mMethodMap.get(mCurMethodId);
-            if (imi != null && needsToShowImeSwitcher) {
-                // Used to load label
-                final CharSequence title = mRes.getText(
-                        com.android.internal.R.string.select_input_method);
-                final CharSequence summary = InputMethodUtils.getImeAndSubtypeDisplayName(
-                        mContext, imi, mCurrentSubtype);
-                mImeSwitcherNotification.setContentTitle(title)
-                        .setContentText(summary)
-                        .setContentIntent(mImeSwitchPendingIntent);
+            // this way, we pipe the hint and only control show/hide notification
+            if (mShowOngoingImeSwitcherForPhones) {
+                final InputMethodInfo imi = mMethodMap.get(mCurMethodId);
+                if (imi != null && needsToShowImeSwitcher) {
+                    // Used to load label
+                    final CharSequence title = mRes.getText(
+                            com.android.internal.R.string.select_input_method);
+                    final CharSequence summary = InputMethodUtils.getImeAndSubtypeDisplayName(
+                            mContext, imi, mCurrentSubtype);
+                    mImeSwitcherNotification.setContentTitle(title)
+                            .setContentText(summary)
+                            .setContentIntent(mImeSwitchPendingIntent);
                     if (mNotificationManager != null) {
-                    mNotificationManager.notifyAsUser(null,
-                            com.android.internal.R.string.select_input_method,
-                            mImeSwitcherNotification.build(), UserHandle.ALL);
-                    mNotificationShown = true;
-                }
-            } else {
-                if (mNotificationShown && mNotificationManager != null) {
-                    if (DEBUG) {
-                        Slog.d(TAG, "--- hide notification");
+                        mNotificationManager.notifyAsUser(null,
+                                com.android.internal.R.string.select_input_method,
+                                mImeSwitcherNotification.build(), UserHandle.ALL);
+                        mNotificationShown = true;
                     }
-                    mNotificationManager.cancelAsUser(null,
-                            com.android.internal.R.string.select_input_method, UserHandle.ALL);
-                    mNotificationShown = false;
+                } else {
+                    if (mNotificationShown && mNotificationManager != null) {
+                        if (DEBUG) {
+                            Slog.d(TAG, "--- hide notification");
+                        }
+                        mNotificationManager.cancelAsUser(null,
+                                com.android.internal.R.string.select_input_method, UserHandle.ALL);
+                        mNotificationShown = false;
+                    }
                 }
             }
         } finally {
@@ -1937,15 +1941,11 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
             unbindCurrentMethodLocked(true, false);
         }
 
-        // code to disable the IME switcher with config_show_IMESwitcher set = false
-        try {
-            mShowOngoingImeSwitcherForPhones =
+        // we always show the IME switcher notification by default and we
+        // pipe IME hints regardless of notification enabled state
+        mShowOngoingImeSwitcherForPhones =
                 Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_IME_SWITCHER, UserHandle.USER_CURRENT) == 1;
-        } catch (SettingNotFoundException e) {
-            mShowOngoingImeSwitcherForPhones = mRes.getBoolean(
-                com.android.internal.R.bool.config_show_IMESwitcher);
-        }
+                        Settings.System.STATUS_BAR_IME_SWITCHER, 1, UserHandle.USER_CURRENT) == 1;
 
         // Here is not the perfect place to reset the switching controller. Ideally
         // mSwitchingController and mSettings should be able to share the same state.
