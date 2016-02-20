@@ -271,24 +271,11 @@ public class CamcorderProfile
     private static final int QUALITY_HIGH_SPEED_LIST_START = QUALITY_HIGH_SPEED_LOW;
     private static final int QUALITY_HIGH_SPEED_LIST_END = QUALITY_HIGH_SPEED_2160P;
 
-    // Vendor-specific quality profiles
-    /**
-     * Quality level corresponding to the VGA (640 x 480) resolution.
-     * @hide
-     */
-    public static final int QUALITY_VGA = 10000;
-
     /**
      * Quality level corresponding to the 4k-DCI (4096 x 2160) resolution.
      * @hide
      */
     public static final int QUALITY_4KDCI = 10001;
-
-    /**
-     * Time lapse quality level corresponding to the VGA (640 x 480) resolution.
-     * @hide
-     */
-    public static final int QUALITY_TIME_LAPSE_VGA = 10002;
 
     /**
      * Time lapse quality level corresponding to the 4k-DCI (4096 x 2160) resolution.
