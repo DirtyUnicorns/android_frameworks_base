@@ -3705,6 +3705,12 @@ public final class Settings {
         };
 
         /**
+         *  Enable flashlight notification
+         * @hide
+         */
+        public static final String FLASHLIGHT_NOTIFICATION = "flashlight_notification";
+
+        /**
          *  Enable statusbar double tap gesture on to put device to sleep
          * @hide
          */

@@ -29,6 +29,7 @@ import android.hardware.camera2.CameraManager;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Process;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -79,7 +80,12 @@ public class FlashlightController {
                     }
                 });
             } else if (Intent.ACTION_SCREEN_ON.equals(intent.getAction())) {
+                if (Settings.System.getInt(mContext.getContentResolver(),
+                      Settings.System.FLASHLIGHT_NOTIFICATION, 0) == 1) {
                 setNotificationShown(true);
+                } else {
+                setNotificationShown(false);
+                }
             }
         }
     };
@@ -142,7 +148,12 @@ public class FlashlightController {
             filter.addAction(Intent.ACTION_SCREEN_ON);
             mContext.registerReceiver(mReceiver, filter);
             mReceiverRegistered = true;
+            if (Settings.System.getInt(mContext.getContentResolver(),
+                  Settings.System.FLASHLIGHT_NOTIFICATION, 0) == 1) {
             setNotificationShown(true);
+            } else {
+            setNotificationShown(false);
+            }
         } else if (!listen) {
             if (mReceiverRegistered) {
                 mContext.unregisterReceiver(mReceiver);
