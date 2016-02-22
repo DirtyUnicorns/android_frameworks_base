@@ -122,6 +122,11 @@
         wifi,bt,inversion,dnd,cell,airplane,rotation,flashlight,location,cast,hotspot,usb_tether,ambient_display,screenshot,nfc,sync,screenoff,timeout,brightness,music,reboot,battery_saver,expanded_desktop,adb_network,compass,themes,navigation_bar,ime
     </string>
 
+    <!-- The default tiles to reset to in QuickSettings -->
+    <string name="quick_settings_tiles_reset" translatable="false">
+        wifi,bt,dnd,cell,airplane,rotation,flashlight,location,cast,themes
+    </string>
+
     <!-- The tiles to display in QuickSettings -->
     <string name="quick_settings_tiles" translatable="false">wifi,bt,dnd,cell,airplane,rotation,flashlight,location,cast</string>
 
