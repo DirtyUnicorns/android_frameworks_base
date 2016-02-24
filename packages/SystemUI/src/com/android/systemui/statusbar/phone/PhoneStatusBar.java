@@ -3819,7 +3819,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     /**
      * Determines if we need to update the navbar resources due to a theme change.  We currently
      * check if the overlay for the navbar, or request type is {@link RequestType.THEME_UPDATED}.
-     * Also check for icon pack changes to update navbar activity based icons
      *
      * @param oldTheme
      * @param newTheme
@@ -3830,11 +3829,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         if (newTheme == null) return false;
 
         final String overlay = newTheme.getOverlayForNavBar();
-        final String icons = newTheme.getIconPackPkgName();
 
         return oldTheme == null ||
                 (overlay != null && !overlay.equals(oldTheme.getOverlayForNavBar()) ||
-                        (icons != null && !icons.equals(oldTheme.getIconPackPkgName())) ||
                         newTheme.getLastThemeChangeRequestType() == RequestType.THEME_UPDATED);
     }
 
