@@ -187,6 +187,12 @@ public class DisconnectCause {
      */
     public static final int CDMA_ALREADY_ACTIVATED         = 49;
 
+    /**
+     * Call was rejected due to number being blacklisted by user.
+     * {@@hide}
+     */
+    public static final int CALL_BLACKLISTED = 400;
+
     //*********************************************************************************************
     // When adding a disconnect type:
     // 1) Please assign the new type the next id value below.
@@ -310,6 +316,8 @@ public class DisconnectCause {
             return "IMS_MERGED_SUCCESSFULLY";
         case CDMA_ALREADY_ACTIVATED:
             return "CDMA_ALREADY_ACTIVATED";
+        case CALL_BLACKLISTED:
+            return "CALL_BLACKLISTED";
         default:
             return "INVALID: " + cause;
         }
