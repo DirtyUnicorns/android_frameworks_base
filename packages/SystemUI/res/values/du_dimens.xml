@@ -73,6 +73,8 @@
     <dimen name="navigation_action_editor_height">160dp</dimen>
     <dimen name="navigation_key_height">@dimen/navigation_key_width</dimen>
     <dimen name="navigation_extra_key_height">@dimen/navigation_extra_key_width</dimen>
+    <dimen name="navigation_key_tablet_width_port">128dp</dimen>
+    <dimen name="navigation_key_tablet_width_land">162dp</dimen>
     <dimen name="navigation_key_padding_start_port">25dp</dimen>
     <dimen name="navigation_key_padding_end_port">25dp</dimen>
     <dimen name="navigation_key_padding_start_land">42dp</dimen>
