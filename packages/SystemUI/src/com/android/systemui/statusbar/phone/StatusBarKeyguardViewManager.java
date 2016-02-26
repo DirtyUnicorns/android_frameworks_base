@@ -21,6 +21,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.os.Trace;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,6 +80,7 @@ public class StatusBarKeyguardViewManager {
     private OnDismissAction mAfterKeyguardGoneAction;
     private boolean mDeviceWillWakeUp;
     private boolean mDeferScrimFadeOut;
+    private boolean mShowKgBouncer;
 
     public StatusBarKeyguardViewManager(Context context, ViewMediatorCallback callback,
             LockPatternUtils lockPatternUtils) {
@@ -107,19 +110,34 @@ public class StatusBarKeyguardViewManager {
         mShowing = true;
         mStatusBarWindowManager.setKeyguardShowing(true);
         mScrimController.abortKeyguardFadingOut();
-        reset();
+        reset(false);
     }
 
     /**
      * Shows the notification keyguard or the bouncer depending on
      * {@link KeyguardBouncer#needsFullscreenBouncer()}.
      */
-    private void showBouncerOrKeyguard() {
+    private void showBouncerOrKeyguard(boolean isBackPressed) {
+        int bouncerview = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_BOUNCER, 0, UserHandle.USER_CURRENT);
+        mShowKgBouncer = mLockPatternUtils.isSecure(UserHandle.getCallingUserId()) && (bouncerview == 1
+                || (bouncerview == 2 && !mPhoneStatusBar.hasActiveClearableNotifications())
+                || (bouncerview == 3 && !mPhoneStatusBar.hasActiveVisibleNotifications())
+                || (bouncerview == 4 && !mPhoneStatusBar.hasActiveClearableNotifications() && !mPhoneStatusBar.hasActiveVisibleNotifications()));
         if (mBouncer.needsFullscreenBouncer()) {
 
             // The keyguard might be showing (already). So we need to hide it.
             mPhoneStatusBar.hideKeyguard();
             mBouncer.show(true /* resetSecuritySelection */);
+        } else if (mShowKgBouncer) {
+            if (isBackPressed) {
+                mPhoneStatusBar.showKeyguard();
+                mBouncer.hide(false);
+                mBouncer.prepare();
+            } else {
+                mPhoneStatusBar.hideKeyguard();
+                mBouncer.show(true);
+            }
         } else {
             mPhoneStatusBar.showKeyguard();
             mBouncer.hide(false /* destroyView */);
@@ -150,14 +168,14 @@ public class StatusBarKeyguardViewManager {
     /**
      * Reset the state of the view.
      */
-    public void reset() {
+    public void reset(boolean isBackPressed) {
         if (mShowing) {
             if (mOccluded) {
                 mPhoneStatusBar.hideKeyguard();
                 mPhoneStatusBar.stopWaitingForKeyguardExit();
                 mBouncer.hide(false /* destroyView */);
             } else {
-                showBouncerOrKeyguard();
+                showBouncerOrKeyguard(isBackPressed);
             }
             KeyguardUpdateMonitor.getInstance(mContext).sendKeyguardReset();
             updateStates();
@@ -224,7 +242,7 @@ public class StatusBarKeyguardViewManager {
                             @Override
                             public void run() {
                                 mStatusBarWindowManager.setKeyguardOccluded(mOccluded);
-                                reset();
+                                reset(false);
                             }
                         });
                 return;
@@ -232,7 +250,7 @@ public class StatusBarKeyguardViewManager {
         }
         mOccluded = occluded;
         mStatusBarWindowManager.setKeyguardOccluded(occluded);
-        reset();
+        reset(false);
     }
 
     public boolean isOccluded() {
@@ -395,7 +413,7 @@ public class StatusBarKeyguardViewManager {
     public boolean onBackPressed() {
         if (mBouncer.isShowing()) {
             mPhoneStatusBar.endAffordanceLaunch();
-            reset();
+            reset(true);
             return true;
         }
         return false;
