@@ -22,7 +22,7 @@ import android.animation.ObjectAnimator;
 import android.content.res.Resources;
 import android.view.View;
 
-import com.android.internal.navigation.*;
+import com.android.systemui.statusbar.BarTransitions;
 
 import com.android.systemui.R;
 

@@ -28,61 +28,6 @@
     data icon on devices -->
     <bool name="config_hspap_data_distinguishable">true</bool>
 
-    <!-- The factor to increase gesture touch slop. It seems the default values
-         from ViewConfiguration are too small for Fling. Often taps and long presses
-         are canceled when they shouldn't be. Applies only to Fling gesture detector
-
-         touchSlop = ViewConfiguration.getTouchSlop() * ((100 + increase_factor) / 100))
-
-         Default value is a 35% increase in allowed "sloppiness".
-         Adjust in overlay for device specific precision -->
-    <item name="config_fling_touchslop_increase_factor" format="float" type="dimen">1.35</item>
-
-    <!-- Fling default long swipe thresholds as percentage of bar width/height-->
-    <item name="config_FlingLongSwipePortraitLeft" format="float" type="dimen">0.4</item>
-    <item name="config_FlingLongSwipePortraitRight" format="float" type="dimen">0.4</item>
-    <item name="config_FlingLongSwipeLandscapeLeft" format="float" type="dimen">0.35</item>
-    <item name="config_FlingLongSwipeLandscapeRight" format="float" type="dimen">0.35</item>
-    <item name="config_FlingLongSwipeVerticalUp" format="float" type="dimen">0.4</item>
-    <item name="config_FlingLongSwipeVerticalDown" format="float" type="dimen">0.4</item>
-
-    <!-- Fling Pulse music visualizer -->
-    <!-- Height of each filled in block
-         recommended leave as is -->
-    <dimen name="config_pulsePathEffect_1">4dp</dimen>
-
-    <!-- Height of each empty block
-         recommmended leave as is -->
-    <dimen name="config_pulsePathEffect_2">1dp</dimen>
-
-    <!-- Width of each eq bar
-         Wider values generates fewer, but wider bars -->
-    <dimen name="config_pulsePathStrokeWidth">14dp</dimen>
-
-    <!-- Default bar fill
-         User can define this in settings
-         Here for reference-->
-    <color name="config_pulseFillColor">#92ffffff</color>
-
-    <!-- The amount of divisions to make for eq bars 
-         This is the amount of frequency distribution
-         each bar gets. MUST BE POWER OF 2. Recommended
-         leave as is -->
-    <integer name="config_pulseDivisions">16</integer>
-
-    <!-- fudge factors to tweak display for various configs
-         ends up being dB = (dB * fuzz_factor + db_fuzz)
-         DbFuzzFactor is a magnitude amplifier. Basically
-         it creates higher highs that fall faster. Sane values
-         are from 2 to 5 -->
-    <integer name="config_pulseDbFuzzFactor">4</integer>
-
-    <!-- DbFuzz adds it's value in pixels to the magnitude
-         It is recommended to set this value so that it is
-         less than config_pulsePathEffect_1, measured in pixels
-         This allows for the first block in PathEffect to fade -->
-    <integer name="config_pulseDbFuzz">2</integer>
-
     <!-- Default value how much apps show the app screenshot on recents view entry -->
     <integer name="expanded_items_default">2</integer>
 

@@ -22,13 +22,12 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ViewConfiguration;
 
-import com.android.internal.navigation.StatusbarImpl;
 import com.android.systemui.R;
 import com.android.systemui.statusbar.BaseStatusBar;
 
 public class NavigationBarViewTaskSwitchHelper extends GestureDetector.SimpleOnGestureListener {
 
-    private StatusbarImpl mBar;
+    private PhoneStatusBar mBar;
     private boolean mIsVertical;
     private boolean mIsRTL;
 
@@ -46,7 +45,7 @@ public class NavigationBarViewTaskSwitchHelper extends GestureDetector.SimpleOnG
         mTaskSwitcherDetector = new GestureDetector(context, this);
     }
 
-    public void setBar(StatusbarImpl phoneStatusBar) {
+    public void setBar(PhoneStatusBar phoneStatusBar) {
         mBar = phoneStatusBar;
     }
 

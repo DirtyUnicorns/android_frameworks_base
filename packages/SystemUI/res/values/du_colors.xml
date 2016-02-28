@@ -90,12 +90,6 @@
     <color name="task_item_background">#0000</color>
     <color name="task_item_text">#ffffffff</color>
 
-    <!-- PopupWindows -->
-    <color name="smartbar_editor_popup_background">@android:color/white</color>
-    <color name="smartbar_editor_popup_text">@android:color/black</color>
-    <color name="smartbar_editor_popup_icon_fill">@*android:color/material_deep_teal_500</color>
-    <color name="smartbar_editor_popup_horiz_separator">@*android:color/material_deep_teal_500</color>
-
     <!-- Recents -->
     <color name="recents_empty_dark_color">#ff4d4d4d</color>
     <color name="recents_empty_light_color">#ffb3b3b3</color>
