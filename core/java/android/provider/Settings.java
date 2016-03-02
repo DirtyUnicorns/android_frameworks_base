@@ -3635,8 +3635,14 @@ public final class Settings {
         public static final String POWERMENU_SCREENRECORD = "powermenu_screenrecord";
 
         /**
-         * Enable flashlight notification
+         * Whether to display the torch option in the power menu
          *
+         * @hide
+         */
+        public static final String POWERMENU_TORCH = "powermenu_torch";
+
+        /**
+         * Enable flashlight notification
          * @hide
          */
         public static final String FLASHLIGHT_NOTIFICATION = "flashlight_notification";

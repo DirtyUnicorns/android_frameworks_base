@@ -59,4 +59,7 @@
     <!-- Screenrecord in the power menu -->
     <string name="powermenu_screenrecord">Screen record</string>
 
+    <!-- Powermenu Torch -->
+    <string name="global_action_torch">Flashlight</string>
+
 </resources>
