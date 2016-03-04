@@ -792,7 +792,8 @@ public class ThemeService extends IThemeService.Stub {
         Map<String, String> appOverlays = request.getPerAppOverlays();
         for (String appPkgName : appOverlays.keySet()) {
             if (appPkgName != null) {
-                builder.overlay(appPkgName, appOverlays.get(appPkgName));
+                String appOverlay = appOverlays.get(appPkgName);
+                builder.overlay(appPkgName, "default".equals(appOverlay) ? null : appOverlay);
             }
         }
 
