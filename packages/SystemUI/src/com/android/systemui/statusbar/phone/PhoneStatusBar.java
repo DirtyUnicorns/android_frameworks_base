@@ -120,10 +120,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.LinearLayout;
 import com.android.internal.logging.MetricsLogger;
-import com.android.internal.navigation.BarTransitions;
-import com.android.internal.navigation.NavigationController;
-import com.android.internal.navigation.Navigator;
-import com.android.internal.navigation.StatusbarImpl;
 import com.android.internal.statusbar.NotificationVisibility;
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.internal.util.du.WeatherControllerImpl;
@@ -146,12 +142,15 @@ import com.android.systemui.assist.AssistManager;
 import com.android.systemui.doze.DozeHost;
 import com.android.systemui.doze.DozeLog;
 import com.android.systemui.keyguard.KeyguardViewMediator;
+import com.android.systemui.navigation.NavigationController;
+import com.android.systemui.navigation.Navigator;
 import com.android.systemui.omni.StatusBarHeaderMachine;
 import com.android.systemui.qs.QSDetailItemsList;
 import com.android.systemui.qs.QSPanel;
 import com.android.systemui.recents.ScreenPinningRequest;
 import com.android.systemui.statusbar.ActivatableNotificationView;
 import com.android.systemui.statusbar.BackDropView;
+import com.android.systemui.statusbar.BarTransitions;
 import com.android.systemui.statusbar.BaseStatusBar;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.DismissView;
@@ -215,17 +214,17 @@ import static android.app.StatusBarManager.NAVIGATION_HINT_IME_SHOWN;
 import static android.app.StatusBarManager.WINDOW_STATE_HIDDEN;
 import static android.app.StatusBarManager.WINDOW_STATE_SHOWING;
 import static android.app.StatusBarManager.windowStateToString;
-import static com.android.internal.navigation.BarTransitions.MODE_LIGHTS_OUT;
-import static com.android.internal.navigation.BarTransitions.MODE_LIGHTS_OUT_TRANSPARENT;
-import static com.android.internal.navigation.BarTransitions.MODE_OPAQUE;
-import static com.android.internal.navigation.BarTransitions.MODE_SEMI_TRANSPARENT;
-import static com.android.internal.navigation.BarTransitions.MODE_TRANSLUCENT;
-import static com.android.internal.navigation.BarTransitions.MODE_TRANSPARENT;
-import static com.android.internal.navigation.BarTransitions.MODE_WARNING;
+import static com.android.systemui.statusbar.BarTransitions.MODE_LIGHTS_OUT;
+import static com.android.systemui.statusbar.BarTransitions.MODE_LIGHTS_OUT_TRANSPARENT;
+import static com.android.systemui.statusbar.BarTransitions.MODE_OPAQUE;
+import static com.android.systemui.statusbar.BarTransitions.MODE_SEMI_TRANSPARENT;
+import static com.android.systemui.statusbar.BarTransitions.MODE_TRANSLUCENT;
+import static com.android.systemui.statusbar.BarTransitions.MODE_TRANSPARENT;
+import static com.android.systemui.statusbar.BarTransitions.MODE_WARNING;
 
 public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         DragDownHelper.DragDownCallback, ActivityStarter, OnUnlockMethodChangedListener,
-        HeadsUpManager.OnHeadsUpChangedListener, StatusbarImpl {
+        HeadsUpManager.OnHeadsUpChangedListener {
     static final String TAG = "PhoneStatusBar";
     public static final boolean DEBUG = BaseStatusBar.DEBUG;
     public static final boolean SPEW = false;
@@ -652,7 +651,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
         mNavigationBarView = mNavigationController.getNavigationBarView(mContext);
         mNavigationBarView.setDisabledFlags(mDisabled1);
-        mNavigationBarView.setStatusBarCallbacks(this);
 //        addNavigationBarCallback(mNavigationBarView);
         mNavigationBarView.notifyInflateFromUser(); // let bar know we're not starting from boot
 //        addNavigationBar(true); // dynamically adding nav bar, reset System UI visibility!
@@ -1078,7 +1076,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             if (showNav && !mRecreating) {
                 mNavigationBarView = mNavigationController.getNavigationBarView(mContext);
                 mNavigationBarView.setDisabledFlags(mDisabled1);
-                mNavigationBarView.setStatusBarCallbacks(this);
             }
         } catch (RemoteException ex) {
             // no window manager? good luck with that
@@ -1467,52 +1464,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         return mNaturalBarHeight;
     }
 
-    private View.OnClickListener mRecentsClickListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            awakenDreams();
-            toggleRecentApps();
-        }
-    };
-
-    private long mLastLockToAppLongPress;
-    private View.OnLongClickListener mLongPressBackRecentsListener =
-            new View.OnLongClickListener() {
-        @Override
-        public boolean onLongClick(View v) {
-            handleLongPressBackRecents(v);
-            return true;
-        }
-    };
-
-    private final View.OnLongClickListener mLongPressHomeListener
-            = new View.OnLongClickListener() {
-        @Override
-        public boolean onLongClick(View v) {
-            if (shouldDisableNavbarGestures()) {
-                return false;
-            }
-            MetricsLogger.action(mContext, MetricsLogger.ACTION_ASSIST_LONG_PRESS);
-            mAssistManager.startAssist(new Bundle() /* args */);
-            awakenDreams();
-            if (mNavigationBarView != null) {
-                mNavigationBarView.abortCurrentGesture();
-            }
-            return true;
-        }
-    };
-
-    private final View.OnTouchListener mHomeActionListener = new View.OnTouchListener() {
-        public boolean onTouch(View v, MotionEvent event) {
-            switch (event.getAction()) {
-                case MotionEvent.ACTION_UP:
-                case MotionEvent.ACTION_CANCEL:
-                    awakenDreams();
-                    break;
-            }
-            return false;
-        }
-    };
-
     private void awakenDreams() {
         if (mDreamManager != null) {
             try {
@@ -1525,31 +1476,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     private void prepareNavigationBarView() {
         mNavigationBarView.reorient();
-
-        if (mNavigationBarView.getRecentsButton() != null) {
-            mNavigationBarView.getRecentsButton().setOnClickListener(mRecentsClickListener);
-            mNavigationBarView.getRecentsButton()
-                    .setOnTouchListener(mRecentsPreloadOnTouchListener);
-            mNavigationBarView.getRecentsButton().setLongClickable(true);
-            mNavigationBarView.getRecentsButton()
-                    .setOnLongClickListener(mLongPressBackRecentsListener);
-        }
-        if (mNavigationBarView.getBackButton() != null) {
-            mNavigationBarView.getBackButton().setLongClickable(true);
-            mNavigationBarView.getBackButton()
-                    .setOnLongClickListener(mLongPressBackRecentsListener);
-        }
-        if (mNavigationBarView.getHomeButton() != null) {
-            mNavigationBarView.getHomeButton().setOnTouchListener(mHomeActionListener);
-            mNavigationBarView.getHomeButton().setOnLongClickListener(mLongPressHomeListener);
-        }
-
-        mNavigationBarView.setListeners(mHomeActionListener,
-                mLongPressHomeListener,
-                mUserAutoHideListener,
-                mRecentsClickListener,
-                mRecentsPreloadOnTouchListener,
-                mLongPressBackRecentsListener);
+        mNavigationBarView.setListeners(mUserAutoHideListener);
         mNavigationBarView.setOnVerticalChangedListener(mVerticalChangedListener);
         mAssistManager.onConfigurationChanged();
     }
@@ -4794,61 +4721,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     public void onScreenTurnedOn() {
         mScreenTurningOn = false;
         mDozeScrimController.onScreenTurnedOn();
-    }
-
-    /**
-     * This handles long-press of both back and recents.  They are
-     * handled together to capture them both being long-pressed
-     * at the same time to exit screen pinning (lock task).
-     *
-     * When accessibility mode is on, only a long-press from recents
-     * is required to exit.
-     *
-     * In all other circumstances we try to pass through long-press events
-     * for Back, so that apps can still use it.  Which can be from two things.
-     * 1) Not currently in screen pinning (lock task).
-     * 2) Back is long-pressed without recents.
-     */
-    private void handleLongPressBackRecents(View v) {
-        try {
-            boolean sendBackLongPress = false;
-            IActivityManager activityManager = ActivityManagerNative.getDefault();
-            boolean isAccessiblityEnabled = mAccessibilityManager.isEnabled();
-            if (activityManager.isInLockTaskMode() && !isAccessiblityEnabled) {
-                long time = System.currentTimeMillis();
-                // If we recently long-pressed the other button then they were
-                // long-pressed 'together'
-                if ((time - mLastLockToAppLongPress) < LOCK_TO_APP_GESTURE_TOLERENCE) {
-                    activityManager.stopLockTaskModeOnCurrent();
-                    // When exiting refresh disabled flags.
-                    mNavigationBarView.setDisabledFlags(mDisabled1, true);
-                } else if ((v.getId() == R.id.back)
-                        && !mNavigationBarView.getRecentsButton().isPressed()) {
-                    // If we aren't pressing recents right now then they presses
-                    // won't be together, so send the standard long-press action.
-                    sendBackLongPress = true;
-                }
-                mLastLockToAppLongPress = time;
-            } else {
-                // If this is back still need to handle sending the long-press event.
-                if (v.getId() == R.id.back) {
-                    sendBackLongPress = true;
-                } else if (isAccessiblityEnabled && activityManager.isInLockTaskMode()) {
-                    // When in accessibility mode a long press that is recents (not back)
-                    // should stop lock task.
-                    activityManager.stopLockTaskModeOnCurrent();
-                    // When exiting refresh disabled flags.
-                    mNavigationBarView.setDisabledFlags(mDisabled1, true);
-                }
-            }
-            if (sendBackLongPress) {
-                KeyButtonView keyButtonView = (KeyButtonView) v;
-                keyButtonView.sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.FLAG_LONG_PRESS);
-                keyButtonView.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_LONG_CLICKED);
-            }
-        } catch (RemoteException e) {
-            Log.d(TAG, "Unable to reach activity manager", e);
-        }
     }
 
     // Recents
