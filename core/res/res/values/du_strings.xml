@@ -122,4 +122,7 @@
 
     <string name="default_string">Default</string>
 
+    <!-- Powermenu Torch -->
+    <string name="global_action_torch">Flashlight</string>
+
 </resources>

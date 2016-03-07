@@ -162,4 +162,8 @@
   <!-- Hardware key binding -->
   <java-symbol type="integer" name="config_deviceHardwareKeys" />
 
+  <!-- Powermenu Torch -->
+  <java-symbol type="drawable" name="ic_lock_torch" />
+  <java-symbol type="string" name="global_action_torch" />
+
 </resources>
