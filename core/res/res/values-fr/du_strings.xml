@@ -137,5 +137,8 @@
 
     <string name="default_string">Par défaut</string>
 
+    <!-- Powermenu Torch -->
+    <string name="global_action_torch">Lampe de poche</string>
+
 
 </resources>

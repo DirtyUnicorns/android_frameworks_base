@@ -137,35 +137,6 @@
     <string name="quick_settings_network_adb_enabled_label">Activé</string>
     <string name="quick_settings_network_adb_disabled_label">Désactivé</string>
 
-    <!-- Bindable action labels -->
-    <string name="label_action_no_action">Aucune action</string>
-    <string name="label_action_settings_panel">Paramètres</string>
-    <string name="label_action_notification_panel">Notification</string>
-    <string name="label_action_screenshot">Capture d\'écran</string>
-    <string name="label_action_screenrecord">Capture vidéo</string>
-    <string name="label_action_expanded_desktop">Bureau étendu</string>
-    <string name="label_action_screen_off">Mise en veille</string>
-    <string name="label_action_force_close_app">Forcer l\'arrêt de l\'application</string>
-    <string name="label_action_search_assistant">Recherche</string>
-    <string name="label_action_google_now_on_tap">Google On Tap</string>
-    <string name="label_action_voice_search">Recherche vocale</string>
-    <string name="label_action_flashlight">Lampe de poche</string>
-    <string name="label_action_bluetooth">Bluetooth</string>
-    <string name="label_action_wifi">Wi-Fi</string>
-    <string name="label_action_hotspot">Partage de connexion</string>
-    <string name="label_action_last_app">Dernière application</string>
-    <string name="label_action_overview">Applications récentes</string>
-    <string name="label_action_power_menu">Menu marche/arrêt</string>
-    <string name="label_action_menu">Menu</string>
-    <string name="label_action_back">Retour</string>
-    <string name="label_action_home">Accueil</string>
-    <string name="label_action_ime_switcher">Sélecteur de clavier</string>
-    <string name="label_action_stop_screenpinning">Annuler l\'épinglage de l\'écran</string>
-    <string name="label_action_ime_down">Curseur bas</string>
-    <string name="label_action_ime_left">Curseur gauche</string>
-    <string name="label_action_ime_right">Curseur droit</string>
-    <string name="label_action_ime_up">Curseur haut</string>
-
     <!-- Themes QS Tile -->
     <string name="quick_settings_themes">Thèmes</string>
     <string name="quick_settings_themes_icon_packs">Packs d\'icônes</string>
@@ -192,24 +163,6 @@
     <string name="quick_settings_compass_off">Boussole désactivée</string>
     <string name="quick_settings_compass_init">Initialisation\u2026</string>
 
-    <!-- Smartbar -->
-    <string name="label_smartbar_actions">Actions</string>
-    <string name="label_smartbar_icon">Icône</string>
-    <string name="label_smartbar_add">Ajouter</string>
-    <string name="label_smartbar_remove">Supprimer</string>
-    <string name="label_smartbar_cancel">Annuler</string>
-    <string name="label_smartbar_finish">Terminé</string>
-    <string name="label_smartbar_single_tap">Appui simple</string>
-    <string name="label_smartbar_double_tap">Double appui</string>
-    <string name="label_smartbar_long_press">Appui prolongé</string>
-    <string name="label_smartbar_icon_pack">Pack d\'icônes</string>
-    <string name="label_smartbar_icon_gallery">Galerie</string>
-    <string name="label_smartbar_icon_color">Couleur</string>
-    <string name="label_smartbar_icon_reset">Réinitialiser</string>
-    <string name="smartbar_editor_toast_starting">Démarrage du menu d\'édition de SmartBar</string>
-    <string name="smartbar_editor_toast_stopping">Arrêt du menu d\'édition de SmartBar</string>
-    <string name="smartbar_editor_toast_unavailable">Menu d\'édition de SmartBar non disponible</string>
-
     <!-- Navigation bar Tile -->
     <string name="quick_settings_navigation_bar">Barre de navigation</string>
     <string name="quick_settings_smartbar_off">SmartBar désactivée</string>
@@ -218,5 +171,17 @@
     <string name="quick_settings_fling_off">Fling désactivé</string>
 
     <string name="toast_airplane_mode_hotspot">Désactiver le mode avion avant d\'activer cette fonctionnalité</string>
+
+    <!-- Statusbar Vibrate silent switch -->
+    <string name="status_bar_vibsil">Vibrer et silencieux</string>
+
+    <!-- headset icon switch -->
+    <string name="status_bar_headset">Casque filaire</string>
+
+    <!-- vpn icon switch -->
+    <string name="status_bar_vpn">VPN</string>
+
+    <!-- bt only connected switch -->
+    <string name="status_bar_btcon">Bluetooth uniquement si connecté</string>
 
 </resources>
