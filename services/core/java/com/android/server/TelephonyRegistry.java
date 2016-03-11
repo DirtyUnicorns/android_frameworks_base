@@ -1019,7 +1019,12 @@ class TelephonyRegistry extends ITelephonyRegistry.Stub {
             if (validatePhoneId(phoneId)) {
                 mDataActivity[phoneId] = state;
                 for (Record r : mRecords) {
-                    if (r.matchPhoneStateListenerEvent(PhoneStateListener.LISTEN_DATA_ACTIVITY)) {
+                    //Fix TelephonyRegister notifies wrong data activity.Need to nofify by correct
+                    //subId.
+                    //Otherwise SIM1 data status will be overrided by SIM2 data status in some case,
+                    //Such as screen on/off action.
+                    if (r.matchPhoneStateListenerEvent(PhoneStateListener.LISTEN_DATA_ACTIVITY) &&
+                            idMatch(r.subId, subId, phoneId)) {
                         try {
                             r.callback.onDataActivity(state);
                         } catch (RemoteException ex) {
