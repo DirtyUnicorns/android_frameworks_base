@@ -48,4 +48,7 @@
         <item quantity="one">Ce fichier sera supprimé définitivement\u00A0!</item>
         <item quantity="other">Ces %d fichiers seront supprimés définitivement\u00A0!</item>
     </plurals>
+
+    <!-- Button label that select the current directory [CHAR LIMIT=24] -->
+    <string name="button_select">Sélectionner</string>
 </resources>

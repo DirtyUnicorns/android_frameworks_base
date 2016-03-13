@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+https://android.googlesource.com/platform/frameworks/base/+/ff1ba97e83adf74013ace721accef771ce07d2f2/packages/SettingsLib/res/values-fr/arrays.xml
+     French translation for Dirty Unicorns
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Wi-Fi settings -->
+
+    <!-- Match this with the order of NetworkInfo.DetailedState. --> <skip />
+    <!-- Wi-Fi settings. The status messages when the network is unknown. -->
+    <string-array name="wifi_status">
+        <!-- Status message of Wi-Fi when it is idle. -->
+        <item></item>
+        <!-- Status message of Wi-Fi when it is scanning. -->
+        <item>Recherche\u2026</item>
+        <!-- Status message of Wi-Fi when it is connecting. -->
+        <item>Connexion\u2026</item>
+        <!-- Status message of Wi-Fi when it is authenticating. -->
+        <item>Authentification\u2026</item>
+        <!-- Status message of Wi-Fi when it is obtaining IP address. -->
+        <item>Récupération de l\'adresse IP\u2026</item>
+        <!-- Status message of Wi-Fi when it is connected. -->
+        <item>Connecté</item>
+        <!-- Status message of Wi-Fi when it is suspended. -->
+        <item>Interrompu</item>
+        <!-- Status message of Wi-Fi when it is disconnecting. -->
+        <item>Déconnexion\u2026</item>
+        <!-- Status message of Wi-Fi when it is disconnected. -->
+        <item>Déconnecté</item>
+        <!-- Status message of Wi-Fi when it is a failure. -->
+        <item>Échec</item>
+        <!-- Status message of Wi-Fi when it is blocked. -->
+        <item>Bloqué</item>
+        <!-- Status message of Wi-Fi when connectiong is being verified. -->
+        <item>Mauvaise connexion évitée momentanément</item>
+    </string-array>
+
+    <!-- Match this with the order of NetworkInfo.DetailedState. --> <skip />
+    <!-- Wi-Fi settings. The status messages when the network is known. -->
+    <string-array name="wifi_status_with_ssid">
+        <!-- Status message of Wi-Fi when it is idle. -->
+        <item></item>
+        <!-- Status message of Wi-Fi when it is scanning. -->
+        <item>Recherche\u2026</item>
+        <!-- Status message of Wi-Fi when it is connecting to a network. -->
+        <item>Connexion à <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <!-- Status message of Wi-Fi when it is authenticating with a network. -->
+        <item>Authentification avec <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <!-- Status message of Wi-Fi when it is obtaining IP address from a network. -->
+        <item>Récupération de l\'adresse IP à partir de <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <!-- Status message of Wi-Fi when it is connected to a network. -->
+        <item>Connecté à <xliff:g id="network_name">%1$s</xliff:g></item>
+        <!-- Status message of Wi-Fi when it is suspended. -->
+        <item>Interrompu</item>
+        <!-- Status message of Wi-Fi when it is disconnecting from a network. -->
+        <item>Déconnexion de <xliff:g id="network_name">%1$s</xliff:g>\u2026</item>
+        <!-- Status message of Wi-Fi when it is disconnected. -->
+        <item>Déconnecté</item>
+        <!-- Status message of Wi-Fi when it is a failure. -->
+        <item>Échec</item>
+        <!-- Status message of Wi-Fi when it is blocked. -->
+        <item>Bloqué</item>
+        <!-- Status message of Wi-Fi when connectiong is being verified. -->
+        <item>Mauvaise connexion évitée momentanément</item>
+    </string-array>
+</resources>
