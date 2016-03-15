@@ -129,8 +129,8 @@
     <string name="quick_settings_battery_saver_off">Économiseur de batterie désactivé</string>
 
     <!-- Expanded Desktop QS Tile -->
-    <string name="quick_settings_expanded_desktop">Étendu</string>
-    <string name="quick_settings_expanded_desktop_off">Normal</string>
+    <string name="quick_settings_expanded_desktop">Bureau étendu</string>
+    <string name="quick_settings_expanded_desktop_off">Bureau normal</string>
 
     <!-- ADB over network Tile -->
     <string name="quick_settings_adb_network">ADB par le réseau</string>
@@ -183,5 +183,12 @@
 
     <!-- bt only connected switch -->
     <string name="status_bar_btcon">Bluetooth uniquement si connecté</string>
+
+    <!-- Caffeine Tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine désactivé</string>
+    <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine activé</string>
 
 </resources>
