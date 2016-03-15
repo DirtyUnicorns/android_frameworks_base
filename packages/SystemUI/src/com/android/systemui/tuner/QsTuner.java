@@ -219,6 +219,7 @@ public class QsTuner extends Fragment implements Callback {
         else if (spec.equals("compass")) return R.string.quick_settings_compass;
         else if (spec.equals("navigation_bar")) return R.string.quick_settings_navigation_bar;
         else if (spec.equals("ime")) return R.string.quick_settings_ime_label;
+        else if (spec.equals("caffeine")) return R.string.quick_settings_caffeine_label;
         return 0;
     }
 
@@ -475,6 +476,7 @@ public class QsTuner extends Fragment implements Callback {
             else if (mSpec.equals("themes")) return R.drawable.ic_qs_themes_on;
             else if (mSpec.equals("navigation_bar")) return R.drawable.ic_qs_smartbar;
             else if (mSpec.equals("ime")) return R.drawable.ic_qs_ime;
+            else if (mSpec.equals("caffeine")) return R.drawable.ic_qs_caffeine_on;
             return R.drawable.android;
         }
 
