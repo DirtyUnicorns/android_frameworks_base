@@ -125,4 +125,7 @@
     <!-- Powermenu Torch -->
     <string name="global_action_torch">Flashlight</string>
 
+    <!-- App killed message -->
+    <string name="app_killed_message">App killed</string>
+
 </resources>
