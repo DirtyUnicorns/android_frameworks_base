@@ -640,16 +640,16 @@ public class Tethering extends BaseNetworkObserver {
 
         if (mLastNotificationId != 0) {
             if (mLastNotificationId == icon) {
-                if (mContext.getResources().getBoolean(com.android.internal.R.bool.config_softap_extention)
-                    && icon == com.android.internal.R.drawable.stat_sys_tether_wifi) {
-                    // if softap extension feature is on, allow to update icon.
-                } else {
+                if (!mContext.getResources().getBoolean(
+                        com.android.internal.R.bool.config_softap_extention)
+                        || icon != com.android.internal.R.drawable.stat_sys_tether_wifi) {
+                    // if softap extension feature is on, allow to update icon else return.
                     return;
                 }
+            }
             notificationManager.cancelAsUser(null, mLastNotificationId,
                     UserHandle.ALL);
             mLastNotificationId = 0;
-            }
         }
 
         Intent intent = new Intent();
