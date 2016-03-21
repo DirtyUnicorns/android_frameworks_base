@@ -269,11 +269,20 @@ public class KeyguardStatusView extends GridLayout implements
             mWeatherView.setVisibility(View.GONE);
             updateSettings(true);
         } else {
-            mWeatherCity.setText(info.city);
             mWeatherConditionDrawable = info.conditionDrawable;
-            mWeatherCurrentTemp.setText(info.temp);
-            mWeatherConditionText.setText(info.condition);
-            mWeatherView.setVisibility(mShowWeather ? View.VISIBLE : View.GONE);
+
+            if (mWeatherCity != null) {
+                mWeatherCity.setText(info.city);
+            }
+            if (mWeatherCurrentTemp != null) {
+                mWeatherCurrentTemp.setText(info.temp);
+            }
+            if (mWeatherConditionText != null) {
+                mWeatherConditionText.setText(info.condition);
+            }
+            if (mWeatherView != null) {
+                mWeatherView.setVisibility(mShowWeather ? View.VISIBLE : View.GONE);
+            }
             updateSettings(false);
         }
     }
@@ -314,12 +323,22 @@ public class KeyguardStatusView extends GridLayout implements
         if (forceHide) {
             mWeatherView.setVisibility(View.GONE);
         } else {
-            mWeatherView.setVisibility(mShowWeather ? View.VISIBLE : View.GONE);
+            if (mWeatherView != null) {
+                mWeatherView.setVisibility(mShowWeather ? View.VISIBLE : View.GONE);
+            }
         }
-        mWeatherCity.setVisibility(showLocation ? View.VISIBLE : View.INVISIBLE);
-        mWeatherCity.setTextColor(mPrimaryTextColor);
-        mWeatherConditionText.setTextColor(mPrimaryTextColor);
-        mWeatherCurrentTemp.setTextColor(secondaryTextColor);
+        if (mWeatherCity != null) {
+            mWeatherCity.setVisibility(showLocation ? View.VISIBLE : View.INVISIBLE);
+        }
+        if (mWeatherCity != null) {
+            mWeatherCity.setTextColor(mPrimaryTextColor);
+        }
+        if (mWeatherConditionText != null) {
+            mWeatherConditionText.setTextColor(mPrimaryTextColor);
+        }
+        if (mWeatherCurrentTemp != null) {
+            mWeatherCurrentTemp.setTextColor(secondaryTextColor);
+        }
 
         if (showClock) {
             mClockView = (TextClock) findViewById(R.id.clock_view);
@@ -419,14 +438,21 @@ public class KeyguardStatusView extends GridLayout implements
             mWeatherController.updateWeather();
         }
 
-        mWeatherConditionImage.setImageDrawable(null);
+        if (mWeatherConditionImage != null) {
+            mWeatherConditionImage.setImageDrawable(null);
+        }
+
         Drawable weatherIcon = mWeatherConditionDrawable;
         if (mIconColor == -2) {
-            mWeatherConditionImage.setImageDrawable(weatherIcon);
+            if (mWeatherConditionImage != null) {
+                mWeatherConditionImage.setImageDrawable(weatherIcon);
+            }
         } else {
             Bitmap coloredWeatherIcon =
                     ImageHelper.getColoredBitmap(weatherIcon, mIconColor);
-            mWeatherConditionImage.setImageBitmap(coloredWeatherIcon);
+            if (mWeatherConditionImage != null) {
+                mWeatherConditionImage.setImageBitmap(coloredWeatherIcon);
+            }
         }
     }
 
