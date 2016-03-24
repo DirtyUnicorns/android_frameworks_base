@@ -191,4 +191,11 @@
     <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_caffeine_on">Caffeine activé</string>
 
+    <!-- Volume Panel Tile -->
+    <string name="quick_settings_volume_panel_label">Panneau de volume</string>
+
+    <!-- Heads up toast -->
+    <string name="heads_up_enabled">Notifications flottantes activées</string>
+    <string name="heads_up_disabled">Notifications flottantes désactivées</string>
+
 </resources>
