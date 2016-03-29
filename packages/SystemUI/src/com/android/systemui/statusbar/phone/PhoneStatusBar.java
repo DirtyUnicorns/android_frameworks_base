@@ -50,7 +50,6 @@ import android.graphics.PixelFormat;
 import android.graphics.Point;
 import android.graphics.PointF;
 import android.graphics.PorterDuff;
-import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
@@ -389,7 +388,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     // DU logo
     private boolean mDuLogo;
-    private int mDuLogoColor;
     private ImageView duLogo;
 
     private int mNavigationBarWindowState = WINDOW_STATE_SHOWING;
@@ -511,9 +509,6 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     Settings.System.STATUS_BAR_DU_LOGO),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_DU_LOGO_COLOR),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.BATTERY_SAVER_MODE_COLOR),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -600,9 +595,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     resolver, Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1;
             mDuLogo = Settings.System.getIntForUser(resolver,
                     Settings.System.STATUS_BAR_DU_LOGO, 0, mCurrentUserId) == 1;
-            mDuLogoColor = Settings.System.getIntForUser(resolver,
-                    Settings.System.STATUS_BAR_DU_LOGO_COLOR, 0xFFFFFFFF, mCurrentUserId);
-            showDuLogo(mDuLogo, mDuLogoColor);
+            showDuLogo(mDuLogo);
 
             mMaxKeyguardNotifConfig = Settings.System.getIntForUser(resolver,
                     Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 5, mCurrentUserId);
@@ -3492,11 +3485,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
     };
 
-    public void showDuLogo(boolean show, int color) {
+    public void showDuLogo(boolean show) {
         if (mStatusBarView == null) return;
         ContentResolver resolver = mContext.getContentResolver();
         duLogo = (ImageView) mStatusBarView.findViewById(R.id.du_logo);
-        duLogo.setColorFilter(color, Mode.SRC_IN);
         if (duLogo != null) {
             duLogo.setVisibility(show ? (mDuLogo ? View.VISIBLE : View.GONE) : View.GONE);
         }

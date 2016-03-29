@@ -47,6 +47,7 @@ import com.android.systemui.statusbar.NotificationData;
 import com.android.systemui.statusbar.SignalClusterView;
 import com.android.systemui.statusbar.StatusBarIconView;
 import com.android.systemui.statusbar.policy.Clock;
+import com.android.systemui.statusbar.policy.NetworkTraffic;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
@@ -81,12 +82,15 @@ public class StatusBarIconController implements Tunable {
     private BatteryLevelTextView mBatteryLevelTextView;
     private BatteryMeterView mBatteryMeterView;
     private Clock mClock;
+    private ImageView mDuLogo;
     // Center clock
     private LinearLayout mCenterClockLayout;
     private Clock mCclock;
     private Clock mLeftClock;
     private boolean mShowClock;
     private int mClockLocation;
+    private NetworkTraffic mNetworkTraffic;
+    private TextView mCarrier;
 
     private int mIconSize;
     private int mIconHPadding;
@@ -127,6 +131,7 @@ public class StatusBarIconController implements Tunable {
         mNotificationIconArea = statusBar.findViewById(R.id.notification_icon_area_inner);
         mNotificationIcons = (IconMerger) statusBar.findViewById(R.id.notificationIcons);
         mMoreIcon = (ImageView) statusBar.findViewById(R.id.moreIcon);
+        mDuLogo = (ImageView) statusBar.findViewById(R.id.du_logo);
         mNotificationIcons.setOverflowIndicator(mMoreIcon);
         mStatusIconsKeyguard = (LinearLayout) keyguardStatusBar.findViewById(R.id.statusIcons);
         mBatteryLevelTextView =
@@ -136,6 +141,8 @@ public class StatusBarIconController implements Tunable {
         mCenterClockLayout = (LinearLayout)statusBar.findViewById(R.id.center_clock_layout);
         mCclock = (Clock) statusBar.findViewById(R.id.center_clock);
         mLeftClock = (Clock) statusBar.findViewById(R.id.left_clock);
+        mNetworkTraffic = (NetworkTraffic) statusBar.findViewById(R.id.networkTraffic);
+        mCarrier = (TextView) statusBar.findViewById(R.id.statusbar_carrier_text);
         mLinearOutSlowIn = AnimationUtils.loadInterpolator(mContext,
                 android.R.interpolator.linear_out_slow_in);
         mFastOutSlowIn = AnimationUtils.loadInterpolator(mContext,
@@ -438,9 +445,14 @@ public class StatusBarIconController implements Tunable {
         }
         mSignalCluster.setIconTint(mIconTint, mDarkIntensity);
         mMoreIcon.setImageTintList(ColorStateList.valueOf(mIconTint));
+        mDuLogo.setImageTintList(ColorStateList.valueOf(mIconTint));
         mBatteryLevelTextView.setTextColor(mIconTint);
         mBatteryMeterView.setDarkIntensity(mDarkIntensity);
         mClock.setTextColor(mIconTint);
+        mCclock.setTextColor(mIconTint);
+        mLeftClock.setTextColor(mIconTint);
+        mCarrier.setTextColor(mIconTint);
+        mNetworkTraffic.setDarkIntensity(mDarkIntensity);
         applyNotificationIconsTint();
     }
 
