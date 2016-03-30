@@ -211,4 +211,36 @@
     <string name="quick_settings_fling">Fling</string>
     <string name="quick_settings_fling_off">Fling aus</string>
 
+    <!-- IME selector Tile -->
+    <string name="quick_settings_ime_label">IME</string>
+
+    <!-- Hotspot airplane mode -->
+    <string name="toast_airplane_mode_hotspot">Vor Aktivierung Flugmodus deaktivieren</string>
+
+    <!-- Statusbar Vibrate silent switch -->
+    <string name="status_bar_vibsil">Vibrieren &amp; stumm</string>
+
+    <!-- headset icon switch -->
+    <string name="status_bar_headset">Kopfhörer mit Kabel</string>
+
+    <!-- vpn icon switch -->
+    <string name="status_bar_vpn">VPN</string>
+
+    <!-- bt only connected switch -->
+    <string name="status_bar_btcon">Bluetooth, nur wenn verbunden</string>
+
+    <!-- Caffeine Tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine aus.</string>
+    <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine an.</string>
+
+    <!-- Volume Panel Tile -->
+    <string name="quick_settings_volume_panel_label">Lautstärkeregler</string>
+
+    <!-- Heads up toast -->
+    <string name="heads_up_enabled">Heads-Up-Benachrichtigungen sind aktiviert</string>
+    <string name="heads_up_disabled">Heads-Up-Benachrichtigungen sind deaktiviert</string>
+
 </resources>
