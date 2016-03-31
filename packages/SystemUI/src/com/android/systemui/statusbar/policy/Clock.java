@@ -109,9 +109,6 @@ public class Clock extends TextView implements DemoMode {
                     .getUriFor(Settings.System.STATUSBAR_CLOCK_STYLE), false,
                     this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.STATUSBAR_CLOCK_COLOR), false,
-                    this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY), false,
                     this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System
@@ -374,17 +371,7 @@ public class Clock extends TextView implements DemoMode {
                 Settings.System.STATUSBAR_CLOCK_DATE_STYLE, CLOCK_DATE_STYLE_REGULAR,
                 UserHandle.USER_CURRENT);
 
-        int defaultColor = getResources().getColor(R.color.status_bar_clock_color);
-        int clockColor = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUSBAR_CLOCK_COLOR, defaultColor,
-                UserHandle.USER_CURRENT);
-        if (clockColor == Integer.MIN_VALUE) {
-            // flag to reset the color
-            clockColor = defaultColor;
-        }
-
         if (mAttached) {
-            setTextColor(clockColor);
             updateClockVisibility();
             updateClock();
         }

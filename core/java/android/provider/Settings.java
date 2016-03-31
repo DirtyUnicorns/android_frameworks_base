@@ -2534,12 +2534,6 @@ public final class Settings {
         public static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
 
         /**
-         * Statusbar DU logo color setting
-         * @hide
-         */
-        public static final String STATUS_BAR_DU_LOGO_COLOR = "status_bar_du_logo_color";
-
-        /**
          * Defines the shortcuts to be shown on lockscreen
          * Usage is like this: target:icon|target:icon|target:icon
          * if :icon is not set, default application icon will be used
@@ -3819,12 +3813,6 @@ public final class Settings {
         public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
 
         /**
-         * Network stats Color style
-         * @hide
-         */
-        public static final String NETWORK_TRAFFIC_COLOR = "network_traffic_color";
-
-        /**
          * Whether or not to hide the network traffic indicator when there is no activity
          * @hide
          */
@@ -4179,12 +4167,6 @@ public final class Settings {
         public static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
 
         /**
-         * Setting for clock color
-         * @hide
-         */
-        public static final String STATUSBAR_CLOCK_COLOR = "statusbar_clock_color";
-
-        /**
          * Shows custom date before clock time
          * 0 - No Date
          * 1 - Small Date
@@ -4324,12 +4306,6 @@ public final class Settings {
          * String.
          */
         public static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
-
-        /**
-         * Carrier Label Custom Color
-         * @hide
-         */
-        public static final String STATUS_BAR_CARRIER_COLOR = "status_bar_carrier_color";
 
         /**
          * Whether to show statusbar clock in the keyguard
