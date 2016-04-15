@@ -16,92 +16,92 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Button to reboot the phone, within the Phone Options dialog -->
-  <string name="reboot_system" product="tablet">Reboot tablet</string>
-  <string name="reboot_system" product="default">Reboot phone</string>
+  <string name="reboot_system" product="tablet">Uruchom ponownie tablet</string>
+  <string name="reboot_system" product="default">Uruchom ponownie</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Reboot</string>
+  <string name="reboot_reboot">Uruchom ponownie</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_recovery">Uruchom w trybie Recovery</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_bootloader">Uruchom w trybie Bootloader</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Hot reboot</string>
+  <string name="reboot_hot">Szybki restart</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-  <string name="reboot_bootmenu">Bootmenu</string>
+  <string name="reboot_bootmenu">Menu uruchamiania</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
-  <string name="reboot_fastboot">Fastboot</string>
+  <string name="reboot_fastboot">Uruchom w trybie Fastboot</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download">Restart do trybu Download</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Rebooting\u2026</string>
+  <string name="reboot_progress">Ponowne uruchamianie\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm">Your phone will reboot.</string>
+  <string name="reboot_confirm">Telefon zostanie uruchomiony ponownie.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Reboot</string>
+  <string name="global_action_reboot">Uruchom ponownie</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Screenshot</string>
+  <string name="powermenu_screenshot">Zrzut ekranu</string>
   <!-- Screenrecord -->
-  <string name="powermenu_screenrecord">Screen record</string>
+  <string name="powermenu_screenrecord">Nagrywanie Ekranu</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessThemeService">access theme service</string>
+  <string name="permlab_accessThemeService">dostęp do usługi motywów</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readThemes">read your theme info</string>
+  <string name="permlab_readThemes">odczytuje informacje o Twoim motywie</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_readThemesDesc">Allows the app to read your themes and
        determine which theme you have applied.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permlab_writeThemes">modyfikowanie twoich motywów</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
        modify which theme you have applied.</string>
   <!-- Theme installation error notification -->
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
-  <string name="theme_reset_notification_title">Theme reset</string>
+  <string name="theme_install_error_title">Nie udało się zainstalować motywu</string>
+  <string name="theme_install_error_message">Błąd instalacji %s</string>
+  <string name="theme_reset_notification_title">Reset motywu</string>
   <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Fade</string>
-  <string name="animation_slide_right">Slide in right</string>
-  <string name="animation_slide_left">Slide in left</string>
-  <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
-  <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
-  <string name="animation_slide_up">Slide in bottom</string>
-  <string name="animation_slide_down">Slide in top</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
-  <string name="animation_grow_shrink">Grow in (Top)</string>
-  <string name="animation_grow_shrink_center">Grow in (Center)</string>
-  <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>
-  <string name="animation_grow_shrink_left">Grow in (Left)</string>
-  <string name="animation_grow_shrink_right">Grow in (Right)</string>
-  <string name="action_null">Blank</string>
+  <string name="animation_fade">Zanikanie</string>
+  <string name="animation_slide_right">Wjazd z prawej</string>
+  <string name="animation_slide_left">Wjazd z lewej</string>
+  <string name="animation_slide_right_no_fade">Przesuń w prawo (Bez zaniku)</string>
+  <string name="animation_slide_left_no_fade">Wjazd z lewej (Bez zanikania)</string>
+  <string name="animation_slide_up">Wjazd z dołu</string>
+  <string name="animation_slide_down">Wjazd z góry</string>
+  <string name="animation_default">Domyślna</string>
+  <string name="animation_translucent">Przezroczyste</string>
+  <string name="animation_grow_shrink">Powiększenie (od góry)</string>
+  <string name="animation_grow_shrink_center">Powiększenie (od środka)</string>
+  <string name="animation_grow_shrink_bottom">Powiększenie (od dołu)</string>
+  <string name="animation_grow_shrink_left">Powiększenie (od lewej)</string>
+  <string name="animation_grow_shrink_right">Powiększenie (od prawej)</string>
+  <string name="action_null">Pusta</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
   <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permlab_setKeyguardWallpaper">ustawianie tła ekranu blokady</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">reset battery statistics</string>
+  <string name="permlab_resetBatteryStats">resetowanie statystyk baterii</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Security</string>
+  <string name="permgrouplab_security">Zabezpieczenia</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_security">Permissions related to device security information.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">read phone blacklist</string>
+  <string name="permlab_readPhoneBlacklist">odczytywanie czarnej listy</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">edytowanie czarnej listy</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
-  <string name="default_string">Default</string>
+  <string name="default_string">Domyślna</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">Latarka</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App killed</string>
+  <string name="app_killed_message">Aplikacja zatrzymana</string>
 </resources>
