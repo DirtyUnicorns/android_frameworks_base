@@ -83,9 +83,9 @@
   <!-- Brightness QS Tile -->
   <string name="quick_settings_brightness">Brightness</string>
   <!-- Music QS Tile -->
-  <string name="quick_settings_music_label">Music</string>
-  <string name="quick_settings_music_play">Play</string>
-  <string name="quick_settings_music_pause">Pause</string>
+  <string name="quick_settings_music_label">Musica</string>
+  <string name="quick_settings_music_play">Riproduci</string>
+  <string name="quick_settings_music_pause">Metti in pausa</string>
   <!-- Reboot/Recovery QS Tile -->
   <string name="quick_settings_reboot_label">Reboot</string>
   <string name="quick_settings_reboot_recovery_label">Recovery</string>
@@ -111,7 +111,7 @@
   <string name="quick_settings_network_adb_enabled_label">Enabled</string>
   <string name="quick_settings_network_adb_disabled_label">Disabled</string>
   <!-- Themes QS Tile -->
-  <string name="quick_settings_themes">Themes</string>
+  <string name="quick_settings_themes">Temi</string>
   <string name="quick_settings_themes_icon_packs">Icon packs</string>
   <string name="quick_settings_themes_app_theme">App theme</string>
   <string name="quick_settings_themes_system_theme">System theme</string>
@@ -128,11 +128,11 @@
   <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G</string>
   <string name="statusbar_tuner_category_title">Hide items from statusbar</string>
   <!-- Compass QS Tile -->
-  <string name="quick_settings_compass">Compass</string>
+  <string name="quick_settings_compass">Bussola</string>
   <string name="quick_settings_compass_off">Compass off</string>
   <string name="quick_settings_compass_init">Initializing\u2026</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_navigation_bar">Barra di navigazione</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_smartbar_off">SmartBar off</string>
   <string name="quick_settings_fling">Fling gesture</string>

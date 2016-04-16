@@ -29,9 +29,9 @@
   </plurals>
   <!-- Text shown in a toast when the user pastes files -->
   <plurals name="files_pasted">
-    <item quantity="one">The file has been pasted. Upload might be finishing in background.</item>
+    <item quantity="one">Plik został wklejony. Jego przesłanie może kończyć się w tle.</item>
     <item quantity="few">%d files have been pasted. Upload might be finishing in background.</item>
-    <item quantity="other">%d files have been pasted. Upload might be finishing in background.</item>
+    <item quantity="other">Liczba wklejonych plików:%d. Ich przesłanie może kończyć się w tle.</item>
   </plurals>
   <!-- Text show in the progress dialog while files are being copied -->
   <string name="copy_in_progress">Kopiowanie...</string>
