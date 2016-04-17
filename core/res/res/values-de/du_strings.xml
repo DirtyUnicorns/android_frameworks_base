@@ -74,7 +74,7 @@
   <string name="animation_grow_shrink_bottom">Zunehmend (Unten)</string>
   <string name="animation_grow_shrink_left">Zunehmend (Links)</string>
   <string name="animation_grow_shrink_right">Zunehmend (Rechts)</string>
-  <string name="action_null">Blank</string>
+  <string name="action_null">Leer</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
   <string name="system_error_vendorprint">Es scheint als wäre dein Vendor-Image veraltet. Bitte installiere das neuste Vendor-Image für dein Gerät</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
@@ -86,20 +86,20 @@
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">Erlaubt Apps die aktuelle Akku-Statistik zurückzusetzen</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Security</string>
+  <string name="permgrouplab_security">Sicherheit</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permissions related to device security information.</string>
+  <string name="permgroupdesc_security">Berechtigungen bezüglich der Geräte-Sicherheit.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">read phone blacklist</string>
+  <string name="permlab_readPhoneBlacklist">Telefon-Sperrliste lesen</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_readPhoneBlacklist">Erlaubt es einer Anwendung Informationen über Telefonnummern zu lesen, welche für eingehende Anrufe oder Nachrichten blockiert werden.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">Telefon-Sperrliste ändern</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_changePhoneBlacklist">Erlaubt es einer Anwendung Telefonnummern zu ändern, welche für eingehende Anrufe oder Nachrichten blockiert werden.</string>
   <string name="default_string">Standard</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">Taschenlampe</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App killed</string>
+  <string name="app_killed_message">App beendet</string>
 </resources>

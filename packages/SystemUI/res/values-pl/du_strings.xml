@@ -40,7 +40,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Przesuń w prawo do %1$s</string>
   <string name="right_shortcut_hint">Przesuń w lewo do %1$s</string>
-  <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
+  <string name="lockscreen_message">Dotknij ikonę po lewej lub po prawej stronie, aby zmienić jej czynność.</string>
   <string name="lockscreen_default_target">Domyślna</string>
   <string name="select_application">Wybierz aplikację</string>
   <string name="lockscreen_choose_action_title">Wybierz czynność</string>
@@ -120,9 +120,9 @@
   <string name="quick_settings_themes_match_system">Dopasowanie motywu systemowego</string>
   <!-- Task Manager -->
   <string name="task_manager_title">Menadżer zadań</string>
-  <string name="message_switch_fail">Cannot switch to this task, because it has no interface.</string>
+  <string name="message_switch_fail">Nie można przełączyć się do tego zadania, ponieważ brakuje mu interfejsu.</string>
   <string name="tasklist_killall">Zamknij wszystkie</string>
-  <string name="tasklist_memory_usage">"Free/Total Memory: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
+  <string name="tasklist_memory_usage">"Wolna/Całkowita Pamięć: [<xliff:g id="number">%s</xliff:g>] / [<xliff:g id="name">%s</xliff:g>]"</string>
   <string name="message_keep_one_launcher">Należy zachować przynajmniej jedną aktywność!</string>
   <!-- 4G LTE switch -->
   <string name="show_fourg_title">Pokaż 4G zamiast LTE</string>

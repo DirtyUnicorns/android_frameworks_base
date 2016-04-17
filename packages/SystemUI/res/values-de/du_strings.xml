@@ -18,12 +18,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d client</item>
-    <item quantity="other">%1$d clients</item>
+    <item quantity="one">%1$d Client</item>
+    <item quantity="other">%1$d Clients</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Flashlight is on</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Tap to turn off</string>
+  <string name="quick_settings_tile_flashlight_not_title">Taschenlampe ist aktiviert</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Tippen, um zu deaktivieren</string>
   <!-- Battery Saver Dimss -->
   <string name="battery_saver_dismiss_title">Verwerfen</string>
   <string name="battery_saver_notification_action_text_short">Ausschalten</string>
@@ -70,7 +70,7 @@
   <!-- NFC QS tile -->
   <string name="quick_settings_nfc_label">NFC</string>
   <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sync</string>
+  <string name="quick_settings_sync_label">Synchronisation</string>
   <string name="accessibility_quick_settings_sync_off">Sync aus</string>
   <string name="accessibility_quick_settings_sync_on">Sync an</string>
   <string name="accessibility_quick_settings_sync_changed_off">Sync ausgeschaltet</string>
@@ -96,7 +96,7 @@
   <!-- Screenrecord QS Tile -->
   <string name="screenrecord_notif_ticker">Bildschirm wird aufgenommen</string>
   <string name="screenrecord_notif_title">Bildschirmaufnahme</string>
-  <string name="screenrecord_notif_stop">Stop</string>
+  <string name="screenrecord_notif_stop">Stopp</string>
   <string name="screenrecord_notif_pointer_on">Berührung anzeigen</string>
   <string name="screenrecord_notif_pointer_off">Berührung ausblenden</string>
   <string name="screenrecord_notif_error">Bildschirmaufnahme nicht möglich</string>
@@ -118,7 +118,7 @@
   <string name="quick_settings_themes_default_theme">Standard</string>
   <string name="quick_settings_themes_match_system">System-Design anpassen</string>
   <!-- Task Manager -->
-  <string name="task_manager_title">Task Manager</string>
+  <string name="task_manager_title">Task-Manager</string>
   <string name="message_switch_fail">Zu dieser Anwendung kann nicht gewechselt werden, da diese keine Oberfläche besitzt</string>
   <string name="tasklist_killall">Alle beenden</string>
   <string name="tasklist_memory_usage">"Freier/Gesamtspeicher: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>

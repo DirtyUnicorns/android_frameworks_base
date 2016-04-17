@@ -45,22 +45,20 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_accessThemeService">dostęp do usługi motywów</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
+  <string name="permdesc_accessThemeService">Pozwala aplikacji na dostęp do usługi motywów. Zwykłe aplikacje zazwyczaj tego nie potrzebują.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readThemes">odczytuje informacje o Twoim motywie</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">Pozwala aplikacji odczytywać informacje o motywach i określać, który motyw jest obecnie używany.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_writeThemes">modyfikowanie twoich motywów</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">Pozwala aplikacji dodawać nowe motywy, a także modyfikować obecnie ustawiony.</string>
   <!-- Theme installation error notification -->
   <string name="theme_install_error_title">Nie udało się zainstalować motywu</string>
   <string name="theme_install_error_message">Błąd instalacji %s</string>
   <string name="theme_reset_notification_title">Reset motywu</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
+  <string name="theme_reset_notification_body">Domyślny motyw został przywrócony z powodu wielu awarii aplikacji.</string>
   <!-- AOKP custom system animations -->
   <string name="animation_fade">Zanikanie</string>
   <string name="animation_slide_right">Wjazd z prawej</string>
@@ -78,27 +76,27 @@
   <string name="animation_grow_shrink_right">Powiększenie (od prawej)</string>
   <string name="action_null">Pusta</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
+  <string name="system_error_vendorprint">Wygląda na to, że Twoj obraz vendor może być nieaktualny. Zalecamy instalację najnowszej wersji obrazu vendor dla Twojego urządzenia.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">ustawianie tła ekranu blokady</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+  <string name="permdesc_setKeyguardWallpaper">Umożliwia aplikacji zmianę tapety ekranu blokady.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_resetBatteryStats">resetowanie statystyk baterii</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
+  <string name="permdesc_resetBatteryStats">Pozwala aplikacji na wyczyszczenie bieżących niskopoziomowych danych użycia baterii.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_security">Zabezpieczenia</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permissions related to device security information.</string>
+  <string name="permgroupdesc_security">Uprawnienia związane z bezpieczeństwem urządzenia.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readPhoneBlacklist">odczytywanie czarnej listy</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_readPhoneBlacklist">Zezwala aplikacji odczytywać informacje o numerach telefonów które znajdują się na czarnej liście połączeń lub wiadomości.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_changePhoneBlacklist">edytowanie czarnej listy</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_changePhoneBlacklist">Zezwala aplikacji zarządzać numerami na czarnej liście.</string>
   <string name="default_string">Domyślna</string>
   <!-- Powermenu Torch -->
   <string name="global_action_torch">Latarka</string>

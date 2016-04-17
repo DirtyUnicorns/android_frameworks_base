@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Button to reboot the phone, within the Phone Options dialog -->
-  <string name="reboot_system" product="tablet">Tablet ujraindítása</string>
+  <string name="reboot_system" product="tablet">Tablet újraindítása</string>
   <string name="reboot_system" product="default">Telefon újraindítása</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Újraindítás</string>
@@ -27,11 +27,11 @@
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
   <string name="reboot_hot">Hot reboot</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-  <string name="reboot_bootmenu">Bootmenu</string>
+  <string name="reboot_bootmenu">Bootmenü</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
   <string name="reboot_fastboot">Fastboot</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download">Letöltés</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">Újraindítás\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
@@ -103,5 +103,5 @@
   <!-- Powermenu Torch -->
   <string name="global_action_torch">Zseblámpa</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App killed</string>
+  <string name="app_killed_message">Alkalmazás kilőve</string>
 </resources>
