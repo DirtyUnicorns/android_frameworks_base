@@ -37,9 +37,7 @@
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Screenshot Deleted</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
-  <string name="battery_level_template"><xliff:g id="level" example="45">%d</xliff:g>%%</string>
   <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Swipe right for %1$s</string>
   <string name="right_shortcut_hint">Swipe left for %1$s</string>
@@ -56,7 +54,6 @@
          all of the currently visible notifications. [CHAR LIMIT=10]-->
   <string name="clear_recents">Close all recent</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_HP">HSPA+</string>
   <!-- USB tether QS tile -->
   <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
   <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
@@ -72,7 +69,6 @@
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">Screenshot</string>
   <!-- NFC QS tile -->
-  <string name="quick_settings_nfc_label">NFC</string>
   <!-- Sync QS tile -->
   <string name="quick_settings_sync_label">Sync</string>
   <string name="accessibility_quick_settings_sync_off">Sync off</string>

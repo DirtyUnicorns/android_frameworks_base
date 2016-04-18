@@ -23,7 +23,7 @@
     <item quantity="other">%1$d klientów</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Latarka wł.</string>
+  <string name="quick_settings_tile_flashlight_not_title">Latarka włączona</string>
   <string name="quick_settings_tile_flashlight_not_summary">Stuknij aby wyłączyć</string>
   <!-- Battery Saver Dimss -->
   <string name="battery_saver_dismiss_title">Zamknij</string>
@@ -34,13 +34,11 @@
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Zrzut ekranu usunięty</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
-  <string name="battery_level_template"><xliff:g id="level" example="45">%d</xliff:g>%%</string>
   <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Przesuń w prawo do %1$s</string>
   <string name="right_shortcut_hint">Przesuń w lewo do %1$s</string>
-  <string name="lockscreen_message">Dotknij ikonę po lewej lub po prawej stronie, aby zmienić jej czynność.</string>
+  <string name="lockscreen_message">Dotknij ikonę po lewej lub prawej stronie, aby zmienić jej działanie.</string>
   <string name="lockscreen_default_target">Domyślna</string>
   <string name="select_application">Wybierz aplikację</string>
   <string name="lockscreen_choose_action_title">Wybierz czynność</string>
@@ -53,7 +51,6 @@
          all of the currently visible notifications. [CHAR LIMIT=10]-->
   <string name="clear_recents">Zamknij wszystkie ostatnie</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_HP">HSPA+</string>
   <!-- USB tether QS tile -->
   <string name="accessibility_quick_settings_usb_tether_off">Tethering USB wył</string>
   <string name="accessibility_quick_settings_usb_tether_on">Tethering usb włączony</string>
@@ -62,14 +59,13 @@
   <string name="quick_settings_usb_tether_label">Tethering USB</string>
   <!-- Ambient Display QS tile -->
   <string name="accessibility_quick_settings_ambient_display_off">Ambient Display wył</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient Display włączony</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient Display wł</string>
   <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display wyłączony</string>
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display włączony</string>
   <string name="quick_settings_ambient_display_label">Ambient Display</string>
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">Zrzut ekranu</string>
   <!-- NFC QS tile -->
-  <string name="quick_settings_nfc_label">NFC</string>
   <!-- Sync QS tile -->
   <string name="quick_settings_sync_label">Synchronizacja</string>
   <string name="accessibility_quick_settings_sync_off">Synchronizacja wył</string>
@@ -106,7 +102,7 @@
   <string name="quick_settings_battery_saver_off">Oszczędzanie baterii wyłączone</string>
   <!-- Expanded Desktop QS Tile -->
   <string name="quick_settings_expanded_desktop">Rozszerzony</string>
-  <string name="quick_settings_expanded_desktop_off">Normalnie</string>
+  <string name="quick_settings_expanded_desktop_off">Normalny</string>
   <!-- ADB over network Tile -->
   <string name="quick_settings_adb_network">ADB przez sieć</string>
   <string name="quick_settings_network_adb_enabled_label">Włączone</string>
@@ -130,7 +126,7 @@
   <string name="statusbar_tuner_category_title">Ukrywanie elementów paska stanu</string>
   <!-- Compass QS Tile -->
   <string name="quick_settings_compass">Kompas</string>
-  <string name="quick_settings_compass_off">Kompas wyłączony</string>
+  <string name="quick_settings_compass_off">Kompas</string>
   <string name="quick_settings_compass_init">Rozpoczynanie\u2026</string>
   <!-- Navigation bar Tile -->
   <string name="quick_settings_navigation_bar">Pasek nawigacji</string>
@@ -151,11 +147,11 @@
   <!-- bt only connected switch -->
   <string name="status_bar_btcon">Bluetooth, tylko wtedy, gdy podłączony</string>
   <!-- Caffeine Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="quick_settings_caffeine_label">Kofeina</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine wył.</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kofeina wył.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine wł.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kofeina wł.</string>
   <!-- Volume Panel Tile -->
   <string name="quick_settings_volume_panel_label">Głośność</string>
   <!-- Heads up toast -->

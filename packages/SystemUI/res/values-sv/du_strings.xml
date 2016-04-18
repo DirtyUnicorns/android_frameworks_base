@@ -33,9 +33,7 @@
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Skärmdump raderad</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
-  <string name="battery_level_template"><xliff:g id="nivå" exempel="45">%d</xliff:g>%%</string>
   <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Svep åt höger för %1$s</string>
   <string name="right_shortcut_hint">Svep åt vänster för %1$s</string>
@@ -52,7 +50,6 @@
          all of the currently visible notifications. [CHAR LIMIT=10]-->
   <string name="clear_recents">Stäng alla de senaste</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_HP">HSPA+</string>
   <!-- USB tether QS tile -->
   <string name="accessibility_quick_settings_usb_tether_off">USB tethering av</string>
   <string name="accessibility_quick_settings_usb_tether_on">USB tethering på</string>
@@ -68,7 +65,6 @@
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">Skärmbild</string>
   <!-- NFC QS tile -->
-  <string name="quick_settings_nfc_label">NFC</string>
   <!-- Sync QS tile -->
   <string name="quick_settings_sync_label">Synk</string>
   <string name="accessibility_quick_settings_sync_off">Synk av</string>

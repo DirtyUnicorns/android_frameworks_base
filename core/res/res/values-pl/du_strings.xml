@@ -41,7 +41,7 @@
   <!-- screenshot in the power menu -->
   <string name="powermenu_screenshot">Zrzut ekranu</string>
   <!-- Screenrecord -->
-  <string name="powermenu_screenrecord">Nagrywanie Ekranu</string>
+  <string name="powermenu_screenrecord">Nagrywanie ekranu</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_accessThemeService">dostęp do usługi motywów</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

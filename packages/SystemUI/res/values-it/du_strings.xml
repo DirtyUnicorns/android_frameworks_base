@@ -22,142 +22,138 @@
     <item quantity="other">%1$d clients</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Flashlight is on</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Tap to turn off</string>
+  <string name="quick_settings_tile_flashlight_not_title">Torcia Accesa</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Tocca per spegnere</string>
   <!-- Battery Saver Dimss -->
-  <string name="battery_saver_dismiss_title">Dismiss</string>
-  <string name="battery_saver_notification_action_text_short">Turn off</string>
+  <string name="battery_saver_dismiss_title">Rimuovi</string>
+  <string name="battery_saver_notification_action_text_short">Spegni</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_statusbar_title">Statusbar Items</string>
-  <string name="systemui_tuner_qs_title">Quick Settings</string>
+  <string name="systemui_tuner_statusbar_title">Elementi Barra di Stato</string>
+  <string name="systemui_tuner_qs_title">Impostazioni rapide</string>
   <!-- Screenshot Delete Toast -->
-  <string name="delete_screenshot_toast">Screenshot Deleted</string>
+  <string name="delete_screenshot_toast">Screenshot Cancellato</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
-  <string name="battery_level_template"><xliff:g id="level" example="45">%d</xliff:g>%%</string>
   <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_expanded_header_weather_format"><xliff:g id="temp">%1$s</xliff:g> - <xliff:g id="condition">%2$s</xliff:g></string>
   <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Swipe right for %1$s</string>
-  <string name="right_shortcut_hint">Swipe left for %1$s</string>
-  <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
-  <string name="lockscreen_default_target">Default</string>
-  <string name="select_application">Select application</string>
-  <string name="lockscreen_choose_action_title">Choose action</string>
-  <string name="lockscreen_none_target">None</string>
+  <string name="left_shortcut_hint">Scorri a destra per %1$s</string>
+  <string name="right_shortcut_hint">Scorri a sinistra per %1$s</string>
+  <string name="lockscreen_message">Tocca un\'icona sulla sinistra o destra per riassegnare un collegamento.</string>
+  <string name="lockscreen_default_target">Predefinito</string>
+  <string name="select_application">Seleziona un\'applicazione</string>
+  <string name="lockscreen_choose_action_title">Scegli un\'azione</string>
+  <string name="lockscreen_none_target">Nessuno</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- The text for the button in the notification window-shade that clears
          all of the currently visible notifications. [CHAR LIMIT=10]-->
-  <string name="clear_recents">Close all recent</string>
+  <string name="clear_recents">Chiudi tutti i recenti</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_HP">HSPA+</string>
   <!-- USB tether QS tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="accessibility_quick_settings_usb_tether_off">Tethering USB spento</string>
+  <string name="accessibility_quick_settings_usb_tether_on">Tethering USB acceso</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">Tethering USB disattivato</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_on">Tethering USB attivato</string>
+  <string name="quick_settings_usb_tether_label">Tethering USB</string>
   <!-- Ambient Display QS tile -->
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display turned on</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ambient Display spento</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ambient Display acceso</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display disattivato</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display attivato</string>
   <string name="quick_settings_ambient_display_label">Ambient Display</string>
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">Screenshot</string>
   <!-- NFC QS tile -->
-  <string name="quick_settings_nfc_label">NFC</string>
   <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Sincronizza</string>
+  <string name="accessibility_quick_settings_sync_off">Sincronizzazione spenta</string>
+  <string name="accessibility_quick_settings_sync_on">Sincronizzazione accesa</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sincronizzazione disattivata</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sincronizzazione attivata</string>
   <!-- Screen off QS tile -->
-  <string name="quick_settings_screen_off">Screen off</string>
+  <string name="quick_settings_screen_off">Spegni schermo</string>
   <!-- Screen timeout QS tile -->
   <string name="quick_settings_timeout_label">Timeout</string>
-  <string name="quick_settings_screen_timeout_detail_title">Screen timeout</string>
+  <string name="quick_settings_screen_timeout_detail_title">Timeout schermo</string>
   <!-- Brightness QS Tile -->
-  <string name="quick_settings_brightness">Brightness</string>
+  <string name="quick_settings_brightness">Luminosità</string>
   <!-- Music QS Tile -->
   <string name="quick_settings_music_label">Musica</string>
   <string name="quick_settings_music_play">Riproduci</string>
   <string name="quick_settings_music_pause">Metti in pausa</string>
   <!-- Reboot/Recovery QS Tile -->
-  <string name="quick_settings_reboot_label">Reboot</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
+  <string name="quick_settings_reboot_label">Riavvia</string>
+  <string name="quick_settings_reboot_recovery_label">Ripristina</string>
   <!-- App circle sidebar -->
-  <string name="app_float_maximize_item_title">Maximize</string>
-  <string name="app_float_item_title">Float view</string>
-  <string name="app_stop_item_title">Kill app</string>
+  <string name="app_float_maximize_item_title">Massimizza</string>
+  <string name="app_float_item_title">Vista flottante</string>
+  <string name="app_stop_item_title">Termina app</string>
   <!-- Screenrecord QS Tile -->
-  <string name="screenrecord_notif_ticker">Screen is being recorded</string>
-  <string name="screenrecord_notif_title">Recording screen</string>
-  <string name="screenrecord_notif_stop">Stop</string>
-  <string name="screenrecord_notif_pointer_on">Show pointer</string>
-  <string name="screenrecord_notif_pointer_off">Hide pointer</string>
-  <string name="screenrecord_notif_error">Unable to record screen</string>
+  <string name="screenrecord_notif_ticker">Lo schermo sta venendo registrato</string>
+  <string name="screenrecord_notif_title">Registrando lo schermo</string>
+  <string name="screenrecord_notif_stop">Arresta</string>
+  <string name="screenrecord_notif_pointer_on">Mostra puntatore</string>
+  <string name="screenrecord_notif_pointer_off">Nascondi puntatore</string>
+  <string name="screenrecord_notif_error">Impossibile registrare lo schermo</string>
   <!-- Battery Saver QS Tile -->
-  <string name="quick_settings_battery_saver">Battery saver</string>
-  <string name="quick_settings_battery_saver_off">Battery saver off</string>
+  <string name="quick_settings_battery_saver">Risparmio energetico</string>
+  <string name="quick_settings_battery_saver_off">Risparmio energetico spento</string>
   <!-- Expanded Desktop QS Tile -->
-  <string name="quick_settings_expanded_desktop">Expanded</string>
-  <string name="quick_settings_expanded_desktop_off">Normal</string>
+  <string name="quick_settings_expanded_desktop">Esteso</string>
+  <string name="quick_settings_expanded_desktop_off">Normale</string>
   <!-- ADB over network Tile -->
   <string name="quick_settings_adb_network">ADB network</string>
-  <string name="quick_settings_network_adb_enabled_label">Enabled</string>
-  <string name="quick_settings_network_adb_disabled_label">Disabled</string>
+  <string name="quick_settings_network_adb_enabled_label">Attivo</string>
+  <string name="quick_settings_network_adb_disabled_label">Non attivo</string>
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Temi</string>
-  <string name="quick_settings_themes_icon_packs">Icon packs</string>
-  <string name="quick_settings_themes_app_theme">App theme</string>
-  <string name="quick_settings_themes_system_theme">System theme</string>
+  <string name="quick_settings_themes_icon_packs">Pacchetti icone</string>
+  <string name="quick_settings_themes_app_theme">Tema dell\'Applicazione</string>
+  <string name="quick_settings_themes_system_theme">Tema di sistema</string>
   <string name="quick_settings_themes_default_theme">Default</string>
-  <string name="quick_settings_themes_match_system">Match system theme</string>
+  <string name="quick_settings_themes_match_system">Uguaglia tema di sistema</string>
   <!-- Task Manager -->
   <string name="task_manager_title">Task Manager</string>
-  <string name="message_switch_fail">Cannot switch to this task, because it has no interface.</string>
-  <string name="tasklist_killall">Kill All</string>
-  <string name="tasklist_memory_usage">"Free/Total Memory: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
-  <string name="message_keep_one_launcher">Should keep at least one home activity!</string>
+  <string name="message_switch_fail">Impossibile passare a questa operazione, perché non ha interfacce.</string>
+  <string name="tasklist_killall">Chiudi tutte</string>
+  <string name="tasklist_memory_usage">"Memoria libera/totale: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
+  <string name="message_keep_one_launcher">Bisognerebbe tenere almeno un\'activity home!</string>
   <!-- 4G LTE switch -->
-  <string name="show_fourg_title">Show 4G instead of LTE</string>
-  <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G</string>
-  <string name="statusbar_tuner_category_title">Hide items from statusbar</string>
+  <string name="show_fourg_title">Visualizza 4G invece di LTE</string>
+  <string name="show_fourg_summary">Sostituisce l\'indicatore LTE nella barra delle notifiche con 4G</string>
+  <string name="statusbar_tuner_category_title">Nascondi elementi dalla barra delle notifiche</string>
   <!-- Compass QS Tile -->
   <string name="quick_settings_compass">Bussola</string>
-  <string name="quick_settings_compass_off">Compass off</string>
-  <string name="quick_settings_compass_init">Initializing\u2026</string>
+  <string name="quick_settings_compass_off">Bussola spenta</string>
+  <string name="quick_settings_compass_init">Inizializzazione\u2026</string>
   <!-- Navigation bar Tile -->
   <string name="quick_settings_navigation_bar">Barra di navigazione</string>
   <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_smartbar_off">SmartBar off</string>
+  <string name="quick_settings_smartbar_off">SmartBar spenta</string>
   <string name="quick_settings_fling">Fling gesture</string>
-  <string name="quick_settings_fling_off">Fling gesture off</string>
+  <string name="quick_settings_fling_off">Fling gesture spenta</string>
   <!-- IME selector Tile -->
-  <string name="quick_settings_ime_label">IME</string>
+  <string name="quick_settings_ime_label">Metodo di input</string>
   <!-- Hotspot airplane mode -->
-  <string name="toast_airplane_mode_hotspot">Disable airplane mode before enabling</string>
+  <string name="toast_airplane_mode_hotspot">Disattivare la modalità aereo prima di abilitare</string>
   <!-- Statusbar Vibrate silent switch -->
-  <string name="status_bar_vibsil">Vibrate &amp; silent</string>
+  <string name="status_bar_vibsil">Vibra &amp; silenzioso</string>
   <!-- headset icon switch -->
-  <string name="status_bar_headset">Wired headset</string>
+  <string name="status_bar_headset">Auricolare con cavo</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- bt only connected switch -->
-  <string name="status_bar_btcon">Bluetooth only when connected</string>
+  <string name="status_bar_btcon">Bluetooth solo quando collegato</string>
   <!-- Caffeine Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="quick_settings_caffeine_label">Caffeina</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caffeina spento.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeina acceso.</string>
   <!-- Volume Panel Tile -->
-  <string name="quick_settings_volume_panel_label">Volume panel</string>
+  <string name="quick_settings_volume_panel_label">Pannello del volume</string>
   <!-- Heads up toast -->
-  <string name="heads_up_enabled">Heads up notifications are enabled</string>
-  <string name="heads_up_disabled">Heads up notifications are disabled</string>
+  <string name="heads_up_enabled">Le notifiche Heads up sono abilitate</string>
+  <string name="heads_up_disabled">Le notifiche Heads up sono disabilitate</string>
 </resources>

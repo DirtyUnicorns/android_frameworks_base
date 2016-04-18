@@ -37,43 +37,43 @@
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
   <string name="reboot_confirm">Din telefon startas om.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Reboot</string>
+  <string name="global_action_reboot">Starta om</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Screenshot</string>
+  <string name="powermenu_screenshot">Skärmbild</string>
   <!-- Screenrecord -->
-  <string name="powermenu_screenrecord">Screen record</string>
+  <string name="powermenu_screenrecord">Skärminspelning</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessThemeService">access theme service</string>
+  <string name="permlab_accessThemeService">få tillgång till tematjänst</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
+  <string name="permdesc_accessThemeService">Tillåter en app att få tillgång till tematjänsten. Bör aldrig vara nödvändigt för vanliga appar.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readThemes">read your theme info</string>
+  <string name="permlab_readThemes">läs informationen om ditt tema</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">Tillåter appen att läsa dina teman och
+avgöra vilket tema som du har tillämpat.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permlab_writeThemes">modifiera dina teman</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">Tillåter appen att lägga till nya teman och
+ändra vilket tema som du har tillämpat.</string>
   <!-- Theme installation error notification -->
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
-  <string name="theme_reset_notification_title">Theme reset</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
+  <string name="theme_install_error_title">Det gick inte att installera temat</string>
+  <string name="theme_install_error_message">%s kunde inte installeras</string>
+  <string name="theme_reset_notification_title">Återställa tema</string>
+  <string name="theme_reset_notification_body">Systemets tema har återställts på grund av ett flertal kraschande appar.</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Fade</string>
-  <string name="animation_slide_right">Slide in right</string>
-  <string name="animation_slide_left">Slide in left</string>
-  <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
-  <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
-  <string name="animation_slide_up">Slide in bottom</string>
-  <string name="animation_slide_down">Slide in top</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
-  <string name="animation_grow_shrink">Grow in (Top)</string>
-  <string name="animation_grow_shrink_center">Grow in (Center)</string>
-  <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>
+  <string name="animation_fade">Tona</string>
+  <string name="animation_slide_right">Glida åt höger</string>
+  <string name="animation_slide_left">Glida åt vänster</string>
+  <string name="animation_slide_right_no_fade">Glida åt höger (Inte tona bort)</string>
+  <string name="animation_slide_left_no_fade">Glida åt vänster (Inte tona bort)</string>
+  <string name="animation_slide_up">Glida in från botten</string>
+  <string name="animation_slide_down">Glida in från toppen</string>
+  <string name="animation_default">Standard</string>
+  <string name="animation_translucent">Genomskinlig</string>
+  <string name="animation_grow_shrink">Växa i (Toppen)</string>
+  <string name="animation_grow_shrink_center">Växa i (Mitten)</string>
+  <string name="animation_grow_shrink_bottom">Växa i (Botten)</string>
   <string name="animation_grow_shrink_left">Grow in (Left)</string>
   <string name="animation_grow_shrink_right">Grow in (Right)</string>
   <string name="action_null">Blank</string>
