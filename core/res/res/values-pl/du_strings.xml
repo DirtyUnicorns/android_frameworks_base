@@ -61,12 +61,12 @@
   <string name="theme_reset_notification_body">Domyślny motyw został przywrócony z powodu wielu awarii aplikacji.</string>
   <!-- AOKP custom system animations -->
   <string name="animation_fade">Zanikanie</string>
-  <string name="animation_slide_right">Wjazd z prawej</string>
-  <string name="animation_slide_left">Wjazd z lewej</string>
+  <string name="animation_slide_right">Wsunięcie z prawej</string>
+  <string name="animation_slide_left">Wsunięcie z lewej</string>
   <string name="animation_slide_right_no_fade">Przesuń w prawo (Bez zaniku)</string>
   <string name="animation_slide_left_no_fade">Wjazd z lewej (Bez zanikania)</string>
-  <string name="animation_slide_up">Wjazd z dołu</string>
-  <string name="animation_slide_down">Wjazd z góry</string>
+  <string name="animation_slide_up">Wsunięcie z dołu</string>
+  <string name="animation_slide_down">Wsunięcie z góry</string>
   <string name="animation_default">Domyślna</string>
   <string name="animation_translucent">Przezroczyste</string>
   <string name="animation_grow_shrink">Powiększenie (od góry)</string>
