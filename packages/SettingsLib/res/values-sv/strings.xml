@@ -20,7 +20,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast message when Wi-Fi cannot scan for networks -->
-  <string name="wifi_fail_to_scan">Can\'t scan for networks</string>
+  <string name="wifi_fail_to_scan">Kan inte skanna nätverk</string>
   <!-- Do not translate.  Concise terminology for wifi with WEP security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA2 security -->
@@ -28,7 +28,7 @@
   <!-- Do not translate.  Concise terminology for wifi with unknown PSK type -->
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Used in Wi-Fi settings dialogs when Wi-Fi does not have any security. -->
-  <string name="wifi_security_none">None</string>
+  <string name="wifi_security_none">Ingen</string>
   <!-- Do not translate.  Terminology for wifi with WEP security -->
   <!-- Do not translate.  Terminology for wifi with WPA security -->
   <!-- Do not translate.  Terminology for wifi with WPA2 security -->
@@ -41,9 +41,9 @@
   <!-- Status for networks disabled for unknown reason -->
   <string name="wifi_disabled_generic">Disabled</string>
   <!-- Status for networked disabled from a DNS or DHCP failure -->
-  <string name="wifi_disabled_network_failure">IP Configuration Failure</string>
+  <string name="wifi_disabled_network_failure">IP-konfiguration fel</string>
   <!-- Status for networked disabled from a wifi association failure -->
-  <string name="wifi_disabled_wifi_failure">WiFi Connection Failure</string>
+  <string name="wifi_disabled_wifi_failure">WiFi-anslutningsfel</string>
   <!-- Status for networks disabled from authentication failure (wrong password
          or certificate). -->
   <string name="wifi_disabled_password_failure">Authentication problem</string>

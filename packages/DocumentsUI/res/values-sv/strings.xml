@@ -16,29 +16,29 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Title of the documents application [CHAR LIMIT=32] -->
-  <string name="app_label">Documents</string>
+  <string name="app_label">Dokument</string>
   <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
-  <string name="title_open">Open from</string>
+  <string name="title_open">Öppet från</string>
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
-  <string name="title_save">Save to</string>
+  <string name="title_save">Spara till</string>
   <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
-  <string name="menu_create_dir">Create folder</string>
+  <string name="menu_create_dir">Skapa mapp</string>
   <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
-  <string name="menu_grid">Grid view</string>
+  <string name="menu_grid">Rutnätsvy</string>
   <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
-  <string name="menu_list">List view</string>
+  <string name="menu_list">Listvy</string>
   <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
-  <string name="menu_sort">Sort by</string>
+  <string name="menu_sort">Sortera efter</string>
   <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
-  <string name="menu_search">Search</string>
+  <string name="menu_search">Sök</string>
   <!-- Menu item that enters activity to change settings [CHAR LIMIT=24] -->
-  <string name="menu_settings">Settings</string>
+  <string name="menu_settings">Inställningar</string>
   <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_open">Open</string>
+  <string name="menu_open">Öppna</string>
   <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
-  <string name="menu_save">Save</string>
+  <string name="menu_save">Spara</string>
   <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_share">Share</string>
+  <string name="menu_share">Dela</string>
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
   <string name="menu_delete">Delete</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
@@ -50,9 +50,9 @@
   <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
   <string name="menu_advanced_show" product="default">Show SD card</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="nosdcard">Hide internal storage</string>
+  <string name="menu_advanced_hide" product="nosdcard">Dölja intern lagring</string>
   <!-- Menu item that hides SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="default">Hide SD card</string>
+  <string name="menu_advanced_hide" product="default">Dölj SD-kort</string>
   <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
   <string name="menu_file_size_show">Show file size</string>
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
