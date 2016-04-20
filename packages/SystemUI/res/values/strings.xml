@@ -399,7 +399,7 @@
     <string name="accessibility_ringer_silent">Ringer silent.</string>
 
     <!-- Content description of the cast icon in the notification panel for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_casting">@string/quick_settings_casting</string>
+    <string name="accessibility_casting" translatable="false">@string/quick_settings_casting</string>
 
     <!-- Content description to tell the user that this button will remove an application from recents -->
     <string name="accessibility_recents_item_will_be_dismissed">Dismiss <xliff:g id="app" example="Calendar">%s</xliff:g>.</string>
@@ -721,7 +721,7 @@
     <string name="expanded_header_battery_not_charging">Not charging</string>
 
     <!-- Glyph to be overlaid atop the battery when the level is extremely low. Do not translate. -->
-    <string name="battery_meter_very_low_overlay_symbol">!</string>
+    <string name="battery_meter_very_low_overlay_symbol" translatable="false">!</string>
 
     <!-- Shows up when there is a user SSL CA Cert installed on the
          device.  Indicates to the user that SSL traffic can be intercepted.
@@ -1065,7 +1065,7 @@
     <string name="broadcast_tile">Broadcast Tile</string>
 
     <!-- For preview release. DO NOT TRANSLATE -->
-    <string name="regrettable_lack_of_easter_egg">
+    <string name="regrettable_lack_of_easter_egg" translatable="false">
         ¯\\_(ツ)_/¯
     </string>
 
