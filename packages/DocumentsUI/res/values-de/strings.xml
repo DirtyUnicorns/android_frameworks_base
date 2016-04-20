@@ -22,9 +22,9 @@
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
   <string name="title_save">Speichern unter</string>
   <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
-  <string name="menu_create_dir">Neuer Ordner</string>
+  <string name="menu_create_dir">Ordner erstellen</string>
   <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
-  <string name="menu_grid">Ansicht</string>
+  <string name="menu_grid">Rasteransicht</string>
   <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
   <string name="menu_list">Listenansicht</string>
   <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
@@ -40,7 +40,7 @@
   <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
   <string name="menu_share">Teilen</string>
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_delete">Entfernen</string>
+  <string name="menu_delete">Löschen</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
   <string name="menu_select_all">Alle auswählen</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->

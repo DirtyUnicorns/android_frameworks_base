@@ -21,15 +21,15 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Uruchom ponownie</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Uruchom w trybie Recovery</string>
+  <string name="reboot_recovery">W trybie Recovery</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Uruchom w trybie Bootloader</string>
+  <string name="reboot_bootloader">W trybie Bootloadera</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
   <string name="reboot_hot">Szybki restart</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
   <string name="reboot_bootmenu">Menu uruchamiania</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
-  <string name="reboot_fastboot">Uruchom w trybie Fastboot</string>
+  <string name="reboot_fastboot">W trybie Fastboot</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
   <string name="reboot_download">Restart do trybu Download</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
@@ -61,14 +61,14 @@
   <string name="theme_reset_notification_body">Domyślny motyw został przywrócony z powodu wielu awarii aplikacji.</string>
   <!-- AOKP custom system animations -->
   <string name="animation_fade">Zanikanie</string>
-  <string name="animation_slide_right">Wsunięcie z prawej</string>
-  <string name="animation_slide_left">Wsunięcie z lewej</string>
-  <string name="animation_slide_right_no_fade">Przesuń w prawo (Bez zaniku)</string>
-  <string name="animation_slide_left_no_fade">Wjazd z lewej (Bez zanikania)</string>
-  <string name="animation_slide_up">Wsunięcie z dołu</string>
-  <string name="animation_slide_down">Wsunięcie z góry</string>
+  <string name="animation_slide_right">Wysunięcie z prawej</string>
+  <string name="animation_slide_left">Wysunięcie z lewej</string>
+  <string name="animation_slide_right_no_fade">Przesuń w prawo (Bez zanikania)</string>
+  <string name="animation_slide_left_no_fade">Przesuń w lewo (Bez zanikania)</string>
+  <string name="animation_slide_up">Wysunięcie z dołu</string>
+  <string name="animation_slide_down">Wysunięcie z góry</string>
   <string name="animation_default">Domyślna</string>
-  <string name="animation_translucent">Przezroczyste</string>
+  <string name="animation_translucent">Przezroczysta</string>
   <string name="animation_grow_shrink">Powiększenie (od góry)</string>
   <string name="animation_grow_shrink_center">Powiększenie (od środka)</string>
   <string name="animation_grow_shrink_bottom">Powiększenie (od dołu)</string>

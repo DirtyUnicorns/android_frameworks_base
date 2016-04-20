@@ -141,11 +141,11 @@
   <!-- Statusbar Vibrate silent switch -->
   <string name="status_bar_vibsil">Wibracje i wyciszony</string>
   <!-- headset icon switch -->
-  <string name="status_bar_headset">Przewodowy zestaw słuch.</string>
+  <string name="status_bar_headset">Słuchawki</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- bt only connected switch -->
-  <string name="status_bar_btcon">Bluetooth, tylko wtedy, gdy podłączony</string>
+  <string name="status_bar_btcon">Bluetooth, tylko gdy podłączony</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Kofeina</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->

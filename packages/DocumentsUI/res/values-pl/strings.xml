@@ -103,15 +103,15 @@
   <string name="copy_remaining">Pozostały <xliff:g id="duration" example="3 minuty">%s</xliff:g></string>
   <!-- Toast shown when a file copy is kicked off -->
   <plurals name="copy_begin">
-    <item quantity="one">Kopiowanie pliku <xliff:g id="count" example="1">%1$d</xliff:g>.</item>
+    <item quantity="one">Kopiowanie <xliff:g id="count" example="1">%1$d</xliff:g> pliku.</item>
     <item quantity="few">Kopiowanie <xliff:g id="count" example="3">%1$d</xliff:g> plików.</item>
-    <item quantity="other">Kopiowanie plików <xliff:g id="count" example="3">%1$d</xliff:g>.</item>
+    <item quantity="other">Kopiowanie <xliff:g id="count" example="3">%1$d</xliff:g> plików.</item>
   </plurals>
   <!-- Text shown on the copy notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
   <string name="copy_preparing">Przygotowywanie do kopiowania\u2026</string>
   <!-- Title of the copy error notification [CHAR LIMIT=48] -->
   <plurals name="copy_error_notification_title">
-    <item quantity="one">Nie można było skopiować pliku <xliff:g id="count" example="1">%1$d</xliff:g></item>
+    <item quantity="one">Nie można było skopiować <xliff:g id="count" example="1">%1$d</xliff:g> pliku</item>
     <item quantity="few">Nie można było skopiować <xliff:g id="count" example="1">%1$d</xliff:g> plików</item>
     <item quantity="other">Nie można było skopiować <xliff:g id="count" example="1">%1$d</xliff:g> plików</item>
   </plurals>
