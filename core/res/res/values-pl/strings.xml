@@ -2821,11 +2821,11 @@
   <!-- North America Letter media (paper) size: 8.5" × 11" (279mm x 216mm) -->
   <string name="mediasize_na_letter">List</string>
   <!-- North America Government Letter media (paper) size: 8.0" × 10.5" (203mm x 267mm) -->
-  <string name="mediasize_na_gvrnmt_letter">Government Letter</string>
+  <string name="mediasize_na_gvrnmt_letter">List rządowy</string>
   <!-- North America Legal media (paper) size: 8.5" × 14" (216mm x 356mm) -->
-  <string name="mediasize_na_legal">Legal</string>
+  <string name="mediasize_na_legal">Prawne</string>
   <!-- North America Junior Legal media (paper) size: 8.0" × 5.0" (203mm × 127mm) -->
-  <string name="mediasize_na_junior_legal">Junior Legal</string>
+  <string name="mediasize_na_junior_legal">Mniejsze prawne</string>
   <!-- North America Ledger media (paper) size: 17" × 11" (432mm × 279mm) -->
   <string name="mediasize_na_ledger">Ledger</string>
   <!-- North America Tabloid media (paper) size: 11" × 17" (279mm × 432mm) -->

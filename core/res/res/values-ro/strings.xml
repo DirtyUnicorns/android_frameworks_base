@@ -181,7 +181,7 @@
   <string name="peerTtyModeOff">Cealaltă persoană a solicitat modul TTY cu setarea DEZACTIVAT</string>
   <!-- Mappings between TS 27.007 +CFCC/+CLCK "service classes" and human-readable strings-->
   <!-- Example: Service was enabled for: Voice, Data -->
-  <string name="serviceClassVoice">Voice</string>
+  <string name="serviceClassVoice">Voce</string>
   <!-- Example: Service was enabled for: Voice, Data -->
   <string name="serviceClassData">Date</string>
   <!-- Example: Service was enabled for: Voice, FAX -->
@@ -2339,8 +2339,8 @@
   <string name="tethered_notification_title">Tethering sau hotspot activ</string>
   <string name="tethered_notification_message">Atingeți pentru a configura.</string>
   <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitiv conectat</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitive conectate</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Înapoi</string>
   <string name="next_button_label">Înainte</string>

@@ -18,30 +18,30 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d client</item>
-    <item quantity="other">%1$d clients</item>
+    <item quantity="one">%1$d istemci</item>
+    <item quantity="other">%1$d istemciler</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Flashlight is on</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Tap to turn off</string>
+  <string name="quick_settings_tile_flashlight_not_title">El feneri açık</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Kapatmak için Dokunun</string>
   <!-- Battery Saver Dimss -->
   <string name="battery_saver_dismiss_title">Dismiss</string>
   <string name="battery_saver_notification_action_text_short">Turn off</string>
   <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_statusbar_title">Statusbar Items</string>
-  <string name="systemui_tuner_qs_title">Quick Settings</string>
+  <string name="systemui_tuner_qs_title">Hızlı Ayarlar</string>
   <!-- Screenshot Delete Toast -->
-  <string name="delete_screenshot_toast">Screenshot Deleted</string>
+  <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
   <!-- Weather string format in expanded statusbar header -->
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Swipe right for %1$s</string>
   <string name="right_shortcut_hint">Swipe left for %1$s</string>
   <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
-  <string name="lockscreen_default_target">Default</string>
-  <string name="select_application">Select application</string>
-  <string name="lockscreen_choose_action_title">Choose action</string>
-  <string name="lockscreen_none_target">None</string>
+  <string name="lockscreen_default_target">Varsayılan</string>
+  <string name="select_application">Uygulama seçin</string>
+  <string name="lockscreen_choose_action_title">Eylem seç</string>
+  <string name="lockscreen_none_target">Yok</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
@@ -52,53 +52,53 @@
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- USB tether QS tile -->
   <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
+  <string name="accessibility_quick_settings_usb_tether_on">USB İnternet Paylaşımı</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
   <string name="quick_settings_usb_tether_label">USB tethering</string>
   <!-- Ambient Display QS tile -->
   <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
   <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
   <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display turned on</string>
-  <string name="quick_settings_ambient_display_label">Ambient Display</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">Ortam ekranı açık</string>
+  <string name="quick_settings_ambient_display_label">Ortam Ekranı</string>
   <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Screenshot</string>
+  <string name="quick_settings_screenshot_label">Ekran Görüntüsü</string>
   <!-- NFC QS tile -->
   <!-- Sync QS tile -->
   <string name="quick_settings_sync_label">Sync</string>
   <string name="accessibility_quick_settings_sync_off">Sync off</string>
   <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Senkronizasyon kapatıldı</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Senkronizasyon açıldı</string>
   <!-- Screen off QS tile -->
-  <string name="quick_settings_screen_off">Screen off</string>
+  <string name="quick_settings_screen_off">Ekranı kapat</string>
   <!-- Screen timeout QS tile -->
-  <string name="quick_settings_timeout_label">Timeout</string>
+  <string name="quick_settings_timeout_label">Zaman aşımı</string>
   <string name="quick_settings_screen_timeout_detail_title">Screen timeout</string>
   <!-- Brightness QS Tile -->
   <string name="quick_settings_brightness">Brightness</string>
   <!-- Music QS Tile -->
   <string name="quick_settings_music_label">Music</string>
   <string name="quick_settings_music_play">Play</string>
-  <string name="quick_settings_music_pause">Pause</string>
+  <string name="quick_settings_music_pause">Duraklat</string>
   <!-- Reboot/Recovery QS Tile -->
-  <string name="quick_settings_reboot_label">Reboot</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
+  <string name="quick_settings_reboot_label">Yeniden başlat</string>
+  <string name="quick_settings_reboot_recovery_label">Kurtarma Modu</string>
   <!-- App circle sidebar -->
-  <string name="app_float_maximize_item_title">Maximize</string>
+  <string name="app_float_maximize_item_title">Maksimuma çıkar</string>
   <string name="app_float_item_title">Float view</string>
   <string name="app_stop_item_title">Kill app</string>
   <!-- Screenrecord QS Tile -->
   <string name="screenrecord_notif_ticker">Screen is being recorded</string>
   <string name="screenrecord_notif_title">Recording screen</string>
   <string name="screenrecord_notif_stop">Stop</string>
-  <string name="screenrecord_notif_pointer_on">Show pointer</string>
-  <string name="screenrecord_notif_pointer_off">Hide pointer</string>
-  <string name="screenrecord_notif_error">Unable to record screen</string>
+  <string name="screenrecord_notif_pointer_on">İşaretçiyi göster</string>
+  <string name="screenrecord_notif_pointer_off">İşaretçiyi gizle</string>
+  <string name="screenrecord_notif_error">Ekran kaydedilemiyor</string>
   <!-- Battery Saver QS Tile -->
-  <string name="quick_settings_battery_saver">Battery saver</string>
-  <string name="quick_settings_battery_saver_off">Battery saver off</string>
+  <string name="quick_settings_battery_saver">Pil tasarrufu</string>
+  <string name="quick_settings_battery_saver_off">Pil tasarrufu kapalı</string>
   <!-- Expanded Desktop QS Tile -->
   <string name="quick_settings_expanded_desktop">Expanded</string>
   <string name="quick_settings_expanded_desktop_off">Normal</string>
@@ -108,14 +108,14 @@
   <string name="quick_settings_network_adb_disabled_label">Disabled</string>
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Themes</string>
-  <string name="quick_settings_themes_icon_packs">Icon packs</string>
-  <string name="quick_settings_themes_app_theme">App theme</string>
-  <string name="quick_settings_themes_system_theme">System theme</string>
-  <string name="quick_settings_themes_default_theme">Default</string>
-  <string name="quick_settings_themes_match_system">Match system theme</string>
+  <string name="quick_settings_themes_icon_packs">Simge paketleri</string>
+  <string name="quick_settings_themes_app_theme">Uygulama teması</string>
+  <string name="quick_settings_themes_system_theme">Sistem teması</string>
+  <string name="quick_settings_themes_default_theme">Varsayılan</string>
+  <string name="quick_settings_themes_match_system">Sistem temasına çevir</string>
   <!-- Task Manager -->
-  <string name="task_manager_title">Task Manager</string>
-  <string name="message_switch_fail">Cannot switch to this task, because it has no interface.</string>
+  <string name="task_manager_title">Görev Yöneticisi</string>
+  <string name="message_switch_fail">Arayüzü olmadığı için bu göreve geçilemiyor.</string>
   <string name="tasklist_killall">Kill All</string>
   <string name="tasklist_memory_usage">"Free/Total Memory: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
   <string name="message_keep_one_launcher">Should keep at least one home activity!</string>
@@ -125,12 +125,12 @@
   <string name="statusbar_tuner_category_title">Hide items from statusbar</string>
   <!-- Compass QS Tile -->
   <string name="quick_settings_compass">Compass</string>
-  <string name="quick_settings_compass_off">Compass off</string>
-  <string name="quick_settings_compass_init">Initializing\u2026</string>
+  <string name="quick_settings_compass_off">Pusula kapalı</string>
+  <string name="quick_settings_compass_init">Başlatılıyor\u2026</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_navigation_bar">Dolaşım çubuğu</string>
   <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_smartbar_off">SmartBar off</string>
+  <string name="quick_settings_smartbar_off">SmartBar kapalı</string>
   <string name="quick_settings_fling">Fling gesture</string>
   <string name="quick_settings_fling_off">Fling gesture off</string>
   <!-- IME selector Tile -->
@@ -148,12 +148,12 @@
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kafein açık.</string>
   <!-- Volume Panel Tile -->
-  <string name="quick_settings_volume_panel_label">Volume panel</string>
+  <string name="quick_settings_volume_panel_label">Ses paneli</string>
   <!-- Heads up toast -->
-  <string name="heads_up_enabled">Heads up notifications are enabled</string>
-  <string name="heads_up_disabled">Heads up notifications are disabled</string>
+  <string name="heads_up_enabled">Açılır bildirimler etkinleştirildi</string>
+  <string name="heads_up_disabled">Açılır bildirimler devre dışı bırakıldı</string>
 </resources>

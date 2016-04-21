@@ -25,13 +25,13 @@
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Hot reboot</string>
+  <string name="reboot_hot">Snabb omstart</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-  <string name="reboot_bootmenu">Bootmeny</string>
+  <string name="reboot_bootmenu">Bootmenu</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
   <string name="reboot_fastboot">Fastboot</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Nerladdning</string>
+  <string name="reboot_download">Download</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">Startar om</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
@@ -39,7 +39,7 @@
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">Starta om</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Skärmbild</string>
+  <string name="powermenu_screenshot">Skärmavbild</string>
   <!-- Screenrecord -->
   <string name="powermenu_screenrecord">Skärminspelning</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -63,45 +63,45 @@ avgöra vilket tema som du har tillämpat.</string>
   <string name="theme_reset_notification_body">Systemets tema har återställts på grund av ett flertal kraschande appar.</string>
   <!-- AOKP custom system animations -->
   <string name="animation_fade">Tona</string>
-  <string name="animation_slide_right">Glida åt höger</string>
-  <string name="animation_slide_left">Glida åt vänster</string>
-  <string name="animation_slide_right_no_fade">Glida åt höger (Inte tona bort)</string>
-  <string name="animation_slide_left_no_fade">Glida åt vänster (Inte tona bort)</string>
-  <string name="animation_slide_up">Glida in från botten</string>
-  <string name="animation_slide_down">Glida in från toppen</string>
+  <string name="animation_slide_right">Glida in höger</string>
+  <string name="animation_slide_left">Glida in vänster</string>
+  <string name="animation_slide_right_no_fade">Glida in höger (Inte tona ut)</string>
+  <string name="animation_slide_left_no_fade">Glida in vänster (Inte tona ut)</string>
+  <string name="animation_slide_up">Glida in botten</string>
+  <string name="animation_slide_down">Glida in toppen</string>
   <string name="animation_default">Standard</string>
   <string name="animation_translucent">Genomskinlig</string>
   <string name="animation_grow_shrink">Växa i (Toppen)</string>
   <string name="animation_grow_shrink_center">Växa i (Mitten)</string>
   <string name="animation_grow_shrink_bottom">Växa i (Botten)</string>
-  <string name="animation_grow_shrink_left">Grow in (Left)</string>
-  <string name="animation_grow_shrink_right">Grow in (Right)</string>
-  <string name="action_null">Blank</string>
+  <string name="animation_grow_shrink_left">Väx in (Vänster)</string>
+  <string name="animation_grow_shrink_right">Väx in (Höger)</string>
+  <string name="action_null">Tom</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
   <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permlab_setKeyguardWallpaper">ställa in bakgrundsbild på upplåsningsskärmen</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+  <string name="permdesc_setKeyguardWallpaper">Tillåter en app att ändra upplåsningsskärmens bakgrundsbild.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">reset battery statistics</string>
+  <string name="permlab_resetBatteryStats">återställa batteristatus</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
+  <string name="permdesc_resetBatteryStats">Tillåter en app att återställa nuvarande lågnivådata för batterianvändning.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Security</string>
+  <string name="permgrouplab_security">Säkerhet</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permissions related to device security information.</string>
+  <string name="permgroupdesc_security">Tillstånd relaterade till säkerhetsinformation.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">read phone blacklist</string>
+  <string name="permlab_readPhoneBlacklist">läsa svarta listan över telefonnummer</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_readPhoneBlacklist">Tillåter en app att läsa information om telefonnummer som blockeras för inkommande samtal eller meddelanden.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">ändra svarta listan över telefonnummer</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
-  <string name="default_string">Default</string>
+  <string name="permdesc_changePhoneBlacklist">Tillåter en app att ändra de telefonnummer som är blockerade för inkommande samtal eller meddelanden.</string>
+  <string name="default_string">Förvalt</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">Ficklampa</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App killed</string>
+  <string name="app_killed_message">App tvångsavslutad</string>
 </resources>

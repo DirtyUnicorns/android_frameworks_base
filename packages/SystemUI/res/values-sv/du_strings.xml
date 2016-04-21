@@ -109,51 +109,51 @@
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Teman</string>
   <string name="quick_settings_themes_icon_packs">Ikonpaket</string>
-  <string name="quick_settings_themes_app_theme">App theme</string>
-  <string name="quick_settings_themes_system_theme">System theme</string>
-  <string name="quick_settings_themes_default_theme">Default</string>
-  <string name="quick_settings_themes_match_system">Match system theme</string>
+  <string name="quick_settings_themes_app_theme">Apptema</string>
+  <string name="quick_settings_themes_system_theme">Systemtema</string>
+  <string name="quick_settings_themes_default_theme">Standard</string>
+  <string name="quick_settings_themes_match_system">Matcha systemets tema</string>
   <!-- Task Manager -->
-  <string name="task_manager_title">Task Manager</string>
-  <string name="message_switch_fail">Cannot switch to this task, because it has no interface.</string>
-  <string name="tasklist_killall">Kill All</string>
-  <string name="tasklist_memory_usage">"Free/Total Memory: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
-  <string name="message_keep_one_launcher">Should keep at least one home activity!</string>
+  <string name="task_manager_title">Aktivitetshanteraren</string>
+  <string name="message_switch_fail">Kan inte byta till denna uppgiften, eftersom den saknar ett gränssnitt.</string>
+  <string name="tasklist_killall">Avsluta alla</string>
+  <string name="tasklist_memory_usage">"Ledigt/Totalt Minne: <xliff:g id="number">%s </xliff:g> / <xliff:g id="name"> %s </xliff:g>"</string>
+  <string name="message_keep_one_launcher">Bör hålla minst en hem aktivitet!</string>
   <!-- 4G LTE switch -->
-  <string name="show_fourg_title">Show 4G instead of LTE</string>
-  <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G</string>
-  <string name="statusbar_tuner_category_title">Hide items from statusbar</string>
+  <string name="show_fourg_title">Visa 4G i stället för LTE</string>
+  <string name="show_fourg_summary">Ersätter LTE statusbar indikator med 4G</string>
+  <string name="statusbar_tuner_category_title">Dölj objekt från statusbar</string>
   <!-- Compass QS Tile -->
-  <string name="quick_settings_compass">Compass</string>
-  <string name="quick_settings_compass_off">Compass off</string>
-  <string name="quick_settings_compass_init">Initializing\u2026</string>
+  <string name="quick_settings_compass">Kompass</string>
+  <string name="quick_settings_compass_off">Kompass av</string>
+  <string name="quick_settings_compass_init">Initierar\u2026</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_navigation_bar">Navigeringsfält</string>
   <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_smartbar_off">SmartBar off</string>
-  <string name="quick_settings_fling">Fling gesture</string>
-  <string name="quick_settings_fling_off">Fling gesture off</string>
+  <string name="quick_settings_smartbar_off">SmartBar av</string>
+  <string name="quick_settings_fling">Fling gest</string>
+  <string name="quick_settings_fling_off">Fling gest av</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">IME</string>
   <!-- Hotspot airplane mode -->
-  <string name="toast_airplane_mode_hotspot">Disable airplane mode before enabling</string>
+  <string name="toast_airplane_mode_hotspot">Inaktivera flygplansläge innan du aktiverar</string>
   <!-- Statusbar Vibrate silent switch -->
-  <string name="status_bar_vibsil">Vibrate &amp; silent</string>
+  <string name="status_bar_vibsil">Vibrera &amp; tyst</string>
   <!-- headset icon switch -->
-  <string name="status_bar_headset">Wired headset</string>
+  <string name="status_bar_headset">Trådanslutet headset</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- bt only connected switch -->
-  <string name="status_bar_btcon">Bluetooth only when connected</string>
+  <string name="status_bar_btcon">Bluetooth endast vid ansluten</string>
   <!-- Caffeine Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="quick_settings_caffeine_label">Koffein</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
+  <string name="accessibility_quick_settings_caffeine_off">Koffein av.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Koffein på.</string>
   <!-- Volume Panel Tile -->
-  <string name="quick_settings_volume_panel_label">Volume panel</string>
+  <string name="quick_settings_volume_panel_label">Volym panel</string>
   <!-- Heads up toast -->
-  <string name="heads_up_enabled">Heads up notifications are enabled</string>
-  <string name="heads_up_disabled">Heads up notifications are disabled</string>
+  <string name="heads_up_enabled">Heads up-meddelanden är aktiverade</string>
+  <string name="heads_up_disabled">Heads up-meddelanden är inaktiverade</string>
 </resources>

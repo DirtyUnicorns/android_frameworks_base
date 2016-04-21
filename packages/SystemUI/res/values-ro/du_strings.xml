@@ -19,11 +19,11 @@
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d client</item>
-    <item quantity="few">%1$d clients</item>
-    <item quantity="other">%1$d clients</item>
+    <item quantity="few">%1$d clienți</item>
+    <item quantity="other">%1$d clienți</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Flashlight is on</string>
+  <string name="quick_settings_tile_flashlight_not_title">Lanterna este pornită</string>
   <string name="quick_settings_tile_flashlight_not_summary">Tap to turn off</string>
   <!-- Battery Saver Dimss -->
   <string name="battery_saver_dismiss_title">Dismiss</string>

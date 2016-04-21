@@ -16,11 +16,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Action bar title when the app is in standalone (file manager) mode [CHAR LIMIT=32] -->
-  <string name="title_standalone">Files</string>
+  <string name="title_standalone">Fişiere</string>
   <!-- Toast shown after successfully deleting files -->
-  <string name="toast_success_delete">Files deleted</string>
+  <string name="toast_success_delete">Fisiere sterse</string>
   <!-- Title of the Delete confirmation dialog -->
-  <string name="dialog_delete_confirm_title">Delete files?</string>
+  <string name="dialog_delete_confirm_title">Ștergeţi fișierele?</string>
   <!-- Text shown in a toast when the user copies files -->
   <plurals name="files_copied">
     <item quantity="one">The file has been put in the clipboard</item>

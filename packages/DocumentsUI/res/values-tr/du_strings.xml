@@ -16,11 +16,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Action bar title when the app is in standalone (file manager) mode [CHAR LIMIT=32] -->
-  <string name="title_standalone">Files</string>
+  <string name="title_standalone">Dosyalar</string>
   <!-- Toast shown after successfully deleting files -->
-  <string name="toast_success_delete">Files deleted</string>
+  <string name="toast_success_delete">Dosyalar silindi</string>
   <!-- Title of the Delete confirmation dialog -->
-  <string name="dialog_delete_confirm_title">Delete files?</string>
+  <string name="dialog_delete_confirm_title">Dosyalar silinsin mi?</string>
   <!-- Text shown in a toast when the user copies files -->
   <plurals name="files_copied">
     <item quantity="one">The file has been put in the clipboard</item>
@@ -34,9 +34,9 @@
   <!-- Text show in the progress dialog while files are being copied -->
   <string name="copy_in_progress">Copying...</string>
   <!-- Text show in the progress dialog while files are being deleted -->
-  <string name="delete_in_progress">Deleting...</string>
+  <string name="delete_in_progress">Siliniyor...</string>
   <plurals name="dialog_delete_confirm_message">
-    <item quantity="one">This file will be permanently deleted!</item>
-    <item quantity="other">This will permanently delete the %d files selected!</item>
+    <item quantity="one">Bu dosya kalıcı olarak silinecek!</item>
+    <item quantity="other">Bu seçili %d dosyayı kalıcı olarak silecek!</item>
   </plurals>
 </resources>

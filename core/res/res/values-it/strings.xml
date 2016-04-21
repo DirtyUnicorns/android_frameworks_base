@@ -1640,7 +1640,7 @@
   <!-- Menu item displayed at the end of a menu to allow users to see another page worth of menu items. This is shown on any app's menu as long as the app has too many items in the menu.-->
   <string name="more_item_label">Altro</string>
   <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the MENU button together with the shortcut to invoke the item. For example, if the shortcut to open a new tab in browser is MENU and B together, then this would be prepended to the letter "B" -->
-  <string name="prepend_shortcut_label">Menu+</string>
+  <string name="prepend_shortcut_label">Menù+</string>
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+space for the shortcut. -->
   <string name="menu_space_shortcut_label">spazio</string>
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+enter for the shortcut. -->
@@ -2331,9 +2331,9 @@
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">Tethering oppure hotspot attivo</string>
   <string name="tethered_notification_message">Tocca per configurare.</string>
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">Nessun dispositivo collegato</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count"> %1$s </xliff:g> dispositivo collegato</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count"> %1$s </xliff:g> dispositivi collegati</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Indietro</string>
   <string name="next_button_label">Avanti</string>

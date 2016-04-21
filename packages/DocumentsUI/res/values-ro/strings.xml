@@ -16,9 +16,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Title of the documents application [CHAR LIMIT=32] -->
-  <string name="app_label">Documents</string>
+  <string name="app_label">Documente</string>
   <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
-  <string name="title_open">Open from</string>
+  <string name="title_open">Deschide din</string>
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
   <string name="title_save">Save to</string>
   <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
