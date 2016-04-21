@@ -197,10 +197,10 @@ public class ThemeManager {
     }
 
     /**
-     * Unregister a ThemeChangeListener.
-     * @param listener ThemeChangeListener to unregister
+     * Unregister a ThemeProcessingListener.
+     * @param listener ThemeProcessingListener to unregister
      */
-    public void unregisterProcessingListener(ThemeChangeListener listener) {
+    public void unregisterProcessingListener(ThemeProcessingListener listener) {
         synchronized (mProcessingListeners) {
             mProcessingListeners.remove(listener);
             if (mProcessingListeners.size() == 0) {
