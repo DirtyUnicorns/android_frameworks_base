@@ -70,13 +70,13 @@
   <string name="animation_default">Default</string>
   <string name="animation_translucent">Traslucido</string>
   <string name="animation_grow_shrink">Espandi (verso l\'alto)</string>
-  <string name="animation_grow_shrink_center">Espandi (Centro)</string>
+  <string name="animation_grow_shrink_center">Espandi (centro)</string>
   <string name="animation_grow_shrink_bottom">Espandi (verso il basso)</string>
   <string name="animation_grow_shrink_left">Espandi (da sinistra)</string>
   <string name="animation_grow_shrink_right">Espandi (da destra)</string>
   <string name="action_null">Vuoto</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Sembra che la tua vendor image sia obsoleta. Si prega di installare l\'ultima vendor image per il tuo dispositivo.</string>
+  <string name="system_error_vendorprint">Sembra che la vendor image sia obsoleta. Si prega di installare l\'ultima vendor image per il tuo dispositivo.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">imposta lo sfondo della schermata di blocco</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -84,7 +84,7 @@
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_resetBatteryStats">reimposta statistiche batteria</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Permette ad una applicazione di resettare i dati correnti di basso livello della batteria.</string>
+  <string name="permdesc_resetBatteryStats">Permette ad una applicazione di resettare i dati correnti relativi al basso livello della batteria.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_security">Sicurezza</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->

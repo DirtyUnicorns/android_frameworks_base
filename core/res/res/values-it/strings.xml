@@ -88,7 +88,7 @@
   <!-- Displayed when a phone property such as a SIM password was registered. -->
   <string name="serviceRegistered">Registrazione effettuata.</string>
   <!-- Displayed when a phone property such as a SIM password was erased. -->
-  <string name="serviceErased">Eliminazione effettuata.</string>
+  <string name="serviceErased">Eliminazione completata.</string>
   <!-- Displayed when a SIM password was entered incorrectly. -->
   <string name="passwordIncorrect">Password errata.</string>
   <!-- Displayed when a phone feature triggered by an MMI code is complete. -->
