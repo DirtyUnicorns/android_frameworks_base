@@ -37,10 +37,10 @@
     </plurals>
 
     <!-- Text show in the progress dialog while files are being copied -->
-    <string name="copy_in_progress">Copying...</string>
+    <string name="copy_in_progress">Copying\u2026</string>
 
     <!-- Text show in the progress dialog while files are being deleted -->
-    <string name="delete_in_progress">Deleting...</string>
+    <string name="delete_in_progress">Deleting\u2026</string>
 
     <plurals name="dialog_delete_confirm_message">
         <item quantity="one">This file will be permanently deleted!</item>
