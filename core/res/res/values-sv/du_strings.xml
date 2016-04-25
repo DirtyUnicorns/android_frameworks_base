@@ -78,7 +78,7 @@ avgöra vilket tema som du har tillämpat.</string>
   <string name="animation_grow_shrink_right">Väx in (Höger)</string>
   <string name="action_null">Tom</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
+  <string name="system_error_vendorprint">Det verkar som om din vendorfil är utdaterad. Vänligen flasha den senaste vendorfilen för din enhet.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">ställa in bakgrundsbild på upplåsningsskärmen</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

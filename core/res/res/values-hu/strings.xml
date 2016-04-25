@@ -375,7 +375,7 @@
   <string name="reboot_to_reset_title">Gyári adatok visszaállítása</string>
   <string name="reboot_to_reset_message">Újraindítás…</string>
   <!-- Shutdown Progress Dialog. This is shown if the user chooses to power off the phone. -->
-  <string name="shutdown_progress">Leállítás...</string>
+  <string name="shutdown_progress">Leállítás\u2026</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, there will
          be a confirmation dialog.  This is the message. -->
   <string name="shutdown_confirm" product="tablet">A táblagép ki fog kapcsolni.</string>
@@ -1339,7 +1339,7 @@
   <!-- For the unlock screen, When the user enters a sim unlock code, it takes a little while to check
          whether it is valid, and to unlock the sim if it is valid.  we display a
          progress dialog in the meantime.  this is the emssage. -->
-  <string name="lockscreen_sim_unlock_progress_dialog_message">SIM kártya feloldása...</string>
+  <string name="lockscreen_sim_unlock_progress_dialog_message">SIM kártya feloldása\u2026</string>
   <!-- For the unlock screen, Information message shown in dialog when user has too many failed attempts at
          drawing the unlock pattern -->
   <string name="lockscreen_too_many_failed_attempts_dialog_message"><xliff:g id="NUMBER_0">%d</xliff:g> alkalommal rosszul rajzolta le feloldási mintát. \n\nKérjük, <xliff:g id="NUMBER_1">%d</xliff:g> másodperc múlva próbálja újra.</string>
@@ -1401,7 +1401,7 @@
   <!-- Hint displayed on account unlock screen to advise the user on how to recover the account. -->
   <string name="lockscreen_glogin_account_recovery_hint">Elfelejtette a felhasználónevét vagy jelszavát?\nKeresse fel a \"<b>"google.com/accounts/recovery"</b>\" webhelyet.</string>
   <!-- Displayed in a progress dialog while a username and password are being checked. -->
-  <string name="lockscreen_glogin_checking_password">Ellenőrzés...</string>
+  <string name="lockscreen_glogin_checking_password">Ellenőrzés\u2026</string>
   <!-- Displayed on lock screen's left tab - unlock -->
   <string name="lockscreen_unlock_label">Feloldás</string>
   <!-- Displayed on lock screen's right tab - turn sound on -->
@@ -1765,7 +1765,7 @@
   <!-- Item on EditText context menu. This action is used to paste from the clipboard into the eidt field -->
   <string name="paste">Beillesztés</string>
   <!-- Item on EditText context menu. This action is used to replace the current word by other suggested words, suggested by the IME or the spell checker -->
-  <string name="replace">Csere...</string>
+  <string name="replace">Csere\u2026</string>
   <!-- Item on EditText pop-up window. This action is used to delete the text that the user recently added. [CHAR LIMIT=15] -->
   <string name="delete">Törlés</string>
   <!-- Item on EditText context menu. This action is used to copy a URL from the edit field into the clipboard. -->
@@ -1807,7 +1807,7 @@
          (or setIcon(android.R.drawable.ic_dialog_alert) on legacy versions of the platform) -->
   <string name="dialog_alert_title">Figyelem</string>
   <!-- Text shown by list fragment when waiting for data to display. -->
-  <string name="loading">Betöltés...</string>
+  <string name="loading">Betöltés\u2026</string>
   <!-- Default text for a button that can be toggled on and off. -->
   <string name="capital_on">Be</string>
   <!-- Default text for a button that can be toggled on and off. -->
@@ -1890,7 +1890,7 @@
   <!-- Text of the alert that is displayed when an application has violated StrictMode. -->
   <string name="smv_process"><xliff:g id="PROCESS">%1$s</xliff:g> folyamat megsértette az általa kényszerített Szigorú üzemmód irányelvet.</string>
   <!-- [CHAR LIMIT=40] Title of dialog that is shown when performing a system upgrade. -->
-  <string name="android_upgrading_title">Android frissítése folyamatban...</string>
+  <string name="android_upgrading_title">Dirty Unicorns frissítése folyamatban\u2026</string>
   <!-- [CHAR LIMIT=40] Title of dialog that is shown when system is starting. -->
   <string name="android_start_title">Az Android indítása…</string>
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog when doing an fstrim. -->
@@ -2307,7 +2307,7 @@
   <!-- The text of the notification when VPN is active with a session name. -->
   <string name="vpn_text_long">Csatlakozva ide: <xliff:g id="SESSION">%s</xliff:g>. Érintse meg a hálózat kezeléséhez.</string>
   <!-- Notification title when connecting to lockdown VPN. -->
-  <string name="vpn_lockdown_connecting">Csatlakozás a mindig bekapcsolt VPN-hez...</string>
+  <string name="vpn_lockdown_connecting">Csatlakozás a mindig bekapcsolt VPN-hez\u2026</string>
   <!-- Notification title when connected to lockdown VPN. -->
   <string name="vpn_lockdown_connected">Csatlakozva a mindig bekapcsolt VPN-hez</string>
   <!-- Notification title when error connecting to lockdown VPN. -->
@@ -2355,9 +2355,9 @@
   <string name="action_mode_done">Kész</string>
   <!-- Strings for MasterClearReceiver. -->
   <!-- Text for progress dialog while erasing USB storage volume [CHAR LIMIT=NONE] -->
-  <string name="progress_erasing" product="nosdcard">Az USB-tár törlése...</string>
+  <string name="progress_erasing" product="nosdcard">Az USB-tár törlése\u2026</string>
   <!-- Text for progress dialog while erasing SD card [CHAR LIMIT=NONE] -->
-  <string name="progress_erasing" product="default">Az SD-kártya törlése...</string>
+  <string name="progress_erasing" product="default">Az SD-kártya törlése\u2026</string>
   <!-- Text for WebView's text selection Action Mode -->
   <!-- ActionBar action to share the current selection [CHAR LIMIT=10] -->
   <string name="share">Megosztás</string>
@@ -2663,7 +2663,7 @@
   <!-- Message shown when the user needs to confirm the PIN they just entered in the PUK screen -->
   <string name="kg_enter_confirm_pin_hint">Kívánt PIN-kód megerősítése</string>
   <!-- Message shown in dialog while the device is unlocking the SIM card -->
-  <string name="kg_sim_unlock_progress_dialog_message">SIM kártya feloldása...</string>
+  <string name="kg_sim_unlock_progress_dialog_message">SIM kártya feloldása\u2026</string>
   <!-- Message shown when the user enters the wrong PIN code -->
   <string name="kg_password_wrong_pin_code">Helytelen PIN-kód.</string>
   <!-- Message shown when the user enters an invalid SIM pin password in PUK screen -->
@@ -2689,7 +2689,7 @@
   <!-- Hint text shown when user has too many failed password attempts in account unlock screen of keyguard -->
   <string name="kg_login_account_recovery_hint">Elfelejtette a felhasználónevét vagy jelszavát?\nKeresse fel a \"<b>"google.com/accounts/recovery"</b>\" webhelyet.</string>
   <!-- Message shown while device checks username/password in account unlock screen of keyguard -->
-  <string name="kg_login_checking_password">Fiók ellenőrzése...</string>
+  <string name="kg_login_checking_password">Fiók ellenőrzése\u2026</string>
   <!-- Message shown in dialog when max number of attempts are reached for PIN screen of keyguard -->
   <string name="kg_too_many_failed_pin_attempts_dialog_message"><xliff:g id="NUMBER_0">%d</xliff:g> alkalommal helytelenül adta meg PIN kódját. \n\nPróbálja újra <xliff:g id="NUMBER_1">%d</xliff:g> másodperc múlva.</string>
   <!-- Message shown in dialog when max number of attempts are reached for password screen of keyguard -->
@@ -2733,7 +2733,7 @@
   <!-- Text spoken when the current user is switched if accessibility is enabled. [CHAR LIMIT=none] -->
   <string name="user_switched"><xliff:g id="NAME">%1$s</xliff:g> az aktuális felhasználó.</string>
   <!-- Message shown when switching to a user [CHAR LIMIT=none] -->
-  <string name="user_switching_message">Átváltás erre: <xliff:g id="NAME">%1$s</xliff:g>...</string>
+  <string name="user_switching_message">Átváltás erre: <xliff:g id="NAME">%1$s</xliff:g>\u2026</string>
   <!-- Default name of the owner user [CHAR LIMIT=20] -->
   <string name="owner_name" msgid="3879126011135546571">Tulajdonos</string>
   <!-- Error message title [CHAR LIMIT=35] -->
