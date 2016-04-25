@@ -26,4 +26,8 @@
     <item name="qs_tile_four_column_scale" format="float" type="dimen">0.9</item>
     <item name="qs_tile_five_column_scale" format="float" type="dimen">0.85</item>
 
+    <declare-styleable name="BatteryMeterViewDrawable">
+        <attr name="android:gravity"/>
+    </declare-styleable>
+
 </resources>
