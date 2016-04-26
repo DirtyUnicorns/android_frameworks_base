@@ -186,6 +186,7 @@ public class StatusBarIconController implements Tunable {
                 com.android.internal.R.dimen.status_bar_icon_size);
         mIconHPadding = mContext.getResources().getDimensionPixelSize(
                 R.dimen.status_bar_icon_padding);
+        FontSizeUtils.updateFontSize(mCarrier, R.dimen.carrier_label_height);
         FontSizeUtils.updateFontSize(mClock, R.dimen.status_bar_clock_size);
         FontSizeUtils.updateFontSize(mCclock, R.dimen.status_bar_clock_size);
         FontSizeUtils.updateFontSize(mLeftClock, R.dimen.status_bar_clock_size);
