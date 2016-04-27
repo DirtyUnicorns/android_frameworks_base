@@ -456,7 +456,7 @@
   <!-- Label for the Android system components when they are shown to the user. -->
   <string name="android_system_label">Sistema Android</string>
   <!-- Label for the user owner in the intent forwarding app. [CHAR LIMIT=15] -->
-  <string name="user_owner_label">Personal</string>
+  <string name="user_owner_label">Personales</string>
   <!-- Label for a corporate profile in the intent forwarding app. [CHAR LIMIT=15] -->
   <string name="managed_profile_label">Trabajo</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -1517,13 +1517,13 @@
   <string name="autofill_address_name_separator"> </string>
   <!-- Format string for displaying a name. $1 is First Name, $2 is autofill_address_name_separator, $3 is Last Name.
          e.g. (John)( )(Smith) -->
-  <string name="autofill_address_summary_name_format">$1$2$3</string>
+  <string name="autofill_address_summary_name_format">$1$ 2$ 3</string>
   <!-- String used to separate Name and Address Line 1
          e.g. John Smith<separator>123 Main Street [CHAR-LIMIT=NONE]-->
   <string name="autofill_address_summary_separator">, </string>
   <!-- Format string for displaying a name and address summary. $1 is the Full Name, $2 is autofill_address_summary_separator, $3 is the Address
          e.g. (John Smith)(, )(123 Main Street) -->
-  <string name="autofill_address_summary_format">$1$2$3</string>
+  <string name="autofill_address_summary_format">$1$ 2$ 3</string>
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
@@ -1703,7 +1703,7 @@
   <!-- Appened to express the value is this unit of time: plural hours -->
   <string name="hours">horas</string>
   <!-- Appened to express the value is this unit of time: singular minute -->
-  <string name="minute">min</string>
+  <string name="minute">minuto</string>
   <!-- Appened to express the value is this unit of time: plural minutes -->
   <string name="minutes">minutos</string>
   <!-- Appened to express the value is this unit of time. -->
@@ -2332,8 +2332,8 @@
   <string name="tethered_notification_title">Compartir Internet/Zona Wi-Fi activado</string>
   <string name="tethered_notification_message">Toca para configurar</string>
   <string name="tethered_notification_no_device_message">Ningún dispositivo conectado</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count"> %1$s </xliff:g> dispositivo conectado</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> dispositivos conectados</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Atrás</string>
   <string name="next_button_label">Siguiente</string>
@@ -2617,9 +2617,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">Desconectar</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Analizando...</string>
+  <string name="media_route_status_scanning">Scanning\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Conectando...</string>
+  <string name="media_route_status_connecting">Connecting\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">Disponible</string>
   <!-- Status message for remote routes that are not available for connection right now -->
@@ -2753,7 +2753,7 @@
   <!-- ISO (European standard) A3 media (paper) size: 11.69" x 16.54" -->
   <string name="mediasize_iso_a3">ISO A3</string>
   <!-- ISO (European standard) A4 media (paper) size: 8.27" x 11.69" -->
-  <string name="mediasize_iso_a4">ISO A4</string>
+  <string name="mediasize_iso_a4">DIN A4</string>
   <!-- ISO (European standard) A5 media (paper) size: 5.83" x 8.27" -->
   <string name="mediasize_iso_a5">ISO A5</string>
   <!-- ISO (European standard) A6 media (paper) size: 4.13" x 5.83" -->

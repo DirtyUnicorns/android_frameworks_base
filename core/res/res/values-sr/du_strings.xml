@@ -16,49 +16,48 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Button to reboot the phone, within the Phone Options dialog -->
-  <string name="reboot_system" product="tablet">Reboot tablet</string>
-  <string name="reboot_system" product="default">Reboot phone</string>
+  <string name="reboot_system" product="tablet">Рестартуј таблет</string>
+  <string name="reboot_system" product="default">Рестартуј телефон</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Reboot</string>
+  <string name="reboot_reboot">Рестарт</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_recovery">Опоравак</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_bootloader">Боотлоадер</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
   <string name="reboot_hot">Hot reboot</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-  <string name="reboot_bootmenu">Bootmenu</string>
+  <string name="reboot_bootmenu">Мени за покретање</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
-  <string name="reboot_fastboot">Fastboot</string>
+  <string name="reboot_fastboot">Брзо покретање</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download">Preuzimanje</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Rebooting\u2026</string>
+  <string name="reboot_progress">Рестартовање\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm">Your phone will reboot.</string>
+  <string name="reboot_confirm">Tелефон ће се рестартовати.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Reboot</string>
+  <string name="global_action_reboot">Рестарт</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Screenshot</string>
+  <string name="powermenu_screenshot">Снимак екрана</string>
   <!-- Screenrecord -->
-  <string name="powermenu_screenrecord">Screen record</string>
+  <string name="powermenu_screenrecord">Снимање екрана</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessThemeService">access theme service</string>
+  <string name="permlab_accessThemeService">приступај услузи тема</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
+  <string name="permdesc_accessThemeService">Омогућава апликацији да приступи услузи тема. Никада не би требало за нормалне апликације.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readThemes">read your theme info</string>
+  <string name="permlab_readThemes">читај информације о мојој теми</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">Омогућава апликацији да чита твоје теме и одлучује која тема ће бити примењена.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_writeThemes">modify your themes</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
        modify which theme you have applied.</string>
   <!-- Theme installation error notification -->
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
+  <string name="theme_install_error_title">Инсталирање теме није успело</string>
+  <string name="theme_install_error_message">%s инсталирање није успело</string>
   <string name="theme_reset_notification_title">Theme reset</string>
   <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
   <!-- AOKP custom system animations -->

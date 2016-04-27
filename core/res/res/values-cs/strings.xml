@@ -2625,9 +2625,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">Odpojit</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Vyhledávání…</string>
+  <string name="media_route_status_scanning">Scanning\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Připojování…</string>
+  <string name="media_route_status_connecting">Connecting\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">Dostupná</string>
   <!-- Status message for remote routes that are not available for connection right now -->

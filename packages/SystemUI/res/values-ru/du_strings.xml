@@ -109,9 +109,10 @@
   <string name="quick_settings_network_adb_disabled_label">Выключено</string>
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Темы</string>
-  <string name="quick_settings_themes_icon_packs">Наборы значков</string>
-  <string name="quick_settings_themes_app_theme">Тема</string>
-  <string name="quick_settings_themes_system_theme">Системная тема</string>
+  <string name="quick_settings_themes_icon_packs">Apply icon pack</string>
+  <string name="quick_settings_themes_app_theme_with_label">Apply theme to <xliff:g id="application">%1$s</xliff:g></string>
+  <string name="quick_settings_themes_app_theme">Apply theme to app</string>
+  <string name="quick_settings_themes_system_theme">Apply theme</string>
   <string name="quick_settings_themes_default_theme">По умолчанию</string>
   <string name="quick_settings_themes_match_system">Использовать системную тему</string>
   <!-- Task Manager -->

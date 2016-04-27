@@ -109,9 +109,10 @@
   <string name="quick_settings_network_adb_disabled_label">Wyłączone</string>
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Motywy</string>
-  <string name="quick_settings_themes_icon_packs">Zestawy ikon</string>
-  <string name="quick_settings_themes_app_theme">Motyw aplikacji</string>
-  <string name="quick_settings_themes_system_theme">Motyw systemu</string>
+  <string name="quick_settings_themes_icon_packs">Apply icon pack</string>
+  <string name="quick_settings_themes_app_theme_with_label">Apply theme to <xliff:g id="application">%1$s</xliff:g></string>
+  <string name="quick_settings_themes_app_theme">Apply theme to app</string>
+  <string name="quick_settings_themes_system_theme">Apply theme</string>
   <string name="quick_settings_themes_default_theme">Domyślny</string>
   <string name="quick_settings_themes_match_system">Dopasowanie motywu systemowego</string>
   <!-- Task Manager -->

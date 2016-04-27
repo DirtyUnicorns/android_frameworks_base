@@ -109,6 +109,7 @@
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Thèmes</string>
   <string name="quick_settings_themes_icon_packs">Packs d\'icônes</string>
+  <string name="quick_settings_themes_app_theme_with_label">Appliquer le thème à <xliff:g id="application">%1$s</xliff:g></string>
   <string name="quick_settings_themes_app_theme">Thème application</string>
   <string name="quick_settings_themes_system_theme">Thème système</string>
   <string name="quick_settings_themes_default_theme">Par défaut</string>

@@ -20,17 +20,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Suffix added to a number to signify size in bytes. -->
-  <string name="byteShort">B</string>
+  <string name="byteShort">בייט</string>
   <!-- Suffix added to a number to signify size in kilobytes. -->
-  <string name="kilobyteShort">KB</string>
+  <string name="kilobyteShort">ק\"ב</string>
   <!-- Suffix added to a number to signify size in megabytes. -->
-  <string name="megabyteShort">MB</string>
+  <string name="megabyteShort">מ\"ב</string>
   <!-- Suffix added to a number to signify size in gigabytes. -->
-  <string name="gigabyteShort">GB</string>
+  <string name="gigabyteShort">ג\"ב</string>
   <!-- Suffix added to a number to signify size in terabytes. -->
-  <string name="terabyteShort">TB</string>
+  <string name="terabyteShort">ט\"ב</string>
   <!-- Suffix added to a number to signify size in petabytes. -->
-  <string name="petabyteShort">PB</string>
+  <string name="petabyteShort">פ\"ב</string>
   <!-- Format string used to add a suffix like "KB" or "MB" to a number
          to display a size in kilobytes, megabytes, or other size units.
          Some languages (like French) will want to add a space between
@@ -186,7 +186,7 @@
   <!-- Example: Service was enabled for: Voice, FAX -->
   <string name="serviceClassFAX">פקס</string>
   <!-- Example: Service was enabled for: Voice, SMS -->
-  <string name="serviceClassSMS">SMS</string>
+  <string name="serviceClassSMS">הודעה</string>
   <!-- Meaning: asynchronous data.  Example: Service was enabled for: Voice, Async -->
   <string name="serviceClassDataAsync">אסינכרוני</string>
   <!-- Meaning: synchronous data.  Example: Service was enabled for: Voice, Async -->
@@ -442,7 +442,7 @@
   <!-- label for item that launches assist in phone options dialog [CHAR LIMIT=15]-->
   <string name="global_action_assist">סיוע</string>
   <!-- label for item that launches voice assist in phone options dialog [CHAR LIMIT=15]-->
-  <string name="global_action_voice_assist">Voice Assist</string>
+  <string name="global_action_voice_assist">מסייע קולי</string>
   <!-- label for item that locks the phone and enforces that it can't be unlocked without entering a credential. [CHAR LIMIT=15] -->
   <string name="global_action_lockdown">נעל עכשיו</string>
   <!-- Text to use when the number in a notification info is too large
@@ -472,7 +472,7 @@
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_calendar">גישה אל היומן</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_sms">SMS</string>
+  <string name="permgrouplab_sms">הודעה</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_sms">‏שליחה והצגה של הודעות SMS</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -1095,7 +1095,7 @@
     <item>AIM</item>
     <item>Windows Live</item>
     <item>Yahoo</item>
-    <item>Skype</item>
+    <item>סקייפ</item>
     <item>QQ</item>
     <item>Google Talk</item>
     <item>ICQ</item>
@@ -2617,9 +2617,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">התנתק</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">סורק...</string>
+  <string name="media_route_status_scanning">Scanning\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">מתחבר...</string>
+  <string name="media_route_status_connecting">Connecting\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">זמין</string>
   <!-- Status message for remote routes that are not available for connection right now -->

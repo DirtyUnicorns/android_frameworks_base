@@ -1892,7 +1892,7 @@
   <!-- [CHAR LIMIT=40] Title of dialog that is shown when performing a system upgrade. -->
   <string name="android_upgrading_title">Mise à jour de Dirty Unicorns\u2026</string>
   <!-- [CHAR LIMIT=40] Title of dialog that is shown when system is starting. -->
-  <string name="android_start_title">>Démarrage de Dirty Unicorns en cours\u2026</string>
+  <string name="android_start_title">Démarrage de Dirty Unicorns en cours\u2026</string>
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog when doing an fstrim. -->
   <string name="android_upgrading_fstrim">Optimisation du stockage en cours…</string>
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog for each .apk that is optimized. -->
@@ -2619,9 +2619,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">Déconnecter</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Analyse en cours...</string>
+  <string name="media_route_status_scanning">Scanning\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connexion en cours...</string>
+  <string name="media_route_status_connecting">Connecting\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">Disponible</string>
   <!-- Status message for remote routes that are not available for connection right now -->

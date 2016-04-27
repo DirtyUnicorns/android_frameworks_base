@@ -32,9 +32,9 @@
     <item quantity="other">%d archivos han sido pegados. La subida puede realizarse en segundo plano.</item>
   </plurals>
   <!-- Text show in the progress dialog while files are being copied -->
-  <string name="copy_in_progress">Copiando...</string>
+  <string name="copy_in_progress">Copying\u2026</string>
   <!-- Text show in the progress dialog while files are being deleted -->
-  <string name="delete_in_progress">Eliminando...</string>
+  <string name="delete_in_progress">Deleting\u2026</string>
   <plurals name="dialog_delete_confirm_message">
     <item quantity="one">¡Este archivo se eliminará de forma permanente!</item>
     <item quantity="other">¡Esto eliminará permanentemente los %d archivos seleccionados!</item>
