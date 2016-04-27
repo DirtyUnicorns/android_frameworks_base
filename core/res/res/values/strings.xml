@@ -3491,10 +3491,10 @@
     <string name="media_route_controller_disconnect">Disconnect</string>
 
     <!-- Status message for remote routes attempting to scan/determine availability -->
-    <string name="media_route_status_scanning">Scanning...</string>
+    <string name="media_route_status_scanning">Scanning\u2026</string>
 
     <!-- Status message for a remote route attempting to connect -->
-    <string name="media_route_status_connecting">Connecting...</string>
+    <string name="media_route_status_connecting">Connecting\u2026</string>
 
     <!-- Status message for a remote route that is confirmed to be available for connection -->
     <string name="media_route_status_available">Available</string>
