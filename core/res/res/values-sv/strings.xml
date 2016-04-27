@@ -22,7 +22,7 @@
   <!-- Suffix added to a number to signify size in bytes. -->
   <string name="byteShort">B</string>
   <!-- Suffix added to a number to signify size in kilobytes. -->
-  <string name="kilobyteShort">kB</string>
+  <string name="kilobyteShort">KB</string>
   <!-- Suffix added to a number to signify size in megabytes. -->
   <string name="megabyteShort">MB</string>
   <!-- Suffix added to a number to signify size in gigabytes. -->
@@ -35,7 +35,7 @@
          to display a size in kilobytes, megabytes, or other size units.
          Some languages (like French) will want to add a space between
          the placeholders. -->
-  <string name="fileSizeSuffix"><xliff:g id="NUMBER">%1$s</xliff:g> <xliff:g id="UNIT">%2$s</xliff:g></string>
+  <string name="fileSizeSuffix"><xliff:g id="number" example="123">%1$s </xliff:g> <xliff:g id="unit" example="KB">%2$s </xliff:g></string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration in days -->
   <string name="durationDays"><xliff:g id="DAYS">%1$d</xliff:g> dagar</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one day with hours -->
@@ -217,9 +217,9 @@
   <!-- WFC Operator Error Messages showed as alerts -->
   <!-- WFC Operator Error Messages showed as notifications -->
   <!-- Template for showing cellular network operator name while WFC is active -->
-  <string name="wfcSpnFormat">%s</string>
+  <string name="wfcSpnFormat"> %s</string>
   <!-- Template for showing operator name for data connection while WFC is active -->
-  <string name="wfcDataSpnFormat">%s</string>
+  <string name="wfcDataSpnFormat"> %s</string>
   <!-- WFC, summary for Disabled -->
   <string name="wifi_calling_off_summary">Av</string>
   <!-- WFC, summary for Wi-Fi Preferred -->
@@ -253,7 +253,7 @@
   <string name="fcError">Anslutningsproblem eller ogiltig funktionskod.</string>
   <!-- android.net.http Error strings -->
   <!-- Displayed when a web request was successful. -->
-  <string name="httpErrorOk">OK</string>
+  <string name="httpErrorOk">Ok</string>
   <!-- Displayed when a web request failed with a generic network error. -->
   <string name="httpError">Ett nätverksfel uppstod.</string>
   <!-- Displayed when a web request failed because the URL could not be found. -->
@@ -442,7 +442,7 @@
   <!-- label for item that launches assist in phone options dialog [CHAR LIMIT=15]-->
   <string name="global_action_assist">Hjälp</string>
   <!-- label for item that launches voice assist in phone options dialog [CHAR LIMIT=15]-->
-  <string name="global_action_voice_assist">Voice Assist</string>
+  <string name="global_action_voice_assist">Röstassistent</string>
   <!-- label for item that locks the phone and enforces that it can't be unlocked without entering a credential. [CHAR LIMIT=15] -->
   <string name="global_action_lockdown">Lås nu</string>
   <!-- Text to use when the number in a notification info is too large
@@ -1495,7 +1495,7 @@
   <!-- Title for a JavaScript dialog. "The page at <url of current page> says:" -->
   <string name="js_dialog_title">På sidan på <xliff:g id="TITLE">%s</xliff:g> står det:</string>
   <!-- Default title for a javascript dialog -->
-  <string name="js_dialog_title_default">JavaScript</string>
+  <string name="js_dialog_title_default">Javascript</string>
   <!-- Title for the unload javascript dialog -->
   <string name="js_dialog_before_unload_title">Bekräfta navigering</string>
   <!-- Text for the positive button on the unload javascript dialog -->
@@ -1640,7 +1640,7 @@
   <!-- Menu item displayed at the end of a menu to allow users to see another page worth of menu items. This is shown on any app's menu as long as the app has too many items in the menu.-->
   <string name="more_item_label">Mer</string>
   <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the MENU button together with the shortcut to invoke the item. For example, if the shortcut to open a new tab in browser is MENU and B together, then this would be prepended to the letter "B" -->
-  <string name="prepend_shortcut_label">Menu+</string>
+  <string name="prepend_shortcut_label">Meny+</string>
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+space for the shortcut. -->
   <string name="menu_space_shortcut_label">utrymme</string>
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+enter for the shortcut. -->
@@ -1740,7 +1740,7 @@
   <!-- Text for error alert when a video cannot be played. it can be used by any app. -->
   <string name="VideoView_error_text_unknown">Det går inte att spela upp videon.</string>
   <!-- Button to close error alert when a video cannot be played -->
-  <string name="VideoView_error_button">OK</string>
+  <string name="VideoView_error_button">Ok</string>
   <!-- Format indicating a relative expression and time.
          Example: "4 hours ago, 11:00 am" -->
   <string name="relative_time">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -1795,11 +1795,11 @@
          a bad bad notification for itself. -->
   <string name="app_running_notification_text">Tryck om du vill veta mer eller stoppa appen.</string>
   <!-- Preference framework strings. -->
-  <string name="ok">OK</string>
+  <string name="ok">Ok</string>
   <!-- Preference framework strings. -->
   <string name="cancel">Avbryt</string>
   <!-- Preference framework strings. -->
-  <string name="yes">OK</string>
+  <string name="yes">Ok</string>
   <!-- Preference framework strings. -->
   <string name="no">Avbryt</string>
   <!-- This is the generic "attention" string to be used in attention dialogs.  Typically
@@ -1866,7 +1866,7 @@
   <!-- Text of the alert that is displayed when an application is not responding. -->
   <string name="anr_process">Processen <xliff:g id="PROCESS">%1$s</xliff:g> svarar inte.\n\nVill du stänga den?</string>
   <!-- Button allowing the user to close an application that is not responding. This will kill the application. -->
-  <string name="force_close">OK</string>
+  <string name="force_close">Ok</string>
   <!-- Button allowing the user to send a bug report for application which has encountered an error. -->
   <string name="report">Rapportera</string>
   <!-- Button allowing the user to choose to wait for an application that is not responding to become responsive again. -->
@@ -1982,7 +1982,7 @@
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's title. -->
   <string name="network_available_sign_in">Logga in på nätverket</string>
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's message. -->
-  <string name="network_available_sign_in_detailed"><xliff:g id="network_ssid">%1$s</xliff:g></string>
+  <string name="network_available_sign_in_detailed"><xliff:g id="network_ssid">%1$s </xliff:g></string>
   <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's title. -->
   <string name="wifi_no_internet">Wi-Fi-nätverket är inte anslutet till internet</string>
   <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's message. -->
@@ -2118,7 +2118,7 @@
   <!-- USB_STORAGE_ERROR dialog  dialog-->
   <string name="dlg_error_title">USB-åtgärd misslyckades</string>
   <!-- USB_STORAGE_ERROR dialog  ok button-->
-  <string name="dlg_ok">OK</string>
+  <string name="dlg_ok">Ok</string>
   <!-- USB_PREFERENCES: Notification for when the user connected to the charger only.  This is the title -->
   <string name="usb_charging_notification_title">USB för laddning</string>
   <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in MTP mode.  This is the title -->
@@ -2331,9 +2331,9 @@
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">Internetdelning eller surfpunkt aktiverad</string>
   <string name="tethered_notification_message">Tryck om du vill konfigurera.</string>
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">Ingen ansluten enhet</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> ansluten enhet</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> anslutna enheter</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Tillbaka</string>
   <string name="next_button_label">Nästa</string>
@@ -2444,7 +2444,7 @@
   <!-- Description of the Cancel button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_cancel">Avbryt</string>
   <!-- Description of the Delete button in a KeyboardView. [CHAR LIMIT=NONE] -->
-  <string name="keyboardview_keycode_delete">Delete</string>
+  <string name="keyboardview_keycode_delete">Radera</string>
   <!-- Description of the Done button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_done">Klar</string>
   <!-- Description of the Mode change button in a KeyboardView. [CHAR LIMIT=NONE] -->
@@ -2811,9 +2811,9 @@
   <!-- ISO (European standard) C10 media (paper) size: 1.10" x 1.57" -->
   <string name="mediasize_iso_c10">ISO C10</string>
   <!-- North America Letter media (paper) size: 8.5" × 11" (279mm x 216mm) -->
-  <string name="mediasize_na_letter">Letter</string>
+  <string name="mediasize_na_letter">Brev</string>
   <!-- North America Government Letter media (paper) size: 8.0" × 10.5" (203mm x 267mm) -->
-  <string name="mediasize_na_gvrnmt_letter">Government Letter</string>
+  <string name="mediasize_na_gvrnmt_letter">Regeringsbrev</string>
   <!-- North America Legal media (paper) size: 8.5" × 14" (216mm x 356mm) -->
   <string name="mediasize_na_legal">Legal</string>
   <!-- North America Junior Legal media (paper) size: 8.0" × 5.0" (203mm × 127mm) -->
@@ -2823,11 +2823,11 @@
   <!-- North America Tabloid media (paper) size: 11" × 17" (279mm × 432mm) -->
   <string name="mediasize_na_tabloid">Tabloid</string>
   <!-- North America Index Card 3x5 media (paper) size: 3" x 5" (76mm x 127mm) -->
-  <string name="mediasize_na_index_3x5">Index Card 3x5</string>
+  <string name="mediasize_na_index_3x5">Registerkort 3 x 5</string>
   <!-- North America Index Card 4x6 media (paper) size: 4" x 6" (102mm x 152mm) -->
-  <string name="mediasize_na_index_4x6">Index Card 4x6</string>
+  <string name="mediasize_na_index_4x6">Registerkort 4 x 6</string>
   <!-- North America Index Card 5x8 media (paper) size: 5" x 8" (127mm x 203mm) -->
-  <string name="mediasize_na_index_5x8">Index Card 5x8</string>
+  <string name="mediasize_na_index_5x8">Registerkort 5 x 8</string>
   <!-- North America Monarch media (paper) size: 7.25" x 10.5" (184mm x 267mm) -->
   <string name="mediasize_na_monarch">Monarch</string>
   <!-- North America Quarto media (paper) size: 8" x 10" (203mm x 254mm) -->

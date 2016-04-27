@@ -22,16 +22,16 @@
     <item quantity="other">%1$d clients</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Torcia Accesa</string>
+  <string name="quick_settings_tile_flashlight_not_title">Torcia accesa</string>
   <string name="quick_settings_tile_flashlight_not_summary">Tocca per spegnere</string>
   <!-- Battery Saver Dimss -->
-  <string name="battery_saver_dismiss_title">Rimuovi</string>
+  <string name="battery_saver_dismiss_title">Disattiva</string>
   <string name="battery_saver_notification_action_text_short">Spegni</string>
   <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_statusbar_title">Elementi Barra di Stato</string>
   <string name="systemui_tuner_qs_title">Impostazioni rapide</string>
   <!-- Screenshot Delete Toast -->
-  <string name="delete_screenshot_toast">Screenshot Cancellato</string>
+  <string name="delete_screenshot_toast">Screenshot eliminato</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
   <!-- Weather string format in expanded statusbar header -->
   <!-- Strings for lockscreen shortcut hints -->

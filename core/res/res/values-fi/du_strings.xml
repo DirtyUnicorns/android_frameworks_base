@@ -16,92 +16,90 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Button to reboot the phone, within the Phone Options dialog -->
-  <string name="reboot_system" product="tablet">Reboot tablet</string>
-  <string name="reboot_system" product="default">Reboot phone</string>
+  <string name="reboot_system" product="tablet">Käynnistä tablet uudelleen</string>
+  <string name="reboot_system" product="default">Käynnistä puhelin uudelleen</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Reboot</string>
+  <string name="reboot_reboot">Käynnistä uudelleen</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_recovery">Recovery-tila</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_bootloader">Bootloader-tila</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Hot reboot</string>
+  <string name="reboot_hot">Käynnistä uudelleen (soft)</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-  <string name="reboot_bootmenu">Bootmenu</string>
+  <string name="reboot_bootmenu">Käynnistysvalikko</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
-  <string name="reboot_fastboot">Fastboot</string>
+  <string name="reboot_fastboot">Fastboot-tila</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download">Download-tila</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Rebooting\u2026</string>
+  <string name="reboot_progress">Käynnistetään uudelleen\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm">Your phone will reboot.</string>
+  <string name="reboot_confirm">Puhelimesi käynnistyy uudelleen.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Reboot</string>
+  <string name="global_action_reboot">Käynnistä uudelleen</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Screenshot</string>
+  <string name="powermenu_screenshot">Kuvankaappaus</string>
   <!-- Screenrecord -->
-  <string name="powermenu_screenrecord">Screen record</string>
+  <string name="powermenu_screenrecord">Näytön tallennus</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessThemeService">access theme service</string>
+  <string name="permlab_accessThemeService">pääsy teemapalveluun</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
+  <string name="permdesc_accessThemeService">Sallii sovelluksen päästä teemapalveluun. Tavalliset sovellukset eivät koskaan tarvitse tätä.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readThemes">read your theme info</string>
+  <string name="permlab_readThemes">lue teeman tiedot</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">Sallii sovelluksen lukea teemojasi ja tunnistaa käytössä olevan teeman.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permlab_writeThemes">muokkaa teemoja</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">Sallii sovelluksen asettaa uusia teemoja ja muokata käytössä olevaa teemaa.</string>
   <!-- Theme installation error notification -->
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
-  <string name="theme_reset_notification_title">Theme reset</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
+  <string name="theme_install_error_title">Teeman asennus epäonnistui</string>
+  <string name="theme_install_error_message">Teeman \"%s\" asennus epäonnistui</string>
+  <string name="theme_reset_notification_title">Nollaa teema</string>
+  <string name="theme_reset_notification_body">Järjestelmän teema palautettu lukuisten sovellusvirheiden vuoksi.</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Fade</string>
-  <string name="animation_slide_right">Slide in right</string>
-  <string name="animation_slide_left">Slide in left</string>
-  <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
-  <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
-  <string name="animation_slide_up">Slide in bottom</string>
-  <string name="animation_slide_down">Slide in top</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
-  <string name="animation_grow_shrink">Grow in (Top)</string>
-  <string name="animation_grow_shrink_center">Grow in (Center)</string>
-  <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>
-  <string name="animation_grow_shrink_left">Grow in (Left)</string>
-  <string name="animation_grow_shrink_right">Grow in (Right)</string>
-  <string name="action_null">Blank</string>
+  <string name="animation_fade">Häivytys</string>
+  <string name="animation_slide_right">Liu\'uta oikealle</string>
+  <string name="animation_slide_left">Liu\'uta vasemmalle</string>
+  <string name="animation_slide_right_no_fade">Liu\'uta oikealle (Ei häivytystä)</string>
+  <string name="animation_slide_left_no_fade">Liu\'uta vasemmalle (Ei häivytystä)</string>
+  <string name="animation_slide_up">Liu\'uta alhaalta</string>
+  <string name="animation_slide_down">Liu\'uta ylhäältä</string>
+  <string name="animation_default">Oletus</string>
+  <string name="animation_translucent">Läpikuultava</string>
+  <string name="animation_grow_shrink">Suurenna (ylhäältä)</string>
+  <string name="animation_grow_shrink_center">Suurenna (keskeltä)</string>
+  <string name="animation_grow_shrink_bottom">Suurenna (alhaalta)</string>
+  <string name="animation_grow_shrink_left">Suurenna (vasemmalta)</string>
+  <string name="animation_grow_shrink_right">Suurenna (oikealta)</string>
+  <string name="action_null">Tyhjä</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
+  <string name="system_error_vendorprint">Näyttää siltä, että laitteesi vendor image on vanhentunut. Ole hyvä ja asenna viimeisin vendor image laitteellesi.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permlab_setKeyguardWallpaper">aseta lukitusnäytön taustakuva</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+  <string name="permdesc_setKeyguardWallpaper">Antaa sovelluksen vaihtaa lukitusnäytön taustakuvan.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">reset battery statistics</string>
+  <string name="permlab_resetBatteryStats">nollaa akun tilastot</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
+  <string name="permdesc_resetBatteryStats">Sallii sovelluksen nollata nykyiset akun käytön tilastot.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Security</string>
+  <string name="permgrouplab_security">Turvallisuus</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permissions related to device security information.</string>
+  <string name="permgroupdesc_security">Laitteen turvallisuuteen liittyvät oikeudet.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">read phone blacklist</string>
+  <string name="permlab_readPhoneBlacklist">lue puhelimen mustaa listaa</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_readPhoneBlacklist">Sallii sovelluksen lukea tietoja numeroista, joista saapuvat puhelut ja viestit on estetty.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">muokkaa puhelimen mustaa listaa</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
-  <string name="default_string">Default</string>
+  <string name="permdesc_changePhoneBlacklist">Sallii sovelluksen muokata puhelinnumeroita, joista saapuvat puhelut ja viestit on estetty.</string>
+  <string name="default_string">Oletus</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">Taskulamppu</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App killed</string>
+  <string name="app_killed_message">Sovellus tapettu</string>
 </resources>
