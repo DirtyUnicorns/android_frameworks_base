@@ -20,7 +20,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast message when Wi-Fi cannot scan for networks -->
-  <string name="wifi_fail_to_scan">Can\'t scan for networks</string>
+  <string name="wifi_fail_to_scan">Não é possível verificar redes</string>
   <!-- Do not translate.  Concise terminology for wifi with WEP security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA2 security -->
@@ -28,7 +28,7 @@
   <!-- Do not translate.  Concise terminology for wifi with unknown PSK type -->
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Used in Wi-Fi settings dialogs when Wi-Fi does not have any security. -->
-  <string name="wifi_security_none">None</string>
+  <string name="wifi_security_none">Nenhuma</string>
   <!-- Do not translate.  Terminology for wifi with WEP security -->
   <!-- Do not translate.  Terminology for wifi with WPA security -->
   <!-- Do not translate.  Terminology for wifi with WPA2 security -->
@@ -37,108 +37,108 @@
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Do not translate.  Concise terminology for Passpoint network -->
   <!-- Summary for the remembered network. -->
-  <string name="wifi_remembered">Saved</string>
+  <string name="wifi_remembered">Salvo</string>
   <!-- Status for networks disabled for unknown reason -->
-  <string name="wifi_disabled_generic">Disabled</string>
+  <string name="wifi_disabled_generic">Desativado</string>
   <!-- Status for networked disabled from a DNS or DHCP failure -->
-  <string name="wifi_disabled_network_failure">IP Configuration Failure</string>
+  <string name="wifi_disabled_network_failure">Falha de configuração de IP</string>
   <!-- Status for networked disabled from a wifi association failure -->
-  <string name="wifi_disabled_wifi_failure">WiFi Connection Failure</string>
+  <string name="wifi_disabled_wifi_failure">Falha de Conexão Wi-Fi</string>
   <!-- Status for networks disabled from authentication failure (wrong password
          or certificate). -->
-  <string name="wifi_disabled_password_failure">Authentication problem</string>
+  <string name="wifi_disabled_password_failure">Problema de autenticação</string>
   <!-- Summary for the remembered network but currently not in range. -->
-  <string name="wifi_not_in_range">Not in range</string>
+  <string name="wifi_not_in_range">Fora de alcance</string>
   <!-- Summary for the remembered network but no internet connection was detected. -->
-  <string name="wifi_no_internet">No Internet Access Detected, won\'t automatically reconnect.</string>
+  <string name="wifi_no_internet">Sem acesso à Internet detectada, não reconectar automaticamente.</string>
   <!-- Summary for saved networks -->
-  <string name="saved_network">Saved by <xliff:g id="name">%1$s</xliff:g></string>
+  <string name="saved_network">Salvo por <xliff:g id="name">%1$s </xliff:g></string>
   <!-- Status message of Wi-Fi when it is connected by a Wi-Fi assistant application. [CHAR LIMIT=NONE] -->
-  <string name="connected_via_wfa">Connected via Wi\u2011Fi assistant</string>
+  <string name="connected_via_wfa">Conectado via assistente Wi\u2011Fi</string>
   <!-- Status message of Wi-Fi when it is connected by Passpoint configuration. [CHAR LIMIT=NONE] -->
-  <string name="connected_via_passpoint">Connected via %1$s</string>
+  <string name="connected_via_passpoint">Conectado via %1$s</string>
   <!-- Status message of Wi-Fi when network has matching passpoint credentials. [CHAR LIMIT=NONE] -->
-  <string name="available_via_passpoint">Available via %1$s</string>
+  <string name="available_via_passpoint">Disponível via %1$s</string>
   <!-- Package name for Settings app-->
   <!-- Package name for Certinstaller app-->
   <!-- Summary for Connected wifi network without internet -->
-  <string name="wifi_connected_no_internet">Connected, no Internet</string>
+  <string name="wifi_connected_no_internet">Conectado, sem Internet</string>
   <!-- Bluetooth settings.  Message when a device is disconnected -->
-  <string name="bluetooth_disconnected">Disconnected</string>
+  <string name="bluetooth_disconnected">Desconectado</string>
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
-  <string name="bluetooth_disconnecting">Disconnecting\u2026</string>
+  <string name="bluetooth_disconnecting">Desconectando\u2026</string>
   <!-- Bluetooth settings.  Message when connecting to a device -->
-  <string name="bluetooth_connecting">Connecting\u2026</string>
+  <string name="bluetooth_connecting">Conectando\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected">Connected</string>
+  <string name="bluetooth_connected">Conectado</string>
   <!--Bluetooth settings screen, summary text under individual Bluetooth devices when pairing -->
-  <string name="bluetooth_pairing">Pairing\u2026</string>
+  <string name="bluetooth_pairing">Pareando\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for phone audio. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected_no_headset">Connected (no phone)</string>
+  <string name="bluetooth_connected_no_headset">Conectado (sem telefone)</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for media audio. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected_no_a2dp">Connected (no media)</string>
+  <string name="bluetooth_connected_no_a2dp">Conectado (sem mídia)</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for map. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected_no_map">Connected (no message access)</string>
+  <string name="bluetooth_connected_no_map">Conectado (sem acesso a mensagens)</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for phone/media audio. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected_no_headset_no_a2dp">Connected (no phone or media)</string>
+  <string name="bluetooth_connected_no_headset_no_a2dp">Conectado (sem telefone ou mídia)</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the A2DP profile. -->
-  <string name="bluetooth_profile_a2dp">Media audio</string>
+  <string name="bluetooth_profile_a2dp">Áudio da mídia</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the headset or handsfree profile. -->
-  <string name="bluetooth_profile_headset">Phone audio</string>
+  <string name="bluetooth_profile_headset">Áudio do telefone</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
-  <string name="bluetooth_profile_opp">File transfer</string>
+  <string name="bluetooth_profile_opp">Transferência de arquivo</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
-  <string name="bluetooth_profile_hid">Input device</string>
+  <string name="bluetooth_profile_hid">Dispositivo de entrada</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->
-  <string name="bluetooth_profile_pan">Internet access</string>
+  <string name="bluetooth_profile_pan">Acesso à Internet</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PBAP profile. [CHAR LIMIT=40] -->
-  <string name="bluetooth_profile_pbap">Contact sharing</string>
+  <string name="bluetooth_profile_pbap">Compartilhamento de contatos</string>
   <!-- Bluetooth settings. The user-visible summary string that is used whenever referring to the PBAP profile (sharing contacts). [CHAR LIMIT=60] -->
-  <string name="bluetooth_profile_pbap_summary">Use for contact sharing</string>
+  <string name="bluetooth_profile_pbap_summary">Use para compartilhamento de contato</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (sharing this device's Internet connection). [CHAR LIMIT=40] -->
-  <string name="bluetooth_profile_pan_nap">Internet connection sharing</string>
+  <string name="bluetooth_profile_pan_nap">Compartilhamento de conexão à Internet</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the map profile. -->
-  <string name="bluetooth_profile_map">Message Access</string>
+  <string name="bluetooth_profile_map">Acesso a mensagens</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the SAP profile (sharing SIM card). -->
-  <string name="bluetooth_profile_sap">SIM Access</string>
+  <string name="bluetooth_profile_sap">Acesso ao SIM</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference when A2DP is connected. -->
-  <string name="bluetooth_a2dp_profile_summary_connected">Connected to media audio</string>
+  <string name="bluetooth_a2dp_profile_summary_connected">Conectado ao áudio da mídia</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the headset checkbox preference when headset is connected. -->
-  <string name="bluetooth_headset_profile_summary_connected">Connected to phone audio</string>
+  <string name="bluetooth_headset_profile_summary_connected">Conectado ao áudio do telefone</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference when OPP is connected. -->
-  <string name="bluetooth_opp_profile_summary_connected">Connected to file transfer server</string>
+  <string name="bluetooth_opp_profile_summary_connected">Conectado ao servidor de transferência de arquivo</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the map checkbox preference when map is connected. -->
-  <string name="bluetooth_map_profile_summary_connected">Connected to map</string>
+  <string name="bluetooth_map_profile_summary_connected">Conectado ao mapa</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the sap checkbox preference when SAP is connected. -->
-  <string name="bluetooth_sap_profile_summary_connected">Connected to SAP</string>
+  <string name="bluetooth_sap_profile_summary_connected">Conectado ao SAP</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference when OPP is not connected. -->
-  <string name="bluetooth_opp_profile_summary_not_connected">Not connected to file transfer server</string>
+  <string name="bluetooth_opp_profile_summary_not_connected">Não está conectado ao servidor de transferência de arquivo</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the HID checkbox preference when HID is connected. -->
-  <string name="bluetooth_hid_profile_summary_connected">Connected to input device</string>
+  <string name="bluetooth_hid_profile_summary_connected">Conectado ao dispositivo de entrada</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (user role). [CHAR LIMIT=25]-->
-  <string name="bluetooth_pan_user_profile_summary_connected">Connected to device for Internet access</string>
+  <string name="bluetooth_pan_user_profile_summary_connected">Conectado ao dispositivo para acesso à Internet</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (NAP role). [CHAR LIMIT=25]-->
-  <string name="bluetooth_pan_nap_profile_summary_connected">Sharing local Internet connection with device</string>
+  <string name="bluetooth_pan_nap_profile_summary_connected">Compartilhando conexão à Internet local com o dispositivo</string>
   <!-- Bluetooth settings. Connection options screen. The summary
          for the PAN checkbox preference that describes how checking it
          will set the PAN profile as preferred. -->
-  <string name="bluetooth_pan_profile_summary_use_for">Use for Internet access</string>
+  <string name="bluetooth_pan_profile_summary_use_for">Uso para acesso à Internet</string>
   <!-- Bluetooth settings. Connection options screen.  The summary for the map checkbox preference that describes how checking it will set the map profile as preferred. -->
-  <string name="bluetooth_map_profile_summary_use_for">Use for map</string>
+  <string name="bluetooth_map_profile_summary_use_for">Usar para mapa</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the sap checkbox preference that describes how checking it will set the sap profile as preferred. -->
-  <string name="bluetooth_sap_profile_summary_use_for">Use for SIM access</string>
+  <string name="bluetooth_sap_profile_summary_use_for">Usar para acesso SIM</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference that describes how checking it will set the A2DP profile as preferred. -->
-  <string name="bluetooth_a2dp_profile_summary_use_for">Use for media audio</string>
+  <string name="bluetooth_a2dp_profile_summary_use_for">Usar para áudio de mídia</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the headset checkbox preference that describes how checking it will set the headset profile as preferred. -->
-  <string name="bluetooth_headset_profile_summary_use_for">Use for phone audio</string>
+  <string name="bluetooth_headset_profile_summary_use_for">Utilizar para áudio do telefone</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference that describes how checking it will set the OPP profile as preferred. -->
-  <string name="bluetooth_opp_profile_summary_use_for">Use for file transfer</string>
+  <string name="bluetooth_opp_profile_summary_use_for">Utilizar para transferência de arquivos</string>
   <!-- Bluetooth settings. Connection options screen. The summary
          for the HID checkbox preference that describes how checking it
          will set the HID profile as preferred. -->
-  <string name="bluetooth_hid_profile_summary_use_for">Use for input</string>
+  <string name="bluetooth_hid_profile_summary_use_for">Usar para entrada</string>
   <!-- Button text for accepting an incoming pairing request. [CHAR LIMIT=20] -->
-  <string name="bluetooth_pairing_accept">Pair</string>
+  <string name="bluetooth_pairing_accept">Parear</string>
   <!-- Button text for accepting an incoming pairing request in all caps. [CHAR LIMIT=20] -->
   <string name="bluetooth_pairing_accept_all_caps">PAIR</string>
   <!-- Button text for declining an incoming pairing request. [CHAR LIMIT=20] -->

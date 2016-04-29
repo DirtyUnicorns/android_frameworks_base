@@ -21,87 +21,85 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Reporniți</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_recovery">Restabilire</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Hot reboot</string>
+  <string name="reboot_hot">Repornire la Cald</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-  <string name="reboot_bootmenu">Bootmenu</string>
+  <string name="reboot_bootmenu">Meniu de boot</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
-  <string name="reboot_fastboot">Fastboot</string>
+  <string name="reboot_fastboot">Pornire rapida</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download">Descărcați</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Rebooting\u2026</string>
+  <string name="reboot_progress">Repornire\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm">Your phone will reboot.</string>
+  <string name="reboot_confirm">Telefonul dvs. va reporni.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Reboot</string>
+  <string name="global_action_reboot">Reporniți</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Screenshot</string>
+  <string name="powermenu_screenshot">Captură ecran</string>
   <!-- Screenrecord -->
-  <string name="powermenu_screenrecord">Screen record</string>
+  <string name="powermenu_screenrecord">Înregistrare ecran</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessThemeService">access theme service</string>
+  <string name="permlab_accessThemeService">accesare serviciul pentru teme</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
+  <string name="permdesc_accessThemeService">Permite unei aplicații să acceseze serviciul pentru teme. Aplicațiile normale nu au nevoie.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readThemes">read your theme info</string>
+  <string name="permlab_readThemes">citește informații despre temă</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">Permite aplicației să citească temele dumneavoastră și să determine pe care ați aplicat-o.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permlab_writeThemes">modifică teme</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">Permite aplicației să adauge teme noi și să le modifice pe cele aplicate.</string>
   <!-- Theme installation error notification -->
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
-  <string name="theme_reset_notification_title">Theme reset</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
+  <string name="theme_install_error_title">Instalarea temei a eșuat</string>
+  <string name="theme_install_error_message">%s au eșuat să fie instalate</string>
+  <string name="theme_reset_notification_title">Resetare temă</string>
+  <string name="theme_reset_notification_body">Tema de sistem este restaurată datorită unor multiple erori.</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Fade</string>
-  <string name="animation_slide_right">Slide in right</string>
-  <string name="animation_slide_left">Slide in left</string>
-  <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
-  <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
-  <string name="animation_slide_up">Slide in bottom</string>
-  <string name="animation_slide_down">Slide in top</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
-  <string name="animation_grow_shrink">Grow in (Top)</string>
-  <string name="animation_grow_shrink_center">Grow in (Center)</string>
-  <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>
-  <string name="animation_grow_shrink_left">Grow in (Left)</string>
-  <string name="animation_grow_shrink_right">Grow in (Right)</string>
-  <string name="action_null">Blank</string>
+  <string name="animation_fade">Estompare</string>
+  <string name="animation_slide_right">Glisează de la dreapta</string>
+  <string name="animation_slide_left">Glisează de la stânga</string>
+  <string name="animation_slide_right_no_fade">Glisează de la dreapta (Fără diminuare)</string>
+  <string name="animation_slide_left_no_fade">Glisează de la stânga (Fără diminuare)</string>
+  <string name="animation_slide_up">Glisează de jos</string>
+  <string name="animation_slide_down">Glisează de sus</string>
+  <string name="animation_default">Prestabilită</string>
+  <string name="animation_translucent">Translucid</string>
+  <string name="animation_grow_shrink">Crește în (Sus)</string>
+  <string name="animation_grow_shrink_center">Crește în (Centru)</string>
+  <string name="animation_grow_shrink_bottom">Crește în (Jos)</string>
+  <string name="animation_grow_shrink_left">Crește în (Stânga)</string>
+  <string name="animation_grow_shrink_right">Crește în (Dreapta)</string>
+  <string name="action_null">Gol</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
+  <string name="system_error_vendorprint">Varianta nu este de actualitate. Vă rugăm să instalati cea mai recenta varianta pentru aparatul dvs.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permlab_setKeyguardWallpaper">setare fundal pentru ecranul de blocare</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+  <string name="permdesc_setKeyguardWallpaper">Permite unei aplicații să modifice fundalul ecranului de blocare.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">reset battery statistics</string>
+  <string name="permlab_resetBatteryStats">resetează statisticile bateriei</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
+  <string name="permdesc_resetBatteryStats">Permite unei aplicații să reseteze datele de utilizare curente la nivelul de bază al bateriei.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Security</string>
+  <string name="permgrouplab_security">Securitate</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permissions related to device security information.</string>
+  <string name="permgroupdesc_security">Permisiunile legate de informațiile de securitate ale dispozitivului.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">read phone blacklist</string>
+  <string name="permlab_readPhoneBlacklist">citește lista neagră a telefonului</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_readPhoneBlacklist">Permite unei aplicații să citească informații despre numerele de telefon care sunt blocate pentru primirea de apeluri sau de mesaje.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">schimbă lista neagră a telefonului</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
-  <string name="default_string">Default</string>
+  <string name="permdesc_changePhoneBlacklist">Permite unei aplicații să schimbe numere de telefon care sunt blocate pentru primirea de apeluri sau mesaje.</string>
+  <string name="default_string">În mod implicit</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">Lanternă</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App killed</string>
+  <string name="app_killed_message">Aplicație oprită</string>
 </resources>

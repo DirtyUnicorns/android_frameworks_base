@@ -107,10 +107,10 @@
   <string name="quick_settings_network_adb_disabled_label">已禁用</string>
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">主题</string>
-  <string name="quick_settings_themes_icon_packs">Apply icon pack</string>
-  <string name="quick_settings_themes_app_theme_with_label">Apply theme to <xliff:g id="application">%1$s</xliff:g></string>
-  <string name="quick_settings_themes_app_theme">Apply theme to app</string>
-  <string name="quick_settings_themes_system_theme">Apply theme</string>
+  <string name="quick_settings_themes_icon_packs">应用图标包</string>
+  <string name="quick_settings_themes_app_theme_with_label">将主题应用于 <xliff:g id="application">%1$s</xliff:g></string>
+  <string name="quick_settings_themes_app_theme">将主题应用到应用程序</string>
+  <string name="quick_settings_themes_system_theme">应用主题</string>
   <string name="quick_settings_themes_default_theme">默认</string>
   <string name="quick_settings_themes_match_system">匹配系统主题</string>
   <!-- Task Manager -->

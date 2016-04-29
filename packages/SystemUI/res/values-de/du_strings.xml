@@ -108,10 +108,10 @@
   <string name="quick_settings_network_adb_disabled_label">Deaktiviert</string>
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Designs</string>
-  <string name="quick_settings_themes_icon_packs">Apply icon pack</string>
-  <string name="quick_settings_themes_app_theme_with_label">Apply theme to <xliff:g id="application">%1$s</xliff:g></string>
-  <string name="quick_settings_themes_app_theme">Apply theme to app</string>
-  <string name="quick_settings_themes_system_theme">Apply theme</string>
+  <string name="quick_settings_themes_icon_packs">Symbol-Paket anwenden</string>
+  <string name="quick_settings_themes_app_theme_with_label">Design anwenden für <xliff:g id="application">%1$s</xliff:g></string>
+  <string name="quick_settings_themes_app_theme">Design für App anwenden</string>
+  <string name="quick_settings_themes_system_theme">Design anwenden</string>
   <string name="quick_settings_themes_default_theme">Standard</string>
   <string name="quick_settings_themes_match_system">System-Design anpassen</string>
   <!-- Task Manager -->
