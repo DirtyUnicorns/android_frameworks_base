@@ -4625,12 +4625,6 @@ public final class Settings {
         public static final String RECENT_CARD_TEXT_COLOR = "recent_card_text_color";
 
         /**
-         * show bluetooth icon only when connected
-         * @hide
-         */
-        public static final String SHOW_BLUETOOTH_ICON = "show_bluetooth_icon";
-
-        /**
          * Whether the phone ringtone should be played in an increasing manner
          * @hide
          */

@@ -45,10 +45,8 @@ public class TunerFragment extends PreferenceFragment {
     public static final String TAG = "TunerFragment";
 
     private static final String SHOW_FOURG = "show_fourg";
-    private static final String SHOW_BLUETOOTH_ICON = "show_bluetooth_icon";
 
     private SwitchPreference mShowFourG;
-    private SwitchPreference mShowBtConnected;
 
     private final SettingObserver mSettingObserver = new SettingObserver();
 
@@ -70,10 +68,6 @@ public class TunerFragment extends PreferenceFragment {
         mShowFourG.setChecked((Settings.System.getInt(resolver,
                 Settings.System.SHOW_FOURG, 0) == 1));
         }
-
-        mShowBtConnected = (SwitchPreference) findPreference(SHOW_BLUETOOTH_ICON);
-        mShowBtConnected.setChecked((Settings.System.getInt(resolver,
-                Settings.System.SHOW_BLUETOOTH_ICON, 0) == 1));
     }
 
     @Override
@@ -145,11 +139,6 @@ public class TunerFragment extends PreferenceFragment {
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_FOURG, checked ? 1:0);
-            return true;
-        } else if  (preference == mShowBtConnected) {
-            boolean checked = ((SwitchPreference)preference).isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.SHOW_BLUETOOTH_ICON, checked ? 1:0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
