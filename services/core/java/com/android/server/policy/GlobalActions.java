@@ -230,6 +230,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         }
 
         mDialog.getWindow().setAttributes(attrs);
+        mDialog.getWindow().setDimAmount(setPowerRebootDialogDim());
         mDialog.show();
         mDialog.getWindow().getDecorView().setSystemUiVisibility(View.STATUS_BAR_DISABLE_EXPAND);
     }
@@ -237,6 +238,14 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private int getPowermenuAnimations() {
         return Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.POWER_MENU_ANIMATIONS, 0);
+    }
+
+    private float setPowerRebootDialogDim() {
+        int mPowerRebootDialogDim = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.POWER_REBOOT_DIALOG_DIM, 50);
+        double dDim = mPowerRebootDialogDim / 100.0;
+        float dim = (float) dDim;
+        return dim;
     }
 
     private Context getUiContext() {
