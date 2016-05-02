@@ -140,55 +140,55 @@
   <!-- Button text for accepting an incoming pairing request. [CHAR LIMIT=20] -->
   <string name="bluetooth_pairing_accept">Parear</string>
   <!-- Button text for accepting an incoming pairing request in all caps. [CHAR LIMIT=20] -->
-  <string name="bluetooth_pairing_accept_all_caps">PAIR</string>
+  <string name="bluetooth_pairing_accept_all_caps">PAREAR</string>
   <!-- Button text for declining an incoming pairing request. [CHAR LIMIT=20] -->
-  <string name="bluetooth_pairing_decline">Cancel</string>
+  <string name="bluetooth_pairing_decline">Cancelar</string>
   <!-- Message in pairing dialogs.  [CHAR LIMIT=NONE] -->
-  <string name="bluetooth_pairing_will_share_phonebook">Pairing grants access to your contacts and call history when connected.</string>
+  <string name="bluetooth_pairing_will_share_phonebook">O pareamento dá acesso a seus contatos e ao histórico de chamadas quando estiver conectado.</string>
   <!-- Message for the error dialog when BT pairing fails generically. -->
-  <string name="bluetooth_pairing_error_message">Couldn\'t pair with <xliff:g id="device_name">%1$s</xliff:g>.</string>
+  <string name="bluetooth_pairing_error_message">Não pareado com <xliff:g id="device_name">%1$s</xliff:g>.</string>
   <!-- Message for the error dialog when BT pairing fails because the PIN /
     Passkey entered is incorrect. -->
-  <string name="bluetooth_pairing_pin_error_message">Couldn\'t pair with <xliff:g id="device_name">%1$s</xliff:g> because of an incorrect PIN or passkey.</string>
+  <string name="bluetooth_pairing_pin_error_message">Não pareado com <xliff:g id="device_name">%1$s</xliff:g> por que o PIN ou a senha está incorreta.</string>
   <!-- Message for the error dialog when BT pairing fails because the other device is down. -->
-  <string name="bluetooth_pairing_device_down_error_message">Can\'t communicate with <xliff:g id="device_name">%1$s</xliff:g>.</string>
+  <string name="bluetooth_pairing_device_down_error_message">Sem comunicação com <xliff:g id="device_name">%1$s</xliff:g>.</string>
   <!-- Message for the error dialog when BT pairing fails because the other device rejected the pairing. -->
-  <string name="bluetooth_pairing_rejected_error_message">Pairing rejected by <xliff:g id="device_name">%1$s</xliff:g>.</string>
+  <string name="bluetooth_pairing_rejected_error_message">Pareamento rejeitado por <xliff:g id="device_name">%1$s</xliff:g>.</string>
   <!-- Content description of the WIFI signal when WIFI is disabled for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_off">Wifi off.</string>
+  <string name="accessibility_wifi_off">Wi-Fi desligado.</string>
   <!-- Content description of the WIFI signal when no signal for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_no_wifi">Wifi disconnected.</string>
+  <string name="accessibility_no_wifi">Wi-Fi desconectado.</string>
   <!-- Content description of the WIFI signal when it is one bar for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_one_bar">Wifi one bar.</string>
+  <string name="accessibility_wifi_one_bar">Wi-Fi uma barra.</string>
   <!-- Content description of the WIFI signal when it is two bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_two_bars">Wifi two bars.</string>
+  <string name="accessibility_wifi_two_bars">Wi-Fi duas barras.</string>
   <!-- Content description of the WIFI signal when it is three bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_three_bars">Wifi three bars.</string>
+  <string name="accessibility_wifi_three_bars">Wi-Fi três barras.</string>
   <!-- Content description of the WIFI signal when it is full for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_signal_full">Wifi signal full.</string>
+  <string name="accessibility_wifi_signal_full">Sinal de WiFi completo.</string>
   <!-- Label for kernel threads in battery usage -->
-  <string name="process_kernel_label">Android OS</string>
+  <string name="process_kernel_label">Sistema operacional Android</string>
   <!-- Title of data usage item that represents all uninstalled applications. [CHAR LIMIT=48] -->
-  <string name="data_usage_uninstalled_apps">Removed apps</string>
+  <string name="data_usage_uninstalled_apps">Apps removidos</string>
   <!-- Title of data usage item that represents all uninstalled applications or removed users. [CHAR LIMIT=48] -->
-  <string name="data_usage_uninstalled_apps_users">Removed apps and users</string>
+  <string name="data_usage_uninstalled_apps_users">Apps e usuários removidos</string>
   <!-- Tethering controls, item title to go into the tethering settings -->
   <!-- Tethering controls, item title to go into the tethering settings when only USB tethering is available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_usb">USB tethering</string>
+  <string name="tether_settings_title_usb">Tethering USB</string>
   <!-- Tethering controls, item title to go into the tethering settings when only Wifi tethering is available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_wifi">Portable hotspot</string>
+  <string name="tether_settings_title_wifi">Ponto de acesso portátil</string>
   <!-- Tethering controls, item title to go into the tethering settings when only Bluetooth tethering is available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_bluetooth">Bluetooth tethering</string>
+  <string name="tether_settings_title_bluetooth">Tethering Bluetooth</string>
   <!-- Tethering controls, item title to go into the tethering settings when USB and Bluetooth tethering are available [CHAR LIMIT=25]-->
   <string name="tether_settings_title_usb_bluetooth">Tethering</string>
   <!-- Tethering controls, item title to go into the tethering settings when USB, Bluetooth and Wifi tethering are available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_all">Tethering &amp; portable hotspot</string>
+  <string name="tether_settings_title_all">Tethering &amp; acesso portátil</string>
   <!-- Title for a work profile. [CHAR LIMIT=25] -->
-  <string name="managed_user_title">Work profile</string>
+  <string name="managed_user_title">Perfil de trabalho</string>
   <!-- Title for Guest user [CHAR LIMIT=35] -->
-  <string name="user_guest">Guest</string>
+  <string name="user_guest">Convidado</string>
   <!-- Manage apps, individual app screen, substituted for the application's label when the app's label CAN NOT be determined.-->
-  <string name="unknown">Unknown</string>
+  <string name="unknown">Desconhecido</string>
   <!-- [CHAR LIMIT=NONE] Label of a running process that represents another user -->
-  <string name="running_process_item_user_label">User: <xliff:g id="user_name">%1$s</xliff:g></string>
+  <string name="running_process_item_user_label">Usuário: <xliff:g id="User_NAME">%1$s</xliff:g></string>
 </resources>
