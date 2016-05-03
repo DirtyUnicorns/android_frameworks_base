@@ -281,6 +281,7 @@ public final class ShutdownThread extends Thread {
                 attrs.gravity = Gravity.TOP|Gravity.CENTER_HORIZONTAL;
             }
 
+            sConfirmDialog.getWindow().setDimAmount(setPowerRebootDialogDim(context));
             sConfirmDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
             sConfirmDialog.show();
 
@@ -318,6 +319,14 @@ public final class ShutdownThread extends Thread {
         public void onDismiss(DialogInterface unused) {
             mContext.unregisterReceiver(this);
         }
+    }
+
+    private static float setPowerRebootDialogDim(Context context) {
+        int mPowerRebootDialogDim = Settings.System.getInt(context.getContentResolver(),
+                Settings.System.POWER_REBOOT_DIALOG_DIM, 50);
+        double dDim = mPowerRebootDialogDim / 100.0;
+        float dim = (float) dDim;
+        return dim;
     }
 
     /**
@@ -428,6 +437,7 @@ public final class ShutdownThread extends Thread {
             attrs.gravity = Gravity.TOP|Gravity.CENTER_HORIZONTAL;
         }
 
+        pd.getWindow().setDimAmount(setPowerRebootDialogDim(context));
         pd.show();
 
         sInstance.mProgressDialog = pd;
