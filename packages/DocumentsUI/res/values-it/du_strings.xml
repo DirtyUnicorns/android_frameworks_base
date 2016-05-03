@@ -32,9 +32,9 @@
     <item quantity="other">%d I files sono stati incollati. L\'upload potrebbe terminare in background.</item>
   </plurals>
   <!-- Text show in the progress dialog while files are being copied -->
-  <string name="copy_in_progress">Copying\u2026</string>
+  <string name="copy_in_progress">Copiando\u2026</string>
   <!-- Text show in the progress dialog while files are being deleted -->
-  <string name="delete_in_progress">Deleting\u2026</string>
+  <string name="delete_in_progress">Cancellando\u2026</string>
   <plurals name="dialog_delete_confirm_message">
     <item quantity="one">Questo file verrà eliminato definitivamente!</item>
     <item quantity="other">Questo eliminerà i %d file selezionati!</item>

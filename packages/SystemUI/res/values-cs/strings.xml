@@ -156,7 +156,7 @@
   <!-- Content description of the home button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_home">Domů</string>
   <!-- Content description of the menu button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_menu">Menu</string>
+  <string name="accessibility_menu">Nabídka</string>
   <!-- Content description of the recents button for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_recent">Přehled</string>
   <!-- Content description of the search button for accessibility. [CHAR LIMIT=NONE] -->
@@ -469,7 +469,7 @@
   <!-- Name of the launcher shortcut icon that allows dreams to be started immediately [CHAR LIMIT=20] -->
   <string name="start_dreams">Spořič obrazovky</string>
   <!-- Textual description of Ethernet connections -->
-  <string name="ethernet_label">Ethernet</string>
+  <string name="ethernet_label">Síť Ethernet</string>
   <!-- QuickSettings: Do not disturb [CHAR LIMIT=NONE] -->
   <string name="quick_settings_dnd_label">Nerušit</string>
   <!-- QuickSettings: Do not disturb - Priority only [CHAR LIMIT=NONE] -->
@@ -742,7 +742,7 @@
   <!-- Monitoring dialog VPN with profile owner text [CHAR LIMIT=400] -->
   <string name="monitoring_description_vpn_profile_owned">Váš pracovní profil spravuje organizace <xliff:g id="ORGANIZATION">%1$s</xliff:g>.\n\nAdministrátor může monitorovat vaši síťovou aktivitu, včetně e-mailů, aplikací a webů.\n\nO další informace požádejte svého administrátora.\n\nJste také připojeni k síti VPN, která může sledovat vaši aktivitu v síti.</string>
   <!-- Name for a generic legacy VPN connection [CHAR LIMIT=20] -->
-  <string name="legacy_vpn_name">VPN</string>
+  <string name="legacy_vpn_name">Síť VPN</string>
   <!-- Monitoring dialog text for single app (no profile or device owner) [CHAR LIMIT=400] -->
   <string name="monitoring_description_app">Jste připojeni k aplikaci <xliff:g id="APPLICATION">%1$s</xliff:g>, která může sledovat vaši aktivitu v síti, včetně e-mailů, aplikací a webů.</string>
   <!-- Monitoring dialog text for single app (inside personal profile) [CHAR LIMIT=400] -->
@@ -810,7 +810,7 @@
   <!-- Name of status bar -->
   <string name="status_bar">Stavový řádek</string>
   <!-- Name of the ethernet status bar icon. -->
-  <string name="status_bar_ethernet">Ethernet</string>
+  <string name="status_bar_ethernet">Síť Ethernet</string>
   <!-- Name of the alarm status bar icon. -->
   <string name="status_bar_alarm">Budík</string>
   <!-- Name of the work status bar icon. -->
