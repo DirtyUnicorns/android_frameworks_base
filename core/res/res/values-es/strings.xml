@@ -2617,9 +2617,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">Desconectar</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">Escaneando</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">Conectando</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">Disponible</string>
   <!-- Status message for remote routes that are not available for connection right now -->
@@ -2823,13 +2823,13 @@
   <!-- North America Tabloid media (paper) size: 11" × 17" (279mm × 432mm) -->
   <string name="mediasize_na_tabloid">Tabloide</string>
   <!-- North America Index Card 3x5 media (paper) size: 3" x 5" (76mm x 127mm) -->
-  <string name="mediasize_na_index_3x5">Index Card 3x5</string>
+  <string name="mediasize_na_index_3x5">Indice 3x5</string>
   <!-- North America Index Card 4x6 media (paper) size: 4" x 6" (102mm x 152mm) -->
-  <string name="mediasize_na_index_4x6">Index Card 4x6</string>
+  <string name="mediasize_na_index_4x6">Indice 4x6</string>
   <!-- North America Index Card 5x8 media (paper) size: 5" x 8" (127mm x 203mm) -->
-  <string name="mediasize_na_index_5x8">Index Card 5x8</string>
+  <string name="mediasize_na_index_5x8">Indice 5x8</string>
   <!-- North America Monarch media (paper) size: 7.25" x 10.5" (184mm x 267mm) -->
-  <string name="mediasize_na_monarch">Monarch</string>
+  <string name="mediasize_na_monarch">Monarca</string>
   <!-- North America Quarto media (paper) size: 8" x 10" (203mm x 254mm) -->
   <string name="mediasize_na_quarto">Quarto</string>
   <!-- North America Foolscap media (paper) size: 8" x 13" (203mm x 330mm) -->

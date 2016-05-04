@@ -144,8 +144,6 @@
   <string name="status_bar_headset">Fone de ouvido com fio</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
-  <!-- bt only connected switch -->
-  <string name="status_bar_btcon">Bluetooth só quando conectado</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->

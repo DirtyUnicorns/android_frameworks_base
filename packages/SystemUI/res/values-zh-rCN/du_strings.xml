@@ -143,8 +143,6 @@
   <string name="status_bar_headset">有线耳机</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
-  <!-- bt only connected switch -->
-  <string name="status_bar_btcon">仅在连接时显示蓝牙图标</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">咖啡因</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
