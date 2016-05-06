@@ -84,7 +84,7 @@
   <!-- Abbreviation / label for mute brightness mode button. Should be all caps. [CHAR LIMIT=6] -->
   <string name="status_bar_settings_mute_label">SILENC</string>
   <!-- Abbreviation / label for automatic brightness mode button. Should be all caps. [CHAR LIMIT=6] -->
-  <string name="status_bar_settings_auto_brightness_label">AUTO</string>
+  <string name="status_bar_settings_auto_brightness_label">Automático</string>
   <!-- Label in system panel saying the device will show notifications [CHAR LIMIT=30] -->
   <string name="status_bar_settings_notifications">Notificaciones</string>
   <!-- Separator for PLMN and SPN in network name. -->
@@ -540,7 +540,7 @@
   <!-- QuickSettings: Brightness dialog title [CHAR LIMIT=NONE] -->
   <string name="quick_settings_brightness_dialog_title">Brillo</string>
   <!-- QuickSettings: Brightness dialog auto brightness button [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_brightness_dialog_auto_brightness_label">AUTO</string>
+  <string name="quick_settings_brightness_dialog_auto_brightness_label">Automático</string>
   <!-- QuickSettings: Label for the toggle that controls whether display inversion is enabled. [CHAR LIMIT=NONE] -->
   <string name="quick_settings_inversion_label">Invertir colores</string>
   <!-- QuickSettings: Label for the toggle that controls whether display color correction is enabled. [CHAR LIMIT=NONE] -->

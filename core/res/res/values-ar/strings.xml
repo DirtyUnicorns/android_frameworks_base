@@ -454,7 +454,7 @@
          values/config.xml) and must be truncated. May need to be localized
          for most appropriate textual indicator of "more than X".
          [CHAR LIMIT=4] -->
-  <string name="status_bar_notification_info_overflow">999+</string>
+  <string name="status_bar_notification_info_overflow">+999</string>
   <!-- Displayed to the user to tell them that they have started up the phone in "safe mode" -->
   <string name="safeMode">الوضع الآمن</string>
   <!-- Label for the Android system components when they are shown to the user. -->
@@ -476,7 +476,7 @@
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_calendar">الوصول تقويمك</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_sms">SMS</string>
+  <string name="permgrouplab_sms">الرسائل القصيرة</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgroupdesc_sms">‏إرسال رسائل قصيرة SMS وعرضها</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -2359,9 +2359,9 @@
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">النطاق أو نقطة الاتصال نشطة</string>
   <string name="tethered_notification_message">المس للإعداد.</string>
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">لا يوجد جهاز متصل</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g>جهاز متصل</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g>أجهزة متصلة</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">رجوع</string>
   <string name="next_button_label">التالي</string>
@@ -2649,9 +2649,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">قطع الاتصال</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">جار الفحص\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">جار الإتصال</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">متاح</string>
   <!-- Status message for remote routes that are not available for connection right now -->

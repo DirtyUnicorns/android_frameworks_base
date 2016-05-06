@@ -20,7 +20,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Suffix added to a number to signify size in bytes. -->
-  <string name="byteShort">בייט</string>
+  <string name="byteShort">מ</string>
   <!-- Suffix added to a number to signify size in kilobytes. -->
   <string name="kilobyteShort">ק\"ב</string>
   <!-- Suffix added to a number to signify size in megabytes. -->
@@ -1186,7 +1186,7 @@
   <!-- Yahoo IM protocol type -->
   <string name="imProtocolYahoo">Yahoo</string>
   <!-- Skype IM protocol type -->
-  <string name="imProtocolSkype">Skype</string>
+  <string name="imProtocolSkype">סקייפ</string>
   <!-- QQ IM protocol type -->
   <string name="imProtocolQq">QQ</string>
   <!-- Google Talk IM protocol type -->
@@ -1982,7 +1982,7 @@
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's title. -->
   <string name="network_available_sign_in">היכנס לרשת</string>
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's message. -->
-  <string name="network_available_sign_in_detailed"><xliff:g id="network_ssid">%1$s</xliff:g></string>
+  <string name="network_available_sign_in_detailed"><xliff:g id="process">%1$s</xliff:g></string>
   <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's title. -->
   <string name="wifi_no_internet">‏אין ל-Wi-Fi גישה לאינטרנט</string>
   <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's message. -->
@@ -2331,9 +2331,9 @@
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">שיתוף אינטרנט פעיל</string>
   <string name="tethered_notification_message">גע כדי להגדיר.</string>
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">אין מכשיר מחובר</string>
+  <string name="tethered_notification_one_device_message">מכשיר <xliff:g id="count">%1$s</xliff:g> מחובר</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> מכשירים מחוברים</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">הקודם</string>
   <string name="next_button_label">הבא</string>
@@ -2452,7 +2452,7 @@
   <!-- Description of the Shift button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_shift">Shift</string>
   <!-- Description of the Enter button in a KeyboardView. [CHAR LIMIT=NONE] -->
-  <string name="keyboardview_keycode_enter">Enter</string>
+  <string name="keyboardview_keycode_enter">אנטר</string>
   <!-- ActivityChooserView - accessibility support -->
   <!-- Description of the shwoing of a popup window with activities to choose from. [CHAR LIMIT=NONE] -->
   <string name="activitychooserview_choose_application">בחר אפליקציה</string>
@@ -2617,9 +2617,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">התנתק</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">סורק</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">מתחבר\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">זמין</string>
   <!-- Status message for remote routes that are not available for connection right now -->
@@ -2813,15 +2813,15 @@
   <!-- North America Letter media (paper) size: 8.5" × 11" (279mm x 216mm) -->
   <string name="mediasize_na_letter">Letter</string>
   <!-- North America Government Letter media (paper) size: 8.0" × 10.5" (203mm x 267mm) -->
-  <string name="mediasize_na_gvrnmt_letter">Government Letter</string>
+  <string name="mediasize_na_gvrnmt_letter">הממשלה מכתב</string>
   <!-- North America Legal media (paper) size: 8.5" × 14" (216mm x 356mm) -->
-  <string name="mediasize_na_legal">Legal</string>
+  <string name="mediasize_na_legal">משפטי</string>
   <!-- North America Junior Legal media (paper) size: 8.0" × 5.0" (203mm × 127mm) -->
-  <string name="mediasize_na_junior_legal">Junior Legal</string>
+  <string name="mediasize_na_junior_legal">משפטי זוטר</string>
   <!-- North America Ledger media (paper) size: 17" × 11" (432mm × 279mm) -->
-  <string name="mediasize_na_ledger">Ledger</string>
+  <string name="mediasize_na_ledger">ספר ראשי</string>
   <!-- North America Tabloid media (paper) size: 11" × 17" (279mm × 432mm) -->
-  <string name="mediasize_na_tabloid">Tabloid</string>
+  <string name="mediasize_na_tabloid">צהובון</string>
   <!-- North America Index Card 3x5 media (paper) size: 3" x 5" (76mm x 127mm) -->
   <string name="mediasize_na_index_3x5">‏כרטיס אינדקס 3x5</string>
   <!-- North America Index Card 4x6 media (paper) size: 4" x 6" (102mm x 152mm) -->
@@ -2829,7 +2829,7 @@
   <!-- North America Index Card 5x8 media (paper) size: 5" x 8" (127mm x 203mm) -->
   <string name="mediasize_na_index_5x8">‏כרטיס אינדקס 5x8</string>
   <!-- North America Monarch media (paper) size: 7.25" x 10.5" (184mm x 267mm) -->
-  <string name="mediasize_na_monarch">Monarch</string>
+  <string name="mediasize_na_monarch">מונרך</string>
   <!-- North America Quarto media (paper) size: 8" x 10" (203mm x 254mm) -->
   <string name="mediasize_na_quarto">Quarto</string>
   <!-- North America Foolscap media (paper) size: 8" x 13" (203mm x 330mm) -->
@@ -3095,7 +3095,7 @@
   <!-- User visible name for USB MIDI Peripheral port -->
   <string name="usb_midi_peripheral_name">‏יציאת USB בציוד היקפי של Android</string>
   <!-- Manufacturer name for USB MIDI Peripheral port -->
-  <string name="usb_midi_peripheral_manufacturer_name">Android</string>
+  <string name="usb_midi_peripheral_manufacturer_name">אנדרואיד</string>
   <!-- Product name for USB MIDI Peripheral port -->
   <string name="usb_midi_peripheral_product_name">‏יציאת USB בציוד היקפי</string>
   <!-- Floating toolbar strings -->

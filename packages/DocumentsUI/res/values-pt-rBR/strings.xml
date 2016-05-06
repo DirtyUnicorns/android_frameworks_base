@@ -18,105 +18,105 @@
   <!-- Title of the documents application [CHAR LIMIT=32] -->
   <string name="app_label">Documentos</string>
   <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
-  <string name="title_open">Open from</string>
+  <string name="title_open">Abrir de</string>
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
-  <string name="title_save">Save to</string>
+  <string name="title_save">Salvar em</string>
   <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
-  <string name="menu_create_dir">Create folder</string>
+  <string name="menu_create_dir">Criar Pasta</string>
   <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
-  <string name="menu_grid">Grid view</string>
+  <string name="menu_grid">Vista em grelha</string>
   <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
-  <string name="menu_list">List view</string>
+  <string name="menu_list">Visualização em lista</string>
   <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
-  <string name="menu_sort">Sort by</string>
+  <string name="menu_sort">Classificar por</string>
   <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
-  <string name="menu_search">Search</string>
+  <string name="menu_search">Pesquisar</string>
   <!-- Menu item that enters activity to change settings [CHAR LIMIT=24] -->
-  <string name="menu_settings">Settings</string>
+  <string name="menu_settings">Configurações</string>
   <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_open">Open</string>
+  <string name="menu_open">Abrir</string>
   <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
-  <string name="menu_save">Save</string>
+  <string name="menu_save">Salvar</string>
   <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_share">Share</string>
+  <string name="menu_share">Compartilhar</string>
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_delete">Delete</string>
+  <string name="menu_delete">Excluir</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
-  <string name="menu_select_all">Select all</string>
+  <string name="menu_select_all">Selecionar tudo</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_copy">Copy to\u2026</string>
+  <string name="menu_copy">Copiar para\u2026</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="nosdcard">Show internal storage</string>
+  <string name="menu_advanced_show" product="nosdcard">Mostrar armazenamento interno</string>
   <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="default">Show SD card</string>
+  <string name="menu_advanced_show" product="default">Mostrar cartão SD</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="nosdcard">Hide internal storage</string>
+  <string name="menu_advanced_hide" product="nosdcard">Ocultar armaz. interno</string>
   <!-- Menu item that hides SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="default">Hide SD card</string>
+  <string name="menu_advanced_hide" product="default">Ocultar cartão SD</string>
   <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_show">Show file size</string>
+  <string name="menu_file_size_show">Mostrar tam. arquivo</string>
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_hide">Hide file size</string>
+  <string name="menu_file_size_hide">Ocultar tam. arquivo</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
-  <string name="button_select">Select</string>
+  <string name="button_select">Selecionar</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
-  <string name="button_copy">Copy</string>
+  <string name="button_copy">Copiar</string>
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
-  <string name="sort_name">By name</string>
+  <string name="sort_name">Por Nome</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
-  <string name="sort_date">By date modified</string>
+  <string name="sort_date">Por data de modificação</string>
   <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
-  <string name="sort_size">By size</string>
+  <string name="sort_size">Por tamanho</string>
   <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_open">Show roots</string>
+  <string name="drawer_open">Mostrar raíz</string>
   <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_close">Hide roots</string>
+  <string name="drawer_close">Ocultar raíz</string>
   <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
-  <string name="save_error">Failed to save document</string>
+  <string name="save_error">Falha ao salvar o documento</string>
   <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
-  <string name="create_error">Failed to create folder</string>
+  <string name="create_error">Falha ao criar a pasta</string>
   <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
-  <string name="query_error">Failed to query documents</string>
+  <string name="query_error">Falha ao consultar documentos</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
-  <string name="root_recent">Recent</string>
+  <string name="root_recent">Recente</string>
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> free</string>
+  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s </xliff:g> livre</string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
-  <string name="root_type_service">Storage services</string>
+  <string name="root_type_service">Serviços de armazenamento</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
-  <string name="root_type_shortcut">Shortcuts</string>
+  <string name="root_type_shortcut">Atalhos</string>
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
-  <string name="root_type_device">Devices</string>
+  <string name="root_type_device">Dispositivos</string>
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
-  <string name="root_type_apps">More apps</string>
+  <string name="root_type_apps">Mais apps</string>
   <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
-  <string name="empty">No items</string>
+  <string name="empty">Sem items</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <string name="toast_no_application">Can\'t open file</string>
+  <string name="toast_no_application">Não é possível abrir o arquivo</string>
   <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
-  <string name="toast_failed_delete">Unable to delete some documents</string>
+  <string name="toast_failed_delete">Não foi possível excluir alguns documentos</string>
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
-  <string name="share_via">Share via</string>
+  <string name="share_via">Compartilhar através de</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
-  <string name="copy_notification_title">Copying files</string>
+  <string name="copy_notification_title">Copiando arquivos</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
-  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> left</string>
+  <string name="copy_remaining"><xliff:g id="duration" example="3 minutos">%s</xliff:g> restantes</string>
   <!-- Toast shown when a file copy is kicked off -->
   <plurals name="copy_begin">
-    <item quantity="one">Copying <xliff:g id="count" example="1">%1$d</xliff:g> file.</item>
-    <item quantity="other">Copying <xliff:g id="count" example="3">%1$d</xliff:g> files.</item>
+    <item quantity="one">Copiando<xliff:g id="count" example="1">%1$d</xliff:g> arquivo.</item>
+    <item quantity="other">Copiando<xliff:g id="count" example="1">%1$d</xliff:g> arquivos.</item>
   </plurals>
   <!-- Text shown on the copy notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
-  <string name="copy_preparing">Preparing for copy\u2026</string>
+  <string name="copy_preparing">Preparando-se para copiar\u2026</string>
   <!-- Title of the copy error notification [CHAR LIMIT=48] -->
   <plurals name="copy_error_notification_title">
-    <item quantity="one">Couldn\'t copy <xliff:g id="count" example="1">%1$d</xliff:g> file</item>
-    <item quantity="other">Couldn\'t copy <xliff:g id="count" example="2">%1$d</xliff:g> files</item>
+    <item quantity="one">Não foi possível copiar <xliff:g id="count" example="1">%1$d</xliff:g> o arquivo</item>
+    <item quantity="other">Não foi possível copiar <xliff:g id="count" example="1">%1$d</xliff:g> os arquivos</item>
   </plurals>
   <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
-  <string name="notification_touch_for_details">Touch to view details</string>
+  <string name="notification_touch_for_details">Toque para ver detalhes</string>
   <!-- Label of a dialog button for retrying a failed operation [CHAR LIMIT=24] -->
-  <string name="retry">Retry</string>
+  <string name="retry">Tentar novamente</string>
   <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="copy_failure_alert_content">These files weren\'t copied: <xliff:g id="list">%1$s</xliff:g></string>
+  <string name="copy_failure_alert_content">Esses arquivos não foram copiados: <xliff:g id="list">%1$s </xliff:g></string>
 </resources>
