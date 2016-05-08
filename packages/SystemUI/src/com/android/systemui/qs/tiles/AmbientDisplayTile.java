@@ -16,14 +16,11 @@
 
 package com.android.systemui.qs.tiles;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.ContentObserver;
 import android.net.Uri;
 import android.provider.Settings;
-import android.provider.Settings.Secure;
 
-import com.android.systemui.qs.SecureSetting;
 import com.android.systemui.qs.QSTile;
 import com.android.systemui.R;
 
@@ -32,17 +29,8 @@ import com.android.internal.logging.MetricsLogger;
 /** Quick settings tile: Ambient Display **/
 public class AmbientDisplayTile extends QSTile<QSTile.BooleanState> {
 
-    private final SecureSetting mSetting;
-
     public AmbientDisplayTile(Host host) {
         super(host);
-
-        mSetting = new SecureSetting(mContext, mHandler, Secure.DOZE_ENABLED) {
-            @Override
-            protected void handleValueChanged(int value, boolean observedChange) {
-                handleRefreshState(value);
-            }
-        };
     }
 
     @Override
