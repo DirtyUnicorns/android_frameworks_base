@@ -21,7 +21,6 @@ package com.android.systemui.qs.tiles;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
-import android.view.View;
 
 import com.android.systemui.R;
 import com.android.systemui.qs.QSTile;
@@ -30,8 +29,6 @@ import com.android.internal.logging.MetricsLogger;
 /** Quick settings tile: Battery saver **/
 public class BatterySaverTile extends QSTile<QSTile.BooleanState> {
     private final PowerManager mPowerMan;
-    private boolean mEnabled;
-    private boolean mListening;
 
     public BatterySaverTile(Host host) {
         super(host);
@@ -43,18 +40,13 @@ public class BatterySaverTile extends QSTile<QSTile.BooleanState> {
         return new BooleanState();
     }
 
+    @Override
     public void setListening(boolean listening) {
-        if (mListening == listening) return;
-        mListening = listening;
     }
 
     @Override
     public void handleClick() {
-        if (powerSaveEnabled()) {
-            mPowerMan.setPowerSaveMode(false);
-        } else {
-            mPowerMan.setPowerSaveMode(true);
-        }
+        mPowerMan.setPowerSaveMode(!mPowerMan.isPowerSaveMode());
         refreshState();
     }
 
@@ -82,16 +74,9 @@ public class BatterySaverTile extends QSTile<QSTile.BooleanState> {
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
         state.visible = true;
-        mEnabled = powerSaveEnabled();
         state.label = mContext.getString(R.string.quick_settings_battery_saver);
-        if (mEnabled) {
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_battery_saver_on);
-        } else {
-            state.icon = ResourceIcon.get(R.drawable.ic_qs_battery_saver_off);
-        }
-    }
-
-    private boolean powerSaveEnabled() {
-        return mPowerMan.isPowerSaveMode();
+        state.icon = ResourceIcon
+                .get(mPowerMan.isPowerSaveMode() ? R.drawable.ic_qs_battery_saver_on
+                        : R.drawable.ic_qs_battery_saver_off);
     }
 }
