@@ -620,7 +620,7 @@ public class ThemeUtils {
 
     // Returns a mutable list of all theme components
     public static List<String> getAllComponents() {
-        List<String> components = new ArrayList<String>(9);
+        List<String> components = new ArrayList<String>(12);
         components.add(ThemesColumns.MODIFIES_FONTS);
         components.add(ThemesColumns.MODIFIES_LAUNCHER);
         components.add(ThemesColumns.MODIFIES_ALARMS);
@@ -632,6 +632,7 @@ public class ThemeUtils {
         components.add(ThemesColumns.MODIFIES_RINGTONES);
         components.add(ThemesColumns.MODIFIES_STATUS_BAR);
         components.add(ThemesColumns.MODIFIES_NAVIGATION_BAR);
+        components.add(ThemesColumns.MODIFIES_STATUSBAR_HEADERS);
         return components;
     }
 
@@ -720,7 +721,8 @@ public class ThemeUtils {
     public static boolean isPerAppThemeComponent(String component) {
         return !(DEFAULT_PKG.equals(component)
                 || ThemeConfig.SYSTEMUI_STATUS_BAR_PKG.equals(component)
-                || ThemeConfig.SYSTEMUI_NAVBAR_PKG.equals(component));
+                || ThemeConfig.SYSTEMUI_NAVBAR_PKG.equals(component)
+                || ThemeConfig.SYSTEMUI_STATUSBAR_HEADER_PKG.equals(component));
     }
 
     /**
