@@ -129,9 +129,9 @@
 صيغة الجمع /plural form:
 لا يمكن نسخ <xliff:g id="count" example="2">%1$d</xliff:g> ملفات</item>
     <item quantity="one">صيغة المفرد /singular form:
-لا يمكن نسخ <xliff:g id="count" example="1"></xliff:g> ملف
+لا يمكن نسخ <xliff:g id="count" example="1"/> ملف
 صيغة الجمع /plural form:
-لا يمكن نسخ <xliff:g id="count" example="2"></xliff:g> ملفات</item>
+لا يمكن نسخ <xliff:g id="count" example="2"/> ملفات</item>
     <item quantity="two">صيغة المفرد /singular form:
 لا يمكن نسخ <xliff:g id="count" example="1">%1$d</xliff:g> ملف
 صيغة الجمع /plural form:
