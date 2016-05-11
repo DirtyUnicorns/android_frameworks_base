@@ -115,7 +115,7 @@
     <item quantity="other">Je hebt nog <xliff:g id="NUMBER_1">%d</xliff:g> pogingen over voordat de simkaart wordt vergrendeld.</item>
   </plurals>
   <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
-  <string name="imei">IMEI</string>
+  <string name="imei">IMEI-nummer</string>
   <!-- Title for the dialog used to display the user's MEID number on CDMA network
          [CHAR LIMIT=10] -->
   <string name="meid">MEID</string>
@@ -186,7 +186,7 @@
   <!-- Example: Service was enabled for: Voice, FAX -->
   <string name="serviceClassFAX">FAX</string>
   <!-- Example: Service was enabled for: Voice, SMS -->
-  <string name="serviceClassSMS">SMS</string>
+  <string name="serviceClassSMS">Sms</string>
   <!-- Meaning: asynchronous data.  Example: Service was enabled for: Voice, Async -->
   <string name="serviceClassDataAsync">Asynchroon</string>
   <!-- Meaning: synchronous data.  Example: Service was enabled for: Voice, Async -->
@@ -253,7 +253,7 @@
   <string name="fcError">Verbindingsprobleem of ongeldige functiecode.</string>
   <!-- android.net.http Error strings -->
   <!-- Displayed when a web request was successful. -->
-  <string name="httpErrorOk">OK</string>
+  <string name="httpErrorOk">Oké</string>
   <!-- Displayed when a web request failed with a generic network error. -->
   <string name="httpError">Er is een netwerkfout opgetreden.</string>
   <!-- Displayed when a web request failed because the URL could not be found. -->
@@ -1092,12 +1092,12 @@
   <!-- The order of these is important, don't reorder without changing Contacts.java -->
   <!-- Instant Message protocols/providers from android.provider.Contacts -->
   <string-array name="imProtocols">
-    <item>AIM</item>
+    <item>Doel</item>
     <item>Windows Live</item>
     <item>Yahoo</item>
     <item>Skype</item>
     <item>QQ</item>
-    <item>Google Talk</item>
+    <item>Google talk</item>
     <item>ICQ</item>
     <item>Jabber</item>
   </string-array>
@@ -1114,7 +1114,7 @@
   <!-- Home fax phone number type -->
   <string name="phoneTypeFaxHome">Fax thuis</string>
   <!-- Pager phone number type -->
-  <string name="phoneTypePager">Pager</string>
+  <string name="phoneTypePager">Pieper</string>
   <!-- Other phone number type -->
   <string name="phoneTypeOther">Overig</string>
   <!-- Callback phone number type -->
@@ -1130,7 +1130,7 @@
   <!-- Other fax phone number type -->
   <string name="phoneTypeOtherFax">Andere fax</string>
   <!-- Radio phone number type -->
-  <string name="phoneTypeRadio">Radio</string>
+  <string name="phoneTypeRadio">Knop</string>
   <!-- Telex phone number type -->
   <string name="phoneTypeTelex">Telex</string>
   <!-- TTY TDD phone number type -->
@@ -1142,7 +1142,7 @@
   <!-- Assistant phone number type -->
   <string name="phoneTypeAssistant">Assistent</string>
   <!-- MMS phone number type -->
-  <string name="phoneTypeMms">MMS</string>
+  <string name="phoneTypeMms">Mms</string>
   <!-- Label for custom events  [CHAR LIMIT=20] -->
   <string name="eventTypeCustom">Aangepast</string>
   <!-- Label for a birthday event  [CHAR LIMIT=20] -->
@@ -1180,7 +1180,7 @@
   <!-- Custom IM protocol type -->
   <string name="imProtocolCustom">Aangepast</string>
   <!-- AIM IM protocol type -->
-  <string name="imProtocolAim">AIM</string>
+  <string name="imProtocolAim">Doel</string>
   <!-- MSN IM protocol type -->
   <string name="imProtocolMsn">Windows Live</string>
   <!-- Yahoo IM protocol type -->
@@ -1218,7 +1218,7 @@
   <!-- Friend relationship type [CHAR LIMIT=20] -->
   <string name="relationTypeFriend">Vriend</string>
   <!-- Manager relationship type [CHAR LIMIT=20] -->
-  <string name="relationTypeManager">Manager</string>
+  <string name="relationTypeManager">Beheerder</string>
   <!-- Mother relationship type [CHAR LIMIT=20] -->
   <string name="relationTypeMother">Moeder</string>
   <!-- Parent relationship type [CHAR LIMIT=20] -->
@@ -1475,7 +1475,7 @@
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by word. Only spoken to the user. [CHAR LIMIT=NONE] -->
   <string name="granularity_label_word">woord</string>
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by link. Only spoken to the user. [CHAR LIMIT=NONE] -->
-  <string name="granularity_label_link">link</string>
+  <string name="granularity_label_link">koppeling</string>
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by line. Only spoken to the user. [CHAR LIMIT=NONE] -->
   <string name="granularity_label_line">lijn</string>
   <!-- A format string for 12-hour time of day, just the hour, not the minute, with lower-case "am" or "pm" (example: "3pm"). -->
@@ -1517,13 +1517,13 @@
   <string name="autofill_address_name_separator"> </string>
   <!-- Format string for displaying a name. $1 is First Name, $2 is autofill_address_name_separator, $3 is Last Name.
          e.g. (John)( )(Smith) -->
-  <string name="autofill_address_summary_name_format">$1$2$3</string>
+  <string name="autofill_address_summary_name_format">$1$ 2$ 3</string>
   <!-- String used to separate Name and Address Line 1
          e.g. John Smith<separator>123 Main Street [CHAR-LIMIT=NONE]-->
   <string name="autofill_address_summary_separator">, </string>
   <!-- Format string for displaying a name and address summary. $1 is the Full Name, $2 is autofill_address_summary_separator, $3 is the Address
          e.g. (John Smith)(, )(123 Main Street) -->
-  <string name="autofill_address_summary_format">$1$2$3</string>
+  <string name="autofill_address_summary_format">$1$ 2$ 3</string>
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
@@ -1574,7 +1574,7 @@
   <!-- Label in a web form for "ZIP code" [CHAR-LIMIT=NONE]  -->
   <string name="autofill_zip_code">Postcode</string>
   <!-- Label in a web form for "County" [CHAR-LIMIT=NONE]  -->
-  <string name="autofill_county">County</string>
+  <string name="autofill_county">Land</string>
   <!-- Label in a web form for "Island" [CHAR-LIMIT=NONE]  -->
   <string name="autofill_island">Eiland</string>
   <!-- Label in a web form for "District" [CHAR-LIMIT=NONE]  -->
