@@ -4461,14 +4461,6 @@ public final class Settings {
         public static final String NAVBAR_LEFT_IN_LANDSCAPE = "navigation_bar_left";
 
         /**
-         * Whether to use default custom header or poly hd
-         * 0 = default
-         * 1 = poly hd
-         * @hide
-         */
-        public static final String STATUS_BAR_CUSTOM_HEADER_DEFAULT = "status_bar_custom_header_default";
-
-        /**
          * Whether the blacklisting feature for phone calls is enabled
          * @hide
          */
