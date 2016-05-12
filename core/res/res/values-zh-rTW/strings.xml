@@ -185,7 +185,7 @@
   <!-- Example: Service was enabled for: Voice, FAX -->
   <string name="serviceClassFAX">傳真</string>
   <!-- Example: Service was enabled for: Voice, SMS -->
-  <string name="serviceClassSMS">SMS</string>
+  <string name="serviceClassSMS">簡訊</string>
   <!-- Meaning: asynchronous data.  Example: Service was enabled for: Voice, Async -->
   <string name="serviceClassDataAsync">非同步</string>
   <!-- Meaning: synchronous data.  Example: Service was enabled for: Voice, Async -->
@@ -1131,7 +1131,7 @@
   <!-- Radio phone number type -->
   <string name="phoneTypeRadio">無線電</string>
   <!-- Telex phone number type -->
-  <string name="phoneTypeTelex">Telex</string>
+  <string name="phoneTypeTelex">電報</string>
   <!-- TTY TDD phone number type -->
   <string name="phoneTypeTtyTdd">TTY/TDD</string>
   <!-- Work mobile phone number type -->
@@ -1992,7 +1992,7 @@
   <string name="wifi_connect_alert_message">「%1$s」應用程式要求連線至 WiFi 網路 %2$s</string>
   <!-- default application in case name can not be found -->
   <string name="wifi_connect_default_application">應用程式</string>
-  <string name="wifi_p2p_dialog_title">Wi-Fi Direct</string>
+  <string name="wifi_p2p_dialog_title">Wi-Fi 直連</string>
   <string name="wifi_p2p_turnon_message">啟動 Wi-Fi Direct 作業，這會關閉 Wi-Fi 用戶端/無線基地台作業。</string>
   <string name="wifi_p2p_failed_message">無法啟動 Wi-Fi Direct。</string>
   <string name="wifi_p2p_enabled_notification_title">Wi-Fi Direct 已開啟</string>
@@ -2324,9 +2324,9 @@
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">網路共用或無線基地台已啟用</string>
   <string name="tethered_notification_message">輕觸即可設定。</string>
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">沒有已連接的裝置</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> 個已連接的裝置</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> 個已連接的裝置</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">返回</string>
   <string name="next_button_label">繼續</string>
@@ -2609,9 +2609,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">中斷連線</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">正在掃描\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">正在連線\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">可以使用</string>
   <!-- Status message for remote routes that are not available for connection right now -->
@@ -2757,7 +2757,7 @@
   <!-- ISO (European standard) A9 media (paper) size: 1.46" x 2.05" -->
   <string name="mediasize_iso_a9">ISO A9</string>
   <!-- ISO (European standard) A10 media (paper) size: 1.02" x 1.46" -->
-  <string name="mediasize_iso_a10">ISO A10</string>
+  <string name="mediasize_iso_a10">ISO A0</string>
   <!-- ISO (European standard) B0 media (paper) size: 39.37" x 55.67" -->
   <string name="mediasize_iso_b0">ISO B0</string>
   <!-- ISO (European standard) B1 media (paper) size: 27.83" x 39.37" -->

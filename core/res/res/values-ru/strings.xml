@@ -2339,8 +2339,8 @@
   <string name="tethered_notification_title">Включен режим модема</string>
   <string name="tethered_notification_message">Нажмите для настройки.</string>
   <string name="tethered_notification_no_device_message">Отсутствует подключенное устройство</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> подключенное устройство</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> подключенные устройства</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Назад</string>
   <string name="next_button_label">Далее</string>
@@ -2829,13 +2829,13 @@
   <!-- North America Ledger media (paper) size: 17" × 11" (432mm × 279mm) -->
   <string name="mediasize_na_ledger">Ledger</string>
   <!-- North America Tabloid media (paper) size: 11" × 17" (279mm × 432mm) -->
-  <string name="mediasize_na_tabloid">Tabloid</string>
+  <string name="mediasize_na_tabloid">Газеты</string>
   <!-- North America Index Card 3x5 media (paper) size: 3" x 5" (76mm x 127mm) -->
-  <string name="mediasize_na_index_3x5">Index Card 3x5</string>
+  <string name="mediasize_na_index_3x5">Открытка 3х5\"</string>
   <!-- North America Index Card 4x6 media (paper) size: 4" x 6" (102mm x 152mm) -->
-  <string name="mediasize_na_index_4x6">Index Card 4x6</string>
+  <string name="mediasize_na_index_4x6">Открытка 4х6\"</string>
   <!-- North America Index Card 5x8 media (paper) size: 5" x 8" (127mm x 203mm) -->
-  <string name="mediasize_na_index_5x8">Index Card 5x8</string>
+  <string name="mediasize_na_index_5x8">Открытка 5\"х8\"</string>
   <!-- North America Monarch media (paper) size: 7.25" x 10.5" (184mm x 267mm) -->
   <string name="mediasize_na_monarch">Monarch</string>
   <!-- North America Quarto media (paper) size: 8" x 10" (203mm x 254mm) -->

@@ -20,7 +20,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast message when Wi-Fi cannot scan for networks -->
-  <string name="wifi_fail_to_scan">Can\'t scan for networks</string>
+  <string name="wifi_fail_to_scan">無法掃描網路</string>
   <!-- Do not translate.  Concise terminology for wifi with WEP security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA2 security -->
@@ -28,7 +28,7 @@
   <!-- Do not translate.  Concise terminology for wifi with unknown PSK type -->
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Used in Wi-Fi settings dialogs when Wi-Fi does not have any security. -->
-  <string name="wifi_security_none">None</string>
+  <string name="wifi_security_none">無</string>
   <!-- Do not translate.  Terminology for wifi with WEP security -->
   <!-- Do not translate.  Terminology for wifi with WPA security -->
   <!-- Do not translate.  Terminology for wifi with WPA2 security -->
@@ -37,20 +37,20 @@
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Do not translate.  Concise terminology for Passpoint network -->
   <!-- Summary for the remembered network. -->
-  <string name="wifi_remembered">Saved</string>
+  <string name="wifi_remembered">已儲存</string>
   <!-- Status for networks disabled for unknown reason -->
-  <string name="wifi_disabled_generic">Disabled</string>
+  <string name="wifi_disabled_generic">已停用</string>
   <!-- Status for networked disabled from a DNS or DHCP failure -->
-  <string name="wifi_disabled_network_failure">IP Configuration Failure</string>
+  <string name="wifi_disabled_network_failure">IP 設置失敗</string>
   <!-- Status for networked disabled from a wifi association failure -->
-  <string name="wifi_disabled_wifi_failure">WiFi Connection Failure</string>
+  <string name="wifi_disabled_wifi_failure">WiFi 連線失敗</string>
   <!-- Status for networks disabled from authentication failure (wrong password
          or certificate). -->
-  <string name="wifi_disabled_password_failure">Authentication problem</string>
+  <string name="wifi_disabled_password_failure">認證問題</string>
   <!-- Summary for the remembered network but currently not in range. -->
-  <string name="wifi_not_in_range">Not in range</string>
+  <string name="wifi_not_in_range">不在範圍內</string>
   <!-- Summary for the remembered network but no internet connection was detected. -->
-  <string name="wifi_no_internet">No Internet Access Detected, won\'t automatically reconnect.</string>
+  <string name="wifi_no_internet">未偵測到可用網路，將不會自動重新連線。</string>
   <!-- Summary for saved networks -->
   <string name="saved_network">Saved by <xliff:g id="name">%1$s</xliff:g></string>
   <!-- Status message of Wi-Fi when it is connected by a Wi-Fi assistant application. [CHAR LIMIT=NONE] -->
@@ -62,17 +62,17 @@
   <!-- Package name for Settings app-->
   <!-- Package name for Certinstaller app-->
   <!-- Summary for Connected wifi network without internet -->
-  <string name="wifi_connected_no_internet">Connected, no Internet</string>
+  <string name="wifi_connected_no_internet">已連線，沒有網路</string>
   <!-- Bluetooth settings.  Message when a device is disconnected -->
-  <string name="bluetooth_disconnected">Disconnected</string>
+  <string name="bluetooth_disconnected">已斷線</string>
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
-  <string name="bluetooth_disconnecting">Disconnecting\u2026</string>
+  <string name="bluetooth_disconnecting">正在中斷連線\u2026</string>
   <!-- Bluetooth settings.  Message when connecting to a device -->
-  <string name="bluetooth_connecting">Connecting\u2026</string>
+  <string name="bluetooth_connecting">正在連線\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected">Connected</string>
+  <string name="bluetooth_connected">已連線</string>
   <!--Bluetooth settings screen, summary text under individual Bluetooth devices when pairing -->
-  <string name="bluetooth_pairing">Pairing\u2026</string>
+  <string name="bluetooth_pairing">配對中\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for phone audio. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected_no_headset">Connected (no phone)</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for media audio. [CHAR LIMIT=40] -->
@@ -82,15 +82,15 @@
   <!-- Bluetooth settings.  Message when connected to a device, except for phone/media audio. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected_no_headset_no_a2dp">Connected (no phone or media)</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the A2DP profile. -->
-  <string name="bluetooth_profile_a2dp">Media audio</string>
+  <string name="bluetooth_profile_a2dp">媒體音訊</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the headset or handsfree profile. -->
   <string name="bluetooth_profile_headset">Phone audio</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
-  <string name="bluetooth_profile_opp">File transfer</string>
+  <string name="bluetooth_profile_opp">檔案傳輸</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
-  <string name="bluetooth_profile_hid">Input device</string>
+  <string name="bluetooth_profile_hid">輸入裝置</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->
-  <string name="bluetooth_profile_pan">Internet access</string>
+  <string name="bluetooth_profile_pan">網際網路連線</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PBAP profile. [CHAR LIMIT=40] -->
   <string name="bluetooth_profile_pbap">Contact sharing</string>
   <!-- Bluetooth settings. The user-visible summary string that is used whenever referring to the PBAP profile (sharing contacts). [CHAR LIMIT=60] -->
@@ -114,35 +114,35 @@
   <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference when OPP is not connected. -->
   <string name="bluetooth_opp_profile_summary_not_connected">Not connected to file transfer server</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the HID checkbox preference when HID is connected. -->
-  <string name="bluetooth_hid_profile_summary_connected">Connected to input device</string>
+  <string name="bluetooth_hid_profile_summary_connected">已連線到輸入裝置</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (user role). [CHAR LIMIT=25]-->
-  <string name="bluetooth_pan_user_profile_summary_connected">Connected to device for Internet access</string>
+  <string name="bluetooth_pan_user_profile_summary_connected">已連線到裝置並取得網際網路存取權</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (NAP role). [CHAR LIMIT=25]-->
-  <string name="bluetooth_pan_nap_profile_summary_connected">Sharing local Internet connection with device</string>
+  <string name="bluetooth_pan_nap_profile_summary_connected">與裝置分享本地網際網路連線</string>
   <!-- Bluetooth settings. Connection options screen. The summary
          for the PAN checkbox preference that describes how checking it
          will set the PAN profile as preferred. -->
-  <string name="bluetooth_pan_profile_summary_use_for">Use for Internet access</string>
+  <string name="bluetooth_pan_profile_summary_use_for">用於網際網路連線</string>
   <!-- Bluetooth settings. Connection options screen.  The summary for the map checkbox preference that describes how checking it will set the map profile as preferred. -->
-  <string name="bluetooth_map_profile_summary_use_for">Use for map</string>
+  <string name="bluetooth_map_profile_summary_use_for">用於地圖</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the sap checkbox preference that describes how checking it will set the sap profile as preferred. -->
-  <string name="bluetooth_sap_profile_summary_use_for">Use for SIM access</string>
+  <string name="bluetooth_sap_profile_summary_use_for">用於 SIM 卡存取</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference that describes how checking it will set the A2DP profile as preferred. -->
-  <string name="bluetooth_a2dp_profile_summary_use_for">Use for media audio</string>
+  <string name="bluetooth_a2dp_profile_summary_use_for">用於媒體音訊</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the headset checkbox preference that describes how checking it will set the headset profile as preferred. -->
-  <string name="bluetooth_headset_profile_summary_use_for">Use for phone audio</string>
+  <string name="bluetooth_headset_profile_summary_use_for">用於電話音訊</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference that describes how checking it will set the OPP profile as preferred. -->
-  <string name="bluetooth_opp_profile_summary_use_for">Use for file transfer</string>
+  <string name="bluetooth_opp_profile_summary_use_for">用於檔案傳輸</string>
   <!-- Bluetooth settings. Connection options screen. The summary
          for the HID checkbox preference that describes how checking it
          will set the HID profile as preferred. -->
-  <string name="bluetooth_hid_profile_summary_use_for">Use for input</string>
+  <string name="bluetooth_hid_profile_summary_use_for">用於輸入</string>
   <!-- Button text for accepting an incoming pairing request. [CHAR LIMIT=20] -->
-  <string name="bluetooth_pairing_accept">Pair</string>
+  <string name="bluetooth_pairing_accept">配對</string>
   <!-- Button text for accepting an incoming pairing request in all caps. [CHAR LIMIT=20] -->
-  <string name="bluetooth_pairing_accept_all_caps">PAIR</string>
+  <string name="bluetooth_pairing_accept_all_caps">配對</string>
   <!-- Button text for declining an incoming pairing request. [CHAR LIMIT=20] -->
-  <string name="bluetooth_pairing_decline">Cancel</string>
+  <string name="bluetooth_pairing_decline">取消</string>
   <!-- Message in pairing dialogs.  [CHAR LIMIT=NONE] -->
   <string name="bluetooth_pairing_will_share_phonebook">Pairing grants access to your contacts and call history when connected.</string>
   <!-- Message for the error dialog when BT pairing fails generically. -->
@@ -155,40 +155,40 @@
   <!-- Message for the error dialog when BT pairing fails because the other device rejected the pairing. -->
   <string name="bluetooth_pairing_rejected_error_message">Pairing rejected by <xliff:g id="device_name">%1$s</xliff:g>.</string>
   <!-- Content description of the WIFI signal when WIFI is disabled for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_off">Wifi off.</string>
+  <string name="accessibility_wifi_off">WiFi 關閉。</string>
   <!-- Content description of the WIFI signal when no signal for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_no_wifi">Wifi disconnected.</string>
+  <string name="accessibility_no_wifi">WiFi 連線已中斷。</string>
   <!-- Content description of the WIFI signal when it is one bar for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_one_bar">Wifi one bar.</string>
+  <string name="accessibility_wifi_one_bar">WiFi 訊號強度一格。</string>
   <!-- Content description of the WIFI signal when it is two bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_two_bars">Wifi two bars.</string>
+  <string name="accessibility_wifi_two_bars">WiFi 訊號強度兩格。</string>
   <!-- Content description of the WIFI signal when it is three bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_three_bars">Wifi three bars.</string>
+  <string name="accessibility_wifi_three_bars">WiFi 訊號強度三格。</string>
   <!-- Content description of the WIFI signal when it is full for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_signal_full">Wifi signal full.</string>
+  <string name="accessibility_wifi_signal_full">WiFi 訊號強度滿格。</string>
   <!-- Label for kernel threads in battery usage -->
-  <string name="process_kernel_label">Android OS</string>
+  <string name="process_kernel_label">Android 系統</string>
   <!-- Title of data usage item that represents all uninstalled applications. [CHAR LIMIT=48] -->
-  <string name="data_usage_uninstalled_apps">Removed apps</string>
+  <string name="data_usage_uninstalled_apps">已移除的應用程式</string>
   <!-- Title of data usage item that represents all uninstalled applications or removed users. [CHAR LIMIT=48] -->
-  <string name="data_usage_uninstalled_apps_users">Removed apps and users</string>
+  <string name="data_usage_uninstalled_apps_users">已移除的應用程式和使用者</string>
   <!-- Tethering controls, item title to go into the tethering settings -->
   <!-- Tethering controls, item title to go into the tethering settings when only USB tethering is available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_usb">USB tethering</string>
+  <string name="tether_settings_title_usb">USB 網路共用</string>
   <!-- Tethering controls, item title to go into the tethering settings when only Wifi tethering is available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_wifi">Portable hotspot</string>
+  <string name="tether_settings_title_wifi">可攜式無線基地台</string>
   <!-- Tethering controls, item title to go into the tethering settings when only Bluetooth tethering is available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_bluetooth">Bluetooth tethering</string>
+  <string name="tether_settings_title_bluetooth">藍牙網路共用</string>
   <!-- Tethering controls, item title to go into the tethering settings when USB and Bluetooth tethering are available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_usb_bluetooth">Tethering</string>
+  <string name="tether_settings_title_usb_bluetooth">網絡共用</string>
   <!-- Tethering controls, item title to go into the tethering settings when USB, Bluetooth and Wifi tethering are available [CHAR LIMIT=25]-->
   <string name="tether_settings_title_all">Tethering &amp; portable hotspot</string>
   <!-- Title for a work profile. [CHAR LIMIT=25] -->
-  <string name="managed_user_title">Work profile</string>
+  <string name="managed_user_title">工作設定檔</string>
   <!-- Title for Guest user [CHAR LIMIT=35] -->
-  <string name="user_guest">Guest</string>
+  <string name="user_guest">訪客</string>
   <!-- Manage apps, individual app screen, substituted for the application's label when the app's label CAN NOT be determined.-->
-  <string name="unknown">Unknown</string>
+  <string name="unknown">不明</string>
   <!-- [CHAR LIMIT=NONE] Label of a running process that represents another user -->
-  <string name="running_process_item_user_label">User: <xliff:g id="user_name">%1$s</xliff:g></string>
+  <string name="running_process_item_user_label">使用者：<xliff:g id="user_name">%1$s</xliff:g></string>
 </resources>
