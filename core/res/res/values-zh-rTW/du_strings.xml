@@ -96,7 +96,7 @@
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_changePhoneBlacklist">變更手機黑名單</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_changePhoneBlacklist">允許應用程式更改不被允許傳入訊息或撥入電話的電話號碼。</string>
   <string name="default_string">預設</string>
   <!-- Powermenu Torch -->
   <string name="global_action_torch">手電筒</string>
