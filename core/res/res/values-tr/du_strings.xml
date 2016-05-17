@@ -21,11 +21,11 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Yeniden başlat</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_recovery">Kurtarma Modu</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_bootloader">Önyükleyici</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Hot reboot</string>
+  <string name="reboot_hot">Hızlı yeniden başlatma</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
   <string name="reboot_bootmenu">Açılış Menüsü</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
@@ -35,11 +35,11 @@
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">Yeniden Başlatılıyor\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm">Your phone will reboot.</string>
+  <string name="reboot_confirm">Telefonunuz yeniden başlatılacak.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Reboot</string>
+  <string name="global_action_reboot">Yeniden başlat</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Screenshot</string>
+  <string name="powermenu_screenshot">Ekran Görüntüsü</string>
   <!-- Screenrecord -->
   <string name="powermenu_screenrecord">Ekran Kaydı</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -49,28 +49,28 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readThemes">tema bilgisini oku</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">Uygulamanın temalarınızı okumasına ve hangi
+temayı uyguladığınızı belirlemesine izin verir.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permlab_writeThemes">temalarını düzenle</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">Uygulamanın yeni temalar eklemesine ve
+uyguladığınız temayı değiştirmesine izin verir.</string>
   <!-- Theme installation error notification -->
-  <string name="theme_install_error_title">Failed to install theme</string>
+  <string name="theme_install_error_title">Tema yüklenemedi</string>
   <string name="theme_install_error_message">%s yüklenemedi</string>
   <string name="theme_reset_notification_title">Tema sıfırlandı</string>
   <string name="theme_reset_notification_body">Birden fazla uygulama çalışmayı durdurduğu için sistem temasına geri dönüldü.</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Fade</string>
-  <string name="animation_slide_right">Slide in right</string>
-  <string name="animation_slide_left">Slide in left</string>
-  <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
+  <string name="animation_fade">Karartma</string>
+  <string name="animation_slide_right">Sağa Kaydır</string>
+  <string name="animation_slide_left">Sola kaydır</string>
+  <string name="animation_slide_right_no_fade">Sağa kaydır (Karartma yok)</string>
   <string name="animation_slide_left_no_fade">Sola kaydır (Solma yok)</string>
   <string name="animation_slide_up">Aşağıya doğru kaydır</string>
   <string name="animation_slide_down">Yukarıya doğru kaydır</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
+  <string name="animation_default">Varsayılan</string>
+  <string name="animation_translucent">Yarı Saydam</string>
   <string name="animation_grow_shrink">Grow in (Top)</string>
   <string name="animation_grow_shrink_center">Grow in (Center)</string>
   <string name="animation_grow_shrink_bottom">Büyüt (Aşağıdan)</string>

@@ -133,8 +133,8 @@
   <string name="quick_settings_navigation_bar">Панель навигации</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_smartbar_off">SmartBar выкл</string>
-  <string name="quick_settings_fling">Жесты Fling</string>
-  <string name="quick_settings_fling_off">Жесты Fling выключены</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_fling_off">Fling off</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">Способ ввода</string>
   <!-- Hotspot airplane mode -->

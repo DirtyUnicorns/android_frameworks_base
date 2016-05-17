@@ -132,8 +132,8 @@
   <string name="quick_settings_navigation_bar">Barra de navegação</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_smartbar_off">SmartBar desligada</string>
-  <string name="quick_settings_fling">Gestos Fling</string>
-  <string name="quick_settings_fling_off">Gestos Fling desligado</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_fling_off">Fling off</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">IME</string>
   <!-- Hotspot airplane mode -->

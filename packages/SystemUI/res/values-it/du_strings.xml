@@ -66,7 +66,7 @@
   <string name="quick_settings_screenshot_label">Screenshot</string>
   <!-- NFC QS tile -->
   <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sincronizza</string>
+  <string name="quick_settings_sync_label">Sincronizzazione</string>
   <string name="accessibility_quick_settings_sync_off">Sincronizzazione spenta</string>
   <string name="accessibility_quick_settings_sync_on">Sincronizzazione accesa</string>
   <string name="accessibility_quick_settings_sync_changed_off">Sincronizzazione disattivata</string>
@@ -132,8 +132,8 @@
   <string name="quick_settings_navigation_bar">Barra di navigazione</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_smartbar_off">SmartBar spenta</string>
-  <string name="quick_settings_fling">Fling gesture</string>
-  <string name="quick_settings_fling_off">Fling gesture spenta</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_fling_off">Fling off</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">Metodo di input</string>
   <!-- Hotspot airplane mode -->

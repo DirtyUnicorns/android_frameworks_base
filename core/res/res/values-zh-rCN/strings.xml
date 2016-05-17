@@ -114,7 +114,7 @@
     <item quantity="other">您还可尝试 <xliff:g id="NUMBER_1">%d</xliff:g> 次。如果仍不正确，SIM 卡将被锁定。</item>
   </plurals>
   <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
-  <string name="imei">移动通信国际识别码</string>
+  <string name="imei">IMEI</string>
   <!-- Title for the dialog used to display the user's MEID number on CDMA network
          [CHAR LIMIT=10] -->
   <string name="meid">MEID</string>
@@ -141,7 +141,7 @@
   <string name="ThreeWCMmi">三方通话</string>
   <string name="RuacMmi">拒绝不想接听的骚扰电话</string>
   <string name="CndMmi">主叫号码传送</string>
-  <string name="DndMmi">请勿打扰</string>
+  <string name="DndMmi">勿扰模式</string>
   <!-- Displayed to confirm to the user that caller ID will be restricted on the next call as usual. -->
   <string name="CLIRDefaultOnNextCallOn">默认不显示本机号码，在下一次通话中也不显示</string>
   <!-- Displayed to confirm to the user that caller ID will be not restricted on the next call even though it usually is. -->
@@ -435,7 +435,7 @@
   <!-- status message in phone options dialog for when airplane mode is on -->
   <string name="global_actions_airplane_mode_on_status">已开启飞行模式</string>
   <!-- status message in phone options dialog for when airplane mode is off -->
-  <string name="global_actions_airplane_mode_off_status">未开启飞行模式</string>
+  <string name="global_actions_airplane_mode_off_status">已关闭飞行模式</string>
   <!-- label for item that launches settings in phone options dialog [CHAR LIMIT=15]-->
   <string name="global_action_settings">设置</string>
   <!-- label for item that launches assist in phone options dialog [CHAR LIMIT=15]-->
@@ -732,7 +732,7 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_wakeLock" product="tv">阻止电视进入休眠状态</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_wakeLock" product="default">防止手机休眠</string>
+  <string name="permlab_wakeLock" product="default">阻止手机进入休眠状态</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_wakeLock" product="tablet">允许应用阻止平板电脑进入休眠状态。</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

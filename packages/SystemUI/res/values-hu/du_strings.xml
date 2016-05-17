@@ -132,8 +132,8 @@
   <string name="quick_settings_navigation_bar">Navigációs sáv</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_smartbar_off">SmartBar ki</string>
-  <string name="quick_settings_fling">Fling gesztus</string>
-  <string name="quick_settings_fling_off">Fling gesztus ki</string>
+  <string name="quick_settings_fling">Fling</string>
+  <string name="quick_settings_fling_off">Fling off</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">IME</string>
   <!-- Hotspot airplane mode -->
