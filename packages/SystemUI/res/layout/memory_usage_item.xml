@@ -31,16 +31,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/memory_usage_item_background" >
+    android:background="@color/memory_usage_item_background"
+    android:weightSum="1"
+    android:paddingTop="10dp">
 
-        <Button
-            android:id="@+id/kill_all_button"
-            android:layout_width="match_parent"
-            android:layout_height="40dip"
-            android:text="@string/tasklist_killall"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_gravity="right"
-            android:focusable="true"/>
     <TextView
         android:id="@+id/memory_usage_text"
         android:layout_width="match_parent"
@@ -48,14 +42,24 @@
         android:paddingLeft="10dip"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/memory_usage_text_text"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:textStyle="bold" />
 
     <ProgressBar
         android:id="@+id/memory_usage_Bar"
         style="?android:attr/progressBarStyleHorizontal"
-        android:paddingLeft="10dip"
-        android:layout_width="240dip"
+        android:layout_width="match_parent"
         android:layout_height="20dip"
-        android:layout_alignParentLeft="true"/>
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+    <Button
+        android:id="@+id/kill_all_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dip"
+        android:text="@string/tasklist_killall"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:focusable="true"/>
 
 </LinearLayout>
