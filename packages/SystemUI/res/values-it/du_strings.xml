@@ -133,7 +133,7 @@
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_smartbar_off">SmartBar spenta</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_fling_off">Fling off</string>
+  <string name="quick_settings_fling_off">Fling spento</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">Metodo di input</string>
   <!-- Hotspot airplane mode -->
@@ -155,4 +155,7 @@
   <!-- Heads up toast -->
   <string name="heads_up_enabled">Le notifiche Heads up sono abilitate</string>
   <string name="heads_up_disabled">Le notifiche Heads up sono disabilitate</string>
+  <!-- Path data for portrait battery -->
+  <!-- Path data for landscape battery -->
+  <!-- Path data for circle battery -->
 </resources>

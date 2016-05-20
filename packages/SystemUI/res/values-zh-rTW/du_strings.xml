@@ -22,7 +22,7 @@
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">手電筒已開啟</string>
-  <string name="quick_settings_tile_flashlight_not_summary">點擊以關閉</string>
+  <string name="quick_settings_tile_flashlight_not_summary">輕觸以關閉</string>
   <!-- Battery Saver Dimss -->
   <string name="battery_saver_dismiss_title">取消</string>
   <string name="battery_saver_notification_action_text_short">關閉</string>
@@ -36,7 +36,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">向右滑動以 %1$s</string>
   <string name="right_shortcut_hint">向左滑動以 %1$s</string>
-  <string name="lockscreen_message">點擊左邊或右邊的圖示以重新指定鎖定畫面捷徑。</string>
+  <string name="lockscreen_message">輕觸左邊或右邊的圖示以重新指定鎖定畫面捷徑。</string>
   <string name="lockscreen_default_target">預設</string>
   <string name="select_application">選擇應用程式</string>
   <string name="lockscreen_choose_action_title">選擇動作</string>
@@ -154,4 +154,7 @@
   <!-- Heads up toast -->
   <string name="heads_up_enabled">迅速瀏覽通知已啟用</string>
   <string name="heads_up_disabled">迅速瀏覽通知已停用</string>
+  <!-- Path data for portrait battery -->
+  <!-- Path data for landscape battery -->
+  <!-- Path data for circle battery -->
 </resources>

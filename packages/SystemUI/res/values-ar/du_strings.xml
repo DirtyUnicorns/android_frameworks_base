@@ -159,4 +159,7 @@
   <!-- Heads up toast -->
   <string name="heads_up_enabled">Heads up notifications are enabled</string>
   <string name="heads_up_disabled">Heads up notifications are disabled</string>
+  <!-- Path data for portrait battery -->
+  <!-- Path data for landscape battery -->
+  <!-- Path data for circle battery -->
 </resources>

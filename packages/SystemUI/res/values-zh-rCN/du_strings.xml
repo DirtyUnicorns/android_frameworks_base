@@ -154,4 +154,7 @@
   <!-- Heads up toast -->
   <string name="heads_up_enabled">浮动通知已启用</string>
   <string name="heads_up_disabled">浮动通知已禁用</string>
+  <!-- Path data for portrait battery -->
+  <!-- Path data for landscape battery -->
+  <!-- Path data for circle battery -->
 </resources>

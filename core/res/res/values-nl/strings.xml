@@ -2331,9 +2331,9 @@
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">Tethering of hotspot actief</string>
   <string name="tethered_notification_message">Aanraken voor instellen.</string>
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">Geen verbonden apparaat</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> verbonden apparaat</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> verbonden apparaten</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Vorige</string>
   <string name="next_button_label">Volgende</string>
@@ -2444,7 +2444,7 @@
   <!-- Description of the Cancel button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_cancel">Annuleren</string>
   <!-- Description of the Delete button in a KeyboardView. [CHAR LIMIT=NONE] -->
-  <string name="keyboardview_keycode_delete">Delete</string>
+  <string name="keyboardview_keycode_delete">Wis</string>
   <!-- Description of the Done button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_done">Gereed</string>
   <!-- Description of the Mode change button in a KeyboardView. [CHAR LIMIT=NONE] -->
@@ -2617,9 +2617,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">Verbinding verbreken</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">Scannen\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">Verbinding maken\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">Beschikbaar</string>
   <!-- Status message for remote routes that are not available for connection right now -->

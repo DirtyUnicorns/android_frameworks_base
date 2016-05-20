@@ -155,4 +155,7 @@
   <!-- Heads up toast -->
   <string name="heads_up_enabled">Açılır bildirimler etkinleştirildi</string>
   <string name="heads_up_disabled">Açılır bildirimler devre dışı bırakıldı</string>
+  <!-- Path data for portrait battery -->
+  <!-- Path data for landscape battery -->
+  <!-- Path data for circle battery -->
 </resources>

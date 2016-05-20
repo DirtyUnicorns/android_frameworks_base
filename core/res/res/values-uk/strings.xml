@@ -185,7 +185,7 @@
   <!-- Example: Service was enabled for: Voice, Data -->
   <string name="serviceClassData">Дані</string>
   <!-- Example: Service was enabled for: Voice, FAX -->
-  <string name="serviceClassFAX">FAX</string>
+  <string name="serviceClassFAX">ФАКС</string>
   <!-- Example: Service was enabled for: Voice, SMS -->
   <string name="serviceClassSMS">SMS</string>
   <!-- Meaning: asynchronous data.  Example: Service was enabled for: Voice, Async -->
@@ -254,7 +254,7 @@
   <string name="fcError">Пробл. підключення чи недійсний ідентифікатор.</string>
   <!-- android.net.http Error strings -->
   <!-- Displayed when a web request was successful. -->
-  <string name="httpErrorOk">OK</string>
+  <string name="httpErrorOk">Ок</string>
   <!-- Displayed when a web request failed with a generic network error. -->
   <string name="httpError">Сталася помилка мережі.</string>
   <!-- Displayed when a web request failed because the URL could not be found. -->
@@ -1645,9 +1645,9 @@
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+space for the shortcut. -->
   <string name="menu_space_shortcut_label">пробіл</string>
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+enter for the shortcut. -->
-  <string name="menu_enter_shortcut_label">enter</string>
+  <string name="menu_enter_shortcut_label">ввод</string>
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+delete for the shortcut. -->
-  <string name="menu_delete_shortcut_label">delete</string>
+  <string name="menu_delete_shortcut_label">видалити</string>
   <!-- Strings used for search bar -->
   <!-- This is the default button label in the system-wide search UI.
          It is also used by the home screen's search "widget". It should be short -->
@@ -1745,7 +1745,7 @@
   <!-- Text for error alert when a video cannot be played. it can be used by any app. -->
   <string name="VideoView_error_text_unknown">Неможливо відтворити це відео.</string>
   <!-- Button to close error alert when a video cannot be played -->
-  <string name="VideoView_error_button">OK</string>
+  <string name="VideoView_error_button">Ок</string>
   <!-- Format indicating a relative expression and time.
          Example: "4 hours ago, 11:00 am" -->
   <string name="relative_time">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -1800,11 +1800,11 @@
          a bad bad notification for itself. -->
   <string name="app_running_notification_text">Торкніться, щоб дізнатися більше або зупинити програму.</string>
   <!-- Preference framework strings. -->
-  <string name="ok">OK</string>
+  <string name="ok">Ок</string>
   <!-- Preference framework strings. -->
   <string name="cancel">Скасувати</string>
   <!-- Preference framework strings. -->
-  <string name="yes">OK</string>
+  <string name="yes">Ок</string>
   <!-- Preference framework strings. -->
   <string name="no">Скасувати</string>
   <!-- This is the generic "attention" string to be used in attention dialogs.  Typically
@@ -1871,7 +1871,7 @@
   <!-- Text of the alert that is displayed when an application is not responding. -->
   <string name="anr_process">Процес <xliff:g id="PROCESS">%1$s</xliff:g> не відповідає.\n\nЗавершити його?</string>
   <!-- Button allowing the user to close an application that is not responding. This will kill the application. -->
-  <string name="force_close">OK</string>
+  <string name="force_close">Ок</string>
   <!-- Button allowing the user to send a bug report for application which has encountered an error. -->
   <string name="report">Відгук</string>
   <!-- Button allowing the user to choose to wait for an application that is not responding to become responsive again. -->
@@ -2125,7 +2125,7 @@
   <!-- USB_STORAGE_ERROR dialog  dialog-->
   <string name="dlg_error_title">Помилка операції з USB</string>
   <!-- USB_STORAGE_ERROR dialog  ok button-->
-  <string name="dlg_ok">OK</string>
+  <string name="dlg_ok">Ок</string>
   <!-- USB_PREFERENCES: Notification for when the user connected to the charger only.  This is the title -->
   <string name="usb_charging_notification_title">USB для заряджання</string>
   <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in MTP mode.  This is the title -->
@@ -2338,9 +2338,9 @@
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">Прив\'язка чи точка дост. активна</string>
   <string name="tethered_notification_message">Торкніться, щоб налаштувати.</string>
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">Немає під\'єднаного пристрою</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> підключений пристрій</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> підключених пристроїв</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Назад</string>
   <string name="next_button_label">Далі</string>
@@ -2452,7 +2452,7 @@
   <!-- Description of the Cancel button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_cancel">Скасувати</string>
   <!-- Description of the Delete button in a KeyboardView. [CHAR LIMIT=NONE] -->
-  <string name="keyboardview_keycode_delete">Delete</string>
+  <string name="keyboardview_keycode_delete">Видалити</string>
   <!-- Description of the Done button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_done">Готово</string>
   <!-- Description of the Mode change button in a KeyboardView. [CHAR LIMIT=NONE] -->
@@ -2625,9 +2625,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">Від’єднатися</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">Сканування\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">З\'єднання\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">Доступно</string>
   <!-- Status message for remote routes that are not available for connection right now -->

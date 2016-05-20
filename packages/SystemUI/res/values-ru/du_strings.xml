@@ -156,4 +156,7 @@
   <!-- Heads up toast -->
   <string name="heads_up_enabled">Всплывающие уведомления включены</string>
   <string name="heads_up_disabled">Всплывающие уведомления отключены</string>
+  <!-- Path data for portrait battery -->
+  <!-- Path data for landscape battery -->
+  <!-- Path data for circle battery -->
 </resources>
