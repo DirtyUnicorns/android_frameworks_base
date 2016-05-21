@@ -103,9 +103,9 @@
   <!-- App killed message -->
   <string name="app_killed_message">应用已被终止</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
+  <string name="adb_net_active_notification_title">网络 ADB 调试已启用</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+  <string name="adb_both_active_notification_title">USB 和网络 ADB 调试已启用</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
+  <string name="adb_active_generic_notification_message">触摸以禁用调试。</string>
 </resources>

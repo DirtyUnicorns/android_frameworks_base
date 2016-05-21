@@ -2625,9 +2625,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">Отключить</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">Поиск\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">Подключение\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">Доступен</string>
   <!-- Status message for remote routes that are not available for connection right now -->
@@ -2819,9 +2819,9 @@
   <!-- ISO (European standard) C10 media (paper) size: 1.10" x 1.57" -->
   <string name="mediasize_iso_c10">ISO C10</string>
   <!-- North America Letter media (paper) size: 8.5" × 11" (279mm x 216mm) -->
-  <string name="mediasize_na_letter">Letter</string>
+  <string name="mediasize_na_letter">Письмо</string>
   <!-- North America Government Letter media (paper) size: 8.0" × 10.5" (203mm x 267mm) -->
-  <string name="mediasize_na_gvrnmt_letter">Government Letter</string>
+  <string name="mediasize_na_gvrnmt_letter">Правильтельственное письмо</string>
   <!-- North America Legal media (paper) size: 8.5" × 14" (216mm x 356mm) -->
   <string name="mediasize_na_legal">Legal</string>
   <!-- North America Junior Legal media (paper) size: 8.0" × 5.0" (203mm × 127mm) -->
