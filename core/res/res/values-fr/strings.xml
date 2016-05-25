@@ -102,7 +102,7 @@
   <!-- Displayed when a SIM PIN password is too long or too short. -->
   <string name="invalidPin">Le code PIN doit compter de 4 à 8 chiffres.</string>
   <!-- Displayed when a SIM PUK password is too short. -->
-  <string name="invalidPuk">Saisissez un code PUK comportant au moins huit chiffres.</string>
+  <string name="invalidPuk">Saisissez un code PUK comportant au moins 8 chiffres.</string>
   <!-- Displayed to prompt the user to type the PUK password to unlock
          the SIM card. -->
   <string name="needPuk">Votre carte SIM est verrouillée par clé PUK. Saisissez la clé PUK pour la déverrouiller.</string>
@@ -115,14 +115,14 @@
     <item quantity="other">Il vous reste <xliff:g id="NUMBER_1">%d</xliff:g> tentatives avant que votre carte SIM ne soit verrouillée.</item>
   </plurals>
   <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
-  <string name="imei">Code IMEI</string>
+  <string name="imei">IMEI</string>
   <!-- Title for the dialog used to display the user's MEID number on CDMA network
          [CHAR LIMIT=10] -->
-  <string name="meid">Code MEID</string>
+  <string name="meid">MEID</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
-  <string name="ClipMmi">Numéro de l\'appelant (entrant)</string>
+  <string name="ClipMmi">Numéro de l\'appel entrant</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
-  <string name="ClirMmi">Numéro de l\'appelant (sortant)</string>
+  <string name="ClirMmi">Numéro de l\'appel sortant</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID. -->
   <string name="ColpMmi">Identifiant de la ligne connectée</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID restriction. -->

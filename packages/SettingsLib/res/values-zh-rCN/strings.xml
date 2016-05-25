@@ -20,7 +20,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast message when Wi-Fi cannot scan for networks -->
-  <string name="wifi_fail_to_scan">扫描不到网络</string>
+  <string name="wifi_fail_to_scan">无法扫描网络</string>
   <!-- Do not translate.  Concise terminology for wifi with WEP security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA2 security -->

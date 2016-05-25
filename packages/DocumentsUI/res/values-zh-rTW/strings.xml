@@ -92,7 +92,7 @@
   <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
   <string name="empty">沒有任何項目</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <string name="toast_no_application">無法打開檔</string>
+  <string name="toast_no_application">無法開啟檔案</string>
   <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
   <string name="toast_failed_delete">無法刪除部分文件</string>
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->

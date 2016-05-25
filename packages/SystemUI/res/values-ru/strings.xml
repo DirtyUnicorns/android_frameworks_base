@@ -479,7 +479,7 @@
   <!-- QuickSettings: Do not disturb - Total silence [CHAR LIMIT=NONE] -->
   <string name="quick_settings_dnd_none_label">Полная тишина</string>
   <!-- QuickSettings: Bluetooth [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_bluetooth_label">Устройства Bluetooth</string>
+  <string name="quick_settings_bluetooth_label">Bluetooth</string>
   <!-- QuickSettings: Bluetooth (Multiple) [CHAR LIMIT=NONE] -->
   <string name="quick_settings_bluetooth_multiple_devices_label">Bluetooth (<xliff:g id="NUMBER">%d</xliff:g>)</string>
   <!-- QuickSettings: Bluetooth (Off) [CHAR LIMIT=NONE] -->

@@ -1740,7 +1740,7 @@
   <!-- Text for error alert when a video cannot be played. it can be used by any app. -->
   <string name="VideoView_error_text_unknown">Deze video kan niet worden afgespeeld.</string>
   <!-- Button to close error alert when a video cannot be played -->
-  <string name="VideoView_error_button">OK</string>
+  <string name="VideoView_error_button">Oké</string>
   <!-- Format indicating a relative expression and time.
          Example: "4 hours ago, 11:00 am" -->
   <string name="relative_time">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -1795,11 +1795,11 @@
          a bad bad notification for itself. -->
   <string name="app_running_notification_text">Raak aan voor meer informatie of om de app te stoppen.</string>
   <!-- Preference framework strings. -->
-  <string name="ok">OK</string>
+  <string name="ok">Oké</string>
   <!-- Preference framework strings. -->
   <string name="cancel">Annuleren</string>
   <!-- Preference framework strings. -->
-  <string name="yes">OK</string>
+  <string name="yes">Oké</string>
   <!-- Preference framework strings. -->
   <string name="no">Annuleren</string>
   <!-- This is the generic "attention" string to be used in attention dialogs.  Typically
@@ -1866,7 +1866,7 @@
   <!-- Text of the alert that is displayed when an application is not responding. -->
   <string name="anr_process">Proces <xliff:g id="PROCESS">%1$s</xliff:g> reageert niet.\n\nWilt u het sluiten?</string>
   <!-- Button allowing the user to close an application that is not responding. This will kill the application. -->
-  <string name="force_close">OK</string>
+  <string name="force_close">Oké</string>
   <!-- Button allowing the user to send a bug report for application which has encountered an error. -->
   <string name="report">Melden</string>
   <!-- Button allowing the user to choose to wait for an application that is not responding to become responsive again. -->
@@ -2118,7 +2118,7 @@
   <!-- USB_STORAGE_ERROR dialog  dialog-->
   <string name="dlg_error_title">USB-bewerking mislukt</string>
   <!-- USB_STORAGE_ERROR dialog  ok button-->
-  <string name="dlg_ok">OK</string>
+  <string name="dlg_ok">Oké</string>
   <!-- USB_PREFERENCES: Notification for when the user connected to the charger only.  This is the title -->
   <string name="usb_charging_notification_title">USB voor opladen</string>
   <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in MTP mode.  This is the title -->
@@ -2811,15 +2811,15 @@
   <!-- ISO (European standard) C10 media (paper) size: 1.10" x 1.57" -->
   <string name="mediasize_iso_c10">ISO C10</string>
   <!-- North America Letter media (paper) size: 8.5" × 11" (279mm x 216mm) -->
-  <string name="mediasize_na_letter">Letter</string>
+  <string name="mediasize_na_letter">Brief</string>
   <!-- North America Government Letter media (paper) size: 8.0" × 10.5" (203mm x 267mm) -->
-  <string name="mediasize_na_gvrnmt_letter">Government Letter</string>
+  <string name="mediasize_na_gvrnmt_letter">Regeringsbrief</string>
   <!-- North America Legal media (paper) size: 8.5" × 14" (216mm x 356mm) -->
-  <string name="mediasize_na_legal">Legal</string>
+  <string name="mediasize_na_legal">Wettelijk</string>
   <!-- North America Junior Legal media (paper) size: 8.0" × 5.0" (203mm × 127mm) -->
-  <string name="mediasize_na_junior_legal">Junior Legal</string>
+  <string name="mediasize_na_junior_legal">Junior Wettelijk</string>
   <!-- North America Ledger media (paper) size: 17" × 11" (432mm × 279mm) -->
-  <string name="mediasize_na_ledger">Ledger</string>
+  <string name="mediasize_na_ledger">Grootboek</string>
   <!-- North America Tabloid media (paper) size: 11" × 17" (279mm × 432mm) -->
   <string name="mediasize_na_tabloid">Tabloid</string>
   <!-- North America Index Card 3x5 media (paper) size: 3" x 5" (76mm x 127mm) -->
