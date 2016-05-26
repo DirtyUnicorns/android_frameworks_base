@@ -466,7 +466,7 @@ class ContextImpl extends Context {
     @Override
     public File getExternalFilesDir(String type) {
         // Operates on primary external storage
-        return getExternalFilesDirs(type)[0];
+        return getFirstDir(getExternalFilesDirs(type));
     }
 
     @Override
@@ -490,7 +490,7 @@ class ContextImpl extends Context {
     @Override
     public File getObbDir() {
         // Operates on primary external storage
-        return getObbDirs()[0];
+        return getFirstDir(getObbDirs());
     }
 
     @Override
@@ -528,7 +528,7 @@ class ContextImpl extends Context {
     @Override
     public File getExternalCacheDir() {
         // Operates on primary external storage
-        return getExternalCacheDirs()[0];
+        return getFirstDir(getExternalCacheDirs());
     }
 
     @Override
@@ -552,6 +552,15 @@ class ContextImpl extends Context {
 
             // Create dirs if needed
             return ensureDirsExistOrFilter(mExternalMediaDirs);
+        }
+    }
+
+    // helper function to avoid dereferencing a null pointer
+    private File getFirstDir(File[] dirs) {
+        if (dirs != null) {
+            return dirs[0];
+        } else  {
+            return null;
         }
     }
 
