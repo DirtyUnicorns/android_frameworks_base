@@ -215,4 +215,17 @@
     <!-- Path data for circle battery -->
     <string name="battery_circle_path" translatable="false">M 12 3.5 C 16.6944203736 3.5 20.5 7.30557962644 20.5 12 C 20.5 16.6944203736 16.6944203736 20.5 12 20.5 C 7.30557962644 20.5 3.5 16.6944203736 3.5 12 C 3.5 7.30557962644 7.30557962644 3.5 12 3.5 Z</string>
 
+    <!-- Screenshot Crop & Share -->
+    <string name="action_delete_success">Deleted</string>
+    <string name="action_delete_fault">Deleting was unsuccessful</string>
+    <string name="action_save_success">Saved</string>
+    <string name="action_save_fault">Saving was unsuccessful</string>
+    <string name="pref_action_color_title">Action buttons color</string>
+    <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
+    <string name="pref_category_main">Main Settings</string>
+    <string name="pref_category_user">User Settings</string>
+    <string name="pref_crop_behavior_title">Crop behavior</string>
+    <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
+    <string name="action_ok">OK</string>
+
 </resources>
