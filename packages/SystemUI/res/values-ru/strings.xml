@@ -81,7 +81,7 @@
   <!-- Name of the button that links to the Wifi settings screen. [CHAR LIMIT=NONE] -->
   <string name="status_bar_settings_wifi_button">Wi-Fi</string>
   <!-- Label in system panel saying the device will use the orientation sensor to rotate [CHAR LIMIT=30] -->
-  <string name="status_bar_settings_auto_rotation">Автоповорот экрана</string>
+  <string name="status_bar_settings_auto_rotation">Автоповорот</string>
   <!-- Abbreviation / label for mute brightness mode button. Should be all caps. [CHAR LIMIT=6] -->
   <string name="status_bar_settings_mute_label">ВЫКЛ.</string>
   <!-- Abbreviation / label for automatic brightness mode button. Should be all caps. [CHAR LIMIT=6] -->
@@ -134,9 +134,9 @@
   <!-- Notification title displayed when a screenshot is being saved to the Gallery. [CHAR LIMIT=50] -->
   <string name="screenshot_saving_title">Сохранение...</string>
   <!-- Notification text displayed when a screenshot is being saved to the Gallery. [CHAR LIMIT=100] -->
-  <string name="screenshot_saving_text">Сохранение...</string>
+  <string name="screenshot_saving_text">Скриншот сохранен.</string>
   <!-- Notification title displayed when a screenshot is saved to the Gallery. [CHAR LIMIT=50] -->
-  <string name="screenshot_saved_title">Скриншот сохранен</string>
+  <string name="screenshot_saved_title">Скриншот сохранен.</string>
   <!-- Notification text displayed when a screenshot is saved to the Gallery. [CHAR LIMIT=100] -->
   <string name="screenshot_saved_text">Нажмите, чтобы просмотреть</string>
   <!-- Notification title displayed when we fail to take a screenshot. [CHAR LIMIT=50] -->
@@ -399,11 +399,11 @@
   <!-- Content description of zen mode time condition minus button (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_less_time">Уменьшить время.</string>
   <!-- Content description of the flashlight tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_flashlight_off">Фонарик отключен.</string>
+  <string name="accessibility_quick_settings_flashlight_off">Фонарик выкл.</string>
   <!-- Content description of the flashlight tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_flashlight_on">Фонарик включен.</string>
+  <string name="accessibility_quick_settings_flashlight_on">Фонарик вкл.</string>
   <!-- Announcement made when the flashlight state changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_flashlight_changed_off">Фонарик отключен.</string>
+  <string name="accessibility_quick_settings_flashlight_changed_off">Фонарик выключен.</string>
   <!-- Announcement made when the flashlight state changes to on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_flashlight_changed_on">Фонарик включен.</string>
   <!-- Announcement made when the color inversion state changes to off (not shown on the screen). [CHAR LIMIT=NONE] -->

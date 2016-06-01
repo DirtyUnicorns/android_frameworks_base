@@ -71,20 +71,20 @@ uyguladığınız temayı değiştirmesine izin verir.</string>
   <string name="animation_slide_down">Yukarıya doğru kaydır</string>
   <string name="animation_default">Varsayılan</string>
   <string name="animation_translucent">Yarı Saydam</string>
-  <string name="animation_grow_shrink">Grow in (Top)</string>
-  <string name="animation_grow_shrink_center">Grow in (Center)</string>
+  <string name="animation_grow_shrink">Büyüt (Yukarıdan)</string>
+  <string name="animation_grow_shrink_center">Büyüt (Ortadan)</string>
   <string name="animation_grow_shrink_bottom">Büyüt (Aşağıdan)</string>
   <string name="animation_grow_shrink_left">Büyüt (Soldan)</string>
   <string name="animation_grow_shrink_right">Büyüt (Sağdan)</string>
   <string name="action_null">Boş</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
+  <string name="system_error_vendorprint">Görünüşe göre satıcı imajınız güncel olmayabilir. Lütfen cihazının için son satıcı imajını yükleyin.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permlab_setKeyguardWallpaper">tuş kilidi duvar kağıdını ayarla</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+  <string name="permdesc_setKeyguardWallpaper">Bir uygulamanın kilit ekranı duvar kağıdını değiştirmesine izin verir.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">reset battery statistics</string>
+  <string name="permlab_resetBatteryStats">pil istatistiklerini sıfırla</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">Bir uygulamanın düşük batarya kullanım bilgisini sıfırlamasına izin verir.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -94,20 +94,20 @@ uyguladığınız temayı değiştirmesine izin verir.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readPhoneBlacklist">telefon kara listesini oku</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_readPhoneBlacklist">Bir uygulamanın gelen çağrılar ya da mesajlar için engellenmiş telefon numaralarını değiştirmesine izin verir.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">telefon kara listesini değiştir</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
-  <string name="default_string">Default</string>
+  <string name="permdesc_changePhoneBlacklist">Bir uygulamanın gelen çağrılar ya da mesajlar için engellenmiş telefon numaralarını değiştirmesine izin verir.</string>
+  <string name="default_string">Varsayılan</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">El Feneri</string>
   <!-- App killed message -->
   <string name="app_killed_message">Uygulama sonlandırıldı</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
+  <string name="adb_net_active_notification_title">Ağ üzerinden ADB etkin</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+  <string name="adb_both_active_notification_title">USB &amp; Ağ üzerinden ADB etkin</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
+  <string name="adb_active_generic_notification_message">Hata ayıklamayı devre dışı bırakmak için dokunun.</string>
 </resources>

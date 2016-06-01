@@ -104,6 +104,8 @@
   <!-- Toast shown when a file copy is kicked off -->
   <plurals name="copy_begin">
     <item quantity="one">Copying <xliff:g id="count" example="1">%1$d</xliff:g> file.</item>
+    <item quantity="two">Copying <xliff:g id="count" example="3">%1$d</xliff:g> files.</item>
+    <item quantity="many">Copying <xliff:g id="count" example="3">%1$d</xliff:g> files.</item>
     <item quantity="other">Copying <xliff:g id="count" example="3">%1$d</xliff:g> files.</item>
   </plurals>
   <!-- Text shown on the copy notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
@@ -111,6 +113,8 @@
   <!-- Title of the copy error notification [CHAR LIMIT=48] -->
   <plurals name="copy_error_notification_title">
     <item quantity="one">Couldn\'t copy <xliff:g id="count" example="1">%1$d</xliff:g> file</item>
+    <item quantity="two">Couldn\'t copy <xliff:g id="count" example="2">%1$d</xliff:g> files</item>
+    <item quantity="many">Couldn\'t copy <xliff:g id="count" example="2">%1$d</xliff:g> files</item>
     <item quantity="other">Couldn\'t copy <xliff:g id="count" example="2">%1$d</xliff:g> files</item>
   </plurals>
   <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->

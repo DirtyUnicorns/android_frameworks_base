@@ -93,8 +93,8 @@
   <string name="screenrecord_notif_ticker">Bildschirm wird aufgenommen</string>
   <string name="screenrecord_notif_title">Bildschirmaufnahme</string>
   <string name="screenrecord_notif_stop">Stopp</string>
-  <string name="screenrecord_notif_pointer_on">Berührung anzeigen</string>
-  <string name="screenrecord_notif_pointer_off">Berührung ausblenden</string>
+  <string name="screenrecord_notif_pointer_on">Cursor anzeigen</string>
+  <string name="screenrecord_notif_pointer_off">Cursor ausblenden</string>
   <string name="screenrecord_notif_error">Bildschirmaufnahme nicht möglich</string>
   <!-- Battery Saver QS Tile -->
   <string name="quick_settings_battery_saver">Energiesparmodus</string>

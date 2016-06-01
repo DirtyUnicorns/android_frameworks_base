@@ -16,75 +16,73 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Button to reboot the phone, within the Phone Options dialog -->
-  <string name="reboot_system" product="tablet">Reboot tablet</string>
-  <string name="reboot_system" product="default">Reboot phone</string>
+  <string name="reboot_system" product="tablet">태블릿 재시작</string>
+  <string name="reboot_system" product="default">휴대전화 재시작</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Reboot</string>
+  <string name="reboot_reboot">재시작</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_recovery">복구 모드</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_bootloader">부트로더</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Hot reboot</string>
+  <string name="reboot_hot">빠른 재시작</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-  <string name="reboot_bootmenu">Bootmenu</string>
+  <string name="reboot_bootmenu">부트메뉴</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
   <string name="reboot_fastboot">Fastboot</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download">다운로드</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Rebooting\u2026</string>
+  <string name="reboot_progress">재시작 중\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm">디바이스를 재부팅합니다.</string>
+  <string name="reboot_confirm">휴대전화가 다시 시작됩니다.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Reboot</string>
+  <string name="global_action_reboot">재시작</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Screenshot</string>
+  <string name="powermenu_screenshot">스크린샷</string>
   <!-- Screenrecord -->
   <string name="powermenu_screenrecord">화면 녹화</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessThemeService">access theme service</string>
+  <string name="permlab_accessThemeService">테마서비스에 접근</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessThemeService">앱이 테마 서비스에 접근하는 것을 허용합니다. 일반적인 앱에는 필요하지 않습니다.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readThemes">read your theme info</string>
+  <string name="permlab_readThemes">테마 정보를 읽으십시오</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">앱이 새로운 테마를 설치하거나 다른 테마를 적용할 수 있도록 허용합니다.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permlab_writeThemes">당신의 테마를 수정</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">앱이 새로운 테마를 설치하거나 다른 테마를 적용할 수 있도록 허용합니다.</string>
   <!-- Theme installation error notification -->
   <string name="theme_install_error_title">테마를 설치하지 못했습니다.</string>
   <string name="theme_install_error_message">%s를 설치하지 못했습니다.</string>
   <string name="theme_reset_notification_title">테마 초기화</string>
   <string name="theme_reset_notification_body">앱들의 충돌로 인해 시스템 테마가 복원되었습니다.</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Fade</string>
-  <string name="animation_slide_right">Slide in right</string>
-  <string name="animation_slide_left">Slide in left</string>
-  <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
-  <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
-  <string name="animation_slide_up">Slide in bottom</string>
-  <string name="animation_slide_down">Slide in top</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
-  <string name="animation_grow_shrink">Grow in (Top)</string>
-  <string name="animation_grow_shrink_center">Grow in (Center)</string>
-  <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>
-  <string name="animation_grow_shrink_left">Grow in (Left)</string>
-  <string name="animation_grow_shrink_right">Grow in (Right)</string>
-  <string name="action_null">Blank</string>
+  <string name="animation_fade">사라짐</string>
+  <string name="animation_slide_right">오른쪽에서 슬라이드</string>
+  <string name="animation_slide_left">왼쪽에서 슬라이드</string>
+  <string name="animation_slide_right_no_fade">오른쪽에서 슬라이드 (페이드 없음)</string>
+  <string name="animation_slide_left_no_fade">왼쪽에서 슬라이드 (페이드 없음)</string>
+  <string name="animation_slide_up">아래에서 슬라이드</string>
+  <string name="animation_slide_down">위에서 슬라이드</string>
+  <string name="animation_default">기본값</string>
+  <string name="animation_translucent">반투명</string>
+  <string name="animation_grow_shrink">커지기 (위에서)</string>
+  <string name="animation_grow_shrink_center">커지기 (가운데에서)</string>
+  <string name="animation_grow_shrink_bottom">커지기 (아래에서)</string>
+  <string name="animation_grow_shrink_left">커지기 (왼쪽에서)</string>
+  <string name="animation_grow_shrink_right">커지기 (오른쪽에서)</string>
+  <string name="action_null">비어있음</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
+  <string name="system_error_vendorprint">벤더이미지가 오래 되었을 수 있습니다. 귀하의 장치에 대한 최신 벤더이미지를 플래시 하시기 바랍니다.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permlab_setKeyguardWallpaper">Keyguard 배경설정</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_setKeyguardWallpaper">앱이 잠금화면 배경을 바꿀 수 있도록 허락합니다.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">reset battery statistics</string>
+  <string name="permlab_resetBatteryStats">배터리 통계 재설정</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">앱이 현재의 로우-레벨 배터리 사용 정보를 초기화할 수 있도록 허락합니다.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -94,20 +92,20 @@
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readPhoneBlacklist">전화 블랙리스트 읽기</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_readPhoneBlacklist">앱이 전화 또는 메시지 수신이 차단된 전화번호들의 정보를 읽을 수 있도록 허용합니다.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">전화 블랙리스트 수정</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
-  <string name="default_string">Default</string>
+  <string name="permdesc_changePhoneBlacklist">앱이 어떤 전화번호들의 전화 또는 메시지를 차단할 것인지를 변경할 수 있도록 허용합니다.</string>
+  <string name="default_string">기본값</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">손전등</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App killed</string>
+  <string name="app_killed_message">애플리케이션 종료됨</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
+  <string name="adb_net_active_notification_title">무선 네트워크로 ADB 사용</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+  <string name="adb_both_active_notification_title">USB 및 네트워크 ADB 활성화됨</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
+  <string name="adb_active_generic_notification_message">디버깅을 사용 중지하려면 터치하십시오.</string>
 </resources>

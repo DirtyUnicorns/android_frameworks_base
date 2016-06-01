@@ -18,18 +18,18 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">клиент</item>
+    <item quantity="one">%1$d клиент</item>
     <item quantity="few">клиент</item>
-    <item quantity="other">клиент</item>
+    <item quantity="other">%1$d клиентов</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Фонарик включен</string>
   <string name="quick_settings_tile_flashlight_not_summary">Нажмите, чтобы отключить</string>
   <!-- Battery Saver Dimss -->
-  <string name="battery_saver_dismiss_title">Выключить</string>
+  <string name="battery_saver_dismiss_title">Отклонить</string>
   <string name="battery_saver_notification_action_text_short">Выключить</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_statusbar_title">Элементы строки состояния</string>
+  <string name="systemui_tuner_statusbar_title">Значки строки состояния</string>
   <string name="systemui_tuner_qs_title">Быстрые настройки</string>
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Скриншот удален</string>
@@ -38,11 +38,11 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">%1$s: проведите от значка</string>
   <string name="right_shortcut_hint">%1$s: проведите от значка</string>
-  <string name="lockscreen_message">Нажмите значок слева или справа для изменения ярлыка экрана блокировки.</string>
+  <string name="lockscreen_message">Нажмите на иконку слева или справа чтобы назначить собственные ярлыки экрана блокировки.</string>
   <string name="lockscreen_default_target">По умолчанию</string>
-  <string name="select_application">Выбор приложения</string>
+  <string name="select_application">Выберите приложение</string>
   <string name="lockscreen_choose_action_title">Выберите действие</string>
-  <string name="lockscreen_none_target">Нет</string>
+  <string name="lockscreen_none_target">Ничего</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
@@ -52,14 +52,14 @@
   <string name="clear_recents">Закрыть все недавние</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- USB tether QS tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">Выключить USB-модем</string>
-  <string name="accessibility_quick_settings_usb_tether_on">Включить USB-модем</string>
+  <string name="accessibility_quick_settings_usb_tether_off">USB-модем выкл.</string>
+  <string name="accessibility_quick_settings_usb_tether_on">USB-модем вкл.</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB-модем выключен</string>
   <string name="accessibility_quick_settings_usb_tether_changed_on">USB-модем включен</string>
   <string name="quick_settings_usb_tether_label">USB-модем</string>
   <!-- Ambient Display QS tile -->
-  <string name="accessibility_quick_settings_ambient_display_off">Запрет спящего режима выключен</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Запрет спящего режима включен</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Запрет спящего режима выкл.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Запрет спящего режима вкл.</string>
   <string name="accessibility_quick_settings_ambient_display_changed_off">Запрет спящего режима выключен</string>
   <string name="accessibility_quick_settings_ambient_display_changed_on">Запрет спящего режима включен</string>
   <string name="quick_settings_ambient_display_label">Запрет спящего режима</string>
@@ -68,8 +68,8 @@
   <!-- NFC QS tile -->
   <!-- Sync QS tile -->
   <string name="quick_settings_sync_label">Синхронизация</string>
-  <string name="accessibility_quick_settings_sync_off">Синхронизация выключена</string>
-  <string name="accessibility_quick_settings_sync_on">Синхронизация включена</string>
+  <string name="accessibility_quick_settings_sync_off">Синхронизация выкл.</string>
+  <string name="accessibility_quick_settings_sync_on">Синхронизация вкл.</string>
   <string name="accessibility_quick_settings_sync_changed_off">Синхронизация выключена</string>
   <string name="accessibility_quick_settings_sync_changed_on">Синхронизация включена</string>
   <!-- Screen off QS tile -->
@@ -119,38 +119,38 @@
   <string name="task_manager_title">Диспетчер задач</string>
   <string name="message_switch_fail">Невозможно переключиться на эту задачу, так как у неё нет интерфейса.</string>
   <string name="tasklist_killall">Закрыть все</string>
-  <string name="tasklist_memory_usage">"Свободный/общий объем памяти:"</string>
+  <string name="tasklist_memory_usage">"Свободно/Всего памяти: <xliff:g id="number">%s</xliff:g>/<xliff:g id="name">%s</xliff:g>"</string>
   <string name="message_keep_one_launcher">Должен быть как минимум один домашний экран!</string>
   <!-- 4G LTE switch -->
-  <string name="show_fourg_title">Показать 4G вместо LTE</string>
-  <string name="show_fourg_summary">Заменяет индикатор LTE на 4G</string>
-  <string name="statusbar_tuner_category_title">Скрыть элементы строки состояния</string>
+  <string name="show_fourg_title">Показывать 4G вместо LTE</string>
+  <string name="show_fourg_summary">Заменить значок LTE в строке состояния на 4G</string>
+  <string name="statusbar_tuner_category_title">Доступные для скрытия значки</string>
   <!-- Compass QS Tile -->
   <string name="quick_settings_compass">Компас</string>
-  <string name="quick_settings_compass_off">Компас выкл</string>
-  <string name="quick_settings_compass_init">Инициализация</string>
+  <string name="quick_settings_compass_off">Компас выкл.</string>
+  <string name="quick_settings_compass_init">Инициализация\u2026</string>
   <!-- Navigation bar Tile -->
   <string name="quick_settings_navigation_bar">Панель навигации</string>
   <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_smartbar_off">SmartBar выкл</string>
+  <string name="quick_settings_smartbar_off">SmartBar выкл.</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_fling_off">Fling off</string>
+  <string name="quick_settings_fling_off">Fling выкл.</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">Способ ввода</string>
   <!-- Hotspot airplane mode -->
-  <string name="toast_airplane_mode_hotspot">Отключить режим полета перед включением</string>
+  <string name="toast_airplane_mode_hotspot">Отключите режим полета перед включением</string>
   <!-- Statusbar Vibrate silent switch -->
-  <string name="status_bar_vibsil">Виброзвонок в режиме без звука</string>
+  <string name="status_bar_vibsil">Вибрация и бесшумный</string>
   <!-- headset icon switch -->
   <string name="status_bar_headset">Проводная гарнитура</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- Caffeine Tile -->
-  <string name="quick_settings_caffeine_label">Запрет откл. экрана</string>
+  <string name="quick_settings_caffeine_label">Запрет сна</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Запрет откл. экрана выключен</string>
+  <string name="accessibility_quick_settings_caffeine_off">Запрет сна выкл.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Запрет откл. экрана включен</string>
+  <string name="accessibility_quick_settings_caffeine_on">Запрет сна вкл.</string>
   <!-- Volume Panel Tile -->
   <string name="quick_settings_volume_panel_label">Панель громкости</string>
   <!-- Heads up toast -->
