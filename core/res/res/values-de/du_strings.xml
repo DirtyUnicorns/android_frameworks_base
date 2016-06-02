@@ -49,7 +49,7 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readThemes">Design-Informationen lesen</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Ermöglicht der App, auszulesen, welche Designs Sie installiert und aktiviert haben</string>
+  <string name="permdesc_readThemesDesc">Ermöglicht der App, auszulesen, welche Designs Sie installiert und aktiviert haben.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_writeThemes">aktives Design ändern</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -58,7 +58,7 @@
   <string name="theme_install_error_title">Design konnte nicht intalliert werden</string>
   <string name="theme_install_error_message">%s konnte nicht installiert werden</string>
   <string name="theme_reset_notification_title">Design zurückgesetzt</string>
-  <string name="theme_reset_notification_body">SDas System-Design wurde aufgrund mehrer App-Abstürze wiederhergestellt</string>
+  <string name="theme_reset_notification_body">Das System-Design wurde aufgrund mehrer App-Abstürze wiederhergestellt.</string>
   <!-- AOKP custom system animations -->
   <string name="animation_fade">Verblassen</string>
   <string name="animation_slide_right">Von rechts einblenden</string>
@@ -76,15 +76,15 @@
   <string name="animation_grow_shrink_right">Zunehmend (Rechts)</string>
   <string name="action_null">Leer</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Es scheint als wäre dein Vendor-Image veraltet. Bitte installiere das neuste Vendor-Image für dein Gerät</string>
+  <string name="system_error_vendorprint">Es scheint als wäre dein Vendor-Image veraltet. Bitte installiere das neuste Vendor-Image für dein Gerät.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">Sperrbildschirm-Hintergrund setzen</string>
+  <string name="permlab_setKeyguardWallpaper">Sperrbildschirm-Hintergrund festlegen</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Erlaubt Apps den Sperrbildschirm-Hintergrund zu ändern</string>
+  <string name="permdesc_setKeyguardWallpaper">Erlaubt einer App, den Sperrbildschirm-Hintergrund zu ändern.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_resetBatteryStats">Akku-Statistik zurücksetzen</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Erlaubt Apps die aktuelle Akku-Statistik zurückzusetzen</string>
+  <string name="permdesc_resetBatteryStats">Erlaubt einer App, die aktuelle Akku-Statistik zurückzusetzen.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_security">Sicherheit</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -96,7 +96,7 @@
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_changePhoneBlacklist">Telefon-Sperrliste ändern</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Erlaubt es einer Anwendung Telefonnummern zu ändern, welche für eingehende Anrufe oder Nachrichten blockiert werden.</string>
+  <string name="permdesc_changePhoneBlacklist">Erlaubt es einer App Telefonnummern zu ändern, welche für eingehende Anrufe oder Nachrichten blockiert werden.</string>
   <string name="default_string">Standard</string>
   <!-- Powermenu Torch -->
   <string name="global_action_torch">Taschenlampe</string>

@@ -36,6 +36,8 @@
   <!-- Message that is read when you enter recent apps in TalkBack -->
   <plurals name="status_bar_accessibility_recent_apps">
     <item quantity="one">מסך אחד ב’סקירה‘</item>
+    <item quantity="two">‏%d מסכים ב’סקירה‘</item>
+    <item quantity="many">‏%d מסכים ב’סקירה‘</item>
     <item quantity="other">‏%d מסכים ב’סקירה‘</item>
   </plurals>
   <!-- The label in the bar at the top of the status bar when there are no notifications

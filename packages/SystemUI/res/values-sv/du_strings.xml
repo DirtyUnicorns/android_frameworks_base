@@ -133,7 +133,7 @@
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_smartbar_off">SmartBar av</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_fling_off">Fling off</string>
+  <string name="quick_settings_fling_off">Fling av</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">IME</string>
   <!-- Hotspot airplane mode -->

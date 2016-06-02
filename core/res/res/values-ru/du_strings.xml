@@ -19,7 +19,7 @@
   <string name="reboot_system" product="tablet">Перезагрузить планшет</string>
   <string name="reboot_system" product="default">Перезагрузить телефон</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Перезагрузка</string>
+  <string name="reboot_reboot">Перезагрузить</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
   <string name="reboot_recovery">Режим восстановления</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
@@ -33,7 +33,7 @@
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
   <string name="reboot_download">Загрузка</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Перезагрузка</string>
+  <string name="reboot_progress">Перезагрузка\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
   <string name="reboot_confirm">Ваше устройство будет перезагружено.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
@@ -56,7 +56,7 @@
   <string name="permdesc_writeThemesDesc">Приложение сможет осуществлять установку новых тем оформления и изменять текущую тему.</string>
   <!-- Theme installation error notification -->
   <string name="theme_install_error_title">Не удалось установить тему</string>
-  <string name="theme_install_error_message">не удалось установить</string>
+  <string name="theme_install_error_message">%s не удалось установить</string>
   <string name="theme_reset_notification_title">Сброс темы</string>
   <string name="theme_reset_notification_body">Из-за сбоев приложений восстановлена стандартная тема.</string>
   <!-- AOKP custom system animations -->

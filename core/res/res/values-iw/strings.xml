@@ -112,6 +112,8 @@
   <!-- Displayed when a SIM PIN/PUK is entered incorrectly. -->
   <plurals name="pinpuk_attempts">
     <item quantity="one">‏נותר לך ניסיון <xliff:g id="NUMBER_0">%d</xliff:g> לפני נעילת כרטיס ה-SIM.</item>
+    <item quantity="two">‏נותרו לך <xliff:g id="NUMBER_1">%d</xliff:g> ניסיונות לפני נעילת כרטיס ה-SIM.</item>
+    <item quantity="many">‏נותרו לך <xliff:g id="NUMBER_1">%d</xliff:g> ניסיונות לפני נעילת כרטיס ה-SIM.</item>
     <item quantity="other">‏נותרו לך <xliff:g id="NUMBER_1">%d</xliff:g> ניסיונות לפני נעילת כרטיס ה-SIM.</item>
   </plurals>
   <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
@@ -1682,6 +1684,8 @@
   <!-- This is used to express that something occurred within the last X days (e.g., Last 7 days). -->
   <plurals name="last_num_days">
     <item quantity="one">יום <xliff:g id="COUNT_0">%d</xliff:g> אחרון</item>
+    <item quantity="two"><xliff:g id="COUNT_1">%d</xliff:g> הימים האחרונים</item>
+    <item quantity="many"><xliff:g id="COUNT_1">%d</xliff:g> הימים האחרונים</item>
     <item quantity="other"><xliff:g id="COUNT_1">%d</xliff:g> הימים האחרונים</item>
   </plurals>
   <!-- This is used to express that something has occurred within the last month -->
@@ -1721,16 +1725,22 @@
   <!-- Phrase describing a time duration using seconds [CHAR LIMIT=16] -->
   <plurals name="duration_seconds">
     <item quantity="one">שנייה אחת</item>
+    <item quantity="two"><xliff:g id="COUNT">%d</xliff:g> שניות</item>
+    <item quantity="many"><xliff:g id="COUNT">%d</xliff:g> שניות</item>
     <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> שניות</item>
   </plurals>
   <!-- Phrase describing a time duration using minutes [CHAR LIMIT=16] -->
   <plurals name="duration_minutes">
     <item quantity="one">דקה אחת</item>
+    <item quantity="two"><xliff:g id="COUNT">%d</xliff:g> דקות</item>
+    <item quantity="many"><xliff:g id="COUNT">%d</xliff:g> דקות</item>
     <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> דקות</item>
   </plurals>
   <!-- Phrase describing a time duration using hours [CHAR LIMIT=16] -->
   <plurals name="duration_hours">
     <item quantity="one">שעה אחת</item>
+    <item quantity="two"><xliff:g id="COUNT">%d</xliff:g> שעות</item>
+    <item quantity="many"><xliff:g id="COUNT">%d</xliff:g> שעות</item>
     <item quantity="other"><xliff:g id="COUNT">%d</xliff:g> שעות</item>
   </plurals>
   <!-- Title for error alert when a video cannot be played.  it can be used by any app. -->
@@ -1970,11 +1980,15 @@
   <!-- A notification is shown when there are open wireless networks nearby.  This is the notification's title. -->
   <plurals name="wifi_available">
     <item quantity="one">‏יש רשת Wi-Fi זמינה</item>
+    <item quantity="two">‏יש רשתות Wi-Fi זמינות</item>
+    <item quantity="many">‏יש רשתות Wi-Fi זמינות</item>
     <item quantity="other">‏יש רשתות Wi-Fi זמינות</item>
   </plurals>
   <!-- A notification is shown when there are open wireless networks nearby.  This is the notification's message. -->
   <plurals name="wifi_available_detailed">
     <item quantity="one">‏יש רשת Wi-Fi פתוחה וזמינה</item>
+    <item quantity="two">‏יש רשתות Wi-Fi פתוחות וזמינות</item>
+    <item quantity="many">‏יש רשתות Wi-Fi פתוחות וזמינות</item>
     <item quantity="other">‏יש רשתות Wi-Fi פתוחות וזמינות</item>
   </plurals>
   <!-- A notification is shown when a wifi captive portal network is detected.  This is the notification's title. -->
@@ -2348,6 +2362,8 @@
   <plurals name="matches_found">
     <!-- Case of one match -->
     <item quantity="one">התאמה אחת</item>
+    <item quantity="two"><xliff:g id="INDEX">%d</xliff:g> מתוך <xliff:g id="TOTAL">%d</xliff:g></item>
+    <item quantity="many"><xliff:g id="INDEX">%d</xliff:g> מתוך <xliff:g id="TOTAL">%d</xliff:g></item>
     <!-- Case of multiple total matches -->
     <item quantity="other"><xliff:g id="INDEX">%d</xliff:g> מתוך <xliff:g id="TOTAL">%d</xliff:g></item>
   </plurals>
@@ -2944,6 +2960,8 @@
   <!-- Phrase describing a time duration using seconds [CHAR LIMIT=none] -->
   <plurals name="restr_pin_countdown">
     <item quantity="one">נסה שוב בעוד שנייה אחת</item>
+    <item quantity="two">נסה שוב בעוד <xliff:g id="COUNT">%d</xliff:g> שניות</item>
+    <item quantity="many">נסה שוב בעוד <xliff:g id="COUNT">%d</xliff:g> שניות</item>
     <item quantity="other">נסה שוב בעוד <xliff:g id="COUNT">%d</xliff:g> שניות</item>
   </plurals>
   <!-- PIN entry dialog tells the user to not enter a PIN for a while. [CHAR LIMIT=none] -->
@@ -3017,41 +3035,57 @@
   <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
   <plurals name="zen_mode_duration_minutes_summary">
     <item quantity="one">למשך דקה אחת (עד <xliff:g id="FORMATTEDTIME_0">%2$s</xliff:g>)</item>
+    <item quantity="two">‏למשך %1$d דקות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
+    <item quantity="many">‏למשך %1$d דקות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
     <item quantity="other">‏למשך %1$d דקות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
   </plurals>
   <!-- Zen mode condition - summary: time duration in minutes (short version). [CHAR LIMIT=NONE] -->
   <plurals name="zen_mode_duration_minutes_summary_short">
     <item quantity="one">למשך דקה אחת (עד <xliff:g id="FORMATTEDTIME_0">%2$s</xliff:g>)</item>
+    <item quantity="two">‏למשך %1$d דקות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
+    <item quantity="many">‏למשך %1$d דקות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
     <item quantity="other">‏למשך %1$d דקות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
   </plurals>
   <!-- Zen mode condition - summary: time duration in hours. [CHAR LIMIT=NONE] -->
   <plurals name="zen_mode_duration_hours_summary">
     <item quantity="one">למשך שעה אחת (עד <xliff:g id="FORMATTEDTIME_0">%2$s</xliff:g>)</item>
+    <item quantity="two">‏למשך %d שעות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
+    <item quantity="many">‏למשך %d שעות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
     <item quantity="other">‏למשך %d שעות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
   </plurals>
   <!-- Zen mode condition - summary: time duration in hours (short version). [CHAR LIMIT=NONE] -->
   <plurals name="zen_mode_duration_hours_summary_short">
     <item quantity="one">למשך שעה אחת (עד <xliff:g id="FORMATTEDTIME_0">%2$s</xliff:g>)</item>
+    <item quantity="two">‏למשך %1$d שעות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
+    <item quantity="many">‏למשך %1$d שעות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
     <item quantity="other">‏למשך %1$d שעות (עד <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
   </plurals>
   <!-- Zen mode condition - line one: time duration in minutes. [CHAR LIMIT=NONE] -->
   <plurals name="zen_mode_duration_minutes">
     <item quantity="one">למשך דקה אחת</item>
+    <item quantity="two">‏למשך %d דקות</item>
+    <item quantity="many">‏למשך %d דקות</item>
     <item quantity="other">‏למשך %d דקות</item>
   </plurals>
   <!-- Zen mode condition - line one: time duration in minutes (short version). [CHAR LIMIT=NONE] -->
   <plurals name="zen_mode_duration_minutes_short">
     <item quantity="one">למשך דקה אחת</item>
+    <item quantity="two">‏למשך %d דקות</item>
+    <item quantity="many">‏למשך %d דקות</item>
     <item quantity="other">‏למשך %d דקות</item>
   </plurals>
   <!-- Zen mode condition - line one: time duration in hours. [CHAR LIMIT=NONE] -->
   <plurals name="zen_mode_duration_hours">
     <item quantity="one">למשך שעה אחת</item>
+    <item quantity="two">‏למשך %d שעות</item>
+    <item quantity="many">‏למשך %d שעות</item>
     <item quantity="other">‏למשך %d שעות</item>
   </plurals>
   <!-- Zen mode condition - line one: time duration in hours (short version). [CHAR LIMIT=NONE] -->
   <plurals name="zen_mode_duration_hours_short">
     <item quantity="one">למשך שעה אחת</item>
+    <item quantity="two">‏למשך %d שעות</item>
+    <item quantity="many">‏למשך %d שעות</item>
     <item quantity="other">‏למשך %d שעות</item>
   </plurals>
   <!-- Zen mode condition - line two: ending time. [CHAR LIMIT=NONE] -->
@@ -3109,6 +3143,8 @@
   <!-- Label describing the number of selected items [CHAR LIMIT=48] -->
   <plurals name="selected_count">
     <item quantity="one">בחרת <xliff:g id="COUNT_0">%1$d</xliff:g></item>
+    <item quantity="two">בחרת <xliff:g id="COUNT_1">%1$d</xliff:g></item>
+    <item quantity="many">בחרת <xliff:g id="COUNT_1">%1$d</xliff:g></item>
     <item quantity="other">בחרת <xliff:g id="COUNT_1">%1$d</xliff:g></item>
   </plurals>
 </resources>
