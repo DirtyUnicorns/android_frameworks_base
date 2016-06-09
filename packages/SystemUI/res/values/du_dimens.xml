@@ -69,8 +69,8 @@
     <dimen name="task_manager_item_height">40dip</dimen>
 
     <dimen name="qs_detail_item_height_twoline">72dp</dimen>
-    
-<!-- Slim recent -->
+
+    <!-- Slim recent -->
     <dimen name="recent_width">230dp</dimen>
     <dimen name="slim_recents_elevation">20dp</dimen>
     <dimen name="recent_app_icon_size">48dp</dimen>
@@ -80,5 +80,13 @@
     <dimen name="recent_header_width">120dp</dimen>
     <dimen name="recent_text_size">20dp</dimen>
     <dimen name="recent_thumbnail_bottom_padding">3dp</dimen>
+
+    <!-- Screenshot Crop & Share -->
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_size_m">24sp</dimen>
+    <dimen name="text_size_s">17sp</dimen>
+    <dimen name="button_height">40dp</dimen>
+    <dimen name="crop_buttons">48dp</dimen>
+    <dimen name="crop_color_rect">32dp</dimen>
 
 </resources>
