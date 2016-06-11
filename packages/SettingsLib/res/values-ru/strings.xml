@@ -52,13 +52,13 @@
   <!-- Summary for the remembered network but no internet connection was detected. -->
   <string name="wifi_no_internet">Не обнаружен доступ к Интернету, автоматического переподключения не будет.</string>
   <!-- Summary for saved networks -->
-  <string name="saved_network">Сохранено</string>
+  <string name="saved_network">Сохранено <xliff:g id="name">%1$s</xliff:g></string>
   <!-- Status message of Wi-Fi when it is connected by a Wi-Fi assistant application. [CHAR LIMIT=NONE] -->
-  <string name="connected_via_wfa">Подключен через WiFi помощник</string>
+  <string name="connected_via_wfa">Подключен через Wi\u2011Fi помощник</string>
   <!-- Status message of Wi-Fi when it is connected by Passpoint configuration. [CHAR LIMIT=NONE] -->
-  <string name="connected_via_passpoint">Подключен через</string>
+  <string name="connected_via_passpoint">Подключен через %1$s</string>
   <!-- Status message of Wi-Fi when network has matching passpoint credentials. [CHAR LIMIT=NONE] -->
-  <string name="available_via_passpoint">Доступно через</string>
+  <string name="available_via_passpoint">Доступно через %1$s</string>
   <!-- Package name for Settings app-->
   <!-- Package name for Certinstaller app-->
   <!-- Summary for Connected wifi network without internet -->
@@ -66,25 +66,25 @@
   <!-- Bluetooth settings.  Message when a device is disconnected -->
   <string name="bluetooth_disconnected">Нет подключения</string>
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
-  <string name="bluetooth_disconnecting">Отключение</string>
+  <string name="bluetooth_disconnecting">Отключение\u2026</string>
   <!-- Bluetooth settings.  Message when connecting to a device -->
-  <string name="bluetooth_connecting">Подключение</string>
+  <string name="bluetooth_connecting">Подключение\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected">Подключено</string>
   <!--Bluetooth settings screen, summary text under individual Bluetooth devices when pairing -->
-  <string name="bluetooth_pairing">Сопряжение</string>
+  <string name="bluetooth_pairing">Сопряжение\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for phone audio. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected_no_headset">Подключено (нет телефона)</string>
+  <string name="bluetooth_connected_no_headset">Подключено (кроме HSP/HFP)</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for media audio. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected_no_a2dp">Подключено (нет медиа)</string>
+  <string name="bluetooth_connected_no_a2dp">Подключено (кроме A2DP)</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for map. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected_no_map">Подключено (нет доступа к сообщениям)</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for phone/media audio. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected_no_headset_no_a2dp">Подключено (нет телефона или медиа)</string>
+  <string name="bluetooth_connected_no_headset_no_a2dp">Подключено (кроме HSP/HFP/A2DP)</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the A2DP profile. -->
-  <string name="bluetooth_profile_a2dp">Медиа аудио</string>
+  <string name="bluetooth_profile_a2dp">Профиль A2DP</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the headset or handsfree profile. -->
-  <string name="bluetooth_profile_headset">Аудио телефона</string>
+  <string name="bluetooth_profile_headset">Профиль HSP/HFP</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
   <string name="bluetooth_profile_opp">Передача файла</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
@@ -118,7 +118,7 @@
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (user role). [CHAR LIMIT=25]-->
   <string name="bluetooth_pan_user_profile_summary_connected">Подключено к устройству для интернет-доступа</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (NAP role). [CHAR LIMIT=25]-->
-  <string name="bluetooth_pan_nap_profile_summary_connected">Совместное использование локального Интернет-подключения к  с устройством</string>
+  <string name="bluetooth_pan_nap_profile_summary_connected">Устройство работает в режиме модема</string>
   <!-- Bluetooth settings. Connection options screen. The summary
          for the PAN checkbox preference that describes how checking it
          will set the PAN profile as preferred. -->
@@ -138,7 +138,7 @@
          will set the HID profile as preferred. -->
   <string name="bluetooth_hid_profile_summary_use_for">Использовать для ввода</string>
   <!-- Button text for accepting an incoming pairing request. [CHAR LIMIT=20] -->
-  <string name="bluetooth_pairing_accept">Подключить</string>
+  <string name="bluetooth_pairing_accept">Соединить</string>
   <!-- Button text for accepting an incoming pairing request in all caps. [CHAR LIMIT=20] -->
   <string name="bluetooth_pairing_accept_all_caps">СОЕДИНИТЬ</string>
   <!-- Button text for declining an incoming pairing request. [CHAR LIMIT=20] -->
@@ -146,12 +146,12 @@
   <!-- Message in pairing dialogs.  [CHAR LIMIT=NONE] -->
   <string name="bluetooth_pairing_will_share_phonebook">Сопряжение предоставляет доступ к контактам и истории звонков при подключении.</string>
   <!-- Message for the error dialog when BT pairing fails generically. -->
-  <string name="bluetooth_pairing_error_message">Не удалось подключиться к</string>
+  <string name="bluetooth_pairing_error_message">Не удалось подключиться к <xliff:g id="device_name">%1$s</xliff:g>.</string>
   <!-- Message for the error dialog when BT pairing fails because the PIN /
     Passkey entered is incorrect. -->
-  <string name="bluetooth_pairing_pin_error_message">Не удалось подключиться к так как был введен неправильный PIN-код или пароль.</string>
+  <string name="bluetooth_pairing_pin_error_message">Не удалось подключиться к <xliff:g id="device_name">%1$s</xliff:g> так как был введен неправильный PIN-код или пароль.</string>
   <!-- Message for the error dialog when BT pairing fails because the other device is down. -->
-  <string name="bluetooth_pairing_device_down_error_message">Не удалось установить соединение с</string>
+  <string name="bluetooth_pairing_device_down_error_message">Не удалось установить соединение с <xliff:g id="device_name">%1$s</xliff:g>.</string>
   <!-- Message for the error dialog when BT pairing fails because the other device rejected the pairing. -->
   <string name="bluetooth_pairing_rejected_error_message">запретил сопряжение.</string>
   <!-- Content description of the WIFI signal when WIFI is disabled for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->

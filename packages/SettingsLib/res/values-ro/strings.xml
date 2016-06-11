@@ -37,9 +37,9 @@
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Do not translate.  Concise terminology for Passpoint network -->
   <!-- Summary for the remembered network. -->
-  <string name="wifi_remembered">Saved</string>
+  <string name="wifi_remembered">Informatii despre reteaua salvata</string>
   <!-- Status for networks disabled for unknown reason -->
-  <string name="wifi_disabled_generic">Disabled</string>
+  <string name="wifi_disabled_generic">Starea retelelor dezactivate din motive necunoscute</string>
   <!-- Status for networked disabled from a DNS or DHCP failure -->
   <string name="wifi_disabled_network_failure">IP Configuration Failure</string>
   <!-- Status for networked disabled from a wifi association failure -->

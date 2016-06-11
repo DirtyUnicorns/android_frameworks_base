@@ -119,7 +119,7 @@
   <string name="task_manager_title">Диспетчер задач</string>
   <string name="message_switch_fail">Невозможно переключиться на эту задачу, так как у неё нет интерфейса.</string>
   <string name="tasklist_killall">Закрыть все</string>
-  <string name="tasklist_memory_usage">"Свободно/Всего памяти: <xliff:g id="number">%s</xliff:g>/<xliff:g id="name">%s</xliff:g>"</string>
+  <string name="tasklist_memory_usage">"Свободно/Всего: <xliff:g id="number">%s</xliff:g>/<xliff:g id="name">%s</xliff:g>"</string>
   <string name="message_keep_one_launcher">Должен быть как минимум один домашний экран!</string>
   <!-- 4G LTE switch -->
   <string name="show_fourg_title">Показывать 4G вместо LTE</string>
@@ -159,4 +159,16 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Screenshot Crop & Share -->
+  <string name="action_delete_success">Deleted</string>
+  <string name="action_delete_fault">Deleting was unsuccessful</string>
+  <string name="action_save_success">Saved</string>
+  <string name="action_save_fault">Saving was unsuccessful</string>
+  <string name="pref_action_color_title">Action buttons color</string>
+  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
+  <string name="pref_category_main">Main Settings</string>
+  <string name="pref_category_user">User Settings</string>
+  <string name="pref_crop_behavior_title">Crop behavior</string>
+  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
+  <string name="action_ok">OK</string>
 </resources>

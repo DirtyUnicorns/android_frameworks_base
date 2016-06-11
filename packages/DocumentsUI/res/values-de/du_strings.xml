@@ -29,7 +29,7 @@
   <!-- Text shown in a toast when the user pastes files -->
   <plurals name="files_pasted">
     <item quantity="one">Die Datei wurde eingefügt. Das Hochladen wird möglicherweise im Hintergrund abgeschlossen.</item>
-    <item quantity="other">%d Dateien wurden eingefügt. Das Hochladen wird möglicherweise im Hintergrund abgeschlossen.</item>
+    <item quantity="other">%d Dateien wurden eingefügt. Das Hochladen kann im Hintergrund abgeschlossen werden.</item>
   </plurals>
   <!-- Text show in the progress dialog while files are being copied -->
   <string name="copy_in_progress">Kopiere\u2026</string>

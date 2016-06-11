@@ -39,14 +39,14 @@
   <!-- Summary for the remembered network. -->
   <string name="wifi_remembered">Kaydedildi</string>
   <!-- Status for networks disabled for unknown reason -->
-  <string name="wifi_disabled_generic">Disabled</string>
+  <string name="wifi_disabled_generic">Devre dışı</string>
   <!-- Status for networked disabled from a DNS or DHCP failure -->
-  <string name="wifi_disabled_network_failure">IP Configuration Failure</string>
+  <string name="wifi_disabled_network_failure">IP Yapılandırma Hatası</string>
   <!-- Status for networked disabled from a wifi association failure -->
-  <string name="wifi_disabled_wifi_failure">WiFi Connection Failure</string>
+  <string name="wifi_disabled_wifi_failure">WiFi Bağlantı Hatası</string>
   <!-- Status for networks disabled from authentication failure (wrong password
          or certificate). -->
-  <string name="wifi_disabled_password_failure">Authentication problem</string>
+  <string name="wifi_disabled_password_failure">Kimlik doğrulama sorunu</string>
   <!-- Summary for the remembered network but currently not in range. -->
   <string name="wifi_not_in_range">Aralıkta değil</string>
   <!-- Summary for the remembered network but no internet connection was detected. -->
@@ -56,7 +56,7 @@
   <!-- Status message of Wi-Fi when it is connected by a Wi-Fi assistant application. [CHAR LIMIT=NONE] -->
   <string name="connected_via_wfa">Connected via Wi\u2011Fi assistant</string>
   <!-- Status message of Wi-Fi when it is connected by Passpoint configuration. [CHAR LIMIT=NONE] -->
-  <string name="connected_via_passpoint">Connected via %1$s</string>
+  <string name="connected_via_passpoint">%1$s ile bağlandı</string>
   <!-- Status message of Wi-Fi when network has matching passpoint credentials. [CHAR LIMIT=NONE] -->
   <string name="available_via_passpoint">Available via %1$s</string>
   <!-- Package name for Settings app-->
@@ -88,7 +88,7 @@
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
   <string name="bluetooth_profile_opp">File transfer</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
-  <string name="bluetooth_profile_hid">Input device</string>
+  <string name="bluetooth_profile_hid">Giriş cihazı</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->
   <string name="bluetooth_profile_pan">Internet erişimi</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PBAP profile. [CHAR LIMIT=40] -->
@@ -149,9 +149,9 @@
   <string name="bluetooth_pairing_error_message"><xliff:g id="device_name"> %1$s </xliff:g> ile baglanilamadi.</string>
   <!-- Message for the error dialog when BT pairing fails because the PIN /
     Passkey entered is incorrect. -->
-  <string name="bluetooth_pairing_pin_error_message">Couldn\'t pair with <xliff:g id="device_name">%1$s</xliff:g> because of an incorrect PIN or passkey.</string>
+  <string name="bluetooth_pairing_pin_error_message"><xliff:g id="device_name"> %1$s </xliff:g> ile baglanilamadi. Yanlış PIN veya geçersiz anahtar.</string>
   <!-- Message for the error dialog when BT pairing fails because the other device is down. -->
-  <string name="bluetooth_pairing_device_down_error_message">Can\'t communicate with <xliff:g id="device_name">%1$s</xliff:g>.</string>
+  <string name="bluetooth_pairing_device_down_error_message"><xliff:g id="device_name"> %1$s </xliff:g> ile iletişim kurulamıyor.</string>
   <!-- Message for the error dialog when BT pairing fails because the other device rejected the pairing. -->
   <string name="bluetooth_pairing_rejected_error_message">Pairing rejected by <xliff:g id="device_name">%1$s</xliff:g>.</string>
   <!-- Content description of the WIFI signal when WIFI is disabled for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->

@@ -19,6 +19,6 @@
   <string name="profile_applist_title">Uygulamalar</string>
   <string name="picker_activities">Etkinlikler</string>
   <string name="select_custom_app_title">Özel uygulama seç</string>
-  <string name="select_custom_activity_title">Select custom activity</string>
-  <string name="lockscreen_targets_message">Bottom L/R Shortcuts</string>
+  <string name="select_custom_activity_title">Özel aktivite seç</string>
+  <string name="lockscreen_targets_message">Alt Sol/Sağ Kısayolları</string>
 </resources>
