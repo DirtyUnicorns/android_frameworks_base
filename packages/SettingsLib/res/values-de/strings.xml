@@ -20,7 +20,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast message when Wi-Fi cannot scan for networks -->
-  <string name="wifi_fail_to_scan">Netzwerkscan nicht möglich</string>
+  <string name="wifi_fail_to_scan">Suche nach WLAN-Netzen nicht möglich</string>
   <!-- Do not translate.  Concise terminology for wifi with WEP security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA2 security -->
@@ -56,9 +56,9 @@
   <!-- Status message of Wi-Fi when it is connected by a Wi-Fi assistant application. [CHAR LIMIT=NONE] -->
   <string name="connected_via_wfa">Verbunden via WLAN-Assistent</string>
   <!-- Status message of Wi-Fi when it is connected by Passpoint configuration. [CHAR LIMIT=NONE] -->
-  <string name="connected_via_passpoint">Verbunden via %1$s</string>
+  <string name="connected_via_passpoint">Verbunden mit %1$s</string>
   <!-- Status message of Wi-Fi when network has matching passpoint credentials. [CHAR LIMIT=NONE] -->
-  <string name="available_via_passpoint">Verfügbar via %1$s</string>
+  <string name="available_via_passpoint">Verfügbar: %1$s</string>
   <!-- Package name for Settings app-->
   <!-- Package name for Certinstaller app-->
   <!-- Summary for Connected wifi network without internet -->
@@ -66,9 +66,9 @@
   <!-- Bluetooth settings.  Message when a device is disconnected -->
   <string name="bluetooth_disconnected">Verbindung getrennt</string>
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
-  <string name="bluetooth_disconnecting">Trenne Verbindung\u2026</string>
+  <string name="bluetooth_disconnecting">Verbindung wird getrennt \u2026</string>
   <!-- Bluetooth settings.  Message when connecting to a device -->
-  <string name="bluetooth_connecting">Verbinde\u2026</string>
+  <string name="bluetooth_connecting">Verbindung wird hergestellt \u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected">Verbunden</string>
   <!--Bluetooth settings screen, summary text under individual Bluetooth devices when pairing -->

@@ -1895,9 +1895,9 @@
   <!-- Text of the alert that is displayed when an application has violated StrictMode. -->
   <string name="smv_process">Процесс <xliff:g id="PROCESS">%1$s</xliff:g> нарушил собственную политику StrictMode.</string>
   <!-- [CHAR LIMIT=40] Title of dialog that is shown when performing a system upgrade. -->
-  <string name="android_upgrading_title">Обновление Android...</string>
+  <string name="android_upgrading_title">Обновление Dirty Unicorns\u2026</string>
   <!-- [CHAR LIMIT=40] Title of dialog that is shown when system is starting. -->
-  <string name="android_start_title">Запуск Android…</string>
+  <string name="android_start_title">Запуск Dirty Unicorns\u2026</string>
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog when doing an fstrim. -->
   <string name="android_upgrading_fstrim">Оптимизация хранилища…</string>
   <!-- [CHAR LIMIT=NONE] Message shown in upgrading dialog for each .apk that is optimized. -->

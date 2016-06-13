@@ -25,19 +25,19 @@
   <string name="quick_settings_tile_flashlight_not_title">El feneri açık</string>
   <string name="quick_settings_tile_flashlight_not_summary">Kapatmak için Dokunun</string>
   <!-- Battery Saver Dimss -->
-  <string name="battery_saver_dismiss_title">Dismiss</string>
-  <string name="battery_saver_notification_action_text_short">Turn off</string>
+  <string name="battery_saver_dismiss_title">Yoksay</string>
+  <string name="battery_saver_notification_action_text_short">Kapat</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_statusbar_title">Statusbar Items</string>
+  <string name="systemui_tuner_statusbar_title">Durum Çubuğu Öğeleri</string>
   <string name="systemui_tuner_qs_title">Hızlı Ayarlar</string>
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
   <!-- Weather string format in expanded statusbar header -->
   <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Swipe right for %1$s</string>
-  <string name="right_shortcut_hint">Swipe left for %1$s</string>
-  <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
+  <string name="left_shortcut_hint">%1$s için sağa kaydırın</string>
+  <string name="right_shortcut_hint">%1$s için sola kaydırın</string>
+  <string name="lockscreen_message">Bir kilit ekranı kısayolunu değiştirmek için sağ veya soldaki ikona dokunun.</string>
   <string name="lockscreen_default_target">Varsayılan</string>
   <string name="select_application">Uygulama seçin</string>
   <string name="lockscreen_choose_action_title">Eylem seç</string>
@@ -48,17 +48,17 @@
          [CHAR LIMIT=4] -->
   <!-- The text for the button in the notification window-shade that clears
          all of the currently visible notifications. [CHAR LIMIT=10]-->
-  <string name="clear_recents">Close all recent</string>
+  <string name="clear_recents">Tüm uygulamaları kapat</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- USB tether QS tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
+  <string name="accessibility_quick_settings_usb_tether_off">USB internet paylaşımı kapalı</string>
   <string name="accessibility_quick_settings_usb_tether_on">USB İnternet Paylaşımı</string>
   <string name="accessibility_quick_settings_usb_tether_changed_off">USB internet paylaşımı kapatıldı</string>
   <string name="accessibility_quick_settings_usb_tether_changed_on">USB internet paylaşımı açıldı</string>
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
   <!-- Ambient Display QS tile -->
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Ortam Ekranı Özelliğini kapat</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Ortam Ekranı Özelliğini aç</string>
   <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ortam ekranı açık</string>
   <string name="quick_settings_ambient_display_label">Ortam Ekranı</string>
@@ -79,7 +79,7 @@
   <!-- Brightness QS Tile -->
   <string name="quick_settings_brightness">Brightness</string>
   <!-- Music QS Tile -->
-  <string name="quick_settings_music_label">Music</string>
+  <string name="quick_settings_music_label">Müzik</string>
   <string name="quick_settings_music_play">Play</string>
   <string name="quick_settings_music_pause">Duraklat</string>
   <!-- Reboot/Recovery QS Tile -->
@@ -109,9 +109,9 @@
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Themes</string>
   <string name="quick_settings_themes_icon_packs">Apply icon pack</string>
-  <string name="quick_settings_themes_app_theme_with_label">Apply theme to <xliff:g id="application">%1$s</xliff:g></string>
-  <string name="quick_settings_themes_app_theme">Apply theme to app</string>
-  <string name="quick_settings_themes_system_theme">Apply theme</string>
+  <string name="quick_settings_themes_app_theme_with_label">Temayı uygula <xliff:g id="application">%1$s</xliff:g></string>
+  <string name="quick_settings_themes_app_theme">Uygulamaya temayı uygula</string>
+  <string name="quick_settings_themes_system_theme">Temayı uygula</string>
   <string name="quick_settings_themes_default_theme">Varsayılan</string>
   <string name="quick_settings_themes_match_system">Sistem temasına çevir</string>
   <!-- Task Manager -->
@@ -158,4 +158,16 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Screenshot Crop & Share -->
+  <string name="action_delete_success">Deleted</string>
+  <string name="action_delete_fault">Deleting was unsuccessful</string>
+  <string name="action_save_success">Saved</string>
+  <string name="action_save_fault">Saving was unsuccessful</string>
+  <string name="pref_action_color_title">Action buttons color</string>
+  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
+  <string name="pref_category_main">Main Settings</string>
+  <string name="pref_category_user">User Settings</string>
+  <string name="pref_crop_behavior_title">Crop behavior</string>
+  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
+  <string name="action_ok">OK</string>
 </resources>

@@ -2332,8 +2332,8 @@
   <string name="tethered_notification_title">Tethering veya hotspot etkin</string>
   <string name="tethered_notification_message">Kurulum için dokunun.</string>
   <string name="tethered_notification_no_device_message">Bağlı aygıt yok</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> cihaz bağlı</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> cihaz bağlı</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Geri</string>
   <string name="next_button_label">İleri</string>
@@ -2617,9 +2617,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">Bağlantıyı kes</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">Taranıyor\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">Bağlanıyor\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">Kullanılabilir</string>
   <!-- Status message for remote routes that are not available for connection right now -->
@@ -2811,15 +2811,15 @@
   <!-- ISO (European standard) C10 media (paper) size: 1.10" x 1.57" -->
   <string name="mediasize_iso_c10">ISO C10</string>
   <!-- North America Letter media (paper) size: 8.5" × 11" (279mm x 216mm) -->
-  <string name="mediasize_na_letter">Letter</string>
+  <string name="mediasize_na_letter">Mektup</string>
   <!-- North America Government Letter media (paper) size: 8.0" × 10.5" (203mm x 267mm) -->
-  <string name="mediasize_na_gvrnmt_letter">Government Letter</string>
+  <string name="mediasize_na_gvrnmt_letter">Amerikan Hükümeti Mektubu</string>
   <!-- North America Legal media (paper) size: 8.5" × 14" (216mm x 356mm) -->
-  <string name="mediasize_na_legal">Legal</string>
+  <string name="mediasize_na_legal">Yasal</string>
   <!-- North America Junior Legal media (paper) size: 8.0" × 5.0" (203mm × 127mm) -->
-  <string name="mediasize_na_junior_legal">Junior Legal</string>
+  <string name="mediasize_na_junior_legal">Junior Yasal</string>
   <!-- North America Ledger media (paper) size: 17" × 11" (432mm × 279mm) -->
-  <string name="mediasize_na_ledger">Ledger</string>
+  <string name="mediasize_na_ledger">Ana Defer</string>
   <!-- North America Tabloid media (paper) size: 11" × 17" (279mm × 432mm) -->
   <string name="mediasize_na_tabloid">Tabloid</string>
   <!-- North America Index Card 3x5 media (paper) size: 3" x 5" (76mm x 127mm) -->
@@ -2829,7 +2829,7 @@
   <!-- North America Index Card 5x8 media (paper) size: 5" x 8" (127mm x 203mm) -->
   <string name="mediasize_na_index_5x8">Dizin Kartı 5x8</string>
   <!-- North America Monarch media (paper) size: 7.25" x 10.5" (184mm x 267mm) -->
-  <string name="mediasize_na_monarch">Monarch</string>
+  <string name="mediasize_na_monarch">Hükümdar</string>
   <!-- North America Quarto media (paper) size: 8" x 10" (203mm x 254mm) -->
   <string name="mediasize_na_quarto">Quarto</string>
   <!-- North America Foolscap media (paper) size: 8" x 13" (203mm x 330mm) -->
