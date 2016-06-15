@@ -64,13 +64,13 @@
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
   <string name="sort_name">Ada göre</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
-  <string name="sort_date">By date modified</string>
+  <string name="sort_date">Değiştirilme tarihine göre</string>
   <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
   <string name="sort_size">Boyuta göre</string>
   <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_open">Show roots</string>
+  <string name="drawer_open">Kökleri göster</string>
   <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_close">Hide roots</string>
+  <string name="drawer_close">Kökleri gizle</string>
   <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
   <string name="save_error">Belgeyi kaydetme başarısız oldu</string>
   <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
@@ -78,11 +78,11 @@
   <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
   <string name="query_error">Belgeyi sorgulama başarısız oldu</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
-  <string name="root_recent">Recent</string>
+  <string name="root_recent">En son</string>
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> free</string>
+  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> boş alan</string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
-  <string name="root_type_service">Storage services</string>
+  <string name="root_type_service">Depolama hizmetleri</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
   <string name="root_type_shortcut">Kısayollar</string>
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
@@ -92,11 +92,11 @@
   <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
   <string name="empty">Öğe yok</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <string name="toast_no_application">Can\'t open file</string>
+  <string name="toast_no_application">Dosya açılamıyor</string>
   <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
-  <string name="toast_failed_delete">Unable to delete some documents</string>
+  <string name="toast_failed_delete">Bazı belgeler silinemiyor</string>
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
-  <string name="share_via">Share via</string>
+  <string name="share_via">Şunu kullanarak paylaş</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
   <string name="copy_notification_title">Dosyalar kopyalanıyor</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
@@ -114,9 +114,9 @@
     <item quantity="other"><xliff:g id="count" example="2">%1$d </xliff:g> dosya kopyalanamadı</item>
   </plurals>
   <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
-  <string name="notification_touch_for_details">Touch to view details</string>
+  <string name="notification_touch_for_details">Ayrıntıları görüntülemek için dokunun</string>
   <!-- Label of a dialog button for retrying a failed operation [CHAR LIMIT=24] -->
-  <string name="retry">Retry</string>
+  <string name="retry">Tekrar dene</string>
   <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="copy_failure_alert_content">These files weren\'t copied: <xliff:g id="list">%1$s</xliff:g></string>
+  <string name="copy_failure_alert_content"><xliff:g id="list">%1$s</xliff:g> dosyaları kopyalanmadı</string>
 </resources>

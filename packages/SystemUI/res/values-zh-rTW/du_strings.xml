@@ -36,7 +36,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">向右滑動以 %1$s</string>
   <string name="right_shortcut_hint">向左滑動以 %1$s</string>
-  <string name="lockscreen_message">輕觸左邊或右邊的圖示以重新指定鎖定畫面捷徑。</string>
+  <string name="lockscreen_message">輕觸左側或右側的圖示以重新指定鎖定畫面捷徑。</string>
   <string name="lockscreen_default_target">預設</string>
   <string name="select_application">選擇應用程式</string>
   <string name="lockscreen_choose_action_title">選擇動作</string>
@@ -158,15 +158,15 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Screenshot Crop & Share -->
-  <string name="action_delete_success">Deleted</string>
-  <string name="action_delete_fault">Deleting was unsuccessful</string>
-  <string name="action_save_success">Saved</string>
-  <string name="action_save_fault">Saving was unsuccessful</string>
+  <string name="action_delete_success">已刪除</string>
+  <string name="action_delete_fault">刪除失敗</string>
+  <string name="action_save_success">已儲存</string>
+  <string name="action_save_fault">儲存失敗</string>
   <string name="pref_action_color_title">Action buttons color</string>
-  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
-  <string name="pref_category_main">Main Settings</string>
-  <string name="pref_category_user">User Settings</string>
+  <string name="pref_action_color_summary">選擇您喜愛的顏色為動作按鈕</string>
+  <string name="pref_category_main">主要設置</string>
+  <string name="pref_category_user">使用者設定</string>
   <string name="pref_crop_behavior_title">Crop behavior</string>
-  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
-  <string name="action_ok">OK</string>
+  <string name="pref_crop_behavior_summary">使用裁剪的圖像，即使原來的圖像沒有實際裁剪</string>
+  <string name="action_ok">確定</string>
 </resources>

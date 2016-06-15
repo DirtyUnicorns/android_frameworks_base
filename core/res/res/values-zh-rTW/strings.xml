@@ -2803,23 +2803,23 @@
   <!-- ISO (European standard) C10 media (paper) size: 1.10" x 1.57" -->
   <string name="mediasize_iso_c10">ISO C10</string>
   <!-- North America Letter media (paper) size: 8.5" × 11" (279mm x 216mm) -->
-  <string name="mediasize_na_letter">Letter</string>
+  <string name="mediasize_na_letter">代號</string>
   <!-- North America Government Letter media (paper) size: 8.0" × 10.5" (203mm x 267mm) -->
   <string name="mediasize_na_gvrnmt_letter">Government Letter</string>
   <!-- North America Legal media (paper) size: 8.5" × 14" (216mm x 356mm) -->
-  <string name="mediasize_na_legal">Legal</string>
+  <string name="mediasize_na_legal">法律聲明</string>
   <!-- North America Junior Legal media (paper) size: 8.0" × 5.0" (203mm × 127mm) -->
-  <string name="mediasize_na_junior_legal">Junior Legal</string>
+  <string name="mediasize_na_junior_legal">初階法律</string>
   <!-- North America Ledger media (paper) size: 17" × 11" (432mm × 279mm) -->
-  <string name="mediasize_na_ledger">Ledger</string>
+  <string name="mediasize_na_ledger">分類簿</string>
   <!-- North America Tabloid media (paper) size: 11" × 17" (279mm × 432mm) -->
-  <string name="mediasize_na_tabloid">Tabloid</string>
+  <string name="mediasize_na_tabloid">簡報</string>
   <!-- North America Index Card 3x5 media (paper) size: 3" x 5" (76mm x 127mm) -->
-  <string name="mediasize_na_index_3x5">Index Card 3x5</string>
+  <string name="mediasize_na_index_3x5">索引卡 3x5</string>
   <!-- North America Index Card 4x6 media (paper) size: 4" x 6" (102mm x 152mm) -->
-  <string name="mediasize_na_index_4x6">Index Card 4x6</string>
+  <string name="mediasize_na_index_4x6">索引卡 4x6</string>
   <!-- North America Index Card 5x8 media (paper) size: 5" x 8" (127mm x 203mm) -->
-  <string name="mediasize_na_index_5x8">Index Card 5x8</string>
+  <string name="mediasize_na_index_5x8">索引卡 5x8</string>
   <!-- North America Monarch media (paper) size: 7.25" x 10.5" (184mm x 267mm) -->
   <string name="mediasize_na_monarch">Monarch</string>
   <!-- North America Quarto media (paper) size: 8" x 10" (203mm x 254mm) -->
@@ -2827,31 +2827,31 @@
   <!-- North America Foolscap media (paper) size: 8" x 13" (203mm x 330mm) -->
   <string name="mediasize_na_foolscap">Foolscap</string>
   <!-- Chinese Roc 8k media (paper) size: 270mm x 390mm (10.629" x 15.3543") -->
-  <string name="mediasize_chinese_roc_8k">ROC 8K</string>
+  <string name="mediasize_chinese_roc_8k">中華民國 8K</string>
   <!-- Chinese Roc 16k media (paper) size: 195mm x 270mm (7.677" x 10.629") -->
-  <string name="mediasize_chinese_roc_16k">ROC 16K</string>
+  <string name="mediasize_chinese_roc_16k">中華民國 16K</string>
   <!-- Chinese PRC 1 media (paper) size: 102mm x 165mm (4.015" x 6.496") -->
-  <string name="mediasize_chinese_prc_1">PRC 1</string>
+  <string name="mediasize_chinese_prc_1">中國 1</string>
   <!-- Chinese PRC 2 media (paper) size: 102mm x 176mm (4.015" x 6.929") -->
-  <string name="mediasize_chinese_prc_2">PRC 2</string>
+  <string name="mediasize_chinese_prc_2">中國 2</string>
   <!-- Chinese PRC 3 media (paper) size: 125mm x 176mm (4.921" x 6.929") -->
-  <string name="mediasize_chinese_prc_3">PRC 3</string>
+  <string name="mediasize_chinese_prc_3">中國 3</string>
   <!-- Chinese PRC 4 media (paper) size: 110mm x 208mm (4.330" x 8.189") -->
-  <string name="mediasize_chinese_prc_4">PRC 4</string>
+  <string name="mediasize_chinese_prc_4">中國 4</string>
   <!-- Chinese PRC 5 media (paper) size: 110mm x 220mm (4.330" x 8.661") -->
-  <string name="mediasize_chinese_prc_5">PRC 5</string>
+  <string name="mediasize_chinese_prc_5">中國 5</string>
   <!-- Chinese PRC 6 media (paper) size: 120mm x 320mm (4.724" x 12.599") -->
-  <string name="mediasize_chinese_prc_6">PRC 6</string>
+  <string name="mediasize_chinese_prc_6">中華人民共和國 6</string>
   <!-- Chinese PRC 7 media (paper) size: 160mm x 230mm (6.299" x 9.055") -->
-  <string name="mediasize_chinese_prc_7">PRC 7</string>
+  <string name="mediasize_chinese_prc_7">中國 7</string>
   <!-- Chinese PRC 8 media (paper) size: 120mm x 309mm (4.724" x 12.165") -->
-  <string name="mediasize_chinese_prc_8">PRC 8</string>
+  <string name="mediasize_chinese_prc_8">中國 8</string>
   <!-- Chinese PRC 9 media (paper) size: 229mm x 324mm (9.016" x 12.756") -->
-  <string name="mediasize_chinese_prc_9">PRC 9</string>
+  <string name="mediasize_chinese_prc_9">中國 9</string>
   <!-- Chinese PRC 10 media (paper) size: 324mm x 458mm (12.756" x 18.032") -->
-  <string name="mediasize_chinese_prc_10">PRC 10</string>
+  <string name="mediasize_chinese_prc_10">中國 10</string>
   <!-- Chinese RPC 16K media (paper) size: 146mm x 215mm (5.749" x 8.465") -->
-  <string name="mediasize_chinese_prc_16k">PRC 16K</string>
+  <string name="mediasize_chinese_prc_16k">中國 16K</string>
   <!-- Chinese Pa Kai media (paper) size: 146mm x 215mm (5.749" x 8.465") -->
   <string name="mediasize_chinese_om_pa_kai">Pa Kai</string>
   <!-- Chinese Dai Pa Kai media (paper) size: 275mm x 395mm (10.827" x 15.551") -->

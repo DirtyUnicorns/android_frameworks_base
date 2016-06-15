@@ -159,15 +159,15 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Screenshot Crop & Share -->
-  <string name="action_delete_success">Deleted</string>
-  <string name="action_delete_fault">Deleting was unsuccessful</string>
-  <string name="action_save_success">Saved</string>
-  <string name="action_save_fault">Saving was unsuccessful</string>
-  <string name="pref_action_color_title">Action buttons color</string>
-  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
-  <string name="pref_category_main">Main Settings</string>
-  <string name="pref_category_user">User Settings</string>
-  <string name="pref_crop_behavior_title">Crop behavior</string>
-  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
-  <string name="action_ok">OK</string>
+  <string name="action_delete_success">Eliminada</string>
+  <string name="action_delete_fault">La accion de borrado no ha tenido éxito</string>
+  <string name="action_save_success">Guardada</string>
+  <string name="action_save_fault">La accion de guardado no ha tenido éxito</string>
+  <string name="pref_action_color_title">Color de botones de acción</string>
+  <string name="pref_action_color_summary">Elige tu color favorito para los botones de acción</string>
+  <string name="pref_category_main">Configuración Principal</string>
+  <string name="pref_category_user">Configuración de usuario</string>
+  <string name="pref_crop_behavior_title">Cortar</string>
+  <string name="pref_crop_behavior_summary">Usar la imagen recortada aunque la imagen actual no haya sido recortada con la opcion</string>
+  <string name="action_ok">Aceptar</string>
 </resources>

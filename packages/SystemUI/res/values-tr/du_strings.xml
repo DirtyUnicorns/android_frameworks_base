@@ -59,40 +59,40 @@
   <!-- Ambient Display QS tile -->
   <string name="accessibility_quick_settings_ambient_display_off">Ortam Ekranı Özelliğini kapat</string>
   <string name="accessibility_quick_settings_ambient_display_on">Ortam Ekranı Özelliğini aç</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">Ortam ekranı kapalı</string>
   <string name="accessibility_quick_settings_ambient_display_changed_on">Ortam ekranı açık</string>
   <string name="quick_settings_ambient_display_label">Ortam Ekranı</string>
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">Ekran Görüntüsü</string>
   <!-- NFC QS tile -->
   <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
+  <string name="quick_settings_sync_label">Eşitleme (Senkronizasyon)</string>
+  <string name="accessibility_quick_settings_sync_off">Senkronizasyon kapalı</string>
+  <string name="accessibility_quick_settings_sync_on">Senkronizasyon açık</string>
   <string name="accessibility_quick_settings_sync_changed_off">Senkronizasyon kapatıldı</string>
   <string name="accessibility_quick_settings_sync_changed_on">Senkronizasyon açıldı</string>
   <!-- Screen off QS tile -->
   <string name="quick_settings_screen_off">Ekranı kapat</string>
   <!-- Screen timeout QS tile -->
   <string name="quick_settings_timeout_label">Zaman aşımı</string>
-  <string name="quick_settings_screen_timeout_detail_title">Screen timeout</string>
+  <string name="quick_settings_screen_timeout_detail_title">Ekran zaman aşımı</string>
   <!-- Brightness QS Tile -->
-  <string name="quick_settings_brightness">Brightness</string>
+  <string name="quick_settings_brightness">Parlaklık</string>
   <!-- Music QS Tile -->
   <string name="quick_settings_music_label">Müzik</string>
-  <string name="quick_settings_music_play">Play</string>
+  <string name="quick_settings_music_play">Oynat</string>
   <string name="quick_settings_music_pause">Duraklat</string>
   <!-- Reboot/Recovery QS Tile -->
   <string name="quick_settings_reboot_label">Yeniden başlat</string>
   <string name="quick_settings_reboot_recovery_label">Kurtarma Modu</string>
   <!-- App circle sidebar -->
   <string name="app_float_maximize_item_title">Maksimuma çıkar</string>
-  <string name="app_float_item_title">Float view</string>
-  <string name="app_stop_item_title">Kill app</string>
+  <string name="app_float_item_title">Yüzer görünüm</string>
+  <string name="app_stop_item_title">Uygulamayı sonlandır</string>
   <!-- Screenrecord QS Tile -->
-  <string name="screenrecord_notif_ticker">Screen is being recorded</string>
-  <string name="screenrecord_notif_title">Recording screen</string>
-  <string name="screenrecord_notif_stop">Stop</string>
+  <string name="screenrecord_notif_ticker">Ekran kaydediliyor</string>
+  <string name="screenrecord_notif_title">Kayıt ekranı</string>
+  <string name="screenrecord_notif_stop">Durdur</string>
   <string name="screenrecord_notif_pointer_on">İşaretçiyi göster</string>
   <string name="screenrecord_notif_pointer_off">İşaretçiyi gizle</string>
   <string name="screenrecord_notif_error">Ekran kaydedilemiyor</string>
@@ -100,15 +100,15 @@
   <string name="quick_settings_battery_saver">Pil tasarrufu</string>
   <string name="quick_settings_battery_saver_off">Pil tasarrufu kapalı</string>
   <!-- Expanded Desktop QS Tile -->
-  <string name="quick_settings_expanded_desktop">Expanded</string>
+  <string name="quick_settings_expanded_desktop">Genişletilmiş</string>
   <string name="quick_settings_expanded_desktop_off">Normal</string>
   <!-- ADB over network Tile -->
   <string name="quick_settings_adb_network">ADB network</string>
-  <string name="quick_settings_network_adb_enabled_label">Enabled</string>
-  <string name="quick_settings_network_adb_disabled_label">Disabled</string>
+  <string name="quick_settings_network_adb_enabled_label">Etkin</string>
+  <string name="quick_settings_network_adb_disabled_label">Devre dışı</string>
   <!-- Themes QS Tile -->
-  <string name="quick_settings_themes">Themes</string>
-  <string name="quick_settings_themes_icon_packs">Apply icon pack</string>
+  <string name="quick_settings_themes">Temalar</string>
+  <string name="quick_settings_themes_icon_packs">Simge paketini uygula</string>
   <string name="quick_settings_themes_app_theme_with_label">Temayı uygula <xliff:g id="application">%1$s</xliff:g></string>
   <string name="quick_settings_themes_app_theme">Uygulamaya temayı uygula</string>
   <string name="quick_settings_themes_system_theme">Temayı uygula</string>
@@ -117,15 +117,15 @@
   <!-- Task Manager -->
   <string name="task_manager_title">Görev Yöneticisi</string>
   <string name="message_switch_fail">Arayüzü olmadığı için bu göreve geçilemiyor.</string>
-  <string name="tasklist_killall">Kill All</string>
+  <string name="tasklist_killall">Tümünü sonlandır</string>
   <string name="tasklist_memory_usage">"Free/Total Memory: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
   <string name="message_keep_one_launcher">Should keep at least one home activity!</string>
   <!-- 4G LTE switch -->
-  <string name="show_fourg_title">Show 4G instead of LTE</string>
-  <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G</string>
-  <string name="statusbar_tuner_category_title">Hide items from statusbar</string>
+  <string name="show_fourg_title">LTE yerine 4G göster</string>
+  <string name="show_fourg_summary">LTE durum çubuğu göstergesini 4G ile değiştirir</string>
+  <string name="statusbar_tuner_category_title">Durum çubuğundaki öğeleri gizle</string>
   <!-- Compass QS Tile -->
-  <string name="quick_settings_compass">Compass</string>
+  <string name="quick_settings_compass">Pusula</string>
   <string name="quick_settings_compass_off">Pusula kapalı</string>
   <string name="quick_settings_compass_init">Başlatılıyor\u2026</string>
   <!-- Navigation bar Tile -->
@@ -135,17 +135,17 @@
   <string name="quick_settings_fling">Fling</string>
   <string name="quick_settings_fling_off">Fling off</string>
   <!-- IME selector Tile -->
-  <string name="quick_settings_ime_label">IME</string>
+  <string name="quick_settings_ime_label">Klavye Değiştirici</string>
   <!-- Hotspot airplane mode -->
-  <string name="toast_airplane_mode_hotspot">Disable airplane mode before enabling</string>
+  <string name="toast_airplane_mode_hotspot">Etkinleştirmeden önce uçak modunu devre dışı bırakın</string>
   <!-- Statusbar Vibrate silent switch -->
-  <string name="status_bar_vibsil">Vibrate &amp; silent</string>
+  <string name="status_bar_vibsil">Titreşim &amp; sessiz</string>
   <!-- headset icon switch -->
-  <string name="status_bar_headset">Wired headset</string>
+  <string name="status_bar_headset">Kablolu kulaklık</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- Caffeine Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="quick_settings_caffeine_label">Kafein</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -159,15 +159,15 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Screenshot Crop & Share -->
-  <string name="action_delete_success">Deleted</string>
-  <string name="action_delete_fault">Deleting was unsuccessful</string>
-  <string name="action_save_success">Saved</string>
-  <string name="action_save_fault">Saving was unsuccessful</string>
-  <string name="pref_action_color_title">Action buttons color</string>
-  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
-  <string name="pref_category_main">Main Settings</string>
-  <string name="pref_category_user">User Settings</string>
-  <string name="pref_crop_behavior_title">Crop behavior</string>
-  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
-  <string name="action_ok">OK</string>
+  <string name="action_delete_success">Silindi</string>
+  <string name="action_delete_fault">Silme işlemi başarısız</string>
+  <string name="action_save_success">Kaydedildi</string>
+  <string name="action_save_fault">Kaydetme işlemi başarısız</string>
+  <string name="pref_action_color_title">Eylem düğme rengi</string>
+  <string name="pref_action_color_summary">Eylem düğmeleri için en sevdiğiniz rengi seçin</string>
+  <string name="pref_category_main">Ana Ayarlar</string>
+  <string name="pref_category_user">Kullanıcı Ayarları</string>
+  <string name="pref_crop_behavior_title">Kırpma davranışı</string>
+  <string name="pref_crop_behavior_summary">Orjinal resim gerçekte kırpma işlemi ile kırpılmamış olsa bile kırpılmış resmi kullan</string>
+  <string name="action_ok">Tamam</string>
 </resources>
