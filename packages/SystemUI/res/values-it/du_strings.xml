@@ -112,14 +112,14 @@
   <string name="quick_settings_themes_app_theme_with_label">Applica tema a <xliff:g id="application">%1$s </xliff:g></string>
   <string name="quick_settings_themes_app_theme">Applica tema all\'app</string>
   <string name="quick_settings_themes_system_theme">Applica Tema</string>
-  <string name="quick_settings_themes_default_theme">Default</string>
+  <string name="quick_settings_themes_default_theme">Predefinito</string>
   <string name="quick_settings_themes_match_system">Uguaglia tema di sistema</string>
   <!-- Task Manager -->
   <string name="task_manager_title">Task Manager</string>
   <string name="message_switch_fail">Impossibile passare a questa operazione, perché non ha interfacce.</string>
   <string name="tasklist_killall">Chiudi tutte</string>
   <string name="tasklist_memory_usage">"Memoria libera/totale: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
-  <string name="message_keep_one_launcher">Bisognerebbe tenere almeno un\'activity home!</string>
+  <string name="message_keep_one_launcher">Bisognerebbe tenere almeno un\'attività in memoria!</string>
   <!-- 4G LTE switch -->
   <string name="show_fourg_title">Visualizza 4G invece di LTE</string>
   <string name="show_fourg_summary">Sostituisce l\'indicatore LTE nella barra delle notifiche con 4G</string>

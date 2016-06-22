@@ -37,7 +37,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Nach Rechts wischen für %1$s</string>
   <string name="right_shortcut_hint">Nach Links wischen für %1$s</string>
-  <string name="lockscreen_message">Tippe auf das linke oder rechte Symbol, um eine Sperrbildschirm-Verknüpfung zuzuweisen.</string>
+  <string name="lockscreen_message">Das linke oder rechte Symbol antippen, um eine Sperrbildschirm-Verknüpfung zuzuweisen.</string>
   <string name="lockscreen_default_target">Standard</string>
   <string name="select_application">App auswählen</string>
   <string name="lockscreen_choose_action_title">Aktion auswählen</string>
@@ -48,7 +48,7 @@
          [CHAR LIMIT=4] -->
   <!-- The text for the button in the notification window-shade that clears
          all of the currently visible notifications. [CHAR LIMIT=10]-->
-  <string name="clear_recents">Alle Apps beenden</string>
+  <string name="clear_recents">Anwendungsverlauf leeren</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- USB tether QS tile -->
   <string name="accessibility_quick_settings_usb_tether_off">USB-Tethering aus</string>
@@ -163,7 +163,7 @@
   <string name="action_delete_fault">Löschen war nicht erfolgreich</string>
   <string name="action_save_success">Gespeichert</string>
   <string name="action_save_fault">Speichern war nicht erfolgreich</string>
-  <string name="pref_action_color_title">Farbe der Aktions-Tasten</string>
+  <string name="pref_action_color_title">Farbe der Aktionstasten</string>
   <string name="pref_action_color_summary">Wählen Sie Ihre Lieblingsfarbe für die Aktions-Tasten</string>
   <string name="pref_category_main">Haupteinstellungen</string>
   <string name="pref_category_user">Benutzereinstellungen</string>

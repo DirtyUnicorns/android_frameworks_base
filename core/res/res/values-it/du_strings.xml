@@ -67,7 +67,7 @@
   <string name="animation_slide_left_no_fade">Scorrimento da sinistra (senza dissolvenza)</string>
   <string name="animation_slide_up">Scorrimento dal basso</string>
   <string name="animation_slide_down">Scorrimento dall\'alto</string>
-  <string name="animation_default">Default</string>
+  <string name="animation_default">Predefinito</string>
   <string name="animation_translucent">Traslucido</string>
   <string name="animation_grow_shrink">Espandi (verso l\'alto)</string>
   <string name="animation_grow_shrink_center">Espandi (centro)</string>
@@ -97,11 +97,11 @@
   <string name="permlab_changePhoneBlacklist">modifica la lista di blocco del telefono</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_changePhoneBlacklist">Permette all\'app di cambiare i numeri di telefono che sono bloccati per le chiamate o i messaggi in entrata.</string>
-  <string name="default_string">Default</string>
+  <string name="default_string">Predefinito</string>
   <!-- Powermenu Torch -->
   <string name="global_action_torch">Torcia</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App terminata</string>
+  <string name="app_killed_message">Terminata app</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ADB tramite rete attivo</string>
   <!-- ADB over USB and network notification -->

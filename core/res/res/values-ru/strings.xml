@@ -1515,13 +1515,13 @@
   <string name="setup_autofill">Настроить автозаполнение</string>
   <!-- String used to separate FirstName and LastName when writing out a local name
          e.g. John<separator>Smith [CHAR-LIMIT=NONE]-->
-  <string name="autofill_address_name_separator"> </string>
+  <string name="autofill_address_name_separator">\u0020</string>
   <!-- Format string for displaying a name. $1 is First Name, $2 is autofill_address_name_separator, $3 is Last Name.
          e.g. (John)( )(Smith) -->
   <string name="autofill_address_summary_name_format">$1$2$3</string>
   <!-- String used to separate Name and Address Line 1
          e.g. John Smith<separator>123 Main Street [CHAR-LIMIT=NONE]-->
-  <string name="autofill_address_summary_separator">, </string>
+  <string name="autofill_address_summary_separator">,\u0020</string>
   <!-- Format string for displaying a name and address summary. $1 is the Full Name, $2 is autofill_address_summary_separator, $3 is the Address
          e.g. (John Smith)(, )(123 Main Street) -->
   <string name="autofill_address_summary_format">$1$2$3</string>
@@ -1770,7 +1770,7 @@
   <!-- Item on EditText context menu. This action is used to paste from the clipboard into the eidt field -->
   <string name="paste">Вставить</string>
   <!-- Item on EditText context menu. This action is used to replace the current word by other suggested words, suggested by the IME or the spell checker -->
-  <string name="replace">Заменить</string>
+  <string name="replace">Заменить\u2026</string>
   <!-- Item on EditText pop-up window. This action is used to delete the text that the user recently added. [CHAR LIMIT=15] -->
   <string name="delete">Удалить</string>
   <!-- Item on EditText context menu. This action is used to copy a URL from the edit field into the clipboard. -->

@@ -76,7 +76,7 @@
   <string name="animation_grow_shrink_right">Agrandissement (Droit)</string>
   <string name="action_null">Aucune</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Votre \"vendor image\" est obsolète. Veuillez installer la dernière version disponible pour votre appareil.</string>
+  <string name="system_error_vendorprint">Votre micrologiciel semble obsolète. Veuillez installer la dernière version disponible pour votre appareil.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">modifier le fond d\'écran de verrouillage</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -99,7 +99,7 @@
   <string name="permdesc_changePhoneBlacklist">Permet à une application de modifier la liste des numéros de téléphone bloqués pour la réception d\'appel ou de SMS</string>
   <string name="default_string">Par défaut</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Lampe de poche</string>
+  <string name="global_action_torch">Lampe torche</string>
   <!-- App killed message -->
   <string name="app_killed_message">Application arrêtée</string>
   <!-- ADB over network notification -->
@@ -107,5 +107,5 @@
   <!-- ADB over USB and network notification -->
   <string name="adb_both_active_notification_title">ADB par USB et réseau activé</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Appuyer pour désactiver le débogage</string>
+  <string name="adb_active_generic_notification_message">Appuyez pour désactiver le débogage.</string>
 </resources>

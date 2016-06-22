@@ -18,83 +18,83 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="other">%1$d clients</item>
+    <item quantity="other">%1$d 기기 연결됨</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Flashlight is on</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Tap to turn off</string>
+  <string name="quick_settings_tile_flashlight_not_title">손전등 켜짐</string>
+  <string name="quick_settings_tile_flashlight_not_summary">탭하여 끄기</string>
   <!-- Battery Saver Dimss -->
-  <string name="battery_saver_dismiss_title">Dismiss</string>
-  <string name="battery_saver_notification_action_text_short">Turn off</string>
+  <string name="battery_saver_dismiss_title">해제</string>
+  <string name="battery_saver_notification_action_text_short"> 끄기</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_statusbar_title">Statusbar Items</string>
-  <string name="systemui_tuner_qs_title">Quick Settings</string>
+  <string name="systemui_tuner_statusbar_title">상태 표시줄 항목</string>
+  <string name="systemui_tuner_qs_title">빠른 설정</string>
   <!-- Screenshot Delete Toast -->
-  <string name="delete_screenshot_toast">Screenshot Deleted</string>
+  <string name="delete_screenshot_toast">스크린샷이 삭제되었습니다.</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
   <!-- Weather string format in expanded statusbar header -->
   <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Swipe right for %1$s</string>
-  <string name="right_shortcut_hint">Swipe left for %1$s</string>
-  <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
-  <string name="lockscreen_default_target">Default</string>
-  <string name="select_application">Select application</string>
-  <string name="lockscreen_choose_action_title">Choose action</string>
-  <string name="lockscreen_none_target">None</string>
+  <string name="left_shortcut_hint">오른쪽으로 밀어서 %1$s</string>
+  <string name="right_shortcut_hint">왼쪽으로 밀어서 %1$s</string>
+  <string name="lockscreen_message">잠금 화면 바로 가기를 재설정하려면 왼쪽 또는 오른쪽 아이콘을 탭하십시오.</string>
+  <string name="lockscreen_default_target">기본값</string>
+  <string name="select_application">애플리케이션 선택</string>
+  <string name="lockscreen_choose_action_title">작업 선택</string>
+  <string name="lockscreen_none_target">선택 안함</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- The text for the button in the notification window-shade that clears
          all of the currently visible notifications. [CHAR LIMIT=10]-->
-  <string name="clear_recents">Close all recent</string>
+  <string name="clear_recents">최근 창 모두 닫기</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <!-- USB tether QS tile -->
-  <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-  <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-  <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-  <string name="quick_settings_usb_tether_label">USB tethering</string>
+  <string name="accessibility_quick_settings_usb_tether_off">USB 테더링 끄기</string>
+  <string name="accessibility_quick_settings_usb_tether_on">USB 테더링 켜기</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_off">USB 테더링 꺼짐</string>
+  <string name="accessibility_quick_settings_usb_tether_changed_on">USB 테더링 켜짐</string>
+  <string name="quick_settings_usb_tether_label">USB 테더링</string>
   <!-- Ambient Display QS tile -->
-  <string name="accessibility_quick_settings_ambient_display_off">Ambient Display off</string>
-  <string name="accessibility_quick_settings_ambient_display_on">Ambient Display on</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display turned off</string>
-  <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display turned on</string>
-  <string name="quick_settings_ambient_display_label">Ambient Display</string>
+  <string name="accessibility_quick_settings_ambient_display_off">앰비언트 디스플레이 끄기</string>
+  <string name="accessibility_quick_settings_ambient_display_on">앰비언트 디스플레이 켜기</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_off">앰비언트 디스플레이 꺼짐.</string>
+  <string name="accessibility_quick_settings_ambient_display_changed_on">앰비언트 디스플레이 켜짐.</string>
+  <string name="quick_settings_ambient_display_label">앰비언트 디스플레이</string>
   <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Screenshot</string>
+  <string name="quick_settings_screenshot_label">스크린샷</string>
   <!-- NFC QS tile -->
   <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">지금 동기화</string>
+  <string name="accessibility_quick_settings_sync_off">동기화 끄기</string>
+  <string name="accessibility_quick_settings_sync_on">동기화 켜기</string>
+  <string name="accessibility_quick_settings_sync_changed_off">동기화 꺼짐.</string>
+  <string name="accessibility_quick_settings_sync_changed_on">동기화 켜짐.</string>
   <!-- Screen off QS tile -->
-  <string name="quick_settings_screen_off">Screen off</string>
+  <string name="quick_settings_screen_off">화면 꺼짐</string>
   <!-- Screen timeout QS tile -->
-  <string name="quick_settings_timeout_label">Timeout</string>
-  <string name="quick_settings_screen_timeout_detail_title">Screen timeout</string>
+  <string name="quick_settings_timeout_label">유지 시간</string>
+  <string name="quick_settings_screen_timeout_detail_title">화면 자동 꺼짐</string>
   <!-- Brightness QS Tile -->
-  <string name="quick_settings_brightness">Brightness</string>
+  <string name="quick_settings_brightness">밝기</string>
   <!-- Music QS Tile -->
-  <string name="quick_settings_music_label">Music</string>
-  <string name="quick_settings_music_play">Play</string>
-  <string name="quick_settings_music_pause">Pause</string>
+  <string name="quick_settings_music_label">음악</string>
+  <string name="quick_settings_music_play">재생</string>
+  <string name="quick_settings_music_pause">일시 중지</string>
   <!-- Reboot/Recovery QS Tile -->
-  <string name="quick_settings_reboot_label">Reboot</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
+  <string name="quick_settings_reboot_label">재시작</string>
+  <string name="quick_settings_reboot_recovery_label">리커버리 모드</string>
   <!-- App circle sidebar -->
-  <string name="app_float_maximize_item_title">Maximize</string>
-  <string name="app_float_item_title">Float view</string>
-  <string name="app_stop_item_title">Kill app</string>
+  <string name="app_float_maximize_item_title">최대화</string>
+  <string name="app_float_item_title">플로팅 뷰</string>
+  <string name="app_stop_item_title">앱 종료</string>
   <!-- Screenrecord QS Tile -->
-  <string name="screenrecord_notif_ticker">Screen is being recorded</string>
-  <string name="screenrecord_notif_title">Recording screen</string>
-  <string name="screenrecord_notif_stop">Stop</string>
-  <string name="screenrecord_notif_pointer_on">Show pointer</string>
-  <string name="screenrecord_notif_pointer_off">Hide pointer</string>
-  <string name="screenrecord_notif_error">Unable to record screen</string>
+  <string name="screenrecord_notif_ticker">화면이 녹화되고 있습니다.</string>
+  <string name="screenrecord_notif_title">화면 녹화 중...</string>
+  <string name="screenrecord_notif_stop">중지</string>
+  <string name="screenrecord_notif_pointer_on">터치 표시</string>
+  <string name="screenrecord_notif_pointer_off">터치 숨기기</string>
+  <string name="screenrecord_notif_error">화면을 녹화할 수 없습니다.</string>
   <!-- Battery Saver QS Tile -->
   <string name="quick_settings_battery_saver">Battery saver</string>
   <string name="quick_settings_battery_saver_off">Battery saver off</string>
@@ -167,6 +167,6 @@
   <string name="pref_category_main">Main Settings</string>
   <string name="pref_category_user">User Settings</string>
   <string name="pref_crop_behavior_title">Crop behavior</string>
-  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
-  <string name="action_ok">OK</string>
+  <string name="pref_crop_behavior_summary">자르기로 원본 사진이 잘려지지 않았음에도 불구하고 잘려진 이미지 사용</string>
+  <string name="action_ok">확인</string>
 </resources>

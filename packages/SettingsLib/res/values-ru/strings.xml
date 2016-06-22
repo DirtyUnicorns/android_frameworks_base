@@ -153,7 +153,7 @@
   <!-- Message for the error dialog when BT pairing fails because the other device is down. -->
   <string name="bluetooth_pairing_device_down_error_message">Не удалось установить соединение с <xliff:g id="device_name">%1$s</xliff:g>.</string>
   <!-- Message for the error dialog when BT pairing fails because the other device rejected the pairing. -->
-  <string name="bluetooth_pairing_rejected_error_message">запретил сопряжение.</string>
+  <string name="bluetooth_pairing_rejected_error_message"><xliff:g id="device_name">%1$s</xliff:g> запретил сопряжение.</string>
   <!-- Content description of the WIFI signal when WIFI is disabled for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_wifi_off">Wi-Fi выключен.</string>
   <!-- Content description of the WIFI signal when no signal for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -190,5 +190,5 @@
   <!-- Manage apps, individual app screen, substituted for the application's label when the app's label CAN NOT be determined.-->
   <string name="unknown">Неизвестен</string>
   <!-- [CHAR LIMIT=NONE] Label of a running process that represents another user -->
-  <string name="running_process_item_user_label">Пользователь:</string>
+  <string name="running_process_item_user_label">Пользователь: <xliff:g id="USER_NAME">%1$s</xliff:g></string>
 </resources>

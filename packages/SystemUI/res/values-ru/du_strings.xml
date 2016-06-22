@@ -19,7 +19,7 @@
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d клиент</item>
-    <item quantity="few">клиент</item>
+    <item quantity="few">%1$d клиентов</item>
     <item quantity="other">%1$d клиентов</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->

@@ -23,7 +23,7 @@
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Ficklampan är på</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Tryck på för att stänga av</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Tryck för att stänga av</string>
   <!-- Battery Saver Dimss -->
   <string name="battery_saver_dismiss_title">Avvisa</string>
   <string name="battery_saver_notification_action_text_short">Stäng av</string>
@@ -159,15 +159,15 @@
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Screenshot Crop & Share -->
-  <string name="action_delete_success">Deleted</string>
-  <string name="action_delete_fault">Deleting was unsuccessful</string>
-  <string name="action_save_success">Saved</string>
-  <string name="action_save_fault">Saving was unsuccessful</string>
-  <string name="pref_action_color_title">Action buttons color</string>
-  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
-  <string name="pref_category_main">Main Settings</string>
-  <string name="pref_category_user">User Settings</string>
-  <string name="pref_crop_behavior_title">Crop behavior</string>
-  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
+  <string name="action_delete_success">Borttaget</string>
+  <string name="action_delete_fault">Borttagning misslyckades</string>
+  <string name="action_save_success">Sparat</string>
+  <string name="action_save_fault">Sparandet misslyckades</string>
+  <string name="pref_action_color_title">Åtgärdknapps färg</string>
+  <string name="pref_action_color_summary">Välj din favorit färg för åtgärdsknapparna</string>
+  <string name="pref_category_main">Huvudinställningar</string>
+  <string name="pref_category_user">Användarinställningar</string>
+  <string name="pref_crop_behavior_title">Beskärnings beteende</string>
+  <string name="pref_crop_behavior_summary">Använd den beskurna bilden även om den originella egentligen inte beskurits med beskärnings funktionen</string>
   <string name="action_ok">OK</string>
 </resources>

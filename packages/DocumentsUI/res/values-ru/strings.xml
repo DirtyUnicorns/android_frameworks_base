@@ -44,7 +44,7 @@
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
   <string name="menu_select_all">Выбрать все</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_copy">Копировать в</string>
+  <string name="menu_copy">Копировать в\u2026</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
   <string name="menu_advanced_show" product="nosdcard">Показать внутренний накопитель</string>
   <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
@@ -80,7 +80,7 @@
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
   <string name="root_recent">Недавние</string>
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <string name="root_available_bytes">свободно</string>
+  <string name="root_available_bytes">Свободно <xliff:g id="size" example="3GB">%1$s</xliff:g></string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
   <string name="root_type_service">Настройки хранилища</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
@@ -100,25 +100,25 @@
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
   <string name="copy_notification_title">Копирование файлов</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
-  <string name="copy_remaining">осталось</string>
+  <string name="copy_remaining">Осталось <xliff:g id="duration" example="3 minutes">%s</xliff:g></string>
   <!-- Toast shown when a file copy is kicked off -->
   <plurals name="copy_begin">
-    <item quantity="one">Копирование файла(-ов)</item>
-    <item quantity="few">Копирование файла(-ов)</item>
-    <item quantity="other">Копирование файла(-ов)</item>
+    <item quantity="one">Копирование <xliff:g id="count" example="1">%1$d</xliff:g> файла.</item>
+    <item quantity="few">Копирование <xliff:g id="count" example="1">%1$d</xliff:g> файлов.</item>
+    <item quantity="other">Копирование <xliff:g id="count" example="1">%1$d</xliff:g> файлов.</item>
   </plurals>
   <!-- Text shown on the copy notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
-  <string name="copy_preparing">Подготовка к копированию</string>
+  <string name="copy_preparing">Подготовка к копированию\u2026</string>
   <!-- Title of the copy error notification [CHAR LIMIT=48] -->
   <plurals name="copy_error_notification_title">
-    <item quantity="one">Не удалось скопировать файлов</item>
-    <item quantity="few">Не удалось скопировать файлов</item>
-    <item quantity="other">Не удалось скопировать файлов</item>
+    <item quantity="one">Не удалось скопировать <xliff:g id="count" example="1">%1$d</xliff:g> файл</item>
+    <item quantity="few">Не удалось скопировать <xliff:g id="count" example="1">%1$d</xliff:g> файлов</item>
+    <item quantity="other">Не удалось скопировать <xliff:g id="count" example="1">%1$d</xliff:g> файлов</item>
   </plurals>
   <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
   <string name="notification_touch_for_details">Нажмите для просмотра деталей</string>
   <!-- Label of a dialog button for retrying a failed operation [CHAR LIMIT=24] -->
   <string name="retry">Повторить</string>
   <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="copy_failure_alert_content">Эти файлы не были скопированы:</string>
+  <string name="copy_failure_alert_content">Эти файлы не были скопированы: <xliff:g id="list">%1$s</xliff:g></string>
 </resources>

@@ -51,7 +51,7 @@
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration in minutes -->
   <string name="durationMinutes"><xliff:g id="MINUTES">%1$d</xliff:g> Min.</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one minute -->
-  <string name="durationMinute"><xliff:g id="MINUTES">%1$d</xliff:g> min</string>
+  <string name="durationMinute"><xliff:g id="MINUTES">%1$d</xliff:g> Min.</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one minute with seconds -->
   <string name="durationMinuteSeconds"><xliff:g id="MINUTES">%1$d</xliff:g> Min. <xliff:g id="SECONDS">%2$d</xliff:g> Sek.</string>
   <!-- [CHAR_LIMIT=10] Suffix added to signify duration of one minute with one second -->
@@ -102,7 +102,7 @@
   <!-- Displayed when a SIM PIN password is too long or too short. -->
   <string name="invalidPin">Geben Sie eine PIN ein, die 4 bis 8 Zahlen enthält.</string>
   <!-- Displayed when a SIM PUK password is too short. -->
-  <string name="invalidPuk">Geben Sie eine mindestens achtstellige PUK ein.</string>
+  <string name="invalidPuk">Geben Sie einen mindestens achtstelligen PUK ein.</string>
   <!-- Displayed to prompt the user to type the PUK password to unlock
          the SIM card. -->
   <string name="needPuk">Ihre SIM-Karte ist mit einem PUK gesperrt. Geben Sie zum Entsperren den PUK-Code ein.</string>
@@ -144,13 +144,13 @@
   <string name="CndMmi">Rufnummernübermittlung</string>
   <string name="DndMmi">Bitte nicht stören</string>
   <!-- Displayed to confirm to the user that caller ID will be restricted on the next call as usual. -->
-  <string name="CLIRDefaultOnNextCallOn">Anrufer-ID ist standardmäßig beschränkt. Nächster Anruf: Beschränkt</string>
+  <string name="CLIRDefaultOnNextCallOn">Eingeschränkte Rufnummernübermittlung. Bei nächstem Anruf: Eingeschränkt</string>
   <!-- Displayed to confirm to the user that caller ID will be not restricted on the next call even though it usually is. -->
-  <string name="CLIRDefaultOnNextCallOff">Anrufer-ID ist standardmäßig beschränkt. Nächster Anruf: Nicht beschränkt</string>
+  <string name="CLIRDefaultOnNextCallOff">Eingeschränkte Rufnummernübermittlung. Bei nächstem Anruf: Freigegeben</string>
   <!-- Displayed to confirm to the user that caller ID will not be restricted on the next call but usually is. -->
-  <string name="CLIRDefaultOffNextCallOn">Anrufer-ID ist standardmäßig nicht beschränkt. Nächster Anruf: Beschränkt</string>
+  <string name="CLIRDefaultOffNextCallOn">Freigegebene Rufnummernübermittlung. Bei nächstem Anruf: Eingeschränkt</string>
   <!-- Displayed to confirm to the user that caller ID will not be restricted on the next call or in general. -->
-  <string name="CLIRDefaultOffNextCallOff">Anrufer-ID ist standardmäßig nicht beschränkt. Nächster Anruf: Nicht beschränkt</string>
+  <string name="CLIRDefaultOffNextCallOff">Freigegebene Rufnummernübermittlung. Bei nächstem Anruf: Freigegeben</string>
   <!-- Displayed to tell the user that caller ID is not provisioned for their SIM. -->
   <string name="serviceNotProvisioned">Dienst nicht eingerichtet.</string>
   <!-- Displayed to tell the user that they cannot change the caller ID setting. -->
@@ -267,11 +267,11 @@
   <!-- Displayed when a web request failed because there was a connection error. -->
   <string name="httpErrorConnect">Verbindung zum Server konnte nicht hergestellt werden.</string>
   <!-- Displayed when a web request failed because there was an input or output error. -->
-  <string name="httpErrorIO">Kommunikation mit dem Server konnte nicht hergestellt werden. Bitte versuchen Sie es später erneut.</string>
+  <string name="httpErrorIO">Keine Kommunikation mit dem Server möglich. Bitte versuchen Sie es später erneut.</string>
   <!-- Displayed when a web request failed because the request timed out -->
   <string name="httpErrorTimeout">Zeitüberschreitung bei Serververbindung.</string>
   <!-- Displayed when a web request failed because the site tried to redirect us one too many times -->
-  <string name="httpErrorRedirectLoop">Die Seite enthält zu viele Server-Redirects.</string>
+  <string name="httpErrorRedirectLoop">Die Seite enthält zu viele Serverumleitungen.</string>
   <!-- Displayed when a web request failed because the protocol of the server is not supported. -->
   <string name="httpErrorUnsupportedScheme">Das Protokoll wird nicht unterstützt.</string>
   <!-- Displayed when a web request failed because the a secure connection couldn't be made to the server.-->
@@ -369,7 +369,7 @@
   <!-- Reboot to Recovery Progress Dialog. This is shown before it reboots to recovery. -->
   <string name="reboot_to_update_title">Android-Systemupdate</string>
   <string name="reboot_to_update_prepare">Aktualisierung wird vorbereitet…</string>
-  <string name="reboot_to_update_package">Updatepaket wird verarbeitet…</string>
+  <string name="reboot_to_update_package">Update-Paket wird verarbeitet…</string>
   <string name="reboot_to_update_reboot">Neustart…</string>
   <!-- Reboot to Recovery for factory reset. -->
   <string name="reboot_to_reset_title">Auf Werkszustand zurück</string>
@@ -387,7 +387,7 @@
   <string name="shutdown_confirm" product="watch">Ihre Uhr wird heruntergefahren.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, there will
          be a confirmation dialog.  This is the message. -->
-  <string name="shutdown_confirm" product="default">Telefon wird heruntergefahren.</string>
+  <string name="shutdown_confirm" product="default">Ihr Telefon wird heruntergefahren.</string>
   <!-- Shutdown Confirmation Dialog.  When the user chooses to power off the phone, it asks
          the user if they'd like to shut down.  This is the message.  This is used instead of
          shutdown_confirm when the system is configured to use long press to go directly to the
@@ -494,7 +494,7 @@
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_sensors">Körpersensoren</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_sensors">Auf Sensordaten zu Ihren Vitaldaten zugreifen</string>
+  <string name="permgroupdesc_sensors">auf Sensordaten zuzugreifen, die Ihre Vitalzeichen betreffen</string>
   <!-- Title for the capability of an accessibility service to retrieve window content. -->
   <string name="capability_title_canRetrieveWindowContent">Fensterinhalte abrufen</string>
   <!-- Description for the capability of an accessibility service to retrieve window content. -->
