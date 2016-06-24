@@ -18,23 +18,18 @@
 package com.android.server.policy;
 
 import android.content.Context;
-import android.util.Slog;
 import android.view.MotionEvent;
 import android.view.WindowManagerPolicy.PointerEventListener;
 
+import static android.view.MotionEvent.*;
+
 public class OPGesturesListener implements PointerEventListener {
-    private static final String TAG = "OPGestures";
-    private static final boolean DEBUG = false;
     private static final int NUM_POINTER_SCREENSHOT = 3;
     private static final long SWIPE_TIMEOUT_MS = 500;
     private static final int MAX_TRACKED_POINTERS = 32;
     private static final int UNTRACKED_POINTER = -1;
     private static final int THREE_SWIPE_DISTANCE = 350;
     private final int GESTURE_THREE_SWIPE_MASK = 15;
-    private final int POINTER_1_MASK = 2;
-    private final int POINTER_2_MASK = 4;
-    private final int POINTER_3_MASK = 8;
-    private final int POINTER_NONE_MASK = 1;
     private final Callbacks mCallbacks;
     private final int[] mDownPointerId = new int[MAX_TRACKED_POINTERS];
     private final float[] mDownX = new float[MAX_TRACKED_POINTERS];
@@ -49,42 +44,38 @@ public class OPGesturesListener implements PointerEventListener {
     }
 
     private static <T> T checkNull(String name, T arg) {
-        if (arg == null) {
-            throw new IllegalArgumentException(name + " must not be null");
-        }
+        assert arg != null : name + " must not be null";
         return arg;
     }
 
     @Override
     public void onPointerEvent(MotionEvent event) {
         switch (event.getActionMasked()) {
-            case MotionEvent.ACTION_DOWN:
+            case ACTION_DOWN:
                 mSwipeFireable = true;
                 mDownPointers = 0;
                 captureDown(event, 0);
                 break;
-            case MotionEvent.ACTION_POINTER_DOWN:
+            case ACTION_POINTER_DOWN:
                 captureDown(event, event.getActionIndex());
                 break;
-            case MotionEvent.ACTION_MOVE:
-                if (DEBUG) Slog.d(TAG, "count3" + event.getPointerCount());
+            case ACTION_MOVE:
                 if (mSwipeFireable) {
                     detectSwipe(event);
                 }
                 break;
-            case MotionEvent.ACTION_UP:
+            case ACTION_UP:
                 if (mSwipeMask == GESTURE_THREE_SWIPE_MASK) {
                     mSwipeMask = 1;
                     mCallbacks.onSwipeThreeFinger();
                 }
                 break;
-            case MotionEvent.ACTION_CANCEL:
+            case ACTION_CANCEL:
                 mSwipeFireable = false;
                 break;
-            case MotionEvent.ACTION_POINTER_UP:
+            case ACTION_POINTER_UP:
                 break;
             default:
-                if (DEBUG) Slog.d(TAG, "Ignoring " + event);
         }
     }
 
@@ -92,33 +83,32 @@ public class OPGesturesListener implements PointerEventListener {
         final int pointerId = event.getPointerId(pointerIndex);
         final int i = findIndex(pointerId);
         final int pointerCount  = event.getPointerCount();
-        if (DEBUG) Slog.d(TAG, "pointer " + pointerId +
-                " down pointerIndex=" + pointerIndex + " trackingIndex=" + i);
         if (i != UNTRACKED_POINTER) {
             mDownX[i] = event.getX(pointerIndex);
             mDownY[i] = event.getY(pointerIndex);
             mDownTime[i] = event.getEventTime();
-            if (DEBUG) Slog.d(TAG, "pointer " + pointerId +
-                    " down x=" + mDownX[i] + " y=" + mDownY[i]);
         }
-        if (pointerCount == NUM_POINTER_SCREENSHOT) {
-            mSwipeFireable = true;
-            return;
+        switch (pointerCount) {
+            case NUM_POINTER_SCREENSHOT:
+                mSwipeFireable = true;
+                return;
         }
         mSwipeFireable = false;
     }
 
     private int findIndex(int pointerId) {
         for (int i = 0; i < mDownPointers; i++) {
-            if (mDownPointerId[i] == pointerId) {
-                return i;
+            if (mDownPointerId[i] != pointerId) {
+                continue;
             }
+            return i;
         }
-        if (mDownPointers == MAX_TRACKED_POINTERS || pointerId == MotionEvent.INVALID_POINTER_ID) {
+        if (mDownPointers != MAX_TRACKED_POINTERS && pointerId != INVALID_POINTER_ID) {
+            mDownPointerId[mDownPointers++] = pointerId;
+            return mDownPointers - 1;
+        } else {
             return UNTRACKED_POINTER;
         }
-        mDownPointerId[mDownPointers++] = pointerId;
-        return mDownPointers - 1;
     }
 
     private void detectSwipe(MotionEvent move) {
@@ -128,23 +118,20 @@ public class OPGesturesListener implements PointerEventListener {
             final int pointerId = move.getPointerId(p);
             final int i = findIndex(pointerId);
             if (i != UNTRACKED_POINTER) {
-                detectSwipe(i, move.getEventTime(), move.getX(p), move.getY(p));
+                detectSwipe(i, move.getEventTime(), move.getY(p));
             }
         }
     }
 
-    private void detectSwipe(int i, long time, float x, float y) {
-        final float fromX = mDownX[i];
+    private void detectSwipe(int i, long time, float y) {
         final float fromY = mDownY[i];
         final long elapsed = time - mDownTime[i];
-        if (DEBUG) Slog.d(TAG, "pointer " + mDownPointerId[i]
-                + " moved (" + fromX + "->" + x + "," + fromY + "->" + y + ") in " + elapsed);
-        if (mSwipeMask < GESTURE_THREE_SWIPE_MASK
-                && y > fromY + THREE_SWIPE_DISTANCE
-                && elapsed < SWIPE_TIMEOUT_MS) {
-            mSwipeMask |= 1 << i + 1;
-            if (DEBUG) Slog.d(TAG, "swipe mask = " + mSwipeMask);
+        if (mSwipeMask >= GESTURE_THREE_SWIPE_MASK
+                || y <= fromY + THREE_SWIPE_DISTANCE
+                || elapsed >= SWIPE_TIMEOUT_MS) {
+            return;
         }
+        mSwipeMask |= 1 << i + 1;
     }
 
     interface Callbacks {
