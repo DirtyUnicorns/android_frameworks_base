@@ -1260,23 +1260,23 @@ public class StatusBarHeaderView extends RelativeLayout implements View.OnClickL
      * makes text more readable on light backgrounds
      */
     private void enableTextShadow() {
-        mTime.setShadowLayer(5, 0, 0, Color.BLACK);
-        mAmPm.setShadowLayer(5, 0, 0, Color.BLACK);
-        mDateCollapsed.setShadowLayer(5, 0, 0, Color.BLACK);
-        mDateExpanded.setShadowLayer(5, 0, 0, Color.BLACK);
-        mBatteryLevel.setShadowLayer(5, 0, 0, Color.BLACK);
-        mAlarmStatus.setShadowLayer(5, 0, 0, Color.BLACK);
+        mTime.setShadowLayer(5, 0, 0, getResources().getColor(R.color.enable_time_shadow_color));
+        mAmPm.setShadowLayer(5, 0, 0, getResources().getColor(R.color.enable_am_pm_shadow_color));
+        mDateCollapsed.setShadowLayer(5, 0, 0, getResources().getColor(R.color.enable_date_collapsed_shadow_color));
+        mDateExpanded.setShadowLayer(5, 0, 0, getResources().getColor(R.color.enable_date_expanded_shadow_color));
+        mBatteryLevel.setShadowLayer(5, 0, 0, getResources().getColor(R.color.enable_battery_level_shadow_color));
+        mAlarmStatus.setShadowLayer(5, 0, 0, getResources().getColor(R.color.enable_alarm_status_shadow_color));
     }
 
     /**
      * default
      */
     private void disableTextShadow() {
-        mTime.setShadowLayer(0, 0, 0, Color.BLACK);
-        mAmPm.setShadowLayer(0, 0, 0, Color.BLACK);
-        mDateCollapsed.setShadowLayer(0, 0, 0, Color.BLACK);
-        mDateExpanded.setShadowLayer(0, 0, 0, Color.BLACK);
-        mBatteryLevel.setShadowLayer(0, 0, 0, Color.BLACK);
-        mAlarmStatus.setShadowLayer(0, 0, 0, Color.BLACK);
+        mTime.setShadowLayer(0, 0, 0, getResources().getColor(R.color.disable_time_shadow_color));
+        mAmPm.setShadowLayer(0, 0, 0, getResources().getColor(R.color.disable_am_pm_shadow_color));
+        mDateCollapsed.setShadowLayer(0, 0, 0, getResources().getColor(R.color.disable_date_collapsed_shadow_color));
+        mDateExpanded.setShadowLayer(0, 0, 0, getResources().getColor(R.color.disable_date_expanded_shadow_color));
+        mBatteryLevel.setShadowLayer(0, 0, 0, getResources().getColor(R.color.disable_battery_level_shadow_color));
+        mAlarmStatus.setShadowLayer(0, 0, 0, getResources().getColor(R.color.disable_alarm_status_shadow_color));
     }
 }
