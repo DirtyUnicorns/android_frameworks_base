@@ -336,11 +336,11 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         if (visible) {
             if (isTargetCustom(Shortcuts.LEFT_SHORTCUT)) {
                 visible = !mShortcutHelper.isTargetEmpty(Shortcuts.LEFT_SHORTCUT);
-            } else {
-                // El Janky lives again
             }
         }
-        mLeftAffordanceView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        if (mLeftAffordanceView != null) {
+            mLeftAffordanceView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        }
     }
 
     private void updateCameraVisibility() {
@@ -358,7 +358,9 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                         && getResources().getBoolean(R.bool.config_keyguardShowCameraAffordance);
             }
         }
-        mCameraImageView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        if (mCameraImageView != null) {
+            mCameraImageView.setVisibility(visible ? View.VISIBLE : View.GONE);
+        }
     }
 
     private void updateLeftAffordanceIcon() {
