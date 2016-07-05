@@ -4002,6 +4002,13 @@ public final class Settings {
         public static final String ANIM_TILE_INTERPOLATOR = "anim_tile_interpolator";
 
         /**
+         * Transition effect in DirtyTweaks tabs
+         *
+         * @hide
+         */
+        public static final String DIRTY_TWEAKS_TABS_EFFECT = "dirty_tweaks_tabs_effect";
+
+        /**
          * Whether to show four tiles per row.
          * @hide
          */
