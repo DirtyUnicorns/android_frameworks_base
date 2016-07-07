@@ -479,9 +479,11 @@ public class VolumeDialog {
     private int computeTimeoutH() {
         if (mAccessibility.mFeedbackEnabled) return 20000;
         if (mSafetyWarning != null) return 5000;
-        if (mExpanded || mExpandButtonAnimationRunning) return 1500;
-        if (mActiveStream == AudioManager.STREAM_MUSIC) return 1500;
-        return 1500;
+        int mVolumeDialogTimeout = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.VOLUME_DIALOG_TIMEOUT, 1500);
+        if (mExpanded || mExpandButtonAnimationRunning) return mVolumeDialogTimeout;
+        if (mActiveStream == AudioManager.STREAM_MUSIC) return mVolumeDialogTimeout;
+        return mVolumeDialogTimeout;
     }
 
     protected void dismissH(int reason) {
