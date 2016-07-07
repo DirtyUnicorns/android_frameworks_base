@@ -45,8 +45,10 @@ public class TunerFragment extends PreferenceFragment {
     public static final String TAG = "TunerFragment";
 
     private static final String SHOW_FOURG = "show_fourg";
+    private static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
 
     private SwitchPreference mShowFourG;
+    private SwitchPreference mStatusbarDuLogo;
 
     private final SettingObserver mSettingObserver = new SettingObserver();
 
@@ -68,6 +70,10 @@ public class TunerFragment extends PreferenceFragment {
         mShowFourG.setChecked((Settings.System.getInt(resolver,
                 Settings.System.SHOW_FOURG, 0) == 1));
         }
+
+        mStatusbarDuLogo = (SwitchPreference) findPreference(STATUS_BAR_DU_LOGO);
+        mStatusbarDuLogo.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_DU_LOGO, 0) == 1));
     }
 
     @Override
@@ -139,6 +145,11 @@ public class TunerFragment extends PreferenceFragment {
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_FOURG, checked ? 1:0);
+            return true;
+        } else if  (preference == mStatusbarDuLogo) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_DU_LOGO, checked ? 1:0);
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
