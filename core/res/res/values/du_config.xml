@@ -111,14 +111,17 @@
     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
 
     <!-- True if the notification's dynamic app icon/title tint should be optimised for dark
-   backgrounds (requires config_allowNotificationIconTextTinting to be true)-->
-   <bool name="config_useDarkBgNotificationIconTextTinting">false</bool>
+         backgrounds (requires config_allowNotificationIconTextTinting to be true)-->
+    <bool name="config_useDarkBgNotificationIconTextTinting">false</bool>
 
-   <!-- Config IME switcher -->
-   <bool name="config_show_IMESwitcher">true</bool>
+    <!-- Config IME switcher -->
+    <bool name="config_show_IMESwitcher">true</bool>
 
     <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
          true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
     <bool name="config_useSystemClockforRotationSensor">false</bool>
+
+    <!-- Whether device has dash charging support -->
+    <bool name="config_hasDashCharger">false</bool>
 
 </resources>
