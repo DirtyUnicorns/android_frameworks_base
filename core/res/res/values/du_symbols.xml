@@ -26,4 +26,7 @@
   <!-- Vendor mismatched fingerprint warning -->
   <java-symbol type="string" name="system_error_vendorprint" />
 
+  <!-- Whether device has dash charging support -->
+  <java-symbol type="bool" name="config_hasDashCharger" />
+
 </resources>
