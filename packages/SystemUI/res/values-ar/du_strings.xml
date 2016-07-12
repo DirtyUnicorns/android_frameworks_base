@@ -148,6 +148,8 @@
   <string name="status_bar_headset">Wired headset</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -167,11 +169,5 @@
   <string name="action_delete_fault">Deleting was unsuccessful</string>
   <string name="action_save_success">Saved</string>
   <string name="action_save_fault">Saving was unsuccessful</string>
-  <string name="pref_action_color_title">Action buttons color</string>
-  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
-  <string name="pref_category_main">Main Settings</string>
-  <string name="pref_category_user">User Settings</string>
-  <string name="pref_crop_behavior_title">Crop behavior</string>
-  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
-  <string name="action_ok">OK</string>
+  <string name="action_edit">Edit</string>
 </resources>

@@ -33,7 +33,7 @@
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
   <string name="reboot_download">Stahování</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Restartování\u2026</string>
+  <string name="reboot_progress">Restartování</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
   <string name="reboot_confirm">Vaše zařízení bude restartováno.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
@@ -45,69 +45,67 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_accessThemeService">přístup ke službě motivů</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessThemeService">Umožnit aplikaci přístup ke službě motivů. Pro normální aplikace by toto oprávnění nemělo být nikdy požadováno.</string>
+  <string name="permdesc_accessThemeService">Umožní aplikaci přístup ke službě motivů. Pro normální aplikace by toto oprávnění nemělo být nikdy požadováno.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_readThemes">Číst informace o vašem motivu</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">Umožní aplikaci číst vaše motivy a rozpoznat jaký motiv máte aplikovaný.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permlab_writeThemes">modifikuje vaše motivy</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">Povolí aplikaci vložení nových motivů a rozpoznání, jaký motiv máte aplikovaný.</string>
   <!-- Theme installation error notification -->
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
-  <string name="theme_reset_notification_title">Theme reset</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
+  <string name="theme_install_error_title">Nezdařilo se aplikovat motiv</string>
+  <string name="theme_install_error_message">nezdařilo se nainstalovat</string>
+  <string name="theme_reset_notification_title">Resetovat motiv</string>
+  <string name="theme_reset_notification_body">Motiv systému obnoven, protože několik aplikací se zřítilo.</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Fade</string>
-  <string name="animation_slide_right">Slide in right</string>
-  <string name="animation_slide_left">Slide in left</string>
-  <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
-  <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
-  <string name="animation_slide_up">Slide in bottom</string>
-  <string name="animation_slide_down">Slide in top</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
-  <string name="animation_grow_shrink">Grow in (Top)</string>
-  <string name="animation_grow_shrink_center">Grow in (Center)</string>
-  <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>
-  <string name="animation_grow_shrink_left">Grow in (Left)</string>
-  <string name="animation_grow_shrink_right">Grow in (Right)</string>
-  <string name="action_null">Blank</string>
+  <string name="animation_fade">Vyblednout</string>
+  <string name="animation_slide_right">Přejít doprava</string>
+  <string name="animation_slide_left">Přejít doleva</string>
+  <string name="animation_slide_right_no_fade">Přejít doprava (bez vyblednutí)</string>
+  <string name="animation_slide_left_no_fade">Přejít doleva (bez vyblednutí)</string>
+  <string name="animation_slide_up">Přejít dolů</string>
+  <string name="animation_slide_down">Přejít nahorů</string>
+  <string name="animation_default">Standardně</string>
+  <string name="animation_translucent">Průhledně</string>
+  <string name="animation_grow_shrink">Zvětšit (nahorů)</string>
+  <string name="animation_grow_shrink_center">Zvětšit (do prostřed)</string>
+  <string name="animation_grow_shrink_bottom">Zvětšit (dolů)</string>
+  <string name="animation_grow_shrink_left">Zvětšit (doleva)</string>
+  <string name="animation_grow_shrink_right">Zvětšit (doprava)</string>
+  <string name="action_null">Prázdný</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
+  <string name="system_error_vendorprint">Zdá se, že váš dodavatel obrazu může být zastaralý. Prosím nainstalujte nejnovějšího dodavatele obrazu pro vaše zařízení.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permlab_setKeyguardWallpaper">nastavit pozadí plochy</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+  <string name="permdesc_setKeyguardWallpaper">Povolí aplikaci aby změnila pozadí uzamčené plochy.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">reset battery statistics</string>
+  <string name="permlab_resetBatteryStats">vyresetovat statistiku baterie</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
+  <string name="permdesc_resetBatteryStats">Umožňí aplikaci resetovat aktuální low-level data použití baterie.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Security</string>
+  <string name="permgrouplab_security">Zabezpečení</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permissions related to device security information.</string>
+  <string name="permgroupdesc_security">Oprávnění vztahující se k informacím o zabezpečení zařízení.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">read phone blacklist</string>
+  <string name="permlab_readPhoneBlacklist">číst černou listinu telefonu</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_readPhoneBlacklist">Umožňuje aplikaci číst informace o telefonních číslech, které jsou blokovány pro příchozí hovory a zprávy.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">změnit černou listinu telefonu</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
-  <string name="default_string">Default</string>
+  <string name="permdesc_changePhoneBlacklist">Umožňuje aplikaci změnit telefonní čísla, které jsou blokovány pro příchozí hovory a zprávy.</string>
+  <string name="default_string">Standardně</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">Svítilna</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App killed</string>
+  <string name="app_killed_message">Aplikace zastavena</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
+  <string name="adb_net_active_notification_title">ADB přes síť povoleno</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+  <string name="adb_both_active_notification_title">ADB přes USB síť povoleno</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
+  <string name="adb_active_generic_notification_message">Zmáčkni pro vypnutí debugging.</string>
 </resources>

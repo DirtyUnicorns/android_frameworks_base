@@ -16,105 +16,105 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Title of the documents application [CHAR LIMIT=32] -->
-  <string name="app_label">Documents</string>
+  <string name="app_label">문서</string>
   <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
-  <string name="title_open">Open from</string>
+  <string name="title_open">다음으로 열기:</string>
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
-  <string name="title_save">Save to</string>
+  <string name="title_save">저장:</string>
   <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
-  <string name="menu_create_dir">Create folder</string>
+  <string name="menu_create_dir">새 폴더</string>
   <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
-  <string name="menu_grid">Grid view</string>
+  <string name="menu_grid">바둑판식 보기</string>
   <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
-  <string name="menu_list">List view</string>
+  <string name="menu_list">목록 보기</string>
   <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
-  <string name="menu_sort">Sort by</string>
+  <string name="menu_sort">정렬 기준:</string>
   <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
-  <string name="menu_search">Search</string>
+  <string name="menu_search">검색</string>
   <!-- Menu item that enters activity to change settings [CHAR LIMIT=24] -->
-  <string name="menu_settings">Settings</string>
+  <string name="menu_settings">설정</string>
   <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_open">Open</string>
+  <string name="menu_open">열기</string>
   <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
-  <string name="menu_save">Save</string>
+  <string name="menu_save">저장</string>
   <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_share">Share</string>
+  <string name="menu_share">공유</string>
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_delete">Delete</string>
+  <string name="menu_delete">삭제</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
-  <string name="menu_select_all">Select all</string>
+  <string name="menu_select_all">모두 선택</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_copy">Copy to\u2026</string>
+  <string name="menu_copy">복사하기:\u2026</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="nosdcard">Show internal storage</string>
+  <string name="menu_advanced_show" product="nosdcard">내부 저장소 보기</string>
   <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="default">Show SD card</string>
+  <string name="menu_advanced_show" product="default">SD 카드 보기</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="nosdcard">Hide internal storage</string>
+  <string name="menu_advanced_hide" product="nosdcard">내부 저장소 숨기기</string>
   <!-- Menu item that hides SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="default">Hide SD card</string>
+  <string name="menu_advanced_hide" product="default">SD 카드 숨기기</string>
   <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_show">Show file size</string>
+  <string name="menu_file_size_show">파일 크기 표시</string>
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_hide">Hide file size</string>
+  <string name="menu_file_size_hide">파일 크기 숨기기</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
-  <string name="button_select">Select</string>
+  <string name="button_select">선택</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
-  <string name="button_copy">Copy</string>
+  <string name="button_copy">복사</string>
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
-  <string name="sort_name">By name</string>
+  <string name="sort_name">이름 순</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
-  <string name="sort_date">By date modified</string>
+  <string name="sort_date">수정된 날짜 순</string>
   <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
-  <string name="sort_size">By size</string>
+  <string name="sort_size">크키 순</string>
   <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_open">Show roots</string>
+  <string name="drawer_open">루트 디렉토리 표시</string>
   <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_close">Hide roots</string>
+  <string name="drawer_close">루트 디렉토리 숨기기</string>
   <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
-  <string name="save_error">Failed to save document</string>
+  <string name="save_error">문서를 저장하지 못했습니다.</string>
   <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
-  <string name="create_error">Failed to create folder</string>
+  <string name="create_error">폴더를 만들지 못했습니다.</string>
   <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
-  <string name="query_error">Failed to query documents</string>
+  <string name="query_error">문서 목록을 얻지 못했습니다.</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
-  <string name="root_recent">Recent</string>
+  <string name="root_recent">최근</string>
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> free</string>
+  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> 남음</string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
-  <string name="root_type_service">Storage services</string>
+  <string name="root_type_service">저장소 서비스</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
-  <string name="root_type_shortcut">Shortcuts</string>
+  <string name="root_type_shortcut">바로가기</string>
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
-  <string name="root_type_device">Devices</string>
+  <string name="root_type_device">장치</string>
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
-  <string name="root_type_apps">More apps</string>
+  <string name="root_type_apps">앱 더 보기</string>
   <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
-  <string name="empty">No items</string>
+  <string name="empty">항목 없음</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <string name="toast_no_application">Can\'t open file</string>
+  <string name="toast_no_application">파일을 열 수 없습니다.</string>
   <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
-  <string name="toast_failed_delete">Unable to delete some documents</string>
+  <string name="toast_failed_delete">일부 문서를 삭제할 수 없습니다.</string>
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
-  <string name="share_via">Share via</string>
+  <string name="share_via">공유하기</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
-  <string name="copy_notification_title">Copying files</string>
+  <string name="copy_notification_title">파일 복사 중</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
-  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> left</string>
+  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> 남음</string>
   <!-- Toast shown when a file copy is kicked off -->
   <plurals name="copy_begin">
-    <item quantity="other">Copying <xliff:g id="count" example="3">%1$d</xliff:g> files.</item>
+    <item quantity="other"><xliff:g id="count" example="1">%1$d</xliff:g> 개의 파일 복사 중.</item>
   </plurals>
   <!-- Text shown on the copy notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
-  <string name="copy_preparing">Preparing for copy\u2026</string>
+  <string name="copy_preparing">복사 준비 중\u2026</string>
   <!-- Title of the copy error notification [CHAR LIMIT=48] -->
   <plurals name="copy_error_notification_title">
-    <item quantity="other">Couldn\'t copy <xliff:g id="count" example="2">%1$d</xliff:g> files</item>
+    <item quantity="other"><xliff:g id="count" example="2">%1$d</xliff:g> 개의 파일을 복사할 수 없음</item>
   </plurals>
   <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
-  <string name="notification_touch_for_details">Touch to view details</string>
+  <string name="notification_touch_for_details">터치하여 자세히 보기</string>
   <!-- Label of a dialog button for retrying a failed operation [CHAR LIMIT=24] -->
-  <string name="retry">Retry</string>
+  <string name="retry">다시 시도</string>
   <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="copy_failure_alert_content">These files weren\'t copied: <xliff:g id="list">%1$s</xliff:g></string>
+  <string name="copy_failure_alert_content">이 파일이 복사 되지 않았습니다: <xliff:g id="list">%1$s </xliff:g></string>
 </resources>

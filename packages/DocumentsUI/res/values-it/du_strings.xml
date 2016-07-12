@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Action bar title when the app is in standalone (file manager) mode [CHAR LIMIT=32] -->
-  <string name="title_standalone">Files</string>
+  <string name="title_standalone">File</string>
   <!-- Toast shown after successfully deleting files -->
   <string name="toast_success_delete">File eliminati</string>
   <!-- Title of the Delete confirmation dialog -->
@@ -29,7 +29,7 @@
   <!-- Text shown in a toast when the user pastes files -->
   <plurals name="files_pasted">
     <item quantity="one">Il file è stato incollato. L\'upload potrebbe terminare in background.</item>
-    <item quantity="other">%d I files sono stati incollati. L\'upload potrebbe terminare in background.</item>
+    <item quantity="other">%d file sono stati incollati. L\'upload potrebbe terminare in background.</item>
   </plurals>
   <!-- Text show in the progress dialog while files are being copied -->
   <string name="copy_in_progress">Copiando\u2026</string>

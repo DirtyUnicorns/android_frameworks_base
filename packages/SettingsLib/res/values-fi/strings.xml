@@ -37,7 +37,7 @@
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Do not translate.  Concise terminology for Passpoint network -->
   <!-- Summary for the remembered network. -->
-  <string name="wifi_remembered">Saved</string>
+  <string name="wifi_remembered">Tallennettu</string>
   <!-- Status for networks disabled for unknown reason -->
   <string name="wifi_disabled_generic">Disabled</string>
   <!-- Status for networked disabled from a DNS or DHCP failure -->
@@ -64,7 +64,7 @@
   <!-- Summary for Connected wifi network without internet -->
   <string name="wifi_connected_no_internet">Connected, no Internet</string>
   <!-- Bluetooth settings.  Message when a device is disconnected -->
-  <string name="bluetooth_disconnected">Disconnected</string>
+  <string name="bluetooth_disconnected">Yhteys katkaistu</string>
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
   <string name="bluetooth_disconnecting">Disconnecting\u2026</string>
   <!-- Bluetooth settings.  Message when connecting to a device -->
@@ -86,7 +86,7 @@
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the headset or handsfree profile. -->
   <string name="bluetooth_profile_headset">Phone audio</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
-  <string name="bluetooth_profile_opp">File transfer</string>
+  <string name="bluetooth_profile_opp">Tiedostonsiirto</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
   <string name="bluetooth_profile_hid">Input device</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->

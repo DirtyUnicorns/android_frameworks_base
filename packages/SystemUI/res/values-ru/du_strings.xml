@@ -145,6 +145,8 @@
   <string name="status_bar_headset">Проводная гарнитура</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Запрет сна</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -164,11 +166,5 @@
   <string name="action_delete_fault">Удаление не удалось</string>
   <string name="action_save_success">Сохранено</string>
   <string name="action_save_fault">Сохранение не удалось</string>
-  <string name="pref_action_color_title">Цвет кнопок</string>
-  <string name="pref_action_color_summary">Выберите свой любимый цвет для кнопок</string>
-  <string name="pref_category_main">Главные настройки</string>
-  <string name="pref_category_user">Пользовательские настройки</string>
-  <string name="pref_crop_behavior_title">Поведение обрезки</string>
-  <string name="pref_crop_behavior_summary">Использовать обрезанное изображение, даже если оригинал не был на самом деле обрезан</string>
-  <string name="action_ok">ОК</string>
+  <string name="action_edit">Изменить</string>
 </resources>

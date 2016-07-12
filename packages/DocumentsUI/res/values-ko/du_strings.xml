@@ -16,24 +16,24 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Action bar title when the app is in standalone (file manager) mode [CHAR LIMIT=32] -->
-  <string name="title_standalone">Files</string>
+  <string name="title_standalone">파일</string>
   <!-- Toast shown after successfully deleting files -->
-  <string name="toast_success_delete">Files deleted</string>
+  <string name="toast_success_delete">파일이 삭제되었습니다</string>
   <!-- Title of the Delete confirmation dialog -->
-  <string name="dialog_delete_confirm_title">Delete files?</string>
+  <string name="dialog_delete_confirm_title">파일을 삭제하시겠습니까?</string>
   <!-- Text shown in a toast when the user copies files -->
   <plurals name="files_copied">
-    <item quantity="other">%d files have been put in the clipboard</item>
+    <item quantity="other">%d개의 파일이 클립보드에 저장되었습니다</item>
   </plurals>
   <!-- Text shown in a toast when the user pastes files -->
   <plurals name="files_pasted">
-    <item quantity="other">%d files have been pasted. Upload might be finishing in background.</item>
+    <item quantity="other">%d개의 파일이 붙여넣기 되었습니다. 업로드는 백그라운드에서 마무리될 것 입니다.</item>
   </plurals>
   <!-- Text show in the progress dialog while files are being copied -->
-  <string name="copy_in_progress">Copying\u2026</string>
+  <string name="copy_in_progress">복사 중\u2026</string>
   <!-- Text show in the progress dialog while files are being deleted -->
-  <string name="delete_in_progress">Deleting\u2026</string>
+  <string name="delete_in_progress">삭제 중\u2026</string>
   <plurals name="dialog_delete_confirm_message">
-    <item quantity="other">This will permanently delete the %d files selected!</item>
+    <item quantity="other">선택된 %d개의 파일이 영구적으로 삭제됩니다!</item>
   </plurals>
 </resources>

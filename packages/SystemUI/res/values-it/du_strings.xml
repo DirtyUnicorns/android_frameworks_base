@@ -19,7 +19,7 @@
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d client</item>
-    <item quantity="other">%1$d clients</item>
+    <item quantity="other">%1$d client</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Torcia accesa</string>
@@ -144,6 +144,8 @@
   <string name="status_bar_headset">Auricolare con cavo</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Caffeina</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -163,11 +165,5 @@
   <string name="action_delete_fault">Eliminazione non riuscita</string>
   <string name="action_save_success">Salvato</string>
   <string name="action_save_fault">Salvataggio non riuscito</string>
-  <string name="pref_action_color_title">Colore pulsanti azione</string>
-  <string name="pref_action_color_summary">Scegli un colore preferito per i pulsanti azione</string>
-  <string name="pref_category_main">Impostazioni principali</string>
-  <string name="pref_category_user">Impostazioni utente</string>
-  <string name="pref_crop_behavior_title">Comportamento al taglio</string>
-  <string name="pref_crop_behavior_summary">Usa l\'immagine ritagliata anche se quella originale non è stata ritagliata con l\'azione di ritaglio</string>
-  <string name="action_ok">OK</string>
+  <string name="action_edit">Modifica</string>
 </resources>

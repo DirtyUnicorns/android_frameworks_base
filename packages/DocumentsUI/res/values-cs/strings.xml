@@ -18,107 +18,107 @@
   <!-- Title of the documents application [CHAR LIMIT=32] -->
   <string name="app_label">Dokumenty</string>
   <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
-  <string name="title_open">Open from</string>
+  <string name="title_open">Otevřít z</string>
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
-  <string name="title_save">Save to</string>
+  <string name="title_save">Uložit do</string>
   <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
-  <string name="menu_create_dir">Create folder</string>
+  <string name="menu_create_dir">Vytvořit složku</string>
   <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
-  <string name="menu_grid">Grid view</string>
+  <string name="menu_grid">Mřížka</string>
   <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
-  <string name="menu_list">List view</string>
+  <string name="menu_list">Seznam</string>
   <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
-  <string name="menu_sort">Sort by</string>
+  <string name="menu_sort">Seřadit podle</string>
   <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
-  <string name="menu_search">Search</string>
+  <string name="menu_search">Hledat</string>
   <!-- Menu item that enters activity to change settings [CHAR LIMIT=24] -->
-  <string name="menu_settings">Settings</string>
+  <string name="menu_settings">Nastavení</string>
   <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_open">Open</string>
+  <string name="menu_open">Otevřít</string>
   <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
-  <string name="menu_save">Save</string>
+  <string name="menu_save">Uložit</string>
   <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_share">Share</string>
+  <string name="menu_share">Podělit se</string>
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_delete">Delete</string>
+  <string name="menu_delete">Smazat</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
-  <string name="menu_select_all">Select all</string>
+  <string name="menu_select_all">Vybrat vše</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_copy">Copy to\u2026</string>
+  <string name="menu_copy">Kopírovat do</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="nosdcard">Show internal storage</string>
+  <string name="menu_advanced_show" product="nosdcard">Zobrazit vnitřní paměť</string>
   <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="default">Show SD card</string>
+  <string name="menu_advanced_show" product="default">Zobrazit SD Kartu</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="nosdcard">Hide internal storage</string>
+  <string name="menu_advanced_hide" product="nosdcard">Skrýt vnitřní ůložiště</string>
   <!-- Menu item that hides SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="default">Hide SD card</string>
+  <string name="menu_advanced_hide" product="default">Skrýt SD Kartu</string>
   <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_show">Show file size</string>
+  <string name="menu_file_size_show">Zobrazit velikost souboru</string>
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_hide">Hide file size</string>
+  <string name="menu_file_size_hide">Skrýt velikost souboru</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
-  <string name="button_select">Select</string>
+  <string name="button_select">Vybrat</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
-  <string name="button_copy">Copy</string>
+  <string name="button_copy">Kopírovat</string>
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
-  <string name="sort_name">By name</string>
+  <string name="sort_name">Podle názvu</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
-  <string name="sort_date">By date modified</string>
+  <string name="sort_date">Podle data změny</string>
   <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
-  <string name="sort_size">By size</string>
+  <string name="sort_size">Podle velikosti</string>
   <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_open">Show roots</string>
+  <string name="drawer_open">Ukázat kořeny</string>
   <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_close">Hide roots</string>
+  <string name="drawer_close">Skrýt kořeny</string>
   <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
-  <string name="save_error">Failed to save document</string>
+  <string name="save_error">Uložení dokumentu se nezdařilo</string>
   <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
-  <string name="create_error">Failed to create folder</string>
+  <string name="create_error">Nepodařilo se vytvořit složku</string>
   <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
-  <string name="query_error">Failed to query documents</string>
+  <string name="query_error">Nepodařilo se dotázat dokumentů</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
-  <string name="root_recent">Recent</string>
+  <string name="root_recent">Poslední</string>
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> free</string>
+  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s </xliff:g> zdarma</string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
-  <string name="root_type_service">Storage services</string>
+  <string name="root_type_service">Služby ůložiště</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
-  <string name="root_type_shortcut">Shortcuts</string>
+  <string name="root_type_shortcut">Zkratky</string>
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
-  <string name="root_type_device">Devices</string>
+  <string name="root_type_device">Zařízení</string>
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
-  <string name="root_type_apps">More apps</string>
+  <string name="root_type_apps">Další aplikace</string>
   <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
-  <string name="empty">No items</string>
+  <string name="empty">Žádné položky</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <string name="toast_no_application">Can\'t open file</string>
+  <string name="toast_no_application">Nelze otevřít soubor</string>
   <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
-  <string name="toast_failed_delete">Unable to delete some documents</string>
+  <string name="toast_failed_delete">Nelze odstranit některé dokumenty</string>
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
-  <string name="share_via">Share via</string>
+  <string name="share_via">Sdílet přes</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
-  <string name="copy_notification_title">Copying files</string>
+  <string name="copy_notification_title">Kopíruji soubory</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
-  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> left</string>
+  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> zbývá</string>
   <!-- Toast shown when a file copy is kicked off -->
   <plurals name="copy_begin">
-    <item quantity="one">Copying <xliff:g id="count" example="1">%1$d</xliff:g> file.</item>
-    <item quantity="few">Copying <xliff:g id="count" example="3">%1$d</xliff:g> files.</item>
-    <item quantity="other">Copying <xliff:g id="count" example="3">%1$d</xliff:g> files.</item>
+    <item quantity="one">Probíhá kopírování souboru <xliff:g id="count" example="1">%1$d </xliff:g>.</item>
+    <item quantity="few">Probíhá kopírování souboru <xliff:g id="count" example="1">%1$d </xliff:g>.</item>
+    <item quantity="other">Probíhá kopírování souborů <xliff:g id="count" example="1">%1$d </xliff:g>.</item>
   </plurals>
   <!-- Text shown on the copy notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
-  <string name="copy_preparing">Preparing for copy\u2026</string>
+  <string name="copy_preparing">Příprava na copy\u2026</string>
   <!-- Title of the copy error notification [CHAR LIMIT=48] -->
   <plurals name="copy_error_notification_title">
-    <item quantity="one">Couldn\'t copy <xliff:g id="count" example="1">%1$d</xliff:g> file</item>
-    <item quantity="few">Couldn\'t copy <xliff:g id="count" example="2">%1$d</xliff:g> files</item>
-    <item quantity="other">Couldn\'t copy <xliff:g id="count" example="2">%1$d</xliff:g> files</item>
+    <item quantity="one">Nelze zkopírovat soubor <xliff:g id="count" example="1">%1$d </xliff:g></item>
+    <item quantity="few">Nelze zkopírovat soubor <xliff:g id="count" example="1">%1$d </xliff:g></item>
+    <item quantity="other">Nelze zkopírovat soubory <xliff:g id="count" example="1">%1$d </xliff:g></item>
   </plurals>
   <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
-  <string name="notification_touch_for_details">Touch to view details</string>
+  <string name="notification_touch_for_details">Kliknutím zobrazíte detaily</string>
   <!-- Label of a dialog button for retrying a failed operation [CHAR LIMIT=24] -->
-  <string name="retry">Retry</string>
+  <string name="retry">Opakovat</string>
   <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="copy_failure_alert_content">These files weren\'t copied: <xliff:g id="list">%1$s</xliff:g></string>
+  <string name="copy_failure_alert_content">Nebyly zkopírovány tyto soubory: <xliff:g id="list">%1$s </xliff:g></string>
 </resources>

@@ -29,10 +29,10 @@
   <string name="status_bar_recent_inspect_item_title">App-Info</string>
   <!-- Message shown in the middle of the screen after clicking on the recent apps button
          when there are no recent apps to show. Also used for accessibility. [CHAR LIMIT=45]-->
-  <string name="status_bar_no_recent_apps">Hier siehst du deine zuletzt geöffneten Apps.</string>
+  <string name="status_bar_no_recent_apps">Hier werden die zuletzt geöffneten Apps angezeigt</string>
   <!-- Content description for the button to dismiss Recent Apps (only present on large
          devices) -->
-  <string name="status_bar_accessibility_dismiss_recents">Kürzlich geöffnete Apps schließen</string>
+  <string name="status_bar_accessibility_dismiss_recents">Anwendungsverlauf löschen</string>
   <!-- Message that is read when you enter recent apps in TalkBack -->
   <plurals name="status_bar_accessibility_recent_apps">
     <item quantity="one">1 Bildschirm in der Übersicht</item>

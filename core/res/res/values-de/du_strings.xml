@@ -76,7 +76,7 @@
   <string name="animation_grow_shrink_right">Zunehmend (Rechts)</string>
   <string name="action_null">Leer</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Es scheint als wäre dein Vendor-Image veraltet. Bitte installiere das neuste Vendor-Image für dein Gerät.</string>
+  <string name="system_error_vendorprint">Es scheint als wäre dein Vendor-Image veraltet. Bitte installiere das neuste Vendor-Image für dein Gerät</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">Sperrbildschirm-Hintergrund festlegen</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

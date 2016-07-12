@@ -144,6 +144,8 @@
   <string name="status_bar_headset">Casque filaire</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -163,11 +165,5 @@
   <string name="action_delete_fault">Échec de la suppression</string>
   <string name="action_save_success">Enregistré</string>
   <string name="action_save_fault">Échec de l\'enregistrement</string>
-  <string name="pref_action_color_title">Couleur des boutons d\'action</string>
-  <string name="pref_action_color_summary">Choisir la couleur des boutons d\'action</string>
-  <string name="pref_category_main">Paramètres principaux</string>
-  <string name="pref_category_user">Paramètres utilisateur</string>
-  <string name="pref_crop_behavior_title">Comportement du recadrage</string>
-  <string name="pref_crop_behavior_summary">Utiliser l\'image recadrée, même si l\'image originale n\'a pas été recadrée par l\'action de recadrage</string>
-  <string name="action_ok">OK</string>
+  <string name="action_edit">Modifier</string>
 </resources>

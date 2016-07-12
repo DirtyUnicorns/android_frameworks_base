@@ -21,7 +21,7 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">הפעל מחדש</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">ריקוברי</string>
+  <string name="reboot_recovery">מצב Recovery</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">בוטלואדר</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
@@ -103,9 +103,9 @@
   <!-- App killed message -->
   <string name="app_killed_message">היישום נסגר</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
+  <string name="adb_net_active_notification_title">ADB על גבי הרשת מופעל</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+  <string name="adb_both_active_notification_title">ADB על USB &amp; רשת מופעל</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
+  <string name="adb_active_generic_notification_message">גע בכדי לבטל מצב בדיקה.</string>
 </resources>

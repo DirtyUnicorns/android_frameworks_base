@@ -118,5 +118,5 @@
   <!-- Label of a dialog button for retrying a failed operation [CHAR LIMIT=24] -->
   <string name="retry">Yritä uudelleen</string>
   <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="copy_failure_alert_content">These files weren\'t copied: <xliff:g id="list">%1$s</xliff:g></string>
+  <string name="copy_failure_alert_content">Näitä tiedostoja ei kopioitu: <xliff:g id="list">%1$s</xliff:g></string>
 </resources>

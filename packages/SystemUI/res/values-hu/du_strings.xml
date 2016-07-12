@@ -144,6 +144,8 @@
   <string name="status_bar_headset">Vezetékes fülhallgató</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Koffein</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -163,11 +165,5 @@
   <string name="action_delete_fault">Sikertelen törlés</string>
   <string name="action_save_success">Mentve</string>
   <string name="action_save_fault">Sikertelen mentés</string>
-  <string name="pref_action_color_title">Akció gombok színe</string>
-  <string name="pref_action_color_summary">Válaszd ki az akciógombok színét</string>
-  <string name="pref_category_main">Fő beállítások</string>
-  <string name="pref_category_user">Felhasználói beállítások</string>
-  <string name="pref_crop_behavior_title">Vágási viselkedés</string>
-  <string name="pref_crop_behavior_summary">A körülvágott kép használata, még akkor is, ha az eredeti nem került körbevágásra a vágás művelettel</string>
-  <string name="action_ok">OK</string>
+  <string name="action_edit">Szerkeszt</string>
 </resources>

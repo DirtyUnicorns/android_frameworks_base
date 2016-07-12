@@ -281,7 +281,7 @@
   <!-- Content description of the roaming data connection type for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_roaming">Dolaşımda</string>
   <!-- Content description of the data connection type Edge for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_edge">Edge</string>
+  <string name="accessibility_data_connection_edge">Kenar</string>
   <!-- Content description of the data connection type WiFi for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_wifi">Kablosuz</string>
   <!-- Content description of the data connection with no SIM for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -554,9 +554,9 @@
   <!-- QuickSettings: Control panel: Label for connecting device. [CHAR LIMIT=NONE] -->
   <string name="quick_settings_connecting">Bağlanılıyor...</string>
   <!-- QuickSettings: Tethering. [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_tethering_label">Tethering</string>
+  <string name="quick_settings_tethering_label">Usb internet payl</string>
   <!-- QuickSettings: Hotspot. [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_hotspot_label">Hotspot</string>
+  <string name="quick_settings_hotspot_label">Taşınabilir Bağlanılabilir Wi-Fi noktası</string>
   <!-- QuickSettings: Notifications [CHAR LIMIT=NONE] -->
   <string name="quick_settings_notifications_label">Bildirimler</string>
   <!-- QuickSettings: Flashlight [CHAR LIMIT=NONE] -->
@@ -741,7 +741,7 @@
   <!-- Monitoring dialog VPN with profile owner text [CHAR LIMIT=400] -->
   <string name="monitoring_description_vpn_profile_owned">Cihazınız <xliff:g id="ORGANIZATION">%1$s</xliff:g> tarafından yönetiliyor.\n\nYöneticiniz; e-postalarınız, uygulamalarınız ve web siteleriniz dahil olmak üzere ağ etkinliğinizi izleyebilir.\n\nDaha fazla bilgi edinmek için yöneticinizle iletişim kurun.\n\nAyrıca ağ etkinliğinizi izleyebilen bir VPN\'ye bağlısınız.</string>
   <!-- Name for a generic legacy VPN connection [CHAR LIMIT=20] -->
-  <string name="legacy_vpn_name">VPN</string>
+  <string name="legacy_vpn_name">Sanal Özel Ağ</string>
   <!-- Monitoring dialog text for single app (no profile or device owner) [CHAR LIMIT=400] -->
   <string name="monitoring_description_app">E-postalarınız, uygulamalarınız ve web siteleriniz dahil olmak üzere ağ etkinliğinizi izleyebilen <xliff:g id="APPLICATION">%1$s</xliff:g> uygulamasına bağlısınız.</string>
   <!-- Monitoring dialog text for single app (inside personal profile) [CHAR LIMIT=400] -->

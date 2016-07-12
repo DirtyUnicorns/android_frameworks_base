@@ -16,14 +16,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Button to reboot the phone, within the Phone Options dialog -->
-  <string name="reboot_system" product="tablet">Reiniciar tabler</string>
+  <string name="reboot_system" product="tablet">Reiniciar tablet</string>
   <string name="reboot_system" product="default">Reiniciar telemóvel</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Reiniciar</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_recovery">Reinicar em Recovery Mode</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_bootloader">Reiniciar em Bootloader</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
   <string name="reboot_hot">Reinicialização rápida</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
@@ -35,7 +35,7 @@
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">A reiniciar</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm">O se telemóvel irá reiniciar.</string>
+  <string name="reboot_confirm">O seu telemóvel irá reiniciar.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">Reiniciar</string>
   <!-- screenshot in the power menu -->
@@ -76,7 +76,7 @@
   <string name="animation_grow_shrink_right">Crescer (Direita)</string>
   <string name="action_null">Em branco</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Parece que a sua imagem do fornecedor pode estar desatualizada. Instala, por favor, a imagem mais recente do fornecedor para o seu dispositivo.</string>
+  <string name="system_error_vendorprint">Parece que a sua imagem do fornecedor pode estar desatualizada. Instale, por favor, a imagem mais recente do fornecedor para o seu dispositivo.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">definir a imagem de fundo do ecrã de bloqueio</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -103,9 +103,9 @@
   <!-- App killed message -->
   <string name="app_killed_message">Aplicação terminada</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
+  <string name="adb_net_active_notification_title">ADB pela rede ativo</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+  <string name="adb_both_active_notification_title">ADB por usb &amp; ativo</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
+  <string name="adb_active_generic_notification_message">Toque para desativar a depuração.</string>
 </resources>

@@ -103,7 +103,7 @@
   <string name="quick_settings_expanded_desktop">Genişletilmiş</string>
   <string name="quick_settings_expanded_desktop_off">Normal</string>
   <!-- ADB over network Tile -->
-  <string name="quick_settings_adb_network">ADB network</string>
+  <string name="quick_settings_adb_network">ADB ağı</string>
   <string name="quick_settings_network_adb_enabled_label">Etkin</string>
   <string name="quick_settings_network_adb_disabled_label">Devre dışı</string>
   <!-- Themes QS Tile -->
@@ -118,8 +118,8 @@
   <string name="task_manager_title">Görev Yöneticisi</string>
   <string name="message_switch_fail">Arayüzü olmadığı için bu göreve geçilemiyor.</string>
   <string name="tasklist_killall">Tümünü sonlandır</string>
-  <string name="tasklist_memory_usage">"Free/Total Memory: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
-  <string name="message_keep_one_launcher">Should keep at least one home activity!</string>
+  <string name="tasklist_memory_usage">"Boş/Toplam Bellek: [<xliff:g id="number">%s</xliff:g>] / [<xliff:g id="name">%s</xliff:g>]"</string>
+  <string name="message_keep_one_launcher">En azından bir başlatıcı olmalı!</string>
   <!-- 4G LTE switch -->
   <string name="show_fourg_title">LTE yerine 4G göster</string>
   <string name="show_fourg_summary">LTE durum çubuğu göstergesini 4G ile değiştirir</string>
@@ -132,8 +132,8 @@
   <string name="quick_settings_navigation_bar">Dolaşım çubuğu</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_smartbar_off">SmartBar kapalı</string>
-  <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_fling_off">Fling off</string>
+  <string name="quick_settings_fling">Fırlatma</string>
+  <string name="quick_settings_fling_off">üzerinden atmak</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">Klavye Değiştirici</string>
   <!-- Hotspot airplane mode -->
@@ -144,6 +144,8 @@
   <string name="status_bar_headset">Kablolu kulaklık</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Kafein</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -163,11 +165,5 @@
   <string name="action_delete_fault">Silme işlemi başarısız</string>
   <string name="action_save_success">Kaydedildi</string>
   <string name="action_save_fault">Kaydetme işlemi başarısız</string>
-  <string name="pref_action_color_title">Eylem düğme rengi</string>
-  <string name="pref_action_color_summary">Eylem düğmeleri için en sevdiğiniz rengi seçin</string>
-  <string name="pref_category_main">Ana Ayarlar</string>
-  <string name="pref_category_user">Kullanıcı Ayarları</string>
-  <string name="pref_crop_behavior_title">Kırpma davranışı</string>
-  <string name="pref_crop_behavior_summary">Orjinal resim gerçekte kırpma işlemi ile kırpılmamış olsa bile kırpılmış resmi kullan</string>
-  <string name="action_ok">Tamam</string>
+  <string name="action_edit">Düzenle</string>
 </resources>

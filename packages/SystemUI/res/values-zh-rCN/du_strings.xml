@@ -143,6 +143,8 @@
   <string name="status_bar_headset">有线耳机</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">咖啡因</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -162,11 +164,5 @@
   <string name="action_delete_fault">删除失败</string>
   <string name="action_save_success">已保存</string>
   <string name="action_save_fault">保存失败</string>
-  <string name="pref_action_color_title">动作按钮颜色</string>
-  <string name="pref_action_color_summary">选择你最喜爱的颜色来作为动作按钮的颜色</string>
-  <string name="pref_category_main">主设置</string>
-  <string name="pref_category_user">用户设置</string>
-  <string name="pref_crop_behavior_title">裁剪行为</string>
-  <string name="pref_crop_behavior_summary">使用经裁剪的图像，即使原图像没有被裁剪动作所裁剪</string>
-  <string name="action_ok">确定</string>
+  <string name="action_edit">编辑</string>
 </resources>

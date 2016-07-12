@@ -68,57 +68,57 @@
   <string name="durationSecond"><xliff:g id="seconds">%1$d</xliff:g> sec</string>
   <!-- Used in Contacts for a field that has no label and in Note Pad
          for a note with no name. -->
-  <string name="untitled">&lt;Untitled&gt;</string>
+  <string name="untitled">&lt;Uten navn&gt;</string>
   <!-- How to display the lack of a phone number -->
-  <string name="emptyPhoneNumber">(No phone number)</string>
+  <string name="emptyPhoneNumber">(Mangler telefonnummer)</string>
   <!-- How to display the lack of a name -->
-  <string name="unknownName">Unknown</string>
+  <string name="unknownName">Ukjent</string>
   <!-- What the UI should display for "voice mail" unless overridden by the SIM-->
-  <string name="defaultVoiceMailAlphaTag">Voicemail</string>
+  <string name="defaultVoiceMailAlphaTag">Telefonsvarer</string>
   <!-- What the UI should display for "Msisdn" unless overridden by the SIM-->
   <string name="defaultMsisdnAlphaTag">MSISDN1</string>
   <!-- For GsmMmiCode.java -->
   <!-- Displayed when the user dialed an MMI code whose function
          could not be performed. This will be displayed in a toast. -->
-  <string name="mmiError">Connection problem or invalid MMI code.</string>
+  <string name="mmiError">Tilkoblingsproblem eller ugyldig MMI-kode.</string>
   <!-- Displayed when the user dialed an MMI code whose function
          could not be performed because FDN is enabled. This will be displayed in a toast. -->
-  <string name="mmiFdnError">Operation is restricted to fixed dialing numbers only.</string>
+  <string name="mmiFdnError">Handlingen kan kun utføres på numre med anropsbegrensning.</string>
   <!-- Displayed when a phone feature such as call barring was activated. -->
-  <string name="serviceEnabled">Service was enabled.</string>
+  <string name="serviceEnabled">Tjenesten ble aktivert.</string>
   <!-- Displayed in front of the list of a set of service classes
          (voice, data, fax, etc.) that were enabled. -->
-  <string name="serviceEnabledFor">Service was enabled for:</string>
+  <string name="serviceEnabledFor">Tjenesten ble aktivert for:</string>
   <!-- Displayed when a phone feature such as call forwarding was deactivated. -->
-  <string name="serviceDisabled">Service has been disabled.</string>
+  <string name="serviceDisabled">Tjenesten ble deaktivert.</string>
   <!-- Displayed when a phone property such as a SIM password was registered. -->
-  <string name="serviceRegistered">Registration was successful.</string>
+  <string name="serviceRegistered">Registreringen er vellykket.</string>
   <!-- Displayed when a phone property such as a SIM password was erased. -->
-  <string name="serviceErased">Erasure was successful.</string>
+  <string name="serviceErased">Registreringen ble fjernet.</string>
   <!-- Displayed when a SIM password was entered incorrectly. -->
-  <string name="passwordIncorrect">Incorrect password.</string>
+  <string name="passwordIncorrect">Feil passord.</string>
   <!-- Displayed when a phone feature triggered by an MMI code is complete. -->
-  <string name="mmiComplete">MMI complete.</string>
+  <string name="mmiComplete">MMI utført.</string>
   <!-- Displayed when a SIM PIN password is entered incorrectly. -->
-  <string name="badPin">The old PIN you typed isn\'t correct.</string>
+  <string name="badPin">Den gamle PIN-koden du har skrevet inn er ikke riktig.</string>
   <!-- Displayed when a SIM PUK password is entered incorrectly. -->
-  <string name="badPuk">The PUK you typed isn\'t correct.</string>
+  <string name="badPuk">PUK-koden du har skrevet inn er ikke riktig.</string>
   <!-- Displayed when SIM PIN passwords are entered inconsistently. -->
-  <string name="mismatchPin">The PINs you typed don\'t match.</string>
+  <string name="mismatchPin">PIN kodene du har skrevet inn samsvarer ikke.</string>
   <!-- Displayed when a SIM PIN password is too long or too short. -->
-  <string name="invalidPin">Type a PIN that is 4 to 8 numbers.</string>
+  <string name="invalidPin">Skriv inn en PIN-kode på fire til åtte sifre.</string>
   <!-- Displayed when a SIM PUK password is too short. -->
-  <string name="invalidPuk">Type a PUK that is 8 numbers or longer.</string>
+  <string name="invalidPuk">Skriv inn en PUK-kode på åtte tall eller mer.</string>
   <!-- Displayed to prompt the user to type the PUK password to unlock
          the SIM card. -->
-  <string name="needPuk">Your SIM card is PUK-locked. Type the PUK code to unlock it.</string>
-  <string name="needPuk2">Type PUK2 to unblock SIM card.</string>
+  <string name="needPuk">SIM-kortet ditt er PUK-låst. Skriv inn PUK-koden for å låse det opp.</string>
+  <string name="needPuk2">Skriv inn PUK2 for å låse opp SIM-kortet.</string>
   <!-- Displayed when user attempts to change SIM PIN1 without enabling PIN1. -->
-  <string name="enablePin">Unsuccessful, enable SIM/RUIM Lock.</string>
+  <string name="enablePin">Mislykket, aktiverer SIM/RUIM lås.</string>
   <!-- Displayed when a SIM PIN/PUK is entered incorrectly. -->
   <plurals name="pinpuk_attempts">
     <item quantity="one">You have <xliff:g id="number">%d</xliff:g> remaining attempt before SIM is locked.</item>
-    <item quantity="other">You have <xliff:g id="number">%d</xliff:g> remaining attempts before SIM is locked.</item>
+    <item quantity="other">Du har <xliff:g id="number">%d</xliff:g> forsøk igjen før SIM blir låst.</item>
   </plurals>
   <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
   <string name="imei">IMEI</string>
@@ -126,17 +126,17 @@
          [CHAR LIMIT=10] -->
   <string name="meid">MEID</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
-  <string name="ClipMmi">Incoming Caller ID</string>
+  <string name="ClipMmi">Inngående nummervisning</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
-  <string name="ClirMmi">Outgoing Caller ID</string>
+  <string name="ClirMmi">Utgående nummervisning</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID. -->
-  <string name="ColpMmi">Connected Line ID</string>
+  <string name="ColpMmi">Tilkoblet linje-ID</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling connected line ID restriction. -->
-  <string name="ColrMmi">Connected Line ID Restriction</string>
+  <string name="ColrMmi">Tilkoblet linje ID begrensning</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling call forwarding. -->
-  <string name="CfMmi">Call forwarding</string>
+  <string name="CfMmi">Viderekobling</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling call waiting. -->
-  <string name="CwMmi">Call waiting</string>
+  <string name="CwMmi">Samtale venter</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling call barring. -->
   <string name="BaMmi">Call barring</string>
   <!-- Displayed as the title for a success/failure report changing the SIM password. -->
@@ -204,11 +204,11 @@
   <!-- CDMA Roaming Indicator Strings (non ERI)-->
   <!-- Default roaming indicator text -->
   <string name="roamingText0">Roaming Indicator On</string>
-  <string name="roamingText1">Roaming Indicator Off</string>
-  <string name="roamingText2">Roaming Indicator Flashing</string>
-  <string name="roamingText3">Out of Neighborhood</string>
-  <string name="roamingText4">Out of Building</string>
-  <string name="roamingText5">Roaming - Preferred System</string>
+  <string name="roamingText1">Roaming-indikator av</string>
+  <string name="roamingText2">Roaming-indikator blinker</string>
+  <string name="roamingText3">Ute av nabolaget</string>
+  <string name="roamingText4">Ute av bygningen</string>
+  <string name="roamingText5">Roaming - foretrukket system</string>
   <string name="roamingText6">Roaming - Available System</string>
   <string name="roamingText7">Roaming - Alliance Partner</string>
   <string name="roamingText8">Roaming - Premium Partner</string>

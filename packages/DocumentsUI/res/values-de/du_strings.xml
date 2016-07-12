@@ -32,9 +32,9 @@
     <item quantity="other">%d Dateien wurden eingefügt. Das Hochladen kann im Hintergrund abgeschlossen werden.</item>
   </plurals>
   <!-- Text show in the progress dialog while files are being copied -->
-  <string name="copy_in_progress">Kopiere\u2026</string>
+  <string name="copy_in_progress">Kopieren\u2026</string>
   <!-- Text show in the progress dialog while files are being deleted -->
-  <string name="delete_in_progress">Lösche\u2026</string>
+  <string name="delete_in_progress">Löschen\u2026</string>
   <plurals name="dialog_delete_confirm_message">
     <item quantity="one">Diese Datei wird dauerhaft gelöscht!</item>
     <item quantity="other">%d Dateien werden dauerhaft gelöscht!</item>

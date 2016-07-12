@@ -144,6 +144,8 @@
   <string name="status_bar_headset">Bedrade koptelefoon</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Cafeïne</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -163,11 +165,5 @@
   <string name="action_delete_fault">Verwijderen is mislukt</string>
   <string name="action_save_success">Opgeslagen</string>
   <string name="action_save_fault">Opslaan is mislukt</string>
-  <string name="pref_action_color_title">Actie knoppen kleur</string>
-  <string name="pref_action_color_summary">Kies uw favoriete kleur voor de actieknoppen</string>
-  <string name="pref_category_main">Hoofdinstellingen</string>
-  <string name="pref_category_user">Gebruikersinstellingen</string>
-  <string name="pref_crop_behavior_title">Bijsnijdgedrag</string>
-  <string name="pref_crop_behavior_summary">De bijgesneden afbeelding gebruiken, zelfs als originele eigenlijk nog niet is bijgesneden met de bijsnijd-actie</string>
-  <string name="action_ok">Oké</string>
+  <string name="action_edit">Wijzigen</string>
 </resources>

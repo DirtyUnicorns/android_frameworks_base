@@ -20,7 +20,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Toast message when Wi-Fi cannot scan for networks -->
-  <string name="wifi_fail_to_scan">Can\'t scan for networks</string>
+  <string name="wifi_fail_to_scan">Не вдається сканувати мережі</string>
   <!-- Do not translate.  Concise terminology for wifi with WEP security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA security -->
   <!-- Do not translate.  Concise terminology for wifi with WPA2 security -->
@@ -28,7 +28,7 @@
   <!-- Do not translate.  Concise terminology for wifi with unknown PSK type -->
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Used in Wi-Fi settings dialogs when Wi-Fi does not have any security. -->
-  <string name="wifi_security_none">None</string>
+  <string name="wifi_security_none">Нічого</string>
   <!-- Do not translate.  Terminology for wifi with WEP security -->
   <!-- Do not translate.  Terminology for wifi with WPA security -->
   <!-- Do not translate.  Terminology for wifi with WPA2 security -->
@@ -37,9 +37,9 @@
   <!-- Do not translate.  Concise terminology for wifi with 802.1x EAP security -->
   <!-- Do not translate.  Concise terminology for Passpoint network -->
   <!-- Summary for the remembered network. -->
-  <string name="wifi_remembered">Saved</string>
+  <string name="wifi_remembered">Збережено</string>
   <!-- Status for networks disabled for unknown reason -->
-  <string name="wifi_disabled_generic">Disabled</string>
+  <string name="wifi_disabled_generic">Вимкнено</string>
   <!-- Status for networked disabled from a DNS or DHCP failure -->
   <string name="wifi_disabled_network_failure">IP Configuration Failure</string>
   <!-- Status for networked disabled from a wifi association failure -->
@@ -58,17 +58,17 @@
   <!-- Status message of Wi-Fi when it is connected by Passpoint configuration. [CHAR LIMIT=NONE] -->
   <string name="connected_via_passpoint">Connected via %1$s</string>
   <!-- Status message of Wi-Fi when network has matching passpoint credentials. [CHAR LIMIT=NONE] -->
-  <string name="available_via_passpoint">Available via %1$s</string>
+  <string name="available_via_passpoint">Доступно через %1$s</string>
   <!-- Package name for Settings app-->
   <!-- Package name for Certinstaller app-->
   <!-- Summary for Connected wifi network without internet -->
   <string name="wifi_connected_no_internet">Connected, no Internet</string>
   <!-- Bluetooth settings.  Message when a device is disconnected -->
-  <string name="bluetooth_disconnected">Disconnected</string>
+  <string name="bluetooth_disconnected">Роз’єднано</string>
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
-  <string name="bluetooth_disconnecting">Disconnecting\u2026</string>
+  <string name="bluetooth_disconnecting">Від\'єднання\u2026</string>
   <!-- Bluetooth settings.  Message when connecting to a device -->
-  <string name="bluetooth_connecting">Connecting\u2026</string>
+  <string name="bluetooth_connecting">З\'єднання\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected">Connected</string>
   <!--Bluetooth settings screen, summary text under individual Bluetooth devices when pairing -->
@@ -88,7 +88,7 @@
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
   <string name="bluetooth_profile_opp">File transfer</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
-  <string name="bluetooth_profile_hid">Input device</string>
+  <string name="bluetooth_profile_hid">Пристрій вводу</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->
   <string name="bluetooth_profile_pan">Internet access</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PBAP profile. [CHAR LIMIT=40] -->
@@ -96,7 +96,7 @@
   <!-- Bluetooth settings. The user-visible summary string that is used whenever referring to the PBAP profile (sharing contacts). [CHAR LIMIT=60] -->
   <string name="bluetooth_profile_pbap_summary">Use for contact sharing</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (sharing this device's Internet connection). [CHAR LIMIT=40] -->
-  <string name="bluetooth_profile_pan_nap">Internet connection sharing</string>
+  <string name="bluetooth_profile_pan_nap">Спільний доступ до Інтернету</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the map profile. -->
   <string name="bluetooth_profile_map">Message Access</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the SAP profile (sharing SIM card). -->
@@ -122,15 +122,15 @@
   <!-- Bluetooth settings. Connection options screen. The summary
          for the PAN checkbox preference that describes how checking it
          will set the PAN profile as preferred. -->
-  <string name="bluetooth_pan_profile_summary_use_for">Use for Internet access</string>
+  <string name="bluetooth_pan_profile_summary_use_for">Використання для доступу в Інтернет</string>
   <!-- Bluetooth settings. Connection options screen.  The summary for the map checkbox preference that describes how checking it will set the map profile as preferred. -->
-  <string name="bluetooth_map_profile_summary_use_for">Use for map</string>
+  <string name="bluetooth_map_profile_summary_use_for">Використовувати для мапи</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the sap checkbox preference that describes how checking it will set the sap profile as preferred. -->
   <string name="bluetooth_sap_profile_summary_use_for">Use for SIM access</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference that describes how checking it will set the A2DP profile as preferred. -->
   <string name="bluetooth_a2dp_profile_summary_use_for">Use for media audio</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the headset checkbox preference that describes how checking it will set the headset profile as preferred. -->
-  <string name="bluetooth_headset_profile_summary_use_for">Use for phone audio</string>
+  <string name="bluetooth_headset_profile_summary_use_for">Використовувати для аудіопристрою</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference that describes how checking it will set the OPP profile as preferred. -->
   <string name="bluetooth_opp_profile_summary_use_for">Use for file transfer</string>
   <!-- Bluetooth settings. Connection options screen. The summary
@@ -142,7 +142,7 @@
   <!-- Button text for accepting an incoming pairing request in all caps. [CHAR LIMIT=20] -->
   <string name="bluetooth_pairing_accept_all_caps">PAIR</string>
   <!-- Button text for declining an incoming pairing request. [CHAR LIMIT=20] -->
-  <string name="bluetooth_pairing_decline">Cancel</string>
+  <string name="bluetooth_pairing_decline">Скасувати</string>
   <!-- Message in pairing dialogs.  [CHAR LIMIT=NONE] -->
   <string name="bluetooth_pairing_will_share_phonebook">Pairing grants access to your contacts and call history when connected.</string>
   <!-- Message for the error dialog when BT pairing fails generically. -->
@@ -167,18 +167,18 @@
   <!-- Content description of the WIFI signal when it is full for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_wifi_signal_full">Wifi signal full.</string>
   <!-- Label for kernel threads in battery usage -->
-  <string name="process_kernel_label">Android OS</string>
+  <string name="process_kernel_label">ОС Android</string>
   <!-- Title of data usage item that represents all uninstalled applications. [CHAR LIMIT=48] -->
-  <string name="data_usage_uninstalled_apps">Removed apps</string>
+  <string name="data_usage_uninstalled_apps">Видалені додатки</string>
   <!-- Title of data usage item that represents all uninstalled applications or removed users. [CHAR LIMIT=48] -->
-  <string name="data_usage_uninstalled_apps_users">Removed apps and users</string>
+  <string name="data_usage_uninstalled_apps_users">Видалені додатки та користувачі</string>
   <!-- Tethering controls, item title to go into the tethering settings -->
   <!-- Tethering controls, item title to go into the tethering settings when only USB tethering is available [CHAR LIMIT=25]-->
   <string name="tether_settings_title_usb">USB tethering</string>
   <!-- Tethering controls, item title to go into the tethering settings when only Wifi tethering is available [CHAR LIMIT=25]-->
   <string name="tether_settings_title_wifi">Portable hotspot</string>
   <!-- Tethering controls, item title to go into the tethering settings when only Bluetooth tethering is available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_bluetooth">Bluetooth tethering</string>
+  <string name="tether_settings_title_bluetooth">Прив\'язка Bluetooth</string>
   <!-- Tethering controls, item title to go into the tethering settings when USB and Bluetooth tethering are available [CHAR LIMIT=25]-->
   <string name="tether_settings_title_usb_bluetooth">Tethering</string>
   <!-- Tethering controls, item title to go into the tethering settings when USB, Bluetooth and Wifi tethering are available [CHAR LIMIT=25]-->

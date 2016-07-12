@@ -24,23 +24,23 @@
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Lanterna este pornită</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Tap to turn off</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Atingeţi pentru a dezactiva</string>
   <!-- Battery Saver Dimss -->
   <string name="battery_saver_dismiss_title">Dismiss</string>
   <string name="battery_saver_notification_action_text_short">Turn off</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_statusbar_title">Statusbar Items</string>
-  <string name="systemui_tuner_qs_title">Quick Settings</string>
+  <string name="systemui_tuner_statusbar_title">Elemente bară de stare</string>
+  <string name="systemui_tuner_qs_title">Setări rapide</string>
   <!-- Screenshot Delete Toast -->
-  <string name="delete_screenshot_toast">Screenshot Deleted</string>
+  <string name="delete_screenshot_toast">Captură de ecran ştearsă</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
   <!-- Weather string format in expanded statusbar header -->
   <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Swipe right for %1$s</string>
-  <string name="right_shortcut_hint">Swipe left for %1$s</string>
-  <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
-  <string name="lockscreen_default_target">Default</string>
-  <string name="select_application">Select application</string>
+  <string name="left_shortcut_hint">Trageţi spre dreapta pentru %1$s</string>
+  <string name="right_shortcut_hint">Trageţi spre stânga pentru %1$s</string>
+  <string name="lockscreen_message">Apăsaţi o pictogramă de pe stânga sau dreapta pentru a realoca o comandă rapidă pe ecranul de blocare.</string>
+  <string name="lockscreen_default_target">Implicit</string>
+  <string name="select_application">Selectaţi aplicaţia</string>
   <string name="lockscreen_choose_action_title">Choose action</string>
   <string name="lockscreen_none_target">None</string>
   <!-- Text to use when the number in a notification info is too large
@@ -145,6 +145,8 @@
   <string name="status_bar_headset">Wired headset</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -164,11 +166,5 @@
   <string name="action_delete_fault">Deleting was unsuccessful</string>
   <string name="action_save_success">Saved</string>
   <string name="action_save_fault">Saving was unsuccessful</string>
-  <string name="pref_action_color_title">Action buttons color</string>
-  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
-  <string name="pref_category_main">Main Settings</string>
-  <string name="pref_category_user">User Settings</string>
-  <string name="pref_crop_behavior_title">Crop behavior</string>
-  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
-  <string name="action_ok">OK</string>
+  <string name="action_edit">Edit</string>
 </resources>

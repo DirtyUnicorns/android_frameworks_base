@@ -54,11 +54,11 @@
   <!-- Summary for saved networks -->
   <string name="saved_network"><xliff:g id="Name">%1$s</xliff:g> tarafından kaydedildi</string>
   <!-- Status message of Wi-Fi when it is connected by a Wi-Fi assistant application. [CHAR LIMIT=NONE] -->
-  <string name="connected_via_wfa">Connected via Wi\u2011Fi assistant</string>
+  <string name="connected_via_wfa">Wi\u2011Fi Yardımcısı ile bağlı</string>
   <!-- Status message of Wi-Fi when it is connected by Passpoint configuration. [CHAR LIMIT=NONE] -->
   <string name="connected_via_passpoint">%1$s ile bağlandı</string>
   <!-- Status message of Wi-Fi when network has matching passpoint credentials. [CHAR LIMIT=NONE] -->
-  <string name="available_via_passpoint">Available via %1$s</string>
+  <string name="available_via_passpoint">%1$s yolu ile geçerli</string>
   <!-- Package name for Settings app-->
   <!-- Package name for Certinstaller app-->
   <!-- Summary for Connected wifi network without internet -->
@@ -68,11 +68,11 @@
   <!-- Bluetooth settings.  Message when disconnecting from a device -->
   <string name="bluetooth_disconnecting">Bağlantı kesiliyor\u2026</string>
   <!-- Bluetooth settings.  Message when connecting to a device -->
-  <string name="bluetooth_connecting">Connecting\u2026</string>
+  <string name="bluetooth_connecting">Bağlanıyor\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device. [CHAR LIMIT=40] -->
-  <string name="bluetooth_connected">Connected</string>
+  <string name="bluetooth_connected">Bağlandı</string>
   <!--Bluetooth settings screen, summary text under individual Bluetooth devices when pairing -->
-  <string name="bluetooth_pairing">Pairing\u2026</string>
+  <string name="bluetooth_pairing">Eşleştiriliyor\u2026</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for phone audio. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected_no_headset">Bağlandı (Telefon Yok)</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for media audio. [CHAR LIMIT=40] -->
@@ -82,11 +82,11 @@
   <!-- Bluetooth settings.  Message when connected to a device, except for phone/media audio. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected_no_headset_no_a2dp">Bağlandı (Telefon ya da Medya Yok)</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the A2DP profile. -->
-  <string name="bluetooth_profile_a2dp">Media audio</string>
+  <string name="bluetooth_profile_a2dp">Medya sesİ</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the headset or handsfree profile. -->
-  <string name="bluetooth_profile_headset">Phone audio</string>
+  <string name="bluetooth_profile_headset">Telefon sesi</string>
   <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
-  <string name="bluetooth_profile_opp">File transfer</string>
+  <string name="bluetooth_profile_opp">Dosya aktarımı</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
   <string name="bluetooth_profile_hid">Giriş cihazı</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->
@@ -98,15 +98,15 @@
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (sharing this device's Internet connection). [CHAR LIMIT=40] -->
   <string name="bluetooth_profile_pan_nap">Internet bağlantı paylaşımı</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the map profile. -->
-  <string name="bluetooth_profile_map">Message Access</string>
+  <string name="bluetooth_profile_map">Mesaj Erişimi</string>
   <!-- Bluetooth settings. The user-visible string that is used whenever referring to the SAP profile (sharing SIM card). -->
-  <string name="bluetooth_profile_sap">SIM Access</string>
+  <string name="bluetooth_profile_sap">SIM Erişimi</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference when A2DP is connected. -->
-  <string name="bluetooth_a2dp_profile_summary_connected">Connected to media audio</string>
+  <string name="bluetooth_a2dp_profile_summary_connected">Medya sesine bağlı</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the headset checkbox preference when headset is connected. -->
-  <string name="bluetooth_headset_profile_summary_connected">Connected to phone audio</string>
+  <string name="bluetooth_headset_profile_summary_connected">Telefon sesine bağlı</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference when OPP is connected. -->
-  <string name="bluetooth_opp_profile_summary_connected">Connected to file transfer server</string>
+  <string name="bluetooth_opp_profile_summary_connected">Dosya aktarımı sunucusuna bağlı</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the map checkbox preference when map is connected. -->
   <string name="bluetooth_map_profile_summary_connected">Haritaya bağlandı</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the sap checkbox preference when SAP is connected. -->
@@ -118,19 +118,19 @@
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (user role). [CHAR LIMIT=25]-->
   <string name="bluetooth_pan_user_profile_summary_connected">İnternet erişimi için cihaza bağlandı</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (NAP role). [CHAR LIMIT=25]-->
-  <string name="bluetooth_pan_nap_profile_summary_connected">Sharing local Internet connection with device</string>
+  <string name="bluetooth_pan_nap_profile_summary_connected">Cihaz ile yerel internet bağlantısı paylaşılıyor</string>
   <!-- Bluetooth settings. Connection options screen. The summary
          for the PAN checkbox preference that describes how checking it
          will set the PAN profile as preferred. -->
-  <string name="bluetooth_pan_profile_summary_use_for">Use for Internet access</string>
+  <string name="bluetooth_pan_profile_summary_use_for">İnternet erişimi için kullan</string>
   <!-- Bluetooth settings. Connection options screen.  The summary for the map checkbox preference that describes how checking it will set the map profile as preferred. -->
-  <string name="bluetooth_map_profile_summary_use_for">Use for map</string>
+  <string name="bluetooth_map_profile_summary_use_for">Harita için kullanım</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the sap checkbox preference that describes how checking it will set the sap profile as preferred. -->
-  <string name="bluetooth_sap_profile_summary_use_for">Use for SIM access</string>
+  <string name="bluetooth_sap_profile_summary_use_for">SIM erişimi için kullan</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the A2DP checkbox preference that describes how checking it will set the A2DP profile as preferred. -->
-  <string name="bluetooth_a2dp_profile_summary_use_for">Use for media audio</string>
+  <string name="bluetooth_a2dp_profile_summary_use_for">Medya sesi için kullan</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the headset checkbox preference that describes how checking it will set the headset profile as preferred. -->
-  <string name="bluetooth_headset_profile_summary_use_for">Use for phone audio</string>
+  <string name="bluetooth_headset_profile_summary_use_for">Telefon sesi için kullan</string>
   <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference that describes how checking it will set the OPP profile as preferred. -->
   <string name="bluetooth_opp_profile_summary_use_for">Dosya aktarımı için kullan</string>
   <!-- Bluetooth settings. Connection options screen. The summary
@@ -153,15 +153,15 @@
   <!-- Message for the error dialog when BT pairing fails because the other device is down. -->
   <string name="bluetooth_pairing_device_down_error_message"><xliff:g id="device_name"> %1$s </xliff:g> ile iletişim kurulamıyor.</string>
   <!-- Message for the error dialog when BT pairing fails because the other device rejected the pairing. -->
-  <string name="bluetooth_pairing_rejected_error_message">Pairing rejected by <xliff:g id="device_name">%1$s</xliff:g>.</string>
+  <string name="bluetooth_pairing_rejected_error_message"><xliff:g id="device_name"> %1$s </xliff:g> tarafından reddedildi.</string>
   <!-- Content description of the WIFI signal when WIFI is disabled for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_off">Wifi off.</string>
+  <string name="accessibility_wifi_off">WiFi kapalı.</string>
   <!-- Content description of the WIFI signal when no signal for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_no_wifi">Wifi disconnected.</string>
+  <string name="accessibility_no_wifi">WiFi bağlantısı kesildi.</string>
   <!-- Content description of the WIFI signal when it is one bar for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_one_bar">Wifi one bar.</string>
+  <string name="accessibility_wifi_one_bar">WiFi bir bar.</string>
   <!-- Content description of the WIFI signal when it is two bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_wifi_two_bars">Wifi two bars.</string>
+  <string name="accessibility_wifi_two_bars">WiFi iki bar.</string>
   <!-- Content description of the WIFI signal when it is three bars for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_wifi_three_bars">WiFi üç barlar.</string>
   <!-- Content description of the WIFI signal when it is full for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -180,15 +180,15 @@
   <!-- Tethering controls, item title to go into the tethering settings when only Bluetooth tethering is available [CHAR LIMIT=25]-->
   <string name="tether_settings_title_bluetooth">Bluetooth paylaşımı</string>
   <!-- Tethering controls, item title to go into the tethering settings when USB and Bluetooth tethering are available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_usb_bluetooth">Tethering</string>
+  <string name="tether_settings_title_usb_bluetooth">Usb internet payl</string>
   <!-- Tethering controls, item title to go into the tethering settings when USB, Bluetooth and Wifi tethering are available [CHAR LIMIT=25]-->
-  <string name="tether_settings_title_all">Tethering &amp; portable hotspot</string>
+  <string name="tether_settings_title_all">Bağlantı &amp; taşınabilir hotspot</string>
   <!-- Title for a work profile. [CHAR LIMIT=25] -->
-  <string name="managed_user_title">Work profile</string>
+  <string name="managed_user_title">İş profili</string>
   <!-- Title for Guest user [CHAR LIMIT=35] -->
-  <string name="user_guest">Guest</string>
+  <string name="user_guest">Misafir</string>
   <!-- Manage apps, individual app screen, substituted for the application's label when the app's label CAN NOT be determined.-->
-  <string name="unknown">Unknown</string>
+  <string name="unknown">Bilinmiyor</string>
   <!-- [CHAR LIMIT=NONE] Label of a running process that represents another user -->
-  <string name="running_process_item_user_label">User: <xliff:g id="user_name">%1$s</xliff:g></string>
+  <string name="running_process_item_user_label">Kullanıcı: <xliff:g id="user_name"> %1$s</xliff:g></string>
 </resources>

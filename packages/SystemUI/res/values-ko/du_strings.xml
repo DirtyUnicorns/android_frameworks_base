@@ -96,77 +96,73 @@
   <string name="screenrecord_notif_pointer_off">터치 숨기기</string>
   <string name="screenrecord_notif_error">화면을 녹화할 수 없습니다.</string>
   <!-- Battery Saver QS Tile -->
-  <string name="quick_settings_battery_saver">Battery saver</string>
-  <string name="quick_settings_battery_saver_off">Battery saver off</string>
+  <string name="quick_settings_battery_saver">배터리 세이버</string>
+  <string name="quick_settings_battery_saver_off">배터리 세이버 끄기</string>
   <!-- Expanded Desktop QS Tile -->
-  <string name="quick_settings_expanded_desktop">Expanded</string>
-  <string name="quick_settings_expanded_desktop_off">Normal</string>
+  <string name="quick_settings_expanded_desktop">확장됨</string>
+  <string name="quick_settings_expanded_desktop_off">보통</string>
   <!-- ADB over network Tile -->
-  <string name="quick_settings_adb_network">ADB network</string>
-  <string name="quick_settings_network_adb_enabled_label">Enabled</string>
-  <string name="quick_settings_network_adb_disabled_label">Disabled</string>
+  <string name="quick_settings_adb_network">ADB 네트워크</string>
+  <string name="quick_settings_network_adb_enabled_label">사용</string>
+  <string name="quick_settings_network_adb_disabled_label">사용 안함</string>
   <!-- Themes QS Tile -->
-  <string name="quick_settings_themes">Themes</string>
-  <string name="quick_settings_themes_icon_packs">Apply icon pack</string>
-  <string name="quick_settings_themes_app_theme_with_label">Apply theme to <xliff:g id="application">%1$s</xliff:g></string>
-  <string name="quick_settings_themes_app_theme">Apply theme to app</string>
-  <string name="quick_settings_themes_system_theme">Apply theme</string>
-  <string name="quick_settings_themes_default_theme">Default</string>
-  <string name="quick_settings_themes_match_system">Match system theme</string>
+  <string name="quick_settings_themes">테마</string>
+  <string name="quick_settings_themes_icon_packs">아이콘 팩 적용</string>
+  <string name="quick_settings_themes_app_theme_with_label"><xliff:g id="application">%1$s </xliff:g>에 테마 적용</string>
+  <string name="quick_settings_themes_app_theme">앱에 테마 적용하기</string>
+  <string name="quick_settings_themes_system_theme">테마 적용하기</string>
+  <string name="quick_settings_themes_default_theme">기본값</string>
+  <string name="quick_settings_themes_match_system">시스템 테마 맟추기</string>
   <!-- Task Manager -->
-  <string name="task_manager_title">Task Manager</string>
-  <string name="message_switch_fail">Cannot switch to this task, because it has no interface.</string>
-  <string name="tasklist_killall">Kill All</string>
-  <string name="tasklist_memory_usage">"Free/Total Memory: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
-  <string name="message_keep_one_launcher">Should keep at least one home activity!</string>
+  <string name="task_manager_title">작업 관리자</string>
+  <string name="message_switch_fail">인터페이스가 없기 때문에 이 작업을 전환할 수 없습니다.</string>
+  <string name="tasklist_killall">모두 종료</string>
+  <string name="tasklist_memory_usage">"여유/총 메모리: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
+  <string name="message_keep_one_launcher">최소한 하나의 작업은 유지해야 합니다!</string>
   <!-- 4G LTE switch -->
-  <string name="show_fourg_title">Show 4G instead of LTE</string>
-  <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G</string>
-  <string name="statusbar_tuner_category_title">Hide items from statusbar</string>
+  <string name="show_fourg_title">LTE 대신 4G 표시</string>
+  <string name="show_fourg_summary">LTE 상태 표시줄 표시기를 4G로 바꿉니다.</string>
+  <string name="statusbar_tuner_category_title">상태 표시줄에서 항목 숨기기</string>
   <!-- Compass QS Tile -->
-  <string name="quick_settings_compass">Compass</string>
-  <string name="quick_settings_compass_off">Compass off</string>
-  <string name="quick_settings_compass_init">Initializing\u2026</string>
+  <string name="quick_settings_compass">나침반</string>
+  <string name="quick_settings_compass_off">나침반 꺼짐</string>
+  <string name="quick_settings_compass_init">초기화 중\u2026</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_smartbar_off">SmartBar off</string>
+  <string name="quick_settings_navigation_bar">내비게이션 바</string>
+  <string name="quick_settings_smartbar">스마트바</string>
+  <string name="quick_settings_smartbar_off">스마트바 비활성화</string>
   <string name="quick_settings_fling">Fling</string>
   <string name="quick_settings_fling_off">Fling off</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">IME</string>
   <!-- Hotspot airplane mode -->
-  <string name="toast_airplane_mode_hotspot">Disable airplane mode before enabling</string>
+  <string name="toast_airplane_mode_hotspot">활성화 전에 비행기 모드를 해제하세요</string>
   <!-- Statusbar Vibrate silent switch -->
-  <string name="status_bar_vibsil">Vibrate &amp; silent</string>
+  <string name="status_bar_vibsil">진동 &amp; 무음</string>
   <!-- headset icon switch -->
-  <string name="status_bar_headset">Wired headset</string>
+  <string name="status_bar_headset">유선 헤드셋</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="quick_settings_caffeine_label">카페인</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
+  <string name="accessibility_quick_settings_caffeine_off">카페인 꺼짐.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+  <string name="accessibility_quick_settings_caffeine_on">카페인 켜짐.</string>
   <!-- Volume Panel Tile -->
-  <string name="quick_settings_volume_panel_label">Volume panel</string>
+  <string name="quick_settings_volume_panel_label">볼륨 패널</string>
   <!-- Heads up toast -->
-  <string name="heads_up_enabled">Heads up notifications are enabled</string>
-  <string name="heads_up_disabled">Heads up notifications are disabled</string>
+  <string name="heads_up_enabled">헤드 업 알림이 활성화됨</string>
+  <string name="heads_up_disabled">헤드 업 알림이 비활성화됨</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Screenshot Crop & Share -->
-  <string name="action_delete_success">Deleted</string>
-  <string name="action_delete_fault">Deleting was unsuccessful</string>
-  <string name="action_save_success">Saved</string>
-  <string name="action_save_fault">Saving was unsuccessful</string>
-  <string name="pref_action_color_title">Action buttons color</string>
-  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
-  <string name="pref_category_main">Main Settings</string>
-  <string name="pref_category_user">User Settings</string>
-  <string name="pref_crop_behavior_title">Crop behavior</string>
-  <string name="pref_crop_behavior_summary">자르기로 원본 사진이 잘려지지 않았음에도 불구하고 잘려진 이미지 사용</string>
-  <string name="action_ok">확인</string>
+  <string name="action_delete_success">삭제됨</string>
+  <string name="action_delete_fault">삭제에 실패하였습니다.</string>
+  <string name="action_save_success">저장됨</string>
+  <string name="action_save_fault">저장에 실패하였습니다.</string>
+  <string name="action_edit">수정</string>
 </resources>

@@ -39,7 +39,7 @@
   <string name="right_shortcut_hint">Swipe left for %1$s</string>
   <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
   <string name="lockscreen_default_target">Default</string>
-  <string name="select_application">Select application</string>
+  <string name="select_application">Valitse sovellus</string>
   <string name="lockscreen_choose_action_title">Choose action</string>
   <string name="lockscreen_none_target">None</string>
   <!-- Text to use when the number in a notification info is too large
@@ -79,11 +79,11 @@
   <!-- Brightness QS Tile -->
   <string name="quick_settings_brightness">Brightness</string>
   <!-- Music QS Tile -->
-  <string name="quick_settings_music_label">Music</string>
-  <string name="quick_settings_music_play">Play</string>
-  <string name="quick_settings_music_pause">Pause</string>
+  <string name="quick_settings_music_label">Musiikki</string>
+  <string name="quick_settings_music_play">Toista</string>
+  <string name="quick_settings_music_pause">Tauko</string>
   <!-- Reboot/Recovery QS Tile -->
-  <string name="quick_settings_reboot_label">Reboot</string>
+  <string name="quick_settings_reboot_label">Käynnistä uudelleen</string>
   <string name="quick_settings_reboot_recovery_label">Recovery</string>
   <!-- App circle sidebar -->
   <string name="app_float_maximize_item_title">Maximize</string>
@@ -144,6 +144,8 @@
   <string name="status_bar_headset">Wired headset</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -163,11 +165,5 @@
   <string name="action_delete_fault">Deleting was unsuccessful</string>
   <string name="action_save_success">Saved</string>
   <string name="action_save_fault">Saving was unsuccessful</string>
-  <string name="pref_action_color_title">Action buttons color</string>
-  <string name="pref_action_color_summary">Choose your favorite color for the action buttons</string>
-  <string name="pref_category_main">Main Settings</string>
-  <string name="pref_category_user">User Settings</string>
-  <string name="pref_crop_behavior_title">Crop behavior</string>
-  <string name="pref_crop_behavior_summary">Use the cropped image even if the original one hasn\'t actually been cropped with the crop action</string>
-  <string name="action_ok">OK</string>
+  <string name="action_edit">Edit</string>
 </resources>

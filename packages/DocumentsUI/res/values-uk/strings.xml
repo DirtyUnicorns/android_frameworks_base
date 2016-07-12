@@ -44,9 +44,9 @@
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
   <string name="menu_select_all">Виділити все</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_copy">Copy to\u2026</string>
+  <string name="menu_copy">Копіювати до\u2026</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="nosdcard">Show internal storage</string>
+  <string name="menu_advanced_show" product="nosdcard">Показати внутрішню пам’ять</string>
   <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
   <string name="menu_advanced_show" product="default">Show SD card</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
@@ -58,15 +58,15 @@
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
   <string name="menu_file_size_hide">Hide file size</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
-  <string name="button_select">Select</string>
+  <string name="button_select">Виберіть</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
-  <string name="button_copy">Copy</string>
+  <string name="button_copy">Копіювати</string>
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
-  <string name="sort_name">By name</string>
+  <string name="sort_name">за назвою</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
   <string name="sort_date">By date modified</string>
   <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
-  <string name="sort_size">By size</string>
+  <string name="sort_size">За розміром</string>
   <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
   <string name="drawer_open">Show roots</string>
   <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
@@ -74,7 +74,7 @@
   <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
   <string name="save_error">Failed to save document</string>
   <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
-  <string name="create_error">Failed to create folder</string>
+  <string name="create_error">Не вдалося створити теку</string>
   <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
   <string name="query_error">Failed to query documents</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
@@ -86,19 +86,19 @@
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
   <string name="root_type_shortcut">Shortcuts</string>
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
-  <string name="root_type_device">Devices</string>
+  <string name="root_type_device">Пристрої</string>
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
-  <string name="root_type_apps">More apps</string>
+  <string name="root_type_apps">Більше додатків</string>
   <!-- Text shown when a directory of documents is empty [CHAR LIMIT=24] -->
-  <string name="empty">No items</string>
+  <string name="empty">Немає елементів</string>
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
-  <string name="toast_no_application">Can\'t open file</string>
+  <string name="toast_no_application">Не вдалося відкрити файл</string>
   <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
   <string name="toast_failed_delete">Unable to delete some documents</string>
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
   <string name="share_via">Share via</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
-  <string name="copy_notification_title">Copying files</string>
+  <string name="copy_notification_title">Копіювання файлів</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
   <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> left</string>
   <!-- Toast shown when a file copy is kicked off -->

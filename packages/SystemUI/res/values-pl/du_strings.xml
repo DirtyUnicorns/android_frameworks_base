@@ -145,6 +145,8 @@
   <string name="status_bar_headset">Słuchawki</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
+  <!-- Du logo switch -->
+  <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Kofeina</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -164,11 +166,5 @@
   <string name="action_delete_fault">Usuwanie nie powiodło się</string>
   <string name="action_save_success">Zapisano</string>
   <string name="action_save_fault">Zapisywanie nie powiodło się</string>
-  <string name="pref_action_color_title">Kolor przycisków akcji</string>
-  <string name="pref_action_color_summary">Wybierz swój ulubiony kolor przycisków akcji</string>
-  <string name="pref_category_main">Główne ustawienia</string>
-  <string name="pref_category_user">Ustawienia użytkownika</string>
-  <string name="pref_crop_behavior_title">Zachowanie kadrowania</string>
-  <string name="pref_crop_behavior_summary">Użyj kadrowanego obrazu, nawet jeśli oryginalny nie został przycięty akcją kadrowania</string>
-  <string name="action_ok">OK</string>
+  <string name="action_edit">Edytuj</string>
 </resources>
