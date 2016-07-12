@@ -146,7 +146,7 @@
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- Du logo switch -->
-  <string name="show_du_logo_title">DU logo</string>
+  <string name="show_du_logo_title">Логотип DU</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Запрет сна</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
