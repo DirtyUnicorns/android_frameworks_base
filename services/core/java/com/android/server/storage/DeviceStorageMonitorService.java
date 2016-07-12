@@ -170,10 +170,14 @@ public class DeviceStorageMonitorService extends SystemService {
             // use the old value of mFreeMem
         }
         // Allow freemem to be overridden by debug.freemem for testing
+            // Edit by Martin for op3 storage issue
+        /*
         String debugFreeMem = SystemProperties.get("debug.freemem");
         if (!"".equals(debugFreeMem)) {
             mFreeMem = Long.parseLong(debugFreeMem);
         }
+        */
+            // end edit by Martin
         // Read the log interval from secure settings
         long freeMemLogInterval = Settings.Global.getLong(mResolver,
                 Settings.Global.SYS_FREE_STORAGE_LOG_INTERVAL,
@@ -342,11 +346,15 @@ public class DeviceStorageMonitorService extends SystemService {
     }
 
     private static boolean isBootImageOnDisk() {
+            // Edit by Martin for op3 storage issue
+        /*
         for (String instructionSet : InstructionSets.getAllDexCodeInstructionSets()) {
             if (!VMRuntime.isBootClassPathOnDisk(instructionSet)) {
                 return false;
             }
         }
+        */
+            // End edit by Martin
         return true;
     }
 
