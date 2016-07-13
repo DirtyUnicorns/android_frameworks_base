@@ -51,7 +51,7 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_readThemesDesc">Ermöglicht der App, auszulesen, welche Designs Sie installiert und aktiviert haben.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">aktives Design ändern</string>
+  <string name="permlab_writeThemes">Design ändern</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_writeThemesDesc">Ermöglicht der App, neue Designs zu installieren und das aktive Design zu wählen</string>
   <!-- Theme installation error notification -->
@@ -82,7 +82,7 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_setKeyguardWallpaper">Erlaubt einer App, den Sperrbildschirm-Hintergrund zu ändern.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">Akku-Statistik zurücksetzen</string>
+  <string name="permlab_resetBatteryStats">Akku-Statistiken zurücksetzen</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">Erlaubt einer App, die aktuelle Akku-Statistik zurückzusetzen.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
@@ -96,7 +96,7 @@
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_changePhoneBlacklist">Telefon-Sperrliste ändern</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Erlaubt es einer App Telefonnummern zu ändern, welche für eingehende Anrufe oder Nachrichten blockiert werden.</string>
+  <string name="permdesc_changePhoneBlacklist">Erlaubt es einer Anwendung Telefonnummern zu ändern, welche für eingehende Anrufe oder Nachrichten blockiert werden.</string>
   <string name="default_string">Standard</string>
   <!-- Powermenu Torch -->
   <string name="global_action_torch">Taschenlampe</string>
