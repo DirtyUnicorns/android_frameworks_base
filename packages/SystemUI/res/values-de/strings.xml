@@ -61,7 +61,7 @@
     support charging on it.  That is, a charger that fits into the USB port and goes into
     a wall socket, not into a computer. (This happens because some devices require more
     current than the USB spec allows.  [CHAR LIMIT=NONE] -->
-  <string name="invalid_charger">USB-Aufladung wird nicht unterstützt.\nVerwende das mitgelieferte Aufladegerät.</string>
+  <string name="invalid_charger">USB-Aufladung wird nicht unterstützt.\nVerwenden Sie das mitgelieferte Ladegerät.</string>
   <!-- First line of invalid_charger, used in the notification form.  [CHAR LIMIT=NONE]-->
   <string name="invalid_charger_title">Laden per USB wird nicht unterstützt.</string>
   <!-- Second line of invalid_charger, used in the notification form.  [CHAR LIMIT=NONE]-->

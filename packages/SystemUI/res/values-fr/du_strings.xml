@@ -145,7 +145,7 @@
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- Du logo switch -->
-  <string name="show_du_logo_title">DU logo</string>
+  <string name="show_du_logo_title">Logo DU</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">Caffeine</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -167,14 +167,14 @@
   <string name="action_save_fault">Échec de l\'enregistrement</string>
   <string name="action_edit">Modifier</string>
   <!-- QS location sensors mode -->
-  <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
-  <string name="accessibility_quick_settings_location_changed_battery_saving">Location reporting changed to battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_changed_gps_only">Location reporting changed to sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_changed_high_accuracy">Location reporting changed to high accuracy mode.</string>
-  <string name="quick_settings_location_detail_title">Location mode</string>
-  <string name="quick_settings_location_battery_saving_label">Battery saving</string>
-  <string name="quick_settings_location_gps_only_label">Device only</string>
-  <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
+  <string name="accessibility_quick_settings_location_battery_saving">Économie de batterie</string>
+  <string name="accessibility_quick_settings_location_gps_only">Appareil uniquement</string>
+  <string name="accessibility_quick_settings_location_high_accuracy">Haute précision</string>
+  <string name="accessibility_quick_settings_location_changed_battery_saving">Localisation définie à \"Économie de batterie\"</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">Localisation définie à \"Appareil uniquement\"</string>
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">Localisation définie à \"Haute précision\"</string>
+  <string name="quick_settings_location_detail_title">Localisation</string>
+  <string name="quick_settings_location_battery_saving_label">Économie de batterie</string>
+  <string name="quick_settings_location_gps_only_label">Appareil uniquement</string>
+  <string name="quick_settings_location_high_accuracy_label">Haute précision</string>
 </resources>

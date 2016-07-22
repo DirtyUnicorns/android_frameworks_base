@@ -167,14 +167,14 @@
   <string name="action_save_fault">Salvataggio non riuscito</string>
   <string name="action_edit">Modifica</string>
   <!-- QS location sensors mode -->
-  <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
-  <string name="accessibility_quick_settings_location_changed_battery_saving">Location reporting changed to battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_changed_gps_only">Location reporting changed to sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_changed_high_accuracy">Location reporting changed to high accuracy mode.</string>
-  <string name="quick_settings_location_detail_title">Location mode</string>
-  <string name="quick_settings_location_battery_saving_label">Battery saving</string>
-  <string name="quick_settings_location_gps_only_label">Device only</string>
-  <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
+  <string name="accessibility_quick_settings_location_battery_saving">Geolocalizzazione: modalità risparmio batteria.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Geolocalizzazione: modalità solo sensori.</string>
+  <string name="accessibility_quick_settings_location_high_accuracy">Geolocalizzazione: modalità alta precisione.</string>
+  <string name="accessibility_quick_settings_location_changed_battery_saving">Geolocalizzazione cambiata in modalità risparmio batteria.</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">Geolocalizzazione cambiata in modalità solo sensori.</string>
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">Geolocalizzazione modificata in modalità ad alta precisione.</string>
+  <string name="quick_settings_location_detail_title">Modalità geolocalizzazione</string>
+  <string name="quick_settings_location_battery_saving_label">Risparmio batteria</string>
+  <string name="quick_settings_location_gps_only_label">Solo dispositivo</string>
+  <string name="quick_settings_location_high_accuracy_label">Alta precisione</string>
 </resources>
