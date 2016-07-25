@@ -426,7 +426,7 @@
   <!-- Title of dialog shown when data usage has exceeded limit and has been disabled. [CHAR LIMIT=48] -->
   <string name="data_usage_disabled_dialog_title">Daten pausiert</string>
   <!-- Body of dialog shown when data usage has exceeded limit and has been disabled. [CHAR LIMIT=NONE] -->
-  <string name="data_usage_disabled_dialog">Da dein festgelegtes Datenlimit erreicht wurde, hat das Gerät die Datennutzung für den Rest dieses Zeitraums pausiert.\n\nWenn du die Nutzung fortsetzt, entstehen möglicherweise Kosten bei deinem Mobilfunkanbieter.</string>
+  <string name="data_usage_disabled_dialog">Da Ihr festgelegtes Datenlimit erreicht wurde, hat das Gerät die Datennutzung für den Rest dieses Zeitraums pausiert.\n\nBei weiterer Nutzung entstehen möglicherweise Kosten bei Ihrem Mobilfunkanbieter.</string>
   <!-- Dialog button indicating that data connection should be re-enabled. [CHAR LIMIT=28] -->
   <string name="data_usage_disabled_dialog_enable">Fortsetzen</string>
   <!-- Text to display underneath the graphical signal strength meter when
@@ -576,7 +576,7 @@
   <!-- QuickSettings: Cellular detail panel, data warning format string [CHAR LIMIT=NONE] -->
   <string name="quick_settings_cellular_detail_data_warning">Warnung für <xliff:g id="DATA_LIMIT">%s</xliff:g></string>
   <!-- Recents: The empty recents string. [CHAR LIMIT=NONE] -->
-  <string name="recents_empty_message">Hier siehst du deine zuletzt geöffneten Apps.</string>
+  <string name="recents_empty_message">Hier erscheinen Ihre zuletzt geöffneten Apps</string>
   <!-- Recents: The info panel app info button string. [CHAR LIMIT=NONE] -->
   <string name="recents_app_info_button_label">App-Info</string>
   <!-- Recents: The screen pinning button. [CHAR LIMIT=NONE] -->
@@ -618,7 +618,7 @@
   <!-- Zen mode: Priority only customization button label -->
   <string name="zen_priority_customize_button">Anpassen</string>
   <!-- Zen mode: Total silence introduction message on first use (voice capable devices) -->
-  <string name="zen_silence_introduction_voice">Hierdurch werden alle Klingeltöne und Vibrationsalarme stummgeschaltet, auch für Weckrufe, Musik, Videos und Spiele. Anrufe kannst du jedoch weiterhin tätigen.</string>
+  <string name="zen_silence_introduction_voice">Hierdurch werden ALLE Töne und Vibrationsalarme stummgeschaltet, auch für Weckrufe, Musik, Videos und Spiele. Telefonieren ist weiterhin möglich.</string>
   <!-- Zen mode: Total silence introduction message on first use (non-voice capable devices) -->
   <string name="zen_silence_introduction">Hierdurch werden alle Klingeltöne und Vibrationsalarme stummgeschaltet, auch für Weckrufe, Musik, Videos und Spiele.</string>
   <!-- Text for overflow card on Keyguard when there is not enough space for all notifications on Keyguard. [CHAR LIMIT=1] -->
@@ -683,7 +683,7 @@
   <!-- Title of the notification when resuming an existing guest session [CHAR LIMIT=NONE] -->
   <string name="guest_wipe_session_title">Willkommen zurück im Gastmodus</string>
   <!-- Message of the notification when resuming an existing guest session [CHAR LIMIT=NONE] -->
-  <string name="guest_wipe_session_message">Möchtest du deine Sitzung fortsetzen?</string>
+  <string name="guest_wipe_session_message">Möchten Sie Ihre Sitzung fortsetzen?</string>
   <!-- Notification when resuming an existing guest session: Action that starts a new session [CHAR LIMIT=35] -->
   <string name="guest_wipe_session_wipe">Von vorn</string>
   <!-- Notification when resuming an existing guest session: Action that continues with the current session [CHAR LIMIT=35] -->
@@ -697,7 +697,7 @@
   <!-- Title for add user confirmation dialog [CHAR LIMIT=30] -->
   <string name="user_add_user_title" msgid="2108112641783146007">Neuen Nutzer hinzufügen?</string>
   <!-- Message for add user confirmation dialog - short version. [CHAR LIMIT=none] -->
-  <string name="user_add_user_message_short" msgid="1511354412249044381">Wenn du einen neuen Nutzer hinzufügst, muss dieser seinen Bereich einrichten.\n\nJeder Nutzer kann Apps für alle anderen Nutzer aktualisieren.</string>
+  <string name="user_add_user_message_short" msgid="1511354412249044381">Wenn Sie einen neuen Nutzer hinzufügen, muss dieser seinen Bereich einrichten.\n\nJeder Nutzer kann Apps für alle anderen Nutzer aktualisieren. </string>
   <!-- Battery saver notification title. [CHAR LIMIT=60]-->
   <string name="battery_saver_notification_title">Energiesparmodus ist aktiviert</string>
   <!-- Battery saver notification text. [CHAR LIMIT=60] -->
@@ -733,27 +733,27 @@
   <!-- Monitoring dialog disconnect vpn button [CHAR LIMIT=30] -->
   <string name="disconnect_vpn">VPN-Verbindung trennen</string>
   <!-- Monitoring dialog device owner body text [CHAR LIMIT=400] -->
-  <string name="monitoring_description_device_owned">Dein Gerät wird verwaltet von <xliff:g id="ORGANIZATION">%1$s</xliff:g>.\n\nDein Administrator kann die zu deinem Gerät gehörigen Einstellungen, Unternehmenszugriffsrechte, Apps und Daten überwachen und verwalten, einschließlich der Standortinformationen deines Geräts. Weitere Informationen erhältst du bei deinem Administrator.</string>
+  <string name="monitoring_description_device_owned">Ihr Gerät wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet.\n\nIhr Administrator kann die zum Gerät gehörenden Einstellungen, Unternehmenszugriffsrechte, Apps und Daten überwachen und verwalten, einschließlich der Standortinformationen des Geräts. Um weitere Informationen zu erhalten, wenden Sie sich an den Administrator.</string>
   <!-- Monitoring dialog VPN text [CHAR LIMIT=400] -->
-  <string name="monitoring_description_vpn">Du hast einer App gestattet, eine VPN-Verbindung einzurichten.\n\nDiese App kann dein Gerät und deine Netzwerkaktivitäten überwachen, einschließlich E-Mails, Apps und Websites.</string>
+  <string name="monitoring_description_vpn">Sie haben einer App gestattet, eine VPN-Verbindung einzurichten.\n\nDiese App kann Ihr Gerät und seine Netzwerkaktivitäten überwachen, einschließlich E-Mails, Apps und Websites.</string>
   <!-- Monitoring dialog VPN with device owner text [CHAR LIMIT=400] -->
-  <string name="monitoring_description_vpn_device_owned">Dein Gerät wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet.\n\nDein Administrator kann die zu deinem Gerät gehörigen Einstellungen, Unternehmenszugriffsrechte, Apps und Daten überwachen und verwalten, einschließlich der Standortinformationen deines Geräts.\n\nDu bist außerdem mit einem VPN verbunden, das deine persönliche Netzwerkaktivität überwachen kann, einschließlich E-Mails, Apps und Websites.\n\nWeitere Informationen erhältst du bei deinem Administrator.</string>
+  <string name="monitoring_description_vpn_device_owned">Ihr Gerät wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet.\n\nIhr Administrator kann die zum Gerät gehörenden Einstellungen, Unternehmenszugriffsrechte, Apps und Daten überwachen und verwalten, einschließlich der Standortinformationen des Geräts.\n\nSie sind außerdem mit einem VPN verbunden, das Ihre Netzwerkaktivität überwachen kann, einschließlich E-Mails, Apps und Webseiten.\n\nUm weitere Informationen zu erhalten, wenden Sie sich an den Administrator.</string>
   <!-- Monitoring dialog VPN with profile owner text [CHAR LIMIT=400] -->
-  <string name="monitoring_description_vpn_profile_owned">Dein Arbeitsprofil wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet.\n\nDein Administrator kann deine Netzwerkaktivität überwachen, einschließlich E-Mails, Apps und Websites.\n\nWeitere Informationen erhältst du bei deinem Administrator.\n\nDu bist außerdem mit einem VPN verbunden, das deine persönliche Netzwerkaktivität überwachen kann.</string>
+  <string name="monitoring_description_vpn_profile_owned">Ihr Gerät wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet.\n\nIhr Administrator kann Ihre Netzwerkaktivitäten, einschließlich Einstellungen, Unternehmenszugriffsrechte, Apps und Daten überwachen.\n\nUm weitere Informationen zu erhalten, wenden Sie sich an den Administrator.\n\nAußerdem sind Sie mit einem VPN verbunden, das Netzwerkaktivitäten überwachen kann.</string>
   <!-- Name for a generic legacy VPN connection [CHAR LIMIT=20] -->
   <string name="legacy_vpn_name">VPN</string>
   <!-- Monitoring dialog text for single app (no profile or device owner) [CHAR LIMIT=400] -->
-  <string name="monitoring_description_app">Du bist mit der App <xliff:g id="APPLICATION">%1$s</xliff:g> verbunden, die deine Netzwerkaktivität überwachen kann, einschließlich E-Mails, Apps und Websites.</string>
+  <string name="monitoring_description_app">Sie sind mit <xliff:g id="APPLICATION">%1$s</xliff:g> verbunden. Dadurch kann Ihre Netzwerkaktivität, einschließlich E-Mails, Apps und Websites, überwacht werden.</string>
   <!-- Monitoring dialog text for single app (inside personal profile) [CHAR LIMIT=400] -->
-  <string name="monitoring_description_app_personal">Du bist mit der App <xliff:g id="APPLICATION">%1$s</xliff:g> verbunden, die deine persönliche Netzwerkaktivität überwachen kann, einschließlich E-Mails, Apps und Websites.</string>
+  <string name="monitoring_description_app_personal">Sie sind mit <xliff:g id="APPLICATION">%1$s</xliff:g> verbunden. Dadurch kann Ihre persönliche Netzwerkaktivität, einschließlich E-Mails, Apps und Websites, überwacht werden.</string>
   <!-- Monitoring dialog text for single app (inside work profile) [CHAR LIMIT=400] -->
-  <string name="monitoring_description_app_work">Dein Arbeitsprofil wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet. Das Profil ist mit der App <xliff:g id="APPLICATION">%2$s</xliff:g> verbunden, die deine geschäftlichen Netzwerkaktivitäten überwachen kann, einschließlich E-Mails, Apps und Websites.\n\nWeitere Informationen erhältst du von deinem Administrator.</string>
+  <string name="monitoring_description_app_work">Ihr Arbeitsprofil wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet. Das Profil ist mit der App <xliff:g id="APPLICATION">%2$s</xliff:g> verbunden, die Ihre geschäftlichen Netzwerkaktivitäten überwachen kann, einschließlich E-Mails, Apps und Websites.\n\nWeitere Informationen erhalten Sie von Ihrem Administrator.</string>
   <!-- Monitoring dialog text for multiple apps (in personal and work profiles) [CHAR LIMIT=400] -->
-  <string name="monitoring_description_app_personal_work">Dein Arbeitsprofil wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet. Das Profil ist mit der App <xliff:g id="APPLICATION_WORK">%2$s</xliff:g> verbunden, die deine geschäftliche Netzwerkaktivität überwachen kann, einschließlich E-Mails, Apps und Websites.\n\nDu bist außerdem mit der App <xliff:g id="APPLICATION_PERSONAL">%3$s</xliff:g> verbunden, die deine persönliche Netzwerkaktivität überwachen kann.</string>
+  <string name="monitoring_description_app_personal_work">Ihr Arbeitsprofil wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet. Das Profil ist mit der App <xliff:g id="APPLICATION_WORK">%2$s</xliff:g> verbunden, die Ihre geschäftliche Netzwerkaktivität überwachen kann, einschließlich E-Mails, Apps und Websites.\n\nSie sind außerdem mit der App <xliff:g id="APPLICATION_PERSONAL">%3$s</xliff:g> verbunden, die Ihre persönliche Netzwerkaktivität überwachen kann.</string>
   <!-- Monitoring dialog text for single app (with device owner) [CHAR LIMIT=400] -->
-  <string name="monitoring_description_vpn_app_device_owned">Dein Gerät wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet.\n\nDein Administrator kann die zu deinem Gerät gehörigen Einstellungen, Unternehmenszugriffsrechte, Apps und Daten überwachen und verwalten, einschließlich der Standortinformationen deines Geräts.\n\nDu bist außerdem mit der App <xliff:g id="APPLICATION">%2$s</xliff:g> verbunden, die deine persönliche Netzwerkaktivität überwachen kann, einschließlich E-Mails, Apps und Websites.\n\nWeitere Informationen erhältst du bei deinem Administrator.</string>
+  <string name="monitoring_description_vpn_app_device_owned">Ihr Gerät wird von <xliff:g id="ORGANIZATION">%1$s</xliff:g> verwaltet.\n\nIhr Administrator kann die zum Gerät gehörenden Einstellungen, Unternehmenszugriffsrechte, Apps und Daten überwachen und verwalten, einschließlich der Standortinformationen des Geräts.\n\nSie sind außerdem mit der App <xliff:g id="APPLICATION">%2$s</xliff:g> verbunden, die Ihre persönliche Netzwerkaktivität überwachen kann, einschließlich E-Mails, Apps und Websites.\n\nWeitere Informationen erhalten Sie bei Ihrem Administrator.</string>
   <!-- Indication on the keyguard that appears when the user disables trust agents until the next time they unlock manually. [CHAR LIMIT=NONE] -->
-  <string name="keyguard_indication_trust_disabled">Das Gerät bleibt gesperrt, bis du es manuell entsperrst.</string>
+  <string name="keyguard_indication_trust_disabled">Das Gerät bleibt gesperrt, bis Sie es manuell entsperren.</string>
   <!-- Title of notification educating the user about enabling notifications on the lockscreen. [CHAR LIMIT=40] -->
   <string name="hidden_notifications_title">Benachrichtigungen schneller erhalten</string>
   <!-- Body of notification educating the user about enabling notifications on the lockscreen. [CHAR LIMIT=60] -->
@@ -777,9 +777,9 @@
   <!-- Screen pinning dialog title. -->
   <string name="screen_pinning_title">Bildschirm ist fixiert</string>
   <!-- Screen pinning dialog description. -->
-  <string name="screen_pinning_description">Der Bildschirm wird so lange angezeigt, bis du die Fixierung aufhebst. Berühre und halte \"Zurück\" und \"Übersicht\" gleichzeitig, um die Fixierung aufzuheben.</string>
+  <string name="screen_pinning_description">Der Bildschirm wird so lange angezeigt, bis die Fixierung aufgehoben wird. Berühren und halten Sie gleichzeitig \"Zurück\" und \"Übersicht\", um die Fixierung aufzuheben.</string>
   <!-- Screen pinning dialog description when in accessibility mode. -->
-  <string name="screen_pinning_description_accessible">Der Bildschirm wird so lange angezeigt, bis du die Fixierung aufhebst. Berühre und halte \"Übersicht\", wenn du die Fixierung aufheben möchtest.</string>
+  <string name="screen_pinning_description_accessible">Der Bildschirm wird so lange angezeigt, bis die Fixierung aufgehoben wird. \"Übersicht\" berühren und halten, um die Fixierung aufzuheben.</string>
   <!-- Screen pinning positive response. -->
   <string name="screen_pinning_positive">OK</string>
   <!-- Screen pinning negative response. -->
@@ -787,7 +787,7 @@
   <!-- Hide quick settings tile confirmation title -->
   <string name="quick_settings_reset_confirmation_title"><xliff:g id="TILE_LABEL">%1$s</xliff:g> ausblenden?</string>
   <!-- Hide quick settings tile confirmation message -->
-  <string name="quick_settings_reset_confirmation_message">Sie wird wieder eingeblendet, wenn du sie in den Einstellungen erneut aktivierst.</string>
+  <string name="quick_settings_reset_confirmation_message">Sie wird wieder eingeblendet, wenn Sie sie in den Einstellungen erneut aktivieren.</string>
   <!-- Hide quick settings tile confirmation button -->
   <string name="quick_settings_reset_confirmation_button">Ausblenden</string>
   <!-- VolumeUI activation dialog: warning message -->
@@ -801,7 +801,7 @@
   <!-- VolumeUI restoration notification: text -->
   <string name="volumeui_notification_text">Zum Wiederherstellen des Originals hier tippen</string>
   <!-- Toast shown when user unlocks screen and managed profile activity is in the foreground -->
-  <string name="managed_profile_foreground_toast">Du verwendest dein Arbeitsprofil.</string>
+  <string name="managed_profile_foreground_toast">Sie verwenden Ihr Arbeitsprofil.</string>
   <!-- Name of special SystemUI debug settings -->
   <string name="system_ui_tuner">System-UI-Tuner</string>
   <!-- Name of quick settings -->
@@ -822,7 +822,7 @@
   <string name="broadcast_tile">Broadcast-Kachel</string>
   <!-- For preview release. DO NOT TRANSLATE -->
   <!-- Warning text when an alarm might be silenced by Do Not Disturb [CHAR LIMIT=NONE] -->
-  <string name="zen_alarm_warning_indef">Du erhältst einen lautlosen Weckruf <xliff:g id="WHEN">%1$s</xliff:g>, wenn du ihn nicht vorher ausschaltest.</string>
+  <string name="zen_alarm_warning_indef">Sie werden den nächsten Weckruf <xliff:g id="WHEN">%1$s</xliff:g> nicht hören, wenn Sie dies nicht vorher ausschalten.</string>
   <!-- Warning text when an alarm might be silenced by Do Not Disturb due to a time-based condition [CHAR LIMIT=NONE] -->
   <string name="zen_alarm_warning">Lautloser Weckruf <xliff:g id="WHEN">%1$s</xliff:g></string>
   <!-- Alarm template for near alarms [CHAR LIMIT=25] -->
@@ -838,7 +838,7 @@
   <!-- Title of warning when entering System UI tuner for first time [CHAR LIMIT=NONE] -->
   <string name="tuner_warning_title">Für einige ein Vergnügen, aber nicht für alle</string>
   <!-- Warning for users entering the System UI tuner for the first time [CHAR LIMIT=NONE]-->
-  <string name="tuner_warning">Mit System UI Tuner erhältst du zusätzliche Möglichkeiten, die Android-Benutzeroberfläche anzupassen. Achtung: Diese Testfunktionen können sich ändern, abstürzen oder in zukünftigen Versionen verschwinden.</string>
+  <string name="tuner_warning">System UI Tuner bringt Ihnen zusätzliche Möglichkeiten, die Android-Benutzeroberfläche anzupassen. Achtung: Diese Testfunktionen können sich ändern, abstürzen oder in zukünftigen Versionen verschwinden.</string>
   <!-- Warning for users entering the System UI tuner [CHAR LIMIT=NONE]-->
   <string name="tuner_persistent_warning">Achtung: Diese Testfunktionen können sich ändern, abstürzen oder in zukünftigen Versionen verschwinden.</string>
   <!-- Generic "got it" acceptance of dialog or cling [CHAR LIMIT=NONE] -->

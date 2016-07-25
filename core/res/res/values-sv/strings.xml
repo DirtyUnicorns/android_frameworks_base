@@ -1507,7 +1507,7 @@
   <!-- Title of the WebView save password dialog.  If the user enters a password in a form on a website, a dialog will come up asking if they want to save the password. -->
   <string name="save_password_label">Bekräfta</string>
   <!-- Toast for double-tap -->
-  <string name="double_tap_toast">Tips! Dubbelknacka om du vill zooma in eller ut.</string>
+  <string name="double_tap_toast">Tips! Dubbeltryck om du vill zooma in eller ut.</string>
   <!-- Text to show in the auto complete drop down list on a text view when the WebView can auto fill the entire form, and the user has configured an AutoFill profile [CHAR-LIMIT=8] -->
   <string name="autofill_this_form">Autofyll</string>
   <!-- Text to show in the auto complete drop down list on a text view when the WebView can auto fill the entire form but the user has not configured an AutoFill profile [CHAR-LIMIT=19] -->

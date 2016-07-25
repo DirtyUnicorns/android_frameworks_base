@@ -2006,8 +2006,8 @@
   <string name="wifi_p2p_enabled_notification_message">Zum Aufrufen der Einstellungen berühren</string>
   <string name="accept">Akzeptieren</string>
   <string name="decline">Ablehnen</string>
-  <string name="wifi_p2p_invitation_sent_title">Einladung gesendet</string>
-  <string name="wifi_p2p_invitation_to_connect_title">Einladung zum Aufbau einer Verbindung</string>
+  <string name="wifi_p2p_invitation_sent_title">Anfrage gesendet</string>
+  <string name="wifi_p2p_invitation_to_connect_title">Verbindungsanfrage</string>
   <string name="wifi_p2p_from_message">Von:</string>
   <string name="wifi_p2p_to_message">An:</string>
   <string name="wifi_p2p_enter_pin_message">Geben Sie die PIN ein:</string>

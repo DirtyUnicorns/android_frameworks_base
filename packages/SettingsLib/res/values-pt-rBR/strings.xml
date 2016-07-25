@@ -72,7 +72,7 @@
   <!-- Bluetooth settings.  Message when connected to a device. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected">Conectado</string>
   <!--Bluetooth settings screen, summary text under individual Bluetooth devices when pairing -->
-  <string name="bluetooth_pairing">Pareando\u2026</string>
+  <string name="bluetooth_pairing">Pareando</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for phone audio. [CHAR LIMIT=40] -->
   <string name="bluetooth_connected_no_headset">Conectado (sem telefone)</string>
   <!-- Bluetooth settings.  Message when connected to a device, except for media audio. [CHAR LIMIT=40] -->

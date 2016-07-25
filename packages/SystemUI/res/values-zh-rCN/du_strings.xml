@@ -144,7 +144,7 @@
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- Du logo switch -->
-  <string name="show_du_logo_title">DU logo</string>
+  <string name="show_du_logo_title">DU 标志</string>
   <!-- Caffeine Tile -->
   <string name="quick_settings_caffeine_label">咖啡因</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
@@ -166,14 +166,14 @@
   <string name="action_save_fault">保存失败</string>
   <string name="action_edit">编辑</string>
   <!-- QS location sensors mode -->
-  <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
-  <string name="accessibility_quick_settings_location_changed_battery_saving">Location reporting changed to battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_changed_gps_only">Location reporting changed to sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_changed_high_accuracy">Location reporting changed to high accuracy mode.</string>
-  <string name="quick_settings_location_detail_title">Location mode</string>
-  <string name="quick_settings_location_battery_saving_label">Battery saving</string>
-  <string name="quick_settings_location_gps_only_label">Device only</string>
-  <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
+  <string name="accessibility_quick_settings_location_battery_saving">位置报告：节电模式。</string>
+  <string name="accessibility_quick_settings_location_gps_only">位置报告：仅传感器模式。</string>
+  <string name="accessibility_quick_settings_location_high_accuracy">位置报告：高准确度模式。</string>
+  <string name="accessibility_quick_settings_location_changed_battery_saving">位置报告更改为耗电量低模式。</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">位置报告更改为仅限设备模式。</string>
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">位置报告更改为准确度高模式。</string>
+  <string name="quick_settings_location_detail_title">位置信息模式</string>
+  <string name="quick_settings_location_battery_saving_label">节电</string>
+  <string name="quick_settings_location_gps_only_label">仅限设备</string>
+  <string name="quick_settings_location_high_accuracy_label">高精确度</string>
 </resources>
