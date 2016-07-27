@@ -4731,6 +4731,12 @@ public final class Settings {
         public static final String VOLUME_DIALOG_TIMEOUT = "volume_dialog_timeout";
 
         /**
+         * Navbar Button Color
+         * @hide
+         */
+        public static final String NAVBAR_BUTTON_COLOR = "navbar_button_color";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -7585,6 +7591,12 @@ public final class Settings {
          * @hide
          */
         public static final String FLING_LONGSWIPE_THRESHOLD_DOWN_LAND = "fling_longswipe_threshold_down_land";
+
+        /**
+         * Navbar buttons transparency
+         * @hide
+         */
+        public static final String NAVBAR_BUTTONS_ALPHA = "navbar_buttons_alpha";
 
         /**
          * This are the settings to be backed up.
