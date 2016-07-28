@@ -4131,7 +4131,7 @@ public final class Settings {
             RINGTONE,
             LOCK_TO_APP_ENABLED,
             NOTIFICATION_SOUND,
-            ACCELEROMETER_ROTATION,  
+            ACCELEROMETER_ROTATION,
             NOTIFICATION_LIGHT_SCREEN_ON,
             ALLOW_LIGHTS
         };
