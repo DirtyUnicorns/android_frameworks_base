@@ -18,12 +18,12 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
-    <item quantity="one">%1$d client</item>
+    <item quantity="one">%1$d cliente</item>
     <item quantity="other">%1$d clients</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
-  <string name="quick_settings_tile_flashlight_not_title">Flashlight is on</string>
-  <string name="quick_settings_tile_flashlight_not_summary">Tap to turn off</string>
+  <string name="quick_settings_tile_flashlight_not_title">Lanterna ligada</string>
+  <string name="quick_settings_tile_flashlight_not_summary">Toca para desligar</string>
   <!-- Battery Saver Dimss -->
   <string name="battery_saver_dismiss_title">Dismiss</string>
   <string name="battery_saver_notification_action_text_short">Turn off</string>
@@ -31,16 +31,16 @@
   <string name="systemui_tuner_statusbar_title">Statusbar Items</string>
   <string name="systemui_tuner_qs_title">Quick Settings</string>
   <!-- Screenshot Delete Toast -->
-  <string name="delete_screenshot_toast">Screenshot Deleted</string>
+  <string name="delete_screenshot_toast">Captura de ecrã apagada</string>
   <!-- Battery level for expanded quick settings [CHAR LIMIT=2] -->
   <!-- Weather string format in expanded statusbar header -->
   <!-- Strings for lockscreen shortcut hints -->
-  <string name="left_shortcut_hint">Swipe right for %1$s</string>
+  <string name="left_shortcut_hint">Deslizar para a direita para %1$s</string>
   <string name="right_shortcut_hint">Swipe left for %1$s</string>
   <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
   <string name="lockscreen_default_target">Default</string>
   <string name="select_application">Select application</string>
-  <string name="lockscreen_choose_action_title">Choose action</string>
+  <string name="lockscreen_choose_action_title">Escolha a acção</string>
   <string name="lockscreen_none_target">None</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in

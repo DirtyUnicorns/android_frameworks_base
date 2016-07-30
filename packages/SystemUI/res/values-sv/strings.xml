@@ -811,7 +811,7 @@
   <!-- Name of the ethernet status bar icon. -->
   <string name="status_bar_ethernet">Ethernet</string>
   <!-- Name of the alarm status bar icon. -->
-  <string name="status_bar_alarm">Larm</string>
+  <string name="status_bar_alarm">Alarm</string>
   <!-- Name of the work status bar icon. -->
   <string name="status_bar_work">Jobbprofil</string>
   <!-- Name of the airplane status bar icon. -->

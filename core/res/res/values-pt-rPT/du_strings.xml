@@ -21,9 +21,9 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Reiniciar</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Reinicar em Recovery Mode</string>
+  <string name="reboot_recovery">Recovery</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Reiniciar em Bootloader</string>
+  <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
   <string name="reboot_hot">Reinicialização rápida</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->

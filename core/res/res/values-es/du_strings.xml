@@ -19,19 +19,19 @@
   <string name="reboot_system" product="tablet">Reiniciar tablet</string>
   <string name="reboot_system" product="default">Reiniciar teléfono</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Reinicio</string>
+  <string name="reboot_reboot">Reiniciar</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
   <string name="reboot_recovery">Recovery</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Reinicio suave</string>
+  <string name="reboot_hot">Reinicio rápido</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
   <string name="reboot_bootmenu">Menú de inicio</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
   <string name="reboot_fastboot">Fastboot</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download">Modo de descarga</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">Reiniciando\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->

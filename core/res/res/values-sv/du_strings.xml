@@ -21,7 +21,7 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">Starta om</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_recovery">Återställning</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
@@ -39,7 +39,7 @@
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">Starta om</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Skärmavbild</string>
+  <string name="powermenu_screenshot">Skärmbild</string>
   <!-- Screenrecord -->
   <string name="powermenu_screenrecord">Skärminspelning</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

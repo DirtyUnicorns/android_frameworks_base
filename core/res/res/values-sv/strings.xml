@@ -1941,7 +1941,7 @@
   <!-- Title of the dialog where the user is adjusting the phone call volume when connected on bluetooth-->
   <string name="volume_bluetooth_call">Samtalsvolym för Bluetooth</string>
   <!-- Title of the dialog where the user is adjusting the audio volume for alarms -->
-  <string name="volume_alarm">Larmvolym</string>
+  <string name="volume_alarm">Alarmvolym</string>
   <!-- Title of the dialog where the user is adjusting the audio volume for notifications -->
   <string name="volume_notification">Aviseringsvolym</string>
   <!-- Title of the dialog where the user is adjusting the general audio volume -->
