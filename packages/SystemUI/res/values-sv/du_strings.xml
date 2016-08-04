@@ -28,7 +28,7 @@
   <string name="battery_saver_dismiss_title">Avvisa</string>
   <string name="battery_saver_notification_action_text_short">Stäng av</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_statusbar_title">Statusbar objekt</string>
+  <string name="systemui_tuner_statusbar_title">Statusfält objekt</string>
   <string name="systemui_tuner_qs_title">Snabbinställningar</string>
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Skärmdump raderad</string>
@@ -37,7 +37,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">Svep åt höger för %1$s</string>
   <string name="right_shortcut_hint">Svep åt vänster för %1$s</string>
-  <string name="lockscreen_message">Tryck på en ikon på vänster eller höger sida så kan du ändra låsskärms genvägar.</string>
+  <string name="lockscreen_message">Tryck på en ikon på vänster eller höger sida för att ändra låsskärmsgenvägar.</string>
   <string name="lockscreen_default_target">Standard</string>
   <string name="select_application">Välj applikation</string>
   <string name="lockscreen_choose_action_title">Välj åtgärd</string>
@@ -122,8 +122,8 @@
   <string name="message_keep_one_launcher">Bör hålla minst en hem aktivitet!</string>
   <!-- 4G LTE switch -->
   <string name="show_fourg_title">Visa 4G i stället för LTE</string>
-  <string name="show_fourg_summary">Ersätter LTE statusbar indikator med 4G</string>
-  <string name="statusbar_tuner_category_title">Dölj objekt från statusbar</string>
+  <string name="show_fourg_summary">Ersätter LTE statusfält indikator med 4G</string>
+  <string name="statusbar_tuner_category_title">Dölj objekt från statusfält</string>
   <!-- Compass QS Tile -->
   <string name="quick_settings_compass">Kompass</string>
   <string name="quick_settings_compass_off">Kompass av</string>

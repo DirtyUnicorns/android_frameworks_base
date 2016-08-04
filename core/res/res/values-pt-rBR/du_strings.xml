@@ -60,7 +60,7 @@
   <string name="theme_reset_notification_title">Reiniciar tema</string>
   <string name="theme_reset_notification_body">Tema padrão restaurado devido a múltiplas falhas em aplicativos.</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Desvanecer</string>
+  <string name="animation_fade">Esmaecer</string>
   <string name="animation_slide_right">Deslize para a direita</string>
   <string name="animation_slide_left">Deslize para a esquerda</string>
   <string name="animation_slide_right_no_fade">Deslize para a direita (Sem desvanecer)</string>

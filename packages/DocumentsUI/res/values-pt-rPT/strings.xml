@@ -16,11 +16,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Title of the documents application [CHAR LIMIT=32] -->
-  <string name="app_label">Documents</string>
+  <string name="app_label">Documentos</string>
   <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
-  <string name="title_open">Open from</string>
+  <string name="title_open">Aberto de</string>
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
-  <string name="title_save">Save to</string>
+  <string name="title_save">Guardar em</string>
   <!-- Menu item that creates a new directory/folder at the current location [CHAR LIMIT=24] -->
   <string name="menu_create_dir">Create folder</string>
   <!-- Menu item that switches view to show documents as a large-format grid of thumbnails [CHAR LIMIT=24] -->
@@ -28,13 +28,13 @@
   <!-- Menu item that switches view to show documents as a list [CHAR LIMIT=24] -->
   <string name="menu_list">List view</string>
   <!-- Menu item that switches the criteria with which documents are sorted [CHAR LIMIT=24] -->
-  <string name="menu_sort">Sort by</string>
+  <string name="menu_sort">Classificar por</string>
   <!-- Menu item that enters a mode to search for documents [CHAR LIMIT=24] -->
-  <string name="menu_search">Search</string>
+  <string name="menu_search">Pesquisa</string>
   <!-- Menu item that enters activity to change settings [CHAR LIMIT=24] -->
-  <string name="menu_settings">Settings</string>
+  <string name="menu_settings">Definições</string>
   <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_open">Open</string>
+  <string name="menu_open">Abrir</string>
   <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
   <string name="menu_save">Save</string>
   <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
@@ -44,7 +44,7 @@
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
   <string name="menu_select_all">Select all</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_copy">Copy to\u2026</string>
+  <string name="menu_copy">Copiar para \u2026</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
   <string name="menu_advanced_show" product="nosdcard">Show internal storage</string>
   <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
