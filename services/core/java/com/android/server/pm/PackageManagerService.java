@@ -153,6 +153,7 @@ import android.content.pm.VerificationParams;
 import android.content.pm.VerifierDeviceIdentity;
 import android.content.pm.VerifierInfo;
 import android.content.res.Configuration;
+import android.content.res.IThemeService;
 import android.content.res.Resources;
 import android.content.res.AssetManager;
 import android.content.res.ThemeConfig;
@@ -8135,7 +8136,8 @@ public class PackageManagerService extends IPackageManager.Stub {
 
         boolean hasCommonResources = (hasCommonResources(pkg) && !isCommonResources);
         PackageParser.Package targetPkg = mPackages.get(target);
-        String appPath = targetPkg != null ? targetPkg.baseCodePath : "";
+        String appPath = targetPkg != null ? targetPkg.baseCodePath :
+                Environment.getRootDirectory() + "/framework/framework-res.apk";
 
         if (mInstaller.aapt(pkg.baseCodePath, internalPath, resPath, sharedGid, pkgId,
                 pkg.applicationInfo.targetSdkVersion,
@@ -17645,7 +17647,10 @@ public class PackageManagerService extends IPackageManager.Stub {
     public int processThemeResources(String themePkgName) {
         mContext.enforceCallingOrSelfPermission(
                 Manifest.permission.ACCESS_THEME_MANAGER, null);
-        PackageParser.Package pkg = mPackages.get(themePkgName);
+        PackageParser.Package pkg;
+        synchronized (mPackages) {
+            pkg = mPackages.get(themePkgName);
+        }
         if (pkg == null) {
             Log.w(TAG, "Unable to get pkg for processing " + themePkgName);
             return 0;
@@ -17666,11 +17671,15 @@ public class PackageManagerService extends IPackageManager.Stub {
 
         // Generate Idmaps and res tables if pkg is a theme
         Iterator<String> iterator = pkg.mOverlayTargets.iterator();
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             String target = iterator.next();
             Exception failedException = null;
+            PackageParser.Package targetPkg;
+            synchronized (mPackages) {
+                targetPkg = mPackages.get(target);
+            }
             try {
-                compileResourcesAndIdmapIfNeeded(mPackages.get(target), pkg);
+                compileResourcesAndIdmapIfNeeded(targetPkg, pkg);
             } catch (IdmapException e) {
                 failedException = e;
             } catch (AaptException e) {
@@ -17701,10 +17710,16 @@ public class PackageManagerService extends IPackageManager.Stub {
     }
 
     private void processThemeResourcesInThemeService(String pkgName) {
-        ThemeManager tm =
-                (ThemeManager) mContext.getSystemService(Context.THEME_SERVICE);
-        if (tm != null) {
-            tm.processThemeResources(pkgName);
+        IThemeService ts = IThemeService.Stub.asInterface(ServiceManager.getService(
+                Context.THEME_SERVICE));
+        if (ts == null) {
+            Slog.e(TAG, "Theme service not available");
+            return;
+        }
+        try {
+            ts.processThemeResources(pkgName);
+        } catch (RemoteException e) {
+            /* ignore */
         }
     }
 
