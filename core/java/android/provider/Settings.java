@@ -7111,6 +7111,12 @@ public final class Settings {
         public static final String NAVIGATION_BAR_VISIBLE = "navigation_bar_visible";
 
         /**
+         * Disable hw buttons - actions, brightness, haptic feedback, overflow menu
+         * @hide
+         */
+        public static final String HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
+
+        /**
          * Three Finger Gesture from Oppo
          * @hide
          */
