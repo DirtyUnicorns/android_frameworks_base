@@ -30,6 +30,12 @@
             android:summary="@string/show_lte_fourgee_summary"
             android:defaultValue="false" />
 
+        <SwitchPreference
+            android:key="bluetooth_show_battery"
+            android:title="@string/bluetooth_battery_title"
+            android:summary="@string/bluetooth_battery_summary"
+            android:defaultValue="false" />
+
         <PreferenceCategory
             android:key="hide_statusbar_items"
             android:title="@string/statusbar_tuner_category_title">
