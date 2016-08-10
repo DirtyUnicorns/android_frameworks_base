@@ -48,15 +48,15 @@
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
   <string name="menu_advanced_show" product="nosdcard">Показати внутрішню пам’ять</string>
   <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="default">Show SD card</string>
+  <string name="menu_advanced_show" product="default">Показати карту пам\'яті SD</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="nosdcard">Hide internal storage</string>
+  <string name="menu_advanced_hide" product="nosdcard">Приховати вбудовану пам\'ять</string>
   <!-- Menu item that hides SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_hide" product="default">Hide SD card</string>
+  <string name="menu_advanced_hide" product="default">Приховати карту пам\'яті SD</string>
   <!-- Menu item that reveals the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_show">Show file size</string>
+  <string name="menu_file_size_show">Показати розмір файлу</string>
   <!-- Menu item that hides the sizes of displayed files [CHAR LIMIT=24] -->
-  <string name="menu_file_size_hide">Hide file size</string>
+  <string name="menu_file_size_hide">Приховати розмір файлу</string>
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
   <string name="button_select">Виберіть</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
@@ -64,27 +64,27 @@
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
   <string name="sort_name">за назвою</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
-  <string name="sort_date">By date modified</string>
+  <string name="sort_date">За датою внесення змін</string>
   <!-- Mode that sorts documents by their file size in descending order; largest first [CHAR LIMIT=24] -->
   <string name="sort_size">За розміром</string>
   <!-- Accessibility title to open the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_open">Show roots</string>
+  <string name="drawer_open">Показати кореневі</string>
   <!-- Accessibility title to close the drawer showing all roots where documents can be stored [CHAR LIMIT=32] -->
-  <string name="drawer_close">Hide roots</string>
+  <string name="drawer_close">Приховати кореневі</string>
   <!-- Toast shown when saving a document failed with an error [CHAR LIMIT=48] -->
-  <string name="save_error">Failed to save document</string>
+  <string name="save_error">Не вдалося зберегти документ</string>
   <!-- Toast shown when creating a folder failed with an error [CHAR LIMIT=48] -->
   <string name="create_error">Не вдалося створити теку</string>
   <!-- Error message shown when querying for a list of documents failed [CHAR LIMIT=48] -->
-  <string name="query_error">Failed to query documents</string>
+  <string name="query_error">Не вдалося виконати запит до документів</string>
   <!-- Title of storage root location that contains recently modified or used documents [CHAR LIMIT=24] -->
-  <string name="root_recent">Recent</string>
+  <string name="root_recent">Недавні</string>
   <!-- Subtitle of storage root indicating the total free space available, in bytes [CHAR LIMIT=24] -->
-  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s</xliff:g> free</string>
+  <string name="root_available_bytes"><xliff:g id="size" example="3GB">%1$s </xliff:g> вільно</string>
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
-  <string name="root_type_service">Storage services</string>
+  <string name="root_type_service">Сервіси сховища</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
-  <string name="root_type_shortcut">Shortcuts</string>
+  <string name="root_type_shortcut">Ярлики</string>
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
   <string name="root_type_device">Пристрої</string>
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->
@@ -94,31 +94,31 @@
   <!-- Toast shown when no app can be found to open the selected document [CHAR LIMIT=48] -->
   <string name="toast_no_application">Не вдалося відкрити файл</string>
   <!-- Toast shown when some of the selected documents failed to be deleted [CHAR LIMIT=48] -->
-  <string name="toast_failed_delete">Unable to delete some documents</string>
+  <string name="toast_failed_delete">Неможливо видалити деякі документи</string>
   <!-- Title of dialog when prompting user to select an app to share documents with [CHAR LIMIT=32] -->
-  <string name="share_via">Share via</string>
+  <string name="share_via">Поділитися з допомогою</string>
   <!-- Title of the copy notification [CHAR LIMIT=24] -->
   <string name="copy_notification_title">Копіювання файлів</string>
   <!-- Text shown on the copy notification to indicate remaining time, in minutes [CHAR LIMIT=24] -->
-  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> left</string>
+  <string name="copy_remaining"><xliff:g id="duration" example="3 minutes">%s</xliff:g> ліворуч</string>
   <!-- Toast shown when a file copy is kicked off -->
   <plurals name="copy_begin">
-    <item quantity="one">Copying <xliff:g id="count" example="1">%1$d</xliff:g> file.</item>
-    <item quantity="few">Copying <xliff:g id="count" example="3">%1$d</xliff:g> files.</item>
-    <item quantity="other">Copying <xliff:g id="count" example="3">%1$d</xliff:g> files.</item>
+    <item quantity="one">Копіювання <xliff:g id="count" example="1">%1$d </xliff:g> файлу.</item>
+    <item quantity="few">Копіювання <xliff:g id="count" example="1">%1$d </xliff:g> файлів.</item>
+    <item quantity="other">Копіювання <xliff:g id="count" example="1">%1$d </xliff:g> файлів.</item>
   </plurals>
   <!-- Text shown on the copy notification while DocumentsUI performs setup in preparation for copying files [CHAR LIMIT=32] -->
-  <string name="copy_preparing">Preparing for copy\u2026</string>
+  <string name="copy_preparing">Підготовка до копіювання\u2026</string>
   <!-- Title of the copy error notification [CHAR LIMIT=48] -->
   <plurals name="copy_error_notification_title">
-    <item quantity="one">Couldn\'t copy <xliff:g id="count" example="1">%1$d</xliff:g> file</item>
-    <item quantity="few">Couldn\'t copy <xliff:g id="count" example="2">%1$d</xliff:g> files</item>
-    <item quantity="other">Couldn\'t copy <xliff:g id="count" example="2">%1$d</xliff:g> files</item>
+    <item quantity="one">Не вдалося скопіювати <xliff:g id="count" example="1">%1$d </xliff:g> файл</item>
+    <item quantity="few">Не вдалося скопіювати <xliff:g id="count" example="1">%1$d </xliff:g> файли</item>
+    <item quantity="other">Не вдалося скопіювати <xliff:g id="count" example="2">%1$d </xliff:g> файли</item>
   </plurals>
   <!-- Second line for notifications saying that more information will be shown after touching [CHAR LIMIT=48] -->
-  <string name="notification_touch_for_details">Touch to view details</string>
+  <string name="notification_touch_for_details">Натисніть, щоб переглянути детальну інформацію</string>
   <!-- Label of a dialog button for retrying a failed operation [CHAR LIMIT=24] -->
-  <string name="retry">Retry</string>
+  <string name="retry">Спробувати знову</string>
   <!-- Contents of the copying failure alert dialog. [CHAR LIMIT=48] -->
-  <string name="copy_failure_alert_content">These files weren\'t copied: <xliff:g id="list">%1$s</xliff:g></string>
+  <string name="copy_failure_alert_content">Ці файли не були скопійовані: <xliff:g id="list">%1$s </xliff:g></string>
 </resources>

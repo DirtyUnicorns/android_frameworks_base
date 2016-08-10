@@ -19,8 +19,8 @@
   <!-- Wi-Fi hotspot label when enabled -->
   <plurals name="wifi_hotspot_connected_clients_label">
     <item quantity="one">%1$d клієнт</item>
-    <item quantity="few">%1$d clients</item>
-    <item quantity="other">%1$d клієнти</item>
+    <item quantity="few">%1$d клієнтів</item>
+    <item quantity="other">%1$d клієнтів</item>
   </plurals>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Ліхтарик увімкнено</string>
@@ -88,7 +88,7 @@
   <string name="quick_settings_reboot_recovery_label">Відновлення</string>
   <!-- App circle sidebar -->
   <string name="app_float_maximize_item_title">Розгорнути</string>
-  <string name="app_float_item_title">Float view</string>
+  <string name="app_float_item_title">Плаваючий вигляд</string>
   <string name="app_stop_item_title">Вбити програму</string>
   <!-- Screenrecord QS Tile -->
   <string name="screenrecord_notif_ticker">Екран записується</string>
@@ -109,73 +109,73 @@
   <string name="quick_settings_network_adb_disabled_label">Вимкнено</string>
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Теми</string>
-  <string name="quick_settings_themes_icon_packs">Apply icon pack</string>
-  <string name="quick_settings_themes_app_theme_with_label">Apply theme to <xliff:g id="application">%1$s</xliff:g></string>
+  <string name="quick_settings_themes_icon_packs">Застосувати набір значків</string>
+  <string name="quick_settings_themes_app_theme_with_label">Застосувати тему до <xliff:g id="application">%1$s </xliff:g></string>
   <string name="quick_settings_themes_app_theme">Застосувати тему до додатка</string>
   <string name="quick_settings_themes_system_theme">Застосувати тему</string>
   <string name="quick_settings_themes_default_theme">За заумовчанням</string>
-  <string name="quick_settings_themes_match_system">Match system theme</string>
+  <string name="quick_settings_themes_match_system">Застосувати системну тему</string>
   <!-- Task Manager -->
   <string name="task_manager_title">Диспетчер завдань</string>
-  <string name="message_switch_fail">Cannot switch to this task, because it has no interface.</string>
+  <string name="message_switch_fail">Неможливо переключитися на цю задачу, так як у неї немає інтерфейсу.</string>
   <string name="tasklist_killall">Закрити всі</string>
   <string name="tasklist_memory_usage">"Вільний/Загальний об'єм пам'яті: <xliff:g id="number">%s</xliff:g> / <xliff:g id="name">%s</xliff:g>"</string>
-  <string name="message_keep_one_launcher">Should keep at least one home activity!</string>
+  <string name="message_keep_one_launcher">Повинен бути як мінімум один домашній екран!</string>
   <!-- 4G LTE switch -->
-  <string name="show_fourg_title">Show 4G instead of LTE</string>
-  <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G</string>
-  <string name="statusbar_tuner_category_title">Hide items from statusbar</string>
+  <string name="show_fourg_title">Показати 4G, замість LTE</string>
+  <string name="show_fourg_summary">Замінити LTE в рядку стану на 4G</string>
+  <string name="statusbar_tuner_category_title">Приховати елементи з рядка стану</string>
   <!-- Compass QS Tile -->
-  <string name="quick_settings_compass">Compass</string>
+  <string name="quick_settings_compass">Компас</string>
   <string name="quick_settings_compass_off">Компас вимк</string>
   <string name="quick_settings_compass_init">Ініціалізація\u2026</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_navigation_bar">Рядок навігації</string>
   <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_smartbar_off">SmartBar off</string>
+  <string name="quick_settings_smartbar_off">SmartBar вимк</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_fling_off">Fling off</string>
+  <string name="quick_settings_fling_off">Скидання вимкнуто</string>
   <!-- IME selector Tile -->
   <string name="quick_settings_ime_label">IME</string>
   <!-- Hotspot airplane mode -->
-  <string name="toast_airplane_mode_hotspot">Disable airplane mode before enabling</string>
+  <string name="toast_airplane_mode_hotspot">Вимкнути режим польоту перед увімкненням</string>
   <!-- Statusbar Vibrate silent switch -->
   <string name="status_bar_vibsil">Vibrate &amp; silent</string>
   <!-- headset icon switch -->
-  <string name="status_bar_headset">Wired headset</string>
+  <string name="status_bar_headset">Дротова гарнітура</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- Du logo switch -->
-  <string name="show_du_logo_title">DU logo</string>
+  <string name="show_du_logo_title">DU логотип</string>
   <!-- Caffeine Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="quick_settings_caffeine_label">Кофеїн</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
+  <string name="accessibility_quick_settings_caffeine_off">Кофеїн вимкнено.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Кофеїн увімкнено.</string>
   <!-- Volume Panel Tile -->
-  <string name="quick_settings_volume_panel_label">Volume panel</string>
+  <string name="quick_settings_volume_panel_label">Панель гучності</string>
   <!-- Heads up toast -->
-  <string name="heads_up_enabled">Heads up notifications are enabled</string>
-  <string name="heads_up_disabled">Heads up notifications are disabled</string>
+  <string name="heads_up_enabled">Спливаючі сповіщення увімкнені</string>
+  <string name="heads_up_disabled">Спливаючі сповіщення вимкнено</string>
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
   <!-- Screenshot Crop & Share -->
-  <string name="action_delete_success">Deleted</string>
-  <string name="action_delete_fault">Deleting was unsuccessful</string>
+  <string name="action_delete_success">Видалено</string>
+  <string name="action_delete_fault">Не вдалося видалити</string>
   <string name="action_save_success">Збережено</string>
-  <string name="action_save_fault">Saving was unsuccessful</string>
+  <string name="action_save_fault">Не вдалося зберегти</string>
   <string name="action_edit">Змінити</string>
   <!-- QS location sensors mode -->
-  <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
-  <string name="accessibility_quick_settings_location_changed_battery_saving">Location reporting changed to battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_changed_gps_only">Location reporting changed to sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_changed_high_accuracy">Location reporting changed to high accuracy mode.</string>
-  <string name="quick_settings_location_detail_title">Location mode</string>
-  <string name="quick_settings_location_battery_saving_label">Battery saving</string>
-  <string name="quick_settings_location_gps_only_label">Device only</string>
-  <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
+  <string name="accessibility_quick_settings_location_battery_saving">Служби геолокації: режим економії батареї.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Служби геолокації: тільки датчики пристрою.</string>
+  <string name="accessibility_quick_settings_location_high_accuracy">Служби геолокації: висока точність.</string>
+  <string name="accessibility_quick_settings_location_changed_battery_saving">Служби геолокації: змінено на режим економії батареї.</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">Служби геолокації: змінено на тільки датчики пристрою.</string>
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">Служби геолокації: змінено на висока точність.</string>
+  <string name="quick_settings_location_detail_title">Режим локації</string>
+  <string name="quick_settings_location_battery_saving_label">Економія заряду акумулятора</string>
+  <string name="quick_settings_location_gps_only_label">Лише датчики пристрою</string>
+  <string name="quick_settings_location_high_accuracy_label">Висока точність</string>
 </resources>

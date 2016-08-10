@@ -217,9 +217,9 @@
   <!-- WFC Operator Error Messages showed as alerts -->
   <!-- WFC Operator Error Messages showed as notifications -->
   <!-- Template for showing cellular network operator name while WFC is active -->
-  <string name="wfcSpnFormat">%s</string>
+  <string name="wfcSpnFormat"> %s</string>
   <!-- Template for showing operator name for data connection while WFC is active -->
-  <string name="wfcDataSpnFormat">%s</string>
+  <string name="wfcDataSpnFormat"> %s</string>
   <!-- WFC, summary for Disabled -->
   <string name="wifi_calling_off_summary">Desativado</string>
   <!-- WFC, summary for Wi-Fi Preferred -->
@@ -253,7 +253,7 @@
   <string name="fcError">Problema de ligação ou código de funcionalidade inválido.</string>
   <!-- android.net.http Error strings -->
   <!-- Displayed when a web request was successful. -->
-  <string name="httpErrorOk">OK</string>
+  <string name="httpErrorOk">Ok</string>
   <!-- Displayed when a web request failed with a generic network error. -->
   <string name="httpError">Ocorreu um erro de rede.</string>
   <!-- Displayed when a web request failed because the URL could not be found. -->
@@ -1475,7 +1475,7 @@
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by word. Only spoken to the user. [CHAR LIMIT=NONE] -->
   <string name="granularity_label_word">palavra</string>
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by link. Only spoken to the user. [CHAR LIMIT=NONE] -->
-  <string name="granularity_label_link">link</string>
+  <string name="granularity_label_link">ligação</string>
   <!-- Label for granularity to traverse the content on an AccessibilityNodeInfo by line. Only spoken to the user. [CHAR LIMIT=NONE] -->
   <string name="granularity_label_line">linha</string>
   <!-- A format string for 12-hour time of day, just the hour, not the minute, with lower-case "am" or "pm" (example: "3pm"). -->
@@ -1517,13 +1517,13 @@
   <string name="autofill_address_name_separator"> </string>
   <!-- Format string for displaying a name. $1 is First Name, $2 is autofill_address_name_separator, $3 is Last Name.
          e.g. (John)( )(Smith) -->
-  <string name="autofill_address_summary_name_format">$1$2$3</string>
+  <string name="autofill_address_summary_name_format">$1$ 2$ 3</string>
   <!-- String used to separate Name and Address Line 1
          e.g. John Smith<separator>123 Main Street [CHAR-LIMIT=NONE]-->
   <string name="autofill_address_summary_separator">, </string>
   <!-- Format string for displaying a name and address summary. $1 is the Full Name, $2 is autofill_address_summary_separator, $3 is the Address
          e.g. (John Smith)(, )(123 Main Street) -->
-  <string name="autofill_address_summary_format">$1$2$3</string>
+  <string name="autofill_address_summary_format">$1$ 2$ 3</string>
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
   <!-- Do not translate. Regex used by AutoFill. -->
@@ -1640,7 +1640,7 @@
   <!-- Menu item displayed at the end of a menu to allow users to see another page worth of menu items. This is shown on any app's menu as long as the app has too many items in the menu.-->
   <string name="more_item_label">Mais</string>
   <!-- Prepended to the shortcut for a menu item to indicate that the user should hold the MENU button together with the shortcut to invoke the item. For example, if the shortcut to open a new tab in browser is MENU and B together, then this would be prepended to the letter "B" -->
-  <string name="prepend_shortcut_label">Menu+</string>
+  <string name="prepend_shortcut_label">Menu +</string>
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+space for the shortcut. -->
   <string name="menu_space_shortcut_label">espaço</string>
   <!-- Displayed in place of the regular shortcut letter when a menu item has Menu+enter for the shortcut. -->
@@ -1740,7 +1740,7 @@
   <!-- Text for error alert when a video cannot be played. it can be used by any app. -->
   <string name="VideoView_error_text_unknown">Não é possível reproduzir este vídeo.</string>
   <!-- Button to close error alert when a video cannot be played -->
-  <string name="VideoView_error_button">OK</string>
+  <string name="VideoView_error_button">Ok</string>
   <!-- Format indicating a relative expression and time.
          Example: "4 hours ago, 11:00 am" -->
   <string name="relative_time">"<xliff:g id="DATE">%1$s</xliff:g>, <xliff:g id="TIME">%2$s</xliff:g>"</string>
@@ -1795,11 +1795,11 @@
          a bad bad notification for itself. -->
   <string name="app_running_notification_text">Toque para obter mais informações ou para parar a aplicação.</string>
   <!-- Preference framework strings. -->
-  <string name="ok">OK</string>
+  <string name="ok">Ok</string>
   <!-- Preference framework strings. -->
   <string name="cancel">Cancelar</string>
   <!-- Preference framework strings. -->
-  <string name="yes">OK</string>
+  <string name="yes">Ok</string>
   <!-- Preference framework strings. -->
   <string name="no">Cancelar</string>
   <!-- This is the generic "attention" string to be used in attention dialogs.  Typically
@@ -1866,7 +1866,7 @@
   <!-- Text of the alert that is displayed when an application is not responding. -->
   <string name="anr_process">O processo <xliff:g id="PROCESS">%1$s</xliff:g> não está a responder. \n\n Pretende fechá-lo?</string>
   <!-- Button allowing the user to close an application that is not responding. This will kill the application. -->
-  <string name="force_close">OK</string>
+  <string name="force_close">Ok</string>
   <!-- Button allowing the user to send a bug report for application which has encountered an error. -->
   <string name="report">Relatório</string>
   <!-- Button allowing the user to choose to wait for an application that is not responding to become responsive again. -->
@@ -1982,7 +1982,7 @@
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's title. -->
   <string name="network_available_sign_in">Início de sessão na rede</string>
   <!-- A notification is shown when a captive portal network is detected.  This is the notification's message. -->
-  <string name="network_available_sign_in_detailed"><xliff:g id="network_ssid">%1$s</xliff:g></string>
+  <string name="network_available_sign_in_detailed"><xliff:g id="network_ssid">%1$s </xliff:g></string>
   <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's title. -->
   <string name="wifi_no_internet">O Wi-Fi não tem acesso à Internet</string>
   <!-- A notification is shown when the user connects to a Wi-Fi network and the system detects that that network has no Internet access. This is the notification's message. -->
@@ -2118,7 +2118,7 @@
   <!-- USB_STORAGE_ERROR dialog  dialog-->
   <string name="dlg_error_title">Operação USB sem êxito</string>
   <!-- USB_STORAGE_ERROR dialog  ok button-->
-  <string name="dlg_ok">OK</string>
+  <string name="dlg_ok">Ok</string>
   <!-- USB_PREFERENCES: Notification for when the user connected to the charger only.  This is the title -->
   <string name="usb_charging_notification_title">USB para carregamento</string>
   <!-- USB_PREFERENCES: Notification for when the user connects the phone to a computer via USB in MTP mode.  This is the title -->
@@ -2331,9 +2331,9 @@
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">Ligação ponto a ponto ou hotspot activos</string>
   <string name="tethered_notification_message">Toque para configurar.</string>
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">Nenhum dispositivo conectado</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> dispositivo conectado</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> dispositivos conectados</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Anterior</string>
   <string name="next_button_label">Seguinte</string>
@@ -2444,7 +2444,7 @@
   <!-- Description of the Cancel button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_cancel">Cancelar</string>
   <!-- Description of the Delete button in a KeyboardView. [CHAR LIMIT=NONE] -->
-  <string name="keyboardview_keycode_delete">Delete</string>
+  <string name="keyboardview_keycode_delete">Eliminar</string>
   <!-- Description of the Done button in a KeyboardView. [CHAR LIMIT=NONE] -->
   <string name="keyboardview_keycode_done">Concluído</string>
   <!-- Description of the Mode change button in a KeyboardView. [CHAR LIMIT=NONE] -->
@@ -2617,9 +2617,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">Desligar</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">Examinando\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">A ligar\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">Disponível</string>
   <!-- Status message for remote routes that are not available for connection right now -->
@@ -2811,35 +2811,35 @@
   <!-- ISO (European standard) C10 media (paper) size: 1.10" x 1.57" -->
   <string name="mediasize_iso_c10">ISO C10</string>
   <!-- North America Letter media (paper) size: 8.5" × 11" (279mm x 216mm) -->
-  <string name="mediasize_na_letter">Letter</string>
+  <string name="mediasize_na_letter">Carta</string>
   <!-- North America Government Letter media (paper) size: 8.0" × 10.5" (203mm x 267mm) -->
-  <string name="mediasize_na_gvrnmt_letter">Government Letter</string>
+  <string name="mediasize_na_gvrnmt_letter">Carta do governo</string>
   <!-- North America Legal media (paper) size: 8.5" × 14" (216mm x 356mm) -->
   <string name="mediasize_na_legal">Legal</string>
   <!-- North America Junior Legal media (paper) size: 8.0" × 5.0" (203mm × 127mm) -->
-  <string name="mediasize_na_junior_legal">Junior Legal</string>
+  <string name="mediasize_na_junior_legal">Legal Júnior</string>
   <!-- North America Ledger media (paper) size: 17" × 11" (432mm × 279mm) -->
-  <string name="mediasize_na_ledger">Ledger</string>
+  <string name="mediasize_na_ledger">Livro Razão</string>
   <!-- North America Tabloid media (paper) size: 11" × 17" (279mm × 432mm) -->
   <string name="mediasize_na_tabloid">Tabloid</string>
   <!-- North America Index Card 3x5 media (paper) size: 3" x 5" (76mm x 127mm) -->
-  <string name="mediasize_na_index_3x5">Index Card 3x5</string>
+  <string name="mediasize_na_index_3x5">Cartão de índice 3 x 5</string>
   <!-- North America Index Card 4x6 media (paper) size: 4" x 6" (102mm x 152mm) -->
-  <string name="mediasize_na_index_4x6">Index Card 4x6</string>
+  <string name="mediasize_na_index_4x6">Cartão de índice 4 x 6</string>
   <!-- North America Index Card 5x8 media (paper) size: 5" x 8" (127mm x 203mm) -->
-  <string name="mediasize_na_index_5x8">Index Card 5x8</string>
+  <string name="mediasize_na_index_5x8">Cartão de índice 5 x 8</string>
   <!-- North America Monarch media (paper) size: 7.25" x 10.5" (184mm x 267mm) -->
-  <string name="mediasize_na_monarch">Monarch</string>
+  <string name="mediasize_na_monarch">Monarca</string>
   <!-- North America Quarto media (paper) size: 8" x 10" (203mm x 254mm) -->
   <string name="mediasize_na_quarto">Quarto</string>
   <!-- North America Foolscap media (paper) size: 8" x 13" (203mm x 330mm) -->
-  <string name="mediasize_na_foolscap">Foolscap</string>
+  <string name="mediasize_na_foolscap">Almaço</string>
   <!-- Chinese Roc 8k media (paper) size: 270mm x 390mm (10.629" x 15.3543") -->
   <string name="mediasize_chinese_roc_8k">ROC 8K</string>
   <!-- Chinese Roc 16k media (paper) size: 195mm x 270mm (7.677" x 10.629") -->
   <string name="mediasize_chinese_roc_16k">ROC 16K</string>
   <!-- Chinese PRC 1 media (paper) size: 102mm x 165mm (4.015" x 6.496") -->
-  <string name="mediasize_chinese_prc_1">PRC 1</string>
+  <string name="mediasize_chinese_prc_1">REPÚBLICA POPULAR DA CHINA 1</string>
   <!-- Chinese PRC 2 media (paper) size: 102mm x 176mm (4.015" x 6.929") -->
   <string name="mediasize_chinese_prc_2">PRC 2</string>
   <!-- Chinese PRC 3 media (paper) size: 125mm x 176mm (4.921" x 6.929") -->

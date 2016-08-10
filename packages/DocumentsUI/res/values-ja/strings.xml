@@ -16,7 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Title of the documents application [CHAR LIMIT=32] -->
-  <string name="app_label">Documents</string>
+  <string name="app_label">ドキュメント</string>
   <!-- Action bar title prompting user to choose a location to open a document from [CHAR LIMIT=32] -->
   <string name="title_open">Open from</string>
   <!-- Action bar title prompting user to choose a location to save a document to [CHAR LIMIT=32] -->
@@ -36,19 +36,19 @@
   <!-- Menu item title that opens the selected documents [CHAR LIMIT=24] -->
   <string name="menu_open">Open</string>
   <!-- Menu item title that saves the current document [CHAR LIMIT=24] -->
-  <string name="menu_save">Save</string>
+  <string name="menu_save">保存</string>
   <!-- Menu item title that shares the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_share">Share</string>
+  <string name="menu_share">共有</string>
   <!-- Menu item title that deletes the selected documents [CHAR LIMIT=24] -->
-  <string name="menu_delete">Delete</string>
+  <string name="menu_delete">削除</string>
   <!-- Menu item title that selects all documents in the current directory [CHAR LIMIT=24] -->
-  <string name="menu_select_all">Select all</string>
+  <string name="menu_select_all">すべて選択</string>
   <!-- Menu item title that copies the selected documents [CHAR LIMIT=24] -->
   <string name="menu_copy">Copy to\u2026</string>
   <!-- Menu item that reveals internal storage built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="nosdcard">Show internal storage</string>
+  <string name="menu_advanced_show" product="nosdcard">内部ストレージを表示</string>
   <!-- Menu item that reveals SD cards built into the device [CHAR LIMIT=24] -->
-  <string name="menu_advanced_show" product="default">Show SD card</string>
+  <string name="menu_advanced_show" product="default">SDカードを表示</string>
   <!-- Menu item that hides internal storage built into the device [CHAR LIMIT=24] -->
   <string name="menu_advanced_hide" product="nosdcard">Hide internal storage</string>
   <!-- Menu item that hides SD cards built into the device [CHAR LIMIT=24] -->
@@ -60,7 +60,7 @@
   <!-- Button label that select the current directory [CHAR LIMIT=24] -->
   <string name="button_select">Select</string>
   <!-- Button label that copies files to the current directory [CHAR LIMIT=24] -->
-  <string name="button_copy">Copy</string>
+  <string name="button_copy">コピー</string>
   <!-- Mode that sorts documents by their display name alphabetically [CHAR LIMIT=24] -->
   <string name="sort_name">By name</string>
   <!-- Mode that sorts documents by their last modified time in descending order; most recent first [CHAR LIMIT=24] -->
@@ -84,7 +84,7 @@
   <!-- Header title for list of storage roots that contains cloud services [CHAR LIMIT=24] -->
   <string name="root_type_service">Storage services</string>
   <!-- Header title for list of storage roots that contains shortcuts to documents that may be available elsewhere [CHAR LIMIT=24] -->
-  <string name="root_type_shortcut">Shortcuts</string>
+  <string name="root_type_shortcut">ショートカット</string>
   <!-- Header title for list of storage roots that contains physical devices [CHAR LIMIT=24] -->
   <string name="root_type_device">Devices</string>
   <!-- Header title for list of additional apps that can provide documents [CHAR LIMIT=24] -->

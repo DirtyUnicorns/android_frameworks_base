@@ -114,10 +114,10 @@
     <item quantity="other">入力できるのはあと<xliff:g id="NUMBER_1">%d</xliff:g>回です。この回数を超えるとSIMがロックされます。</item>
   </plurals>
   <!-- Title for the dialog used to display the user's IMEI number [CHAR LIMIT=10] -->
-  <string name="imei">IMEI</string>
+  <string name="imei">IMEI（端末識別番号）</string>
   <!-- Title for the dialog used to display the user's MEID number on CDMA network
          [CHAR LIMIT=10] -->
-  <string name="meid">MEID</string>
+  <string name="meid">MEID （端末識別番号）</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
   <string name="ClipMmi">着信時の発信者番号</string>
   <!-- Displayed as the title for a success/failure report enabling/disabling caller ID. -->
@@ -2609,9 +2609,9 @@
   <!-- Button to disconnect from a media route.  [CHAR LIMIT=30] -->
   <string name="media_route_controller_disconnect">接続を解除</string>
   <!-- Status message for remote routes attempting to scan/determine availability -->
-  <string name="media_route_status_scanning">Scanning\u2026</string>
+  <string name="media_route_status_scanning">スキャンしています\u2026</string>
   <!-- Status message for a remote route attempting to connect -->
-  <string name="media_route_status_connecting">Connecting\u2026</string>
+  <string name="media_route_status_connecting">接続しています...\u2026</string>
   <!-- Status message for a remote route that is confirmed to be available for connection -->
   <string name="media_route_status_available">利用できます</string>
   <!-- Status message for remote routes that are not available for connection right now -->

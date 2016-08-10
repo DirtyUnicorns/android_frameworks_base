@@ -124,12 +124,12 @@
   <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G</string>
   <string name="statusbar_tuner_category_title">Hide items from statusbar</string>
   <!-- Compass QS Tile -->
-  <string name="quick_settings_compass">Compass</string>
+  <string name="quick_settings_compass">コンパス</string>
   <string name="quick_settings_compass_off">Compass off</string>
   <string name="quick_settings_compass_init">Initializing\u2026</string>
   <!-- Navigation bar Tile -->
   <string name="quick_settings_navigation_bar">Navigation bar</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
+  <string name="quick_settings_smartbar">スマートバー</string>
   <string name="quick_settings_smartbar_off">SmartBar off</string>
   <string name="quick_settings_fling">Fling</string>
   <string name="quick_settings_fling_off">Fling off</string>
@@ -140,19 +140,19 @@
   <!-- Statusbar Vibrate silent switch -->
   <string name="status_bar_vibsil">Vibrate &amp; silent</string>
   <!-- headset icon switch -->
-  <string name="status_bar_headset">Wired headset</string>
+  <string name="status_bar_headset">有線ヘッドセット</string>
   <!-- vpn icon switch -->
   <string name="status_bar_vpn">VPN</string>
   <!-- Du logo switch -->
   <string name="show_du_logo_title">DU logo</string>
   <!-- Caffeine Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="quick_settings_caffeine_label">カフェイン</string>
   <!-- Content description of the caffeine tile in quick settings when off (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_caffeine_off">Caffeine off.</string>
   <!-- Content description of the caffeine tile in quick settings when on (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_quick_settings_caffeine_on">Caffeine on.</string>
   <!-- Volume Panel Tile -->
-  <string name="quick_settings_volume_panel_label">Volume panel</string>
+  <string name="quick_settings_volume_panel_label">音量パネル</string>
   <!-- Heads up toast -->
   <string name="heads_up_enabled">Heads up notifications are enabled</string>
   <string name="heads_up_disabled">Heads up notifications are disabled</string>
@@ -172,8 +172,8 @@
   <string name="accessibility_quick_settings_location_changed_battery_saving">Location reporting changed to battery saving mode.</string>
   <string name="accessibility_quick_settings_location_changed_gps_only">Location reporting changed to sensors only mode.</string>
   <string name="accessibility_quick_settings_location_changed_high_accuracy">Location reporting changed to high accuracy mode.</string>
-  <string name="quick_settings_location_detail_title">Location mode</string>
-  <string name="quick_settings_location_battery_saving_label">Battery saving</string>
-  <string name="quick_settings_location_gps_only_label">Device only</string>
-  <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
+  <string name="quick_settings_location_detail_title">位置情報モード</string>
+  <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
+  <string name="quick_settings_location_gps_only_label">端末のみ</string>
+  <string name="quick_settings_location_high_accuracy_label">高精度</string>
 </resources>

@@ -21,9 +21,9 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">再起動</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">リカバリ</string>
+  <string name="reboot_recovery">リカバリモード</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">ブートローダ</string>
+  <string name="reboot_bootloader">ブートローダー</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
   <string name="reboot_hot">ホットリブート</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
@@ -35,7 +35,7 @@
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
   <string name="reboot_progress">再起動中\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm">Your phone will reboot.</string>
+  <string name="reboot_confirm">端末が再起動されます。</string>
   <!-- label for item that reboots the phone in phone options dialog -->
   <string name="global_action_reboot">再起動</string>
   <!-- screenshot in the power menu -->
@@ -45,65 +45,63 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_accessThemeService">テーマサービスへのアクセス</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
+  <string name="permdesc_accessThemeService">テーマサービスへのアクセスをアプリに許可します。通常のアプリでは使用しません。</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readThemes">read your theme info</string>
+  <string name="permlab_readThemes">テーマ情報を読み込む。</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">テーマの読み込みおよび適用したテーマの決定をアプリに許可する。</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permlab_writeThemes">テーマをカスタマイズ</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">新しいテーマのインストールおよび適用されているテーマのカスタムをアプリに許可する。</string>
   <!-- Theme installation error notification -->
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
-  <string name="theme_reset_notification_title">Theme reset</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
+  <string name="theme_install_error_title">テーマのインストールに失敗しました。</string>
+  <string name="theme_install_error_message">インストールは失敗しました %s</string>
+  <string name="theme_reset_notification_title">テーマをリセット</string>
+  <string name="theme_reset_notification_body">複数のアプリのクラッシュによりシステムのテーマが復元されました。</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Fade</string>
-  <string name="animation_slide_right">Slide in right</string>
-  <string name="animation_slide_left">Slide in left</string>
-  <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
-  <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
-  <string name="animation_slide_up">Slide in bottom</string>
-  <string name="animation_slide_down">Slide in top</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
-  <string name="animation_grow_shrink">Grow in (Top)</string>
-  <string name="animation_grow_shrink_center">Grow in (Center)</string>
-  <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>
-  <string name="animation_grow_shrink_left">Grow in (Left)</string>
-  <string name="animation_grow_shrink_right">Grow in (Right)</string>
-  <string name="action_null">Blank</string>
+  <string name="animation_fade">フェード</string>
+  <string name="animation_slide_right">右にスライド</string>
+  <string name="animation_slide_left">左にスライド</string>
+  <string name="animation_slide_right_no_fade">右にスライド(フェードなし)</string>
+  <string name="animation_slide_left_no_fade">左にスライド(フェードなし)</string>
+  <string name="animation_slide_up">下にスライド</string>
+  <string name="animation_slide_down">上にスライド</string>
+  <string name="animation_default">既定 （デフォルト）</string>
+  <string name="animation_translucent">半透明</string>
+  <string name="animation_grow_shrink">拡大(上)</string>
+  <string name="animation_grow_shrink_center">拡大(中央)</string>
+  <string name="animation_grow_shrink_bottom">拡大(下)</string>
+  <string name="animation_grow_shrink_left">拡大(左)</string>
+  <string name="animation_grow_shrink_right">拡大(右)</string>
+  <string name="action_null">無し</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
+  <string name="system_error_vendorprint">あなたのベンダーイメージが古い可能性があります。お使いのデバイス用の最新のベンダーイメージに更新してください。</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permlab_setKeyguardWallpaper">ロック画面の壁紙を設定</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+  <string name="permdesc_setKeyguardWallpaper">アプリによるロック画面壁紙の変更を許可する</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">reset battery statistics</string>
+  <string name="permlab_resetBatteryStats">バッテリーの統計情報をリセット</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
+  <string name="permdesc_resetBatteryStats">現在の低レベルなバッテリー消費量のデータをリセットすることをアプリに許可します。</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_security">セキュリティ</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permissions related to device security information.</string>
+  <string name="permgroupdesc_security">デバイスのセキュリティ情報に関連するアクセス権限。</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">read phone blacklist</string>
+  <string name="permlab_readPhoneBlacklist">電話番号のブラックリストの読み込み</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
+  <string name="permdesc_readPhoneBlacklist">着信やメッセージをブロックしている電話番号に関する情報の読み取りをアプリに許可します。</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">電話番号のブラックリストを変更します。</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
-  <string name="default_string">Default</string>
+  <string name="permdesc_changePhoneBlacklist">着信やメッセージをブロックしている電話番号の変更をアプリに許可します。</string>
+  <string name="default_string">既定 （デフォルト）</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">トーチライト</string>
   <!-- App killed message -->
-  <string name="app_killed_message">App killed</string>
+  <string name="app_killed_message">アプリを強制終了しました</string>
   <!-- ADB over network notification -->
   <string name="adb_net_active_notification_title">ネットワーク経由のADBが有効です</string>
   <!-- ADB over USB and network notification -->

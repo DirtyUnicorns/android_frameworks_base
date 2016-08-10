@@ -78,7 +78,7 @@
   <string name="animation_grow_shrink_right">Збільшення (праворуч)</string>
   <string name="action_null">Порожньо</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
+  <string name="system_error_vendorprint">Виявляється, ваш постачальник образу може бути застарілими. Будь ласка прошити останню версію постачальника образу для вашого пристрою.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">встановлення шпалер екрану блокування</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -105,9 +105,9 @@
   <!-- App killed message -->
   <string name="app_killed_message">Додаток закрито</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
+  <string name="adb_net_active_notification_title">Увімкнено функцію ADB по мережі</string>
   <!-- ADB over USB and network notification -->
-  <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+  <string name="adb_both_active_notification_title">Увімкнено функцію ADB по USB та мережі</string>
   <!-- ADB notification message-->
   <string name="adb_active_generic_notification_message">Торкніться, щоб вимкнути налагодження.</string>
 </resources>

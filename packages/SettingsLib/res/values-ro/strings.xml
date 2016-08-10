@@ -41,7 +41,7 @@
   <!-- Status for networks disabled for unknown reason -->
   <string name="wifi_disabled_generic">Starea retelelor dezactivate din motive necunoscute</string>
   <!-- Status for networked disabled from a DNS or DHCP failure -->
-  <string name="wifi_disabled_network_failure">IP Configuration Failure</string>
+  <string name="wifi_disabled_network_failure">Eşec de configurare IP</string>
   <!-- Status for networked disabled from a wifi association failure -->
   <string name="wifi_disabled_wifi_failure">WiFi Connection Failure</string>
   <!-- Status for networks disabled from authentication failure (wrong password
