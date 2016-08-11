@@ -195,4 +195,8 @@ public class TvStatusBar extends BaseStatusBar {
     protected boolean isSnoozedPackage(StatusBarNotification sbn) {
         return false;
     }
+
+    @Override
+    protected void updateStatusBarIconsAlpha(int alpha) {
+    }
 }

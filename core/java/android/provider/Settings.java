@@ -3497,6 +3497,12 @@ public final class Settings {
         public static final Validator SIP_CALL_OPTIONS_VALIDATOR = new DiscreteValueValidator(
                 new String[] {"SIP_ALWAYS", "SIP_ADDRESS_ONLY"});
 
+       /**
+        * Status bar icons transparency
+        * @hide
+        */
+        public static final String STATUS_BAR_ICON_ALPHA = "status_bar_icon_alpha";
+
         /**
          * One of the sip call options: Always use SIP with network access.
          * @hide

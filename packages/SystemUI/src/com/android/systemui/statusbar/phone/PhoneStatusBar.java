@@ -388,7 +388,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     // DU logo
     private boolean mDuLogo;
-    private ImageView duLogo;
+    private ImageView mDuLogoView;
 
     private int mNavigationBarWindowState = WINDOW_STATE_SHOWING;
 
@@ -1237,6 +1237,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 (ViewStub) mStatusBarWindowContent.findViewById(R.id.keyguard_user_switcher),
                 mKeyguardStatusBar, mNotificationPanel, mUserSwitcherController);
 
+        mDuLogoView = (ImageView) mStatusBarView.findViewById(R.id.du_logo);
 
         // Set up the quick settings tile panel
         mQSPanel = (QSPanel) mStatusBarWindowContent.findViewById(R.id.quick_settings_panel);
@@ -1872,6 +1873,14 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
 
     public static boolean isTopLevelChild(Entry entry) {
         return entry.row.getParent() instanceof NotificationStackScrollLayout;
+    }
+
+    @Override
+    protected void updateStatusBarIconsAlpha(int alpha) {
+        mIconController.updateIconAlpha(alpha);
+        if (mDuLogoView != null) {
+            mDuLogoView.setAlpha(alpha);
+        }
     }
 
     @Override
@@ -3489,12 +3498,10 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
         }
     };
 
-    public void showDuLogo(boolean show) {
+    private void showDuLogo(boolean show) {
         if (mStatusBarView == null) return;
-        ContentResolver resolver = mContext.getContentResolver();
-        duLogo = (ImageView) mStatusBarView.findViewById(R.id.du_logo);
-        if (duLogo != null) {
-            duLogo.setVisibility(show ? (mDuLogo ? View.VISIBLE : View.GONE) : View.GONE);
+        if (mDuLogoView != null) {
+            mDuLogoView.setVisibility(show ? (mDuLogo ? View.VISIBLE : View.GONE) : View.GONE);
         }
     }
 

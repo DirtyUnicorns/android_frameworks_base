@@ -457,6 +457,7 @@ public class StatusBarIconController implements Tunable {
         mCarrier.setTextColor(mIconTint);
         mNetworkTraffic.setDarkIntensity(mDarkIntensity);
         applyNotificationIconsTint();
+        applyIconAlpha();
     }
 
     private void applyNotificationIconsTint() {
@@ -468,6 +469,54 @@ public class StatusBarIconController implements Tunable {
                 v.setImageTintList(ColorStateList.valueOf(mIconTint));
             }
         }
+    }
+
+    public void applyIconAlpha() {
+        final float iconAlpha = setIconAlpha();
+        mStatusIcons.setAlpha(iconAlpha);
+        mSignalCluster.setAlpha(iconAlpha);
+        mMoreIcon.setAlpha(iconAlpha);
+        mDuLogo.setAlpha(iconAlpha);
+        mBatteryLevelTextView.setAlpha(iconAlpha);
+        mBatteryMeterView.setAlpha(iconAlpha);
+        mClock.setAlpha(iconAlpha);
+        mCclock.setAlpha(iconAlpha);
+        mLeftClock.setAlpha(iconAlpha);
+        mCarrier.setAlpha(iconAlpha);
+        mNetworkTraffic.setAlpha(iconAlpha);
+    }
+
+    public void updateIconAlpha(int alpha) {
+        final float newAlpha = alphaIntToFloat(alpha);
+        for (int i = 0; i < mNotificationIcons.getChildCount(); i++) {
+            StatusBarIconView v = (StatusBarIconView) mNotificationIcons.getChildAt(i);
+            boolean isPreL = Boolean.TRUE.equals(v.getTag(R.id.icon_is_pre_L));
+            boolean colorize = !isPreL || isGrayscale(v);
+            if (colorize) {
+                v.setAlpha(alpha);
+            }
+        }
+        mStatusIcons.setAlpha(newAlpha);
+        mSignalCluster.setAlpha(newAlpha);
+        mMoreIcon.setAlpha(newAlpha);
+        mDuLogo.setAlpha(newAlpha);
+        mBatteryLevelTextView.setAlpha(newAlpha);
+        mBatteryMeterView.setAlpha(newAlpha);
+        mClock.setAlpha(newAlpha);
+        mCclock.setAlpha(newAlpha);
+        mLeftClock.setAlpha(newAlpha);
+        mCarrier.setAlpha(newAlpha);
+        mNetworkTraffic.setAlpha(newAlpha);
+    }
+
+    private float setIconAlpha() {
+        return alphaIntToFloat(Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_ICON_ALPHA, 255,
+                UserHandle.USER_CURRENT));
+    }
+
+    private static float alphaIntToFloat(int alpha) {
+        return (float) Math.max(0, Math.min(255, alpha)) / 255;
     }
 
     private boolean isGrayscale(StatusBarIconView v) {

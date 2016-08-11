@@ -21,12 +21,15 @@ import android.database.ContentObserver;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
+import android.preference.CustomSeekBarPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
+import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.SwitchPreference;
 import android.provider.Settings;
 import android.provider.Settings.System;
@@ -40,13 +43,15 @@ import com.android.systemui.R;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.tuner.TunerService.Tunable;
 
-public class TunerFragment extends PreferenceFragment {
+public class TunerFragment extends PreferenceFragment implements OnPreferenceChangeListener {
 
     public static final String TAG = "TunerFragment";
 
     private static final String SHOW_FOURG = "show_fourg";
     private static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
+    private static final String STATUS_BAR_ICON_ALPHA_KEY = "status_bar_icon_alpha";
 
+    private CustomSeekBarPreference mStatusBarIconAlpha;
     private SwitchPreference mShowFourG;
     private SwitchPreference mStatusbarDuLogo;
 
@@ -74,6 +79,12 @@ public class TunerFragment extends PreferenceFragment {
         mStatusbarDuLogo = (SwitchPreference) findPreference(STATUS_BAR_DU_LOGO);
         mStatusbarDuLogo.setChecked((Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_DU_LOGO, 0) == 1));
+
+        mStatusBarIconAlpha = (CustomSeekBarPreference) findPreference(STATUS_BAR_ICON_ALPHA_KEY);
+        int iconAlpha = Settings.System.getIntForUser(resolver,
+                Settings.System.STATUS_BAR_ICON_ALPHA, 255, UserHandle.USER_CURRENT);
+        mStatusBarIconAlpha.setValue(iconAlpha);
+        mStatusBarIconAlpha.setOnPreferenceChangeListener(this);
     }
 
     @Override
@@ -153,5 +164,16 @@ public class TunerFragment extends PreferenceFragment {
             return true;
         }
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == mStatusBarIconAlpha) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_ICON_ALPHA, val, UserHandle.USER_CURRENT);
+            return true;
+        }
+        return false;
     }
 }

@@ -56,6 +56,7 @@ public class PhoneStatusBarView extends PanelBar {
         }
     };
 
+    private float mCarrierLabelAlpha;
     private int mShowCarrierLabel;
     private TextView mCarrierLabel;
 
@@ -89,6 +90,17 @@ public class PhoneStatusBarView extends PanelBar {
     private void showStatusBarCarrier() {
         mShowCarrierLabel = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.STATUS_BAR_SHOW_CARRIER, 1, UserHandle.USER_CURRENT);
+        mCarrierLabelAlpha = alphaIntToFloat(Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.STATUS_BAR_ICON_ALPHA, 255, UserHandle.USER_CURRENT));
+    }
+
+    private static float alphaIntToFloat(int alpha) {
+        return (float) Math.max(0, Math.min(255, alpha)) / 255;
+    }
+
+    public float getIconAlpha() {
+        return alphaIntToFloat(Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.STATUS_BAR_ICON_ALPHA, 255, UserHandle.USER_CURRENT));
     }
 
     @Override
@@ -102,8 +114,10 @@ public class PhoneStatusBarView extends PanelBar {
         if (mCarrierLabel != null) {
             if (mShowCarrierLabel == 2) {
                 mCarrierLabel.setVisibility(View.VISIBLE);
+                mCarrierLabel.setAlpha(mCarrierLabelAlpha);
             } else if (mShowCarrierLabel == 3) {
                 mCarrierLabel.setVisibility(View.VISIBLE);
+                mCarrierLabel.setAlpha(mCarrierLabelAlpha);
             } else {
                 mCarrierLabel.setVisibility(View.GONE);
             }
@@ -243,6 +257,8 @@ public class PhoneStatusBarView extends PanelBar {
         super.onAttachedToWindow();
         getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
                 "status_bar_show_carrier"), false, mObserver);
+        getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                "sb_notif_icon_alpha"), false, mObserver);
     }
 
     @Override

@@ -203,6 +203,8 @@ public abstract class BaseStatusBar extends SystemUI implements
     protected int mRowMinHeight;
     protected int mRowMaxHeight;
 
+    private int mStatusBarIconAlpha;
+
     // public mode, private notifications, etc
     private boolean mLockscreenPublicMode = false;
     private final SparseBooleanArray mUsersAllowingPrivateNotifications = new SparseBooleanArray();
@@ -314,6 +316,9 @@ public abstract class BaseStatusBar extends SystemUI implements
                     Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_WHITELIST_VALUES), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_ICON_ALPHA), false, this,
+                    UserHandle.USER_ALL);
             update();
         }
 
@@ -324,7 +329,9 @@ public abstract class BaseStatusBar extends SystemUI implements
 
         private void update() {
             ContentResolver resolver = mContext.getContentResolver();
-
+            mStatusBarIconAlpha = Settings.System.getIntForUser(resolver,
+                    Settings.System.STATUS_BAR_ICON_ALPHA, 255,
+                    UserHandle.USER_CURRENT);
             final String dndString = Settings.System.getString(resolver,
                     Settings.System.HEADS_UP_CUSTOM_VALUES);
             final String blackString = Settings.System.getString(resolver,
@@ -334,6 +341,7 @@ public abstract class BaseStatusBar extends SystemUI implements
             splitAndAddToArrayList(mDndList, dndString, "\\|");
             splitAndAddToArrayList(mBlacklist, blackString, "\\|");
             splitAndAddToArrayList(mWhitelist, whiteString, "\\|");
+            updateStatusBarIconsAlpha(mStatusBarIconAlpha);
         }
     };
 
@@ -1960,6 +1968,7 @@ public abstract class BaseStatusBar extends SystemUI implements
         final StatusBarIconView iconView = new StatusBarIconView(mContext,
                 sbn.getPackageName() + "/0x" + Integer.toHexString(sbn.getId()), n);
         iconView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+        iconView.setAlpha(mStatusBarIconAlpha);
 
         final Icon smallIcon = n.getSmallIcon();
         if (smallIcon == null) {
@@ -2087,6 +2096,7 @@ public abstract class BaseStatusBar extends SystemUI implements
 
     protected abstract void setAreThereNotifications();
     protected abstract void updateNotifications();
+    protected abstract void updateStatusBarIconsAlpha(int alpha);
     public abstract boolean shouldDisableNavbarGestures();
 
     public abstract void addNotification(StatusBarNotification notification,
