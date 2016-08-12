@@ -178,4 +178,14 @@
   <java-symbol type="string" name="adb_both_active_notification_title" />
   <java-symbol type="string" name="adb_active_generic_notification_message" />
 
+  <!-- SeekBarPreference -->
+  <java-symbol type="layout" name="seek_bar_preference" />
+  <java-symbol type="id" name="seekBarPrefBarContainer" />
+  <java-symbol type="id" name="seekBarPrefValue" />
+  <java-symbol type="id" name="seekBarPrefUnitsRight" />
+  <java-symbol type="id" name="seekBarPrefUnitsLeft" />
+  <java-symbol type="attr" name="interval" />
+  <java-symbol type="attr" name="min" />
+  <java-symbol type="attr" name="unitsLeft" />
+  <java-symbol type="attr" name="unitsRight" />
 </resources>
