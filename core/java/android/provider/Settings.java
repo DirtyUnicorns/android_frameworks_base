@@ -7621,6 +7621,12 @@ public final class Settings {
         public static final String NAVBAR_BUTTONS_ALPHA = "navbar_buttons_alpha";
 
         /**
+         * Components that the Themes qstile modifies
+         * @hide
+         */
+        public static final String THEMES_TILE_COMPONENTS = "themes_tile_components";
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
