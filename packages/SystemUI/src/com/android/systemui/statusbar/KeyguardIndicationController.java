@@ -70,12 +70,11 @@ public class KeyguardIndicationController {
     private int mTransientTextColor;
     private boolean mVisible;
 
-    private boolean mShowCurrent;
-
     private boolean mPowerPluggedIn;
     private boolean mPowerCharged;
     private int mChargingSpeed;
     private int mChargingCurrent;
+    private boolean mShowChargingCurrent;
     private String mMessageToShowOnScreenOn;
 
     public KeyguardIndicationController(Context context, KeyguardIndicationTextView textView,
@@ -219,30 +218,20 @@ public class KeyguardIndicationController {
         }
 
         String chargingCurrent = "";
-
-        if (mChargingCurrent != 0) {
-            chargingCurrent = "\n" + (mChargingCurrent / 1000) + "mA/h";
-        }
-
-        mShowCurrent = Settings.System.getIntForUser(mContext.getContentResolver(),
+        mShowChargingCurrent = Settings.System.getIntForUser(mContext.getContentResolver(),
             Settings.System.LOCK_SCREEN_SHOW_CURRENT, 0, UserHandle.USER_CURRENT) == 1;
+        if (mChargingCurrent != 0 && mShowChargingCurrent) {
+            chargingCurrent = "\n" + "Max " + (mChargingCurrent / 1000) + "mA/h";
+        }
 
         if (hasChargingTime) {
             String chargingTimeFormatted = Formatter.formatShortElapsedTimeRoundingUpToMinutes(
                     mContext, chargingTimeRemaining);
-            if (mShowCurrent) {
-                String chargingText = mContext.getResources().getString(chargingId, chargingTimeFormatted);
-                return chargingText + chargingCurrent;
-            } else {
-                return mContext.getResources().getString(chargingId, chargingTimeFormatted);
-            }
+            String chargingText = mContext.getResources().getString(chargingId, chargingTimeFormatted);
+            return chargingText + chargingCurrent;
         } else {
-            if (mShowCurrent) {
-                String chargingText = mContext.getResources().getString(chargingId);
-                return chargingText + chargingCurrent;
-            } else {
-                return mContext.getResources().getString(chargingId);
-            }
+            String chargingText = mContext.getResources().getString(chargingId);
+            return chargingText + chargingCurrent;
         }
     }
 
