@@ -75,6 +75,7 @@
     <color name="keyguard_indication_text_color">#ffffff</color>
     <color name="speedbump_line_divider">#6fdddddd</color>
     <color name="quick_settings_panel_background">#0000</color>
+    <color name="lockscreen_message_text_color">#424242</color>
     <color name="lockscreen_middle_button_tint_color">#666666</color>
     <color name="play_button_image_tint_color">#000000</color>
     <color name="play_button_text_color">#000000</color>
@@ -138,4 +139,9 @@
     <color name="enable_battery_level_shadow_color">#000</color>
     <color name="enable_alarm_status_shadow_color">#000</color>
 
+    <!-- Expanded Status Bar Alarm Status Text Color -->
+    <color name="status_bar_alarm_status_text_color">#64ffffff</color>
+
+    <!-- Expanded Status Bar Battery Level Text Color -->
+    <color name="status_bar_battery_level_text_color">#ffffff</color>
 </resources>
