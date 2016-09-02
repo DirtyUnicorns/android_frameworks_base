@@ -189,7 +189,7 @@
   <!-- Example: Service was enabled for: Voice, SMS -->
   <string name="serviceClassSMS">SMS</string>
   <!-- Meaning: asynchronous data.  Example: Service was enabled for: Voice, Async -->
-  <string name="serviceClassDataAsync">Async</string>
+  <string name="serviceClassDataAsync">Asynch</string>
   <!-- Meaning: synchronous data.  Example: Service was enabled for: Voice, Async -->
   <string name="serviceClassDataSync">Synchronizace</string>
   <!-- Meaning: packet data.  Example: Service was enabled for: Voice, Packet -->
@@ -451,7 +451,7 @@
          values/config.xml) and must be truncated. May need to be localized
          for most appropriate textual indicator of "more than X".
          [CHAR LIMIT=4] -->
-  <string name="status_bar_notification_info_overflow">999+</string>
+  <string name="status_bar_notification_info_overflow">více</string>
   <!-- Displayed to the user to tell them that they have started up the phone in "safe mode" -->
   <string name="safeMode">Nouzový režim</string>
   <!-- Label for the Android system components when they are shown to the user. -->
@@ -1581,7 +1581,7 @@
   <!-- Label in a web form for "District" [CHAR-LIMIT=NONE]  -->
   <string name="autofill_district">Okres</string>
   <!-- Label in a web form for "Department" [CHAR-LIMIT=NONE]  -->
-  <string name="autofill_department">Department</string>
+  <string name="autofill_department">Oddělení</string>
   <!-- Label in a web form for "Prefecture" [CHAR-LIMIT=NONE]  -->
   <string name="autofill_prefecture">Prefektura</string>
   <!-- Label in a web form for "Parish" [CHAR-LIMIT=NONE]  -->
@@ -2338,9 +2338,9 @@
   <!-- Shown when the device is tethered -->
   <string name="tethered_notification_title">Sdílené připojení nebo hotspot je aktivní.</string>
   <string name="tethered_notification_message">Dotykem nastavíte.</string>
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">Není připojené žádné zařízení</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> připojené zařízení</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> připojených zařízení</string>
   <!--  Strings for possible PreferenceActivity Back/Next buttons -->
   <string name="back_button_label">Zpět</string>
   <string name="next_button_label">Další</string>

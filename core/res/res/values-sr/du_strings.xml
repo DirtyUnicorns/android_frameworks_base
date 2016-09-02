@@ -25,7 +25,7 @@
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">Боотлоадер</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Hot reboot</string>
+  <string name="reboot_hot">Брзо поновно покретање</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
   <string name="reboot_bootmenu">Мени за покретање</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
@@ -53,13 +53,12 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_writeThemes">modify your themes</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">Омогућава апликацији да убацује нове теме и модификује коју тему ћеш применити.</string>
   <!-- Theme installation error notification -->
   <string name="theme_install_error_title">Инсталирање теме није успело</string>
   <string name="theme_install_error_message">%s инсталирање није успело</string>
-  <string name="theme_reset_notification_title">Theme reset</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
+  <string name="theme_reset_notification_title">Ресетовање теме</string>
+  <string name="theme_reset_notification_body">Системска тема враћена у претходно стање због грешки код више апликација.</string>
   <!-- AOKP custom system animations -->
   <string name="animation_fade">Fade</string>
   <string name="animation_slide_right">Slide in right</string>
@@ -68,8 +67,8 @@
   <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
   <string name="animation_slide_up">Slide in bottom</string>
   <string name="animation_slide_down">Slide in top</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
+  <string name="animation_default">Podrazumevano</string>
+  <string name="animation_translucent">Прозирност</string>
   <string name="animation_grow_shrink">Grow in (Top)</string>
   <string name="animation_grow_shrink_center">Grow in (Center)</string>
   <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>

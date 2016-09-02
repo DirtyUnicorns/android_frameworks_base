@@ -177,4 +177,7 @@
   <string name="quick_settings_location_battery_saving_label">Batterisparläge</string>
   <string name="quick_settings_location_gps_only_label">Endast enhet</string>
   <string name="quick_settings_location_high_accuracy_label">Hög noggrannhet</string>
+  <!-- Status bar icons transparency -->
+  <string name="status_bar_icon_transparency_title">Status bar icons transparency</string>
+  <string name="status_bar_icon_transparency_summary">Set opacity of status bar icons</string>
 </resources>

@@ -47,7 +47,7 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessThemeService">Permite que um aplicativo acesse o serviço de temas. Não deve ser necessário para apps normais.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readThemes">leia informações de seu tema</string>
+  <string name="permlab_readThemes">leia suas informações de tema</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_readThemesDesc">Permite que um aplicativo leia seus temas e determine qual tema está aplicado.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -71,12 +71,12 @@
   <string name="animation_translucent">Translúcido</string>
   <string name="animation_grow_shrink">Aumentar (Topo)</string>
   <string name="animation_grow_shrink_center">Aumentar (Centro)</string>
-  <string name="animation_grow_shrink_bottom">Crescer (Baixo)</string>
-  <string name="animation_grow_shrink_left">Crescer (Esquerda)</string>
-  <string name="animation_grow_shrink_right">Crescer (Direita)</string>
+  <string name="animation_grow_shrink_bottom">Aumentar (Inferior)</string>
+  <string name="animation_grow_shrink_left">Aumentar (Esquerda)</string>
+  <string name="animation_grow_shrink_right">Aumentar (Direita)</string>
   <string name="action_null">Vazio</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Parece que a sua imagem do fornecedor pode estar desatualizada. Instala, por favor, a imagem mais recente do fornecedor para o seu dispositivo.</string>
+  <string name="system_error_vendorprint">Parece que a sua imagem do fornecedor pode estar desatualizada. Por favor instale a imagem mais recente do fornecedor para o seu dispositivo.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
   <string name="permlab_setKeyguardWallpaper">definir papel de parede da tela de bloqueio</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -84,7 +84,7 @@
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_resetBatteryStats">zerar estatísticas da bateria</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_resetBatteryStats">Permite uma aplicação resetar os dados de uso de bateria baixa.</string>
+  <string name="permdesc_resetBatteryStats">Permite uma aplicação redefinir os dados de baixo nível de uso de bateria atual.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permgrouplab_security">Segurança</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->

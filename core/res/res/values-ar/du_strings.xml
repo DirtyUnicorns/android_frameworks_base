@@ -21,15 +21,15 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">إعادة التشغيل</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">وضع الإسترجاع</string>
+  <string name="reboot_recovery">ذاكرة الإسترجاع</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">أداة تشغيل النظام</string>
+  <string name="reboot_bootloader">محمل الإقلاع</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
   <string name="reboot_hot">إعادة تشغيل سريع</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
   <string name="reboot_bootmenu">قائمة التشغيل</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
-  <string name="reboot_fastboot">Fastboot</string>
+  <string name="reboot_fastboot">وضع الإقلاع السريع</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
   <string name="reboot_download">التنزيل</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
@@ -43,71 +43,70 @@
   <!-- Screenrecord -->
   <string name="powermenu_screenrecord">تسجيل فيديو للشاشة</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessThemeService">access theme service</string>
+  <string name="permlab_accessThemeService">الوصول إلى خدمة السمة</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessThemeService">Allows an app to access the theme service. Should never be needed for normal apps.</string>
+  <string name="permdesc_accessThemeService">يسمح للتطبيق الوصول إلى خدمة تغيير السمة. ينبغي ألَّا يكون لها حاجة ابدًا للتطبيقات العادية.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readThemes">read your theme info</string>
+  <string name="permlab_readThemes">قراءة معلومات السمة الخاصة بك</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_readThemesDesc">Allows the app to read your themes and
-       determine which theme you have applied.</string>
+  <string name="permdesc_readThemesDesc">يسمح للتطبيق بقراءة السمة الخاصة بك و
+       تحديد الموضوع الذي قمت بتطبيقه.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_writeThemes">modify your themes</string>
+  <string name="permlab_writeThemes">تعديل سماتك</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_writeThemesDesc">Allows the app to insert new themes and
-       modify which theme you have applied.</string>
+  <string name="permdesc_writeThemesDesc">يسمح للتطبيق بإدراج سمات جديدة وتعديل السمات التي قمت بتطبيقها.</string>
   <!-- Theme installation error notification -->
-  <string name="theme_install_error_title">Failed to install theme</string>
-  <string name="theme_install_error_message">%s failed to install</string>
+  <string name="theme_install_error_title">فشل تثبيت السمة</string>
+  <string name="theme_install_error_message">فشل تثبيت %s</string>
   <string name="theme_reset_notification_title">إعادة تعيين السمة</string>
-  <string name="theme_reset_notification_body">System theme restored due to multiple app crashes.</string>
+  <string name="theme_reset_notification_body">سمة النظام استعيدة لتعطل التطبيق مرارا.</string>
   <!-- AOKP custom system animations -->
-  <string name="animation_fade">Fade</string>
-  <string name="animation_slide_right">Slide in right</string>
-  <string name="animation_slide_left">Slide in left</string>
-  <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
-  <string name="animation_slide_left_no_fade">Slide in left (No fade)</string>
-  <string name="animation_slide_up">Slide in bottom</string>
-  <string name="animation_slide_down">Slide in top</string>
-  <string name="animation_default">Default</string>
-  <string name="animation_translucent">Translucent</string>
-  <string name="animation_grow_shrink">Grow in (Top)</string>
-  <string name="animation_grow_shrink_center">Grow in (Center)</string>
-  <string name="animation_grow_shrink_bottom">Grow in (Bottom)</string>
-  <string name="animation_grow_shrink_left">Grow in (Left)</string>
-  <string name="animation_grow_shrink_right">Grow in (Right)</string>
-  <string name="action_null">Blank</string>
+  <string name="animation_fade">التلاشي</string>
+  <string name="animation_slide_right">الإنزلاق نحو اليمين</string>
+  <string name="animation_slide_left">الإنزلاق نحو اليسار</string>
+  <string name="animation_slide_right_no_fade">الإنزلاق نحو اليمين (بدون تلاشي)</string>
+  <string name="animation_slide_left_no_fade">الإنزلاق نحو اليسار (بدون تلاشي)</string>
+  <string name="animation_slide_up">الإنزلاق نحو الأسفل</string>
+  <string name="animation_slide_down">الإنزلاق نحو الأعلى</string>
+  <string name="animation_default">الإفتراضي</string>
+  <string name="animation_translucent">شبه شفاف</string>
+  <string name="animation_grow_shrink">نمو نحو (الأعلى)</string>
+  <string name="animation_grow_shrink_center">نمو نحو (الوسط)</string>
+  <string name="animation_grow_shrink_bottom">نمو نحو (الأسفل)</string>
+  <string name="animation_grow_shrink_left">نمو نحو (اليسار)</string>
+  <string name="animation_grow_shrink_right">نمو نحو (اليمين)</string>
+  <string name="action_null">فارغ</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
   <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
   <!-- Title of an application permission, listed so the user can choose whether they want the application to do this. -->
-  <string name="permlab_setKeyguardWallpaper">set keyguard wallpaper</string>
+  <string name="permlab_setKeyguardWallpaper">تعيين خلفية لحارس المفاتيح</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_setKeyguardWallpaper">Allows an app to change the lock screen wallpaper.</string>
+  <string name="permdesc_setKeyguardWallpaper">السماح للتطبيق بتغيير خلفية قفل الشاشة.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_resetBatteryStats">reset battery statistics</string>
+  <string name="permlab_resetBatteryStats">إعادة تعيين إحصائيات البطارية</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_resetBatteryStats">Allows an application to reset the current low-level battery use data.</string>
   <!-- Title of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgrouplab_security">Security</string>
+  <string name="permgrouplab_security">الأمان</string>
   <!-- Description of a category of application permissions, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permgroupdesc_security">Permissions related to device security information.</string>
+  <string name="permgroupdesc_security">أذونات ذات صلة بأمن معلومات الجهاز.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_readPhoneBlacklist">read phone blacklist</string>
+  <string name="permlab_readPhoneBlacklist">قراءة القائمة السوداء للهاتف</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_readPhoneBlacklist">Allows an app to read information about phone numbers that are blocked for incoming calls or messages.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_changePhoneBlacklist">change phone blacklist</string>
+  <string name="permlab_changePhoneBlacklist">تغيير القائمة السوداء للهاتف</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_changePhoneBlacklist">Allows an app to change the phone numbers that are blocked for incoming calls or messages.</string>
   <string name="default_string">الإفتراضي</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">الكشاف</string>
+  <string name="global_action_torch">ضوء الفلاش</string>
   <!-- App killed message -->
   <string name="app_killed_message">تم إيقاف التطبيق</string>
   <!-- ADB over network notification -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
+  <string name="adb_net_active_notification_title">تمكين ADB عبر الشبكة</string>
   <!-- ADB over USB and network notification -->
   <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
   <!-- ADB notification message-->
-  <string name="adb_active_generic_notification_message">اللمس لتعطيل تصحيح الأخطاء.</string>
+  <string name="adb_active_generic_notification_message">اضغط لتعطيل تصحيح الأخطاء.</string>
 </resources>

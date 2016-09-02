@@ -37,7 +37,7 @@
   <!-- Strings for lockscreen shortcut hints -->
   <string name="left_shortcut_hint">%1$s için sağa kaydırın</string>
   <string name="right_shortcut_hint">%1$s için sola kaydırın</string>
-  <string name="lockscreen_message">Bir kilit ekranı kısayolunu değiştirmek için sağ veya soldaki ikona dokunun.</string>
+  <string name="lockscreen_message">Kilit ekranı kısayollarını ayarlamak için sağ ya da soldaki simgeye dokunun.</string>
   <string name="lockscreen_default_target">Varsayılan</string>
   <string name="select_application">Uygulama seçin</string>
   <string name="lockscreen_choose_action_title">Eylem seç</string>
@@ -177,4 +177,7 @@
   <string name="quick_settings_location_battery_saving_label">Pil tasarrufu</string>
   <string name="quick_settings_location_gps_only_label">Yalnızca cihaz</string>
   <string name="quick_settings_location_high_accuracy_label">Yüksek doğruluk</string>
+  <!-- Status bar icons transparency -->
+  <string name="status_bar_icon_transparency_title">Status bar icons transparency</string>
+  <string name="status_bar_icon_transparency_summary">Set opacity of status bar icons</string>
 </resources>

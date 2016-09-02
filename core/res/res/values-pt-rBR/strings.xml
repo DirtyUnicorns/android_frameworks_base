@@ -22,7 +22,7 @@
   <!-- Suffix added to a number to signify size in bytes. -->
   <string name="byteShort">B</string>
   <!-- Suffix added to a number to signify size in kilobytes. -->
-  <string name="kilobyteShort">Kb</string>
+  <string name="kilobyteShort">KB</string>
   <!-- Suffix added to a number to signify size in megabytes. -->
   <string name="megabyteShort">MB</string>
   <!-- Suffix added to a number to signify size in gigabytes. -->

@@ -19,15 +19,15 @@
   <string name="reboot_system" product="tablet">Start tablet på nytt</string>
   <string name="reboot_system" product="default">Start telefon på nytt</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">pene</string>
+  <string name="reboot_reboot">Start på nytt</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">erecto</string>
+  <string name="reboot_recovery">Gjenoppretting</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">Bootloader</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
   <string name="reboot_hot">Myk omstart</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-  <string name="reboot_bootmenu">Startmeny</string>
+  <string name="reboot_bootmenu">BootMenu</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
   <string name="reboot_fastboot">Fastboot</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
@@ -58,7 +58,7 @@ og å bestemme hvilke temaer du har brukt.</string>
 endre hvilke tema du bruker.</string>
   <!-- Theme installation error notification -->
   <string name="theme_install_error_title">Kan ikke installere tema</string>
-  <string name="theme_install_error_message">%s kunne ikke installere</string>
+  <string name="theme_install_error_message">% kunne ikke installere</string>
   <string name="theme_reset_notification_title">Tilbakestill tema</string>
   <string name="theme_reset_notification_body">Systemtema gjenopprettet grunnet flere applikasjons-krasj.</string>
   <!-- AOKP custom system animations -->

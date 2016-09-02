@@ -114,7 +114,7 @@
   <!-- Bluetooth settings.  Connection options screen.  The summary for the OPP checkbox preference when OPP is not connected. -->
   <string name="bluetooth_opp_profile_summary_not_connected">Dosya Aktarım sunucusuna bağlı değil</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the HID checkbox preference when HID is connected. -->
-  <string name="bluetooth_hid_profile_summary_connected">Giriş aygıtına bağlandı</string>
+  <string name="bluetooth_hid_profile_summary_connected">Giriş cihazına bağlandı</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (user role). [CHAR LIMIT=25]-->
   <string name="bluetooth_pan_user_profile_summary_connected">İnternet erişimi için cihaza bağlandı</string>
   <!-- Bluetooth settings. Connection options screen. The summary for the checkbox preference when PAN is connected (NAP role). [CHAR LIMIT=25]-->

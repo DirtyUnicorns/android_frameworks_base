@@ -94,7 +94,7 @@
   <!-- Displayed when a phone feature triggered by an MMI code is complete. -->
   <string name="mmiComplete">MMI abgeschlossen.</string>
   <!-- Displayed when a SIM PIN password is entered incorrectly. -->
-  <string name="badPin">Die von Ihnen eingegebene alte PIN ist nicht korrekt.</string>
+  <string name="badPin">Die von Ihnen eingegebene, alte PIN ist nicht korrekt.</string>
   <!-- Displayed when a SIM PUK password is entered incorrectly. -->
   <string name="badPuk">Der von Ihnen eingegebene PUK ist nicht korrekt.</string>
   <!-- Displayed when SIM PIN passwords are entered inconsistently. -->

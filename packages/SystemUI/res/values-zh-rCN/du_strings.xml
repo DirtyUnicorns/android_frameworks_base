@@ -176,4 +176,7 @@
   <string name="quick_settings_location_battery_saving_label">节电</string>
   <string name="quick_settings_location_gps_only_label">仅限设备</string>
   <string name="quick_settings_location_high_accuracy_label">高精确度</string>
+  <!-- Status bar icons transparency -->
+  <string name="status_bar_icon_transparency_title">Status bar icons transparency</string>
+  <string name="status_bar_icon_transparency_summary">Set opacity of status bar icons</string>
 </resources>

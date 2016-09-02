@@ -562,7 +562,7 @@
   <!-- QuickSettings: Flashlight [CHAR LIMIT=NONE] -->
   <string name="quick_settings_flashlight_label">Fener</string>
   <!-- QuickSettings: Cellular detail panel title [CHAR LIMIT=NONE] -->
-  <string name="quick_settings_cellular_detail_title">Hücresel veriler</string>
+  <string name="quick_settings_cellular_detail_title">Hücresel veri</string>
   <!-- QuickSettings: Cellular detail panel, data usage title [CHAR LIMIT=NONE] -->
   <string name="quick_settings_cellular_detail_data_usage">Veri kullanımı</string>
   <!-- QuickSettings: Cellular detail panel, remaining data title [CHAR LIMIT=NONE] -->

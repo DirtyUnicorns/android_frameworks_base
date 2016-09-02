@@ -26,8 +26,8 @@
   <string name="quick_settings_tile_flashlight_not_title">Lanterna este pornită</string>
   <string name="quick_settings_tile_flashlight_not_summary">Atingeţi pentru a dezactiva</string>
   <!-- Battery Saver Dimss -->
-  <string name="battery_saver_dismiss_title">Dismiss</string>
-  <string name="battery_saver_notification_action_text_short">Turn off</string>
+  <string name="battery_saver_dismiss_title">Închideţi</string>
+  <string name="battery_saver_notification_action_text_short">Oprește</string>
   <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_statusbar_title">Elemente bară de stare</string>
   <string name="systemui_tuner_qs_title">Setări rapide</string>
@@ -41,7 +41,7 @@
   <string name="lockscreen_message">Apăsaţi o pictogramă de pe stânga sau dreapta pentru a realoca o comandă rapidă pe ecranul de blocare.</string>
   <string name="lockscreen_default_target">Implicit</string>
   <string name="select_application">Selectaţi aplicaţia</string>
-  <string name="lockscreen_choose_action_title">Choose action</string>
+  <string name="lockscreen_choose_action_title">Alege acțiunea</string>
   <string name="lockscreen_none_target">None</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
@@ -67,24 +67,24 @@
   <string name="quick_settings_screenshot_label">Screenshot</string>
   <!-- NFC QS tile -->
   <!-- Sync QS tile -->
-  <string name="quick_settings_sync_label">Sync</string>
-  <string name="accessibility_quick_settings_sync_off">Sync off</string>
-  <string name="accessibility_quick_settings_sync_on">Sync on</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+  <string name="quick_settings_sync_label">Sincronizează</string>
+  <string name="accessibility_quick_settings_sync_off">Sincronizare oprită</string>
+  <string name="accessibility_quick_settings_sync_on">Sincronizare pornită</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sincronizarea este dezactivată</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sincronizarea este activată</string>
   <!-- Screen off QS tile -->
-  <string name="quick_settings_screen_off">Screen off</string>
+  <string name="quick_settings_screen_off">Oprire ecran</string>
   <!-- Screen timeout QS tile -->
-  <string name="quick_settings_timeout_label">Timeout</string>
-  <string name="quick_settings_screen_timeout_detail_title">Screen timeout</string>
+  <string name="quick_settings_timeout_label">Pauză</string>
+  <string name="quick_settings_screen_timeout_detail_title">Pauză ecran</string>
   <!-- Brightness QS Tile -->
-  <string name="quick_settings_brightness">Brightness</string>
+  <string name="quick_settings_brightness">Luminozitate</string>
   <!-- Music QS Tile -->
-  <string name="quick_settings_music_label">Music</string>
+  <string name="quick_settings_music_label">Muzică</string>
   <string name="quick_settings_music_play">Play</string>
-  <string name="quick_settings_music_pause">Pause</string>
+  <string name="quick_settings_music_pause">Pauză</string>
   <!-- Reboot/Recovery QS Tile -->
-  <string name="quick_settings_reboot_label">Reboot</string>
+  <string name="quick_settings_reboot_label">Reporniți</string>
   <string name="quick_settings_reboot_recovery_label">Recovery</string>
   <!-- App circle sidebar -->
   <string name="app_float_maximize_item_title">Maximize</string>
@@ -98,14 +98,14 @@
   <string name="screenrecord_notif_pointer_off">Hide pointer</string>
   <string name="screenrecord_notif_error">Unable to record screen</string>
   <!-- Battery Saver QS Tile -->
-  <string name="quick_settings_battery_saver">Battery saver</string>
-  <string name="quick_settings_battery_saver_off">Battery saver off</string>
+  <string name="quick_settings_battery_saver">Economisirea energiei</string>
+  <string name="quick_settings_battery_saver_off">Economisirea bateriei dezactivată</string>
   <!-- Expanded Desktop QS Tile -->
   <string name="quick_settings_expanded_desktop">Expanded</string>
   <string name="quick_settings_expanded_desktop_off">Normal</string>
   <!-- ADB over network Tile -->
-  <string name="quick_settings_adb_network">ADB network</string>
-  <string name="quick_settings_network_adb_enabled_label">Enabled</string>
+  <string name="quick_settings_adb_network">Rețea ADB</string>
+  <string name="quick_settings_network_adb_enabled_label">Activat</string>
   <string name="quick_settings_network_adb_disabled_label">Disabled</string>
   <!-- Themes QS Tile -->
   <string name="quick_settings_themes">Themes</string>
@@ -178,4 +178,7 @@
   <string name="quick_settings_location_battery_saving_label">Battery saving</string>
   <string name="quick_settings_location_gps_only_label">Device only</string>
   <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
+  <!-- Status bar icons transparency -->
+  <string name="status_bar_icon_transparency_title">Status bar icons transparency</string>
+  <string name="status_bar_icon_transparency_summary">Set opacity of status bar icons</string>
 </resources>

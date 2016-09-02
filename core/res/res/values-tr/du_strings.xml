@@ -25,7 +25,7 @@
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
   <string name="reboot_bootloader">Önyükleyici</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Hızlı yeniden başlatma</string>
+  <string name="reboot_hot">Hızlı yeniden başlat</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
   <string name="reboot_bootmenu">Açılış Menüsü</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
