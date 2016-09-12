@@ -17,11 +17,11 @@ Copyright (C) 2016 The Android Open Source Project
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <string name="app_name" translatable="false">Android Easter Egg</string>
     <string name="notification_name" translatable="false">Android Neko</string>
-    <string name="default_tile_name" translatable="false">\????</string>
-    <string name="notification_title" translatable="false">A cat is here.</string>
-    <string name="default_cat_name" translatable="false">Cat #%s</string>
-    <string name="directory_name" translatable="false">Cats</string>
-    <string-array name="food_names" translatable="false">
+    <string name="default_tile_name">\????</string>
+    <string name="notification_title">A cat is here.</string>
+    <string name="default_cat_name">Cat #%s</string>
+    <string name="directory_name">Cats</string>
+    <string-array name="food_names">
         <item>Empty dish</item>
         <item>Bits</item>
         <item>Fish</item>
