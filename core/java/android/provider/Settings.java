@@ -3614,17 +3614,22 @@ public final class Settings {
         public static final String POWERMENU_POWER = "powermenu_power";
 
         /**
-         *  Enable flashlight notification
+         * Enable flashlight notification
          * @hide
          */
         public static final String FLASHLIGHT_NOTIFICATION = "flashlight_notification";
+
+        /**
+         * Disable dashboard suggestions in settings
+         * @hide
+         */
+        public static final String DISABLE_SUGGESTIONS = "disable_suggestions";
 
         /**
          * Volume rocker wake
          * @hide
          */
         public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
-
 
         /**
          * Whether or not volume button music controls should be enabled to seek media tracks
