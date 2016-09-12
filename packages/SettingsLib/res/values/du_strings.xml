@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2015 The Dirty Unicorns Project
+     Copyright (C) 2015-2016 The Dirty Unicorns Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -21,5 +21,8 @@
     <string name="select_custom_app_title">Select custom app</string>
     <string name="select_custom_activity_title">Select custom activity</string>
     <string name="lockscreen_targets_message">Bottom L/R shortcuts</string>
-
+    <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
+    <string name="screen_zoom_summary_smaller">Smaller</string>
+    <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
+    <string name="screen_zoom_summary_smallest">Smallest</string>
 </resources>
