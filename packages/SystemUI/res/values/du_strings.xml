@@ -41,4 +41,7 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Screenshot deleted</string>
 
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_statusbar_title">Statusbar items</string>
+
 </resources>
