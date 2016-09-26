@@ -2223,5 +2223,8 @@ message MetricsEvent {
 
     // Dirty Tweaks
     DIRTYTWEAKS = 411;
+
+    // Quick setting tiles
+    QUICK_SETTINGS = 412;
   }
 }
