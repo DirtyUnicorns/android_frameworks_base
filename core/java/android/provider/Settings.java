@@ -3734,6 +3734,12 @@ public final class Settings {
         public static final String REMOVE_TILE_SUMMARY = "remove_tile_summary";
 
         /**
+         * Dim amount control for power and reboot dialogs
+         * @hide
+         */
+        public static final String POWER_REBOOT_DIALOG_DIM = "power_reboot_dialog_dim";
+
+        /**
          * Volume rocker wake
          * @hide
          */
