@@ -6667,10 +6667,16 @@ public final class Settings {
         public static final String ADB_PORT = "adb_port";
 
         /**
-         * Whether to use one tap tile action to enable or disable data 
+         * Whether to use one tap tile action to enable or disable data
          * @hide
          */
         public static final String QS_DATA_ADVANCED = "qs_data_advanced";
+
+        /**
+         * Holds comma separated list of ordering of QS tiles.
+         * @hide
+         */
+        public static final String QS_TILES = "sysui_qs_tiles";
 
         /**
          * This are the settings to be backed up.
@@ -6746,7 +6752,8 @@ public final class Settings {
             ENHANCED_VOICE_PRIVACY_ENABLED,
             TTY_MODE_ENABLED,
             INCALL_POWER_BUTTON_BEHAVIOR,
-            ADVANCED_REBOOT
+            ADVANCED_REBOOT,
+            QS_TILES
         };
 
         /**
