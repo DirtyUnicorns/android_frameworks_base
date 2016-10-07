@@ -4371,6 +4371,12 @@ public final class Settings {
         public static final String SHOW_EMERGENCY_BUTTON = "show_emergency_button";
 
         /**
+         * Whether to show the notification ticker on the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
+
+        /**
          * @hide
          */
         public static final String QS_QUICKBAR_SCROLL_ENABLED = "qs_quickbar_scroll_enabled";

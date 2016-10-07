@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Copyright (C) 2014-2016 The Dirty Unicorns Project
+<!--  Copyright (C) 2014-2017 The Dirty Unicorns Project
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -24,5 +24,10 @@
     <integer name="recents_animate_fab_enter_duration">225</integer>
     <integer name="recents_animate_fab_enter_delay">275</integer>
     <integer name="recents_animate_fab_exit_duration">125</integer>
+
+    <!-- Set to true to enable the classic notification ticker that scrolls
+         Notification.tickerText across the status bar for what seems like an
+         eternity. -->
+    <bool name="enable_ticker">true</bool>
 
 </resources>
