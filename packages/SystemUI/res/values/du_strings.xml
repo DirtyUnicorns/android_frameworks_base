@@ -85,4 +85,7 @@
     <string name="quick_settings_fling">Fling</string>
     <string name="quick_settings_fling_off">Fling off</string>
 
+    <!-- DU Logo -->
+    <string name="status_bar_du_logo_title">DU logo</string>
+    <string name="status_bar_du_logo_summary">Enable to show DU logo on the left side of the statusbar</string>
 </resources>

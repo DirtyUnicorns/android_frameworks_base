@@ -37,8 +37,10 @@ public class TunerFragment extends PreferenceFragment {
     private static final String TAG = "TunerFragment";
 
     private static final String SHOW_LTE_FOURGEE = "show_lte_fourgee";
+    private static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
 
     private SwitchPreference mShowLteFourGee;
+    private SwitchPreference mDuLogo;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -55,6 +57,10 @@ public class TunerFragment extends PreferenceFragment {
         mShowLteFourGee.setChecked((Settings.System.getInt(resolver,
                 Settings.System.SHOW_LTE_FOURGEE, 0) == 1));
         }
+
+        mDuLogo = (SwitchPreference) findPreference(STATUS_BAR_DU_LOGO);
+        mDuLogo.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_DU_LOGO, 0) == 1));
     }
 
     @Override
@@ -90,7 +96,12 @@ public class TunerFragment extends PreferenceFragment {
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.SHOW_LTE_FOURGEE, checked ? 1:0);
             return true;
-        }
+        } else if  (preference == mDuLogo) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_DU_LOGO, checked ? 1:0);
+            return true;
+          }
         return super.onPreferenceTreeClick(preference);
     }
 }

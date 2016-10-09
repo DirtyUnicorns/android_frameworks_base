@@ -93,6 +93,9 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
     private boolean mShowClock;
     private int mClockLocation;
 
+    // DU Logo
+    private ImageView mDuLogo;
+
     private int mIconSize;
     private int mIconHPadding;
 
@@ -151,7 +154,10 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         scaleBatteryMeterViews(context);
 
         mNetworkTraffic = (NetworkTraffic) statusBar.findViewById(R.id.networkTraffic);
+
         mCarrierLabel = (TextView) statusBar.findViewById(R.id.statusbar_carrier_text);
+
+        mDuLogo = (ImageView) statusBar.findViewById(R.id.du_logo);
 
         mClock = (TextView) statusBar.findViewById(R.id.clock);
         mCenterClockLayout = (LinearLayout)statusBar.findViewById(R.id.center_clock_layout);
@@ -345,10 +351,18 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
 
     public void hideNotificationIconArea(boolean animate) {
         animateHide(mNotificationIconAreaInner, animate);
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_DU_LOGO, 0) == 1) {
+           animateHide(mDuLogo, animate);
+        }
     }
 
     public void showNotificationIconArea(boolean animate) {
         animateShow(mNotificationIconAreaInner, animate);
+        if (Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_DU_LOGO, 0) == 1) {
+           animateShow(mDuLogo, animate);
+        }
     }
 
     public void setClockVisibility(boolean visible) {
@@ -576,6 +590,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         mCclock.setTextColor(getTint(mTintArea, mCclock, mIconTint));
         mNetworkTraffic.setDarkIntensity(mDarkIntensity);
         mCarrierLabel.setTextColor(getTint(mTintArea, mCarrierLabel, mIconTint));
+        mDuLogo.setImageTintList(ColorStateList.valueOf(mIconTint));
     }
 
     public void appTransitionPending() {
