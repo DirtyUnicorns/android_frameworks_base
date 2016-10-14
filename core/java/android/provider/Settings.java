@@ -3656,7 +3656,7 @@ public final class Settings {
         public static final Validator POINTER_SPEED_VALIDATOR =
                 new InclusiveFloatRangeValidator(-7, 7);
 
-    /**
+        /**
          * Whether the phone volume up / down effect should be played
          * @hide
          */
@@ -3676,6 +3676,12 @@ public final class Settings {
          * @hide
          */
         public static final String SCREENSHOT_SOUND = "screenshot_sound";
+
+        /**
+         * Alternative recent apps integration using OmniSwitch
+         * @hide
+         */
+        public static final String RECENTS_USE_OMNISWITCH = "recents_use_omniswitch";
 
         /**
          * I am the lolrus.
@@ -4020,7 +4026,7 @@ public final class Settings {
          */
         public static final String PROXIMITY_AUTO_SPEAKER_INCALL_ONLY = "proximity_auto_speaker_incall_only";
 
-       /**
+        /**
          * Enable looking up of phone numbers of nearby places
          *
          * @hide
