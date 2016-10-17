@@ -347,6 +347,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     View mExpandedContents;
     TextView mNotificationPanelDebugText;
 
+    // DT2L camera vibration config
+    private int mDt2lCameraVibrateConfig;
+
     // settings
     private QSPanel mQSPanel;
 
@@ -464,6 +467,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                    Settings.Secure.QS_COLUMNS),
                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                   Settings.System.DT2L_CAMERA_VIBRATE_CONFIG),
+                   false, this, UserHandle.USER_ALL);
            updateSettings();
         }
 
@@ -493,6 +499,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             ContentResolver resolver = mContext.getContentResolver();
             boolean mShowLteFourGee = Settings.System.getIntForUser(resolver,
                     Settings.System.SHOW_LTE_FOURGEE, 0, UserHandle.USER_CURRENT) == 1;
+
+            mDt2lCameraVibrateConfig = Settings.System.getIntForUser(resolver,
+                    Settings.System.DT2L_CAMERA_VIBRATE_CONFIG, 1, mCurrentUserId);
         }
     }
 
@@ -4705,8 +4714,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     }
 
     private void vibrateForCameraGesture() {
-        // Make sure to pass -1 for repeat so VibratorService doesn't stop us when going to sleep.
-        mVibrator.vibrate(new long[]{0, 750L}, -1 /* repeat */);
+        mVibrator.vibrate(new long[] { 0, mDt2lCameraVibrateConfig }, -1 /* repeat */);
     }
 
     public void onScreenTurnedOn() {

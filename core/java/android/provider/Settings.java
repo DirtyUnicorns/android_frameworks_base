@@ -3888,6 +3888,12 @@ public final class Settings {
         public static final String TOAST_ICON = "toast_icon";
 
         /**
+         * Configure the vibration when double tapping the power button to launch the camera
+         * @hide
+         */
+        public static final String DT2L_CAMERA_VIBRATE_CONFIG = "dt2l_camera_vibrate_config";
+
+        /**
          * Show the four 4g network icon instead of lte
          * @hide
          */
