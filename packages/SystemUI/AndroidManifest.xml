@@ -231,7 +231,7 @@
 
         <!-- started from PhoneWindowManager
              TODO: Should have an android:permission attribute -->
-        <service android:name=".omni.screenrecord.TakeScreenrecordService"
+        <service android:name=".du.screenrecord.TakeScreenrecordService"
             android:process=":screenrecord"
             android:exported="false" />
 
