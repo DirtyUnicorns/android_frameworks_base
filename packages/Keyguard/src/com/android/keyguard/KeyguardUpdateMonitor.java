@@ -676,7 +676,8 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
                 final boolean dashChargeStatus = intent.getBooleanExtra(EXTRA_DASH_CHARGER, false);
                 final Message msg = mHandler.obtainMessage(
                         MSG_BATTERY_UPDATE, new BatteryStatus(status, level, plugged, health,
-                                maxChargingMicroWatt, dashChargeStatus));
+                                maxChargingMicroWatt, dashChargeStatus,
+                                maxChargingMicroAmp, maxChargingMicroVolt));
                 mHandler.sendMessage(msg);
             } else if (TelephonyIntents.ACTION_SIM_STATE_CHANGED.equals(action)) {
                 SimData args = SimData.fromIntent(intent);
@@ -871,14 +872,19 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         public final int health;
         public final int maxChargingWattage;
         public final boolean dashChargeStatus;
+        public final int maxChargingCurrent;
+        public final int maxChargingVoltage;
         public BatteryStatus(int status, int level, int plugged, int health,
-                int maxChargingWattage, boolean dashChargeStatus) {
+                int maxChargingWattage, boolean dashChargeStatus,
+                int maxChargingCurrent, int maxChargingVoltage) {
             this.status = status;
             this.level = level;
             this.plugged = plugged;
             this.health = health;
             this.maxChargingWattage = maxChargingWattage;
             this.dashChargeStatus = dashChargeStatus;
+            this.maxChargingCurrent = maxChargingCurrent;
+            this.maxChargingVoltage = maxChargingVoltage;
         }
 
         /**
@@ -1064,7 +1070,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         }
 
         // Take a guess at initial SIM state, battery status and PLMN until we get an update
-        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, false);
+        mBatteryStatus = new BatteryStatus(BATTERY_STATUS_UNKNOWN, 100, 0, 0, 0, false, 0, 0);
 
         // Watch for interesting updates
         final IntentFilter filter = new IntentFilter();

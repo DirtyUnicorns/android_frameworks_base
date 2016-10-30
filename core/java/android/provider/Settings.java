@@ -4069,6 +4069,12 @@ public final class Settings {
         public static final String DATA_ACTIVITY_ARROWS = "data_activity_arrows";
 
         /**
+         * Whether to show the negociated charger current in the lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_CHARGING_CURRENT = "lockscreen_charging_current";
+
+        /**
          * Volume rocker wake
          * @hide
          */
