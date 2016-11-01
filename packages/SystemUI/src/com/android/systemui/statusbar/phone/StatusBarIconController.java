@@ -83,15 +83,15 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
     private BatteryMeterView mBatteryMeterView;
     private BatteryMeterView mBatteryMeterViewKeyguard;
     private NetworkTraffic mNetworkTraffic;
-    private TextView mClock;
     private TextView mCarrierLabel;
 
     // Center & Left clock
-    private LinearLayout mCenterClockLayout;
-    private TextView mCclock;
-    private TextView mLeftClock;
+    private Clock mClock;
+    private Clock mCenterClock;
+    private Clock mLeftClock;
     private boolean mShowClock;
     private int mClockLocation;
+    private LinearLayout mCenterClockLayout;
 
     // DU Logo
     private ImageView mDuLogo;
@@ -159,14 +159,18 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
 
         mDuLogo = (ImageView) statusBar.findViewById(R.id.du_logo);
 
-        mClock = (TextView) statusBar.findViewById(R.id.clock);
+        mClock = (Clock) statusBar.findViewById(R.id.clock);
         mCenterClockLayout = (LinearLayout)statusBar.findViewById(R.id.center_clock_layout);
-        mCclock = (TextView) statusBar.findViewById(R.id.center_clock);
-        mLeftClock = (TextView) statusBar.findViewById(R.id.left_clock);
+        mCenterClock = (Clock) statusBar.findViewById(R.id.center_clock);
+        mLeftClock = (Clock) statusBar.findViewById(R.id.left_clock);
         mDarkModeIconColorSingleTone = context.getColor(R.color.dark_mode_icon_color_single_tone);
         mLightModeIconColorSingleTone = context.getColor(R.color.light_mode_icon_color_single_tone);
         mHandler = new Handler();
         loadDimens();
+
+        mClock.setStatusBarIconController(this);
+        mCenterClock.setStatusBarIconController(this);
+        mLeftClock.setStatusBarIconController(this);
 
         TunerService.get(mContext).addTunable(this, ICON_BLACKLIST);
     }
@@ -351,6 +355,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
 
     public void hideNotificationIconArea(boolean animate) {
         animateHide(mNotificationIconAreaInner, animate);
+        animateHide(mCenterClockLayout, animate);
         if (Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_DU_LOGO, 0) == 1) {
            animateHide(mDuLogo, animate);
@@ -359,6 +364,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
 
     public void showNotificationIconArea(boolean animate) {
         animateShow(mNotificationIconAreaInner, animate);
+        animateShow(mCenterClockLayout, animate);
         if (Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.STATUS_BAR_DU_LOGO, 0) == 1) {
            animateShow(mDuLogo, animate);
@@ -376,8 +382,8 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         if (clockLocation == 0 && mClock != null) {
             mClock.setVisibility(visible ? (showClock ? View.VISIBLE : View.GONE) : View.GONE);
         }
-        if (clockLocation == 1 && mCclock != null) {
-            mCclock.setVisibility(visible ? (showClock ? View.VISIBLE : View.GONE) : View.GONE);
+        if (clockLocation == 1 && mCenterClock != null) {
+            mCenterClock.setVisibility(visible ? (showClock ? View.VISIBLE : View.GONE) : View.GONE);
         }
         if (clockLocation == 2 && mLeftClock != null) {
             mLeftClock.setVisibility(visible ? (showClock ? View.VISIBLE : View.GONE) : View.GONE);
@@ -385,8 +391,8 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
     }
 
     public void setClockAndDateStatus(int width, int mode, boolean enabled) {
-        if (mNotificationIcons != null) {
-            mNotificationIcons.setClockAndDateStatus(width, mode, enabled);
+        if (mNotificationIconAreaController != null) {
+            mNotificationIconAreaController.setClockAndDateStatus(width, mode, enabled);
         }
         mClockLocation = mode;
         mShowClock = enabled;
@@ -586,8 +592,8 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         mBatteryMeterView.setDarkIntensity(
                 isInArea(mTintArea, mBatteryMeterView) ? mDarkIntensity : 0);
         mClock.setTextColor(getTint(mTintArea, mClock, mIconTint));
+        mCenterClock.setTextColor(getTint(mTintArea, mCenterClock, mIconTint));
         mLeftClock.setTextColor(getTint(mTintArea, mLeftClock, mIconTint));
-        mCclock.setTextColor(getTint(mTintArea, mCclock, mIconTint));
         mNetworkTraffic.setDarkIntensity(mDarkIntensity);
         mCarrierLabel.setTextColor(getTint(mTintArea, mCarrierLabel, mIconTint));
         mDuLogo.setImageTintList(ColorStateList.valueOf(mIconTint));
@@ -666,8 +672,8 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
 
     private void updateClock() {
         FontSizeUtils.updateFontSize(mClock, R.dimen.status_bar_clock_size);
+        FontSizeUtils.updateFontSize(mCenterClock, R.dimen.status_bar_clock_size);
         FontSizeUtils.updateFontSize(mLeftClock, R.dimen.status_bar_clock_size);
-        FontSizeUtils.updateFontSize(mCclock, R.dimen.status_bar_clock_size);
         mClock.setPaddingRelative(
                 mContext.getResources().getDimensionPixelSize(
                         R.dimen.status_bar_clock_starting_padding),
@@ -675,14 +681,14 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
                 mContext.getResources().getDimensionPixelSize(
                         R.dimen.status_bar_clock_end_padding),
                 0);
-        mLeftClock.setPaddingRelative(
+        mCenterClock.setPaddingRelative(
                 mContext.getResources().getDimensionPixelSize(
                         R.dimen.status_bar_clock_starting_padding),
                 0,
                 mContext.getResources().getDimensionPixelSize(
                         R.dimen.status_bar_clock_end_padding),
                 0);
-        mCclock.setPaddingRelative(
+        mLeftClock.setPaddingRelative(
                 mContext.getResources().getDimensionPixelSize(
                         R.dimen.status_bar_clock_starting_padding),
                 0,
