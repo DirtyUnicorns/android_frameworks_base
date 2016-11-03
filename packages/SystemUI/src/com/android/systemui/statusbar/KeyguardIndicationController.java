@@ -79,6 +79,7 @@ public class KeyguardIndicationController {
     private int mChargingCurrent;
     private int mChargingVoltage;
     private int mChargingWattage;
+    private int mTemperature;
     private String mMessageToShowOnScreenOn;
 
     public KeyguardIndicationController(Context context, KeyguardIndicationTextView textView,
@@ -226,23 +227,35 @@ public class KeyguardIndicationController {
                 break;
         }
 
-        String chargingCurrent = "";
-        boolean showChargingCurrent = Settings.System.getIntForUser(mContext.getContentResolver(),
-            Settings.System.LOCKSCREEN_CHARGING_CURRENT, 0, UserHandle.USER_CURRENT) == 1;
+        String batteryInfo = "";
+        boolean showbatteryInfo = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.LOCKSCREEN_BATTERY_INFO, 0, UserHandle.USER_CURRENT) == 1;
 
-        if (mChargingCurrent != 0 && showChargingCurrent) {
-            chargingCurrent = "\n" + (mChargingCurrent / 1000) + "mAh / "
-                    + (mChargingVoltage / 1000 / 1000) + "V";
+        if (showbatteryInfo) {
+            if (mChargingCurrent > 0) {
+                batteryInfo = batteryInfo + (mChargingCurrent / 1000) + "mAh";
+            }
+            if (mChargingVoltage > 0) {
+                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
+                        (mChargingVoltage / 1000 / 1000) + "V";
+            }
+            if (mTemperature > 0) {
+                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
+                        mTemperature / 10 + "°C";
+            }
+            if (batteryInfo != "") {
+                batteryInfo = "\n" + batteryInfo;
+            }
         }
 
         if (hasChargingTime) {
             String chargingTimeFormatted = Formatter.formatShortElapsedTimeRoundingUpToMinutes(
                     mContext, chargingTimeRemaining);
             String chargingText = mContext.getResources().getString(chargingId, chargingTimeFormatted);
-            return chargingText + chargingCurrent;
+            return chargingText + batteryInfo;
         } else {
             String chargingText = mContext.getResources().getString(chargingId);
-            return chargingText + chargingCurrent;
+            return chargingText + batteryInfo;
         }
     }
 
@@ -258,6 +271,7 @@ public class KeyguardIndicationController {
             mChargingCurrent = status.maxChargingCurrent;
             mChargingVoltage = status.maxChargingVoltage;
             mChargingWattage = status.maxChargingWattage;
+            mTemperature = status.temperature;
             mChargingSpeed = status.getChargingSpeed(mSlowThreshold, mFastThreshold);
             updateIndication();
         }
