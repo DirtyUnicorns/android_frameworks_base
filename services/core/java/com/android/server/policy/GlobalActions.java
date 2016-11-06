@@ -148,6 +148,8 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private final boolean mShowSilentToggle;
     private static boolean mTorchEnabled = false;
 
+    private int mScreenshotDelay;
+
     /**
      * @param context everything needs a context :(
      */
@@ -214,6 +216,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
     private void handleShow() {
         awakenIfNecessary();
+        checkSettings();
         mDialog = createDialog();
         prepareDialog();
         WindowManager.LayoutParams attrs = mDialog.getWindow().getAttributes();
@@ -825,7 +828,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
 
                         // Needs delay or else we'll be taking a screenshot of the dialog each time
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(mScreenshotDelay);
                         } catch (InterruptedException ie) {
                             // Do nothing
                         }
@@ -1604,5 +1607,10 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             }
             return super.onKeyUp(keyCode, event);
         }
+    }
+
+    private void checkSettings() {
+        mScreenshotDelay = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SCREENSHOT_DELAY, 1000);
     }
 }
