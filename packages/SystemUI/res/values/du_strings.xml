@@ -98,4 +98,8 @@
     <string name="lockscreen_choose_action_title">Choose action</string>
     <string name="lockscreen_none_target">None</string>
 
+    <!-- Screenshot action -->
+    <string name="screenshot_abort_title">No screenshot taken</string>
+    <string name="screenshot_abort_text">Operation aborted</string>
+
 </resources>
