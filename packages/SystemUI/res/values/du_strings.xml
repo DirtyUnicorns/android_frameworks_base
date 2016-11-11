@@ -107,4 +107,7 @@
     <string name="bluetooth_battery_title">Show Bluetooth battery status</string>
     <string name="bluetooth_battery_summary">Show battery status for the currently connected bluetooth device, if available.</string>
 
+    <!-- Android Auto 2.0x QS tile -->
+    <string name="quick_settings_androidauto_label">Android Auto</string>
+
 </resources>
