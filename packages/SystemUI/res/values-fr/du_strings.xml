@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2014-2016 The Dirty Unicorns Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Notification which notifies user flashlight is enabled -->
+    <string name="quick_settings_tile_flashlight_not_title">Lampe de poche activée</string>
+    <string name="quick_settings_tile_flashlight_not_summary">Appuyer sur la notification pour éteindre la Lampe de poche</string>
+
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">L\'écran est en cours d\'enregistrement</string>
+
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Enregistrement de l\'écran</string>
+
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Arrêter</string>
+
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Afficher le pointeur</string>
+    <string name="screenrecord_notif_pointer_off">Masquer le pointeur</string>
+
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Impossible d\'enregistrer l\'écran</string>
+
+    <!-- Content description of the battery level icon for accessibility while the device is charging (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_battery_level_charging">Batterie en charge, <xliff:g id="battery_percentage">%d</xliff:g> percent.</string>
+
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Capture d\'écran supprimée</string>
+
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_statusbar_title">Éléments de la barre d\'état</string>
+    <string name="systemui_tuner_nightmode_title">Mode Nuit</string>
+
+    <!-- Quick Settings tiles -->
+    <string name="quick_settings_screenshot_label">Capture d\'écran</string>
+    <string name="quick_settings_adb_network">ADB par le réseau</string>
+    <string name="quick_settings_network_adb_enabled_label">Activé</string>
+    <string name="quick_settings_network_adb_disabled_label">Désactivé</string>
+    <string name="quick_settings_sync_label">Synchronisation</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisation activée</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronisation désactivée</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronisation activée</string>
+    <string name="quick_settings_expanded_desktop_label">Bureau étendu</string>
+    <string name="quick_settings_expanded_desktop">Étendu</string>
+    <string name="quick_settings_expanded_desktop_off">Normal</string>
+    <string name="quick_settings_reboot_label">Redémarrer</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="accessibility_quick_settings_usb_tether_off">Partage de connexion USB désactivé</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Partage de connexion USB activé</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">Partage de connexion USB désactivé</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">Partage de connexion USB activé</string>
+    <string name="quick_settings_usb_tether_label">Partage de connexion USB</string>
+    <string name="quick_settings_music_label">Musique</string>
+    <string name="quick_settings_music_play">Lecture</string>
+    <string name="quick_settings_music_pause">Pause</string>
+    <string name="quick_settings_ime_tile_label">Mode de saisie</string>
+    <string name="quick_settings_caffeine_label">Caféine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caféine désactivée</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caféine activée</string>
+
+    <!-- Show lte/4g switch -->
+    <string name="show_lte_fourgee_title">Icône \"4G\"</string>
+    <string name="show_lte_fourgee_summary">Utiliser l\'icône \"4G\" dans la barre d\'état plutôt que \"LTE\"</string>
+    <string name="statusbar_tuner_category_title">Éléments de la barre d\'état à afficher</string>
+
+    <!-- Navigation bar Tile -->
+    <string name="quick_settings_navigation_bar">Barre de navigation</string>
+    <string name="quick_settings_smartbar">SmartBar</string>
+    <string name="quick_settings_smartbar_off">SmartBar désactivée</string>
+    <string name="quick_settings_fling">Fling</string>
+    <string name="quick_settings_fling_off">Fling désactivé</string>
+
+    <!-- DU Logo -->
+    <string name="status_bar_du_logo_title">DU logo</string>
+    <string name="status_bar_du_logo_summary">Afficher le logo de DU sur la gauche de la barre d\'état﻿</string>
+
+    <!-- Lockscreen shortcuts -->
+    <string name="left_shortcut_hint">Glisser à droite pour %1$s</string>
+    <string name="right_shortcut_hint">Glisser à gauche pour %1$s</string>
+    <string name="lockscreen_message">Appuyer sur l\'icône de gauche ou de droite pour attribuer un raccourci</string>
+    <string name="lockscreen_default_target">Par défaut</string>
+    <string name="select_application">Sélectionner une application</string>
+    <string name="lockscreen_choose_action_title">Raccourci</string>
+    <string name="lockscreen_none_target">Aucun</string>
+
+    <!-- Screenshot action -->
+    <string name="screenshot_abort_title">Aucune capture d\'écran</string>
+    <string name="screenshot_abort_text">Opération annulée</string>
+
+</resources>
