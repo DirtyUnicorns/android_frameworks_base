@@ -1019,10 +1019,10 @@
     <string name="unsupported_display_size_show" msgid="7969129195360353041">"Həmişə göstərin"</string>
     <string name="smv_application" msgid="3307209192155442829">"Tətbiq <xliff:g id="APPLICATION">%1$s</xliff:g> (proses <xliff:g id="PROCESS">%2$s</xliff:g>) StrictMode siyasətini pozdu."</string>
     <string name="smv_process" msgid="5120397012047462446">"<xliff:g id="PROCESS">%1$s</xliff:g> prosesi StrictMode siyasətini pozdu."</string>
-    <string name="android_upgrading_title" msgid="1584192285441405746">"Dirty Unicorns təkmilləşdirilir..."</string>
-    <string name="android_start_title" msgid="8418054686415318207">"Dirty Unicorns işə başlayır..."</string>
+    <string name="android_upgrading_title" msgid="1584192285441405746">"Android təkmilləşdirilir..."</string>
+    <string name="android_start_title" msgid="8418054686415318207">"Android işə başlayır..."</string>
     <string name="android_upgrading_fstrim" msgid="8036718871534640010">"Yaddaş optimallaşdırılır."</string>
-    <string name="android_upgrading_notification_title" msgid="1619393112444671028">"Dirty Unicorns təkmilləşdirilir"</string>
+    <string name="android_upgrading_notification_title" msgid="1619393112444671028">"Android təkmilləşdirilir"</string>
     <string name="android_upgrading_notification_body" msgid="5761201379457064286">"Güncəllənmə tamamlanana kimi bəzi tətbiqlər düzgün işləməyə bilər"</string>
     <string name="android_upgrading_apk" msgid="7904042682111526169">"<xliff:g id="NUMBER_1">%2$d</xliff:g> əddədən <xliff:g id="NUMBER_0">%1$d</xliff:g> tətbiq optimallaşır."</string>
     <string name="android_preparing_apk" msgid="8162599310274079154">"<xliff:g id="APPNAME">%1$s</xliff:g> proqramının hazırlanması."</string>

@@ -1042,10 +1042,10 @@
     <string name="unsupported_display_size_show" msgid="7969129195360353041">"Rādīt vienmēr"</string>
     <string name="smv_application" msgid="3307209192155442829">"Lietotne <xliff:g id="APPLICATION">%1$s</xliff:g> (process <xliff:g id="PROCESS">%2$s</xliff:g>) ir pārkāpusi savu pašieviesto StrictMode politiku."</string>
     <string name="smv_process" msgid="5120397012047462446">"Process <xliff:g id="PROCESS">%1$s</xliff:g> ir pārkāpis savu pašieviesto StrictMode politiku."</string>
-    <string name="android_upgrading_title" msgid="1584192285441405746">"Notiek Dirty Unicorns jaunināšana..."</string>
-    <string name="android_start_title" msgid="8418054686415318207">"Notiek Dirty Unicorns palaišana…"</string>
+    <string name="android_upgrading_title" msgid="1584192285441405746">"Notiek Android jaunināšana..."</string>
+    <string name="android_start_title" msgid="8418054686415318207">"Notiek Android palaišana…"</string>
     <string name="android_upgrading_fstrim" msgid="8036718871534640010">"Notiek krātuves optimizēšana."</string>
-    <string name="android_upgrading_notification_title" msgid="1619393112444671028">"Notiek Dirty Unicorns jaunināšana..."</string>
+    <string name="android_upgrading_notification_title" msgid="1619393112444671028">"Notiek Android jaunināšana..."</string>
     <string name="android_upgrading_notification_body" msgid="5761201379457064286">"Kamēr jaunināšana nebūs pabeigta, dažas lietotnes, iespējams, nedarbosies pareizi."</string>
     <string name="android_upgrading_apk" msgid="7904042682111526169">"Tiek optimizēta <xliff:g id="NUMBER_0">%1$d</xliff:g>. lietotne no <xliff:g id="NUMBER_1">%2$d</xliff:g>."</string>
     <string name="android_preparing_apk" msgid="8162599310274079154">"Notiek lietotnes <xliff:g id="APPNAME">%1$s</xliff:g> sagatavošana."</string>

@@ -1020,7 +1020,7 @@
     <string name="smv_application" msgid="3307209192155442829">"app <xliff:g id="APPLICATION">%1$s</xliff:g> (လုပ်ငန်းစဉ် <xliff:g id="PROCESS">%2$s</xliff:g>) က ကိုယ်တိုင် ပြဌာန်းခဲ့သည့် StrictMode မူဝါဒကို ချိုးဖောက်ခဲ့သည်။"</string>
     <string name="smv_process" msgid="5120397012047462446">"ဤ<xliff:g id="PROCESS">%1$s</xliff:g>ဖြစ်စဥ်မှာ ကိုယ်တိုင်အကျိုးသက်ရောက်သော StrictModeမူဝါဒအား ချိုးဖောက်သည်"</string>
     <string name="android_upgrading_title" msgid="1584192285441405746">"အန်ဒရွိုက်ကို မွမ်းမံနေ…"</string>
-    <string name="android_start_title" msgid="8418054686415318207">"Dirty Unicorns စတင်နေ…"</string>
+    <string name="android_start_title" msgid="8418054686415318207">"Android စတင်နေ…"</string>
     <string name="android_upgrading_fstrim" msgid="8036718871534640010">"သိုလှောင်မှုအား ပြုပြင်ခြင်း။"</string>
     <string name="android_upgrading_notification_title" msgid="1619393112444671028">"Android ကိုအဆင့်မြှင့်တင်နေပါသည်"</string>
     <string name="android_upgrading_notification_body" msgid="5761201379457064286">"အဆင့်မြှင့်တင်ခြင်း မပြီးဆုံးသေးသ၍ အချို့အက်ပ်များကို ကောင်းမွန်စွာအသုံးပြုနိုင်ဦးမည် မဟုတ်ပါ"</string>

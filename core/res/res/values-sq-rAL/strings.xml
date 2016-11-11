@@ -1019,10 +1019,10 @@
     <string name="unsupported_display_size_show" msgid="7969129195360353041">"Shfaq gjithmonë"</string>
     <string name="smv_application" msgid="3307209192155442829">"Aplikacioni <xliff:g id="APPLICATION">%1$s</xliff:g> (procesi <xliff:g id="PROCESS">%2$s</xliff:g>) ka shkelur politikën e tij të vetë-imponuar \"Modaliteti i ashpër\" (StrictMode)."</string>
     <string name="smv_process" msgid="5120397012047462446">"Procesi <xliff:g id="PROCESS">%1$s</xliff:g> ka shkelur politikën e tij të vetë-imponuar \"Modaliteti i rreptë\" (StrictMode)"</string>
-    <string name="android_upgrading_title" msgid="1584192285441405746">"\"Dirty Unicorns\" po përditësohet…"</string>
-    <string name="android_start_title" msgid="8418054686415318207">"\"Dirty Unicorns\" po fillon…"</string>
+    <string name="android_upgrading_title" msgid="1584192285441405746">"\"Androidi\" po përditësohet…"</string>
+    <string name="android_start_title" msgid="8418054686415318207">"\"Androidi\" po fillon…"</string>
     <string name="android_upgrading_fstrim" msgid="8036718871534640010">"Po përshtat ruajtjen."</string>
-    <string name="android_upgrading_notification_title" msgid="1619393112444671028">"Dirty Unicorns po përmirësohet"</string>
+    <string name="android_upgrading_notification_title" msgid="1619393112444671028">"Android po përmirësohet"</string>
     <string name="android_upgrading_notification_body" msgid="5761201379457064286">"Disa aplikacione mund të mos funksionojnë si duhet deri sa të përfundojë përmirësimi"</string>
     <string name="android_upgrading_apk" msgid="7904042682111526169">"Po përshtat aplikacionin <xliff:g id="NUMBER_0">%1$d</xliff:g> nga gjithsej <xliff:g id="NUMBER_1">%2$d</xliff:g>."</string>
     <string name="android_preparing_apk" msgid="8162599310274079154">"Po përgatit <xliff:g id="APPNAME">%1$s</xliff:g>."</string>

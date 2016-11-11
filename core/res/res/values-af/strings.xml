@@ -1019,12 +1019,12 @@
     <string name="unsupported_display_size_show" msgid="7969129195360353041">"Wys altyd"</string>
     <string name="smv_application" msgid="3307209192155442829">"Die program <xliff:g id="APPLICATION">%1$s</xliff:g> (proses <xliff:g id="PROCESS">%2$s</xliff:g>) het sy selfopgelegde StrictMode-beleid oortree."</string>
     <string name="smv_process" msgid="5120397012047462446">"Die proses <xliff:g id="PROCESS">%1$s</xliff:g> het die selfopgelegde StrictMode-beleid geskend."</string>
-    <string name="android_upgrading_title" msgid="1584192285441405746">"Dirty Unicorns gradeer tans op..."</string>
-    <string name="android_start_title" msgid="8418054686415318207">"Dirty Unicorns begin tans …"</string>
-    <string name="android_upgrading_fstrim" msgid="8036718871534640010">"Dirtying tans berging."</string>
-    <string name="android_upgrading_notification_title" msgid="1619393112444671028">"Dirty Unicorns gradeer tans op"</string>
+    <string name="android_upgrading_title" msgid="1584192285441405746">"Android gradeer tans op..."</string>
+    <string name="android_start_title" msgid="8418054686415318207">"Android begin tans …"</string>
+    <string name="android_upgrading_fstrim" msgid="8036718871534640010">"Optimeer tans berging."</string>
+    <string name="android_upgrading_notification_title" msgid="1619393112444671028">"Android gradeer tans op"</string>
     <string name="android_upgrading_notification_body" msgid="5761201379457064286">"Sommige programme sal dalk nie behoorlik werk voordat die opgradering voltooi is nie"</string>
-    <string name="android_upgrading_apk" msgid="7904042682111526169">"Dirtying program <xliff:g id="NUMBER_0">%1$d</xliff:g> van <xliff:g id="NUMBER_1">%2$d</xliff:g>."</string>
+    <string name="android_upgrading_apk" msgid="7904042682111526169">"Optimeer program <xliff:g id="NUMBER_0">%1$d</xliff:g> van <xliff:g id="NUMBER_1">%2$d</xliff:g>."</string>
     <string name="android_preparing_apk" msgid="8162599310274079154">"Berei tans <xliff:g id="APPNAME">%1$s</xliff:g> voor."</string>
     <string name="android_upgrading_starting_apps" msgid="451464516346926713">"Begin programme."</string>
     <string name="android_upgrading_complete" msgid="1405954754112999229">"Voltooi herlaai."</string>
