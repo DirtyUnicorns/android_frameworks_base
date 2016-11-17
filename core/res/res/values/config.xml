@@ -116,17 +116,17 @@
     <bool name="config_sendAudioBecomingNoisy">true</bool>
 
     <!-- The duration (in milliseconds) of a short animation. -->
-    <integer name="config_shortAnimTime">100</integer>
+    <integer name="config_shortAnimTime">200</integer>
 
     <!-- The duration (in milliseconds) of a medium-length animation. -->
-    <integer name="config_mediumAnimTime">200</integer>
+    <integer name="config_mediumAnimTime">400</integer>
 
     <!-- The duration (in milliseconds) of a long animation. -->
-    <integer name="config_longAnimTime">250</integer>
+    <integer name="config_longAnimTime">500</integer>
 
     <!-- The duration (in milliseconds) of the activity open/close and fragment open/close animations. -->
-    <integer name="config_activityShortDur">75</integer>
-    <integer name="config_activityDefaultDur">110</integer>
+    <integer name="config_activityShortDur">150</integer>
+    <integer name="config_activityDefaultDur">220</integer>
 
     <!-- Duration for the dim animation behind a dialog.  This may be either
          a percentage, which is relative to the duration of the enter/open
@@ -925,29 +925,11 @@
     <!-- Default value for led color when battery is fully charged -->
     <integer name="config_notificationsBatteryFullARGB">0xFFFFFF00</integer>
 
-    <!-- Default value for led color when battery is really fully charged -->
-    <integer name="config_notificationsBatteryReallyFullARGB">0xFF00FF00</integer>
-
     <!-- Default value for LED on time when the battery is low on charge in miliseconds -->
     <integer name="config_notificationsBatteryLedOn">125</integer>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">false</bool>
-
-    <!-- Does the notification LED support multiple colors?
-         Used to decide if the user can change the colors -->
-    <bool name="config_multiColorNotificationLed">false</bool>
-
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">false</bool>
-
-    <!-- Does the battery LED support multiple colors?
-         Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">false</bool>
-
-    <!-- Do the battery/notification LEDs support pulsing?
-         Used to decide if we show pulse settings -->
-    <bool name="config_ledCanPulse">false</bool>
 
     <!-- Default value for LED off time when the battery is low on charge in miliseconds -->
     <integer name="config_notificationsBatteryLedOff">2875</integer>
@@ -1917,16 +1899,6 @@
         <item>100</item>
     </integer-array>
 
-    <!-- Vibrator pattern to be used as for notifications while alerts
-         are disabled (e.g. during phone calls) if enabled by the user.
-     -->
-    <integer-array name="config_notificationNoAlertsVibePattern">
-        <item>0</item>
-        <item>50</item>
-        <item>100</item>
-        <item>50</item>
-    </integer-array>
-
     <!-- Flag indicating if the speed up audio on mt call code should be executed -->
     <bool name="config_speed_up_audio_on_mt_calls">false</bool>
 
@@ -2093,12 +2065,7 @@
          on the current state of the device.
          Each item must be one of the following strings:
          "power" = Power off
-         "reboot" = Reboot
-         "screenshot" = Take screenshot
-         "screenrecord" = Take screen recording
-         "torch" = Toggle torch
          "settings" = An action to launch settings
-         "lockdown" = An action to lock it down
          "airplane" = Airplane mode toggle
          "bugreport" = Take bug report, if available
          "silent" = silent mode
@@ -2106,15 +2073,8 @@
          -->
     <string-array translatable="false" name="config_globalActionsList">
         <item>power</item>
-        <item>reboot</item>
-        <item>screenshot</item>
-        <item>screenrecord</item>
-        <item>torch</item>
-        <item>airplane</item>
-        <item>settings</item>
-        <item>lockdown</item>
+        <item>bugreport</item>
         <item>users</item>
-        <item>silent</item>
     </string-array>
 
     <!-- Number of milliseconds to hold a wake lock to ensure that drawing is fully
@@ -2198,12 +2158,6 @@
 
     <bool name="config_networkSamplingWakesDevice">true</bool>
 
-    <!-- Path to the library that contains a device specific key handler -->
-    <string name="config_deviceKeyHandlerLib" translatable="false"></string>
-
-    <!-- Name of that key handler class -->
-    <string name="config_deviceKeyHandlerClass" translatable="false"></string>
-
     <string-array translatable="false" name="config_cdma_home_system" />
 
     <!--From SmsMessage-->
@@ -2224,9 +2178,6 @@
     </string-array>
 
     <bool name="config_auto_attach_data_on_creation">true</bool>
-
-    <!-- True if the gesture service should be started at system start -->
-    <bool name="config_enableGestureService">false</bool>
 
     <!-- Values for GPS configuration -->
     <string-array translatable="false" name="config_gpsParameters">
@@ -2534,12 +2485,5 @@
     <!-- Default files to pin via Pinner Service -->
     <string-array translatable="false" name="config_defaultPinnerServiceFiles">
     </string-array>
-
-    <!-- Default value for proximity check on screen wake
-         NOTE ! - Enable for devices that have a fast response proximity sensor (ideally < 300ms)
-    -->
-    <bool name="config_proximityCheckOnWake">false</bool>
-    <integer name="config_proximityCheckTimeout">250</integer>
-    <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
 
 </resources>
