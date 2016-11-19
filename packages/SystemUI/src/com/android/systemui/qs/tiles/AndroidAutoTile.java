@@ -43,13 +43,9 @@ public class AndroidAutoTile extends QSTile<QSTile.BooleanState> {
     private void callApp() {
         mHost.collapsePanels();
         Intent intent = new Intent(Intent.ACTION_MAIN);
-        if (isNewVersion()) {
-            intent.setClassName(androidautoPackage,
-                "com.google.android.gearhead.vanagon.VnLaunchPadActivity");
-        } else {
-            intent.setClassName(androidautoPackage,
-                "com.google.android.projection.gearhead.companion.SplashScreenActivity");
-        }
+        intent.setClassName(androidautoPackage, isNewVersion() ?
+                                            "com.google.android.gearhead.vanagon.VnLaunchPadActivity" :
+                                            "com.google.android.projection.gearhead.companion.SplashScreenActivity");
         mHost.startActivityDismissingKeyguard(intent);
     }
 
@@ -74,11 +70,7 @@ public class AndroidAutoTile extends QSTile<QSTile.BooleanState> {
             String version = info.versionName;
             String cut = version.substring(0,1);
             int ver = Integer.parseInt(cut);
-            if (ver == 1) {
-                return false;
-            } else {
-                return true;
-            }
+            return ver != 1;
         } catch (Exception e) {
             //catch PackageManager exception -it should not happen because we check it in
             //isPackageInstalled- and if parseInt gives any exception, assume we have the new
@@ -111,8 +103,7 @@ public class AndroidAutoTile extends QSTile<QSTile.BooleanState> {
     @Override
     public void handleUpdateState(BooleanState state, Object arg) {
         state.label = mContext.getString(R.string.quick_settings_androidauto_label);
-        state.contentDescription = mContext.getString(
-                R.string.quick_settings_androidauto_label);
+        state.contentDescription = mContext.getString(R.string.quick_settings_androidauto_label);
         state.icon = ResourceIcon.get(R.drawable.ic_qs_androidauto);
     }
 
