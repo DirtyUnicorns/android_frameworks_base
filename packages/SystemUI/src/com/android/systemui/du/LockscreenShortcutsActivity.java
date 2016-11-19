@@ -1,9 +1,5 @@
 package com.android.systemui.du;
 
-import com.android.settingslib.du.ShortcutPickHelper;
-import com.android.systemui.R;
-import com.android.systemui.du.LockscreenShortcutsHelper.Shortcuts;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -19,6 +15,10 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.android.settingslib.du.ShortcutPickHelper;
+import com.android.systemui.R;
+import com.android.systemui.du.LockscreenShortcutsHelper.Shortcuts;
 
 import java.util.ArrayList;
 
@@ -98,7 +98,10 @@ public class LockscreenShortcutsActivity extends Activity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lockscreen_shortcuts);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        if (getActionBar() != null) {
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         mPicker = new ShortcutPickHelper(this, this);
         mShortcutHelper = new LockscreenShortcutsHelper(this, this);
