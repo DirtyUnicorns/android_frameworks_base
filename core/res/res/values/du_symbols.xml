@@ -82,4 +82,7 @@
   <!-- Config.xml entries -->
   <java-symbol type="bool" name="config_samsung_stk" />
 
+  <!-- Hardware key binding -->
+  <java-symbol type="integer" name="config_deviceHardwareKeys" />
+
 </resources>
