@@ -3932,6 +3932,12 @@ public final class Settings {
         public static final String MUSIC_TILE_TITLE = "music_tile_title";
 
         /**
+         * Whether to display qs tile titles in the qs panel
+         * @hide
+         */
+        public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
+
+        /**
          * Disable dashboard conditions in settings
          * @hide
          */
