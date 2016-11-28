@@ -260,8 +260,12 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             tiles.add(tile);
         }
         mTileAdapter.resetTileSpecs(mHost, tiles);
+        // reset QS panel columns
         Settings.Secure.putInt(mContext.getContentResolver(),
                 Settings.Secure.QS_LAYOUT_COLUMNS, mDefaultColumns);
+        // reset QS tile title visibility
+        Settings.System.putInt(mContext.getContentResolver(),
+                Settings.System.QS_TILE_TITLE_VISIBILITY, 1);
     }
 
     private void setTileSpecs() {
