@@ -7131,7 +7131,7 @@ public final class Settings {
          */
         public static final String TWILIGHT_MODE = "twilight_mode";
 
-       /**
+        /**
          * Status bar battery %
          * 0: Hide the battery percentage
          * 1: Display the battery percentage inside the icon
@@ -7159,18 +7159,28 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERY_STYLE_TILE = "status_bar_battery_style_tile";
 
         /**
-          * battery icon color when charging
-          *
-          * @hide
-        */
-         public static final String STATUS_BAR_CHARGE_COLOR = "status_bar_charge_color";
+         * Battery icon color while charging
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_CHARGE_COLOR = "status_bar_charge_color";
 
         /**
-          * Whether to force percentage text out of the battery icon when charging
-          *
-          * @hide
-        */
-         public static final String FORCE_CHARGE_BATTERY_TEXT = "force_charge_battery_text";
+         * Whether to force percentage text out of the battery icon while charging
+         *
+         * @hide
+         */
+        public static final String FORCE_CHARGE_BATTERY_TEXT = "force_charge_battery_text";
+
+        /**
+         * Charging symbol near battery text percentage
+         * 0: no symbol
+         * 1: flash symbol
+         * 2: tilde symbol
+         * default: 0
+         * @hide
+         */
+        public static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
 
         /**
          * Twilight mode always off.
