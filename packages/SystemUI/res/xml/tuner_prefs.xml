@@ -36,6 +36,13 @@
             android:summary="@string/bluetooth_battery_summary"
             android:defaultValue="false" />
 
+        <SwitchPreference
+            android:key="data_activity_arrows"
+            android:title="@string/data_wifi_activity_arrows_title"
+            android:summaryOn="@string/data_wifi_activity_arrows_summary_on"
+            android:summaryOff="@string/data_wifi_activity_arrows_summary_off"
+            android:defaultValue="false" />
+
         <PreferenceCategory
             android:key="hide_statusbar_items"
             android:title="@string/statusbar_tuner_category_title">
