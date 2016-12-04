@@ -5765,7 +5765,7 @@ public final class Settings {
          * @hide
          */
         public static final String PULSE_LAVALAMP_SOLID_SPEED = "lava_lamp_solid_speed";
- 
+
         /**
          * A flag containing settings used for biometric weak
          * @hide
@@ -6895,7 +6895,6 @@ public final class Settings {
          */
         public static final String DOZE_ENABLED = "doze_enabled";
 
-        /**
         /**
          * Disable hw buttons - actions, brightness, haptic feedback, overflow menu
          * @hide

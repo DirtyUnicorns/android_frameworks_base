@@ -498,8 +498,6 @@ public class SignalClusterView
                     (mWifiVisible ? "VISIBLE" : "GONE"),
                     mWifiStrengthId));
 
-        mWifiActivity.setVisibility(mWifiActivityId != 0 ? View.VISIBLE : View.GONE);
-
         if (Settings.System.getInt(mContext.getContentResolver(),
              Settings.System.DATA_ACTIVITY_ARROWS, 0) == 1) {
              mWifiActivity.setVisibility(mWifiActivityId != 0 ? View.VISIBLE : View.GONE);
