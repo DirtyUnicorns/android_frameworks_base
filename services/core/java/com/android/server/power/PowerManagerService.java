@@ -114,6 +114,8 @@ public final class PowerManagerService extends SystemService
     // Message: Polling to look for long held wake locks.
     private static final int MSG_CHECK_FOR_LONG_WAKELOCKS = 4;
 
+    private static final float PROXIMITY_NEAR_THRESHOLD = 5.0f;
+
     private static final int MSG_WAKE_UP = 5;
 
     // Dirty bit: mWakeLocks changed
@@ -186,8 +188,6 @@ public final class PowerManagerService extends SystemService
     private static final int HALT_MODE_SHUTDOWN = 0;
     private static final int HALT_MODE_REBOOT = 1;
     private static final int HALT_MODE_REBOOT_SAFE_MODE = 2;
-
-    private static final float PROXIMITY_NEAR_THRESHOLD = 5.0f;
 
     private final Context mContext;
     private final ServiceThread mHandlerThread;
@@ -861,9 +861,10 @@ public final class PowerManagerService extends SystemService
     }
 
     private void updateLowPowerModeLocked() {
-        if (mIsPowered && mLowPowerModeSetting) {
+        if ((mIsPowered || !mBatteryLevelLow && !mBootCompleted) && mLowPowerModeSetting) {
             if (DEBUG_SPEW) {
-                Slog.d(TAG, "updateLowPowerModeLocked: powered, turning setting off");
+                Slog.d(TAG, "updateLowPowerModeLocked: powered or booting with sufficient battery,"
+                        + " turning setting off");
             }
             // Turn setting off if powered
             Settings.Global.putInt(mContext.getContentResolver(),
@@ -2600,18 +2601,18 @@ public final class PowerManagerService extends SystemService
 
     boolean setDeviceIdleModeInternal(boolean enabled) {
         synchronized (mLock) {
-            if (mDeviceIdleMode != enabled) {
-                mDeviceIdleMode = enabled;
-                updateWakeLockDisabledStatesLocked();
-                if (enabled) {
-                    EventLogTags.writeDeviceIdleOnPhase("power");
-                } else {
-                    EventLogTags.writeDeviceIdleOffPhase("power");
-                }
-                return true;
+            if (mDeviceIdleMode == enabled) {
+                return false;
             }
-            return false;
+            mDeviceIdleMode = enabled;
+            updateWakeLockDisabledStatesLocked();
         }
+        if (enabled) {
+            EventLogTags.writeDeviceIdleOnPhase("power");
+        } else {
+            EventLogTags.writeDeviceIdleOffPhase("power");
+        }
+        return true;
     }
 
     boolean setLightDeviceIdleModeInternal(boolean enabled) {
@@ -3165,14 +3166,12 @@ public final class PowerManagerService extends SystemService
                 case MSG_SCREEN_BRIGHTNESS_BOOST_TIMEOUT:
                     handleScreenBrightnessBoostTimeout();
                     break;
-<<<<<<< HEAD
+                case MSG_CHECK_FOR_LONG_WAKELOCKS:
+                    checkForLongWakeLocks();
+                    break;
                 case MSG_WAKE_UP:
                     cleanupProximity();
                     ((Runnable) msg.obj).run();
-=======
-                case MSG_CHECK_FOR_LONG_WAKELOCKS:
-                    checkForLongWakeLocks();
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
                     break;
             }
         }

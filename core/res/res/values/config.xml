@@ -768,7 +768,7 @@
 
     <!-- Control whether Night display is available. This should only be enabled on devices
          with HWC 2.0 or higher. -->
-    <bool name="config_nightDisplayAvailable">false</bool>
+    <bool name="config_nightDisplayAvailable">true</bool>
 
     <!-- Default mode to control how Night display is automatically activated.
          One of the following values (see NightDisplayController.java):
@@ -1661,6 +1661,12 @@
          turned off and the screen off animation has been performed. -->
     <bool name="config_dozeAfterScreenOff">false</bool>
 
+    <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
+    <bool name="config_dozePulsePickup">false</bool>
+
+    <!-- Type of the double tap sensor. Empty if double tap is not supported. -->
+    <string name="config_dozeDoubleTapSensorType" translatable="false"></string>
+
     <!-- Power Management: Specifies whether to decouple the auto-suspend state of the
          device from the display on/off state.
 
@@ -2078,18 +2084,28 @@
          on the current state of the device.
          Each item must be one of the following strings:
          "power" = Power off
+         "reboot" = Reboot
+         "screenshot" = Take screenshot
+         "screenrecord" = Take screen recording
+         "torch" = Toggle torch
          "settings" = An action to launch settings
+         "lockdown" = An action to lock it down
          "airplane" = Airplane mode toggle
          "bugreport" = Take bug report, if available
          "silent" = silent mode
          "users" = list of users
-         "restart" = restart device
          -->
     <string-array translatable="false" name="config_globalActionsList">
         <item>power</item>
-        <item>restart</item>
-        <item>bugreport</item>
+        <item>reboot</item>
+        <item>screenshot</item>
+        <item>screenrecord</item>
+        <item>torch</item>
+        <item>airplane</item>
+        <item>settings</item>
+        <item>lockdown</item>
         <item>users</item>
+        <item>silent</item>
     </string-array>
 
     <!-- Number of milliseconds to hold a wake lock to ensure that drawing is fully
@@ -2157,6 +2173,11 @@
 
     <!-- Flag specifying whether VT is available on device -->
     <bool name="config_device_vt_available">false</bool>
+
+    <!-- Flag specifying whether the device will use the "allow_hold_in_ims_call" carrier config
+         option.  When false, the device will support holding of IMS calls, regardless of the
+         carrier config setting. -->
+    <bool name="config_device_respects_hold_carrier_config">true</bool>
 
     <!-- Flag specifying whether VT should be available for carrier: independent of
          carrier provisioning. If false: hard disabled. If true: then depends on carrier
@@ -2300,8 +2321,8 @@
     <!-- An array of CDMA roaming indicators which means international roaming -->
     <integer-array translatable="false" name="config_cdma_international_roaming_indicators" />
 
-    <!-- set the system language as value of EF LI/EF PL -->
-    <bool name="config_use_sim_language_file">true</bool>
+    <!-- flag to indicate if EF LI/EF PL should be used for system language -->
+    <bool name="config_use_sim_language_file">false</bool>
 
     <!-- Use ERI text for network name on CDMA LTE -->
     <bool name="config_LTE_eri_for_network_name">true</bool>
@@ -2521,6 +2542,16 @@
     <!-- True if the device supports system navigation keys. -->
     <bool name="config_supportSystemNavigationKeys">false</bool>
 
+    <!-- emergency call number for the emergency affordance -->
+    <string name="config_emergency_call_number" translatable="false">112</string>
+
+    <!-- Do not translate. Mcc codes whose existence trigger the presence of emergency
+         affordances-->
+    <integer-array name="config_emergency_mcc_codes" translatable="false">
+        <item>404</item>
+        <item>405</item>
+    </integer-array>
+
     <!-- Package name for the device provisioning package. -->
     <string name="config_deviceProvisioningPackage"></string>
 
@@ -2540,4 +2571,15 @@
         <!-- Verizon requires any SMS that starts with //VZWVVM to be treated as a VVM SMS-->
         <item>310004,310010,310012,310013,310590,310890,310910,311110,311270,311271,311272,311273,311274,311275,311276,311277,311278,311279,311280,311281,311282,311283,311284,311285,311286,311287,311288,311289,311390,311480,311481,311482,311483,311484,311485,311486,311487,311488,311489;^//VZWVVM.*</item>
     </string-array>
+    <!-- This config is holding calling number conversion map - expected to convert to emergency
+         number. Formats for this config as below:
+         <item>[dialstring1],[dialstring2],[dialstring3]:[replacement]</item>
+
+         E.g. for Taiwan Type Approval, 110 and 119 should be converted to 112.
+         <item>110,119:112</item>
+    -->
+    <string-array translatable="false" name="config_convert_to_emergency_number_map" />
+
+    <!-- An array of packages for which notifications cannot be blocked. -->
+    <string-array translatable="false" name="config_nonBlockableNotificationPackages" />
 </resources>

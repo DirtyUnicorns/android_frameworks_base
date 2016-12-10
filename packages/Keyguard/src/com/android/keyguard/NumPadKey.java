@@ -90,8 +90,8 @@ public class NumPadKey extends ViewGroup {
         setOnClickListener(mListener);
         setOnHoverListener(new LiftToActivateListener(context));
         setAccessibilityDelegate(new ObscureSpeechDelegate(context));
-
         mEnableHaptics = new LockPatternUtils(context).isTactileFeedbackEnabled();
+
         mPM = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
@@ -139,8 +139,6 @@ public class NumPadKey extends ViewGroup {
         }
     }
 
-<<<<<<< HEAD
-=======
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
@@ -148,15 +146,6 @@ public class NumPadKey extends ViewGroup {
         }
         return super.onTouchEvent(event);
     }
-
-    @Override
-    public void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-
-        // Reset the "announced headset" flag when detached.
-        ObscureSpeechDelegate.sAnnouncedHeadset = false;
-    }
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {

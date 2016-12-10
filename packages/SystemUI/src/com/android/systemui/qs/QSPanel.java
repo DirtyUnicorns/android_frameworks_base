@@ -30,8 +30,6 @@ import android.os.UserHandle;
 import android.os.Vibrator;
 import android.provider.Settings;
 import android.util.AttributeSet;
-<<<<<<< HEAD
-import android.util.Log;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AnticipateInterpolator;
@@ -40,8 +38,6 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
-=======
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;

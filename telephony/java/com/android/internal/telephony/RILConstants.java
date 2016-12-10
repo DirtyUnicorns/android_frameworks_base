@@ -461,9 +461,6 @@ cat include/telephony/ril.h | \
     int RIL_UNSOL_ON_SS = 1043;
     int RIL_UNSOL_STK_CC_ALPHA_NOTIFY = 1044;
     int RIL_UNSOL_LCEDATA_RECV = 1045;
-<<<<<<< HEAD
-    int RIL_UNSOL_STK_SEND_SMS_RESULT = 11002; /* Samsung STK */
-=======
     int RIL_UNSOL_PCO_DATA = 1046;
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
+    int RIL_UNSOL_STK_SEND_SMS_RESULT = 11002; /* Samsung STK */
 }

@@ -21,12 +21,9 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-<<<<<<< HEAD
 import android.content.Intent;
 import android.content.IntentFilter;
-=======
 import android.content.pm.PackageManager;
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
@@ -39,6 +36,8 @@ import android.util.Log;
 
 import com.android.systemui.R;
 
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
@@ -56,8 +55,6 @@ public class FlashlightController {
 
     private static final String ACTION_TURN_FLASHLIGHT_OFF = "com.android.systemui.action.TURN_FLASHLIGHT_OFF";
 
-    private Context mContext;
-
     private final CameraManager mCameraManager;
     private final Context mContext;
     /** Call {@link #ensureHandler()} before using */
@@ -72,7 +69,6 @@ public class FlashlightController {
     private String mCameraId;
     private boolean mTorchAvailable;
 
-<<<<<<< HEAD
     private Notification mNotification = null;
     private boolean mReceiverRegistered;
     private BroadcastReceiver mReceiver = new BroadcastReceiver() {
@@ -96,12 +92,8 @@ public class FlashlightController {
         }
     };
 
-    public FlashlightController(Context mContext) {
-        this.mContext = mContext;
-=======
     public FlashlightController(Context context) {
         mContext = context;
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
         mCameraManager = (CameraManager) mContext.getSystemService(Context.CAMERA_SERVICE);
 
         tryInitCamera();
@@ -124,6 +116,7 @@ public class FlashlightController {
     public void setFlashlight(boolean enabled) {
         boolean pendingError = false;
         synchronized (this) {
+            if (mCameraId == null) return;
             if (mFlashlightEnabled != enabled) {
                 mFlashlightEnabled = enabled;
                 try {
@@ -336,6 +329,17 @@ public class FlashlightController {
             }
         }
     };
+
+    public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
+        pw.println("FlashlightController state:");
+
+        pw.print("  mCameraId=");
+        pw.println(mCameraId);
+        pw.print("  mFlashlightEnabled=");
+        pw.println(mFlashlightEnabled);
+        pw.print("  mTorchAvailable=");
+        pw.println(mTorchAvailable);
+    }
 
     public interface FlashlightListener {
 

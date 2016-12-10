@@ -23,11 +23,6 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-<<<<<<< HEAD
-import libcore.io.IoUtils;
-
-=======
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.IOException;

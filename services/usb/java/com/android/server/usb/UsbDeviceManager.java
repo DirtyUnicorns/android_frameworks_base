@@ -364,6 +364,7 @@ public class UsbDeviceManager {
                 mContentResolver.registerContentObserver(
                         Settings.Secure.getUriFor(Settings.Secure.ADB_PORT),
                                 false, adbNotificationObserver);
+
                 mContentResolver.registerContentObserver(
                         Settings.Secure.getUriFor(Settings.Secure.ADB_NOTIFY),
                                 false, adbNotificationObserver);

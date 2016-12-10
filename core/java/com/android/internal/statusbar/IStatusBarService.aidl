@@ -66,7 +66,7 @@ interface IStatusBarService
     void addTile(in ComponentName tile);
     void remTile(in ComponentName tile);
     void clickTile(in ComponentName tile);
-<<<<<<< HEAD
+    void handleSystemNavigationKey(in int key);
 
     // Start DU methods
     void toggleRecentApps();
@@ -75,7 +75,4 @@ interface IStatusBarService
     void cancelPreloadRecentApps();
     void startAssist(in Bundle args);
     void screenPinningStateChanged(boolean enabled);
-=======
-    void handleSystemNavigationKey(in int key);
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 }

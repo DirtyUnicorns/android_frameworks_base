@@ -16,7 +16,6 @@
 
 package com.android.server;
 
-import android.app.ActivityManagerNative;
 import android.app.ActivityThread;
 import android.app.INotificationManager;
 import android.app.usage.UsageStatsManagerInternal;
@@ -33,7 +32,6 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.FactoryTest;
 import android.os.FileUtils;
-import android.os.IPowerManager;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteException;
@@ -56,17 +54,20 @@ import com.android.internal.app.NightDisplayController;
 import com.android.internal.os.BinderInternal;
 import com.android.internal.os.SamplingProfilerIntegration;
 import com.android.internal.os.ZygoteInit;
+import com.android.internal.policy.EmergencyAffordanceManager;
 import com.android.internal.widget.ILockSettings;
 import com.android.server.accessibility.AccessibilityManagerService;
 import com.android.server.am.ActivityManagerService;
 import com.android.server.audio.AudioService;
 import com.android.server.camera.CameraService;
 import com.android.server.clipboard.ClipboardService;
+import com.android.server.connectivity.IpConnectivityMetrics;
 import com.android.server.connectivity.MetricsLoggerService;
 import com.android.server.devicepolicy.DevicePolicyManagerService;
 import com.android.server.display.DisplayManagerService;
 import com.android.server.display.NightDisplayService;
 import com.android.server.dreams.DreamManagerService;
+import com.android.server.emergency.EmergencyAffordanceService;
 import com.android.server.fingerprint.FingerprintService;
 import com.android.server.hdmi.HdmiControlService;
 import com.android.server.gesture.GestureService;
@@ -668,6 +669,10 @@ public final class SystemServer {
             mSystemServiceManager.startService(MetricsLoggerService.class);
             Trace.traceEnd(Trace.TRACE_TAG_SYSTEM_SERVER);
 
+            traceBeginAndSlog("IpConnectivityMetrics");
+            mSystemServiceManager.startService(IpConnectivityMetrics.class);
+            Trace.traceEnd(Trace.TRACE_TAG_SYSTEM_SERVER);
+
             traceBeginAndSlog("PinnerService");
             mSystemServiceManager.startService(PinnerService.class);
             Trace.traceEnd(Trace.TRACE_TAG_SYSTEM_SERVER);
@@ -1096,6 +1101,11 @@ public final class SystemServer {
                 Trace.traceEnd(Trace.TRACE_TAG_SYSTEM_SERVER);
             }
 
+            if (!disableNetwork && !disableNonCoreServices && EmergencyAffordanceManager.ENABLED) {
+                // EmergencyMode sevice
+                mSystemServiceManager.startService(EmergencyAffordanceService.class);
+            }
+
             if (!disableNonCoreServices) {
                 // Dreams (interactive idle-time views, a/k/a screen savers, and doze mode)
                 mSystemServiceManager.startService(DreamManagerService.class);
@@ -1191,9 +1201,9 @@ public final class SystemServer {
         if (context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_WATCH)) {
             mSystemServiceManager.startService(WEAR_BLUETOOTH_SERVICE_CLASS);
             mSystemServiceManager.startService(WEAR_WIFI_MEDIATOR_SERVICE_CLASS);
-          if (!disableNonCoreServices) {
-              mSystemServiceManager.startService(WEAR_TIME_SERVICE_CLASS);
-          }
+            if (!disableNonCoreServices) {
+                mSystemServiceManager.startService(WEAR_TIME_SERVICE_CLASS);
+            }
         }
 
         // make sure the ADB_ENABLED setting value matches the secure property value

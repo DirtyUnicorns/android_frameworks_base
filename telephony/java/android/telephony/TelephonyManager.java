@@ -1662,6 +1662,12 @@ public class TelephonyManager {
         }
     }
 
+    /**
+     * Network Class Definitions.
+     * Do not change this order, it is used for sorting during emergency calling in
+     * {@link TelephonyConnectionService#getFirstPhoneForEmergencyCall()}. Any newer technologies
+     * should be added after the current definitions.
+     */
     /** Unknown network class. {@hide} */
     public static final int NETWORK_CLASS_UNKNOWN = 0;
     /** Class of broadly defined "2G" networks. {@hide} */
@@ -5455,28 +5461,6 @@ public class TelephonyManager {
     }
 
     /**
-<<<<<<< HEAD
-     * Return if the current radio is LTE on GSM
-     * @hide
-     */
-    public static int getLteOnGsmModeStatic() {
-        return SystemProperties.getInt(TelephonyProperties.PROPERTY_LTE_ON_GSM_DEVICE,
-                    0);
-    }
-
-    /**
-     * Return if the current radio is LTE on GSM
-     * @hide
-     */
-    public int getLteOnGsmMode() {
-        try {
-            return getITelephony().getLteOnGsmMode();
-        } catch (RemoteException ex) {
-            return 0;
-        } catch (NullPointerException ex) {
-            // This could happen before phone restarts due to crashing
-            return 0;
-=======
      * Return the application ID for the app type like {@link APPTYPE_CSIM}.
      *
      * Requires that the calling app has READ_PRIVILEGED_PHONE_STATE permission
@@ -5707,8 +5691,30 @@ public class TelephonyManager {
             }
         } catch (RemoteException e) {
             Log.e(TAG, "Error calling ITelephony#setPolicyDataEnabled", e);
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
+        }
+    }
+
+    /**
+     * Return if the current radio is LTE on GSM
+     * @hide
+     */
+    public static int getLteOnGsmModeStatic() {
+        return SystemProperties.getInt(TelephonyProperties.PROPERTY_LTE_ON_GSM_DEVICE,
+                    0);
+    }
+
+    /**
+     * Return if the current radio is LTE on GSM
+     * @hide
+     */
+    public int getLteOnGsmMode() {
+        try {
+            return getITelephony().getLteOnGsmMode();
+        } catch (RemoteException ex) {
+            return 0;
+        } catch (NullPointerException ex) {
+            // This could happen before phone restarts due to crashing
+            return 0;
         }
     }
 }
-

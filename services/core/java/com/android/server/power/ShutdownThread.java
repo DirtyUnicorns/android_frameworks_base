@@ -270,7 +270,6 @@ public final class ShutdownThread extends Thread {
                         .setNegativeButton(com.android.internal.R.string.no, null)
                         .create();
             }
-
             closer.dialog = sConfirmDialog;
             sConfirmDialog.setOnDismissListener(closer);
 
@@ -297,7 +296,6 @@ public final class ShutdownThread extends Thread {
             sConfirmDialog.getWindow().setDimAmount(setPowerRebootDialogDim(context));
             sConfirmDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_KEYGUARD_DIALOG);
             sConfirmDialog.show();
-
         } else {
             beginShutdownSequence(context);
         }
@@ -879,6 +877,14 @@ public final class ShutdownThread extends Thread {
         }
         if (!done[0]) {
             Log.w(TAG, "Timed out waiting for uncrypt.");
+            final int uncryptTimeoutError = 100;
+            String timeoutMessage = String.format("uncrypt_time: %d\n" + "uncrypt_error: %d\n",
+                    MAX_UNCRYPT_WAIT_TIME / 1000, uncryptTimeoutError);
+            try {
+                FileUtils.stringToFile(RecoverySystem.UNCRYPT_STATUS_FILE, timeoutMessage);
+            } catch (IOException e) {
+                Log.e(TAG, "Failed to write timeout message to uncrypt status", e);
+            }
         }
     }
 }

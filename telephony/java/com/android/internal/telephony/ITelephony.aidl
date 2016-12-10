@@ -1093,11 +1093,6 @@ interface ITelephony {
     List<String> getPackagesWithCarrierPrivileges();
 
     /**
-<<<<<<< HEAD
-     * Return if the current radio is LTE on GSM
-     */
-    int getLteOnGsmMode();
-=======
      * Return the application ID for the app type.
      *
      * @param subId the subscription ID that this request applies to.
@@ -1187,5 +1182,9 @@ interface ITelephony {
      * @hide
      */
     void setPolicyDataEnabled(boolean enabled, int subId);
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
+
+    /**
+     * Return if the current radio is LTE on GSM
+     */
+    int getLteOnGsmMode();
 }

@@ -24,9 +24,7 @@ LOCAL_SRC_FILES += $(call all-java-files-under, ../../../../packages/apps/DUI/sr
 
 LOCAL_STATIC_JAVA_LIBRARIES := \
     Keyguard \
-    android-support-v4 \
     android-support-v7-appcompat \
-    android-support-v7-palette \
     android-support-v7-preference \
     android-support-v7-recyclerview \
     android-support-v14-preference \

@@ -43,7 +43,6 @@
 
     <!-- SystemUI Tuner Parts -->
     <string name="systemui_tuner_statusbar_title">Statusbar items</string>
-    <string name="systemui_tuner_nightmode_title">Night mode</string>
 
     <!-- Quick Settings tiles -->
     <string name="quick_settings_screenshot_label">Screenshot</string>
@@ -59,13 +58,10 @@
     <string name="quick_settings_expanded_desktop_label">Expanded desktop</string>
     <string name="quick_settings_expanded_desktop">Expanded</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
+
+    <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Reboot</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
-    <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-    <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-    <string name="quick_settings_usb_tether_label">USB tethering</string>
     <string name="quick_settings_music_label">Music</string>
     <string name="quick_settings_music_play">Play</string>
     <string name="quick_settings_music_pause">Pause</string>
@@ -89,15 +85,6 @@
     <!-- DU Logo -->
     <string name="status_bar_du_logo_title">DU logo</string>
     <string name="status_bar_du_logo_summary">Enable to show DU logo on the left side of the statusbar</string>
-
-    <!-- Lockscreen shortcuts -->
-    <string name="left_shortcut_hint">Swipe right for %1$s</string>
-    <string name="right_shortcut_hint">Swipe left for %1$s</string>
-    <string name="lockscreen_message">Tap an icon on the left or right to reassign a lock screen shortcut.</string>
-    <string name="lockscreen_default_target">Default</string>
-    <string name="select_application">Select application</string>
-    <string name="lockscreen_choose_action_title">Choose action</string>
-    <string name="lockscreen_none_target">None</string>
 
     <!-- Screenshot action -->
     <string name="screenshot_abort_title">No screenshot taken</string>

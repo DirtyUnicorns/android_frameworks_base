@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright 2006, The Android Open Source Project
+** Copyright (C) 2014-2016 The Dirty Unicorns Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -55,14 +55,14 @@
   <!-- Notification and battery LED Pulse -->
   <java-symbol type="bool" name="config_ledCanPulse" />
 
+  <java-symbol type="drawable" name="ic_audio_notification_new" />
+  <java-symbol type="drawable" name="ic_audio_notification_mute_new" />
+  <java-symbol type="drawable" name="ic_audio_notification_mute_alpha" />
+
   <!-- Powermenu animations -->
   <java-symbol type="style" name="GlobalActionsAnimation" />
   <java-symbol type="style" name="GlobalActionsAnimationTop" />
   <java-symbol type="style" name="GlobalActionsAnimationEnter" />
-
-  <java-symbol type="drawable" name="ic_audio_notification_new" />
-  <java-symbol type="drawable" name="ic_audio_notification_mute_new" />
-  <java-symbol type="drawable" name="ic_audio_notification_mute_alpha" />
 
   <!-- Vendor warning -->
   <java-symbol type="string" name="system_error_vendorprint" />
@@ -82,10 +82,10 @@
   <!-- Config.xml entries -->
   <java-symbol type="bool" name="config_samsung_stk" />
 
-  <!-- Hardware key binding -->
-  <java-symbol type="integer" name="config_deviceHardwareKeys" />
-
   <!-- Quick settings tiles columns and rows config -->
   <java-symbol type="integer" name="config_qs_num_rows_landscape_default"/>
+
+  <!-- Hardware key binding -->
+  <java-symbol type="integer" name="config_deviceHardwareKeys" />
 
 </resources>

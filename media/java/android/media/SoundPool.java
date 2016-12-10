@@ -505,31 +505,11 @@ public class SoundPool {
     }
 
     private boolean isRestricted() {
-<<<<<<< HEAD
-        IAudioService service = getService();
-        boolean cameraSoundForced = false;
-
-        try {
-            cameraSoundForced = service.isCameraSoundForced();
-        } catch (RemoteException e) {
-            Log.e(TAG, "Cannot access AudioService in isRestricted()");
-        }
-
-        if (cameraSoundForced &&
-                ((mAttributes.getAllFlags() & AudioAttributes.FLAG_AUDIBILITY_ENFORCED) != 0)
-// FIXME: should also check usage when set properly by camera app
-//                && (mAttributes.getUsage() == AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-                ) {
-            return false;
-        }
-
-=======
         // check app ops
         if (mHasAppOpsPlayAudio) {
             return false;
         }
         // check bypass flag
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
         if ((mAttributes.getAllFlags() & AudioAttributes.FLAG_BYPASS_INTERRUPTION_POLICY) != 0) {
             return false;
         }

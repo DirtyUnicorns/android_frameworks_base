@@ -57,12 +57,7 @@ public class TileQueryHelper {
     }
 
     private void addSystemTiles(final QSTileHost host) {
-<<<<<<< HEAD
-        String possible = mContext.getString(R.string.quick_settings_tiles_default)
-                + "," + mContext.getString(R.string.quick_settings_tiles_extra);
-=======
         String possible = mContext.getString(R.string.quick_settings_tiles_stock);
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
         String[] possibleTiles = possible.split(",");
         final Handler qsHandler = new Handler(host.getLooper());
         final Handler mainHandler = new Handler(Looper.getMainLooper());

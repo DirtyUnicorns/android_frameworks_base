@@ -356,7 +356,11 @@ public class AccessPoint implements Comparable<AccessPoint> {
     }
 
     public DetailedState getDetailedState() {
-        return mNetworkInfo != null ? mNetworkInfo.getDetailedState() : null;
+        if (mNetworkInfo != null) {
+            return mNetworkInfo.getDetailedState();
+        }
+        Log.w(TAG, "NetworkInfo is null, cannot return detailed state");
+        return null;
     }
 
     public String getSavedNetworkSummary() {
@@ -409,7 +413,10 @@ public class AccessPoint implements Comparable<AccessPoint> {
             String format = mContext.getString(R.string.available_via_passpoint);
             summary.append(String.format(format, config.providerFriendlyName));
         } else if (config != null && config.hasNoInternetAccess()) {
-            summary.append(mContext.getString(R.string.wifi_no_internet));
+            int messageID = config.getNetworkSelectionStatus().isNetworkPermanentlyDisabled()
+                    ? R.string.wifi_no_internet_no_reconnect
+                    : R.string.wifi_no_internet;
+            summary.append(mContext.getString(messageID));
         } else if (config != null && !config.getNetworkSelectionStatus().isNetworkEnabled()) {
             WifiConfiguration.NetworkSelectionStatus networkStatus =
                     config.getNetworkSelectionStatus();
@@ -795,7 +802,10 @@ public class AccessPoint implements Comparable<AccessPoint> {
                 return context.getString(R.string.wifi_connected_no_internet);
             }
         }
-
+        if (state == null) {
+            Log.w(TAG, "state is null, returning empty summary");
+            return "";
+        }
         String[] formats = context.getResources().getStringArray((ssid == null)
                 ? R.array.wifi_status : R.array.wifi_status_with_ssid);
         int index = state.ordinal();

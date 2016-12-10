@@ -304,8 +304,8 @@ public class BatteryMeterDrawable extends Drawable implements
         }
         final float[] ptsF = new float[pts.length];
         for (int i = 0; i < pts.length; i += 2) {
-            ptsF[i] = (float)pts[i] / maxX;
-            ptsF[i + 1] = (float)pts[i + 1] / maxY;
+            ptsF[i] = (float) pts[i] / maxX;
+            ptsF[i + 1] = (float) pts[i + 1] / maxY;
         }
         return ptsF;
     }
@@ -319,8 +319,8 @@ public class BatteryMeterDrawable extends Drawable implements
         }
         final float[] ptsF = new float[pts.length];
         for (int i = 0; i < pts.length; i += 2) {
-            ptsF[i] = (float) pts[i] / maxX;
-            ptsF[i + 1] = (float) pts[i + 1] / maxY;
+            ptsF[i] = (float)pts[i] / maxX;
+            ptsF[i + 1] = (float)pts[i + 1] / maxY;
         }
         return ptsF;
     }

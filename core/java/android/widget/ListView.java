@@ -2050,11 +2050,8 @@ public class ListView extends AbsListView {
                 p.recycledHeaderFooter = true;
             }
             addViewInLayout(child, flowDown ? -1 : 0, p, true);
-<<<<<<< HEAD
-=======
             // add view in layout will reset the RTL properties. We have to re-resolve them
             child.resolveRtlPropertiesIfNeeded();
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
         }
 
         if (needToMeasure) {

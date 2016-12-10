@@ -335,4 +335,9 @@ public class QSContainer extends FrameLayout {
         if (DEBUG) Log.d(TAG, "setSecureExpandDisabled " + value);
         mSecureExpandDisabled = value;
     }
+
+    public void hideImmediately() {
+        animate().cancel();
+        setY(-mHeader.getHeight());
+    }
 }

@@ -18,11 +18,8 @@ package com.android.systemui.statusbar.phone;
 
 import android.content.Context;
 import android.content.res.Configuration;
-<<<<<<< HEAD
-import android.database.ContentObserver;
-=======
 import android.content.res.Resources;
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
+import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Handler;
@@ -187,7 +184,16 @@ public class KeyguardStatusBarView extends RelativeLayout
         } else if (mMultiUserSwitch.getParent() == this && mKeyguardUserSwitcherShowing) {
             removeView(mMultiUserSwitch);
         }
-<<<<<<< HEAD
+        if (mKeyguardUserSwitcher == null) {
+            // If we have no keyguard switcher, the screen width is under 600dp. In this case,
+            // we don't show the multi-user avatar unless there is more than 1 user on the device.
+            if (mUserSwitcherController != null
+                    && mUserSwitcherController.getSwitchableUserCount() > 1) {
+                mMultiUserSwitch.setVisibility(View.VISIBLE);
+            } else {
+                mMultiUserSwitch.setVisibility(View.GONE);
+            }
+        }
         mBatteryLevel.setVisibility(
                 (mBatteryCharging && mForceChargeBatteryText) || mShowBatteryText || mForceBatteryText ? View.VISIBLE : View.GONE);
 
@@ -200,19 +206,6 @@ public class KeyguardStatusBarView extends RelativeLayout
                 mCarrierLabel.setVisibility(View.GONE);
             }
         }
-=======
-        if (mKeyguardUserSwitcher == null) {
-            // If we have no keyguard switcher, the screen width is under 600dp. In this case,
-            // we don't show the multi-user avatar unless there is more than 1 user on the device.
-            if (mUserSwitcherController != null
-                    && mUserSwitcherController.getSwitchableUserCount() > 1) {
-                mMultiUserSwitch.setVisibility(View.VISIBLE);
-            } else {
-                mMultiUserSwitch.setVisibility(View.GONE);
-            }
-        }
-        mBatteryLevel.setVisibility(mBatteryCharging ? View.VISIBLE : View.GONE);
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
     }
 
     private void updateSystemIconsLayoutParams() {
@@ -357,6 +350,7 @@ public class KeyguardStatusBarView extends RelativeLayout
         super.setVisibility(visibility);
         if (visibility != View.VISIBLE) {
             mSystemIconsSuperContainer.animate().cancel();
+            mSystemIconsSuperContainer.setTranslationX(0);
             mMultiUserSwitch.animate().cancel();
             mMultiUserSwitch.setAlpha(1f);
         } else {
@@ -374,7 +368,7 @@ public class KeyguardStatusBarView extends RelativeLayout
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
         getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                Settings.System.STATUS_BAR_SHOW_CARRIER), false, mObserver);
+                        Settings.System.STATUS_BAR_SHOW_CARRIER), false, mObserver);
     }
 
     @Override

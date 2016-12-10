@@ -100,7 +100,7 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_default" translatable="false">
-        wifi,cell,battery,dnd,flashlight,rotation,bt,airplane,location
+        wifi,cell,battery,dnd,flashlight,rotation,bt,airplane
     </string>
 
     <!-- Tiles native to System UI. Order should match "quick_settings_tiles_default" -->
@@ -123,15 +123,9 @@
     <integer name="quick_settings_brightness_dialog_short_timeout">2000</integer>
     <integer name="quick_settings_brightness_dialog_long_timeout">4000</integer>
 
-<<<<<<< HEAD
-=======
-    <!-- Should "4G" be shown instead of "LTE" when the network is NETWORK_TYPE_LTE? -->
-    <bool name="config_show4GForLTE">true</bool>
-
     <!-- Should "LTE"/"4G" be shown instead of "LTE+"/"4G+" when on NETWORK_TYPE_LTE_CA? -->
     <bool name="config_hideLtePlus">false</bool>
 
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
     <!-- milliseconds before the heads up notification auto-dismisses. -->
     <integer name="heads_up_notification_decay">5000</integer>
 
@@ -211,9 +205,6 @@
 
     <!-- Doze: should the significant motion sensor be used as a pulse signal? -->
     <bool name="doze_pulse_on_significant_motion">false</bool>
-
-    <!-- Doze: should the pickup sensor be used as a pulse signal? -->
-    <bool name="doze_pulse_on_pick_up">false</bool>
 
     <!-- Doze: check proximity sensor before pulsing? -->
     <bool name="doze_proximity_check_before_pulse">true</bool>

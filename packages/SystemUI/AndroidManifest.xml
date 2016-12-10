@@ -152,9 +152,6 @@
     <!-- DevicePolicyManager get user restrictions -->
     <uses-permission android:name="android.permission.MANAGE_PROFILE_AND_DEVICE_OWNERS" />
 
-    <!-- Needed for passing extras with intent ACTION_SHOW_ADMIN_SUPPORT_DETAILS -->
-    <uses-permission android:name="android.permission.MANAGE_DEVICE_ADMINS" />
-
     <!-- TV picture-in-picture -->
     <uses-permission android:name="android.permission.RECEIVE_MEDIA_RESOURCE_USAGE" />
 
@@ -167,7 +164,9 @@
     <!-- the ability to rename notifications posted by other apps -->
     <uses-permission android:name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME" />
 
-<<<<<<< HEAD
+    <!-- shortcut manager -->
+    <uses-permission android:name="android.permission.RESET_SHORTCUT_MANAGER_THROTTLING" />
+
     <!-- Sync tile -->
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
@@ -182,10 +181,6 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
-=======
-    <!-- shortcut manager -->
-    <uses-permission android:name="android.permission.RESET_SHORTCUT_MANAGER_THROTTLING" />
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 
     <application
         android:name=".SystemUIApplication"
@@ -248,33 +243,11 @@
                 android:permission="android.permission.BIND_WALLPAPER"
                 android:exported="true" />
 
-        <receiver android:name=".BootReceiver" androidprv:systemUserOnly="true">
-            <intent-filter android:priority="1000">
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <activity android:name=".du.LockscreenShortcutsActivity"
-                  android:icon="@drawable/tuner"
-                  android:label="@string/lockscreen_targets_message"
-                  android:theme="@android:style/Theme.Material.Settings"
-                  android:parentActivityName="com.dirtyunicorns.dutweaks.DirtyTweaks"
-                  android:exported="true">
-        </activity>
-
         <activity android:name=".tuner.TunerActivity"
                   android:enabled="true"
                   android:icon="@drawable/tuner"
                   android:theme="@style/TunerSettings"
                   android:label="@string/systemui_tuner_statusbar_title"
-                  android:parentActivityName="com.dirtyunicorns.dutweaks.DirtyTweaks"
-                  android:process=":tuner"
-                  android:exported="true">
-        </activity>
-
-        <activity android:name=".tuner.NightModeActivity"
-                  android:theme="@style/TunerSettings"
-                  android:label="@string/systemui_tuner_nightmode_title"
                   android:parentActivityName="com.dirtyunicorns.dutweaks.DirtyTweaks"
                   android:process=":tuner"
                   android:exported="true">

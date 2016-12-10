@@ -113,16 +113,13 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         mDateTimeGroup = (ViewGroup) findViewById(R.id.date_time_group);
         mDateTimeGroup.setPivotX(0);
         mDateTimeGroup.setPivotY(0);
-<<<<<<< HEAD
+        mDateTimeTranslation = getResources().getDimension(R.dimen.qs_date_time_translation);
+        mShowFullAlarm = getResources().getBoolean(R.bool.quick_settings_show_full_alarm);
+
         mClock = findViewById(R.id.clock);
         mClock.setOnClickListener(this);
         mDate = findViewById(R.id.date);
         mDate.setOnClickListener(this);
-
-=======
-        mDateTimeTranslation = getResources().getDimension(R.dimen.qs_date_time_translation);
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
-        mShowFullAlarm = getResources().getBoolean(R.bool.quick_settings_show_full_alarm);
 
         mExpandIndicator = (ExpandableIndicator) findViewById(R.id.expand_indicator);
 
@@ -268,17 +265,9 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     @Override
     public void updateEverything() {
         post(() -> {
-<<<<<<< HEAD
-            updateDateTimePosition();
             updateVisibilities();
             setClickable(false);
         });
-
-=======
-            updateVisibilities();
-            setClickable(false);
-        });
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
     }
 
     protected void updateVisibilities() {
@@ -286,15 +275,8 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
         updateDateTimePosition();
         mEmergencyOnly.setVisibility(mExpanded && mShowEmergencyCallsOnly
                 ? View.VISIBLE : View.INVISIBLE);
-<<<<<<< HEAD
-        mSettingsContainer.setVisibility(mExpanded ? View.VISIBLE : View.INVISIBLE);
-        mMultiUserSwitch.setVisibility(mExpanded && mMultiUserSwitch.hasMultipleUsers()
-=======
-        mSettingsContainer.findViewById(R.id.tuner_icon).setVisibility(
-                TunerService.isTunerEnabled(mContext) ? View.VISIBLE : View.INVISIBLE);
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
         mMultiUserSwitch.setVisibility(mExpanded && mMultiUserSwitch.hasMultipleUsers() && !isDemo
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
                 ? View.VISIBLE : View.INVISIBLE);
         mEdit.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
     }
@@ -345,33 +327,12 @@ public class QuickStatusBarHeader extends BaseStatusBarHeader implements
     public void onClick(View v) {
         if (v == mSettingsButton) {
             MetricsLogger.action(mContext,
-<<<<<<< HEAD
-                    MetricsProto.MetricsEvent.ACTION_QS_EXPANDED_SETTINGS_LAUNCH);
-            startSettingsActivity();
-=======
                     mExpanded ? MetricsProto.MetricsEvent.ACTION_QS_EXPANDED_SETTINGS_LAUNCH
                             : MetricsProto.MetricsEvent.ACTION_QS_COLLAPSED_SETTINGS_LAUNCH);
-            if (mSettingsButton.isTunerClick()) {
-                mHost.startRunnableDismissingKeyguard(() -> post(() -> {
-                    if (TunerService.isTunerEnabled(mContext)) {
-                        TunerService.showResetRequest(mContext, () -> {
-                            // Relaunch settings so that the tuner disappears.
-                            startSettingsActivity();
-                        });
-                    } else {
-                        Toast.makeText(getContext(), R.string.tuner_toast,
-                                Toast.LENGTH_LONG).show();
-                        TunerService.setTunerEnabled(mContext, true);
-                    }
-                    startSettingsActivity();
-
-                }));
-            } else {
-                startSettingsActivity();
-            }
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
+            startSettingsActivity();
         } else if (v == mAlarmStatus && mNextAlarm != null) {
             PendingIntent showIntent = mNextAlarm.getShowIntent();
+            mActivityStarter.startPendingIntentDismissingKeyguard(showIntent);
             if (showIntent != null && showIntent.isActivity()) {
                 mActivityStarter.startActivity(showIntent.getIntent(), true /* dismissShade */);
             }

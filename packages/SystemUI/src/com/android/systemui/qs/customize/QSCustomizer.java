@@ -266,3 +266,4 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mLayout.setSpanCount(columns);
     }
 }
+

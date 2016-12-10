@@ -862,6 +862,14 @@ public class NetworkControllerImpl extends BroadcastReceiver
         return info;
     }
 
+    public boolean hasEmergencyCryptKeeperText() {
+        return EncryptionHelper.IS_DATA_ENCRYPTED;
+    }
+
+    public boolean isRadioOn() {
+        return !mAirplaneMode;
+    }
+
     private class SubListener extends OnSubscriptionsChangedListener {
         @Override
         public void onSubscriptionsChanged() {
@@ -894,11 +902,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
     static class Config {
         boolean showAtLeast3G = false;
         boolean alwaysShowCdmaRssi = false;
-<<<<<<< HEAD
-=======
-        boolean show4gForLte = false;
         boolean hideLtePlus = false;
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
         boolean hspaDataDistinguishable;
 	boolean hspapDataDistinguishable;
 
@@ -911,12 +915,9 @@ public class NetworkControllerImpl extends BroadcastReceiver
                     res.getBoolean(com.android.internal.R.bool.config_alwaysUseCdmaRssi);
             config.hspaDataDistinguishable =
                     res.getBoolean(R.bool.config_hspa_data_distinguishable);
-<<<<<<< HEAD
+            config.hideLtePlus = res.getBoolean(R.bool.config_hideLtePlus);
             config.hspapDataDistinguishable =
                     res.getBoolean(R.bool.config_hspap_data_distinguishable);
-=======
-            config.hideLtePlus = res.getBoolean(R.bool.config_hideLtePlus);
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
             return config;
         }
     }

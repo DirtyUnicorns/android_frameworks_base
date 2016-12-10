@@ -632,17 +632,14 @@ public class VolumeDialog implements TunerService.Tunable {
         }
     }
 
-<<<<<<< HEAD
-    private boolean isVisibleH(VolumeRow row, boolean isActive) {
+    private boolean shouldBeVisibleH(VolumeRow row, boolean isActive) {
         final boolean linkNotificationWithVolume = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.VOLUME_LINK_NOTIFICATION, 1) == 1;
         final boolean isNotificationStream = row.stream == AudioManager.STREAM_NOTIFICATION;
         if (linkNotificationWithVolume && isNotificationStream) {
             return false;
         }
-=======
-    private boolean shouldBeVisibleH(VolumeRow row, boolean isActive) {
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
+
         return mExpanded && row.view.getVisibility() == View.VISIBLE
                 || (mExpanded && (row.important || isActive))
                 || !mExpanded && isActive;
@@ -766,16 +763,11 @@ public class VolumeDialog implements TunerService.Tunable {
                 && mState.ringerModeInternal == AudioManager.RINGER_MODE_SILENT;
         final boolean isZenAlarms = mState.zenMode == Global.ZEN_MODE_ALARMS;
         final boolean isZenNone = mState.zenMode == Global.ZEN_MODE_NO_INTERRUPTIONS;
-<<<<<<< HEAD
         final boolean isZenPriority = mState.zenMode == Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS;
         final boolean isRingZenNone = (isRingOrNotificationStream || isSystemStream) && isZenNone;
         final boolean isRingLimited = isRingOrNotificationStream && isZenPriority;
         final boolean zenMuted = isZenAlarms ? (isRingOrNotificationStream || isSystemStream)
                 : isZenNone ? (isRingOrNotificationStream || isSystemStream || isAlarmStream || isMusicStream)
-=======
-        final boolean zenMuted = isZenAlarms ? (isRingStream || isSystemStream)
-                : isZenNone ? (isRingStream || isSystemStream || isAlarmStream || isMusicStream)
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
                 : false;
 
         // update slider max

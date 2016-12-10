@@ -456,15 +456,21 @@ public class TextServicesManagerService extends ITextServicesManager.Stub {
     public SpellCheckerSubtype getCurrentSpellCheckerSubtype(
             String locale, boolean allowImplicitlySelectedSubtype) {
         // TODO: Make this work even for non-current users?
-       if (!calledFromValidUser()) {
+        if (!calledFromValidUser()) {
             return null;
         }
-        final int subtypeHashCode =
-                mSettings.getSelectedSpellCheckerSubtype(SpellCheckerSubtype.SUBTYPE_ID_NONE);
-        if (DBG) {
-            Slog.w(TAG, "getCurrentSpellCheckerSubtype: " + subtypeHashCode);
+        final int subtypeHashCode;
+        final SpellCheckerInfo sci;
+        final Locale systemLocale;
+        synchronized (mSpellCheckerMap) {
+            subtypeHashCode =
+                    mSettings.getSelectedSpellCheckerSubtype(SpellCheckerSubtype.SUBTYPE_ID_NONE);
+            if (DBG) {
+                Slog.w(TAG, "getCurrentSpellCheckerSubtype: " + subtypeHashCode);
+            }
+            sci = getCurrentSpellChecker(null);
+            systemLocale = mContext.getResources().getConfiguration().locale;
         }
-        final SpellCheckerInfo sci = getCurrentSpellChecker(null);
         if (sci == null || sci.getSubtypeCount() == 0) {
             if (DBG) {
                 Slog.w(TAG, "Subtype not found.");
@@ -492,7 +498,7 @@ public class TextServicesManagerService extends ITextServicesManager.Stub {
             }
             if (candidateLocale == null) {
                 // 2. Use System locale if available in the spell checker
-                candidateLocale = mContext.getResources().getConfiguration().locale.toString();
+                candidateLocale = systemLocale.toString();
             }
         }
         SpellCheckerSubtype candidate = null;

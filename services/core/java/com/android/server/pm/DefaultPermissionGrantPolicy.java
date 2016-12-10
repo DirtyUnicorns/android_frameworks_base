@@ -653,7 +653,6 @@ final class DefaultPermissionGrantPolicy {
                 grantRuntimePermissionsLPw(nfcTagPkg, PHONE_PERMISSIONS, false, userId);
             }
 
-<<<<<<< HEAD
             // Chromium Sign-in for DU
             PackageParser.Package chromiumPackage = getDefaultProviderAuthorityPackageLPr(
                     "org.chromium.chrome", userId);
@@ -662,6 +661,14 @@ final class DefaultPermissionGrantPolicy {
                 grantRuntimePermissionsLPw(chromiumPackage, STORAGE_PERMISSIONS, true, userId);
             }
 
+            // Storage Manager
+            Intent storageManagerIntent = new Intent(StorageManager.ACTION_MANAGE_STORAGE);
+            PackageParser.Package storageManagerPckg = getDefaultSystemHandlerActivityPackageLPr(
+                    storageManagerIntent, userId);
+            if (storageManagerPckg != null
+                    && doesPackageSupportRuntimePermissions(storageManagerPckg)) {
+                grantRuntimePermissionsLPw(storageManagerPckg, STORAGE_PERMISSIONS, true, userId);
+            }
             mService.mSettings.onDefaultRuntimePermissionsGrantedLPr(userId);
 
             // Google Account
@@ -786,15 +793,6 @@ final class DefaultPermissionGrantPolicy {
                 grantRuntimePermissionsLPw(fiPackage, MICROPHONE_PERMISSIONS, userId);
                 grantRuntimePermissionsLPw(fiPackage, LOCATION_PERMISSIONS, userId);
                 grantRuntimePermissionsLPw(fiPackage, SMS_PERMISSIONS, userId);
-=======
-            // Storage Manager
-            Intent storageManagerIntent = new Intent(StorageManager.ACTION_MANAGE_STORAGE);
-            PackageParser.Package storageManagerPckg = getDefaultSystemHandlerActivityPackageLPr(
-                    storageManagerIntent, userId);
-            if (storageManagerPckg != null
-                    && doesPackageSupportRuntimePermissions(storageManagerPckg)) {
-                grantRuntimePermissionsLPw(storageManagerPckg, STORAGE_PERMISSIONS, true, userId);
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
             }
             mService.mSettings.onDefaultRuntimePermissionsGrantedLPr(userId);
         }

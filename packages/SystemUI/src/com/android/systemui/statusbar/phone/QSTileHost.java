@@ -57,17 +57,13 @@ import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.ImeTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
-<<<<<<< HEAD
+import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.NavigationBarTile;
 import com.android.systemui.qs.tiles.RebootTile;
-=======
-import com.android.systemui.qs.tiles.NightDisplayTile;
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SyncTile;
-import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
@@ -446,22 +442,17 @@ public class QSTileHost implements QSTile.Host, Tunable {
         else if (tileSpec.equals("user")) return new UserTile(this);
         else if (tileSpec.equals("battery")) return new BatteryTile(this);
         else if (tileSpec.equals("saver")) return new DataSaverTile(this);
-<<<<<<< HEAD
+        else if (tileSpec.equals("night")) return new NightDisplayTile(this);
         else if (tileSpec.equals("screenshot")) return new ScreenshotTile(this);
         else if (tileSpec.equals("adb_network")) return new AdbOverNetworkTile(this);
         else if (tileSpec.equals("sync")) return new SyncTile(this);
         else if (tileSpec.equals("expanded_desktop")) return new ExpandedDesktopTile(this);
         else if (tileSpec.equals("reboot")) return new RebootTile(this);
-        else if (tileSpec.equals("usb_tether")) return new UsbTetherTile(this);
         else if (tileSpec.equals("music")) return new MusicTile(this);
         else if (tileSpec.equals("ime")) return new ImeTile(this);
         else if (tileSpec.equals("caffeine")) return new CaffeineTile(this);
-        else if (tileSpec.equals("nightmode")) return new NightModeTile(this);
         else if (tileSpec.equals("navigation_bar")) return new NavigationBarTile(this);
         else if (tileSpec.equals("androidauto")) return new AndroidAutoTile(this);
-=======
-        else if (tileSpec.equals("night")) return new NightDisplayTile(this);
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
         // Intent tiles.
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(this,tileSpec);
         else if (tileSpec.startsWith(CustomTile.PREFIX)) return CustomTile.create(this,tileSpec);

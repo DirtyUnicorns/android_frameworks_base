@@ -44,7 +44,6 @@ import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.BatteryManager;
-import android.os.Binder;
 import android.os.Bundle;
 import android.os.DropBoxManager;
 import android.os.IBinder;
@@ -69,14 +68,11 @@ import com.android.internal.widget.ILockSettings;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
-import java.util.regex.Pattern;
 
 /**
  * The Settings provider contains global system-level device preferences.
@@ -1271,6 +1267,19 @@ public final class Settings {
             = "android.settings.VR_LISTENER_SETTINGS";
 
     /**
+     * Activity Action: Show Storage Manager settings.
+     * <p>
+     * Input: Nothing.
+     * <p>
+     * Output: Nothing.
+     *
+     * @hide
+     */
+    @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
+    public static final String ACTION_STORAGE_MANAGER_SETTINGS
+            = "android.settings.STORAGE_MANAGER_SETTINGS";
+
+    /**
      * Activity Action: Allows user to select current webview implementation.
      * <p>
      * Input: Nothing.
@@ -1825,7 +1834,6 @@ public final class Settings {
             MOVED_TO_GLOBAL.add(Settings.Global.CALL_AUTO_RETRY);
             MOVED_TO_GLOBAL.add(Settings.Global.DEBUG_APP);
             MOVED_TO_GLOBAL.add(Settings.Global.WAIT_FOR_DEBUGGER);
-            MOVED_TO_GLOBAL.add(Settings.Global.SHOW_PROCESSES);
             MOVED_TO_GLOBAL.add(Settings.Global.ALWAYS_FINISH_ACTIVITIES);
             MOVED_TO_GLOBAL.add(Settings.Global.TZINFO_UPDATE_CONTENT_URL);
             MOVED_TO_GLOBAL.add(Settings.Global.TZINFO_UPDATE_METADATA_URL);
@@ -1872,44 +1880,6 @@ public final class Settings {
                 return value.length() <= MAX_IPV6_LENGTH;
             }
         };
-
-        /**
-         * Put a delimited list as a string
-         * @param resolver to access the database with
-         * @param name to store
-         * @param delimiter to split
-         * @param list to join and store
-         * @hide
-         */
-        public static void putListAsDelimitedString(ContentResolver resolver, String name,
-                                                    String delimiter, List<String> list) {
-            String store = TextUtils.join(delimiter, list);
-            putString(resolver, name, store);
-        }
-
-        /**
-         * Get a delimited string returned as a list
-         * @param resolver to access the database with
-         * @param name to store
-         * @param delimiter to split the list with
-         * @return list of strings for a specific Settings.Secure item
-         * @hide
-         */
-        public static List<String> getDelimitedStringAsList(ContentResolver resolver, String name,
-                                                            String delimiter) {
-            String baseString = getString(resolver, name);
-            List<String> list = new ArrayList<String>();
-            if (!TextUtils.isEmpty(baseString)) {
-                final String[] array = TextUtils.split(baseString, Pattern.quote(delimiter));
-                for (String item : array) {
-                    if (TextUtils.isEmpty(item)) {
-                        continue;
-                    }
-                    list.add(item);
-                }
-            }
-            return list;
-        }
 
         /** @hide */
         public static void getMovedToGlobalSettings(Set<String> outKeySet) {
@@ -2815,7 +2785,8 @@ public final class Settings {
         /**
          * Control whether the process CPU usage meter should be shown.
          *
-         * @deprecated Use {@link Global#SHOW_PROCESSES} instead
+         * @deprecated This functionality is no longer available as of
+         * {@link android.os.Build.VERSION_CODES#N_MR1}.
          */
         @Deprecated
         public static final String SHOW_PROCESSES = Global.SHOW_PROCESSES;
@@ -3545,7 +3516,7 @@ public final class Settings {
         @Deprecated
         public static final String DOCK_SOUNDS_ENABLED = Global.DOCK_SOUNDS_ENABLED;
 
-	/**
+        /**
          * Check the proximity sensor during wakeup
          * @hide
          */
@@ -4018,12 +3989,6 @@ public final class Settings {
         public static final String TOAST_ICON = "toast_icon";
 
         /**
-         * Configure the vibration when double tapping the power button to launch the camera
-         * @hide
-         */
-        public static final String DT2L_CAMERA_VIBRATE_CONFIG = "dt2l_camera_vibrate_config";
-
-        /**
          * Show the four 4g network icon instead of lte
          * @hide
          */
@@ -4038,14 +4003,14 @@ public final class Settings {
          */
         public static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
 
-        /**
+	/**
          * Change quick settings tiles animation style
          *
          * @hide
          */
         public static final String ANIM_TILE_STYLE = "anim_tile_style";
 
-        /**
+	/**
          * Change quick settings tiles animation duration
          *
          * @hide
@@ -4907,44 +4872,6 @@ public final class Settings {
             MOVED_TO_GLOBAL.add(Settings.Global.WEBVIEW_DATA_REDUCTION_PROXY_KEY);
         }
 
-        /**
-         * Put a delimited list as a string
-         * @param resolver to access the database with
-         * @param name to store
-         * @param delimiter to split
-         * @param list to join and store
-         * @hide
-         */
-        public static void putListAsDelimitedString(ContentResolver resolver, String name,
-                                                    String delimiter, List<String> list) {
-            String store = TextUtils.join(delimiter, list);
-            putString(resolver, name, store);
-        }
-
-        /**
-         * Get a delimited string returned as a list
-         * @param resolver to access the database with
-         * @param name to store
-         * @param delimiter to split the list with
-         * @return list of strings for a specific Settings.Secure item
-         * @hide
-         */
-        public static List<String> getDelimitedStringAsList(ContentResolver resolver, String name,
-                                                            String delimiter) {
-            String baseString = getString(resolver, name);
-            List<String> list = new ArrayList<String>();
-            if (!TextUtils.isEmpty(baseString)) {
-                final String[] array = TextUtils.split(baseString, Pattern.quote(delimiter));
-                for (String item : array) {
-                    if (TextUtils.isEmpty(item)) {
-                        continue;
-                    }
-                    list.add(item);
-                }
-            }
-            return list;
-        }
-
         /** @hide */
         public static void getMovedToGlobalSettings(Set<String> outKeySet) {
             outKeySet.addAll(MOVED_TO_GLOBAL);
@@ -5489,12 +5416,6 @@ public final class Settings {
          * <p>0 = do not allow use of the package installer
          */
         public static final String INSTALL_NON_MARKET_APPS = "install_non_market_apps";
-
-        /**
-         * Launch actions for left/right lockscreen targets
-         * @hide
-         */
-        public static final String LOCKSCREEN_TARGETS = "lockscreen_target_actions";
 
         /**
          * Comma-separated list of location providers that activities may access. Do not rely on
@@ -6809,6 +6730,8 @@ public final class Settings {
         /**
          * If nonzero, ANRs in invisible background processes bring up a dialog.
          * Otherwise, the process will be silently killed.
+         *
+         * Also prevents ANRs and crash dialogs from being suppressed.
          * @hide
          */
         public static final String ANR_SHOW_BACKGROUND = "anr_show_background";
@@ -6907,6 +6830,18 @@ public final class Settings {
          * @hide
          */
         public static final String HARDWARE_KEYS_DISABLE = "hardware_keys_disable";
+
+        /**
+         * Whether the device should pulse on pick up gesture.
+         * @hide
+         */
+        public static final String DOZE_PULSE_ON_PICK_UP = "doze_pulse_on_pick_up";
+
+        /**
+         * Whether the device should pulse on double tap gesture.
+         * @hide
+         */
+        public static final String DOZE_PULSE_ON_DOUBLE_TAP = "doze_pulse_on_double_tap";
 
         /**
          * The current night mode that has been selected by the user.  Owned
@@ -7147,13 +7082,40 @@ public final class Settings {
                 "camera_double_tap_power_gesture_disabled";
 
         /**
-<<<<<<< HEAD
-         * Behavior of twilight on the device.
-         * One of {@link #TWILIGHT_MODE_LOCKED_OFF}, {@link #TWILIGHT_MODE_LOCKED_ON}
-         * or {@link #TWILIGHT_MODE_AUTO}.
+         * Whether the camera double twist gesture to flip between front and back mode should be
+         * enabled.
+         *
          * @hide
          */
-        public static final String TWILIGHT_MODE = "twilight_mode";
+        public static final String CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED =
+                "camera_double_twist_to_flip_enabled";
+
+        /**
+         * Control whether Night display is currently activated.
+         * Twilight mode always off.
+         * @hide
+         */
+        public static final String NIGHT_DISPLAY_ACTIVATED = "night_display_activated";
+
+        /**
+         * Control whether Night display will automatically activate/deactivate.
+         * @hide
+         */
+        public static final String NIGHT_DISPLAY_AUTO_MODE = "night_display_auto_mode";
+
+        /**
+         * Custom time when Night display is scheduled to activate.
+         * Represented as milliseconds from midnight (e.g. 79200000 == 10pm).
+         * @hide
+         */
+        public static final String NIGHT_DISPLAY_CUSTOM_START_TIME = "night_display_custom_start_time";
+
+        /**
+         * Custom time when Night display is scheduled to deactivate.
+         * Represented as milliseconds from midnight (e.g. 21600000 == 6am).
+         * @hide
+         */
+        public static final String NIGHT_DISPLAY_CUSTOM_END_TIME = "night_display_custom_end_time";
 
         /**
          * Status bar battery %
@@ -7183,18 +7145,11 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERY_STYLE_TILE = "status_bar_battery_style_tile";
 
         /**
-         * Battery icon color while charging
+         * battery icon color when charging
          *
          * @hide
          */
         public static final String STATUS_BAR_CHARGE_COLOR = "status_bar_charge_color";
-
-        /**
-         * Whether to force percentage text out of the battery icon while charging
-         *
-         * @hide
-         */
-        public static final String FORCE_CHARGE_BATTERY_TEXT = "force_charge_battery_text";
 
         /**
          * Charging symbol near battery text percentage
@@ -7207,42 +7162,11 @@ public final class Settings {
         public static final String TEXT_CHARGING_SYMBOL = "text_charging_symbol";
 
         /**
-         * Twilight mode always off.
-=======
-         * Whether the camera double twist gesture to flip between front and back mode should be
-         * enabled.
+         * Whether to force percentage text out of the battery icon when charging
          *
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
          * @hide
          */
-        public static final String CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED =
-                "camera_double_twist_to_flip_enabled";
-
-        /**
-         * Control whether Night display is currently activated.
-         * @hide
-         */
-        public static final String NIGHT_DISPLAY_ACTIVATED = "night_display_activated";
-
-        /**
-         * Control whether Night display will automatically activate/deactivate.
-         * @hide
-         */
-        public static final String NIGHT_DISPLAY_AUTO_MODE = "night_display_auto_mode";
-
-        /**
-         * Custom time when Night display is scheduled to activate.
-         * Represented as milliseconds from midnight (e.g. 79200000 == 10pm).
-         * @hide
-         */
-        public static final String NIGHT_DISPLAY_CUSTOM_START_TIME = "night_display_custom_start_time";
-
-        /**
-         * Custom time when Night display is scheduled to deactivate.
-         * Represented as milliseconds from midnight (e.g. 21600000 == 6am).
-         * @hide
-         */
-        public static final String NIGHT_DISPLAY_CUSTOM_END_TIME = "night_display_custom_end_time";
+        public static final String FORCE_CHARGE_BATTERY_TEXT = "force_charge_battery_text";
 
         /**
          * Whether brightness should automatically adjust based on twilight state.
@@ -7308,24 +7232,6 @@ public final class Settings {
                 "managed_profile_contact_remote_search";
 
         /**
-<<<<<<< HEAD
-         * Whether to display the ADB notification.
-         * @hide
-         */
-        public static final String ADB_NOTIFY = "adb_notify";
-
-        /**
-         * The TCP/IP port to run ADB on, or -1 for USB
-         * @hide
-         */
-        public static final String ADB_PORT = "adb_port";
-
-        /**
-         * Whether to use one tap tile action to enable or disable data
-         * @hide
-         */
-        public static final String QS_DATA_ADVANCED = "qs_data_advanced";
-=======
          * Whether or not the automatic storage manager is enabled and should run on the device.
          *
          * @hide
@@ -7372,7 +7278,6 @@ public final class Settings {
          */
         public static final String SYSTEM_NAVIGATION_KEYS_ENABLED =
                 "system_navigation_keys_enabled";
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 
         /**
          * Holds comma separated list of ordering of QS tiles.
@@ -7381,8 +7286,6 @@ public final class Settings {
         public static final String QS_TILES = "sysui_qs_tiles";
 
         /**
-<<<<<<< HEAD
-=======
          * Whether preloaded APKs have been installed for the user.
          * @hide
          */
@@ -7390,7 +7293,31 @@ public final class Settings {
                 = "demo_user_setup_complete";
 
         /**
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
+         * Whether to display the ADB notification.
+         * @hide
+         */
+        public static final String ADB_NOTIFY = "adb_notify";
+
+        /**
+         * The TCP/IP port to run ADB on, or -1 for USB
+         * @hide
+         */
+        public static final String ADB_PORT = "adb_port";
+
+        /**
+         * Whether to use one tap tile action to enable or disable data
+         * @hide
+         */
+        public static final String QS_DATA_ADVANCED = "qs_data_advanced";
+
+        /**
+         * Specifies whether the web action API is enabled.
+         *
+         * @hide
+         */
+        public static final String WEB_ACTION_ENABLED = "web_action_enabled";
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
@@ -7463,13 +7390,7 @@ public final class Settings {
             ENHANCED_VOICE_PRIVACY_ENABLED,
             TTY_MODE_ENABLED,
             INCALL_POWER_BUTTON_BEHAVIOR,
-<<<<<<< HEAD
             ADVANCED_REBOOT,
-            QS_TILES,
-            STATUS_BAR_SHOW_BATTERY_PERCENT,
-            STATUS_BAR_BATTERY_STYLE,
-            STATUS_BAR_BATTERY_STYLE_TILE
-=======
             NIGHT_DISPLAY_CUSTOM_START_TIME,
             NIGHT_DISPLAY_CUSTOM_END_TIME,
             NIGHT_DISPLAY_AUTO_MODE,
@@ -7478,7 +7399,12 @@ public final class Settings {
             CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
             SYSTEM_NAVIGATION_KEYS_ENABLED,
             QS_TILES,
->>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
+            STATUS_BAR_SHOW_BATTERY_PERCENT,
+            STATUS_BAR_BATTERY_STYLE,
+            STATUS_BAR_BATTERY_STYLE_TILE,
+            DOZE_ENABLED,
+            DOZE_PULSE_ON_PICK_UP,
+            DOZE_PULSE_ON_DOUBLE_TAP
         };
 
         /**
@@ -8995,10 +8921,35 @@ public final class Settings {
         /**
          * The server used for captive portal detection upon a new conection. A
          * 204 response code from the server is used for validation.
+         * TODO: remove this deprecated symbol.
          *
          * @hide
          */
         public static final String CAPTIVE_PORTAL_SERVER = "captive_portal_server";
+
+        /**
+         * The URL used for HTTPS captive portal detection upon a new connection.
+         * A 204 response code from the server is used for validation.
+         *
+         * @hide
+         */
+        public static final String CAPTIVE_PORTAL_HTTPS_URL = "captive_portal_https_url";
+
+        /**
+         * The URL used for HTTP captive portal detection upon a new connection.
+         * A 204 response code from the server is used for validation.
+         *
+         * @hide
+         */
+        public static final String CAPTIVE_PORTAL_HTTP_URL = "captive_portal_http_url";
+
+        /**
+         * The URL used for fallback HTTP captive portal detection when previous HTTP
+         * and HTTPS captive portal detection attemps did not return a conclusive answer.
+         *
+         * @hide
+         */
+        public static final String CAPTIVE_PORTAL_FALLBACK_URL = "captive_portal_fallback_url";
 
         /**
          * Whether to use HTTPS for network validation. This is enabled by default and the setting
@@ -9008,6 +8959,14 @@ public final class Settings {
          * @hide
          */
         public static final String CAPTIVE_PORTAL_USE_HTTPS = "captive_portal_use_https";
+
+        /**
+         * Which User-Agent string to use in the header of the captive portal detection probes.
+         * The User-Agent field is unset when this setting has no value (HttpUrlConnection default).
+         *
+         * @hide
+         */
+        public static final String CAPTIVE_PORTAL_USER_AGENT = "captive_portal_user_agent";
 
         /**
          * Whether network service discovery is enabled.
@@ -9382,6 +9341,13 @@ public final class Settings {
         public static final String CALL_AUTO_RETRY = "call_auto_retry";
 
         /**
+         * A setting that can be read whether the emergency affordance is currently needed.
+         * The value is a boolean (1 or 0).
+         * @hide
+         */
+        public static final String EMERGENCY_AFFORDANCE_NEEDED = "emergency_affordance_needed";
+
+        /**
          * See RIL_PreferredNetworkType in ril.h
          * @hide
          */
@@ -9401,7 +9367,11 @@ public final class Settings {
 
         /**
          * Control whether the process CPU usage meter should be shown.
+         *
+         * @deprecated This functionality is no longer available as of
+         * {@link android.os.Build.VERSION_CODES#N_MR1}.
          */
+        @Deprecated
         public static final String SHOW_PROCESSES = "show_processes";
 
         /**
@@ -9731,13 +9701,22 @@ public final class Settings {
         public static final String WFC_IMS_ENABLED = "wfc_ims_enabled";
 
         /**
-         * WFC Mode.
+         * WFC mode on home/non-roaming network.
          * <p>
          * Type: int - 2=Wi-Fi preferred, 1=Cellular preferred, 0=Wi-Fi only
          *
          * @hide
          */
         public static final String WFC_IMS_MODE = "wfc_ims_mode";
+
+        /**
+         * WFC mode on roaming network.
+         * <p>
+         * Type: int - see {@link WFC_IMS_MODE} for values
+         *
+         * @hide
+         */
+        public static final String WFC_IMS_ROAMING_MODE = "wfc_ims_roaming_mode";
 
         /**
          * Whether WFC roaming is enabled
@@ -9765,6 +9744,16 @@ public final class Settings {
          */
         public static final String EPHEMERAL_COOKIE_MAX_SIZE_BYTES =
                 "ephemeral_cookie_max_size_bytes";
+
+        /**
+         * Toggle to enable/disable the entire ephemeral feature. By default, ephemeral is
+         * enabled. Set to zero to disable.
+         * <p>
+         * Type: int (0 for false, 1 for true)
+         *
+         * @hide
+         */
+        public static final String ENABLE_EPHEMERAL_FEATURE = "enable_ephemeral_feature";
 
         /**
          * A mask applied to the ephemeral hash to generate the hash prefix.
@@ -9853,6 +9842,16 @@ public final class Settings {
         public static final String RETAIL_DEMO_MODE_CONSTANTS = "retail_demo_mode_constants";
 
         /**
+         * The reason for the settings database being downgraded. This is only for
+         * troubleshooting purposes and its value should not be interpreted in any way.
+         *
+         * Type: string
+         *
+         * @hide
+         */
+        public static final String DATABASE_DOWNGRADE_REASON = "database_downgrade_reason";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -9906,44 +9905,6 @@ public final class Settings {
         /** @hide */
         public static void getMovedToSecureSettings(Set<String> outKeySet) {
             outKeySet.addAll(MOVED_TO_SECURE);
-        }
-
-        /**
-         * Put a delimited list as a string
-         * @param resolver to access the database with
-         * @param name to store
-         * @param delimiter to split
-         * @param list to join and store
-         * @hide
-         */
-        public static void putListAsDelimitedString(ContentResolver resolver, String name,
-                                                    String delimiter, List<String> list) {
-            String store = TextUtils.join(delimiter, list);
-            putString(resolver, name, store);
-        }
-
-        /**
-         * Get a delimited string returned as a list
-         * @param resolver to access the database with
-         * @param name to store
-         * @param delimiter to split the list with
-         * @return list of strings for a specific Settings.Secure item
-         * @hide
-         */
-        public static List<String> getDelimitedStringAsList(ContentResolver resolver, String name,
-                                                            String delimiter) {
-            String baseString = getString(resolver, name);
-            List<String> list = new ArrayList<String>();
-            if (!TextUtils.isEmpty(baseString)) {
-                final String[] array = TextUtils.split(baseString, Pattern.quote(delimiter));
-                for (String item : array) {
-                    if (TextUtils.isEmpty(item)) {
-                        continue;
-                    }
-                    list.add(item);
-                }
-            }
-            return list;
         }
 
         /**
