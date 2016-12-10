@@ -120,6 +120,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private static final String GLOBAL_ACTION_KEY_LOCKDOWN = "lockdown";
     private static final String GLOBAL_ACTION_KEY_VOICEASSIST = "voiceassist";
     private static final String GLOBAL_ACTION_KEY_ASSIST = "assist";
+    private static final String GLOBAL_ACTION_KEY_RESTART = "restart";
 
     private final Object mScreenshotLock = new Object();
     private ServiceConnection mScreenshotConnection = null;
@@ -385,6 +386,8 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
                 mItems.add(getVoiceAssistAction());
             } else if (GLOBAL_ACTION_KEY_ASSIST.equals(actionKey)) {
                 mItems.add(getAssistAction());
+            } else if (GLOBAL_ACTION_KEY_RESTART.equals(actionKey)) {
+                mItems.add(new RestartAction());
             } else {
                 Log.e(TAG, "Invalid global action key " + actionKey);
             }
@@ -455,6 +458,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         }
     }
 
+<<<<<<< HEAD
     private Action ScreenshotAction() {
         return new SinglePressAction(com.android.internal.R.drawable.ic_lock_power_screenshot,
                 R.string.powermenu_screenshot) {
@@ -526,6 +530,39 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             }
         };
     }
+=======
+    private final class RestartAction extends SinglePressAction implements LongPressAction {
+        private RestartAction() {
+            super(R.drawable.ic_restart, R.string.global_action_restart);
+        }
+
+        @Override
+        public boolean onLongPress() {
+            UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+            if (!um.hasUserRestriction(UserManager.DISALLOW_SAFE_BOOT)) {
+                mWindowManagerFuncs.rebootSafeMode(true);
+                return true;
+            }
+            return false;
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return true;
+        }
+
+        @Override
+        public void onPress() {
+            mWindowManagerFuncs.reboot(false /* confirm */);
+        }
+    }
+
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 
     private class BugReportAction extends SinglePressAction implements LongPressAction {
 
@@ -1488,7 +1525,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         public GlobalActionsDialog(Context context, AlertParams params) {
             super(context, getDialogTheme(context));
             mContext = getContext();
-            mAlert = new AlertController(mContext, this, getWindow());
+            mAlert = AlertController.create(mContext, this, getWindow());
             mAdapter = (MyAdapter) params.mAdapter;
             mWindowTouchSlop = ViewConfiguration.get(context).getScaledWindowTouchSlop();
             params.apply(mAlert);

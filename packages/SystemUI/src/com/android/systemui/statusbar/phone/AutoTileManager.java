@@ -24,7 +24,6 @@ import com.android.systemui.statusbar.policy.DataSaverController;
 import com.android.systemui.statusbar.policy.DataSaverController.Listener;
 import com.android.systemui.statusbar.policy.HotspotController;
 import com.android.systemui.statusbar.policy.HotspotController.Callback;
-import com.android.systemui.statusbar.policy.NightModeController;
 
 /**
  * Manages which tiles should be automatically added to QS.
@@ -67,34 +66,17 @@ public class AutoTileManager {
         if (!Prefs.getBoolean(context, Key.QS_WORK_ADDED, false)) {
             host.getManagedProfileController().addCallback(mProfileCallback);
         }
+<<<<<<< HEAD
         if (!Prefs.getBoolean(context, Key.QS_NIGHT_ADDED, true)) {
             host.getNightModeController().addListener(mNightModeListener);
         }
+=======
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
     }
 
     public void destroy() {
         // TODO: Remove any registered listeners.
     }
-
-    private final NightModeController.Listener mNightModeListener =
-            new NightModeController.Listener() {
-        @Override
-        public void onNightModeChanged() {
-            if (mHost.getNightModeController().isEnabled()) {
-                mHost.addTile("night");
-                Prefs.putBoolean(mContext, Key.QS_NIGHT_ADDED, true);
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        mHost.getNightModeController().removeListener(mNightModeListener);
-                    }
-                });
-            }
-        }
-
-        @Override
-        public void onTwilightAutoChanged() { }
-    };
 
     private final ManagedProfileController.Callback mProfileCallback =
             new ManagedProfileController.Callback() {

@@ -216,7 +216,11 @@ public class BrightnessController implements ToggleSlider.Listener {
             try {
                 switch (msg.what) {
                     case MSG_UPDATE_ICON:
+<<<<<<< HEAD
                         updateIcon();
+=======
+                        updateIcon(msg.arg1 != 0);
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
                         break;
                     case MSG_UPDATE_SLIDER:
                         mControl.setMax(msg.arg1);
@@ -273,6 +277,10 @@ public class BrightnessController implements ToggleSlider.Listener {
                 });
             }
         }
+    }
+
+    public void setBackgroundLooper(Looper backgroundLooper) {
+        mBackgroundHandler = new Handler(backgroundLooper);
     }
 
     public void setBackgroundLooper(Looper backgroundLooper) {

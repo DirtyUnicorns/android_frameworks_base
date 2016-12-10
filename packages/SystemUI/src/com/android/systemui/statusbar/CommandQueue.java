@@ -23,6 +23,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.util.Pair;
+import android.view.KeyEvent;
 
 import com.android.internal.os.SomeArgs;
 import com.android.internal.statusbar.IStatusBar;
@@ -75,7 +76,11 @@ public class CommandQueue extends IStatusBar.Stub {
     private static final int MSG_TOGGLE_APP_SPLIT_SCREEN       = 30 << MSG_SHIFT;
     private static final int MSG_APP_TRANSITION_FINISHED       = 31 << MSG_SHIFT;
     private static final int MSG_DISMISS_KEYBOARD_SHORTCUTS    = 32 << MSG_SHIFT;
+<<<<<<< HEAD
     private static final int MSG_SCREEN_PINNING_STATE_CHANGED  = 33 << MSG_SHIFT;
+=======
+    private static final int MSG_HANDLE_SYSNAV_KEY             = 33 << MSG_SHIFT;
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 
     public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
@@ -130,7 +135,12 @@ public class CommandQueue extends IStatusBar.Stub {
         void addQsTile(ComponentName tile);
         void remQsTile(ComponentName tile);
         void clickTile(ComponentName tile);
+<<<<<<< HEAD
         void screenPinningStateChanged(boolean enabled);
+=======
+
+        void handleSystemNavigationKey(int arg1);
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
     }
 
     public CommandQueue(Callbacks callbacks) {
@@ -398,6 +408,13 @@ public class CommandQueue extends IStatusBar.Stub {
         }
     }
 
+    @Override
+    public void handleSystemNavigationKey(int key) {
+        synchronized (mLock) {
+            mHandler.obtainMessage(MSG_HANDLE_SYSNAV_KEY, key, 0).sendToTarget();
+        }
+    }
+
     private final class H extends Handler {
         public void handleMessage(Message msg) {
             final int what = msg.what & MSG_MASK;
@@ -513,8 +530,13 @@ public class CommandQueue extends IStatusBar.Stub {
                 case MSG_TOGGLE_APP_SPLIT_SCREEN:
                     mCallbacks.toggleSplitScreen();
                     break;
+<<<<<<< HEAD
                 case MSG_SCREEN_PINNING_STATE_CHANGED:
                     mCallbacks.screenPinningStateChanged(msg.arg1 != 0);
+=======
+                case MSG_HANDLE_SYSNAV_KEY:
+                    mCallbacks.handleSystemNavigationKey(msg.arg1);
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
                     break;
             }
         }

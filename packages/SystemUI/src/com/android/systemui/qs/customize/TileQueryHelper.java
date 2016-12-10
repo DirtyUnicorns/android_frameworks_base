@@ -57,8 +57,12 @@ public class TileQueryHelper {
     }
 
     private void addSystemTiles(final QSTileHost host) {
+<<<<<<< HEAD
         String possible = mContext.getString(R.string.quick_settings_tiles_default)
                 + "," + mContext.getString(R.string.quick_settings_tiles_extra);
+=======
+        String possible = mContext.getString(R.string.quick_settings_tiles_stock);
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
         String[] possibleTiles = possible.split(",");
         final Handler qsHandler = new Handler(host.getLooper());
         final Handler mainHandler = new Handler(Looper.getMainLooper());
@@ -150,9 +154,16 @@ public class TileQueryHelper {
             PackageManager pm = mContext.getPackageManager();
             List<ResolveInfo> services = pm.queryIntentServicesAsUser(
                     new Intent(TileService.ACTION_QS_TILE), 0, ActivityManager.getCurrentUser());
+            String stockTiles = mContext.getString(R.string.quick_settings_tiles_stock);
             for (ResolveInfo info : services) {
                 String packageName = info.serviceInfo.packageName;
                 ComponentName componentName = new ComponentName(packageName, info.serviceInfo.name);
+
+                // Don't include apps that are a part of the default tile set.
+                if (stockTiles.contains(componentName.flattenToString())) {
+                    continue;
+                }
+
                 final CharSequence appLabel = info.serviceInfo.applicationInfo.loadLabel(pm);
                 String spec = CustomTile.toSpec(componentName);
                 State state = getState(params[0], spec);

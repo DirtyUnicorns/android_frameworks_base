@@ -38,9 +38,16 @@ public class TunerActivity extends SettingsDrawerActivity implements
 
         if (getFragmentManager().findFragmentByTag(TAG_TUNER) == null) {
             final String action = getIntent().getAction();
+<<<<<<< HEAD
             final Fragment fragment;
             fragment = new TunerFragment();
 
+=======
+            boolean showDemoMode = action != null && action.equals(
+                    "com.android.settings.action.DEMO_MODE");
+            final PreferenceFragment fragment = showDemoMode ? new DemoModeFragment()
+                    : new TunerFragment();
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
             getFragmentManager().beginTransaction().replace(R.id.content_frame,
                     fragment, TAG_TUNER).commit();
         }

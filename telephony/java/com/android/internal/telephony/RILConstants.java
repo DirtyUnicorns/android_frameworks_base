@@ -409,6 +409,8 @@ cat include/telephony/ril.h | \
     int RIL_REQUEST_STOP_LCE = 133;
     int RIL_REQUEST_PULL_LCEDATA = 134;
     int RIL_REQUEST_GET_ACTIVITY_INFO = 135;
+    int RIL_REQUEST_SET_ALLOWED_CARRIERS = 136;
+    int RIL_REQUEST_GET_ALLOWED_CARRIERS = 137;
 
     int RIL_RESPONSE_ACKNOWLEDGEMENT = 800;
 
@@ -459,5 +461,9 @@ cat include/telephony/ril.h | \
     int RIL_UNSOL_ON_SS = 1043;
     int RIL_UNSOL_STK_CC_ALPHA_NOTIFY = 1044;
     int RIL_UNSOL_LCEDATA_RECV = 1045;
+<<<<<<< HEAD
     int RIL_UNSOL_STK_SEND_SMS_RESULT = 11002; /* Samsung STK */
+=======
+    int RIL_UNSOL_PCO_DATA = 1046;
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 }

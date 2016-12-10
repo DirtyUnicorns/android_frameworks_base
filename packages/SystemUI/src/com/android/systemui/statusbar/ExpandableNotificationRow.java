@@ -1128,7 +1128,7 @@ public class ExpandableNotificationRow extends ActivatableNotificationView {
         mPrivateLayout.setUserExpanding(userLocked);
         if (mIsSummaryWithChildren) {
             mChildrenContainer.setUserLocked(userLocked);
-            if (userLocked || (!userLocked && !isGroupExpanded())) {
+            if (userLocked || !isGroupExpanded()) {
                 updateBackgroundForGroupState();
             }
         }
@@ -1181,7 +1181,20 @@ public class ExpandableNotificationRow extends ActivatableNotificationView {
      * @see #canViewBeDismissed()
      */
     public boolean isClearable() {
-        return mStatusBarNotification != null && mStatusBarNotification.isClearable();
+        if (mStatusBarNotification == null || !mStatusBarNotification.isClearable()) {
+            return false;
+        }
+        if (mIsSummaryWithChildren) {
+            List<ExpandableNotificationRow> notificationChildren =
+                    mChildrenContainer.getNotificationChildren();
+            for (int i = 0; i < notificationChildren.size(); i++) {
+                ExpandableNotificationRow child = notificationChildren.get(i);
+                if (!child.isClearable()) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     @Override

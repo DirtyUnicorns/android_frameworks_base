@@ -56,7 +56,10 @@ static const char* kPathWhitelist[] = {
   "/dev/urandom",
   "/dev/ion",
   "/dev/dri/renderD129", // Fixes b/31172436
+<<<<<<< HEAD
   "/data/adb/socket_haploid32_root",
+=======
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
 };
 
 static const char* kFdPath = "/proc/self/fd";
@@ -257,6 +260,7 @@ class FileDescriptorInfo {
         path.compare(path.size() - kJarSuffix.size(), kJarSuffix.size(), kJarSuffix) == 0) {
       return true;
     }
+<<<<<<< HEAD
 
     static const std::string kResourceCachePrefix = "/data/resource-cache/";
     static const std::string kIdmapSuffix = "idmap";
@@ -277,6 +281,8 @@ class FileDescriptorInfo {
         path.compare(path.size() - kApkSuffix.size(), kApkSuffix.size(), kApkSuffix) == 0) {
         return true;
     }
+=======
+>>>>>>> ff28c71fc354cceda53c6d0ac187d9685d5d0d33
     return false;
   }
 
