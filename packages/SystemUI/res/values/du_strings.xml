@@ -43,6 +43,7 @@
 
     <!-- SystemUI Tuner Parts -->
     <string name="systemui_tuner_statusbar_title">Statusbar items</string>
+    <string name="systemui_tuner_pnc_title">Power notification controls</string>
 
     <!-- Quick Settings tiles -->
     <string name="quick_settings_screenshot_label">Screenshot</string>
