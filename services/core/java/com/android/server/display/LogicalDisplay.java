@@ -16,6 +16,7 @@
 
 package com.android.server.display;
 
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.view.Display;
 import android.view.DisplayInfo;
@@ -83,6 +84,12 @@ final class LogicalDisplay {
     // Temporary rectangle used when needed.
     private final Rect mTempLayerStackRect = new Rect();
     private final Rect mTempDisplayRect = new Rect();
+
+    // Offset the "center" of the screen
+    private int mOffsetCenterX = Resources.getSystem().getInteger(
+            com.android.internal.R.integer.config_offsetCenterX);
+    private int mOffsetCenterY = Resources.getSystem().getInteger(
+            com.android.internal.R.integer.config_offsetCenterY);
 
     public LogicalDisplay(int displayId, int layerStack, DisplayDevice primaryDisplayDevice) {
         mDisplayId = displayId;
@@ -345,10 +352,10 @@ final class LogicalDisplay {
         mTempDisplayRect.set(displayRectLeft, displayRectTop,
                 displayRectLeft + displayRectWidth, displayRectTop + displayRectHeight);
 
-        mTempDisplayRect.left += mDisplayOffsetX;
-        mTempDisplayRect.right += mDisplayOffsetX;
-        mTempDisplayRect.top += mDisplayOffsetY;
-        mTempDisplayRect.bottom += mDisplayOffsetY;
+        mTempDisplayRect.left += rotated ? mDisplayOffsetY : mDisplayOffsetX;
+        mTempDisplayRect.right += rotated ? mDisplayOffsetY : mDisplayOffsetX;
+        mTempDisplayRect.top += rotated ? mDisplayOffsetX : mDisplayOffsetY;
+        mTempDisplayRect.bottom += rotated ? mDisplayOffsetX : mDisplayOffsetY;
         device.setProjectionInTransactionLocked(orientation, mTempLayerStackRect, mTempDisplayRect);
     }
 

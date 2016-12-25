@@ -105,4 +105,8 @@
   <java-symbol type="bool" name="config_protocol_errors_perm_failure" />
   <java-symbol type="bool" name="config_softap_extention" />
 
+  <!-- center of screen offsets -->
+  <java-symbol type="integer" name="config_offsetCenterX" />
+  <java-symbol type="integer" name="config_offsetCenterY" />
+
 </resources>
