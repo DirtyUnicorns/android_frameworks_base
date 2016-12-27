@@ -92,7 +92,6 @@ public final class ShutdownThread extends Thread {
 
     private static boolean mReboot;
     private static boolean mRebootSafeMode;
-    private static boolean mRebootUpdate;
     private static boolean mRebootHot;
 
     private static boolean mRebootHasProgressBar;
@@ -189,7 +188,7 @@ public final class ShutdownThread extends Thread {
                 int advancedReboot = isPrimary ? getAdvancedReboot(context) : 0;
                 KeyguardManager km = (KeyguardManager) context.getSystemService(
                         Context.KEYGUARD_SERVICE);
-                boolean locked = km.inKeyguardRestrictedInputMode() && km.isKeyguardSecure();
+                boolean locked = km.inKeyguardRestrictedInputMode();
 
                 if ((advancedReboot == 1 && !locked) || advancedReboot == 2) {
                     // Include options in power menu for rebooting into recovery or bootloader
