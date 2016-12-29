@@ -60,6 +60,8 @@ public class BatteryMeterDrawable extends Drawable implements
             Settings.Secure.STATUS_BAR_CHARGE_COLOR;
     private static final String FORCE_CHARGE_BATTERY_TEXT =
             Settings.Secure.FORCE_CHARGE_BATTERY_TEXT;
+    private static final String TEXT_CHARGING_SYMBOL =
+            Settings.Secure.TEXT_CHARGING_SYMBOL;
 
     private static final boolean SINGLE_DIGIT_PERCENT = false;
 
@@ -78,7 +80,7 @@ public class BatteryMeterDrawable extends Drawable implements
     private final int mIntrinsicWidth;
     private final int mIntrinsicHeight;
 
-    private boolean mShowPercent;
+    private int mShowPercent;
     private float mButtonHeightFraction;
     private float mSubpixelSmoothingLeft;
     private float mSubpixelSmoothingRight;
@@ -122,6 +124,7 @@ public class BatteryMeterDrawable extends Drawable implements
     private int mLevel = -1;
     private boolean mPluggedIn;
     private boolean mForceChargeBatteryText;
+    private int  mTextChargingSymbol;
     private boolean mListening;
 
     private boolean mIsAnimating; // stores charge-animation status to remove callbacks
@@ -172,6 +175,7 @@ public class BatteryMeterDrawable extends Drawable implements
         colors.recycle();
         updateShowPercent();
         updateForceChargeBatteryText();
+        updateCustomChargingSymbol();
         mWarningString = context.getString(R.string.battery_meter_very_low_overlay_symbol);
         mCriticalLevel = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_criticalBatteryWarningLevel);
@@ -250,9 +254,13 @@ public class BatteryMeterDrawable extends Drawable implements
         mContext.getContentResolver().registerContentObserver(
                 Settings.Secure.getUriFor(FORCE_CHARGE_BATTERY_TEXT),
                 false, mSettingObserver);
+        mContext.getContentResolver().registerContentObserver(
+                Settings.Secure.getUriFor(TEXT_CHARGING_SYMBOL),
+                false, mSettingObserver);
         updateShowPercent();
         updateChargeColor();
         updateForceChargeBatteryText();
+        updateCustomChargingSymbol();
         mBatteryController.addStateChangedCallback(this);
     }
 
@@ -263,7 +271,7 @@ public class BatteryMeterDrawable extends Drawable implements
     }
 
     public void disableShowPercent() {
-        mShowPercent = false;
+        mShowPercent = 0;
         postInvalidate();
     }
 
@@ -335,7 +343,7 @@ public class BatteryMeterDrawable extends Drawable implements
 
     private void updateShowPercent() {
         mShowPercent = Settings.Secure.getInt(mContext.getContentResolver(),
-                STATUS_BAR_SHOW_BATTERY_PERCENT, 0) == 1;
+                STATUS_BAR_SHOW_BATTERY_PERCENT, 0);
     }
 
     private void updateChargeColor() {
@@ -352,6 +360,11 @@ public class BatteryMeterDrawable extends Drawable implements
     private void updateForceChargeBatteryText() {
         mForceChargeBatteryText = Settings.Secure.getInt(mContext.getContentResolver(),
                 FORCE_CHARGE_BATTERY_TEXT, 0) == 1 ? true : false;
+    }
+
+    private void updateCustomChargingSymbol() {
+        mTextChargingSymbol = Settings.Secure.getInt(mContext.getContentResolver(),
+                TEXT_CHARGING_SYMBOL, 0);
     }
 
     private int getColorForLevel(int percent) {
@@ -468,6 +481,8 @@ public class BatteryMeterDrawable extends Drawable implements
             super.onChange(selfChange, uri);
             updateShowPercent();
             updateChargeColor();
+            updateForceChargeBatteryText();
+            updateCustomChargingSymbol();
             postInvalidate();
         }
     }
@@ -682,9 +697,7 @@ public class BatteryMeterDrawable extends Drawable implements
 
     private void drawBattery(Canvas canvas) {
         final int level = mLevel;
-
         mTextAndBoltPaint.setColor(getColorForLevel(level));
-        updateForceChargeBatteryText();
         // Make sure we don't draw the charge indicator if not plugged in
         final Drawable d = mBatteryDrawable.findDrawableByLayerId(R.id.battery_charge_indicator);
         if (d instanceof BitmapDrawable) {
@@ -692,8 +705,11 @@ public class BatteryMeterDrawable extends Drawable implements
             // happened, we need to change the paint rather than the alpha in case the blendMode
             // has been set to clear.  Clear always clears regardless of alpha level ;)
             final BitmapDrawable bd = (BitmapDrawable) d;
-            bd.getPaint().set(!mPluggedIn || (mPluggedIn && mShowPercent && !mForceChargeBatteryText)
-                                      ? mClearPaint : mTextAndBoltPaint);
+            bd.getPaint().set(!mPluggedIn || (mPluggedIn && mShowPercent == 1 && (!mForceChargeBatteryText
+                                                                    || (mForceChargeBatteryText && mTextChargingSymbol != 0)))
+                                            || (mPluggedIn && mShowPercent == 2 && mTextChargingSymbol != 0)
+                                            || (mPluggedIn && mShowPercent == 0  && (mForceChargeBatteryText && mTextChargingSymbol != 0))
+                                            ? mClearPaint : mTextAndBoltPaint);
             if (mBoltOverlay) {
                 mBoltDrawable.setTint(getBoltColor());
             }
@@ -716,7 +732,7 @@ public class BatteryMeterDrawable extends Drawable implements
 
     private void drawPercentageText(Canvas canvas) {
         final int level = mLevel;
-        if (level > mCriticalLevel && mShowPercent && level != 100) {
+        if (level > mCriticalLevel && mShowPercent == 1 && level != 100) {
             // Draw the percentage text
             String pctText = String.valueOf(SINGLE_DIGIT_PERCENT ? (level / 10) : level);
             mTextAndBoltPaint.setColor(getColorForLevel(level));
