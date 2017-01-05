@@ -2582,4 +2582,9 @@
 
     <!-- An array of packages for which notifications cannot be blocked. -->
     <string-array translatable="false" name="config_nonBlockableNotificationPackages" />
+
+    <!-- Distance in pixels to offset the center of the screen -->
+    <integer name="config_offsetCenterX">0</integer>
+    <integer name="config_offsetCenterY">0</integer>
+
 </resources>
