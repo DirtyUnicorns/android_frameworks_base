@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /*
-** Copyright (C) 2014-2016 The Dirty Unicorns Project
+** Copyright (C) 2014-2017 The Dirty Unicorns Project
 **
 ** Licensed under the Apache License, Version 2.0 (the "License");
 ** you may not use this file except in compliance with the License.
@@ -30,5 +30,17 @@
         <item name="windowEnterAnimation">@anim/dialog_enter</item>
         <item name="windowExitAnimation">@anim/dialog_exit</item>
     </style>
+
+    <!-- Exposed manifest styles -->
+    <style name="HeavyWeightSwitcherActivityTheme" parent="Theme.DeviceDefault.Light.Dialog" />
+    <style name="ChooseAccountActivityTheme" parent="Theme.DeviceDefault.Light.Dialog" />
+    <style name="ChooseTypeAndAccountActivityTheme" parent="Theme.DeviceDefault.Light.Dialog" />
+    <style name="ChooseAccountTypeActivityTheme" parent="Theme.DeviceDefault.Light.Dialog" />
+    <style name="CantAddAccountActivityTheme" parent="Theme.DeviceDefault.Light.Dialog.NoActionBar" />
+    <style name="GrantCredentialsPermissionActivityTheme" parent="Theme.DeviceDefault.Light.DialogWhenLarge" />
+    <style name="SyncActivityTooManyDeletesTheme" parent="Theme.DeviceDefault.Light.Dialog" />
+    <style name="NetInitiatedActivityTheme" parent="Theme.DeviceDefault.Light.Dialog.Alert" />
+    <style name="ConfirmUserCreationActivityTheme" parent="Theme.DeviceDefault.Light.Dialog.Alert" />
+    <style name="UnlaunchableAppActivityTheme" parent="Theme.DeviceDefault.Light.Dialog.Alert" />
 
 </resources>
