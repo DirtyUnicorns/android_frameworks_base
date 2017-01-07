@@ -46,4 +46,7 @@
     <!-- Recents memory bar -->
     <dimen name="recents_membar_spacing">12dp</dimen>
 
+    <!-- QS scroller -->
+    <dimen name="qs_scroller_margin">12dp</dimen>
+
 </resources>
