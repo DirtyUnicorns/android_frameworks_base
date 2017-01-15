@@ -70,6 +70,9 @@
   <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes désactivées</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes activées</string>
+  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Icône \"4G\"</string>
   <string name="show_lte_fourgee_summary">Utiliser l\'icône \"4G\" plutôt que \"LTE\"</string>

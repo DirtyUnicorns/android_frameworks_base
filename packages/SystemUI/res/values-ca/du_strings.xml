@@ -70,6 +70,9 @@
   <string name="accessibility_quick_settings_heads_up_on">Notificacions emergents activades</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Notificacions emergents desactivades</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Notificacions emergents activades</string>
+  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Mostra 4G en lloc d\'LTE</string>
   <string name="show_lte_fourgee_summary">Substitueix l\'indicador LTE de la barra d\'estat per 4G</string>

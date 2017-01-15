@@ -19,7 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Vendor mismatched fingerprint warning -->
-  <string name="system_error_vendorprint">Il semble que votre \"vendor image\" soit obsolète. Veuillez installer la dernière version disponible pour votre appareil.</string>
+  <string name="system_error_vendorprint">Votre \"vendor image\" semble obsolète. Veuillez installer la dernière version disponible pour votre appareil.</string>
   <!-- ADB over network -->
   <string name="adb_net_active_notification_title">ADB par réseau activé</string>
   <string name="adb_both_active_notification_title">ADB par USB et réseau activé</string>

@@ -70,6 +70,9 @@
   <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления включены</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления выключены</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены</string>
+  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Показывать 4G вместо LTE</string>
   <string name="show_lte_fourgee_summary">Заменить значок LTE в строке состояния на 4G</string>

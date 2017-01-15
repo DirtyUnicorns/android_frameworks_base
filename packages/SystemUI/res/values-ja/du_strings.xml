@@ -65,13 +65,16 @@
   <string name="quick_settings_smartbar_off">スマートバーがOFFです</string>
   <string name="quick_settings_fling">Fling</string>
   <string name="quick_settings_fling_off">FlingがOFFです</string>
-  <string name="quick_settings_heads_up_label">Heads Up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Head up オフ</string>
-  <string name="accessibility_quick_settings_heads_up_on">Heads up オン</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Heads upがオフになりました</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Heads upがオンになりました</string>
+  <string name="quick_settings_heads_up_label">ヘッドアップ</string>
+  <string name="accessibility_quick_settings_heads_up_off">ヘッドアップ オフ</string>
+  <string name="accessibility_quick_settings_heads_up_on">ヘッドアップ オン</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップ通知は無効になりました</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップ通知が有効になりました</string>
+  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <!-- Show lte/4g switch -->
-  <string name="show_lte_fourgee_title">LTE表示の代わりに4G表示を使用する</string>
+  <string name="show_lte_fourgee_title">LTE表示の代わりに4G表示を使用</string>
   <string name="show_lte_fourgee_summary">ステータスバーの表示をLTEから4Gに置き換える</string>
   <string name="statusbar_tuner_category_title">ステータスバーに表示しない</string>
   <!-- DU Logo -->

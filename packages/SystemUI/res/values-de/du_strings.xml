@@ -70,6 +70,9 @@
   <string name="accessibility_quick_settings_heads_up_on">Heads Up-Benachrichtigungen an</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up-Benachrichtigungen ausgeschaltet</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up-Benachrichtigungen eingeschaltet</string>
+  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G anstatt LTE anzeigen</string>
   <string name="show_lte_fourgee_summary">Ersetzt das LTE-Symbol in der Statusleiste durch ein 4G-Symbol</string>

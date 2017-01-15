@@ -70,6 +70,9 @@
   <string name="accessibility_quick_settings_heads_up_on">迅速瀏覽 開啟</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">「迅速瀏覽」已關閉</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">「迅速瀏覽」已開啟</string>
+  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">顯示 4G 而非 LTE</string>
   <string name="show_lte_fourgee_summary">以 4G 代替狀態列中的 LTE 指示項目</string>

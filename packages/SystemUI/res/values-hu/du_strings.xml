@@ -70,6 +70,9 @@
   <string name="accessibility_quick_settings_heads_up_on">Lebegő értesítések be</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Lebegő értesítések kikapcsolva</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Lebegő értesítések bekapcsolva</string>
+  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G megjelenítése LTE helyett</string>
   <string name="show_lte_fourgee_summary">LTE hálozat ikon lecserélése 4G-re</string>

@@ -70,6 +70,9 @@
   <string name="accessibility_quick_settings_heads_up_on">تشغيل Heads up</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">تم ايقاف Heads up</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل Heads up</string>
+  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">اظهار 4g بدلا من LTE</string>
   <string name="show_lte_fourgee_summary">يستبدل مؤشر شريط الحالة LTE بـ 4G</string>

@@ -70,6 +70,9 @@
   <string name="accessibility_quick_settings_heads_up_on">Plovoucí upozornění zapnuto</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Plovoucí upozornění vypnuto</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Plovoucí upozornění zapnuto</string>
+  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
+  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Zobrazit 4G místo LTE</string>
   <string name="show_lte_fourgee_summary">Nahradí indikátor LTE ve stavové liště ukazatelem 4G</string>
