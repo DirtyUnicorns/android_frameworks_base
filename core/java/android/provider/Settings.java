@@ -3996,6 +3996,12 @@ public final class Settings {
         public static final String DISABLE_SUGGESTIONS = "disable_suggestions";
 
         /**
+         * Dashboard columns in settings
+         * @hide
+         */
+        public static final String DASHBOARD_COLUMNS = "dashboard_columns";
+
+        /**
          * Remove tile summaries in settings
          * @hide
          */
