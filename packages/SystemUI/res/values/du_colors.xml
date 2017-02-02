@@ -17,9 +17,6 @@
 
 <resources>
 
-    <!-- Alarm status color -->
-    <color name="alarm_status_color">#E0E0E0</color>
-
     <!-- Custom Carrier Label -->
     <color name="status_bar_carrier_color">#FFFFFFFF</color>
 
