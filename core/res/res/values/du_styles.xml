@@ -18,6 +18,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Power menu animation styles -->
     <style name="GlobalActionsAnimation">
         <item name="windowEnterAnimation">@anim/slide_in_up</item>
         <item name="windowExitAnimation">@anim/slide_out_down</item>
@@ -27,8 +28,8 @@
         <item name="windowExitAnimation">@anim/slide_out_up</item>
     </style>
     <style name="GlobalActionsAnimationEnter">
-        <item name="windowEnterAnimation">@anim/dialog_enter</item>
-        <item name="windowExitAnimation">@anim/dialog_exit</item>
+        <item name="windowEnterAnimation">@anim/custom_fade_in</item>
+        <item name="windowExitAnimation">@anim/custom_fade_out</item>
     </style>
 
     <!-- Exposed manifest styles -->
