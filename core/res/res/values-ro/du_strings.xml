@@ -21,44 +21,47 @@
   <!-- Vendor mismatched fingerprint warning -->
   <string name="system_error_vendorprint">It appears your vendor image may be out of date. Please flash the latest vendor image for your device.</string>
   <!-- ADB over network -->
-  <string name="adb_net_active_notification_title">ADB over network enabled</string>
-  <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
-  <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
+  <string name="adb_net_active_notification_title">ADB prin rețea activ</string>
+  <string name="adb_both_active_notification_title">ADB prin USB &amp; rețea activ</string>
+  <string name="adb_active_generic_notification_message">Apasă pentru dezactivarea depanării.</string>
   <!-- Button to reboot the phone, within the Phone Options dialog -->
-  <string name="reboot_system" product="tablet">Reboot tablet</string>
-  <string name="reboot_system" product="default">Reboot phone</string>
+  <string name="reboot_system" product="tablet">Reporniţi tableta</string>
+  <string name="reboot_system" product="default">Reporniţi telefonul</string>
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
-  <string name="reboot_reboot">Reboot</string>
+  <string name="reboot_reboot">Reporniți</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">Recovery</string>
+  <string name="reboot_recovery">Mod Recuperare</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">Bootloader</string>
+  <string name="reboot_bootloader">Mod Bootloader</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
-  <string name="reboot_hot">Hot reboot</string>
+  <string name="reboot_hot">Repornire la Cald</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
-  <string name="reboot_bootmenu">Bootmenu</string>
+  <string name="reboot_bootmenu">Meniu de boot</string>
   <!-- Button to reboot the phone into fastboot, within the Reboot Options dialog -->
   <string name="reboot_fastboot">Fastboot</string>
   <!-- Button to reboot the phone into download, within the Reboot Options dialog -->
-  <string name="reboot_download">Download</string>
+  <string name="reboot_download"> Descărcare</string>
   <!-- Reboot Progress Dialog. This is shown if the user chooses to reboot the phone. -->
-  <string name="reboot_progress">Rebooting\u2026</string>
+  <string name="reboot_progress">Repornire\u2026</string>
   <!-- Reboot Confirmation Dialog.  When the user chooses to reboot the phone, there will be a confirmation dialog.  This is the message. -->
-  <string name="reboot_confirm">Your phone will reboot.</string>
+  <string name="reboot_confirm">Telefonul dvs. va reporni.</string>
   <!-- label for item that reboots the phone in phone options dialog -->
-  <string name="global_action_reboot">Reboot</string>
+  <string name="global_action_reboot">Repornirea sistemului</string>
   <!-- screenshot in the power menu -->
-  <string name="powermenu_screenshot">Screenshot</string>
+  <string name="powermenu_screenshot">Captură ecran</string>
   <!-- Screenrecord in the power menu -->
-  <string name="powermenu_screenrecord">Screen record</string>
+  <string name="powermenu_screenrecord">Înregistrare ecran</string>
   <!-- Powermenu Torch -->
-  <string name="global_action_torch">Flashlight</string>
+  <string name="global_action_torch">Lanternă</string>
   <!-- SOFTAP framework  -->
-  <string name="tethered_notification_no_device_message">No connected device</string>
-  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s</xliff:g> connected device</string>
-  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s</xliff:g> connected devices</string>
+  <string name="tethered_notification_no_device_message">Niciun dispozitiv conectat</string>
+  <string name="tethered_notification_one_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitive conectate</string>
+  <string name="tethered_notification_multi_device_message"><xliff:g id="count">%1$s </xliff:g> dispozitive conectate</string>
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_modifyOverlays">modify theme overlays</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_modifyOverlays">Allows the app to make modifications to theme overlays using OverlayManagerService</string>
+  <string name="permdesc_modifyOverlays">Permite aplicațiilor să aducă modificări temelor folosind OverlayManagerService</string>
+  <!-- One handed mode  -->
+  <string name="singlehandmode_click_hint_message">Touch outside the screen to exit mini screen view</string>
+  <string name="singlehandmode_slide_hint_message">Slide your finger across the navigation bar to switch between the standard and mini screen views</string>
 </resources>

@@ -61,4 +61,7 @@
   <string name="permlab_modifyOverlays">modificar layers de tema</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_modifyOverlays">Permite a la aplicación realizar modificaciones del tema con OverlayManagerService</string>
+  <!-- One handed mode  -->
+  <string name="singlehandmode_click_hint_message">Touch outside the screen to exit mini screen view</string>
+  <string name="singlehandmode_slide_hint_message">Slide your finger across the navigation bar to switch between the standard and mini screen views</string>
 </resources>

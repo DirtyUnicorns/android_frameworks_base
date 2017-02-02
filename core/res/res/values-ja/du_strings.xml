@@ -19,7 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Vendor mismatched fingerprint warning -->
-  <string name="system_error_vendorprint">あなたのベンダーイメージが古い可能性があると表示されます。お使いのデバイス用の最新のベンダーイメージをフラッシュしてください。</string>
+  <string name="system_error_vendorprint">現在使用しているベンダーイメージが古い可能性があると表示されます。お使いの端末用の最新のベンダーイメージをフラッシュしてください。</string>
   <!-- ADB over network -->
   <string name="adb_net_active_notification_title">ネットワーク経由のADBが有効です</string>
   <string name="adb_both_active_notification_title">USBとネットワーク経由のADBが有効です</string>
@@ -30,9 +30,9 @@
   <!-- Button to reboot the phone, within the Reboot Options dialog -->
   <string name="reboot_reboot">再起動</string>
   <!-- Button to reboot the phone into recovery, within the Reboot Options dialog -->
-  <string name="reboot_recovery">リカバリ</string>
+  <string name="reboot_recovery">リカバリー</string>
   <!-- Button to reboot the phone into bootloader, within the Reboot Options dialog -->
-  <string name="reboot_bootloader">ブートローダー</string>
+  <string name="reboot_bootloader">ブートローダ</string>
   <!-- Button to hot reboot the device, within the Reboot Options dialog -->
   <string name="reboot_hot">ホットリブート</string>
   <!-- Button to reboot the phone into bootmenu, within the Reboot Options dialog -->
@@ -60,5 +60,8 @@
   <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_modifyOverlays">テーマのオーバーレイを変更</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_modifyOverlays">オーバーレイマネージャサービスを使用してテーマのオーバーレイを変更することをアプリに許可します</string>
+  <string name="permdesc_modifyOverlays">OverlayManagerServiceを使用してテーマのオーバーレイを変更することをアプリに許可します</string>
+  <!-- One handed mode  -->
+  <string name="singlehandmode_click_hint_message">Touch outside the screen to exit mini screen view</string>
+  <string name="singlehandmode_slide_hint_message">Slide your finger across the navigation bar to switch between the standard and mini screen views</string>
 </resources>

@@ -61,4 +61,7 @@
   <string name="permlab_modifyOverlays">修改主題遮罩</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_modifyOverlays">允許應用程式透過 OverlayManagerService 修改主題遮罩</string>
+  <!-- One handed mode  -->
+  <string name="singlehandmode_click_hint_message">Touch outside the screen to exit mini screen view</string>
+  <string name="singlehandmode_slide_hint_message">Slide your finger across the navigation bar to switch between the standard and mini screen views</string>
 </resources>

@@ -70,9 +70,23 @@
   <string name="accessibility_quick_settings_heads_up_on">Lebegő értesítések be</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Lebegő értesítések kikapcsolva</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Lebegő értesítések bekapcsolva</string>
-  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
-  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
-  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
+  <string name="quick_settings_doze_notifications_label">Doze értesítések</string>
+  <string name="quick_settings_doze_notifications_user">Doze értesítések</string>
+  <string name="quick_settings_doze_notifications_off">Nincs doze értesítés</string>
+  <string name="quick_settings_nfc_label">NFC</string>
+  <string name="quick_settings_nfc_off">NFC ki</string>
+  <string name="quick_settings_nfc_on">NFC be</string>
+  <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
+  <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
+  <string name="accessibility_quick_settings_location_changed_battery_saving">Location reporting changed to battery saving mode.</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">Location reporting changed to sensors only mode.</string>
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">Location reporting changed to high accuracy mode.</string>
+  <string name="quick_settings_location_detail_title">Location mode</string>
+  <string name="quick_settings_location_battery_saving_label">Battery saving</string>
+  <string name="quick_settings_location_gps_only_label">Device only</string>
+  <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
+  <string name="quick_settings_location_off_label">Location off</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G megjelenítése LTE helyett</string>
   <string name="show_lte_fourgee_summary">LTE hálozat ikon lecserélése 4G-re</string>
@@ -95,4 +109,6 @@
   <string name="data_wifi_activity_arrows_title">Mobilnet/Wifi tevékenység nyilak</string>
   <string name="data_wifi_activity_arrows_summary_on">Mobilnet/Wifi tevékenység nyilak megjelenítése</string>
   <string name="data_wifi_activity_arrows_summary_off">Mobilnet/Wifi tevékenység nyilak elrejtése</string>
+  <!-- Recents memory bar -->
+  <string name="recents_free_ram">SZABAD RAM</string>
 </resources>

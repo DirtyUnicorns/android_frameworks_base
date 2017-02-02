@@ -70,9 +70,23 @@
   <string name="accessibility_quick_settings_heads_up_on">Heads Up-Benachrichtigungen an</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up-Benachrichtigungen ausgeschaltet</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up-Benachrichtigungen eingeschaltet</string>
-  <string name="quick_settings_doze_notifications_label">Doze notifications</string>
-  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
-  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
+  <string name="quick_settings_doze_notifications_label">Doze-Benachrichtigungen</string>
+  <string name="quick_settings_doze_notifications_user">Doze-Benachrichtigungen</string>
+  <string name="quick_settings_doze_notifications_off">Doze-Benachrichtigungen aus</string>
+  <string name="quick_settings_nfc_label">NFC</string>
+  <string name="quick_settings_nfc_off">NFC aus</string>
+  <string name="quick_settings_nfc_on">NFC an</string>
+  <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
+  <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
+  <string name="accessibility_quick_settings_location_changed_battery_saving">Location reporting changed to battery saving mode.</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">Location reporting changed to sensors only mode.</string>
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">Location reporting changed to high accuracy mode.</string>
+  <string name="quick_settings_location_detail_title">Location mode</string>
+  <string name="quick_settings_location_battery_saving_label">Battery saving</string>
+  <string name="quick_settings_location_gps_only_label">Device only</string>
+  <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
+  <string name="quick_settings_location_off_label">Location off</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G anstatt LTE anzeigen</string>
   <string name="show_lte_fourgee_summary">Ersetzt das LTE-Symbol in der Statusleiste durch ein 4G-Symbol</string>
@@ -95,4 +109,6 @@
   <string name="data_wifi_activity_arrows_title">Pfeile für Daten/WLAN-Aktivität</string>
   <string name="data_wifi_activity_arrows_summary_on">Pfeile für Daten/WLAN-Aktivität anzeigen</string>
   <string name="data_wifi_activity_arrows_summary_off">Pfeile für Daten/WLAN-Aktivität nicht anzeigen</string>
+  <!-- Recents memory bar -->
+  <string name="recents_free_ram">FREIER RAM</string>
 </resources>

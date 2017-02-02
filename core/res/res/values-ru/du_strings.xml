@@ -22,7 +22,7 @@
   <string name="system_error_vendorprint">Кажется, образ заводской прошивки устарел. Пожалуйста, установите последний образ заводской прошивки на ваше устройство.</string>
   <!-- ADB over network -->
   <string name="adb_net_active_notification_title">Отладка по сети разрешена</string>
-  <string name="adb_both_active_notification_title">Режим отладки через USB &amp; сеть включена</string>
+  <string name="adb_both_active_notification_title">Режим отладки через USB включён</string>
   <string name="adb_active_generic_notification_message">Нажмите, чтобы отключить отладку.</string>
   <!-- Button to reboot the phone, within the Phone Options dialog -->
   <string name="reboot_system" product="tablet">Перезагрузка планшета</string>
@@ -61,4 +61,7 @@
   <string name="permlab_modifyOverlays">изменить слои темы</string>
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_modifyOverlays">Позволить приложению изменять слои темы используя OverlayManagerService</string>
+  <!-- One handed mode  -->
+  <string name="singlehandmode_click_hint_message">Touch outside the screen to exit mini screen view</string>
+  <string name="singlehandmode_slide_hint_message">Slide your finger across the navigation bar to switch between the standard and mini screen views</string>
 </resources>
