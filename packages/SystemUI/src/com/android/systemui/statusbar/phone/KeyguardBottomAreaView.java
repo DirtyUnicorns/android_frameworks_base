@@ -310,7 +310,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         boolean visible = !isCameraDisabledByDpm() && resolved != null
                 && getResources().getBoolean(R.bool.config_keyguardShowCameraAffordance)
                 && mUserSetupComplete
-                && !hideShortcuts();
+                && hideShortcuts();
         if (mCameraImageView != null) {
             mCameraImageView.setVisibility(visible ? View.VISIBLE : View.GONE);
         }
@@ -320,7 +320,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
         mLeftIsVoiceAssist = canLaunchVoiceAssist();
         int drawableId;
         int contentDescription;
-        boolean visible = mUserSetupComplete && !hideShortcuts();
+        boolean visible = mUserSetupComplete && hideShortcuts();
         if (mLeftIsVoiceAssist) {
             drawableId = R.drawable.ic_mic_26dp;
             contentDescription = R.string.accessibility_voice_assist_button;
@@ -742,9 +742,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     }
 
     private boolean hideShortcuts() {
-        boolean secure = mLockPatternUtils.isSecure(KeyguardUpdateMonitor.getCurrentUser());
-        return secure && Settings.Secure.getIntForUser(
-                mContext.getContentResolver(), Settings.Secure.LOCK_QS_DISABLED, 0,
-                KeyguardUpdateMonitor.getCurrentUser()) != 0;
+        return (Settings.Secure.getIntForUser(getContext().getContentResolver(),
+                Settings.Secure.HIDE_LOCKSCREEN_SHORTCUTS, 1, UserHandle.USER_CURRENT) == 1);
     }
 }
