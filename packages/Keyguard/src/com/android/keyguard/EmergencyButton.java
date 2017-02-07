@@ -25,6 +25,7 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.telecom.TelecomManager;
 import android.util.AttributeSet;
 import android.util.Slog;
@@ -207,18 +208,22 @@ public class EmergencyButton extends Button {
                 }
             }
         }
-        if (visible) {
-            setVisibility(View.VISIBLE);
 
+        if (visible) {
             int textId;
-            if (isInCall()) {
-                textId = com.android.internal.R.string.lockscreen_return_to_call;
+            boolean showEmergencyButton = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.SHOW_EMERGENCY_BUTTON, 1, UserHandle.USER_CURRENT) != 1;
+            if (!showEmergencyButton) {
+                setVisibility(View.VISIBLE);
+                if (isInCall()) {
+                    textId = com.android.internal.R.string.lockscreen_return_to_call;
+                } else {
+                    textId = com.android.internal.R.string.lockscreen_emergency_call;
+                }
+                setText(textId);
             } else {
-                textId = com.android.internal.R.string.lockscreen_emergency_call;
+                setVisibility(View.GONE);
             }
-            setText(textId);
-        } else {
-            setVisibility(View.GONE);
         }
     }
 

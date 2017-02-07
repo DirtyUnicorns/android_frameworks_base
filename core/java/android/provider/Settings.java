@@ -4365,6 +4365,12 @@ public final class Settings {
         public static final String KEYGUARD_SHOW_CLOCK = "keyguard_show_clock";
 
         /**
+         * Show/Hide Emergency Button on Lockscreen
+         * @hide
+         */
+        public static final String SHOW_EMERGENCY_BUTTON = "show_emergency_button";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
