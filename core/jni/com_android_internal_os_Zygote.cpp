@@ -538,6 +538,22 @@ static pid_t ForkAndSpecializeCommon(JNIEnv* env, uid_t uid, gid_t gid, jintArra
     RuntimeAbort(env, __LINE__, "Call to sigprocmask(SIG_BLOCK, { SIGCHLD }) failed.");
   }
 
+  // Close any logging related FDs before we start evaluating the list of
+  // file descriptors.
+  __android_log_close();
+
+  // If this is the first fork for this zygote, create the open FD table.
+  // If it isn't, we just need to check whether the list of open files has
+  // changed (and it shouldn't in the normal case).
+  if (gOpenFdTable == NULL) {
+    gOpenFdTable = FileDescriptorTable::Create();
+    if (gOpenFdTable == NULL) {
+      RuntimeAbort(env, __LINE__, "Unable to construct file descriptor table.");
+    }
+  } else if (!gOpenFdTable->Restat()) {
+    RuntimeAbort(env, __LINE__, "Unable to restat file descriptor table.");
+  }
+
   FDTWrapper fd_table(env, &debug_flags);
   ResetNicePriority(env);
 
