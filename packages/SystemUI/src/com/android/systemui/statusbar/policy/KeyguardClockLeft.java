@@ -38,7 +38,7 @@ public class KeyguardClockLeft extends Clock {
 
     protected void updateClockVisibility() {
         if (Settings.System.getInt(mContext.getContentResolver(),
-                Settings.Secure.KEYGUARD_SHOW_CLOCK, 0) == 1) {
+                Settings.System.KEYGUARD_SHOW_CLOCK, 0) == 1) {
             setVisibility(View.VISIBLE);
         } else {
             setVisibility(View.GONE);
