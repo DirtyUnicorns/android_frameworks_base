@@ -76,17 +76,17 @@
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_nfc_off">NFC wył.</string>
   <string name="quick_settings_nfc_on">NFC Wł.</string>
-  <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
-  <string name="accessibility_quick_settings_location_changed_battery_saving">Location reporting changed to battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_changed_gps_only">Location reporting changed to sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_changed_high_accuracy">Location reporting changed to high accuracy mode.</string>
-  <string name="quick_settings_location_detail_title">Location mode</string>
-  <string name="quick_settings_location_battery_saving_label">Battery saving</string>
-  <string name="quick_settings_location_gps_only_label">Device only</string>
-  <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
-  <string name="quick_settings_location_off_label">Location off</string>
+  <string name="accessibility_quick_settings_location_battery_saving">Raportowanie lokalizacji: tryb oszczędzania baterii.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Raportowanie lokalizacji: tylko czujniki.</string>
+  <string name="accessibility_quick_settings_location_high_accuracy">Raportowanie lokalizacji: wysoka dokładność.</string>
+  <string name="accessibility_quick_settings_location_changed_battery_saving">Raportowanie lokalizacji zmienione na tryb oszczędzania baterii.</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">Raportowanie lokalizacji zmienione na tryb czujników.</string>
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">Raportowanie lokalizacji zmienione na tryb wysokiej dokładności.</string>
+  <string name="quick_settings_location_detail_title">Tryb lokalizacji</string>
+  <string name="quick_settings_location_battery_saving_label">Oszczędzanie baterii</string>
+  <string name="quick_settings_location_gps_only_label">Tylko urządzenie</string>
+  <string name="quick_settings_location_high_accuracy_label">Wysoka dokładność</string>
+  <string name="quick_settings_location_off_label">Lokalizacja wyłączona</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Pokaż 4G zamiast LTE</string>
   <string name="show_lte_fourgee_summary">Zamiana wskaźnika stanu LTE na 4G</string>
@@ -105,6 +105,7 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Path data for Solid battery -->
   <!-- Data/Wifi activity arrows -->
   <string name="data_wifi_activity_arrows_title">Strzałki aktywności danych/Wifi</string>
   <string name="data_wifi_activity_arrows_summary_on">Pokaż strzałki aktywności danych/Wifi</string>

@@ -76,17 +76,17 @@
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_nfc_off">NFC выкл</string>
   <string name="quick_settings_nfc_on">NFC вкл</string>
-  <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
-  <string name="accessibility_quick_settings_location_changed_battery_saving">Location reporting changed to battery saving mode.</string>
-  <string name="accessibility_quick_settings_location_changed_gps_only">Location reporting changed to sensors only mode.</string>
-  <string name="accessibility_quick_settings_location_changed_high_accuracy">Location reporting changed to high accuracy mode.</string>
-  <string name="quick_settings_location_detail_title">Location mode</string>
-  <string name="quick_settings_location_battery_saving_label">Battery saving</string>
-  <string name="quick_settings_location_gps_only_label">Device only</string>
-  <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
-  <string name="quick_settings_location_off_label">Location off</string>
+  <string name="accessibility_quick_settings_location_battery_saving">Определение местоположения: по координатам сети.</string>
+  <string name="accessibility_quick_settings_location_gps_only">Определение местоположения: по спутникам GPS.</string>
+  <string name="accessibility_quick_settings_location_high_accuracy">Определение местоположения: по всем источникам.</string>
+  <string name="accessibility_quick_settings_location_changed_battery_saving">Служба отправки местоположения переключена в режим по координатам сети.</string>
+  <string name="accessibility_quick_settings_location_changed_gps_only">Для отправки местоположения используются только данные GPS.</string>
+  <string name="accessibility_quick_settings_location_changed_high_accuracy">Служба отправки местоположения переключена в режим высокой точности.</string>
+  <string name="quick_settings_location_detail_title">Определение местоположения</string>
+  <string name="quick_settings_location_battery_saving_label">По координатам сети</string>
+  <string name="quick_settings_location_gps_only_label">По спутникам GPS</string>
+  <string name="quick_settings_location_high_accuracy_label">По всем источникам</string>
+  <string name="quick_settings_location_off_label">Отправка геоданных отключена</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Показывать 4G вместо LTE</string>
   <string name="show_lte_fourgee_summary">Заменить значок LTE в строке состояния на 4G</string>
@@ -105,6 +105,7 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Path data for Solid battery -->
   <!-- Data/Wifi activity arrows -->
   <string name="data_wifi_activity_arrows_title">Индикаторы активности передачи данных</string>
   <string name="data_wifi_activity_arrows_summary_on">Отображать индикаторы активности передачи данных</string>

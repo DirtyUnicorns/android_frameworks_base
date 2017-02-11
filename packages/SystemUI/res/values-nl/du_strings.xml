@@ -105,6 +105,7 @@
   <!-- Path data for portrait battery -->
   <!-- Path data for landscape battery -->
   <!-- Path data for circle battery -->
+  <!-- Path data for Solid battery -->
   <!-- Data/Wifi activity arrows -->
   <string name="data_wifi_activity_arrows_title">Data/Wifi activiteit pijlen</string>
   <string name="data_wifi_activity_arrows_summary_on">Laat data/Wifi activiteit pijlen zien</string>

@@ -62,6 +62,6 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_modifyOverlays">Ermöglicht der App Design-Overlays mithilfe des OverlayManagerService zu modifizieren</string>
   <!-- One handed mode  -->
-  <string name="singlehandmode_click_hint_message">Touch outside the screen to exit mini screen view</string>
-  <string name="singlehandmode_slide_hint_message">Slide your finger across the navigation bar to switch between the standard and mini screen views</string>
+  <string name="singlehandmode_click_hint_message">Tippen Sie außerhalb des Bildschirms, um die Mini-Bildschirmansicht zu beenden</string>
+  <string name="singlehandmode_slide_hint_message">Bewegen Sie den Finger über die Navigationsleiste, um zwischen der Standard- und der Mini-Bilfschirmansicht zu wechseln</string>
 </resources>
