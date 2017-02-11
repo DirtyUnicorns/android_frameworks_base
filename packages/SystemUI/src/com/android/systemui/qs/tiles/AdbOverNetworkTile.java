@@ -80,7 +80,7 @@ public class AdbOverNetworkTile extends QSTile<QSTile.BooleanState> {
             state.icon = ResourceIcon.get(R.drawable.ic_qs_network_adb_on);
         } else {
             // Otherwise set the label and disabled icon
-            state.label = mContext.getString(R.string.quick_settings_network_adb_disabled_label);
+            state.label = mContext.getString(R.string.quick_settings_adb_network);
             state.icon = ResourceIcon.get(R.drawable.ic_qs_network_adb_off);
         }
     }
