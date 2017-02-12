@@ -42,7 +42,6 @@
   <string name="quick_settings_region_screenshot_label">Captura de pantalla parcial</string>
   <string name="quick_settings_adb_network">ADB sobre RED</string>
   <string name="quick_settings_network_adb_enabled_label">Activo</string>
-  <string name="quick_settings_network_adb_disabled_label">Inhabilitado</string>
   <string name="quick_settings_sync_label">Sincronizar</string>
   <string name="accessibility_quick_settings_sync_off">Sincronización encendida</string>
   <string name="accessibility_quick_settings_sync_on">Sincronización encendida</string>
@@ -62,17 +61,13 @@
   <string name="accessibility_quick_settings_caffeine_on">Cafeína activada</string>
   <string name="quick_settings_navigation_bar">Barra de navegación</string>
   <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_smartbar_off">SmartBar desactivada</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_fling_off">Apagar Fling</string>
   <string name="quick_settings_heads_up_label">Notificaciones emergentes</string>
   <string name="accessibility_quick_settings_heads_up_off">Notificaciones emergentes desactivadas</string>
   <string name="accessibility_quick_settings_heads_up_on">Notificaciones emergentes activadas</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones emergentes desactivadas</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Activando notificaciones emergentes</string>
   <string name="quick_settings_doze_notifications_label">Notificaciones Doze</string>
-  <string name="quick_settings_doze_notifications_user">Notificaciones Doze</string>
-  <string name="quick_settings_doze_notifications_off">No hay notificaciones Doze</string>
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_nfc_off">NFC apagado</string>
   <string name="quick_settings_nfc_on">NFC encendido</string>
@@ -86,7 +81,7 @@
   <string name="quick_settings_location_battery_saving_label">Ahorro de energía</string>
   <string name="quick_settings_location_gps_only_label">Sólo dispositivo</string>
   <string name="quick_settings_location_high_accuracy_label">Alta precisión</string>
-  <string name="quick_settings_location_off_label">Ubicación desactivada</string>
+  <string name="quick_settings_location_off_custom_label">Location</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Mostrar 4G en lugar de LTE</string>
   <string name="show_lte_fourgee_summary">Reemplaza el indicador LTE de la barra de estado con 4G</string>

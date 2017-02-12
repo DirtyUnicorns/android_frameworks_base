@@ -42,7 +42,6 @@
   <string name="quick_settings_region_screenshot_label">範囲を選択してスクリーンショット</string>
   <string name="quick_settings_adb_network">ADBネットワーク</string>
   <string name="quick_settings_network_adb_enabled_label">有効</string>
-  <string name="quick_settings_network_adb_disabled_label">無効</string>
   <string name="quick_settings_sync_label">同期</string>
   <string name="accessibility_quick_settings_sync_off">同期がOFFです</string>
   <string name="accessibility_quick_settings_sync_on">同期がONです</string>
@@ -62,17 +61,13 @@
   <string name="accessibility_quick_settings_caffeine_on">カフェインがONです</string>
   <string name="quick_settings_navigation_bar">ナビゲーションバー</string>
   <string name="quick_settings_smartbar">スマートバー</string>
-  <string name="quick_settings_smartbar_off">スマートバーがOFFです</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_fling_off">FlingがOFFです</string>
   <string name="quick_settings_heads_up_label">ヘッドアップ</string>
   <string name="accessibility_quick_settings_heads_up_off">ヘッドアップ オフ</string>
   <string name="accessibility_quick_settings_heads_up_on">ヘッドアップ オン</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップ通知は無効になりました</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップ通知が有効になりました</string>
   <string name="quick_settings_doze_notifications_label">Dozeモード時の通知</string>
-  <string name="quick_settings_doze_notifications_user">Dozeモード時に通知する</string>
-  <string name="quick_settings_doze_notifications_off">Dozeモード時に通知しない</string>
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_nfc_off">NFC オフ</string>
   <string name="quick_settings_nfc_on">NFC オン</string>
@@ -86,7 +81,7 @@
   <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
   <string name="quick_settings_location_gps_only_label">端末のみ</string>
   <string name="quick_settings_location_high_accuracy_label">高精度</string>
-  <string name="quick_settings_location_off_label">位置情報OFF</string>
+  <string name="quick_settings_location_off_custom_label">Location</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">LTE表示の代わりに4G表示を使用</string>
   <string name="show_lte_fourgee_summary">ステータスバーの表示をLTEから4Gに置き換える</string>

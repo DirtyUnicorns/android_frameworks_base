@@ -42,7 +42,6 @@
   <string name="quick_settings_region_screenshot_label">局部截图</string>
   <string name="quick_settings_adb_network">ADB 网络</string>
   <string name="quick_settings_network_adb_enabled_label">已启用</string>
-  <string name="quick_settings_network_adb_disabled_label">未启用</string>
   <string name="quick_settings_sync_label">同步</string>
   <string name="accessibility_quick_settings_sync_off">关闭同步</string>
   <string name="accessibility_quick_settings_sync_on">开启同步</string>
@@ -62,17 +61,13 @@
   <string name="accessibility_quick_settings_caffeine_on">Caffeine 开启</string>
   <string name="quick_settings_navigation_bar">导航栏</string>
   <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_smartbar_off">SmartBar 关闭</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_fling_off">Fling 关闭</string>
   <string name="quick_settings_heads_up_label">浮动通知</string>
   <string name="accessibility_quick_settings_heads_up_off">浮动通知已关闭</string>
   <string name="accessibility_quick_settings_heads_up_on">浮动通知已开启</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">浮动通知已关闭</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">浮动通知已开启</string>
   <string name="quick_settings_doze_notifications_label">嗜睡通知</string>
-  <string name="quick_settings_doze_notifications_user">嗜睡通知</string>
-  <string name="quick_settings_doze_notifications_off">无嗜睡通知</string>
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_nfc_off">NFC 关闭</string>
   <string name="quick_settings_nfc_on">NFC开启</string>
@@ -86,7 +81,7 @@
   <string name="quick_settings_location_battery_saving_label">节电</string>
   <string name="quick_settings_location_gps_only_label">仅限设备</string>
   <string name="quick_settings_location_high_accuracy_label">高精确度</string>
-  <string name="quick_settings_location_off_label">定位关闭</string>
+  <string name="quick_settings_location_off_custom_label">Location</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">LTE 网络下使用 4G 图标</string>
   <string name="show_lte_fourgee_summary">显示 4G 网络指示图标而非 LTE 图标</string>

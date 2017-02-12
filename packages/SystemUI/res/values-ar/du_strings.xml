@@ -42,7 +42,6 @@
   <string name="quick_settings_region_screenshot_label">صورة جزئية للشاشة</string>
   <string name="quick_settings_adb_network">شبكة ADB</string>
   <string name="quick_settings_network_adb_enabled_label">مفعل</string>
-  <string name="quick_settings_network_adb_disabled_label">معطّل</string>
   <string name="quick_settings_sync_label">مزامنة</string>
   <string name="accessibility_quick_settings_sync_off">إيقاف المزامنة</string>
   <string name="accessibility_quick_settings_sync_on">تفعيل المزامنة</string>
@@ -62,17 +61,13 @@
   <string name="accessibility_quick_settings_caffeine_on">كافيين مفعل</string>
   <string name="quick_settings_navigation_bar">شريط التنقل</string>
   <string name="quick_settings_smartbar">الشريط الذكي</string>
-  <string name="quick_settings_smartbar_off">اغلاق الشريط الذكي</string>
   <string name="quick_settings_fling">اندفاع</string>
-  <string name="quick_settings_fling_off">الاندفاع معطل</string>
   <string name="quick_settings_heads_up_label">Heads up</string>
   <string name="accessibility_quick_settings_heads_up_off">إيقاف Heads up</string>
   <string name="accessibility_quick_settings_heads_up_on">تشغيل Heads up</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">تم ايقاف Heads up</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل Heads up</string>
   <string name="quick_settings_doze_notifications_label">Doze notifications</string>
-  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
-  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_nfc_off">NFC off</string>
   <string name="quick_settings_nfc_on">NFC on</string>
@@ -86,7 +81,7 @@
   <string name="quick_settings_location_battery_saving_label">Battery saving</string>
   <string name="quick_settings_location_gps_only_label">Device only</string>
   <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
-  <string name="quick_settings_location_off_label">Location off</string>
+  <string name="quick_settings_location_off_custom_label">Location</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">اظهار 4g بدلا من LTE</string>
   <string name="show_lte_fourgee_summary">يستبدل مؤشر شريط الحالة LTE بـ 4G</string>

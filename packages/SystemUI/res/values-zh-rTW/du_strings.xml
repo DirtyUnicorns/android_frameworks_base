@@ -42,7 +42,6 @@
   <string name="quick_settings_region_screenshot_label">擷取部分螢幕畫面</string>
   <string name="quick_settings_adb_network">網路 ADB</string>
   <string name="quick_settings_network_adb_enabled_label">已啟用</string>
-  <string name="quick_settings_network_adb_disabled_label">已停用</string>
   <string name="quick_settings_sync_label">同步處理</string>
   <string name="accessibility_quick_settings_sync_off">同步處理 關閉</string>
   <string name="accessibility_quick_settings_sync_on">同步處理 開啟</string>
@@ -62,17 +61,13 @@
   <string name="accessibility_quick_settings_caffeine_on">暫停休眠 開啟</string>
   <string name="quick_settings_navigation_bar">導覽列</string>
   <string name="quick_settings_smartbar">智慧列</string>
-  <string name="quick_settings_smartbar_off">智慧列 關閉</string>
   <string name="quick_settings_fling">掃動手勢</string>
-  <string name="quick_settings_fling_off">掃動手勢 關閉</string>
   <string name="quick_settings_heads_up_label">迅速瀏覽通知</string>
   <string name="accessibility_quick_settings_heads_up_off">迅速瀏覽 關閉</string>
   <string name="accessibility_quick_settings_heads_up_on">迅速瀏覽 開啟</string>
   <string name="accessibility_quick_settings_heads_up_changed_off">「迅速瀏覽」已關閉</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">「迅速瀏覽」已開啟</string>
   <string name="quick_settings_doze_notifications_label">Doze notifications</string>
-  <string name="quick_settings_doze_notifications_user">Doze notifications</string>
-  <string name="quick_settings_doze_notifications_off">No doze notifications</string>
   <string name="quick_settings_nfc_label">NFC</string>
   <string name="quick_settings_nfc_off">NFC off</string>
   <string name="quick_settings_nfc_on">NFC on</string>
@@ -86,7 +81,7 @@
   <string name="quick_settings_location_battery_saving_label">Battery saving</string>
   <string name="quick_settings_location_gps_only_label">Device only</string>
   <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
-  <string name="quick_settings_location_off_label">Location off</string>
+  <string name="quick_settings_location_off_custom_label">Location</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">顯示 4G 而非 LTE</string>
   <string name="show_lte_fourgee_summary">以 4G 代替狀態列中的 LTE 指示項目</string>
