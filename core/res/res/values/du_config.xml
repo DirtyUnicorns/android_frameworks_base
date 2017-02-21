@@ -114,4 +114,7 @@
    backgrounds (requires config_allowNotificationIconTextTinting to be true)-->
    <bool name="config_useDarkBgNotificationIconTextTinting">false</bool>
 
+   <!-- Config IME switcher -->
+   <bool name="config_show_IMESwitcher">true</bool>
+
 </resources>
