@@ -1851,18 +1851,11 @@ public class InputMethodManagerService extends IInputMethodManager.Stub
                 mImeSwitcherNotification.setContentTitle(title)
                         .setContentText(summary)
                         .setContentIntent(mImeSwitchPendingIntent);
-                try {
-                    if ((mNotificationManager != null)
-                            && !mIWindowManager.hasNavigationBar()) {
-                        if (DEBUG) {
-                            Slog.d(TAG, "--- show notification: label =  " + summary);
-                        }
-                        mNotificationManager.notifyAsUser(null,
-                                com.android.internal.R.string.select_input_method,
-                                mImeSwitcherNotification.build(), UserHandle.ALL);
-                        mNotificationShown = true;
-                    }
-                } catch (RemoteException e) {
+                if (mNotificationManager != null) {
+                    mNotificationManager.notifyAsUser(null,
+                            com.android.internal.R.string.select_input_method,
+                            mImeSwitcherNotification.build(), UserHandle.ALL);
+                    mNotificationShown = true;
                 }
             } else {
                 if (mNotificationShown && mNotificationManager != null) {
