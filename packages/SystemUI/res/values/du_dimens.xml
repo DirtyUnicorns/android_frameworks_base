@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2014-2017 The CyanogenMod Project
+     Copyright (C) 2014-2017 The Dirty Unicorns Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,39 +16,33 @@
 -->
 <resources>
 
-    <!-- Network traffic monitor single-line text size -->
+    <!-- Network traffic -->
     <dimen name="net_traffic_single_text_size">10dp</dimen>
-
-    <!-- Network traffic monitor multi-line text size -->
     <dimen name="net_traffic_multi_text_size">7dp</dimen>
 
     <!-- Custom Carrier Label -->
     <dimen name="status_bar_carrier_height">14dp</dimen>
 
-    <!-- Qs visibility -->
-    <dimen name="qs_tile_height_wo_label">48dp</dimen>
-
     <!-- Clear-All recents FAB -->
     <dimen name="floating_action_button_height">54dp</dimen>
     <dimen name="floating_action_button_width">54dp</dimen>
     <dimen name="floating_action_button_translation_z">12dp</dimen>
-    <dimen name="floating_action_button_margin_side">32dp</dimen>
-    <dimen name="floating_action_button_margin_bottom">46dp</dimen>
+    <dimen name="floating_action_button_margin_side">54dp</dimen>
+    <dimen name="floating_action_button_margin_bottom">54dp</dimen>
 
     <!-- One handed mode -->
     <dimen name="navbar_single_hand_mode_horizontal_threshhold">90dp</dimen>
     <dimen name="navbar_single_hand_mode_vertical_threshhold">48dp</dimen>
 
-    <!-- QS headers -->
+    <!-- Quick settings -->
     <dimen name="qs_panel_top_offset_normal">80dp</dimen>
     <dimen name="qs_panel_top_offset_header">110dp</dimen>
+    <dimen name="qs_tile_height_wo_label">48dp</dimen>
+    <dimen name="qs_scroller_margin">12dp</dimen>
+    <dimen name="qs_scroller_min_tile_gap">4dp</dimen>
 
     <!-- Recents memory bar -->
     <dimen name="recents_membar_spacing">12dp</dimen>
-
-    <!-- QS scroller -->
-    <dimen name="qs_scroller_margin">12dp</dimen>
-    <dimen name="qs_scroller_min_tile_gap">4dp</dimen>
 
     <!-- Status bar notification ticker -->
     <dimen name="ticker_start_padding">6dp</dimen>
