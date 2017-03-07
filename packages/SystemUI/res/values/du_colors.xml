@@ -49,5 +49,8 @@
     <color name="quick_settings_theme_tile_user_six">#FFC27B</color>
     <color name="quick_settings_theme_tile_user_seven">#FFCC00</color>
 
+    <!-- Screenshot action colors -->
+    <color name="screenshot_flash_color">#b3adadad</color> <!-- light grey with some transparency -->
+    <color name="screenshot_background_color">@android:color/black</color>
 </resources>
 
