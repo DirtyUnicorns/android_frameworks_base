@@ -49,6 +49,7 @@ import com.android.systemui.SystemUIFactory;
 import com.android.systemui.statusbar.NotificationData;
 import com.android.systemui.statusbar.SignalClusterView;
 import com.android.systemui.statusbar.StatusBarIconView;
+import com.android.systemui.statusbar.phone.TickerView;
 import com.android.systemui.statusbar.policy.NetworkTraffic;
 import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.tuner.TunerService;
@@ -85,6 +86,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
     private BatteryMeterView mBatteryMeterViewKeyguard;
     private NetworkTraffic mNetworkTraffic;
     private TextView mCarrierLabel;
+    private TickerView mNotificationTicker;
 
     // Center & Left clock
     private Clock mClock;
@@ -161,6 +163,8 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         mCarrierLabel = (TextView) statusBar.findViewById(R.id.statusbar_carrier_text);
 
         mDuLogo = (ImageView) statusBar.findViewById(R.id.du_logo);
+
+        mNotificationTicker = (TickerView) statusBar.findViewById(R.id.tickerText);
 
         mClock = (Clock) statusBar.findViewById(R.id.clock);
         mCenterClockLayout = (LinearLayout)statusBar.findViewById(R.id.center_clock_layout);
@@ -608,6 +612,7 @@ public class StatusBarIconController extends StatusBarIconList implements Tunabl
         mCarrierLabel.setTextColor(getTint(mTintArea, mCarrierLabel, mIconTint));
         mDuLogo.setImageTintList(ColorStateList.valueOf(mIconTint));
         mBatteryLevelView.setTextColor(getTint(mTintArea, mBatteryLevelView, mIconTint));
+        if (mNotificationTicker != null) mNotificationTicker.setDarkIntensity(mDarkIntensity);
     }
 
     public void appTransitionPending() {
