@@ -64,4 +64,7 @@
     <color name="screenshot_flash_color">@android:color/white</color>
     <color name="screenshot_background_color">@android:color/black</color>
 
+    <!-- Recents Memory bar -->
+    <color name="recents_memory_text_color">@android:color/white</color>
+
 </resources>
