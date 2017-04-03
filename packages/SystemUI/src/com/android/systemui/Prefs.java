@@ -50,6 +50,7 @@ public final class Prefs {
         Key.QS_AMBIENT_PICKUP,
     })
     public @interface Key {
+        @Deprecated
         String OVERVIEW_LAST_STACK_TASK_ACTIVE_TIME = "OverviewLastStackTaskActiveTime";
         String DEBUG_MODE_ENABLED = "debugModeEnabled";
         String HOTSPOT_TILE_LAST_USED = "HotspotTileLastUsed";
