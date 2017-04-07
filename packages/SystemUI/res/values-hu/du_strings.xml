@@ -81,7 +81,7 @@
   <string name="quick_settings_location_battery_saving_label">Energiatakarékos</string>
   <string name="quick_settings_location_gps_only_label">Csak GPS</string>
   <string name="quick_settings_location_high_accuracy_label">Nagy pontosságú</string>
-  <string name="quick_settings_location_off_custom_label">Location</string>
+  <string name="quick_settings_location_off_custom_label">Hely</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">4G megjelenítése LTE helyett</string>
   <string name="show_lte_fourgee_summary">LTE hálozat ikon lecserélése 4G-re</string>
@@ -107,4 +107,14 @@
   <string name="data_wifi_activity_arrows_summary_off">Mobilnet/Wifi tevékenység nyilak elrejtése</string>
   <!-- Recents memory bar -->
   <string name="recents_free_ram">SZABAD RAM</string>
+  <!-- OmniJaws -->
+  <string name="omnijaws_service_error">Hiba</string>
+  <string name="omnijaws_service_unkown">Nincs időjárás adat</string>
+  <string name="omnijaws_detail_header">Időjárás</string>
+  <string name="omnijaws_label_default">Időjárás</string>
+  <string name="omnijaws_current_text">Most</string>
+  <string name="omnijaws_package_not_available">OmniJaws nem elérhető</string>
+  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_dash_charging_time">Dash töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> a teljes töltöttségig)</string>
+  <string name="keyguard_plugged_in_dash_charging">Dash töltés</string>
 </resources>
