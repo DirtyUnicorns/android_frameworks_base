@@ -137,6 +137,8 @@
   <!-- Fix screen rotation for olderdevices -->
   <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
 
+  <java-symbol type="bool" name="config_fingerprintRemoveClientOnCancel" />
+
   <!-- Whether device has dash charging support -->
   <java-symbol type="bool" name="config_hasDashCharger" />
 
