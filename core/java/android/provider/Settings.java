@@ -4403,6 +4403,12 @@ public final class Settings {
         public static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
 
         /**
+         * Whether to show the heads up for dialer when heads up are disabled
+         * @hide
+         */
+        public static final String ALWAYS_HEADSUP_DIALER = "always_headsup_dialer";
+
+        /**
          * @hide
          */
         public static final String QS_QUICKBAR_SCROLL_ENABLED = "qs_quickbar_scroll_enabled";
