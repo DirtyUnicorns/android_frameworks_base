@@ -17,7 +17,7 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_HP">HSPA+</string>
+  <string name="accessibility_data_connection_HP">H+</string>
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Lampe de poche activée</string>
   <string name="quick_settings_tile_flashlight_not_summary">Appuyer sur la notification pour éteindre la Lampe de poche</string>
@@ -35,7 +35,7 @@
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Capture d\'écran supprimée</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_statusbar_title">Éléments de la barre d\'état</string>
+  <string name="systemui_tuner_statusbar_title">Éléments</string>
   <string name="systemui_tuner_pnc_title">Gestion des notifications</string>
   <!-- Quick Settings tiles -->
   <string name="quick_settings_screenshot_label">Capture d\'écran</string>
@@ -56,9 +56,9 @@
   <string name="quick_settings_music_play">Lecture</string>
   <string name="quick_settings_music_pause">Pause</string>
   <string name="quick_settings_ime_tile_label">Mode de saisie</string>
-  <string name="quick_settings_caffeine_label">Caféine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caféine désactivée</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caféine activée</string>
+  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caffeine désactivée</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeine activée</string>
   <string name="quick_settings_navigation_bar">Barre de navigation</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_fling">Fling</string>
@@ -82,10 +82,14 @@
   <string name="quick_settings_location_gps_only_label">Appareil uniquement</string>
   <string name="quick_settings_location_high_accuracy_label">Haute précision</string>
   <string name="quick_settings_location_off_custom_label">Location</string>
+    <string name="quick_settings_sound_label">Son</string>
+    <string name="quick_settings_sound_ring">Sonnerie</string>
+    <string name="quick_settings_sound_vibrate">Vibrer</string>
+    <string name="quick_settings_sound_dnd">Ne pas déranger</string>
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Icône \"4G\"</string>
   <string name="show_lte_fourgee_summary">Utiliser l\'icône \"4G\" plutôt que \"LTE\"</string>
-  <string name="statusbar_tuner_category_title">Éléments de la barre d\'état à afficher</string>
+  <string name="statusbar_tuner_category_title">Éléments à afficher</string>
   <!-- DU Logo -->
   <string name="status_bar_du_logo_title">Logo DU</string>
   <string name="status_bar_du_logo_summary">Afficher le logo de DU sur la gauche de la barre d\'état﻿</string>
@@ -93,8 +97,8 @@
   <string name="screenshot_abort_title">Aucune capture d\'écran</string>
   <string name="screenshot_abort_text">Opération annulée</string>
   <!-- Bluetooth status -->
-  <string name="bluetooth_battery_title">État de la batterie Bluetooth</string>
-  <string name="bluetooth_battery_summary">Afficher l\'état de la batterie de l\'appareil Bluetooth connecté (si disponible)</string>
+  <string name="bluetooth_battery_title">Consommation Bluetooth</string>
+  <string name="bluetooth_battery_summary">Afficher la consommation de l\'appareil Bluetooth connecté (si disponible)</string>
   <!-- Android Auto 2.0x QS tile -->
   <string name="quick_settings_androidauto_label">Android Auto</string>
   <!-- Path data for portrait battery -->
@@ -107,4 +111,16 @@
   <string name="data_wifi_activity_arrows_summary_off">Masquer les flèches d\'activité pour les Données Mobiles et le Wi-Fi</string>
   <!-- Recents memory bar -->
   <string name="recents_free_ram">MÉMOIRE RAM LIBRE</string>
+
+    <!-- OmniJaws -->
+    <string name="omnijaws_service_error">Erreur</string>
+    <string name="omnijaws_service_unkown">Aucune donnée météo</string>
+    <string name="omnijaws_detail_header">Météo</string>
+    <string name="omnijaws_label_default">Météo</string>
+    <string name="omnijaws_current_text">Actuellement</string>
+    <string name="omnijaws_package_not_available">OmniJaws indisponible</string>
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Chargé à 100 % dans <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_dash_charging">Rechargement \"Dash\"</string>
 </resources>

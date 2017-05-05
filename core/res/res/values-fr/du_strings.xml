@@ -19,7 +19,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Vendor mismatched fingerprint warning -->
-  <string name="system_error_vendorprint">Votre \"vendor image\" semble obsolète. Veuillez installer la dernière version disponible pour votre appareil.</string>
+  <string name="system_error_vendorprint">Votre \"vendor.img\" semble obsolète. Veuillez installer la dernière version disponible pour votre appareil.</string>
   <!-- ADB over network -->
   <string name="adb_net_active_notification_title">ADB par réseau activé</string>
   <string name="adb_both_active_notification_title">ADB par USB et réseau activé</string>
@@ -62,6 +62,11 @@
   <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_modifyOverlays">Permet à l\'application de modifier les surcouches des thèmes utilisant OverlayManagerService</string>
   <!-- One handed mode  -->
-  <string name="singlehandmode_click_hint_message">Appuyer à l\'extérieur de la vue réduite revenir à la vue standard</string>
+  <string name="singlehandmode_click_hint_message">Appuyer à l\'extérieur de la vue réduite pour revenir à la vue standard</string>
   <string name="singlehandmode_slide_hint_message">Faire glisser le doigt sur la barre de navigation, pour basculer entre la vue réduite et la vue standard</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_resetBatteryStats">réinitialiser les statistiques de batterie</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_resetBatteryStats">Permet à une application de réinitialiser les données actuelles d\'utilisation de la batterie à faible niveau</string>
 </resources>
