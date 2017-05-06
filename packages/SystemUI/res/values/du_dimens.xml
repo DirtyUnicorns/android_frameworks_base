@@ -21,7 +21,7 @@
     <dimen name="net_traffic_multi_text_size">7dp</dimen>
 
     <!-- Custom Carrier Label -->
-    <dimen name="status_bar_carrier_height">14dp</dimen>
+    <dimen name="status_bar_carrier_height">14sp</dimen>
 
     <!-- Clear-All recents FAB -->
     <dimen name="floating_action_button_height">54dp</dimen>
