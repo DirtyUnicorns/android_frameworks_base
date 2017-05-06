@@ -40,11 +40,13 @@ public class TunerFragment extends PreferenceFragment {
     private static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
     private static final String BLUETOOTH_SHOW_BATTERY = "bluetooth_show_battery";
     private static final String DATA_WIFI_ACTIVITY_ARROWS = "data_activity_arrows";
+    private static final String STATUSBAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 
     private SwitchPreference mShowLteFourGee;
     private SwitchPreference mDuLogo;
     private SwitchPreference mBluetoothBattery;
     private SwitchPreference mDataWifiActivityArrows;
+    private SwitchPreference mStatusbarBrightness;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,10 @@ public class TunerFragment extends PreferenceFragment {
         mDataWifiActivityArrows = (SwitchPreference) findPreference(DATA_WIFI_ACTIVITY_ARROWS);
         mDataWifiActivityArrows.setChecked((Settings.System.getInt(resolver,
                 Settings.System.DATA_ACTIVITY_ARROWS, 0) == 1));
+
+        mStatusbarBrightness = (SwitchPreference) findPreference(STATUSBAR_BRIGHTNESS_CONTROL);
+        mStatusbarBrightness.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
     }
 
     @Override
@@ -125,6 +131,11 @@ public class TunerFragment extends PreferenceFragment {
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.DATA_ACTIVITY_ARROWS, checked ? 1:0);
+            return true;
+        } else if (preference == mStatusbarBrightness) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, checked ? 1:0);
             return true;
         }
         return super.onPreferenceTreeClick(preference);
