@@ -4439,12 +4439,6 @@ public final class Settings {
         public static final String QS_SETTINGS_ICON_TOGGLE = "qs_settings_icon_toggle";
 
         /**
-         * Whether to show or hide the Settings Shortcut in expanded mode
-         * @hide
-         */
-        public static final String QS_SETTINGS_EXPANDED_TOGGLE = "qs_settings_expanded_toggle";
-
-        /**
          * Whether to show or hide the edit icon
          * @hide
          */
