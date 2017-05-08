@@ -20,10 +20,6 @@
     <!-- Custom Carrier Label -->
     <color name="status_bar_carrier_color">#FFFFFFFF</color>
 
-    <!-- Status bar battery colors -->
-    <color name="status_bar_battery_level_text_color">#ffffff</color>
-    <color name="batterymeter_frame_color_darkintensity">@color/dark_mode_icon_color_dual_tone_background</color>
-
     <color name="system_primary_color">@*android:color/material_blue_grey_900</color>
 
     <!-- Navigation button ripple color -->
