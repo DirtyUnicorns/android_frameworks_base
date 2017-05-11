@@ -16,15 +16,14 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_HP">HSPA+</string>
+
   <!-- Notification which notifies user flashlight is enabled -->
   <string name="quick_settings_tile_flashlight_not_title">Фонарик включен</string>
   <string name="quick_settings_tile_flashlight_not_summary">Нажмите, чтобы выключить</string>
-  <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
+
   <!-- Screenrecord -->
   <string name="screenrecord_notif_ticker">Идёт запись с экрана</string>
   <string name="screenrecord_notif_title">Запись экрана</string>
@@ -32,11 +31,14 @@
   <string name="screenrecord_notif_pointer_on">Показать указатель</string>
   <string name="screenrecord_notif_pointer_off">Скрыть указатель</string>
   <string name="screenrecord_notif_error">Невозможно записать экран</string>
+
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Скриншот удален</string>
+
   <!-- SystemUI Tuner Parts -->
   <string name="systemui_tuner_statusbar_title">Иконки строки состояния</string>
   <string name="systemui_tuner_pnc_title">Расширенное управление уведомлениями</string>
+
   <!-- Quick Settings tiles -->
   <string name="quick_settings_screenshot_label">Снимок экрана</string>
   <string name="quick_settings_region_screenshot_label">Снимок выбранной области экрана</string>
@@ -86,31 +88,36 @@
   <string name="quick_settings_sound_ring">Звук вкл.</string>
   <string name="quick_settings_sound_vibrate">Вибросигнал</string>
   <string name="quick_settings_sound_dnd">Без звука</string>
+
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Показывать 4G вместо LTE</string>
   <string name="show_lte_fourgee_summary">Заменить значок LTE в строке состояния на 4G</string>
   <string name="statusbar_tuner_category_title">Скрыть элементы строки состояния</string>
+
   <!-- DU Logo -->
   <string name="status_bar_du_logo_title">Логотип DU</string>
   <string name="status_bar_du_logo_summary">Отображать логотип DU слева в строке состояния</string>
+
   <!-- Screenshot action -->
   <string name="screenshot_abort_title">Снимок экрана не был снят</string>
   <string name="screenshot_abort_text">Операция прервана</string>
+
   <!-- Bluetooth status -->
   <string name="bluetooth_battery_title">Показывать статус зарядки Bluetooth-устройства</string>
   <string name="bluetooth_battery_summary">Показывать заряд батареи подключенных в настоящее время bluetooth-устройств, если доступно.</string>
+
   <!-- Android Auto 2.0x QS tile -->
   <string name="quick_settings_androidauto_label">Android Auto</string>
-    <!-- Path data for portrait battery -->
-    <!-- Path data for landscape battery -->
-    <!-- Path data for Solid battery -->
+
   <!-- Data/Wifi activity arrows -->
   <string name="data_wifi_activity_arrows_title">Индикаторы активности передачи данных</string>
   <string name="data_wifi_activity_arrows_summary_on">Отображать индикаторы активности передачи данных</string>
   <string name="data_wifi_activity_arrows_summary_off">Скрыть индикаторы активности передачи данных</string>
+
   <!-- Recents memory bar -->
   <string name="recents_free_ram">Доступно памяти</string>
-    <!-- OmniJaws -->
+
+  <!-- OmniJaws -->
   <string name="omnijaws_service_error">Ошибка</string>
   <string name="omnijaws_service_unkown">Нет данных о погоде</string>
   <string name="omnijaws_service_error_long">Ошибка загрузки данных о погоде</string>
@@ -118,7 +125,13 @@
   <string name="omnijaws_label_default">Погода</string>
   <string name="omnijaws_current_text">Сейчас</string>
   <string name="omnijaws_package_not_available">OmniJaws недоступен</string>
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+
+  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_dash_charging_time">Быстрая зарядка (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
   <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
+
+  <!-- Status Bar Brightness Control -->
+  <string name="status_bar_toggle_brightness">Настройка яркости</string>
+  <string name="status_bar_toggle_brightness_summary">Регулировать яркость свайпом по строке состояния</string>
+
 </resources>
