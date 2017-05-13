@@ -10313,6 +10313,9 @@ public final class Settings {
 
         /**
          * Whether to sound when charger power is connected/disconnected
+         * 0 = Disable
+         * 1 = Notify on charger connected/disconnected
+         * 2 = Notify on charger connected only
          * @hide
          */
         public static final String POWER_NOTIFICATIONS_ENABLED = "power_notifications_enabled";

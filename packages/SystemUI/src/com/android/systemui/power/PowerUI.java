@@ -244,9 +244,19 @@ public class PowerUI extends SystemUI {
                 if (mIgnoreFirstPowerEvent) {
                     mIgnoreFirstPowerEvent = false;
                 } else {
-                    if (Settings.Global.getInt(cr,
-                            Settings.Global.POWER_NOTIFICATIONS_ENABLED, 0) == 1) {
-                        playPowerNotificationSound();
+                    switch (Settings.Global.getInt(cr,
+                            Settings.Global.POWER_NOTIFICATIONS_ENABLED, 0)) {
+                        case 0:
+                            // do nothing
+                            break;
+                        case 1:
+                            playPowerNotificationSound();
+                            break;
+                        case 2:
+                            if (Intent.ACTION_POWER_CONNECTED.equals(action)) {
+                                playPowerNotificationSound();
+                            }
+                            break;
                     }
                 }
             } else {
