@@ -1576,6 +1576,8 @@ class DatabaseHelper extends SQLiteOpenHelper {
                             R.bool.def_power_notifications_enabled);
                     loadBooleanSetting(stmt, Settings.Global.POWER_NOTIFICATIONS_VIBRATE,
                             R.bool.def_power_notifications_vibrate);
+                    loadBooleanSetting(stmt, Settings.Global.POWER_NOTIFICATION_CUSTOM_RINGTONE,
+                            R.bool.def_power_notifications_custom_ringtone);
                     loadStringSetting(stmt, Settings.Global.POWER_NOTIFICATIONS_RINGTONE,
                             R.string.def_power_notifications_ringtone);
                     db.setTransactionSuccessful();

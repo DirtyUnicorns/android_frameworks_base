@@ -10324,6 +10324,12 @@ public final class Settings {
         public static final String POWER_NOTIFICATIONS_VIBRATE = "power_notifications_vibrate";
 
         /**
+         * Whether to use custom sound for power notification sound
+         * @hide
+         */
+        public static final String POWER_NOTIFICATION_CUSTOM_RINGTONE = "power_notification_custom_ringtone";
+
+        /**
          * URI for power notification sounds
          * @hide
          */

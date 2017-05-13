@@ -358,8 +358,11 @@ public class PowerUI extends SystemUI {
 
     void playPowerNotificationSound() {
         final ContentResolver cr = mContext.getContentResolver();
-        final String soundPath =
-                Settings.Global.getString(cr, Settings.Global.POWER_NOTIFICATIONS_RINGTONE);
+        final boolean customSound =
+                Settings.Global.getInt(cr, Settings.Global.POWER_NOTIFICATION_CUSTOM_RINGTONE, 0) != 0;
+        final String soundPath = customSound ? 
+                Settings.Global.getString(cr, Settings.Global.POWER_NOTIFICATIONS_RINGTONE) :
+                Settings.Global.getString(cr, Settings.Global.WIRELESS_CHARGING_STARTED_SOUND);
 
         if (soundPath != null && !soundPath.equals(POWER_NOTIFICATIONS_SILENT_URI) ) {
             Ringtone powerRingtone = RingtoneManager.getRingtone(mContext, Uri.parse(soundPath));
