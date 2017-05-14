@@ -44,7 +44,7 @@
     <color name="qs_battery_accent">@*android:color/accent_device_default_light</color>
 
     <!-- Clear-All recents FAB -->
-    <color name="fab_color">@*android:color/material_deep_teal_500</color>
+    <color name="fab_color">@*android:color/accent_device_default_light</color>
     <color name="floating_action_button_icon_color">#FFFFFFFF</color>
 
     <!-- External QS tile tint color -->
@@ -62,5 +62,7 @@
 
     <!-- Recents Memory bar -->
     <color name="recents_memory_text_color">@android:color/white</color>
+    <color name="recents_memmory_progress_overall">@*android:color/resize_shadow_start_color</color>
+    <color name="recents_memmory_progress_free">@*android:color/accent_device_default_light</color>
 
 </resources>
