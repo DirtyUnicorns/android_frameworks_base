@@ -94,6 +94,9 @@
     <string name="quick_settings_sound_ring">Ring</string>
     <string name="quick_settings_sound_vibrate">Vibrate</string>
     <string name="quick_settings_sound_dnd">Do not disturb</string>
+    <string name="quick_settings_hardware_button_label">Lock buttons</string>
+    <string name="accessibility_quick_settings_hardware_button_off">Hardware buttons unlocked</string>
+    <string name="accessibility_quick_settings_hardware_button_on">Hardware buttons locked</string>
 
     <!-- Show lte/4g switch -->
     <string name="show_lte_fourgee_title">Show 4G instead of LTE</string>

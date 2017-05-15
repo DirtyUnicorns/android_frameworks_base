@@ -54,6 +54,7 @@ import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.ExpandedDesktopTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.HardwareButtonTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.ImeTile;
@@ -464,6 +465,7 @@ public class QSTileHost implements QSTile.Host, Tunable {
         else if (tileSpec.equals("nfc")) return new NfcTile(this);
         else if (tileSpec.equals("weather")) return new WeatherTile(this);
         else if (tileSpec.equals("sound")) return new SoundTile(this);
+        else if (tileSpec.equals("hardware_button")) return new HardwareButtonTile(this);
         // Intent tiles.
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(this,tileSpec);
         else if (tileSpec.startsWith(CustomTile.PREFIX)) return CustomTile.create(this,tileSpec);
