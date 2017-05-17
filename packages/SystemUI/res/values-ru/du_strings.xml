@@ -88,6 +88,9 @@
   <string name="quick_settings_sound_ring">Звук вкл.</string>
   <string name="quick_settings_sound_vibrate">Вибросигнал</string>
   <string name="quick_settings_sound_dnd">Без звука</string>
+  <string name="quick_settings_hardware_button_label">Блокировка кнопок</string>
+  <string name="accessibility_quick_settings_hardware_button_off">Аппаратные кнопки разблокированы</string>
+  <string name="accessibility_quick_settings_hardware_button_on">Аппаратные кнопки заблокированы</string>
 
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Показывать 4G вместо LTE</string>
@@ -133,5 +136,9 @@
   <!-- Status Bar Brightness Control -->
   <string name="status_bar_toggle_brightness">Настройка яркости</string>
   <string name="status_bar_toggle_brightness_summary">Регулировать яркость свайпом по строке состояния</string>
+
+  <!-- No navigation warning notification -->
+  <string name="no_navigation_warning_title">Все способы навигации отключены</string>
+  <string name="no_navigation_warning_text">Нажмите, чтобы активировать</string>
 
 </resources>
