@@ -22,9 +22,9 @@
   <string name="quick_settings_tile_flashlight_not_title">Lampe de poche activée</string>
   <string name="quick_settings_tile_flashlight_not_summary">Appuyer sur la notification pour éteindre la Lampe de poche</string>
   <!-- Text to use when the number in a notification info is too large
-         (greater than status_bar_notification_info_maxnum, defined in
-         values/config.xml) and must be truncated.
-         [CHAR LIMIT=4] -->
+   (greater than status_bar_notification_info_maxnum, defined in
+   values/config.xml) and must be truncated.
+   [CHAR LIMIT=4] -->
   <!-- Screenrecord -->
   <string name="screenrecord_notif_ticker">L\'écran est en cours d\'enregistrement</string>
   <string name="screenrecord_notif_title">Enregistrement de l\'écran</string>
@@ -82,10 +82,14 @@
   <string name="quick_settings_location_gps_only_label">Appareil uniquement</string>
   <string name="quick_settings_location_high_accuracy_label">Haute précision</string>
   <string name="quick_settings_location_off_custom_label">Location</string>
-    <string name="quick_settings_sound_label">Son</string>
-    <string name="quick_settings_sound_ring">Sonnerie</string>
-    <string name="quick_settings_sound_vibrate">Vibrer</string>
-    <string name="quick_settings_sound_dnd">Ne pas déranger</string>
+  <string name="quick_settings_sound_label">Son</string>
+  <string name="quick_settings_sound_ring">Sonnerie</string>
+  <string name="quick_settings_sound_vibrate">Vibrer</string>
+  <string name="quick_settings_sound_dnd">Ne pas déranger</string>
+  <string name="quick_settings_hardware_button_label">Touches de verrouillage</string>
+  <string name="accessibility_quick_settings_hardware_button_off">Boutons physiques déverrouillés</string>
+  <string name="accessibility_quick_settings_hardware_button_on">Boutons physiques verrouillés</string>
+
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Icône \"4G\"</string>
   <string name="show_lte_fourgee_summary">Utiliser l\'icône \"4G\" plutôt que \"LTE\"</string>
@@ -112,21 +116,25 @@
   <!-- Recents memory bar -->
   <string name="recents_free_ram">MÉMOIRE RAM LIBRE</string>
 
-    <!-- OmniJaws -->
-    <string name="omnijaws_service_error">Erreur</string>
-    <string name="omnijaws_service_unkown">Aucune donnée météo</string>
-    <string name="omnijaws_service_error_long">Erreur de chargement des données météorologiques</string>
-    <string name="omnijaws_service_disabled">Service désactivé</string>
-    <string name="omnijaws_detail_header">Météo</string>
-    <string name="omnijaws_label_default">Météo</string>
-    <string name="omnijaws_current_text">Actuellement</string>
-    <string name="omnijaws_package_not_available">OmniJaws indisponible</string>
+  <!-- OmniJaws -->
+  <string name="omnijaws_service_error">Erreur</string>
+  <string name="omnijaws_service_unkown">Aucune donnée météo</string>
+  <string name="omnijaws_service_error_long">Erreur de chargement des données météorologiques</string>
+  <string name="omnijaws_service_disabled">Service désactivé</string>
+  <string name="omnijaws_detail_header">Météo</string>
+  <string name="omnijaws_label_default">Météo</string>
+  <string name="omnijaws_current_text">Actuellement</string>
+  <string name="omnijaws_package_not_available">OmniJaws indisponible</string>
 
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Chargé à 100 % dans <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
-    <string name="keyguard_plugged_in_dash_charging">Rechargement \"Dash\"</string>
+  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_dash_charging_time">Chargé à 100 % dans <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+  <string name="keyguard_plugged_in_dash_charging">Rechargement \"Dash\"</string>
 
-    <!-- Status Bar Brightness Control -->
-    <string name="status_bar_toggle_brightness">Réglage de la luminosité</string>
-    <string name="status_bar_toggle_brightness_summary">Régler la luminosité en glissant sur la barre d\'état</string>
+  <!-- Status Bar Brightness Control -->
+  <string name="status_bar_toggle_brightness">Réglage de la luminosité</string>
+  <string name="status_bar_toggle_brightness_summary">Régler la luminosité en glissant sur la barre d\'état</string>
+
+  <!-- No navigation warning notification -->
+  <string name="no_navigation_warning_title">Méthodes de navigation désactivées</string>
+  <string name="no_navigation_warning_text">Appuyez pour activer</string>
 </resources>
