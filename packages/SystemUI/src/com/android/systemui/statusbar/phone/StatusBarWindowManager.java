@@ -58,7 +58,7 @@ public class StatusBarWindowManager implements RemoteInputController.Callback {
     private boolean mHasTopUiChanged;
     private int mBarHeight;
     private final boolean mKeyguardScreenRotation;
-    private final float mScreenBrightnessDoze;
+    private static float mScreenBrightnessDoze;
     private final State mCurrentState = new State();
 
     public StatusBarWindowManager(Context context) {
@@ -363,6 +363,10 @@ public class StatusBarWindowManager implements RemoteInputController.Callback {
 
     public boolean isShowingWallpaper() {
         return !mCurrentState.backdropShowing;
+    }
+
+    public static void updateSbCustomBrightnessDozeValue(int value) {
+        mScreenBrightnessDoze = value / 255f;
     }
 
     private static class State {

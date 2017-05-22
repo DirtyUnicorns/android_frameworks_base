@@ -137,7 +137,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
     private Sensor mProximitySensor;
 
     // The doze screen brightness.
-    private final int mScreenBrightnessDozeConfig;
+    private static int mScreenBrightnessDozeConfig;
 
     // The dim screen brightness.
     private final int mScreenBrightnessDimConfig;
@@ -155,7 +155,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
     private boolean mUseSoftwareAutoBrightnessConfig;
 
     // True if should use light sensor to automatically determine doze screen brightness.
-    private final boolean mAllowAutoBrightnessWhileDozingConfig;
+    private static boolean mAllowAutoBrightnessWhileDozingConfig;
 
     // True if collecting light sensor samples in doze mode.
     private boolean mUseActiveDozeLightSensorConfig;
@@ -1294,6 +1294,14 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
 
     private static int clampAbsoluteBrightness(int value) {
         return MathUtils.constrain(value, PowerManager.BRIGHTNESS_OFF, PowerManager.BRIGHTNESS_ON);
+    }
+
+    public void updateCustomBrightnessDozeValue(int value) {
+        mScreenBrightnessDozeConfig = clampAbsoluteBrightness(value);
+    }
+
+    public void enableAutoDozeBrightness(boolean enable) {
+        mAllowAutoBrightnessWhileDozingConfig = enable;
     }
 
     private final class DisplayControllerHandler extends Handler {

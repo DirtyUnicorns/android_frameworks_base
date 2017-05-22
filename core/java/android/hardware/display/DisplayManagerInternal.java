@@ -147,6 +147,12 @@ public abstract class DisplayManagerInternal {
     public abstract void setDisplayOffsets(int displayId, int x, int y);
 
     /**
+     * Ambient display brightness
+     */
+    public abstract void updateCustomBrightnessDozeValue(int value);
+    public abstract void enableAutoDozeBrightness(boolean enable);
+
+    /**
      * Describes the requested power state of the display.
      *
      * This object is intended to describe the general characteristics of the

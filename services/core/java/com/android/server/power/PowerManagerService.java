@@ -717,7 +717,12 @@ public final class PowerManagerService extends SystemService
             resolver.registerContentObserver(Settings.Global.getUriFor(
                     Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
                     false, mSettingsObserver, UserHandle.USER_ALL);
-
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.AMBIENT_DOZE_CUSTOM_BRIGHTNESS),
+                    false, mSettingsObserver, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.AMBIENT_DOZE_AUTO_BRIGHTNESS),
+                    false, mSettingsObserver, UserHandle.USER_ALL);
             IVrManager vrManager =
                     (IVrManager) getBinderService(VrManagerService.VR_MANAGER_BINDER_SERVICE);
             if (vrManager != null) {
@@ -916,6 +921,21 @@ public final class PowerManagerService extends SystemService
                 UserHandle.USER_CURRENT) != 0;
 
         mDirty |= DIRTY_SETTINGS;
+
+        final Resources resources = mContext.getResources();
+        final int defaultDozeBrightness = resources.getInteger(
+                com.android.internal.R.integer.config_screenBrightnessDoze);
+        int customDozeBrightness = Settings.System.getIntForUser(resolver,
+                Settings.System.AMBIENT_DOZE_CUSTOM_BRIGHTNESS, defaultDozeBrightness,
+                UserHandle.USER_CURRENT);
+        mDisplayManagerInternal.updateCustomBrightnessDozeValue(customDozeBrightness);
+
+        final boolean defaultIsAutoDozeBrightness = resources.getBoolean(
+                com.android.internal.R.bool.config_allowAutoBrightnessWhileDozing);
+        boolean isAutoDozeBrightness = Settings.System.getIntForUser(resolver,
+                Settings.System.AMBIENT_DOZE_AUTO_BRIGHTNESS, defaultIsAutoDozeBrightness ? 1 : 0,
+                UserHandle.USER_CURRENT) == 1;
+        mDisplayManagerInternal.enableAutoDozeBrightness(isAutoDozeBrightness);
     }
 
     private int getCurrentBrightnessSettingLocked() {
