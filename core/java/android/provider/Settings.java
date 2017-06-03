@@ -3804,16 +3804,6 @@ public final class Settings {
         public static final String STATUS_BAR_SHOW_CARRIER = "status_bar_show_carrier";
 
         /**
-         * Immersive recents options
-         *
-         * 0 = Default AOSP look
-         * 1 = Statusbar only
-         * 2 = Navbar only
-         * 3 = Fullscreen
-         */
-        public static final String IMMERSIVE_RECENTS = "immersive_recents";
-
-        /**
          * Whether to allow fullscreen screenshots or let the user select which area to screenshot
          *
          */
