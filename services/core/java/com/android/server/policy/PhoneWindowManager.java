@@ -4157,11 +4157,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void showRecentApps(boolean triggeredFromAltTab, boolean fromHome) {
         if (mOmniSwitchRecents) {
             if (fromHome) {
-                Intent showIntent = new Intent(DuUtils.ACTION_RESTORE_HOME_STACK);
-                mContext.sendBroadcastAsUser(showIntent, UserHandle.CURRENT);
+                DuUtils.restoreHomeStack(mContext, UserHandle.CURRENT);
             } else {
-                Intent showIntent = new Intent(DuUtils.ACTION_TOGGLE_OVERLAY);
-                mContext.sendBroadcastAsUser(showIntent, UserHandle.CURRENT);
+                DuUtils.toggleOmniSwitchRecents(mContext, UserHandle.CURRENT);
             }
         } else {
             mPreloadedRecentApps = false; // preloading no longer needs to be canceled
