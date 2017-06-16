@@ -386,6 +386,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
     private TextView mCenterClock;
     private int mClockLocation;
 
+    private boolean mShowClock;
+
     // expanded notifications
     protected NotificationPanelView mNotificationPanel; // the sliding/resizing panel within the notification window
     View mExpandedContents;
@@ -569,6 +571,9 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                   Settings.System.QS_QUICKBAR_SCROLL_ENABLED),
                   false, this, UserHandle.USER_ALL);
            resolver.registerContentObserver(Settings.System.getUriFor(
+                  Settings.System.STATUS_BAR_CLOCK),
+                  false, this, UserHandle.USER_ALL);
+           resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.STATUSBAR_CLOCK_STYLE),
                   false, this, UserHandle.USER_ALL);
            resolver.registerContentObserver(Settings.System.getUriFor(
@@ -636,6 +641,8 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                     Settings.System.STATUS_BAR_DU_LOGO, 0, mCurrentUserId) == 1;
             showDuLogo(mDuLogo);
 
+            mShowClock = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_CLOCK, 1, UserHandle.USER_CURRENT) == 1;
             mClockLocation = Settings.System.getIntForUser(resolver,
                     Settings.System.STATUSBAR_CLOCK_STYLE, 0, UserHandle.USER_CURRENT);
 
@@ -3855,7 +3862,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mTicking = true;
             mStatusBarContents.setVisibility(View.GONE);
             mStatusBarContents.startAnimation(loadAnim(true, null));
-            if (mClockLocation == 1) {
+            if (mShowClock && mClockLocation == 1) {
                 mCenterClock.setVisibility(View.GONE);
                 mCenterClock.startAnimation(loadAnim(true, null));
             }
@@ -3870,7 +3877,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
             mStatusBarContents.startAnimation(loadAnim(false, null));
             mTickerView.setVisibility(View.GONE);
             mTickerView.startAnimation(loadAnim(true, mTickingDoneListener));
-            if (mClockLocation == 1) {
+            if (mShowClock && mClockLocation == 1) {
                 mCenterClock.setVisibility(View.VISIBLE);
                 mCenterClock.startAnimation(loadAnim(false, null));
             }
@@ -3882,7 +3889,7 @@ public class PhoneStatusBar extends BaseStatusBar implements DemoMode,
                 mStatusBarContents.setVisibility(View.VISIBLE);
                 mStatusBarContents
                         .startAnimation(loadAnim(false, null));
-                if (mClockLocation == 1) {
+                if (mShowClock && mClockLocation == 1) {
                     mCenterClock.setVisibility(View.VISIBLE);
                     mCenterClock.startAnimation(loadAnim(false, null));
                 }
