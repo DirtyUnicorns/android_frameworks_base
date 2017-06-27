@@ -270,8 +270,10 @@ public class BatteryMeterDrawable extends Drawable implements
             isPctToBeWhiteOrRed = true;
         }
 
-        if (mStyle == BATTERY_STYLE_SOLID) {
-            animateSolidBattery(level, pluggedIn, charging);
+        if (Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.STATUS_BAR_PULSE_CHARGING_BATTERY, 0) == 1 ||
+                mStyle == BATTERY_STYLE_SOLID) {
+            pulseBatteryIcon(level, pluggedIn, charging);
         }
 
         postInvalidate();
@@ -352,7 +354,7 @@ public class BatteryMeterDrawable extends Drawable implements
         return color; //mColors[3] (white)
     }
 
-    public void animateSolidBattery(int level, boolean pluggedIn, boolean charging) {
+    public void pulseBatteryIcon(int level, boolean pluggedIn, boolean charging) {
         if (charging) {
             if (mAnimator != null) mAnimator.cancel();
 
