@@ -138,4 +138,8 @@
     <string name="no_navigation_warning_title">Méthodes de navigation désactivées</string>
     <string name="no_navigation_warning_text">Appuyez pour activer</string>
 
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> : Mise en veille des Notifications flottantes pendant 1 minute</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> : Mise en veille des Notifications flottantes pendant <xliff:g id="number">%d</xliff:g> minutes</string>
+
 </resources>
