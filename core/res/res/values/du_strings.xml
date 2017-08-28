@@ -15,20 +15,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <java-symbol type="array" name="config_customPermissionsList" />
-
-    <!-- Device keyhandlers -->
-    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
-    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
-
-    <java-symbol type="integer" name="config_flashlightProximityTimeout" />
-
     <!-- Advanced Reboot menu -->
-    <java-symbol type="string" name="reboot_to_recovery_title" />
-    <java-symbol type="string" name="reboot_to_recovery_message" />
-    <java-symbol type="string" name="reboot_to_bootloader_title" />
-    <java-symbol type="string" name="reboot_to_bootloader_message" />
-    <java-symbol type="string" name="reboot_title" />
-    <java-symbol type="string" name="reboot_message" />
-
+    <string name="reboot_to_recovery_title" translatable="false">Recovery</string>
+    <string name="reboot_to_recovery_message" translatable="false">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title" translatable="false">Bootloader</string>
+    <string name="reboot_to_bootloader_message" translatable="false">Rebooting to bootloader</string>
+    <string name="reboot_title">Reboot</string>
+    <string name="reboot_message">Rebooting system</string>
 </resources>
