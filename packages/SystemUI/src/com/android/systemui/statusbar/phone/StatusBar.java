@@ -1791,6 +1791,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_TILE_TITLE_VISIBILITY),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -1810,15 +1813,17 @@ public class StatusBar extends SystemUI implements DemoMode,
                 setStatusBarWindowViewOptions();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_TILE_TITLE_VISIBILITY))) {
                 updateQsPanelResources();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
+                setStatusBarWindowViewOptions();
+            }
         }
-    }
 
-        public void update() {
-            setFpToDismissNotifications();
-            setHideArrowForBackGesture();
-            setQsRowsColumns();
-            setStatusBarWindowViewOptions();
-        }
+    public void update() {
+        setFpToDismissNotifications();
+        setHideArrowForBackGesture();
+        setQsRowsColumns();
+        setStatusBarWindowViewOptions();
+       }
     }
 
     private void setQsRowsColumns() {

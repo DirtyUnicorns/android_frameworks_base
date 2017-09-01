@@ -898,5 +898,11 @@ public class StatusBarWindowView extends FrameLayout {
         if (mNotificationPanel != null) {
             mNotificationPanel.setQsQuickPulldown(isQsQuickPulldown);
         }
+
+        boolean isDoubleTapEnabled = Settings.System.getIntForUser(resolver,
+                Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN, 0, UserHandle.USER_CURRENT) == 1;
+        if (mNotificationPanel != null) {
+            mNotificationPanel.setLockscreenDoubleTapToSleep(isDoubleTapEnabled);
+        }
     }
 }
