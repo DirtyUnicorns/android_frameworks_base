@@ -5266,6 +5266,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.PULSE_APPS_BLACKLIST),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -5297,7 +5300,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_TILE_TITLE_VISIBILITY))) {
                 updateQsPanelResources();
             } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN))) {
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN))
+                    || uri.equals(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
                 setStatusBarWindowViewOptions();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.PULSE_APPS_BLACKLIST))) {
                 setPulseBlacklist();

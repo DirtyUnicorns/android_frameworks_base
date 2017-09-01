@@ -4145,6 +4145,12 @@ public final class Settings {
          */
         public static final String ACCENT_PICKER = "accent_picker";
 
+        /**
+         * Double tap on lockscreen to sleep
+         * @hide
+         */
+        public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN = "double_tap_sleep_lockscreen";
+
         /** Whether to allow one finger quick settings expansion on the right side of the statusbar.
          *
          * @hide
