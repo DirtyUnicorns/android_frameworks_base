@@ -7490,6 +7490,21 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether the torch launch gesture to double tap or long press the power button when the
+         * screen is off should be enabled.
+         *
+         * 0: disabled
+         * 1: double tap power for torch
+         * 2: long tap power for torch
+         * @hide
+         */
+        public static final String TORCH_POWER_BUTTON_GESTURE =
+                "torch_power_button_gesture";
+
+        private static final Validator TORCH_POWER_BUTTON_GESTURE_VALIDATOR =
+                NON_NEGATIVE_INTEGER_VALIDATOR;
+
+        /**
          * Whether the camera double twist gesture to flip between front and back mode should be
          * enabled.
          *
@@ -8020,6 +8035,7 @@ public final class Settings {
             CAMERA_DOUBLE_TWIST_TO_FLIP_ENABLED,
             SWIPE_UP_TO_SWITCH_APPS_ENABLED,
             CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
+            TORCH_POWER_BUTTON_GESTURE,
             SYSTEM_NAVIGATION_KEYS_ENABLED,
             QS_TILES,
             DOZE_ENABLED,
@@ -8156,6 +8172,8 @@ public final class Settings {
                     SWIPE_UP_TO_SWITCH_APPS_ENABLED_VALIDATOR);
             VALIDATORS.put(CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED,
                     CAMERA_DOUBLE_TAP_POWER_GESTURE_DISABLED_VALIDATOR);
+            VALIDATORS.put(TORCH_POWER_BUTTON_GESTURE,
+                    TORCH_POWER_BUTTON_GESTURE_VALIDATOR);
             VALIDATORS.put(SYSTEM_NAVIGATION_KEYS_ENABLED,
                     SYSTEM_NAVIGATION_KEYS_ENABLED_VALIDATOR);
             VALIDATORS.put(QS_TILES, QS_TILES_VALIDATOR);
