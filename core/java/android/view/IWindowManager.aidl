@@ -23,6 +23,7 @@ import com.android.internal.policy.IKeyguardDismissCallback;
 import com.android.internal.policy.IShortcutService;
 
 import android.app.IAssistDataReceiver;
+import android.content.Intent;
 import android.content.res.CompatibilityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
@@ -435,4 +436,9 @@ interface IWindowManager
      * @param displayId The id of the display.
      */
     void dontOverrideDisplayInfo(int displayId);
+
+    /**
+     * Send some ActionHandler commands to WindowManager.
+     */
+    void sendCustomAction(in Intent intent);
 }
