@@ -21,8 +21,9 @@
     <!-- Big clock dozing -->
     <dimen name="dozing_big_clock_padding" format="float">0.38</dimen>
 
-    <!-- Recents task locking button -->
+    <!-- Recents task buttons -->
     <dimen name="recents_task_view_header_lock_button_padding">44dp</dimen>
+    <dimen name="recents_task_view_header_kill_button_padding">30dp</dimen>
 
     <!-- Floating action button -->
     <dimen name="floating_action_button_height">54dp</dimen>

@@ -132,4 +132,5 @@
          [CHAR LIMIT=4] -->
     <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
 
+    <string name="recents_app_killed">App killed</string>
 </resources>
