@@ -268,6 +268,15 @@ public class PowerUI extends SystemUI {
                     return;
                 }
 
+                 if ((plugged && !oldPlugged
+                         && (mPlugType == BatteryManager.BATTERY_PLUGGED_AC
+                             || mPlugType == BatteryManager.BATTERY_PLUGGED_USB))
+                             || (!plugged && oldPlugged
+                            && (oldPlugType == BatteryManager.BATTERY_PLUGGED_AC
+                            || oldPlugType == BatteryManager.BATTERY_PLUGGED_USB))) {
+                    mWarnings.notifyBatteryPlugged();
+                }
+
                 // Show the correct version of low battery warning if needed
                 if (mLastShowWarningTask != null) {
                     mLastShowWarningTask.cancel(true);
@@ -615,6 +624,8 @@ public class PowerUI extends SystemUI {
         void dismissLowBatteryWarning();
 
         void showLowBatteryWarning(boolean playSound);
+
+        void notifyBatteryPlugged();
 
         void dismissInvalidChargerWarning();
 
