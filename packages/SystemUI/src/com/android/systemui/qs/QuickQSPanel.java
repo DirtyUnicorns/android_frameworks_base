@@ -254,8 +254,13 @@ public class QuickQSPanel extends QSPanel {
             }
         }
 
+        public boolean isShowTitles() {
+            return false;
+        }
+
         @Override
         public void updateSettings() {
         }
     }
 }
+

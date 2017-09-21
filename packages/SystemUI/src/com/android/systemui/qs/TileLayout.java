@@ -1,5 +1,6 @@
 package com.android.systemui.qs;
 
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.UserHandle;
@@ -25,6 +26,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
     protected int mCellHeight;
     protected int mCellMargin;
     protected int mDefaultColumns;
+    protected boolean mShowTitles = true;
 
     protected final ArrayList<TileRecord> mRecords = new ArrayList<>();
     private int mCellMarginTop;
@@ -78,10 +80,13 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
 
     public boolean updateResources() {
         final Resources res = mContext.getResources();
+        final ContentResolver resolver = mContext.getContentResolver();
 
-        if (Settings.System.getIntForUser(resolver,
+        boolean showTitles = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_TILE_TITLE_VISIBILITY, 1,
-                UserHandle.USER_CURRENT) == 1) {
+                UserHandle.USER_CURRENT) == 1;
+        mShowTitles = showTitles;
+        if (showTitles) {
             mCellHeight = mContext.getResources().getDimensionPixelSize(R.dimen.qs_tile_height);
         } else {
             mCellHeight = mContext.getResources().getDimensionPixelSize(R.dimen.qs_tile_height_wo_label);
@@ -163,5 +168,9 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
             mColumns = columns;
         }
         requestLayout();
+    }
+
+    public boolean isShowTitles() {
+        return mShowTitles;
     }
 }
