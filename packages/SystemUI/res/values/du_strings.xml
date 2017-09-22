@@ -28,5 +28,7 @@
     <!-- SystemUI Tuner Parts -->
     <string name="systemui_tuner_icon_manager_title">Icon manager</string>
     <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Bottom shortcuts</string>
+    <string name="lockscreen_default">Default</string>
+    <string name="lockscreen_hidden">None</string>
 
 </resources>
