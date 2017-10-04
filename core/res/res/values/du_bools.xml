@@ -14,12 +14,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-  <!-- Whether device supports an alt. ambient display -->
-  <java-symbol type="bool" name="config_alt_ambient_display"/>
+    <!-- Whether device supports an alt. ambient display -->
+    <bool name="config_alt_ambient_display">false</bool>
 
-  <!-- Vendor mismatched fingerprint warning -->
-  <java-symbol type="string" name="system_error_vendorprint" />
+    <!-- Whether to enable doze always on -->
+    <bool name="config_enableDozeAlwaysOn">false</bool>
 
 </resources>
