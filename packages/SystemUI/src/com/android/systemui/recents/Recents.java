@@ -202,6 +202,10 @@ public class Recents extends SystemUI
         return sDebugFlags;
     }
 
+    public void resetIconCache() {
+        getTaskLoader().resetIconCache();
+    }
+
     public void evictAllCaches() {
         getTaskLoader().evictAllCaches();
     }

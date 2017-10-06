@@ -213,6 +213,7 @@ import com.android.systemui.recents.ScreenPinningRequest;
 import com.android.systemui.recents.events.EventBus;
 import com.android.systemui.recents.events.activity.AppTransitionFinishedEvent;
 import com.android.systemui.recents.events.activity.UndockingTaskEvent;
+import com.android.systemui.recents.misc.IconPackHelper;
 import com.android.systemui.recents.misc.SystemServicesProxy;
 import com.android.systemui.slimrecent.RecentController;
 import com.android.systemui.stackdivider.Divider;
@@ -6340,6 +6341,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.RECENTS_ICON_PACK),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.USE_SLIM_RECENTS),
                     false, this, UserHandle.USER_ALL);
         }
@@ -6386,6 +6390,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
                 setStatusBarWindowViewOptions();
             } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.RECENTS_ICON_PACK))) {
+                updateRecentsIconPack();
+            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.USE_SLIM_RECENTS))) {
                 updateRecentsMode();
             }
@@ -6400,6 +6407,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setLockscreenMediaMetadata();
             setQsPanelOptions();
             setStatusBarOptions();
+            updateRecentsIconPack();
             updateRecentsMode();
         }
     }
@@ -6465,10 +6473,22 @@ public class StatusBar extends SystemUI implements DemoMode,
                 UserHandle.USER_CURRENT) == 1;
     }
 
-    private void updateRecentsMode() {
-        boolean slimRecents = Settings.System.getIntForUser(mContext.getContentResolver(),
+    private boolean isSlimRecentsEnabled() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.USE_SLIM_RECENTS, 0, mCurrentUserId) == 1;
-        if (slimRecents) {
+    }
+
+    private void updateRecentsIconPack() {
+        if (!isSlimRecentsEnabled()) {
+            String currentIconPack = Settings.System.getStringForUser(mContext.getContentResolver(),
+                Settings.System.RECENTS_ICON_PACK, mCurrentUserId);
+            IconPackHelper.getInstance(mContext).updatePrefs(currentIconPack);
+            mRecents.resetIconCache();
+        }
+    }
+
+    private void updateRecentsMode() {
+        if (isSlimRecentsEnabled()) {
             mRecents.evictAllCaches();
             mRecents.removeSbCallbacks();
             mSlimRecents = new RecentController(mContext);
