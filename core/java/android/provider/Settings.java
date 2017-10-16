@@ -3947,26 +3947,26 @@ public final class Settings {
          * the setting value. See an example above.
          */
 
-       /**
+        /**
          * Whether to wake the display when plugging or unplugging the charger
          *
          * @hide
          */
         public static final String WAKE_WHEN_PLUGGED_OR_UNPLUGGED = "wake_when_plugged_or_unplugged";
 
-       /**
+        /**
          * Whether to show network traffic indicator in statusbar
          * @hide
          */
         public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
 
-       /**
+        /**
          * Network traffic inactivity threshold (default is 1 kBs)
          * @hide
          */
         public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
 
-       /**
+        /**
          * Whether to vibrate on power connection or disconnection
          * @hide
          */
@@ -4021,6 +4021,12 @@ public final class Settings {
          * @hide
          */
         public static final String HEADS_UP_BLACKLIST_VALUES = "heads_up_blacklist_values";
+
+        /**
+         * Whether to show the notification ticker on the status bar
+         * @hide
+         */
+        public static final String STATUS_BAR_SHOW_TICKER = "status_bar_show_ticker";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
