@@ -29,6 +29,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.service.quicksettings.Tile;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -57,6 +58,8 @@ import java.util.Collection;
 
 /** View that represents the quick settings tile panel (when expanded/pulled down). **/
 public class QSPanel extends LinearLayout implements Tunable, Callback, BrightnessMirrorListener {
+
+    private static final String TAG = "QSPanel";
 
     public static final String QS_SHOW_BRIGHTNESS = "qs_show_brightness";
     public static final String QS_SHOW_HEADER = "qs_show_header";
@@ -100,7 +103,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         mBrightnessView = LayoutInflater.from(mContext).inflate(
             R.layout.quick_settings_brightness_dialog, this, false);
-        addView(mBrightnessView);
 
         mTileLayout = (QSTileLayout) LayoutInflater.from(mContext).inflate(
                 R.layout.qs_paged_tile_layout, this, false);
@@ -114,6 +116,11 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         ((PagedTileLayout) mTileLayout).setPageIndicator(mPanelPageIndicator);
         mQsTileRevealController = new QSTileRevealController(mContext, this,
                 (PagedTileLayout) mTileLayout);
+
+        mBrightnessView.setPadding(mBrightnessView.getPaddingLeft(),
+        mBrightnessView.getPaddingTop(), mBrightnessView.getPaddingRight(),
+        mContext.getResources().getDimensionPixelSize(R.dimen.qs_brightness_footer_padding));
+        addView(mBrightnessView);
 
         addDivider();
 
@@ -188,8 +195,12 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
     @Override
     public void onTuningChanged(String key, String newValue) {
-        if (QS_SHOW_BRIGHTNESS.equals(key)) {
-            updateViewVisibilityForTuningValue(mBrightnessView, newValue);
+        try {
+            if (QS_SHOW_BRIGHTNESS.equals(key)) {
+                updateViewVisibilityForTuningValue(mBrightnessView, newValue);
+            }
+        } catch (Exception e){
+            Log.d(TAG, "Caught exception from Tuner", e);
         }
     }
 
