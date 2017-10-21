@@ -28,4 +28,7 @@
         <item name="android:textColor">@color/status_bar_clock_color</item>
     </style>
 
+    <!-- <style name="ContainerActivityTheme"
+        parent="@android:style/Theme.Translucent.NoTitleBar">
+    </style>-->
 </resources>

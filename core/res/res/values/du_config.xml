@@ -115,4 +115,7 @@
     <!-- In call notification vibration strength -->
     <integer name="config_in_call_notification_vibration_strength">30</integer>
 
+    <!-- The duration (in milliseconds) of recent app screen animation. -->
+    <integer name="config_recentDefaultDur">150</integer>
+
 </resources>
