@@ -3934,6 +3934,12 @@ public final class Settings {
         /** @hide */
         private static final Validator SHOW_BATTERY_PERCENT_VALIDATOR = sBooleanValidator;
 
+        /** Whether to allow one finger quick settings expansion on the right side of the statusbar.
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
+
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
