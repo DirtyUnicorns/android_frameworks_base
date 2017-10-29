@@ -380,9 +380,6 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
                     }
                 }
             }
-        } else if (mode == AudioManager.RINGER_MODE_VIBRATE) {
-            Vibrator vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
-            vibrator.vibrate(new long[]{0, 200L}, -1 /* repeat */);
         }
     }
 
