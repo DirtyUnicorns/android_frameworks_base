@@ -931,13 +931,6 @@ public class NotificationPanelView extends PanelView implements
         final boolean twoFingerDrag = action == MotionEvent.ACTION_POINTER_DOWN
                 && pointerCount == 2;
 
-        boolean twoFingerQsEvent = mTwoFingerQsExpandPossible
-                && (event.getActionMasked() == MotionEvent.ACTION_POINTER_DOWN
-                && event.getPointerCount() == 2);
-        boolean oneFingerQsOverride = mOneFingerQuickSettingsIntercept
-                && event.getActionMasked() == MotionEvent.ACTION_DOWN
-                && shouldQuickSettingsIntercept(event.getX(), event.getY(), -1, false);
-
         final boolean stylusButtonClickDrag = action == MotionEvent.ACTION_DOWN
                 && (event.isButtonPressed(MotionEvent.BUTTON_STYLUS_PRIMARY)
                         || event.isButtonPressed(MotionEvent.BUTTON_STYLUS_SECONDARY));
@@ -948,15 +941,15 @@ public class NotificationPanelView extends PanelView implements
 
         final float w = getMeasuredWidth();
         final float x = event.getX();
-        float region = (w * (1.f/4.f)); // TODO overlay region fraction?
+        float region = w * 1.f / 4.f; // TODO overlay region fraction?
         boolean showQsOverride = false;
 
         switch (mOneFingerQuickSettingsIntercept) {
             case 1: // Right side pulldown
-                showQsOverride = isLayoutRtl() ? (x < region) : (w - region < x);
+                showQsOverride = isLayoutRtl() ? x < region : w - region < x;
                 break;
             case 2: // Left side pulldown
-                showQsOverride = isLayoutRtl() ? (w - region < x) : (x < region);
+                showQsOverride = isLayoutRtl() ? w - region < x : x < region;
                 break;
         }
         showQsOverride &= mStatusBarState == StatusBarState.SHADE;
@@ -1510,7 +1503,7 @@ public class NotificationPanelView extends PanelView implements
             return false;
         }
         View header = mKeyguardShowing ? mKeyguardStatusBar : mQs.getHeader();
-        boolean onHeader = x >= header.getX() && x <= header.getX() + header.getWidth()
+        boolean onHeader = x >= mQsAutoReinflateContainer.getX()
                 && x <= mQsFrame.getX() + mQsFrame.getWidth()
                 && y >= header.getTop() && y <= header.getBottom();
 
