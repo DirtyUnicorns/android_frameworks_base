@@ -7494,12 +7494,12 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     protected boolean shouldPeek(Entry entry, StatusBarNotification sbn) {
-        if(isPackageInBlacklist(sbn.getPackageName())) {
+        if (!mUseHeadsUp && !isDozing() || isDeviceInVrMode()) {
+            if (DEBUG) Log.d(TAG, "No peeking: no huns or vr mode");
             return false;
         }
 
-        if (!mUseHeadsUp || isDeviceInVrMode()) {
-            if (DEBUG) Log.d(TAG, "No peeking: no huns or vr mode");
+        if (isPackageInBlacklist(sbn.getPackageName())) {
             return false;
         }
 
