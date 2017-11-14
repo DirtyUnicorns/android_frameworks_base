@@ -197,7 +197,6 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         addView(mFooter.getView());
 
         updateResources();
-
     }
 
     protected void addDivider() {
@@ -345,6 +344,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         if (mTileLayout != null) {
             mTileLayout.updateResources();
         }
+        updateSettings();
     }
 
     @Override
@@ -693,6 +693,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         int getOffsetTop(TileRecord tile);
 
         boolean updateResources();
+        void updateSettings();
 
         void setListening(boolean listening);
     }
@@ -721,6 +722,15 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         } else {
             Settings.System.putInt(context.getContentResolver(),
             Settings.System.SCREEN_BRIGHTNESS, 255);
+        }
+    }
+
+    public void updateSettings() {
+        if (mTileLayout != null) {
+            mTileLayout.updateSettings();
+        }
+        if (mCustomizePanel != null) {
+            mCustomizePanel.updateSettings();
         }
     }
 }
