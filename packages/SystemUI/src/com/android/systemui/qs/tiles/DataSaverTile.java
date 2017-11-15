@@ -60,7 +60,7 @@ public class DataSaverTile extends QSTileImpl<BooleanState> implements
     @Override
     protected void handleClick() {
         if (mState.value
-                || Prefs.getBoolean(mContext, Prefs.Key.QS_DATA_SAVER_DIALOG_SHOWN, false)) {
+                || Prefs.getBoolean(mContext, Prefs.Key.QS_DATA_SAVER_DIALOG_SHOWN, true)) {
             // Do it right away.
             toggleDataSaver();
             return;
