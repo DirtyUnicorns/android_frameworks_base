@@ -97,11 +97,7 @@ public abstract class TunerService {
             public void onClick(DialogInterface dialog, int which) {
                 // Tell the tuner (in main SysUI process) to clear all its settings.
                 context.sendBroadcast(new Intent(TunerService.ACTION_CLEAR));
-                // Disable access to tuner.
-                TunerService.setTunerEnabled(context, false);
-                // Make them sit through the warning dialog again.
-                Settings.Secure.putInt(context.getContentResolver(),
-                        TunerFragment.SETTING_SEEN_TUNER_WARNING, 0);
+                TunerService.setTunerEnabled(context, true);
                 if (onDisabled != null) {
                     onDisabled.run();
                 }
