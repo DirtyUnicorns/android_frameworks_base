@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2006, The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Votre \"vendor.img\" est obsolète. Veuillez installer la version <xliff:g id="string">%s</xliff:g></string>
+
+    <!-- Power menu -->
+    <string name="reboot_system" product="tablet">Redémarrer la tablette</string>
+    <string name="reboot_system" product="default">Redémarrer le téléphone</string>
+    <string name="reboot_reboot">Redémarrer</string>
+    <string name="reboot_hot">Hot reboot</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Redémarrage Recovery</string>
+    <string name="reboot_recovery">Recovery</string>
+    <string name="reboot_bootloader">Bootloader</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Redémarrage Bootloader</string>
+    <string name="reboot_progress">Redémarrage</string>
+    <string name="global_action_reboot">Redémarrer</string>
+    <string name="reboot_title">Redémarrer</string>
+    <string name="reboot_message">Redémarrage Système</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_toggleNavigationEditor">Contrôler l\'éditeur de navigation</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Permet à une application de contrôler l\'éditeur de la barre de navigation</string>
+    <string name="stk_cc_ussd_to_dial_video">La requête USSD a été remplacée par une requête DIAL Vidéo.</string>
+    <string name="stk_cc_ss_to_dial_video">La requête SS a été remplacée par une requête DIAL Vidéo.</string>
+</resources>
