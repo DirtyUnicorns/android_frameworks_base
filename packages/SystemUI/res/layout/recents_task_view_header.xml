@@ -33,7 +33,7 @@
         android:paddingEnd="12dp" />
     <TextView
         android:id="@+id/title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical|start"
         android:textSize="16sp"
@@ -44,6 +44,7 @@
         android:maxLines="1"
         android:ellipsize="marquee"
         android:fadingEdge="horizontal"
+        android:paddingEnd="40dp"
         android:forceHasOverlappingRendering="false" />
     <com.android.systemui.recents.views.FixedSizeImageView
         android:id="@+id/move_task"
