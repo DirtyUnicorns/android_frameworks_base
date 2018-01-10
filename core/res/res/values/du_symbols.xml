@@ -13,12 +13,14 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-<resources>
     <java-symbol type="array" name="config_customPermissionsList" />
 
     <!-- Device keyhandlers -->
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+
+    <java-symbol type="integer" name="config_flashlightProximityTimeout" />
 
 </resources>
