@@ -40,6 +40,7 @@ public class AmbientDisplayConfiguration {
                 || pulseOnDoubleTapEnabled(user)
                 || pulseOnLongPressEnabled(user)
                 || pulseOnCustomDozeEventEnabled(user)
+                || pulseOnMedia(user)
                 || alwaysOnEnabled(user);
     }
 
@@ -60,6 +61,16 @@ public class AmbientDisplayConfiguration {
         return (Settings.System.getInt(mContext.getContentResolver(), Settings.System.CUSTOM_AMBIENT_POCKETMODE_GESTURE, 0) != 0
                 || Settings.System.getInt(mContext.getContentResolver(), Settings.System.CUSTOM_AMBIENT_HANDWAVE_GESTURE, 0) != 0)
                 && pulseOnNotificationAvailable();
+    }
+
+    public boolean pulseOnMedia(int user) {
+        boolean enabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.FORCE_AMBIENT_FOR_MEDIA, 1, user) != 0;
+        return enabled && ambientDisplayAvailable();
+    }
+
+    public boolean canForceDozeNotifications() {
+        return mContext.getResources().getBoolean(R.bool.config_canForceDozeNotifications);
     }
 
     public boolean pulseOnPickupEnabled(int user) {
