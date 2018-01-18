@@ -103,5 +103,10 @@
     <bool name="config_button_brightness_support">false</bool>
     <integer name="config_button_brightness_default">128</integer>
 
+    <!-- Flashlight proximity timeout -->
     <integer name="config_flashlightProximityTimeout">300</integer>
+
+    <!-- Ambient music -->
+    <bool name="config_canForceDozeNotifications">true</bool>
+
 </resources>
