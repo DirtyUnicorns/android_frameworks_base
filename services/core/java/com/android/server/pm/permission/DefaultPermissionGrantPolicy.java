@@ -751,7 +751,7 @@ public final class DefaultPermissionGrantPolicy {
                     ALWAYS_LOCATION_PERMISSIONS, CONTACTS_PERMISSIONS);
         }
 
-        // Atthention Service
+        // Attention Service
         String attentionServicePackageName =
                 mContext.getPackageManager().getAttentionServicePackageName();
         if (!TextUtils.isEmpty(attentionServicePackageName)) {
@@ -826,6 +826,10 @@ public final class DefaultPermissionGrantPolicy {
         // Google Calendar
         grantSystemFixedPermissionsToSystemPackage("com.google.android.calendar", userId, CALENDAR_PERMISSIONS,
                 CONTACTS_PERMISSIONS, PHONE_PERMISSIONS);
+
+        // Google dialer
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.dialer", userId, PHONE_PERMISSIONS,
+                CONTACTS_PERMISSIONS, SMS_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(String category, int userId) {
