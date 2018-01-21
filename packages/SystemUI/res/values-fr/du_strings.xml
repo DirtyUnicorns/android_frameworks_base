@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2014-2016 The Dirty Unicorns Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Show lte/4g switch -->
+    <string name="show_lte_fourgee_title">Icône \"4G\"</string>
+    <string name="show_lte_fourgee_summary">Afficher l\'icône \"4G\" plutôt que \"LTE\" sur la barre d\'état et dans le panneau de configuration rapide</string>
+    <string name="statusbar_tuner_category_title">Éléments à afficher</string>
+
+    <!-- Power menu -->
+    <string name="global_action_restart_system">Redémarrage système</string>
+    <string name="global_action_restart_advanced">Redémarrage optimisé</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Interface</string>
+    <string name="global_action_restart_hot">Hot Reboot</string>
+    <string name="global_action_screenshot">Capture d\'écran</string>
+
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Capture d\'écran supprimée</string>
+
+    <!-- Battery saver tile -->
+    <string name="battery_saver_qs_tile_fully_charged">Chargé</string>
+
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Charge Dash… (Complètement chargé dans <xliff:g id="charging_time_left">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_dash_charging">Charge Dash</string>
+
+    <!-- Notification: Menu row: Snooze options: 1 hour option. [CHAR LIMIT=50]-->
+    <string name="snooze_option_24_hour">24 heures</string>
+
+    <!-- SystemUI Tuner Parts -->
+    <string name="systemui_tuner_icon_manager_title">Gestionnaire d\'icônes</string>
+    <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Raccourcis du bas</string>
+    <string name="lockscreen_default">Par défaut</string>
+    <string name="lockscreen_hidden">Aucun</string>
+    <string name="custom_hint">Glisser depuis l\'icône pour démarrer</string>
+    <string name="systemui_tuner_navbar_title">Paramètres d\'origine</string>
+
+    <!-- QS Tiles -->
+    <string name="quick_settings_reboot_label">Redémarrer</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_screenshot_label">Capture d\'écran</string>
+    <string name="quick_settings_region_screenshot_label">Capture d\'écran partielle</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">\"Caffeine\" désactivé</string>
+    <string name="accessibility_quick_settings_caffeine_on">\"Caffeine\" activé</string>
+
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Glisser ou appuyer pour ajouter des tuiles</string>
+
+</resources>
