@@ -52,6 +52,7 @@
     <string name="lockscreen_hidden">None</string>
     <string name="custom_hint">Swipe from icon to launch</string>
     <string name="systemui_tuner_navbar_title">Stock settings</string>
+    <string name="status_bar_vpn">VPN</string>
 
     <!-- QS Tiles -->
     <string name="quick_settings_reboot_label">Reboot</string>
