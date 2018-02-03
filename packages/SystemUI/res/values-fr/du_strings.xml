@@ -51,6 +51,7 @@
     <string name="lockscreen_hidden">Aucun</string>
     <string name="custom_hint">Glisser depuis l\'icône pour démarrer</string>
     <string name="systemui_tuner_navbar_title">Paramètres d\'origine</string>
+    <string name="status_bar_vpn">VPN</string>
 
     <!-- QS Tiles -->
     <string name="quick_settings_reboot_label">Redémarrer</string>
