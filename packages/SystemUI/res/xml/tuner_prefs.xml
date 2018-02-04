@@ -24,6 +24,12 @@
         android:summary="@string/show_lte_fourgee_summary"
         android:defaultValue="false" />
 
+    <SwitchPreference
+        android:key="status_bar_logo"
+        android:title="@string/du_logo_title"
+        android:summary="@string/du_logo_summary"
+        android:defaultValue="false" />
+
     <PreferenceCategory
         android:key="hide_statusbar_items"
         android:title="@string/statusbar_tuner_category_title">
