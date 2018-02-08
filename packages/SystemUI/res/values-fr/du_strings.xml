@@ -17,10 +17,18 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- strings.xml -->
+    <string name="quick_settings_cast_title">Diffuser</string>
+    <string name="quick_settings_cast_device_default_description">Prêt à diffuser</string>
+
     <!-- Show lte/4g switch -->
     <string name="show_lte_fourgee_title">Icône \"4G\"</string>
     <string name="show_lte_fourgee_summary">Afficher l\'icône \"4G\" plutôt que \"LTE\" sur la barre d\'état et dans le panneau de configuration rapide</string>
     <string name="statusbar_tuner_category_title">Éléments à afficher</string>
+
+    <!-- DU logo -->
+    <string name="du_logo_title">Logo DU</string>
+    <string name="du_logo_summary">Afficher le logo de DU sur la gauche de la barre d\'état</string>
 
     <!-- Power menu -->
     <string name="global_action_restart_system">Redémarrage système</string>
