@@ -295,6 +295,10 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
                 return showlocked;
             }
 
+            public boolean onLongPress() {
+                return false;
+            }
+
             public boolean showBeforeProvisioning() {
                 return false;
             }
@@ -431,7 +435,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
                 if (Settings.System.getInt(mContext.getContentResolver(),
                         Settings.System.POWERMENU_SCREENSHOT, 0) != 0) {
-                    mItems.add(getScreenshotAction());
+                    mItems.add(new ScreenshotAction());
                 }
             } else {
                 Log.e(TAG, "Invalid global action key " + actionKey);
@@ -452,7 +456,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
                     long id) {
                 final Action action = mAdapter.getItem(position);
                 if (action instanceof LongPressAction) {
-                    mDialog.dismiss();
+                    //mDialog.dismiss();
                     return ((LongPressAction) action).onLongPress();
                 }
                 return false;
@@ -509,6 +513,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
         public boolean onLongPress() {
             UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
             if (!um.hasUserRestriction(UserManager.DISALLOW_SAFE_BOOT)) {
+                mDialog.dismiss();
                 mWindowManagerFuncs.reboot(true);
                 return true;
             }
@@ -533,33 +538,37 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
         }
     }
 
-    private Action getScreenshotAction() {
-        return new SinglePressAction(com.android.systemui.R.drawable.ic_screenshot,
-                com.android.systemui.R.string.global_action_screenshot) {
+    private final class ScreenshotAction extends SinglePressAction implements LongPressAction {
+        private ScreenshotAction() {
+            super(com.android.systemui.R.drawable.ic_screenshot, com.android.systemui.R.string.global_action_screenshot);
+        }
+        @Override
+        public void onPress() {
+           mHandler.postDelayed(new Runnable() {
+               @Override
+                public void run() {
+                    Intent intent = new Intent(Intent.ACTION_SCREENSHOT);
+                    mContext.sendBroadcast(intent);
+                }
+            }, 500);
+        }
 
-            @Override
-            public void onPress() {
-               mHandler.postDelayed(new Runnable() {
-                   @Override
-                    public void run() {
-                        Intent intent = new Intent(Intent.ACTION_SCREENSHOT);
-                        mContext.sendBroadcast(intent);
-                    }
-                }, 500);
-            }
+        @Override
+        public boolean onLongPress() {
+            return false;
+        }
 
-            @Override
-            public boolean showDuringKeyguard() {
-                boolean showlocked = Settings.System.getInt(mContext.getContentResolver(),
-                        Settings.System.POWERMENU_LS_SCREENSHOT, 0) == 1;
-                return showlocked;
-            }
+        @Override
+        public boolean showDuringKeyguard() {
+            boolean showlocked = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.POWERMENU_LS_SCREENSHOT, 0) == 1;
+            return showlocked;
+        }
 
-            @Override
-            public boolean showBeforeProvisioning() {
-                return true;
-            }
-        };
+        @Override
+        public boolean showBeforeProvisioning() {
+            return true;
+        }
     }
 
     private class BugReportAction extends SinglePressAction implements LongPressAction {
@@ -1222,7 +1231,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
         @Override
         public boolean onLongPress() {
-            return true;
+            return false;
         }
 
         public boolean isEnabled() {
