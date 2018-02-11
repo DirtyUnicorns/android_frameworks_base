@@ -83,6 +83,14 @@ public class RebootTile extends QSTileImpl<BooleanState> {
                         }
                     });
                     return;
+                } else {
+                    try {
+                        if (mRebootToRecovery)
+                            mBarService.advancedReboot(PowerManager.REBOOT_RECOVERY);
+                        else
+                            mBarService.reboot(false);
+                    } catch (RemoteException e) {
+                    }
                 }
             }
         }, 500);
