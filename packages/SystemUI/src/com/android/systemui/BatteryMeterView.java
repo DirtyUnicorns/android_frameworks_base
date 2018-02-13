@@ -17,6 +17,7 @@ package com.android.systemui;
 
 import static android.provider.Settings.System.SHOW_BATTERY_PERCENT;
 import static android.provider.Settings.Secure.STATUS_BAR_BATTERY_STYLE;
+import static android.provider.Settings.Secure.STATUS_BAR_BIG_BATTERY_ICON;
 
 import android.animation.ArgbEvaluator;
 import android.app.ActivityManager;
@@ -77,6 +78,7 @@ public class BatteryMeterView extends LinearLayout implements
 
     private int mPercentStyle;
     private int mBatteryIconStyle;
+    private boolean mLargeBatteryIcon;
     private boolean mAttached;
 
     private int mClockStyle;
@@ -109,8 +111,7 @@ public class BatteryMeterView extends LinearLayout implements
         final MarginLayoutParams mlp = new MarginLayoutParams(
                 getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_width),
                 getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_height));
-        mlp.setMargins(0, 0, 0,
-                getResources().getDimensionPixelOffset(R.dimen.battery_margin_bottom));
+        mlp.setMargins(0, 0, 0, getResources().getDimensionPixelOffset(R.dimen.battery_margin_bottom));
         addView(mBatteryIconView, mlp);
 
         updateShowPercent();
@@ -246,12 +247,24 @@ public class BatteryMeterView extends LinearLayout implements
         res.getValue(R.dimen.status_bar_icon_scale_factor, typedValue, true);
         float iconScaleFactor = typedValue.getFloat();
 
-        int batteryHeight = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
-        int batteryWidth = res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_width);
+        int batteryHeight = mLargeBatteryIcon ? 
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_large_icon_height) :
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
+        int batteryWidth = mLargeBatteryIcon ? 
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_large_icon_width) :
+                res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
         int marginBottom = res.getDimensionPixelSize(R.dimen.battery_margin_bottom);
         int endPadding = res.getDimensionPixelSize(R.dimen.battery_level_padding_start);
         boolean addPadding = (mClockStyle == 0 &&
                 mDrawable.getMeterStyle() >= BatteryMeterDrawableBase.BATTERY_STYLE_TEXT);
+
+        if (mBatteryIconView != null) {
+            removeView(mBatteryIconView);
+            final MarginLayoutParams mlp = new MarginLayoutParams(
+                    (int) (batteryWidth * iconScaleFactor), (int) (batteryHeight * iconScaleFactor));
+            mlp.setMargins(0, 0, 0, marginBottom);
+            addView(mBatteryIconView, mlp);
+        }
 
         LinearLayout.LayoutParams scaledLayoutParams = new LinearLayout.LayoutParams(
                 (int) (batteryWidth * iconScaleFactor), (int) (batteryHeight * iconScaleFactor));
@@ -324,12 +337,15 @@ public class BatteryMeterView extends LinearLayout implements
     }
 
     public void updateSettings(boolean force) {
+        final boolean iconSize = mLargeBatteryIcon;
         mPercentStyle = Settings.System.getIntForUser(getContext().getContentResolver(),
                 SHOW_BATTERY_PERCENT, 0, mUser);
         mBatteryIconStyle = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 STATUS_BAR_BATTERY_STYLE, BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT, mUser);
         mClockStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.STATUSBAR_CLOCK_STYLE, 0 /* STYLE_CLOCK_RIGHT */, mUser);
+        mLargeBatteryIcon = Settings.Secure.getIntForUser(getContext().getContentResolver(),
+                STATUS_BAR_BIG_BATTERY_ICON, 0, mUser) != 0;
         if (force && mAttached) {
             updateBatteryStyle();
         }

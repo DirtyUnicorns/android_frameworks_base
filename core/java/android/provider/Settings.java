@@ -8040,6 +8040,12 @@ public final class Settings {
         public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
 
         /**
+         * Display large battery icon.
+         * @hide
+         */
+        public static final String STATUS_BAR_BIG_BATTERY_ICON = "status_bar_big_battery_icon";
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
