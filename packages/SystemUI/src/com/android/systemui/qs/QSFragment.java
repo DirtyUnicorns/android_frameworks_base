@@ -200,6 +200,10 @@ public class QSFragment extends Fragment implements QS {
         return mQSCustomizer;
     }
 
+    public QuickStatusBarHeader getQsHeader() {
+        return mHeader;
+    }
+
     @Override
     public boolean isShowingDetail() {
         return mQSPanel.isShowingCustomize() || mQSDetail.isShowingDetail();
