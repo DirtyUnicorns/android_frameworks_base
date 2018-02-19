@@ -328,6 +328,9 @@ public class NotificationManagerService extends SystemService {
     private Uri mInCallNotificationUri;
     private AudioAttributes mInCallNotificationAudioAttributes;
     private float mInCallNotificationVolume;
+    // In call notification vibration strength
+    private int mVibrationStrength = 30;
+    private boolean mInCallNotificationsVibrate;
 
     // used as a mutex for access to all active notifications & listeners
     final Object mNotificationLock = new Object();
@@ -1063,6 +1066,8 @@ public class NotificationManagerService extends SystemService {
                 = Settings.System.getUriFor(Settings.System.NOTIFICATION_SOUND_VIB_SCREEN_ON);
         private final Uri MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD_URI
                 = Settings.System.getUriFor(Settings.System.MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD);
+        private final Uri INCALL_NOTIFICATIONS_VIBRATE_URI
+                = Settings.System.getUriFor(Settings.System.INCALL_NOTIFICATIONS_VIBRATE);
 
         LEDSettingsObserver(Handler handler) {
             super(handler);
@@ -1099,6 +1104,8 @@ public class NotificationManagerService extends SystemService {
             resolver.registerContentObserver(NOTIFICATION_SOUND_VIB_SCREEN_ON,
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(MUTE_ANNOYING_NOTIFICATIONS_THRESHOLD_URI,
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(INCALL_NOTIFICATIONS_VIBRATE_URI,
                     false, this, UserHandle.USER_ALL);
             update(null);
         }
@@ -1161,6 +1168,12 @@ public class NotificationManagerService extends SystemService {
             }
 
             updateNotificationPulse();
+
+            if (uri == null || INCALL_NOTIFICATIONS_VIBRATE_URI.equals(uri)) {
+                mInCallNotificationsVibrate = Settings.System.getIntForUser(resolver,
+                       Settings.System.INCALL_NOTIFICATIONS_VIBRATE, 0,
+                       UserHandle.USER_CURRENT) == 1;
+            }
         }
     }
 
@@ -1446,6 +1459,9 @@ public class NotificationManagerService extends SystemService {
 
         mIsTelevision = mPackageManagerClient.hasSystemFeature(FEATURE_LEANBACK)
                 || mPackageManagerClient.hasSystemFeature(FEATURE_TELEVISION);
+
+        mVibrationStrength = resources.getInteger(
+                R.integer.config_in_call_notification_vibration_strength);
     }
 
     @Override
@@ -4234,7 +4250,11 @@ public class NotificationManagerService extends SystemService {
                         mSoundNotificationKey = key;
                         if (mInCall) {
                             playInCallNotification();
-                            beep = true;
+                            if (mInCallNotificationsVibrate) {
+                                buzz = true;
+                            } else {
+                                beep = true;
+                            }
                         } else {
                             beep = playSound(record, soundUri);
                         }
@@ -4422,11 +4442,16 @@ public class NotificationManagerService extends SystemService {
             public void run() {
                 final long identity = Binder.clearCallingIdentity();
                 try {
-                    final IRingtonePlayer player = mAudioManager.getRingtonePlayer();
-                    if (player != null) {
-                        player.play(new Binder(), mInCallNotificationUri,
-                                mInCallNotificationAudioAttributes,
-                                mInCallNotificationVolume, false);
+                    if (!mInCallNotificationsVibrate) {
+                        final IRingtonePlayer player = mAudioManager.getRingtonePlayer();
+                        if (player != null) {
+                            player.play(new Binder(), mInCallNotificationUri,
+                                    mInCallNotificationAudioAttributes,
+                                    mInCallNotificationVolume, false);
+                        }
+                    } else {
+                        mVibrator.vibrate(
+                                VibrationEffect.createOneShot(30, mVibrationStrength));
                     }
                 } catch (RemoteException e) {
                 } finally {
