@@ -75,4 +75,11 @@
     <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Glisser ou appuyer pour ajouter des tuiles</string>
 
+    <!-- Navigation bar Tile -->
+    <string name="quick_settings_navigation_bar">Barre de navigation</string>
+    <string name="quick_settings_smartbar">SmartBar</string>
+    <string name="quick_settings_fling">Fling</string>
+    <string name="quick_settings_navigation_default">Par défaut</string>
+    <string name="quick_settings_navigation_disabled">Désactivé</string>
+
 </resources>
