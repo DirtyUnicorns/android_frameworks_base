@@ -124,4 +124,7 @@
   <java-symbol type="anim" name="recent_screen_fade_out" />
   <java-symbol type="anim" name="recent_enter" />
 
+  <!-- Whether device has turbo power charging support -->
+  <java-symbol type="bool" name="config_hasTurboPowerCharger" />
+
 </resources>
