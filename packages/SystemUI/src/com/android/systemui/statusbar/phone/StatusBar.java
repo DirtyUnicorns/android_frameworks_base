@@ -660,6 +660,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         @Override
         public void onSessionDestroyed() {
             super.onSessionDestroyed();
+            if (mTicker != null) {
+                mTicker.resetShownMediaMetadata();
+            }
             setMediaPlaying();
         }
     };
@@ -2542,6 +2545,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                 mMediaController = controller;
                 mMediaController.registerCallback(mMediaListener);
                 mMediaMetadata = mMediaController.getMetadata();
+                if (mTicker != null) {
+                    mTicker.resetShownMediaMetadata();
+                }
                 setMediaPlaying();
                 if (DEBUG_MEDIA) {
                     Log.v(TAG, "DEBUG_MEDIA: insert listener, receive metadata: "
