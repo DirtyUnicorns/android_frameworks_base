@@ -69,4 +69,9 @@
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Caffeine</string>
 
+    <!-- ADB over Network tile -->
+    <string name="quick_settings_adb_network">ADB over Network</string>
+    <string name="quick_settings_network_adb_enabled_label">ADB over Network</string>
+    <string name="quick_settings_network_adb_disabled_label">ADB over Network</string>
+
 </resources>
