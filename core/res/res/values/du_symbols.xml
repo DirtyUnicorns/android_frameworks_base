@@ -23,6 +23,13 @@
   <java-symbol type="string" name="reboot_to_bootloader_message" />
   <java-symbol type="string" name="reboot_title" />
   <java-symbol type="string" name="reboot_message" />
+  <java-symbol type="color" name="power_menu_power_off" />
+  <java-symbol type="color" name="power_menu_restart" />
+  <java-symbol type="color" name="power_menu_restart_advanced" />
+  <java-symbol type="color" name="power_menu_advanced_bootloader" />
+  <java-symbol type="color" name="power_menu_advanced_recovery" />
+  <java-symbol type="color" name="power_menu_advanced_system_restart_ui" />
+  <java-symbol type="color" name="power_menu_screenshot" />
 
   <!-- Screen off delay -->
   <java-symbol type="integer" name="config_screen_off_delay" />

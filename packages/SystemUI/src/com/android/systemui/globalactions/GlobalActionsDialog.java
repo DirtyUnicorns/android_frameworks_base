@@ -549,7 +549,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     private class ScreenshotAction extends SinglePressAction {
         public ScreenshotAction() {
-            super(R.drawable.ic_screenshot, R.string.global_action_screenshot);
+            super(com.android.systemui.R.drawable.ic_screenshot, R.string.global_action_screenshot);
         }
 
         @Override
