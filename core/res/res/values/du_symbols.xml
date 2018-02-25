@@ -26,6 +26,9 @@
   <java-symbol type="color" name="power_menu_advanced_system_restart_ui" />
   <java-symbol type="color" name="power_menu_screenshot" />
 
+  <!-- Notification info -->
+  <java-symbol type="color" name="notification_info_button_text" />
+
   <!-- IMS -->
   <java-symbol type="string" name="config_optionalPackageVerifierName" />
   <java-symbol type="integer" name="config_sms_authorization_timeout_ms" />
