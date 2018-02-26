@@ -48,4 +48,8 @@
 
     <dimen name="status_bar_battery_large_icon_width">20.5dp</dimen>
     <dimen name="status_bar_battery_large_icon_height">20.5dp</dimen>
+
+    <!-- QS detail view scrolling -->
+   <dimen name="qs_detail_item_height_twoline">72dp</dimen>
+
 </resources>
