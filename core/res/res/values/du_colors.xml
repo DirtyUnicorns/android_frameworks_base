@@ -27,6 +27,9 @@
     <color name="power_menu_screenshot">#ff202020</color>
     <color name="power_menu_airplane">#ff202020</color>
 
+    <!-- Notification info -->
+    <color name="notification_info_button_text">@color/accent_device_default_light</color>
+
     <!-- Notification sender text color -->
     <color name="sender_text_color">@android:color/black</color>
 
