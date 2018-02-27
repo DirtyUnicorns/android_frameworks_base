@@ -205,6 +205,8 @@ public final class SystemServer {
             "com.android.server.autofill.AutofillManagerService";
     private static final String TIME_ZONE_RULES_MANAGER_SERVICE_CLASS =
             "com.android.server.timezone.RulesManagerService$Lifecycle";
+    private static final String FONT_SERVICE_CLASS =
+            "com.android.server.FontService$Lifecycle";
 
     private static final String PERSISTENT_DATA_BLOCK_PROP = "ro.frp.pst";
 
@@ -631,6 +633,11 @@ public final class SystemServer {
         // Manages Overlay packages
         traceBeginAndSlog("StartOverlayManagerService");
         mSystemServiceManager.startService(new OverlayManagerService(mSystemContext, installer));
+        traceEnd();
+
+        // Manages fonts
+        traceBeginAndSlog("StartFontService");
+        mSystemServiceManager.startService(FONT_SERVICE_CLASS);
         traceEnd();
 
         // The sensor service needs access to package manager service, app ops

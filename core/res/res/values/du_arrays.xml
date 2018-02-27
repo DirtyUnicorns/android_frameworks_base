@@ -34,4 +34,8 @@
         <item>50</item>
     </integer-array>
 
+    <!-- System font packages (overlay in vendor) -->
+    <string-array name="config_fontPackages" translatable="false">
+    </string-array>
+
 </resources>
