@@ -16,6 +16,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Updater snackbar text color -->
+    <color name="updater_snackbar_text_color">@android:color/white</color>
+
     <!-- Power menu items -->
     <color name="power_menu_power_off">#ff202020</color>
     <color name="power_menu_restart">#ff202020</color>
