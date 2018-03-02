@@ -76,12 +76,17 @@ public class BatteryMeterView extends LinearLayout implements
     private final Context mContext;
     private final int mFrameColor;
 
+    private final int mEndPadding;
+
     private int mPercentStyle;
     private int mBatteryIconStyle;
     private boolean mLargeBatteryIcon;
     private boolean mAttached;
 
-    private int mClockStyle;
+    private boolean mClockEnabled;
+    private int mClockStyle = STYLE_CLOCK_RIGHT;
+    public static final int STYLE_CLOCK_RIGHT = 0;
+    public static final int STYLE_CLOCK_LEFT = 1;
 
     public BatteryMeterView(Context context) {
         this(context, null, 0);
@@ -94,6 +99,7 @@ public class BatteryMeterView extends LinearLayout implements
     public BatteryMeterView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mContext = context;
+        Resources res = getResources();
 
         setOrientation(LinearLayout.HORIZONTAL);
         setGravity(Gravity.CENTER_VERTICAL | Gravity.START);
@@ -113,6 +119,8 @@ public class BatteryMeterView extends LinearLayout implements
                 getResources().getDimensionPixelSize(R.dimen.status_bar_battery_icon_height));
         mlp.setMargins(0, 0, 0, getResources().getDimensionPixelOffset(R.dimen.battery_margin_bottom));
         addView(mBatteryIconView, mlp);
+
+        mEndPadding = res.getDimensionPixelSize(R.dimen.battery_level_padding_start);
 
         updateShowPercent();
 
@@ -230,6 +238,16 @@ public class BatteryMeterView extends LinearLayout implements
                 mDrawable.setShowPercent(false);
                 break;
         }
+        // Fix padding dinamically. It's safe to call this here because View.setPadding doesn't call a
+        // requestLayout() if values aren't different from previous ones
+        if (mBatteryPercentView != null) {
+            mBatteryPercentView.setPaddingRelative(0, 0,
+                    mBatteryIconStyle == BatteryMeterDrawableBase.BATTERY_STYLE_TEXT ? (isRightClock() ? mEndPadding : 0) : mEndPadding, 0);
+        }
+    }
+
+    private boolean isRightClock() {
+        return mClockEnabled && mClockStyle == STYLE_CLOCK_RIGHT;
     }
 
     @Override
@@ -247,10 +265,10 @@ public class BatteryMeterView extends LinearLayout implements
         res.getValue(R.dimen.status_bar_icon_scale_factor, typedValue, true);
         float iconScaleFactor = typedValue.getFloat();
 
-        int batteryHeight = mLargeBatteryIcon ? 
+        int batteryHeight = mLargeBatteryIcon ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_large_icon_height) :
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
-        int batteryWidth = mLargeBatteryIcon ? 
+        int batteryWidth = mLargeBatteryIcon ?
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_large_icon_width) :
                 res.getDimensionPixelSize(R.dimen.status_bar_battery_icon_height);
         int marginBottom = res.getDimensionPixelSize(R.dimen.battery_margin_bottom);
@@ -272,10 +290,6 @@ public class BatteryMeterView extends LinearLayout implements
 
         mBatteryIconView.setLayoutParams(scaledLayoutParams);
         FontSizeUtils.updateFontSize(mBatteryPercentView, R.dimen.qs_time_expanded_size);
-
-        if (mBatteryPercentView != null) {
-            mBatteryPercentView.setPaddingRelative(0, 0, (mClockStyle == 0 ? endPadding : 0), 0);
-        }
     }
 
     @Override
@@ -344,6 +358,8 @@ public class BatteryMeterView extends LinearLayout implements
                 STATUS_BAR_BATTERY_STYLE, BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT, mUser);
         mClockStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.STATUSBAR_CLOCK_STYLE, 0 /* STYLE_CLOCK_RIGHT */, mUser);
+        mClockEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CLOCK, 1, mUser) == 1;
         mLargeBatteryIcon = Settings.Secure.getIntForUser(getContext().getContentResolver(),
                 STATUS_BAR_BIG_BATTERY_ICON, 0, mUser) != 0;
         if (force && mAttached) {
