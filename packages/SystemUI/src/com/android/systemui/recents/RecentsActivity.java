@@ -127,6 +127,7 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
     private RecentsView mRecentsView;
     private SystemBarScrimViews mScrimViews;
     private View mIncompatibleAppOverlay;
+    private View mFloatingButton;
 
     // Runnables to finish the Recents activity
     private Intent mHomeIntent;
@@ -365,6 +366,7 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
         setContentView(R.layout.recents);
         takeKeyEvents(true);
         mRecentsView = findViewById(R.id.recents_view);
+        mFloatingButton = findViewById(R.id.floating_action_button);
         mScrimViews = new SystemBarScrimViews(this);
         getWindow().getAttributes().privateFlags |=
                 WindowManager.LayoutParams.PRIVATE_FLAG_FORCE_DECOR_VIEW_VISIBILITY;
@@ -383,6 +385,8 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
 
         // Set the window background
         mRecentsView.updateBackgroundScrim(getWindow(), isInMultiWindowMode());
+
+        mRecentsView.setFloatingButtonView(mFloatingButton);
 
         // Create the home intent runnable
         mHomeIntent = new Intent(Intent.ACTION_MAIN, null);
