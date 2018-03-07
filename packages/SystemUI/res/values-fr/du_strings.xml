@@ -113,4 +113,9 @@
     <string name="quick_settings_theme_tile_color_black">Noir</string>
     <string name="quick_settings_theme_tile_color_white">Blanc</string>
 
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">Recharge \"TurboPower\" (rechargé à 100 %% dans <xliff:g id="charging_time_left">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">\"TurboPower\" connecté</string>
+    <string name="keyguard_plugged_in_turbo_charging">Recharge \"TurboPower\" en cours</string>
+
 </resources>
