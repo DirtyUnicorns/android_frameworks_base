@@ -35,9 +35,11 @@ public class TunerFragment extends PreferenceFragment {
 
     private static final String KEY_SHOW_LTE_FOURGEE = "show_lte_fourgee";
     private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
+    private static final String KEY_ROAMING_INDICATOR = "roaming_indicator_icon";
 
     private SwitchPreference mShowLteFourGee;
     private SwitchPreference mShowDuLogo;
+    private SwitchPreference mRoamingIndicator;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +60,10 @@ public class TunerFragment extends PreferenceFragment {
         mShowDuLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
         mShowDuLogo.setChecked((Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_LOGO, 0) == 1));
+
+        mRoamingIndicator = (SwitchPreference) findPreference(KEY_ROAMING_INDICATOR);
+        mRoamingIndicator.setChecked((Settings.System.getInt(resolver,
+                Settings.System.ROAMING_INDICATOR_ICON, 1) == 1));
     }
 
     @Override
@@ -101,6 +107,11 @@ public class TunerFragment extends PreferenceFragment {
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_LOGO, checked ? 1:0);
+            return true;
+        } else if  (preference == mRoamingIndicator) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.ROAMING_INDICATOR_ICON, checked ? 1:0);
             return true;
         }
         return super.onPreferenceTreeClick(preference);
