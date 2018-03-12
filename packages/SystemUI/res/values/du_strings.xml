@@ -67,7 +67,9 @@
     <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
     <string name="caffeine_info_title">What is this?</string>
-    <string name="caffeine_info_message">Caffeine tile is a simple tile that you could switch on to keep your screen on after being idle.\n\nPlease note that the tile\'s state will reset itself after turning the screen off.</string>
+    <string name="caffeine_info_message">The Caffeine tile is a simple tile that you could switch on to keep your screen on after being idle.\n\nPlease note that the tile\'s state will reset itself after turning the screen off.</string>
+    <string name="theme_info_title">What is this?</string>
+    <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or style.\n\nTo change between accents and styles, simply long press on the tile and then press again to select from the options offered.</string>
 
     <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
