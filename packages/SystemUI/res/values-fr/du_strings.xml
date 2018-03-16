@@ -26,6 +26,9 @@
     <string name="show_lte_fourgee_summary">Afficher l\'icône \"4G\" plutôt que \"LTE\" sur la barre d\'état et dans le panneau de configuration rapide</string>
     <string name="statusbar_tuner_category_title">Éléments à afficher</string>
 
+    <!-- Roaming indicator -->
+    <string name="roaming_indicator_title">Itinérance</string>
+
     <!-- DU logo -->
     <string name="du_logo_title">Logo DU</string>
     <string name="du_logo_summary">Afficher le logo de DU sur la gauche de la barre d\'état</string>
@@ -71,6 +74,8 @@
     <string name="accessibility_quick_settings_caffeine_on">Caféine activé</string>
     <string name="caffeine_info_title">Caféine</string>
     <string name="caffeine_info_message">La tuile caféine permet de maintenir l\'écran allumé en l\'absence d\'activité.\n\nL\'état de la tuile se réinitialise après extinction de l\'écran.</string>
+    <string name="theme_info_title">Thème</string>
+    <string name="theme_info_message">La tuile thème permet de changer la couleur d\'accentuation ou le style du thème système.\n\nPour basculer entre ces deux modes, effectuer un appui prolongé sur la tuile, puis faire défiler les options disponibles par appui simple.</string>
 
     <!-- QS customizer -->
     <string name="drag_or_tap_to_add_tiles">Glisser ou appuyer pour ajouter des tuiles</string>
