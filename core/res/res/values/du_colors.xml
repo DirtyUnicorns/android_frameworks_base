@@ -78,4 +78,8 @@
     <!-- Notification sender text color -->
     <color name="sender_text_color">@android:color/black</color>
 
+    <!-- Auto fill -->
+    <color name="autofill_save_title_color">@color/primary_text_default_material_light</color>
+    <color name="autofill_autofill_save_custom_subtitle_color">@color/primary_text_default_material_light</color>
+
 </resources>
