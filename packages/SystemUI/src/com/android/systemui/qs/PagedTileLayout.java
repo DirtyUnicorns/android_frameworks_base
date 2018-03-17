@@ -263,7 +263,7 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
     }
 
     public static class TilePage extends TileLayout {
-        private int mMaxRows = 5;
+        private int mMaxRows = 3;
 
         public TilePage(Context context, AttributeSet attrs) {
             super(context, attrs);
@@ -284,8 +284,8 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
         private int getRows() {
             final Resources res = getContext().getResources();
             if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-                // Always have 5 rows in portrait.
-                return 5;
+                // Always have 3 rows in portrait.
+                return 3;
             }
             return Math.max(1, res.getInteger(R.integer.quick_settings_num_rows));
         }
