@@ -18,6 +18,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- VPN footer -->
+    <color name="quick_settings_footer_background_color">@android:color/transparent</color>
+
     <!-- Theme tile -->
     <color name="quick_settings_theme_tile_default">#4285F4</color>
     <color name="quick_settings_theme_tile_red">#FF5252</color>

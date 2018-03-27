@@ -18,12 +18,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"
-    android:paddingBottom="@dimen/qs_tile_padding_top"
+    android:paddingBottom="@dimen/qs_footer_padding_bottom"
     android:paddingTop="@dimen/qs_footer_padding_top"
     android:paddingStart="@dimen/qs_footer_padding_start"
     android:paddingEnd="@dimen/qs_footer_padding_end"
     android:gravity="center_vertical"
-    android:background="?android:attr/colorPrimary" >
+    android:background="@color/quick_settings_footer_background_color" >
 
     <TextView
         android:id="@+id/footer_text"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:gravity="start"
         android:layout_weight="1"
-        android:textAppearance="@style/TextAppearance.QS.TileLabel"
+        android:textAppearance="@style/TextAppearance.QS.VPN"
         android:textColor="?android:attr/textColorSecondary"/>
 
     <ImageView
