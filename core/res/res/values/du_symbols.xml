@@ -16,6 +16,9 @@
 -->
 <resources>
 
+  <!-- Settings icon tint color -->
+  <java-symbol type="color" name="settings_icon_tint_color" />
+
   <!-- Updater snackbar text color -->
   <java-symbol type="color" name="updater_snackbar_text_color" />
 

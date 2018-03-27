@@ -16,6 +16,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Settings icon tint color -->
+    <color name="settings_icon_tint_color">#737373</color>
+
     <!-- Updater snackbar text color -->
     <color name="updater_snackbar_text_color">@android:color/white</color>
 
