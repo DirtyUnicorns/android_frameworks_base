@@ -4499,6 +4499,20 @@ public final class Settings {
         public static final String SCREENSHOT_EDIT_USER_APP = "screenshot_edit_user_app";
 
         /**
+         * Hold current font name and name of the originating package Uses "|" as a delimiter
+         *
+         * @hide
+         */
+        public static final String FONT_INFO = "font_info";
+
+        /**
+         * Hold list of installed font provider packages. Uses "|" as a delimiter
+         *
+         * @hide
+         */
+        public static final String FONT_PACKAGES = "font_packages";
+
+        /**
          * Whether to use slim recents
          * @hide
          */

@@ -142,4 +142,7 @@
   <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
   <java-symbol type="bool" name="config_useDarkBgNotificationTinting_override" />
   <java-symbol type="bool" name="config_notificationTinting_override" />
+
+  <!-- System fonts -->
+  <java-symbol type="array" name="config_fontPackages" />
 </resources>
