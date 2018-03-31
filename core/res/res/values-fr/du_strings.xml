@@ -20,8 +20,6 @@
     <string name="system_error_vendorprint">Votre \"vendor.img\" est obsolète. Veuillez installer la version <xliff:g id="string">%s</xliff:g></string>
 
     <!-- Power menu -->
-    <string name="reboot_system" product="tablet">Redémarrer la tablette</string>
-    <string name="reboot_system" product="default">Redémarrer le téléphone</string>
     <string name="reboot_reboot">Redémarrer</string>
     <string name="reboot_hot">Hot reboot</string>
     <string name="reboot_to_recovery_title">Recovery</string>
@@ -41,4 +39,9 @@
     <string name="permdesc_toggleNavigationEditor">Permet à une application de contrôler l\'éditeur de la barre de navigation</string>
     <string name="stk_cc_ussd_to_dial_video">La requête USSD a été remplacée par une requête DIAL Vidéo.</string>
     <string name="stk_cc_ss_to_dial_video">La requête SS a été remplacée par une requête DIAL Vidéo.</string>
+
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">Accéder au gestionnaire de polices</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Permet à une application d\'accéder au gestionnaire de polices</string>
 </resources>
