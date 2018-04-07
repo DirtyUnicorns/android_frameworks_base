@@ -111,4 +111,9 @@
   <!-- Notification app name tint -->
   <java-symbol type="bool" name="config_allowNotificationAppNameTextTinting" />
 
+  <!-- Button Brightness -->
+  <java-symbol type="integer" name="config_buttonBrightnessSettingMinimum" />
+  <java-symbol type="integer" name="config_buttonBrightnessSettingMaximum" />
+  <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
+
 </resources>
