@@ -1579,9 +1579,14 @@ public interface WindowManagerPolicy extends WindowManagerPolicyConstants {
     void setNavBarVirtualKeyHapticFeedbackEnabledLw(boolean enabled);
 
     /**
-     * Specifies whether there is an on-screen navigation bar separate from the status bar.
+     * Specifies whether the device needs a navigation bar separate from the status bar.
      */
     public boolean hasNavigationBar();
+  
+    /**
+     * Specifies whether there is an on-screen navigation bar separate from the status bar.
+     */
+    public boolean needsNavigationBar();
 
     /**
      * Lock the device now.
