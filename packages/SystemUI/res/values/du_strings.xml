@@ -120,4 +120,8 @@
     <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
     <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
 
+    <!-- Smart pixels QS tile -->
+    <string name="quick_settings_smart_pixels">Smart pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+
 </resources>
