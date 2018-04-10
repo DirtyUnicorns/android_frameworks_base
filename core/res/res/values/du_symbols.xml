@@ -59,9 +59,25 @@
     <java-symbol type="string" name="adb_active_generic_notification_message" />
 
     <!-- Bluetooth service -->
-   <java-symbol type="string" name="bluetooth_airplane_mode_toast" />
+    <java-symbol type="string" name="bluetooth_airplane_mode_toast" />
 
-  <!-- Package Manager -->
-  <java-symbol type="array" name="config_disabledComponents" />
-  <java-symbol type="array" name="config_forceEnabledComponents" />
+    <!-- Package Manager -->
+    <java-symbol type="array" name="config_disabledComponents" />
+    <java-symbol type="array" name="config_forceEnabledComponents" />
+
+    <!-- Input policy constants  -->
+    <java-symbol type="integer" name="config_deviceHardwareKeys" />
+    <java-symbol type="integer" name="config_doubleTapOnHomeKeyBehavior" />
+    <java-symbol type="integer" name="config_doubleTapOnMenuKeyBehavior" />
+    <java-symbol type="integer" name="config_doubleTapOnBackKeyBehavior" />
+    <java-symbol type="integer" name="config_doubleTapOnAssistKeyBehavior" />
+    <java-symbol type="integer" name="config_doubleTapOnAppSwitchKeyBehavior" />
+    <java-symbol type="integer" name="config_doubleTapOnCameraKeyBehavior" />
+    <java-symbol type="integer" name="config_longPressOnHomeKeyBehavior" />
+    <java-symbol type="integer" name="config_longPressOnMenuKeyBehavior" />
+    <java-symbol type="integer" name="config_longPressOnBackKeyBehavior" />
+    <java-symbol type="integer" name="config_longPressOnAssistKeyBehavior" />
+    <java-symbol type="integer" name="config_longPressOnAppSwitchKeyBehavior" />
+    <java-symbol type="integer" name="config_longPressOnCameraKeyBehavior" />
+
 </resources>
