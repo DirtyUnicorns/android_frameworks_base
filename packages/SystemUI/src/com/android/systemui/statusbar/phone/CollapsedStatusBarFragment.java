@@ -161,6 +161,15 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD),
                     false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.STATUS_BAR_BATTERY_STYLE),
+                    false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_BATTERY_PERCENT),
+                    false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.STATUS_BAR_BIG_BATTERY_ICON),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -174,6 +183,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             ((Clock)mLeftClock).updateSettings();
             mBattery.updateSettings(true);
             mStatusBarComponent.updateQsbhClock();
+            mStatusBarComponent.updateBatterySettings();
             mNetworkTraffic.setMode();
             mNetworkTraffic.updateSettings();
         }
