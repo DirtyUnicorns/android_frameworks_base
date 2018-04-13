@@ -17,20 +17,20 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="reboot_to_recovery_title">Режим восстановления</string>
-  <string name="reboot_to_recovery_message">Перезагрузка в режим восстановления</string>
-  <string name="reboot_to_bootloader_title">Загрузчик</string>
-  <string name="reboot_to_bootloader_message">Перезагрузка в загрузчик</string>
-  <string name="reboot_title">Перезагрузить</string>
-  <string name="reboot_message">Перезагрузка в систему</string>
+  <string name="reboot_to_recovery_title">Recuperação</string>
+  <string name="reboot_to_recovery_message">Reiniciando para a recuperação</string>
+  <string name="reboot_to_bootloader_title">Bootloader</string>
+  <string name="reboot_to_bootloader_message">Reiniciando para o bootloader</string>
+  <string name="reboot_title">Reiniciar</string>
+  <string name="reboot_message">Reiniciando sistema</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Ваш образ ПО производителя не соответствует системе. Пожалуйста, прошейте <xliff:g id="string">%s</xliff:g> образ ПО производителя для вашего устройства</string>
+  <string name="system_error_vendorprint">Sua imagem de fornecedor não coincide com o sistema. Por favor faça o flash da imagem de fornecedor de <xliff:g id="string">%s</xliff:g> para o seu dispositivo</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">управлять редактором панели навигации</string>
+  <string name="permlab_toggleNavigationEditor">editor de controle de navegação</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Позволяет приложению управлять редактором панели навигации.</string>
+  <string name="permdesc_toggleNavigationEditor">Permite que um aplicativo controle o editor da barra de navegação.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">доступ к менеджеру шрифтов</string>
+  <string name="permlab_accessFontManager">acessar gerenciador de fontes</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Позволяет приложению получить доступ к менеджеру шрифтов.</string>
+  <string name="permdesc_accessFontManager">Permite que um aplicativo acesse o gerenciador de fontes.</string>
 </resources>

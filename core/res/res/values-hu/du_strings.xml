@@ -17,20 +17,20 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="reboot_to_recovery_title">Режим восстановления</string>
-  <string name="reboot_to_recovery_message">Перезагрузка в режим восстановления</string>
-  <string name="reboot_to_bootloader_title">Загрузчик</string>
-  <string name="reboot_to_bootloader_message">Перезагрузка в загрузчик</string>
-  <string name="reboot_title">Перезагрузить</string>
-  <string name="reboot_message">Перезагрузка в систему</string>
+  <string name="reboot_to_recovery_title">Recovery</string>
+  <string name="reboot_to_recovery_message">Újraindítás Recovery módba</string>
+  <string name="reboot_to_bootloader_title">Bootloader</string>
+  <string name="reboot_to_bootloader_message">Újraindítás a Bootloader módba</string>
+  <string name="reboot_title">Újraindítás</string>
+  <string name="reboot_message">A Rendszer újraindítása</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Ваш образ ПО производителя не соответствует системе. Пожалуйста, прошейте <xliff:g id="string">%s</xliff:g> образ ПО производителя для вашего устройства</string>
+  <string name="system_error_vendorprint">Úgy tűnik a gyártói képe elavult, nem egyezik a rendszerrel. Kérjük, frissítse a <xliff:g id="string">%s</xliff:g> gyártói képre a készülékét</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">управлять редактором панели навигации</string>
+  <string name="permlab_toggleNavigationEditor">navigációssáv-szerkesztő kezelése</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Позволяет приложению управлять редактором панели навигации.</string>
+  <string name="permdesc_toggleNavigationEditor">Lehetővé teszi egy alkalmazás számára, hogy kezelje a navigációssáv-szerkesztőt.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">доступ к менеджеру шрифтов</string>
+  <string name="permlab_accessFontManager">hozzáférés a betűtípus-kezelőhöz</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Позволяет приложению получить доступ к менеджеру шрифтов.</string>
+  <string name="permdesc_accessFontManager">Lehetővé teszi egy alkalmazás számára, hogy hozzáférjen a betűtípus-kezelőhöz.</string>
 </resources>
