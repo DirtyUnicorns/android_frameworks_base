@@ -26,7 +26,7 @@
   <string name="roaming_indicator_title">Roaming</string>
   <!-- DU logo -->
   <string name="du_logo_title">Logo DU</string>
-  <string name="du_logo_summary">Ať všichni vědí, že používáte DU, když uvidí vaši obrazovku</string>
+  <string name="du_logo_summary">Dejte všem vědět, že používáte DU, když uvidí vaši obrazovku</string>
   <!-- Power menu -->
   <string name="global_action_restart_system">Restartovat</string>
   <string name="global_action_restart_advanced">Rozšířené</string>
@@ -50,7 +50,7 @@
   <string name="lockscreen_default">Výchozí</string>
   <string name="lockscreen_hidden">Žádné</string>
   <string name="custom_hint">Spustit přejetím prstem od ikony</string>
-  <string name="systemui_tuner_navbar_title">Nastavení Stock</string>
+  <string name="systemui_tuner_navbar_title">Výchozí nastavení</string>
   <string name="status_bar_vpn">Síť VPN</string>
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Restartovat</string>
@@ -70,7 +70,7 @@
   <string name="quick_settings_navigation_bar">Navigační panel</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
+  <string name="quick_settings_navigation_default">Výchozí</string>
   <string name="quick_settings_navigation_disabled">Zakázáno</string>
   <!-- Theme tile -->
   <string name="systemui_theme_style_title">Styl</string>
@@ -83,7 +83,7 @@
   <string name="quick_settings_theme_tile_color_default">Výchozí</string>
   <string name="quick_settings_theme_tile_color_red">Červená</string>
   <string name="quick_settings_theme_tile_color_pink">Růžová</string>
-  <string name="quick_settings_theme_tile_color_purple">Nachová</string>
+  <string name="quick_settings_theme_tile_color_purple">Fialová</string>
   <string name="quick_settings_theme_tile_color_deep_purple">Tmavě fialová</string>
   <string name="quick_settings_theme_tile_color_indigo">Tmavě modrá</string>
   <string name="quick_settings_theme_tile_color_blue">Modrá</string>
@@ -106,4 +106,7 @@
   <string name="keyguard_indication_turbo_power_time">TurboPower je připojen (zbývá <xliff:g id="charging_time_left">%s</xliff:g> do plna)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je připojen</string>
   <string name="keyguard_plugged_in_turbo_charging">Turbo nabíjení</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

@@ -106,4 +106,7 @@
   <string name="keyguard_indication_turbo_power_time">TurboPower connesso (<xliff:g id="charging_time_left">%s</xliff:g> al termine)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connesso</string>
   <string name="keyguard_plugged_in_turbo_charging">Ricarica Turbo</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

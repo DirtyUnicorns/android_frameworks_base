@@ -19,8 +19,8 @@
   <!-- Power menu -->
   <string name="reboot_to_recovery_title">Kurtarma</string>
   <string name="reboot_to_recovery_message">Kurtarma modunda başlatılıyor</string>
-  <string name="reboot_to_bootloader_title">Önyükleyici</string>
-  <string name="reboot_to_bootloader_message">Önyükleyici modunda yeniden başlatılıyor</string>
+  <string name="reboot_to_bootloader_title">Ön yükleyici</string>
+  <string name="reboot_to_bootloader_message">Ön yükleyici modunda başlatılıyor</string>
   <string name="reboot_title">Yeniden başlat</string>
   <string name="reboot_message">Sistem yeniden başlatılıyor</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->

@@ -26,11 +26,11 @@
   <string name="roaming_indicator_title">Роуминг</string>
   <!-- DU logo -->
   <string name="du_logo_title">Мерч DU</string>
-  <string name="du_logo_summary">Пусть все знают, что вы используете DU, когда они видят ваш экран</string>
+  <string name="du_logo_summary">Пусть все знают, что вы используете DU, когда видят ваш экран</string>
   <!-- Power menu -->
   <string name="global_action_restart_system">Перезагрузить</string>
   <string name="global_action_restart_advanced">Расширенная</string>
-  <string name="global_action_restart_recovery">Рекавери</string>
+  <string name="global_action_restart_recovery">Режим восстановления</string>
   <string name="global_action_restart_bootloader">Загрузчик</string>
   <string name="global_action_restart_ui">Интерфейс</string>
   <string name="global_action_restart_hot">Горячая</string>
@@ -45,11 +45,11 @@
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_icon_manager_title">Менеджер значков</string>
-  <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Нижние ярлыки</string>
+  <string name="systemui_tuner_icon_manager_title">Менеджер иконок</string>
+  <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Ярлыки снизу</string>
   <string name="lockscreen_default">По умолчанию</string>
   <string name="lockscreen_hidden">Нет</string>
-  <string name="custom_hint">Проведите от значка для запуска</string>
+  <string name="custom_hint">Проведите от иконки для запуска</string>
   <string name="systemui_tuner_navbar_title">Стоковые настройки</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS Tiles -->
@@ -58,12 +58,12 @@
   <string name="quick_settings_screenshot_label">Снимок экрана</string>
   <string name="quick_settings_region_screenshot_label">Частичный снимок экрана</string>
   <string name="quick_settings_caffeine_label">Кофеин</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine выкл.</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine вкл.</string>
+  <string name="accessibility_quick_settings_caffeine_off">Кофеин выкл.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Кофеин вкл.</string>
   <string name="caffeine_info_title">Что это?</string>
   <string name="caffeine_info_message">Плитка \"Кофеин\" - простая плитка, по нажатии на которую экран будет постоянно включён.\n\nИмейте ввиду, что состояние плитки сбросится после выключения экрана.</string>
   <string name="theme_info_title">Что это?</string>
-  <string name="theme_info_message">Плитка \"Темы\" - это уникальная, но простая в использовании плитка, которая позволяет пользователю изменять системный оттенок или стиль.\n\nЧтобы переключиться между оттенками и стилями, просто длительно удерживайте нажатой плитку, а затем ещё раз нажмите на неё, чтобы выбрать из предложенных вариантов.</string>
+  <string name="theme_info_message">Плитка \"Темы\" - это уникальная, но простая в использовании плитка, которая позволяет пользователю изменять системный оттенок или стиль.\n\nЧтобы переключиться между оттенками и стилями, просто удерживайте нажатой плитку, а затем ещё раз нажмите на неё, чтобы выбрать из предложенных вариантов.</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Перетащите или нажмите для добавления плиток</string>
   <!-- Navigation bar Tile -->
@@ -106,4 +106,7 @@
   <string name="keyguard_indication_turbo_power_time">Быстрая зарядка подключена (<xliff:g id="charging_time_left">%s</xliff:g> до полной зарядки)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">Быстрая зарядка подключена</string>
   <string name="keyguard_plugged_in_turbo_charging">Быстрая зарядка</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

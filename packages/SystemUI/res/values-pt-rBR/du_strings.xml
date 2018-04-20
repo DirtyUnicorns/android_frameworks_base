@@ -107,4 +107,7 @@ DU SWAG</string>
   <string name="keyguard_indication_turbo_power_time">TurboPower conectado (<xliff:g id="charging_time_left">%s</xliff:g> até concluir)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower conectado</string>
   <string name="keyguard_plugged_in_turbo_charging">Carregamento rápido</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

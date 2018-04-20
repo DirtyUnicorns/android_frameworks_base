@@ -31,7 +31,7 @@
   <string name="global_action_restart_system">Yeniden başlat</string>
   <string name="global_action_restart_advanced">Gelişmiş</string>
   <string name="global_action_restart_recovery">Kurtarma</string>
-  <string name="global_action_restart_bootloader">Önyükleyici</string>
+  <string name="global_action_restart_bootloader">Ön yükleyici</string>
   <string name="global_action_restart_ui">Arayüz</string>
   <string name="global_action_restart_hot">Hızlı</string>
   <string name="global_action_screenshot">Ekran görüntüsü</string>
@@ -48,7 +48,7 @@
   <string name="systemui_tuner_icon_manager_title">Simge yöneticisi</string>
   <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Alt kısayollar</string>
   <string name="lockscreen_default">Varsayılan</string>
-  <string name="lockscreen_hidden">Hiç biri</string>
+  <string name="lockscreen_hidden">Hiçbiri</string>
   <string name="custom_hint">Başlatmak için simgeyi kaydırın</string>
   <string name="systemui_tuner_navbar_title">Varsayılan ayarlar</string>
   <string name="status_bar_vpn">VPN</string>
@@ -76,7 +76,7 @@
   <string name="systemui_theme_style_title">Stil</string>
   <string name="systemui_theme_style_auto">Otomatik</string>
   <string name="systemui_theme_style_light">Aydınlık</string>
-  <string name="systemui_theme_style_dark">Koyu</string>
+  <string name="systemui_theme_style_dark">Karanlık</string>
   <string name="quick_settings_theme_tile_title">Vurgu rengi</string>
   <string name="quick_settings_theme_tile_accent_detail_title">Renk seçin</string>
   <string name="quick_settings_theme_tile_style_detail_title">Stil seçin</string>
@@ -106,4 +106,7 @@
   <string name="keyguard_indication_turbo_power_time">TurboPower bağlandı (tam dolmasına <xliff:g id="charging_time_left">%s</xliff:g> kaldı)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower bağlandı</string>
   <string name="keyguard_plugged_in_turbo_charging">Turbo Şarj oluyor</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

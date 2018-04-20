@@ -18,19 +18,19 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
   <string name="reboot_to_recovery_title">Recovery</string>
-  <string name="reboot_to_recovery_message">Rebooting to recovery</string>
+  <string name="reboot_to_recovery_message">Genstart til Recovery</string>
   <string name="reboot_to_bootloader_title">Bootloader</string>
-  <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
-  <string name="reboot_title">Reboot</string>
+  <string name="reboot_to_bootloader_message">Genstart til bootloader-tilstand</string>
+  <string name="reboot_title">Genstart</string>
   <string name="reboot_message">Genstarter system</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Your vendor image does not match the system. Please flash the <xliff:g id="string">%s</xliff:g> vendor image for your device</string>
+  <string name="system_error_vendorprint">Din leverandørafbildning matcher ikke systemet. Flash <xliff:g id="string">%s</xliff:g> leverandørafbildningen til din enhed</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">control navigation editor</string>
+  <string name="permlab_toggleNavigationEditor">styre navigationsredigeringsværktøj</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
+  <string name="permdesc_toggleNavigationEditor">Tillader en app at styre navigationsbjælkens redigeringsværktøj.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">access font manager</string>
+  <string name="permlab_accessFontManager">tilgå skrifttypehåndtering</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
+  <string name="permdesc_accessFontManager">Tillader en app tilgå skrifttypehåndteringen.</string>
 </resources>

@@ -20,7 +20,7 @@
   <string name="reboot_to_recovery_title">Recovery</string>
   <string name="reboot_to_recovery_message">Újraindítás Recovery módba</string>
   <string name="reboot_to_bootloader_title">Bootloader</string>
-  <string name="reboot_to_bootloader_message">Újraindítás a Bootloader módba</string>
+  <string name="reboot_to_bootloader_message">Újraindítás Bootloader módba</string>
   <string name="reboot_title">Újraindítás</string>
   <string name="reboot_message">A Rendszer újraindítása</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->

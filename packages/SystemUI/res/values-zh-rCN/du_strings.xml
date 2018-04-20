@@ -106,4 +106,7 @@
   <string name="keyguard_indication_turbo_power_time">TurboPower 已连接 (还需 <xliff:g id="charging_time_left">%s</xliff:g> 充满)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已连接</string>
   <string name="keyguard_plugged_in_turbo_charging">正在涡轮充电</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

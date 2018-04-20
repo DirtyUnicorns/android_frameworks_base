@@ -106,4 +106,7 @@
   <string name="keyguard_indication_turbo_power_time">متصل بشاحن سريع (<xliff:g id="charging_time_left">%s</xliff:g> حتى يكتمل)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">متصل بشاحن سريع</string>
   <string name="keyguard_plugged_in_turbo_charging">الشحن السريع</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

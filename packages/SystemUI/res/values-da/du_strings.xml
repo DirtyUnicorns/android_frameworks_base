@@ -19,14 +19,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Show lte/4g switch -->
-  <string name="show_lte_fourgee_title">4G/LTE Netværk</string>
-  <string name="show_lte_fourgee_summary">Vis enten 4G eller LTE netværksikon i statusbar/QS</string>
-  <string name="statusbar_tuner_category_title">Generiske statusbar ikoner</string>
+  <string name="show_lte_fourgee_title">4G-/LTE-netværk</string>
+  <string name="show_lte_fourgee_summary">Vis enten 4G- eller LTE-netværksikon på statusbjælke/HI-panel</string>
+  <string name="statusbar_tuner_category_title">Uspecificeredee statusbjælkeikoner</string>
   <!-- Roaming indicator -->
   <string name="roaming_indicator_title">Roaming</string>
   <!-- DU logo -->
   <string name="du_logo_title">DU swag</string>
-  <string name="du_logo_summary">Lad alle vide, at du bruger DU når de ser din skærm</string>
+  <string name="du_logo_summary">Lad alle vide, at du benytter DU, når de ser din skærm</string>
   <!-- Power menu -->
   <string name="global_action_restart_system">Genstart</string>
   <string name="global_action_restart_advanced">Avanceret</string>
@@ -56,54 +56,57 @@
   <string name="quick_settings_reboot_label">Genstart</string>
   <string name="quick_settings_reboot_recovery_label">Gendannelse</string>
   <string name="quick_settings_screenshot_label">Skærmbillede</string>
-  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
-  <string name="caffeine_info_title">What is this?</string>
-  <string name="caffeine_info_message">The Caffeine tile is a simple tile that you could switch on to keep your screen on after being idle.\n\nPlease note that the tile\'s state will reset itself after turning the screen off.</string>
-  <string name="theme_info_title">What is this?</string>
-  <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or style.\n\nTo change between accents and styles, simply long press on the tile and then press again to select from the options offered.</string>
+  <string name="quick_settings_region_screenshot_label">Delvist skærmfoto</string>
+  <string name="quick_settings_caffeine_label">Koffein</string>
+  <string name="accessibility_quick_settings_caffeine_off">Koffein fra</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeine til</string>
+  <string name="caffeine_info_title">Hvad er dette?</string>
+  <string name="caffeine_info_message">Koffein-flisen er en simpel flise, som du kan slå til for at holde din skærm tændt, når den lades brugt.\n\nBemærk, at flisens nulstiller sig selv efter, efter at skærmen slukkes.</string>
+  <string name="theme_info_title">Hvad er dette?</string>
+  <string name="theme_info_message">Flisen Temaer er en unik, men let anvendelig flise, der tillader brugeren at ændre systemaccent eller -stil.\n\nFor at skift mellem accenter og stilarter benyttes et langt tryk på flisen, og herefter trykkes igen for at vælge mellem mulighederne.</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">Træk eller tryk for at tilføje fliser</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
-  <string name="quick_settings_smartbar">SmartBar</string>
-  <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_bar">Navigationsbjælke</string>
+  <string name="quick_settings_smartbar">SmartBjælke</string>
+  <string name="quick_settings_fling">Svip</string>
+  <string name="quick_settings_navigation_default">Standard</string>
+  <string name="quick_settings_navigation_disabled">Deaktiveret</string>
   <!-- Theme tile -->
-  <string name="systemui_theme_style_title">Style</string>
-  <string name="systemui_theme_style_auto">Automatic</string>
-  <string name="systemui_theme_style_light">Light</string>
-  <string name="systemui_theme_style_dark">Dark</string>
+  <string name="systemui_theme_style_title">Stil</string>
+  <string name="systemui_theme_style_auto">Automatisk</string>
+  <string name="systemui_theme_style_light">Lys</string>
+  <string name="systemui_theme_style_dark">Mørk</string>
   <string name="quick_settings_theme_tile_title">Accent</string>
-  <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
-  <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
-  <string name="quick_settings_theme_tile_color_default">Default</string>
-  <string name="quick_settings_theme_tile_color_red">Red</string>
+  <string name="quick_settings_theme_tile_accent_detail_title">Vælg farve</string>
+  <string name="quick_settings_theme_tile_style_detail_title">Vælg stil</string>
+  <string name="quick_settings_theme_tile_color_default">Standard</string>
+  <string name="quick_settings_theme_tile_color_red">Rød</string>
   <string name="quick_settings_theme_tile_color_pink">Pink</string>
-  <string name="quick_settings_theme_tile_color_purple">Purple</string>
-  <string name="quick_settings_theme_tile_color_deep_purple">Deep purple</string>
+  <string name="quick_settings_theme_tile_color_purple">Lilla</string>
+  <string name="quick_settings_theme_tile_color_deep_purple">Dybviolet</string>
   <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-  <string name="quick_settings_theme_tile_color_blue">Blue</string>
-  <string name="quick_settings_theme_tile_color_light_blue">Light blue</string>
+  <string name="quick_settings_theme_tile_color_blue">Blå</string>
+  <string name="quick_settings_theme_tile_color_light_blue">Lyseblå</string>
   <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
   <string name="quick_settings_theme_tile_color_teal">Teal</string>
-  <string name="quick_settings_theme_tile_color_green">Green</string>
-  <string name="quick_settings_theme_tile_color_light_green">Light green</string>
-  <string name="quick_settings_theme_tile_color_lime">Lime</string>
-  <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
-  <string name="quick_settings_theme_tile_color_amber">Amber</string>
+  <string name="quick_settings_theme_tile_color_green">Grøn</string>
+  <string name="quick_settings_theme_tile_color_light_green">Lysegrøn</string>
+  <string name="quick_settings_theme_tile_color_lime">Limegrøn</string>
+  <string name="quick_settings_theme_tile_color_yellow">Gul</string>
+  <string name="quick_settings_theme_tile_color_amber">Rav</string>
   <string name="quick_settings_theme_tile_color_orange">Orange</string>
-  <string name="quick_settings_theme_tile_color_deep_orange">Deep orange</string>
-  <string name="quick_settings_theme_tile_color_brown">Brown</string>
-  <string name="quick_settings_theme_tile_color_grey">Grey</string>
-  <string name="quick_settings_theme_tile_color_blue_grey">Blue grey</string>
-  <string name="quick_settings_theme_tile_color_black">Black</string>
-  <string name="quick_settings_theme_tile_color_white">White</string>
+  <string name="quick_settings_theme_tile_color_deep_orange">Mørk orange</string>
+  <string name="quick_settings_theme_tile_color_brown">Brun</string>
+  <string name="quick_settings_theme_tile_color_grey">Grå</string>
+  <string name="quick_settings_theme_tile_color_blue_grey">Blågrå</string>
+  <string name="quick_settings_theme_tile_color_black">Sort</string>
+  <string name="quick_settings_theme_tile_color_white">Hvid</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
+  <string name="keyguard_indication_turbo_power_time">TurboPower tilsluttet (<xliff:g id="charging_time_left">%s</xliff:g> indtil fuld)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower tilsluttet</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turboopladning</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

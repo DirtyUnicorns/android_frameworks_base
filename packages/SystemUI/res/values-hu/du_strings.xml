@@ -40,8 +40,8 @@
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Teljesen feltöltve</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Gyorstöltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> a teljes töltöttségig)</string>
-  <string name="keyguard_plugged_in_dash_charging">Gyorstöltés</string>
+  <string name="keyguard_indication_dash_charging_time">Dash töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> a teljes töltöttségig)</string>
+  <string name="keyguard_plugged_in_dash_charging">Dash töltés</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
@@ -57,18 +57,18 @@
   <string name="quick_settings_reboot_recovery_label">Recovery</string>
   <string name="quick_settings_screenshot_label">Képernyőmentés</string>
   <string name="quick_settings_region_screenshot_label">Részleges képernyőmentés</string>
-  <string name="quick_settings_caffeine_label">Koffein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Koffein ki</string>
-  <string name="accessibility_quick_settings_caffeine_on">Koffein be</string>
+  <string name="quick_settings_caffeine_label">Caffeine</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caffeine ki</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caffeine be</string>
   <string name="caffeine_info_title">Mi a fene ez?</string>
-  <string name="caffeine_info_message">A Koffein egy egyszerű csempe, melyet bekapcsolva ébren tarthatja a képernyőt üresjárat után.\n\nKérjük, vegye figyelembe, hogy a csempe helyzete a képernyő kikapcsolása után visszaáll.</string>
+  <string name="caffeine_info_message">A Caffeine egy egyszerű csempe, melyet bekapcsolva ébren tarthatja a képernyőt üresjárat után.\n\nKérjük, vegye figyelembe, hogy a csempe helyzete a képernyő kikapcsolása után visszaáll.</string>
   <string name="theme_info_title">Mi is ez?</string>
-  <string name="theme_info_message">A témák csempe egy egyedi, de könnyen használható elem, amely lehetővé teszi a rendszer jelölőszínének és stílusának módosítását.\n\nA jelölőszínek és stílusok módosításához nyomja hosszan a csempét, majd válasszon a megjelenő lehetőségek közül.</string>
+  <string name="theme_info_message">A témák csempe egy egyedi, de könnyen használható elem, amely lehetővé teszi a rendszer kiemelőszínének és stílusának módosítását.\n\nA kiemelőszínek és stílusok módosításához nyomja hosszan a csempét, majd válasszon a megjelenő lehetőségek közül.</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Húzza, vagy érintse meg csempehozzáadáshoz</string>
   <!-- Navigation bar Tile -->
   <string name="quick_settings_navigation_bar">Navigációs sáv</string>
-  <string name="quick_settings_smartbar">Okossáv</string>
+  <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_fling">Fling</string>
   <string name="quick_settings_navigation_default">Gyári</string>
   <string name="quick_settings_navigation_disabled">Letiltva</string>
@@ -77,7 +77,7 @@
   <string name="systemui_theme_style_auto">Automatikus</string>
   <string name="systemui_theme_style_light">Világos</string>
   <string name="systemui_theme_style_dark">Sötét</string>
-  <string name="quick_settings_theme_tile_title">Hangsúly</string>
+  <string name="quick_settings_theme_tile_title">Kiemelés</string>
   <string name="quick_settings_theme_tile_accent_detail_title">Színválasztás</string>
   <string name="quick_settings_theme_tile_style_detail_title">Stílusválasztás</string>
   <string name="quick_settings_theme_tile_color_default">Alapértelmezett</string>
@@ -106,4 +106,7 @@
   <string name="keyguard_indication_turbo_power_time">TurboPower csatlakoztatva (<xliff:g id="charging_time_left">%s</xliff:g> a teljes töltöttségig)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower csatlakoztatva</string>
   <string name="keyguard_plugged_in_turbo_charging">Turbótöltés</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>

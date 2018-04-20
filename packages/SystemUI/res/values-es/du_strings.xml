@@ -106,4 +106,7 @@
   <string name="keyguard_indication_turbo_power_time">Carga rápida conectada (<xliff:g id="charging_time_left">%s</xliff:g> para completar)</string>
   <string name="keyguard_plugged_in_turbo_power_charging">Carga rápida conectada</string>
   <string name="keyguard_plugged_in_turbo_charging">Carga Rápida</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>
