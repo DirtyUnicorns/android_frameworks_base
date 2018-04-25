@@ -123,6 +123,9 @@ public class RebootTile extends QSTileImpl<BooleanState> {
     }
 
     public void handleSetListening(boolean listening) {
+        if (mKeyguardMonitor == null) {
+            return;
+        }
         if (mListening == listening) return;
         mListening = listening;
         if (listening) {

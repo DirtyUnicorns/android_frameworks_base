@@ -57,6 +57,9 @@ public class SmartPixelsTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleSetListening(boolean listening) {
+        if (mSmartPixelsReceiver == null) {
+            return;
+        }
         mListening = listening;
         if (mListening) {
             mContext.registerReceiver(mSmartPixelsReceiver,
