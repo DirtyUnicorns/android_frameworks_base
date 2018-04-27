@@ -17,20 +17,20 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="reboot_to_recovery_title">Recovery</string>
-  <string name="reboot_to_recovery_message">Rebooting to recovery</string>
-  <string name="reboot_to_bootloader_title">Bootloader</string>
-  <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
-  <string name="reboot_title">Reboot</string>
-  <string name="reboot_message">Rebooting system</string>
+  <string name="reboot_to_recovery_title">Mode recuperació</string>
+  <string name="reboot_to_recovery_message">Reinici a recuperació</string>
+  <string name="reboot_to_bootloader_title">Gestor d\'arrencada</string>
+  <string name="reboot_to_bootloader_message">Reiniciant al gestor d\'arrencada</string>
+  <string name="reboot_title">Reinicia</string>
+  <string name="reboot_message">Reinicia el sistema</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Your vendor image does not match the system. Please flash the <xliff:g id="string">%s</xliff:g> vendor image for your device</string>
+  <string name="system_error_vendorprint">La seva imatge de proveidor no coincideix amb la del sistema. Per favor flasheixi <xliff:g id="string">%s</xliff:g> del seu dispositiu</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">control navigation editor</string>
+  <string name="permlab_toggleNavigationEditor">editor del control de navegació</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
+  <string name="permdesc_toggleNavigationEditor">Permet a una aplicació a controlar l\'editor de la barra de navegació.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">access font manager</string>
+  <string name="permlab_accessFontManager">accés al gestor de fonts</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
+  <string name="permdesc_accessFontManager">Permet a una aplicació accedir al gestor de fonts.</string>
 </resources>

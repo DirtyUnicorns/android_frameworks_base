@@ -70,7 +70,7 @@
   <string name="quick_settings_navigation_bar">Gezinme çubuğu</string>
   <string name="quick_settings_smartbar">Smartbar</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stok</string>
+  <string name="quick_settings_navigation_default">Varsayılan</string>
   <string name="quick_settings_navigation_disabled">Devre dışı</string>
   <!-- Theme tile -->
   <string name="systemui_theme_style_title">Stil</string>
@@ -94,7 +94,7 @@
   <string name="quick_settings_theme_tile_color_light_green">Açık yeşil</string>
   <string name="quick_settings_theme_tile_color_lime">Limon yeşili</string>
   <string name="quick_settings_theme_tile_color_yellow">Sarı</string>
-  <string name="quick_settings_theme_tile_color_amber">Koyu Sarı</string>
+  <string name="quick_settings_theme_tile_color_amber">Koyu sarı</string>
   <string name="quick_settings_theme_tile_color_orange">Turuncu</string>
   <string name="quick_settings_theme_tile_color_deep_orange">Koyu turuncu</string>
   <string name="quick_settings_theme_tile_color_brown">Kahverengi</string>
@@ -107,6 +107,6 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower bağlandı</string>
   <string name="keyguard_plugged_in_turbo_charging">Turbo Şarj oluyor</string>
   <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+  <string name="quick_settings_smart_pixels">Akıllı pikseller</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Otomatik olarak akıllı pikselleri etkinleştir</string>
 </resources>

@@ -28,8 +28,8 @@
   <string name="du_logo_title">DU SWAG</string>
   <string name="du_logo_summary">화면에 DU를 표시해 모든 사람에게 알리세요</string>
   <!-- Power menu -->
-  <string name="global_action_restart_system">재부팅</string>
-  <string name="global_action_restart_advanced">고급 설정</string>
+  <string name="global_action_restart_system">다시 시작</string>
+  <string name="global_action_restart_advanced">고급</string>
   <string name="global_action_restart_recovery">복구 모드</string>
   <string name="global_action_restart_bootloader">부트로더</string>
   <string name="global_action_restart_ui">시스템UI</string>
@@ -53,7 +53,7 @@
   <string name="systemui_tuner_navbar_title">기본 설정</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS Tiles -->
-  <string name="quick_settings_reboot_label">재부팅</string>
+  <string name="quick_settings_reboot_label">다시 시작</string>
   <string name="quick_settings_reboot_recovery_label">복구 모드</string>
   <string name="quick_settings_screenshot_label">스크린샷</string>
   <string name="quick_settings_region_screenshot_label">부분 스크린샷</string>

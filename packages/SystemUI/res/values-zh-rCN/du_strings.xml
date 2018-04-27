@@ -107,6 +107,6 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已连接</string>
   <string name="keyguard_plugged_in_turbo_charging">正在涡轮充电</string>
   <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+  <string name="quick_settings_smart_pixels">智能像素</string>
+  <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
 </resources>

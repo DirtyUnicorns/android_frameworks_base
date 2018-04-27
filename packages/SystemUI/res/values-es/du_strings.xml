@@ -108,5 +108,5 @@
   <string name="keyguard_plugged_in_turbo_charging">Carga Rápida</string>
   <!-- Smart pixels QS tile -->
   <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Smart pixels arrancados automáticamente</string>
 </resources>
