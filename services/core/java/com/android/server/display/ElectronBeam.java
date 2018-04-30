@@ -772,26 +772,29 @@ final class ElectronBeam implements ScreenStateAnimator {
                 if (mSurfaceControl == null) {
                     return;
                 }
+                try {
+                    DisplayInfo displayInfo = mDisplayManagerInternal.getDisplayInfo(mDisplayId);
+                    switch (displayInfo.rotation) {
+                        case Surface.ROTATION_0:
+                            t.setPosition(mSurfaceControl, 0, 0);
+                            t.setMatrix(mSurfaceControl, 1, 0, 0, 1);
+                            break;
+                        case Surface.ROTATION_90:
+                            t.setPosition(mSurfaceControl, 0, displayInfo.logicalHeight);
+                            t.setMatrix(mSurfaceControl, 0, -1, 1, 0);
+                            break;
+                        case Surface.ROTATION_180:
+                            t.setPosition(mSurfaceControl, displayInfo.logicalWidth,
+                                    displayInfo.logicalHeight);
+                            t.setMatrix(mSurfaceControl, -1, 0, 0, -1);
+                            break;
+                        case Surface.ROTATION_270:
+                            t.setPosition(mSurfaceControl, displayInfo.logicalWidth, 0);
+                            t.setMatrix(mSurfaceControl, 0, 1, -1, 0);
+                            break;
+                    }
+                } catch (Exception e) {
 
-                DisplayInfo displayInfo = mDisplayManagerInternal.getDisplayInfo(mDisplayId);
-                switch (displayInfo.rotation) {
-                    case Surface.ROTATION_0:
-                        t.setPosition(mSurfaceControl, 0, 0);
-                        t.setMatrix(mSurfaceControl, 1, 0, 0, 1);
-                        break;
-                    case Surface.ROTATION_90:
-                        t.setPosition(mSurfaceControl, 0, displayInfo.logicalHeight);
-                        t.setMatrix(mSurfaceControl, 0, -1, 1, 0);
-                        break;
-                    case Surface.ROTATION_180:
-                        t.setPosition(mSurfaceControl, displayInfo.logicalWidth,
-                                displayInfo.logicalHeight);
-                        t.setMatrix(mSurfaceControl, -1, 0, 0, -1);
-                        break;
-                    case Surface.ROTATION_270:
-                        t.setPosition(mSurfaceControl, displayInfo.logicalWidth, 0);
-                        t.setMatrix(mSurfaceControl, 0, 1, -1, 0);
-                        break;
                 }
             }
         }
