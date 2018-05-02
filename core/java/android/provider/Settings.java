@@ -4242,6 +4242,12 @@ public final class Settings {
         public static final String PULSE_APPS_BLACKLIST = "pulse_apps_blacklist";
 
         /**
+         * Apps to hide in the ChooserActivity
+         * @hide
+         */
+        public static final String CHOOSER_ACTIVITY_BLACKLIST = "chooser_activity_blacklist";
+
+        /**
          * 0 - fullscreen
          * 1 - partial
          * @hide

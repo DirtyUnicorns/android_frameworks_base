@@ -18,6 +18,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- ChooserActivity blacklist -->
+    <string name="app_blacklist">Blacklist app</string>
+
     <!-- App error dialog -->
     <string name="aerr_copy">Copy crash log URL</string>
     <string name="url_copy_success">URL copied successfully</string>
