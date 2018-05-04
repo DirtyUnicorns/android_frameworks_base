@@ -107,6 +107,6 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je připojen</string>
   <string name="keyguard_plugged_in_turbo_charging">Turbo nabíjení</string>
   <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart pixels</string>
+  <string name="quick_settings_smart_pixels">Smart Pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
 </resources>

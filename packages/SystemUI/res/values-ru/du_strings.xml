@@ -107,6 +107,6 @@
   <string name="keyguard_plugged_in_turbo_power_charging">Быстрая зарядка подключена</string>
   <string name="keyguard_plugged_in_turbo_charging">Быстрая зарядка</string>
   <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+  <string name="quick_settings_smart_pixels">Умные пиксели</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Автоматическое включение умных пикселей</string>
 </resources>

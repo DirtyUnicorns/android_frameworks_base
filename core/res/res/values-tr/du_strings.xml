@@ -20,7 +20,7 @@
   <string name="reboot_to_recovery_title">Kurtarma</string>
   <string name="reboot_to_recovery_message">Kurtarma modunda başlatılıyor</string>
   <string name="reboot_to_bootloader_title">Ön yükleyici</string>
-  <string name="reboot_to_bootloader_message">Ön yükleyici modunda başlatılıyor</string>
+  <string name="reboot_to_bootloader_message">Ön yükleyici yeniden başlatılıyor</string>
   <string name="reboot_title">Yeniden başlat</string>
   <string name="reboot_message">Sistem yeniden başlatılıyor</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
@@ -28,7 +28,7 @@
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_toggleNavigationEditor">gezinme çubuğu düzenleyicisini kontrol et</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Bir uygulamanın gezinme çubuğunu değiştirmesine izin verir.</string>
+  <string name="permdesc_toggleNavigationEditor">Bir uygulamanın gezinme çubuğu düzenleyicisini kontrol etmesine izin verir.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_accessFontManager">yazı tipi yöneticisine erişim</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
