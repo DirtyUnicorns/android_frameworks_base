@@ -37,7 +37,7 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 public class RebootTile extends QSTileImpl<BooleanState> {
 
-    private boolean mRebootToRecovery = false;
+    private int mRebootToRecovery = 0;
     private IStatusBarService mBarService;
 
     private final ActivityStarter mActivityStarter;
@@ -59,7 +59,13 @@ public class RebootTile extends QSTileImpl<BooleanState> {
 
     @Override
     public void handleClick() {
-        mRebootToRecovery = !mRebootToRecovery;
+        if (mRebootToRecovery == 0) {
+            mRebootToRecovery = 1;
+        } else if (mRebootToRecovery == 1) {
+            mRebootToRecovery = 2;
+        } else {
+            mRebootToRecovery = 0;
+        }
         refreshState();
     }
 
@@ -71,24 +77,32 @@ public class RebootTile extends QSTileImpl<BooleanState> {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
+                PowerManager pm =
+                    (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
                 if (mKeyguardMonitor.isSecure() && !mKeyguardMonitor.canSkipBouncer()) {
                     mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                         MetricsLogger.action(mContext, getMetricsCategory(), !mState.value);
                         try {
-                            if (mRebootToRecovery)
+                            if (mRebootToRecovery == 1) {
                                 mBarService.advancedReboot(PowerManager.REBOOT_RECOVERY);
-                            else
+                            } else if (mRebootToRecovery == 2) {
+                                pm.shutdown(false, pm.SHUTDOWN_USER_REQUESTED, false);
+                            } else {
                                 mBarService.reboot(false);
+                            }
                         } catch (RemoteException e) {
                         }
                     });
                     return;
                 } else {
                     try {
-                        if (mRebootToRecovery)
+                        if (mRebootToRecovery == 1) {
                             mBarService.advancedReboot(PowerManager.REBOOT_RECOVERY);
-                        else
+                        } else if (mRebootToRecovery == 2) {
+                            pm.shutdown(false, pm.SHUTDOWN_USER_REQUESTED, false);
+                        } else {
                             mBarService.reboot(false);
+                        }
                     } catch (RemoteException e) {
                     }
                 }
@@ -113,9 +127,12 @@ public class RebootTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
-       if (mRebootToRecovery) {
+        if (mRebootToRecovery == 1) {
             state.label = mContext.getString(R.string.quick_settings_reboot_recovery_label);
             state.icon = ResourceIcon.get(R.drawable.ic_qs_reboot_recovery);
+        } else if (mRebootToRecovery == 2) {
+           state.label = mContext.getString(R.string.quick_settings_poweroff_label);
+           state.icon = ResourceIcon.get(R.drawable.ic_qs_poweroff);
         } else {
             state.label = mContext.getString(R.string.quick_settings_reboot_label);
             state.icon = ResourceIcon.get(R.drawable.ic_qs_reboot);
