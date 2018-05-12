@@ -33,4 +33,5 @@
   <string name="permlab_accessFontManager">acceder al gestor de fuentes</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessFontManager">Permite una aplicación para acceder al gestor de fuentes.</string>
+  <string name="app_blacklist">Aplicaciones en lista negra</string>
 </resources>

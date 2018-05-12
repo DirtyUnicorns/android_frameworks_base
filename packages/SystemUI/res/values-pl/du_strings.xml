@@ -51,12 +51,12 @@
   <string name="lockscreen_hidden">None</string>
   <string name="custom_hint">Swipe from icon to launch</string>
   <string name="systemui_tuner_navbar_title">Stock settings</string>
-  <string name="status_bar_vpn">VPN</string>
+  <string name="status_bar_vpn">Połączenia VPN</string>
   <!-- QS Tiles -->
-  <string name="quick_settings_reboot_label">Reboot</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
-  <string name="quick_settings_screenshot_label">Screenshot</string>
-  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+  <string name="quick_settings_reboot_label">Restart urządzenia</string>
+  <string name="quick_settings_reboot_recovery_label">Tryb Recovery</string>
+  <string name="quick_settings_screenshot_label">Zrzuty ekranu</string>
+  <string name="quick_settings_region_screenshot_label">Częściowy zrzut ekranu</string>
   <string name="quick_settings_caffeine_label">Caffeine</string>
   <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
   <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
@@ -65,7 +65,7 @@
   <string name="theme_info_title">What is this?</string>
   <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or style.\n\nTo change between accents and styles, simply long press on the tile and then press again to select from the options offered.</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">Przeciągnij lub dotknij żeby dodać kafelki</string>
   <!-- Navigation bar Tile -->
   <string name="quick_settings_navigation_bar">Navigation bar</string>
   <string name="quick_settings_smartbar">SmartBar</string>

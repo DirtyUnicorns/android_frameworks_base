@@ -33,4 +33,5 @@
   <string name="permlab_accessFontManager">πρόσβαση στον διαχειριστή γραμματοσειράς</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessFontManager">Επιτρέπει σε μια εφαρμογή να έχει πρόσβαση στον διαχειριστή γραμματοσειράς.</string>
+  <string name="app_blacklist">Blacklist app</string>
 </resources>

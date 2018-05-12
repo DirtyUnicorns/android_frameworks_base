@@ -63,7 +63,7 @@
   <string name="caffeine_info_title">Cos\'è questo?</string>
   <string name="caffeine_info_message">Il tile Caffeina ti permette di tenere acceso lo schermo.\n\nTieni nota che lo stato del tile si resetterà da solo quando lo schermo si spegnerà.</string>
   <string name="theme_info_title">Cos\'è questo?</string>
-  <string name="theme_info_message">Il tile dei Temi è un tile unico ma di facile utilizzo che consente all\'utente di modificare lo stile è il colore principale del sistema.\n\nPer cambiare lo stile e il colore principale, basta una pressione prolungata sul tile e poi premere di nuovo per scegliere tra le opzioni presentate.</string>
+  <string name="theme_info_message">Il tile dei Temi è un tile unico ma di facile utilizzo che consente all\'utente di modificare lo stile e il colore principale del sistema.\n\nPer cambiare lo stile e il colore principale, basta una pressione prolungata sul tile e poi premere di nuovo per scegliere tra le opzioni presentate.</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Trascina o premi per aggiungere tiles</string>
   <!-- Navigation bar Tile -->

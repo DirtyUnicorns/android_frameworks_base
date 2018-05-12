@@ -18,9 +18,9 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
   <string name="reboot_to_recovery_title">Recovery</string>
-  <string name="reboot_to_recovery_message">Riavvia in recovery</string>
+  <string name="reboot_to_recovery_message">Riavvio in recovery</string>
   <string name="reboot_to_bootloader_title">Bootloader</string>
-  <string name="reboot_to_bootloader_message">Riavvia in Bootloader</string>
+  <string name="reboot_to_bootloader_message">Riavvio in Bootloader</string>
   <string name="reboot_title">Riavvia</string>
   <string name="reboot_message">Riavvio del sistema</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
@@ -28,9 +28,10 @@
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_toggleNavigationEditor">controllo editor di navigazione</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Consenti ad una applicazione di controllare l\'editor della barra di navigazione.</string>
+  <string name="permdesc_toggleNavigationEditor">Consente ad una applicazione di controllare l\'editor della barra di navigazione.</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">accesso all\'editor di font</string>
+  <string name="permlab_accessFontManager">accesso al font manager</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessFontManager">Consenti ad un\'applicazione di accendere al gestore di font.</string>
+  <string name="app_blacklist">Applicazioni nella lista nera</string>
 </resources>

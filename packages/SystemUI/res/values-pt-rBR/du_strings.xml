@@ -20,7 +20,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Show lte/4g switch -->
   <string name="show_lte_fourgee_title">Rede 4G/LTE</string>
-  <string name="show_lte_fourgee_summary">Exibir o ícone de rede 4g ou LTE na Barra de Status/Painel QS</string>
+  <string name="show_lte_fourgee_summary">Exibir o ícone de rede 4G ou LTE na Barra de Status/Painel de Configurações Rápidas</string>
   <string name="statusbar_tuner_category_title">Ícones de Barra de Status</string>
   <!-- Roaming indicator -->
   <string name="roaming_indicator_title">Roaming</string>
@@ -41,7 +41,7 @@ DU SWAG</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Bateria totalmente carregada</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Carregamento DASH(<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até concluir</string>
+  <string name="keyguard_indication_dash_charging_time">Carregamento Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até concluir)</string>
   <string name="keyguard_plugged_in_dash_charging">Carregamento Dash</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
@@ -109,5 +109,5 @@ DU SWAG</string>
   <string name="keyguard_plugged_in_turbo_charging">Carregamento rápido</string>
   <!-- Smart pixels QS tile -->
   <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-habilitar smart pixels</string>
 </resources>
