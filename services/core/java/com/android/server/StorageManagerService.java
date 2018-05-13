@@ -111,6 +111,7 @@ import com.android.server.NativeDaemonConnector.SensitiveArg;
 import com.android.server.pm.PackageManagerException;
 import com.android.server.pm.PackageManagerService;
 import com.android.server.storage.AppFuseBridge;
+import com.android.internal.widget.ILockSettings;
 
 import libcore.io.IoUtils;
 import libcore.util.EmptyArray;
@@ -1218,8 +1219,10 @@ class StorageManagerService extends IStorageManager.Stub
                 final long destroy = Long.parseLong(cooked[6]);
 
                 final DropBoxManager dropBox = mContext.getSystemService(DropBoxManager.class);
-                dropBox.addText(TAG_STORAGE_BENCHMARK, scrubPath(path)
-                        + " " + ident + " " + create + " " + run + " " + destroy);
+                if (dropBox != null) {
+                    dropBox.addText(TAG_STORAGE_BENCHMARK, scrubPath(path)
+                            + " " + ident + " " + create + " " + run + " " + destroy);
+                }
 
                 final VolumeRecord rec = findRecordForPath(path);
                 if (rec != null) {
@@ -1236,8 +1239,10 @@ class StorageManagerService extends IStorageManager.Stub
                 final long time = Long.parseLong(cooked[3]);
 
                 final DropBoxManager dropBox = mContext.getSystemService(DropBoxManager.class);
-                dropBox.addText(TAG_STORAGE_TRIM, scrubPath(path)
+                if (dropBox != null) {
+                    dropBox.addText(TAG_STORAGE_TRIM, scrubPath(path)
                         + " " + bytes + " " + time);
+                }
 
                 final VolumeRecord rec = findRecordForPath(path);
                 if (rec != null) {
@@ -1314,9 +1319,9 @@ class StorageManagerService extends IStorageManager.Stub
                 vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE;
             }
 
-            // Adoptable public disks are visible to apps, since they meet
-            // public API requirement of being in a stable location.
-            if (vol.disk.isAdoptable()) {
+            // Set sdcards to visible to apps. If they are visible media is scanned
+            // and they can be used for other stuff.
+            if (vol.disk.isSd()) {
                 vol.mountFlags |= VolumeInfo.MOUNT_FLAG_VISIBLE;
             }
 
@@ -1890,6 +1895,8 @@ class StorageManagerService extends IStorageManager.Stub
         Preconditions.checkNotNull(fsUuid);
         synchronized (mLock) {
             final VolumeRecord rec = mRecords.get(fsUuid);
+            if (rec == null)
+                return;
             rec.nickname = nickname;
             mCallbacks.notifyVolumeRecordChanged(rec);
             writeSettingsLocked();
@@ -1904,6 +1911,8 @@ class StorageManagerService extends IStorageManager.Stub
         Preconditions.checkNotNull(fsUuid);
         synchronized (mLock) {
             final VolumeRecord rec = mRecords.get(fsUuid);
+            if (rec == null)
+                return;
             rec.userFlags = (rec.userFlags & ~mask) | (flags & mask);
             mCallbacks.notifyVolumeRecordChanged(rec);
             writeSettingsLocked();
@@ -2640,6 +2649,12 @@ class StorageManagerService extends IStorageManager.Stub
                 // to let the UI to clear itself
                 mHandler.postDelayed(new Runnable() {
                     public void run() {
+                        // unmount the internal emulated volume first
+                        try {
+                            mConnector.execute("volume", "unmount", "emulated");
+                        } catch (NativeDaemonConnectorException e) {
+                            Slog.e(TAG, "unable to shut down internal volume", e);
+                        }
                         try {
                             mCryptConnector.execute("cryptfs", "restart");
                         } catch (NativeDaemonConnectorException e) {
@@ -2700,9 +2715,23 @@ class StorageManagerService extends IStorageManager.Stub
             Slog.i(TAG, "changing encryption password...");
         }
 
+        ILockSettings lockSettings = ILockSettings.Stub.asInterface(
+                        ServiceManager.getService("lock_settings"));
+        String currentPassword="default_password";
+        try {
+            currentPassword = lockSettings.getPassword();
+        } catch (RemoteException e) {
+            Slog.e(TAG, "Couldn't get password" + e);
+        }
+
         try {
             NativeDaemonEvent event = mCryptConnector.execute("cryptfs", "changepw", CRYPTO_TYPES[type],
-                        new SensitiveArg(password));
+                        new SensitiveArg(currentPassword), new SensitiveArg(password));
+            try {
+                lockSettings.sanitizePassword();
+            } catch (RemoteException e) {
+                Slog.e(TAG, "Couldn't sanitize password" + e);
+            }
             return Integer.parseInt(event.getMessage());
         } catch (NativeDaemonConnectorException e) {
             // Encryption failed
