@@ -55,6 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Перезагрузка</string>
   <string name="quick_settings_reboot_recovery_label">Режим восстановления</string>
+  <string name="quick_settings_poweroff_label">Выключить</string>
   <string name="quick_settings_screenshot_label">Снимок экрана</string>
   <string name="quick_settings_region_screenshot_label">Частичный снимок экрана</string>
   <string name="quick_settings_caffeine_label">Кофеин</string>

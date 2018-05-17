@@ -55,6 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Starta om</string>
   <string name="quick_settings_reboot_recovery_label">Återställning</string>
+  <string name="quick_settings_poweroff_label">Power off</string>
   <string name="quick_settings_screenshot_label">Skärmdump</string>
   <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
   <string name="quick_settings_caffeine_label">Koffein</string>

@@ -17,8 +17,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="reboot_to_recovery_title">ريكفري</string>
-  <string name="reboot_to_recovery_message">اعادة التشغيل لوضع الريكفري</string>
+  <string name="reboot_to_recovery_title">الإسترداد</string>
+  <string name="reboot_to_recovery_message">اعادة التشغيل إلى وضع الإسترداد</string>
   <string name="reboot_to_bootloader_title">Bootloader</string>
   <string name="reboot_to_bootloader_message">اعادة التشغيل للـBootloader</string>
   <string name="reboot_title">اعادة تشغيل</string>
@@ -33,5 +33,5 @@
   <string name="permlab_accessFontManager">الوصول لادارة الخطوط</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_accessFontManager">يسمح لتطبيق ما بالوصول إلى ادارة الخطوط.</string>
-  <string name="app_blacklist">Blacklist app</string>
+  <string name="app_blacklist">التطبيقات المحجوبة</string>
 </resources>

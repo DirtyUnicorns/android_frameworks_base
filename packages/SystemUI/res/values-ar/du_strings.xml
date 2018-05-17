@@ -30,7 +30,7 @@
   <!-- Power menu -->
   <string name="global_action_restart_system">اعادة التشغيل</string>
   <string name="global_action_restart_advanced">متقدمة</string>
-  <string name="global_action_restart_recovery">ريكفري</string>
+  <string name="global_action_restart_recovery">الإسترداد</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
   <string name="global_action_restart_ui">واجهة النظام</string>
   <string name="global_action_restart_hot">اعادة تشغيل سريع</string>
@@ -54,7 +54,8 @@
   <string name="status_bar_vpn">‏شبكة افتراضية خاصة (VPN)</string>
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">اعادة التشغيل</string>
-  <string name="quick_settings_reboot_recovery_label">ريكفري</string>
+  <string name="quick_settings_reboot_recovery_label">الإسترداد</string>
+  <string name="quick_settings_poweroff_label">إيقاف التشغيل</string>
   <string name="quick_settings_screenshot_label">لقطة شاشة</string>
   <string name="quick_settings_region_screenshot_label">صورة جزئية للشاشة</string>
   <string name="quick_settings_caffeine_label">كافيين</string>
@@ -107,6 +108,6 @@
   <string name="keyguard_plugged_in_turbo_power_charging">متصل بشاحن سريع</string>
   <string name="keyguard_plugged_in_turbo_charging">الشحن السريع</string>
   <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+  <string name="quick_settings_smart_pixels">الدقة الذكية</string>
+  <string name="quick_settings_smart_pixels_on_power_save">تمكين الدقة الذكية تلقائياً</string>
 </resources>

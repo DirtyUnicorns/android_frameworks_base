@@ -55,6 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Yeniden başlat</string>
   <string name="quick_settings_reboot_recovery_label">Kurtarma</string>
+  <string name="quick_settings_poweroff_label">Kapat</string>
   <string name="quick_settings_screenshot_label">Ekran görüntüsü</string>
   <string name="quick_settings_region_screenshot_label">Kısmi ekran görüntüsü</string>
   <string name="quick_settings_caffeine_label">Kafein</string>

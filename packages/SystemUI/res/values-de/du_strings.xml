@@ -55,6 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Neu starten</string>
   <string name="quick_settings_reboot_recovery_label">Wiederherstellung</string>
+  <string name="quick_settings_poweroff_label">Ausschalten</string>
   <string name="quick_settings_screenshot_label">Bildschimfoto</string>
   <string name="quick_settings_region_screenshot_label">Teilweises Bildschirmfoto</string>
   <string name="quick_settings_caffeine_label">Koffein</string>

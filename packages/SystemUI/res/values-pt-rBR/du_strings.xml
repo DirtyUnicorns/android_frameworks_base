@@ -56,6 +56,7 @@ DU SWAG</string>
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Reinicio</string>
   <string name="quick_settings_reboot_recovery_label">Recuperação</string>
+  <string name="quick_settings_poweroff_label">Desligar</string>
   <string name="quick_settings_screenshot_label">Captura de tela</string>
   <string name="quick_settings_region_screenshot_label">Captura de tela parcial</string>
   <string name="quick_settings_caffeine_label">Cafeína</string>

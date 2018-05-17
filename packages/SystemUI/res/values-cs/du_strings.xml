@@ -55,6 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Restartovat</string>
   <string name="quick_settings_reboot_recovery_label">Recovery</string>
+  <string name="quick_settings_poweroff_label">Vypnout</string>
   <string name="quick_settings_screenshot_label">Snímek obrazovky</string>
   <string name="quick_settings_region_screenshot_label">Částečný snímek obrazovky</string>
   <string name="quick_settings_caffeine_label">Caffeine</string>

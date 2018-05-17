@@ -55,6 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Επανεκκίνηση</string>
   <string name="quick_settings_reboot_recovery_label">Ανάκτηση</string>
+  <string name="quick_settings_poweroff_label">Power off</string>
   <string name="quick_settings_screenshot_label">Στιγμιότυπο οθόνης</string>
   <string name="quick_settings_region_screenshot_label">Μερικό στιγμιότυπο οθόνης</string>
   <string name="quick_settings_caffeine_label">Καφεΐνη</string>

@@ -19,94 +19,95 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Show lte/4g switch -->
-  <string name="show_lte_fourgee_title">4G/LTE network</string>
-  <string name="show_lte_fourgee_summary">Display either the 4G or LTE network icon in the statusbar/QS panel</string>
-  <string name="statusbar_tuner_category_title">Generic statusbar icons</string>
+  <string name="show_lte_fourgee_title">Rede 4G/LTE</string>
+  <string name="show_lte_fourgee_summary">Mostrar o ícone da rede LTE ou 4G no painel de statusbar/QS</string>
+  <string name="statusbar_tuner_category_title">Ícones da barra de status genérico</string>
   <!-- Roaming indicator -->
   <string name="roaming_indicator_title">Roaming</string>
   <!-- DU logo -->
   <string name="du_logo_title">DU swag</string>
-  <string name="du_logo_summary">Let everyone know that you\'re using DU when they see your screen</string>
+  <string name="du_logo_summary">Deixa que todos saibam que está a usar DU quando vêem o seu ecrã</string>
   <!-- Power menu -->
-  <string name="global_action_restart_system">Reboot</string>
-  <string name="global_action_restart_advanced">Advanced</string>
-  <string name="global_action_restart_recovery">Recovery</string>
+  <string name="global_action_restart_system">Reiniciar</string>
+  <string name="global_action_restart_advanced">Avançado</string>
+  <string name="global_action_restart_recovery">Recuperação</string>
   <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
+  <string name="global_action_restart_ui">Interface do sistema</string>
   <string name="global_action_restart_hot">Hot</string>
-  <string name="global_action_screenshot">Screenshot</string>
+  <string name="global_action_screenshot">Captura de ecrã</string>
   <!-- Screenshot Delete Toast -->
-  <string name="delete_screenshot_toast">Screenshot deleted</string>
+  <string name="delete_screenshot_toast">Captura de ecrã eliminada</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Totalmente carregada</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+  <string name="keyguard_indication_dash_charging_time">Carregamento Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até à carga máxima)</string>
+  <string name="keyguard_plugged_in_dash_charging">Carregamento Dash</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_icon_manager_title">Icon manager</string>
-  <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Bottom shortcuts</string>
-  <string name="lockscreen_default">Default</string>
-  <string name="lockscreen_hidden">None</string>
-  <string name="custom_hint">Swipe from icon to launch</string>
-  <string name="systemui_tuner_navbar_title">Stock settings</string>
+  <string name="systemui_tuner_icon_manager_title">Gestor de ícones</string>
+  <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Atalhos do fundo</string>
+  <string name="lockscreen_default">Padrão</string>
+  <string name="lockscreen_hidden">Nada</string>
+  <string name="custom_hint">Deslize a partir do ícone para iniciar</string>
+  <string name="systemui_tuner_navbar_title">Definições Padrão</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS Tiles -->
-  <string name="quick_settings_reboot_label">Reboot</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
-  <string name="quick_settings_screenshot_label">Screenshot</string>
-  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
-  <string name="caffeine_info_title">What is this?</string>
+  <string name="quick_settings_reboot_label">Reiniciar</string>
+  <string name="quick_settings_reboot_recovery_label">Recuperação</string>
+  <string name="quick_settings_poweroff_label">Desligar</string>
+  <string name="quick_settings_screenshot_label">Captura de ecrã</string>
+  <string name="quick_settings_region_screenshot_label">Captura parcial de ecrã</string>
+  <string name="quick_settings_caffeine_label">Cafeína</string>
+  <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada</string>
+  <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada</string>
+  <string name="caffeine_info_title">O que é isso?</string>
   <string name="caffeine_info_message">The Caffeine tile is a simple tile that you could switch on to keep your screen on after being idle.\n\nPlease note that the tile\'s state will reset itself after turning the screen off.</string>
-  <string name="theme_info_title">What is this?</string>
+  <string name="theme_info_title">O que é isso?</string>
   <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or style.\n\nTo change between accents and styles, simply long press on the tile and then press again to select from the options offered.</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">Arrastar ou toque para adicionar mosaicos</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_navigation_bar">Barra de navegação</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_fling">Fling</string>
   <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_disabled">Desactivado</string>
   <!-- Theme tile -->
-  <string name="systemui_theme_style_title">Style</string>
-  <string name="systemui_theme_style_auto">Automatic</string>
-  <string name="systemui_theme_style_light">Light</string>
-  <string name="systemui_theme_style_dark">Dark</string>
-  <string name="quick_settings_theme_tile_title">Accent</string>
-  <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
-  <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
-  <string name="quick_settings_theme_tile_color_default">Default</string>
-  <string name="quick_settings_theme_tile_color_red">Red</string>
-  <string name="quick_settings_theme_tile_color_pink">Pink</string>
-  <string name="quick_settings_theme_tile_color_purple">Purple</string>
-  <string name="quick_settings_theme_tile_color_deep_purple">Deep purple</string>
-  <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-  <string name="quick_settings_theme_tile_color_blue">Blue</string>
-  <string name="quick_settings_theme_tile_color_light_blue">Light blue</string>
-  <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
-  <string name="quick_settings_theme_tile_color_teal">Teal</string>
-  <string name="quick_settings_theme_tile_color_green">Green</string>
-  <string name="quick_settings_theme_tile_color_light_green">Light green</string>
-  <string name="quick_settings_theme_tile_color_lime">Lime</string>
-  <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
-  <string name="quick_settings_theme_tile_color_amber">Amber</string>
-  <string name="quick_settings_theme_tile_color_orange">Orange</string>
-  <string name="quick_settings_theme_tile_color_deep_orange">Deep orange</string>
-  <string name="quick_settings_theme_tile_color_brown">Brown</string>
-  <string name="quick_settings_theme_tile_color_grey">Grey</string>
-  <string name="quick_settings_theme_tile_color_blue_grey">Blue grey</string>
-  <string name="quick_settings_theme_tile_color_black">Black</string>
-  <string name="quick_settings_theme_tile_color_white">White</string>
+  <string name="systemui_theme_style_title">Estilo</string>
+  <string name="systemui_theme_style_auto">Automático</string>
+  <string name="systemui_theme_style_light">Claro</string>
+  <string name="systemui_theme_style_dark">Escuro</string>
+  <string name="quick_settings_theme_tile_title">Acento</string>
+  <string name="quick_settings_theme_tile_accent_detail_title">Selecione a cor</string>
+  <string name="quick_settings_theme_tile_style_detail_title">Selecionar estilo</string>
+  <string name="quick_settings_theme_tile_color_default">Padrão</string>
+  <string name="quick_settings_theme_tile_color_red">Vermelho</string>
+  <string name="quick_settings_theme_tile_color_pink">Rosa</string>
+  <string name="quick_settings_theme_tile_color_purple">Roxo</string>
+  <string name="quick_settings_theme_tile_color_deep_purple">Roxo escuro</string>
+  <string name="quick_settings_theme_tile_color_indigo">Índigo</string>
+  <string name="quick_settings_theme_tile_color_blue">Azul</string>
+  <string name="quick_settings_theme_tile_color_light_blue">Azul claro</string>
+  <string name="quick_settings_theme_tile_color_cyan">Ciano</string>
+  <string name="quick_settings_theme_tile_color_teal">Turquesa</string>
+  <string name="quick_settings_theme_tile_color_green">Verde</string>
+  <string name="quick_settings_theme_tile_color_light_green">Verde claro</string>
+  <string name="quick_settings_theme_tile_color_lime">Lima</string>
+  <string name="quick_settings_theme_tile_color_yellow">Amarelo</string>
+  <string name="quick_settings_theme_tile_color_amber">Âmbar</string>
+  <string name="quick_settings_theme_tile_color_orange">Laranja</string>
+  <string name="quick_settings_theme_tile_color_deep_orange">Laranja escuro</string>
+  <string name="quick_settings_theme_tile_color_brown">Castanho</string>
+  <string name="quick_settings_theme_tile_color_grey">Cinzento</string>
+  <string name="quick_settings_theme_tile_color_blue_grey">Azul acinzentado</string>
+  <string name="quick_settings_theme_tile_color_black">Preto</string>
+  <string name="quick_settings_theme_tile_color_white">Branco</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
+  <string name="keyguard_indication_turbo_power_time">Carregando rápido (<xliff:g id="charging_time_left">%s</xliff:g> até à carga máxima)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">Carregamento rápido ligado</string>
+  <string name="keyguard_plugged_in_turbo_charging">Carregamento rápido</string>
   <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+  <string name="quick_settings_smart_pixels">Pixéis inteligentes</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-ativação dos Píxeis Inteligentes</string>
 </resources>

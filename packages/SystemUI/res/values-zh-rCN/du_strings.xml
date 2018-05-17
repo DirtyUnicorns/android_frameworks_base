@@ -55,6 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">重启</string>
   <string name="quick_settings_reboot_recovery_label">恢复模式</string>
+  <string name="quick_settings_poweroff_label">关机</string>
   <string name="quick_settings_screenshot_label">屏幕截图</string>
   <string name="quick_settings_region_screenshot_label">局部截图</string>
   <string name="quick_settings_caffeine_label">持续亮屏</string>
