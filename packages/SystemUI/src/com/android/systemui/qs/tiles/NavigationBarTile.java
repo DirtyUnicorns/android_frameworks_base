@@ -25,6 +25,7 @@ import android.database.ContentObserver;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
@@ -156,14 +157,14 @@ public class NavigationBarTile extends QSTileImpl<BooleanState> {
     }
 
     private int getNavigationBar() {
-        return Settings.Secure.getInt(mContext.getContentResolver(),
-            Settings.Secure.NAVIGATION_BAR_MODE, 0);
+        return Settings.Secure.getIntForUser(mContext.getContentResolver(),
+            Settings.Secure.NAVIGATION_BAR_MODE, 0, UserHandle.USER_CURRENT);
     }
 
     private boolean navbarEnabled() {
-        return Settings.Secure.getInt(mContext.getContentResolver(),
+        return Settings.Secure.getIntForUser(mContext.getContentResolver(),
             Settings.Secure.NAVIGATION_BAR_VISIBLE,
-            DUActionUtils.hasNavbarByDefault(mContext) ? 1 : 0) == 1;
+            DUActionUtils.hasNavbarByDefault(mContext) ? 1 : 0, UserHandle.USER_CURRENT) == 1;
     }
 
     @Override
@@ -265,7 +266,7 @@ public class NavigationBarTile extends QSTileImpl<BooleanState> {
         @Override
         public int getMetricsCategory() {
             return MetricsEvent.CUSTOM_QUICK_TILES;
-        }   
+        }
 
         @Override
         public CharSequence getTitle() {
@@ -286,8 +287,8 @@ public class NavigationBarTile extends QSTileImpl<BooleanState> {
 
         @Override
         public void setToggleState(boolean state) {
-            Settings.Secure.putInt(mContext.getContentResolver(),
-                    Settings.Secure.NAVIGATION_BAR_VISIBLE, state ? 1 : 0);
+            Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                    Settings.Secure.NAVIGATION_BAR_VISIBLE, state ? 1 : 0, UserHandle.USER_CURRENT);
         }
 
         @Override
@@ -324,8 +325,8 @@ public class NavigationBarTile extends QSTileImpl<BooleanState> {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             int selectedNavmode = Integer.valueOf(mValues[position]);
-            Settings.Secure.putInt(mContext.getContentResolver(),
-                    Settings.Secure.NAVIGATION_BAR_MODE, selectedNavmode);
+            Settings.Secure.putIntForUser(mContext.getContentResolver(),
+                    Settings.Secure.NAVIGATION_BAR_MODE, selectedNavmode, UserHandle.USER_CURRENT);
         }
     }
 }
