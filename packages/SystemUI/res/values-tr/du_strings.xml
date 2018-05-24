@@ -26,7 +26,7 @@
   <string name="roaming_indicator_title">Dolaşım</string>
   <!-- DU logo -->
   <string name="du_logo_title">DU swag</string>
-  <string name="du_logo_summary">Herkesin ekranınızı gördüklerinde DU kullandığınızı bilmesini sağlayın</string>
+  <string name="du_logo_summary">Herkes ekranınızı gördüğünde DU kullandığınızı bilmesini sağlayın</string>
   <!-- Power menu -->
   <string name="global_action_restart_system">Yeniden başlat</string>
   <string name="global_action_restart_advanced">Gelişmiş</string>
@@ -48,7 +48,7 @@
   <string name="systemui_tuner_icon_manager_title">Simge yöneticisi</string>
   <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Alt kısayollar</string>
   <string name="lockscreen_default">Varsayılan</string>
-  <string name="lockscreen_hidden">Hiçbiri</string>
+  <string name="lockscreen_hidden">Yok</string>
   <string name="custom_hint">Başlatmak için simgeyi kaydırın</string>
   <string name="systemui_tuner_navbar_title">Varsayılan ayarlar</string>
   <string name="status_bar_vpn">VPN</string>
