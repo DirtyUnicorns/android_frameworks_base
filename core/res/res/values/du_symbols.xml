@@ -16,6 +16,11 @@
 -->
 <resources>
 
+  <!-- Generic colors -->
+  <java-symbol type="color" name="generic_theme_primary" />
+  <java-symbol type="color" name="generic_theme_primary_dark" />
+  <java-symbol type="color" name="generic_theme_accent" />
+
   <!-- Custom Analog clock -->
   <java-symbol type="drawable" name="custom_clock_dial" />
   <java-symbol type="drawable" name="custom_clock_dial_ambient" />

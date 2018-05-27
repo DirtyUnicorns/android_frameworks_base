@@ -16,6 +16,11 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Generic colors -->
+    <color name="generic_theme_primary">#4285f4</color>
+    <color name="generic_theme_primary_dark">#346AC3</color>
+    <color name="generic_theme_accent">#3B77DB</color>
+
     <!-- Custom Analog clock -->
     <color name="analog_clock_border_color">#212121</color>
     <color name="analog_clock_face_color">#FFFFFF</color>
