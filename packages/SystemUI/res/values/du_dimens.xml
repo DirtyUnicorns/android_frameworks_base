@@ -18,6 +18,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Big clock dozing -->
+    <dimen name="dozing_big_clock_padding" format="float">0.38</dimen>
+
     <!-- Recents task locking button -->
     <dimen name="recents_task_view_header_lock_button_padding">44dp</dimen>
 
