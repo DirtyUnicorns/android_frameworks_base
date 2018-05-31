@@ -52,4 +52,8 @@
   <!-- Package Manager -->
   <java-symbol type="array" name="config_disabledComponents" />
   <java-symbol type="array" name="config_forceEnabledComponents" />
+
+  <!-- Flashlight proximity check -->
+  <java-symbol type="integer" name="config_flashlightProximityTimeout" />
+
 </resources>
