@@ -33,7 +33,7 @@
   <string name="global_action_restart_recovery">Recuperació</string>
   <string name="global_action_restart_bootloader">Gestor d\'arrencada</string>
   <string name="global_action_restart_ui">Interficie d\'usuari</string>
-  <string name="global_action_restart_hot">Calor</string>
+  <string name="global_action_restart_hot">Ràpid</string>
   <string name="global_action_screenshot">Captura de pantalla</string>
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Captura de pantalla eliminada</string>

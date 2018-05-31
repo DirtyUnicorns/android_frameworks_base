@@ -18,13 +18,13 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
   <string name="reboot_to_recovery_title">Mode recuperació</string>
-  <string name="reboot_to_recovery_message">Reinici a recuperació</string>
+  <string name="reboot_to_recovery_message">Reiniciant a recuperació</string>
   <string name="reboot_to_bootloader_title">Gestor d\'arrencada</string>
   <string name="reboot_to_bootloader_message">Reiniciant al gestor d\'arrencada</string>
   <string name="reboot_title">Reinicia</string>
-  <string name="reboot_message">Reinicia el sistema</string>
+  <string name="reboot_message">Reiniciant el sistema</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">La seva imatge de proveidor no coincideix amb la del sistema. Per favor flasheixi <xliff:g id="string">%s</xliff:g> del seu dispositiu</string>
+  <string name="system_error_vendorprint">La seva imatge de proveïdor no coincideix amb la del sistema. Si us plau flaixeigi <xliff:g id="string">%s</xliff:g> del seu dispositiu</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permlab_toggleNavigationEditor">editor del control de navegació</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

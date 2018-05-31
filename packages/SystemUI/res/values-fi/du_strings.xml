@@ -19,95 +19,95 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Show lte/4g switch -->
-  <string name="show_lte_fourgee_title">4G/LTE network</string>
-  <string name="show_lte_fourgee_summary">Display either the 4G or LTE network icon in the statusbar/QS panel</string>
-  <string name="statusbar_tuner_category_title">Generic statusbar icons</string>
+  <string name="show_lte_fourgee_title">4G/LTE verkko</string>
+  <string name="show_lte_fourgee_summary">Näytä joko 4G tai LTE verkko kuvake tilapalkissa/pika-asetukset paneelissa</string>
+  <string name="statusbar_tuner_category_title">Yleiset tilapalkin kuvakkeet</string>
   <!-- Roaming indicator -->
   <string name="roaming_indicator_title">Roaming</string>
   <!-- DU logo -->
-  <string name="du_logo_title">DU swag</string>
-  <string name="du_logo_summary">Let everyone know that you\'re using DU when they see your screen</string>
+  <string name="du_logo_title">DU swägi</string>
+  <string name="du_logo_summary">Anna kaikkien tietää että käytät DU, kun he näkevät näyttösi</string>
   <!-- Power menu -->
-  <string name="global_action_restart_system">Reboot</string>
-  <string name="global_action_restart_advanced">Advanced</string>
-  <string name="global_action_restart_recovery">Recovery</string>
-  <string name="global_action_restart_bootloader">Bootloader</string>
+  <string name="global_action_restart_system">Käynnistä uudelleen</string>
+  <string name="global_action_restart_advanced">Kehittynyt</string>
+  <string name="global_action_restart_recovery">Recovery-tila</string>
+  <string name="global_action_restart_bootloader">Käynnistyslatain</string>
   <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Hot</string>
-  <string name="global_action_screenshot">Screenshot</string>
+  <string name="global_action_restart_hot">Kuuma-uudelleenkäynnistys</string>
+  <string name="global_action_screenshot">Ruudunkaappaus</string>
   <!-- Screenshot Delete Toast -->
-  <string name="delete_screenshot_toast">Screenshot deleted</string>
+  <string name="delete_screenshot_toast">Ruudunkaappaus poistettu</string>
   <!-- Battery saver tile -->
-  <string name="battery_saver_qs_tile_fully_charged">Fully Charged</string>
+  <string name="battery_saver_qs_tile_fully_charged">Täyteen ladattu</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+  <string name="keyguard_indication_dash_charging_time">Dash-ladataan (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kunnes täynnä)</string>
+  <string name="keyguard_plugged_in_dash_charging">Dash-lataus</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- SystemUI Tuner Parts -->
-  <string name="systemui_tuner_icon_manager_title">Icon manager</string>
-  <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Bottom shortcuts</string>
-  <string name="lockscreen_default">Default</string>
-  <string name="lockscreen_hidden">None</string>
-  <string name="custom_hint">Swipe from icon to launch</string>
-  <string name="systemui_tuner_navbar_title">Stock settings</string>
+  <string name="systemui_tuner_icon_manager_title">Kuvakkeiden hallinta</string>
+  <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Alareunan pikakuvakkeet</string>
+  <string name="lockscreen_default">Oletus</string>
+  <string name="lockscreen_hidden">Ei mitään</string>
+  <string name="custom_hint">Pyyhkäise kuvakkeesta avataksesi</string>
+  <string name="systemui_tuner_navbar_title">Oletusasetukset</string>
   <string name="status_bar_vpn">VPN</string>
   <!-- QS Tiles -->
-  <string name="quick_settings_reboot_label">Reboot</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
-  <string name="quick_settings_poweroff_label">Power off</string>
-  <string name="quick_settings_screenshot_label">Screenshot</string>
-  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
-  <string name="caffeine_info_title">What is this?</string>
-  <string name="caffeine_info_message">The Caffeine tile is a simple tile that you could switch on to keep your screen on after being idle.\n\nPlease note that the tile\'s state will reset itself after turning the screen off.</string>
-  <string name="theme_info_title">What is this?</string>
-  <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or style.\n\nTo change between accents and styles, simply long press on the tile and then press again to select from the options offered.</string>
+  <string name="quick_settings_reboot_label">Käynnistä uudelleen</string>
+  <string name="quick_settings_reboot_recovery_label">Recovery-tila</string>
+  <string name="quick_settings_poweroff_label">Katkaise virta</string>
+  <string name="quick_settings_screenshot_label">Ruudunkaappaus</string>
+  <string name="quick_settings_region_screenshot_label">Osittainen ruudunkaappaus</string>
+  <string name="quick_settings_caffeine_label">Kofeiini</string>
+  <string name="accessibility_quick_settings_caffeine_off">Kofeiini pois päältä</string>
+  <string name="accessibility_quick_settings_caffeine_on">Kofeiini päälle</string>
+  <string name="caffeine_info_title">Mikä tämä on?</string>
+  <string name="caffeine_info_message">Kofeiini-tiili on yksinkertainen tiili jolla voit pitää laitteesi näytön päällä vaikka laitteesi ei tee mitään.\n\nHuomoithan että tiilin tila nollaantuu kun näyttö sammutetaan.</string>
+  <string name="theme_info_title">Mikä tämä on?</string>
+  <string name="theme_info_message">Teemat tiili on ainutlaatuinen, mutta helppokäyttöinen laatta, joka antaa käyttäjän muuttaa järjestelmän korostusta tai tyyliä.\n\nVaihtaaksesi korostusta ja tyyliä, pidä vain tiiltä pohjassa ja valitse listasta haluamasi.</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">Lisää tiilejä vetämällä tai klikkaamalla niitä</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_navigation_bar">Navigointipalkki</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_default">Oletus</string>
+  <string name="quick_settings_navigation_disabled">Poistettu käytöstä</string>
   <!-- Theme tile -->
-  <string name="systemui_theme_style_title">Style</string>
-  <string name="systemui_theme_style_auto">Automatic</string>
-  <string name="systemui_theme_style_light">Light</string>
-  <string name="systemui_theme_style_dark">Dark</string>
-  <string name="quick_settings_theme_tile_title">Accent</string>
-  <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
-  <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
-  <string name="quick_settings_theme_tile_color_default">Default</string>
-  <string name="quick_settings_theme_tile_color_red">Red</string>
-  <string name="quick_settings_theme_tile_color_pink">Pink</string>
-  <string name="quick_settings_theme_tile_color_purple">Purple</string>
-  <string name="quick_settings_theme_tile_color_deep_purple">Deep purple</string>
-  <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-  <string name="quick_settings_theme_tile_color_blue">Blue</string>
-  <string name="quick_settings_theme_tile_color_light_blue">Light blue</string>
-  <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
-  <string name="quick_settings_theme_tile_color_teal">Teal</string>
-  <string name="quick_settings_theme_tile_color_green">Green</string>
-  <string name="quick_settings_theme_tile_color_light_green">Light green</string>
-  <string name="quick_settings_theme_tile_color_lime">Lime</string>
-  <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
-  <string name="quick_settings_theme_tile_color_amber">Amber</string>
-  <string name="quick_settings_theme_tile_color_orange">Orange</string>
-  <string name="quick_settings_theme_tile_color_deep_orange">Deep orange</string>
-  <string name="quick_settings_theme_tile_color_brown">Brown</string>
-  <string name="quick_settings_theme_tile_color_grey">Grey</string>
-  <string name="quick_settings_theme_tile_color_blue_grey">Blue grey</string>
-  <string name="quick_settings_theme_tile_color_black">Black</string>
-  <string name="quick_settings_theme_tile_color_white">White</string>
+  <string name="systemui_theme_style_title">Tyyli</string>
+  <string name="systemui_theme_style_auto">Automaattinen</string>
+  <string name="systemui_theme_style_light">Vaalea</string>
+  <string name="systemui_theme_style_dark">Tumma</string>
+  <string name="quick_settings_theme_tile_title">Korostus</string>
+  <string name="quick_settings_theme_tile_accent_detail_title">Valitse väri</string>
+  <string name="quick_settings_theme_tile_style_detail_title">Valitse tyyli</string>
+  <string name="quick_settings_theme_tile_color_default">Oletus</string>
+  <string name="quick_settings_theme_tile_color_red">Punainen</string>
+  <string name="quick_settings_theme_tile_color_pink">Vaaleanpunainen</string>
+  <string name="quick_settings_theme_tile_color_purple">Violetti</string>
+  <string name="quick_settings_theme_tile_color_deep_purple">Tumman violetti</string>
+  <string name="quick_settings_theme_tile_color_indigo">Indigon Sininen</string>
+  <string name="quick_settings_theme_tile_color_blue">Sininen</string>
+  <string name="quick_settings_theme_tile_color_light_blue">Vaaleansininen</string>
+  <string name="quick_settings_theme_tile_color_cyan">Turkoosi</string>
+  <string name="quick_settings_theme_tile_color_teal">Sinivihreä</string>
+  <string name="quick_settings_theme_tile_color_green">Vihreä</string>
+  <string name="quick_settings_theme_tile_color_light_green">Vaaleanvihreä</string>
+  <string name="quick_settings_theme_tile_color_lime">Limetinvihreä</string>
+  <string name="quick_settings_theme_tile_color_yellow">Keltainen</string>
+  <string name="quick_settings_theme_tile_color_amber">Meripihka</string>
+  <string name="quick_settings_theme_tile_color_orange">Oranssi</string>
+  <string name="quick_settings_theme_tile_color_deep_orange">Syvä oranssi</string>
+  <string name="quick_settings_theme_tile_color_brown">Ruskea</string>
+  <string name="quick_settings_theme_tile_color_grey">Harmaa</string>
+  <string name="quick_settings_theme_tile_color_blue_grey">Siniharmaa</string>
+  <string name="quick_settings_theme_tile_color_black">Musta</string>
+  <string name="quick_settings_theme_tile_color_white">Valkoinen</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
+  <string name="keyguard_indication_turbo_power_time">TurboPower yhdistetty (<xliff:g id="charging_time_left">%s</xliff:g> kunnes täynnä)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower yhdistetty</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turbo Lataus</string>
   <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+  <string name="quick_settings_smart_pixels">Älykkäät pikselit</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Ota älykkäät pikselit automaattisesti käyttöön</string>
 </resources>
