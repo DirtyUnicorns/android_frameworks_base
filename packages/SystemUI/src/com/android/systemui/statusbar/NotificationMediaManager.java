@@ -783,10 +783,6 @@ public class NotificationMediaManager implements Dumpable {
         }, 20);
     }
 
-    public void skipNextTrack() {
-        onSkipTrackEvent(KeyEvent.KEYCODE_MEDIA_NEXT);
-    }
-
     public void onSkipTrackEvent(int key) {
         if (mMediaSessionManager != null) {
             final List<MediaController> sessions

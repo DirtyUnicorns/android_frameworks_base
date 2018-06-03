@@ -154,6 +154,10 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         mTitle.setOnClickListener(this);
     }
 
+    public View getTitleView() {
+        return mTitle;
+    }
+
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
@@ -319,12 +323,6 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         if (action != null) {
             mActivityStarter.startPendingIntentDismissingKeyguard(action);
         }*/ //not being used by aosp actually for any slice - see KeyguardSliceProvider.addPrimaryActionLocked
-        
-        KeyguardSliceProvider instance = KeyguardSliceProvider.getAttachedInstance();
-        if (instance != null && v == mTitle && instance.needsMediaLocked()) {
-            instance.getMediaManager().skipNextTrack();
-        }
-        
     }
 
     /**
