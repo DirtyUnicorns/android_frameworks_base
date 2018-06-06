@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.systemui.statusbar.phone;
+package com.android.internal.statusbar;
 
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
@@ -167,5 +167,17 @@ public class ThemeAccentUtils {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+    }
+
+    // Check for the white accent overlay
+    public static boolean isUsingWhiteAccent(IOverlayManager om, int userId) {
+        OverlayInfo themeInfo = null;
+        try {
+            themeInfo = om.getOverlayInfo(ACCENTS[21],
+                    userId);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return themeInfo != null && themeInfo.isEnabled();
     }
 }

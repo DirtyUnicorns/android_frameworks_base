@@ -16,11 +16,11 @@
 
 package com.android.systemui.qs.tiles;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.om.IOverlayManager;
-import android.content.om.OverlayInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -48,6 +48,7 @@ import com.android.systemui.qs.QSDetailItems.Item;
 import com.android.systemui.qs.QSDetailItemsList;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.internal.statusbar.ThemeAccentUtils;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
 
 import java.util.ArrayList;
@@ -121,12 +122,14 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
     }
 
     private IOverlayManager mOverlayManager;
+    private int mCurrentUserId;
     private Mode mMode;
 
     public ThemeTile(QSHost host) {
         super(host);
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
+        mCurrentUserId = ActivityManager.getCurrentUser();
         mMode = Mode.ACCENT;
     }
 
@@ -284,26 +287,13 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
     }
 
     private ThemeTileItem getThemeItemForStyleMode() {
-        boolean isDark = isUsingDarkTheme();
-        if (isDark) {
+        if (ThemeAccentUtils.isUsingDarkTheme(mOverlayManager, mCurrentUserId)) {
             return new ThemeTileItem(20, R.color.quick_settings_theme_tile_white,
                     R.string.quick_settings_theme_tile_color_white);
         } else {
             return new ThemeTileItem(20, R.color.quick_settings_theme_tile_black,
                     R.string.quick_settings_theme_tile_color_black);
         }
-    }
-
-    // Check for the dark theme overlay
-    private boolean isUsingDarkTheme() {
-        OverlayInfo themeInfo = null;
-        try {
-            themeInfo = mOverlayManager.getOverlayInfo("com.android.system.theme.dark",
-                    UserHandle.USER_CURRENT);
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
-        return themeInfo != null && themeInfo.isEnabled();
     }
 
     @Override

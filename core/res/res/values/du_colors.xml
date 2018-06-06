@@ -16,6 +16,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Screen pinning toast -->
+    <color name="screen_pinning_toast_dark_background_color">@*android:color/background_material_dark</color>
+    <color name="screen_pinning_toast_dark_text_color">@android:color/white</color>
+    <color name="screen_pinning_toast_light_background_color">#E6EEEEEE</color>
+    <color name="screen_pinning_toast_light_text_color">@color/primary_text_default_material_light</color>
+
     <!-- Generic colors -->
     <color name="generic_theme_primary">#4285f4</color>
     <color name="generic_theme_primary_dark">#346AC3</color>
