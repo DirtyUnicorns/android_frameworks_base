@@ -16,6 +16,9 @@
 -->
 <resources>
 
+  <!-- Fastscroller -->
+  <java-symbol type="color" name="fastscroller_text_color" />
+
   <!-- Screen pinning toast -->
   <java-symbol type="color" name="screen_pinning_toast_dark_background_color" />
   <java-symbol type="color" name="screen_pinning_toast_dark_text_color" />
