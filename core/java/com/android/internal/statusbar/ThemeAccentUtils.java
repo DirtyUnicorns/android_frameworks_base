@@ -16,10 +16,13 @@
 
 package com.android.internal.statusbar;
 
+import android.content.Context;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.os.RemoteException;
 import android.util.Log;
+
+import com.android.internal.R;
 
 public class ThemeAccentUtils {
     public static final String TAG = "ThemeAccentUtils";
@@ -49,6 +52,11 @@ public class ThemeAccentUtils {
         "com.accents.white", // 21
     };
 
+    private static final String[] getClocks(Context ctx) {
+        final String list = ctx.getResources().getString(R.string.custom_clock_styles);
+        return list.split(",");
+    }
+
     private static final String[] DARK_THEMES = {
         "com.android.system.theme.dark", // 0
         "com.android.settings.theme.dark", // 1
@@ -58,7 +66,7 @@ public class ThemeAccentUtils {
 
     private static final String STOCK_DARK_THEME = "com.android.systemui.theme.dark";
 
-    // Switches theme accent from to another or back to stock
+    // Switches theme accent from one to another or back to stock
     public static void updateAccents(IOverlayManager om, int userId, int accentSetting) {
         if (accentSetting == 0) {
             unloadAccents(om, userId);
@@ -92,6 +100,36 @@ public class ThemeAccentUtils {
             String accent = ACCENTS[i];
             try {
                 om.setEnabled(accent,
+                        false /*disable*/, userId);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // Switches the analog clock from one to another or back to stock
+    public static void updateClocks(IOverlayManager om, int userId, int clockSetting, Context ctx) {
+        // all clock already unloaded due to StatusBar observer unloadClocks call
+        // set the custom analog clock overlay
+        if (clockSetting > 4) {
+            try {
+                final String[] clocks = getClocks(ctx);
+                om.setEnabled(clocks[clockSetting],
+                        true, userId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change analog clocks", e);
+            }
+        }
+    }
+
+    // Unload all the analog clocks
+    public static void unloadClocks(IOverlayManager om, int userId, Context ctx) {
+        // skip index 0
+        final String[] clocks = getClocks(ctx);
+        for (int i = 1; i < clocks.length; i++) {
+            String clock = clocks[i];
+            try {
+                om.setEnabled(clock,
                         false /*disable*/, userId);
             } catch (RemoteException e) {
                 e.printStackTrace();

@@ -174,4 +174,7 @@
 
   <!-- Whether the device supports Smart Pixels -->
   <java-symbol type="bool" name="config_enableSmartPixels" />
+
+  <!-- Custom clocks -->
+  <java-symbol type="string" name="custom_clock_styles" />
 </resources>

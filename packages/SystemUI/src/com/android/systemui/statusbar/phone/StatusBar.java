@@ -5258,16 +5258,28 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     }
 
-    // Switches theme accent from to another or back to stock
+    // Switches theme accent from one to another or back to stock
     public void updateAccents() {
         int accentSetting = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.ACCENT_PICKER, 0, mCurrentUserId);
         ThemeAccentUtils.updateAccents(mOverlayManager, mCurrentUserId, accentSetting);
     }
 
-    // Unload all the theme accents
+    // Unload all the theme accents overlays
     public void unloadAccents() {
         ThemeAccentUtils.unloadAccents(mOverlayManager, mCurrentUserId);
+    }
+
+    // Switches the analog clock from one to another or back to stock
+    public void updateClocks() {
+        int clockSetting = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, mCurrentUserId);
+        ThemeAccentUtils.updateClocks(mOverlayManager, mCurrentUserId, clockSetting, mContext);
+    }
+
+    // Unload all the analog overlays
+    public void unloadClocks() {
+        ThemeAccentUtils.unloadClocks(mOverlayManager, mCurrentUserId, mContext);
     }
 
     private void updateDozingState() {
@@ -6584,8 +6596,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.HIDE_LOCKSCREEN_ALARM)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.HIDE_LOCKSCREEN_CLOCK)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.HIDE_LOCKSCREEN_DATE)) ||
-                    uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_CLOCK_SELECTION)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_DATE_SELECTION))) {
+                updateKeyguardStatusSettings();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_CLOCK_SELECTION))) {
+                unloadClocks();
+                updateClocks();
                 updateKeyguardStatusSettings();
             }
         }

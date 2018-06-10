@@ -38,4 +38,8 @@
     <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
 
     <string name="app_blacklist">Blacklist app</string>
+
+    <string name="custom_clock_styles" translatable="false">
+        digital,digital_bold,sammy,sammy_bold,analog
+    </string>
 </resources>
