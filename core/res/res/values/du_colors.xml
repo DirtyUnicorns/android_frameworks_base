@@ -16,6 +16,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Fastscroller -->
+    <color name="fastscroller_text_color">#FFFFFFFF</color>
+
     <!-- Screen pinning toast -->
     <color name="screen_pinning_toast_dark_background_color">@*android:color/background_material_dark</color>
     <color name="screen_pinning_toast_dark_text_color">@android:color/white</color>
