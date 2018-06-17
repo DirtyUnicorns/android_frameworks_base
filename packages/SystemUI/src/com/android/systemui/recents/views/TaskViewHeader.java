@@ -811,11 +811,20 @@ public class TaskViewHeader extends FrameLayout
             tv.screenPinning();
         } else if (v == mKillButton) {
             TaskView tv = Utilities.findParent(this, TaskView.class);
-            if (killTask()) {
+            boolean killed = killTask();
+            if (killed && !Recents.sLockedTasks.contains(tv.getTask())) {
+                // task wasn't locked by user, we can do a full kill dismissing it from Recents list
                 tv.dismissTask();
+                Toast.makeText(getContext(), R.string.recents_app_killed, Toast.LENGTH_SHORT).show();
                 // Keep track of deletions by the dismiss button
                 MetricsLogger.histogram(getContext(), "overview_task_dismissed_source",
                         Constants.Metrics.DismissSourceHeaderButton);
+            } else if (killed) {
+                // task was locked by user, we force stopped it but let's keep it in the Recents list
+                Toast.makeText(getContext(), R.string.recents_locked_app_kill_warning, Toast.LENGTH_SHORT).show();
+            } else {
+                // killTask() went wrong and returned false for some reason, app is still alive
+                Toast.makeText(getContext(), R.string.recents_kill_error_warning, Toast.LENGTH_SHORT).show();
             }
         } else if (v == mMoveTaskButton) {
             TaskView tv = Utilities.findParent(this, TaskView.class);
@@ -844,9 +853,6 @@ public class TaskViewHeader extends FrameLayout
                 IActivityManager iam = ActivityManagerNative.getDefault();
                 try {
                     iam.forceStopPackage(packageName, UserHandle.USER_CURRENT);
-                    Toast appKilled = Toast.makeText(getContext(), R.string.recents_app_killed,
-                            Toast.LENGTH_SHORT);
-                    appKilled.show();
                     killed = true;
                 } catch (RemoteException e) {
                     killed = false;
