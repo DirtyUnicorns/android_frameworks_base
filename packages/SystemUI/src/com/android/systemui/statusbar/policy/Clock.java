@@ -375,7 +375,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
             Date now = new Date();
 
             if (mClockDateFormat == null || mClockDateFormat.isEmpty()) {
-                // Set dateString to short uppercase Weekday (Default for AOKP) if empty
+                // Set dateString to short uppercase Weekday if empty
                 dateString = DateFormat.format("EEE", now);
             } else {
                 dateString = DateFormat.format(mClockDateFormat, now);

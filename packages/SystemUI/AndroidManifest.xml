@@ -593,13 +593,13 @@
             android:singleUser="true"
             android:permission="android.permission.BIND_DREAM_SERVICE" />
 
-        <receiver
+        <!--receiver
             android:name=".tuner.TunerService$ClearReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.android.systemui.action.CLEAR_TUNER" />
             </intent-filter>
-        </receiver>
+        </receiver-->
 
         <provider
             android:name="android.support.v4.content.FileProvider"

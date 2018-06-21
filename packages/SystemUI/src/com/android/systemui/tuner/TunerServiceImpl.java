@@ -217,10 +217,10 @@ public class TunerServiceImpl extends TunerService {
     @Override
     public void clearAll() {
         // A couple special cases.
-        Settings.Global.putString(mContentResolver, DemoMode.DEMO_MODE_ALLOWED, null);
-        Intent intent = new Intent(DemoMode.ACTION_DEMO);
-        intent.putExtra(DemoMode.EXTRA_COMMAND, DemoMode.COMMAND_EXIT);
-        mContext.sendBroadcast(intent);
+        //Settings.Global.putString(mContentResolver, DemoMode.DEMO_MODE_ALLOWED, null);
+        //Intent intent = new Intent(DemoMode.ACTION_DEMO);
+        //intent.putExtra(DemoMode.EXTRA_COMMAND, DemoMode.COMMAND_EXIT);
+        //mContext.sendBroadcast(intent);
 
         for (String key : mTunableLookup.keySet()) {
             Settings.Secure.putString(mContentResolver, key, null);
