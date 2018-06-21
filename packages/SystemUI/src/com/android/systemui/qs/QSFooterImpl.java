@@ -30,10 +30,12 @@ import android.content.res.Resources;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
+import android.net.Uri;
 import android.os.UserManager;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.provider.AlarmClock;
+import android.provider.CalendarContract;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.util.AttributeSet;
@@ -385,14 +387,17 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
             //}
             startSettingsActivity();
         } else if (v == mDateTimeGroup) {
-            Dependency.get(MetricsLogger.class).action(ACTION_QS_DATE,
-                    mNextAlarm != null);
-            if (mNextAlarm != null) {
+            if (mAlarmShowing) {
+                Dependency.get(MetricsLogger.class).action(ACTION_QS_DATE,
+                        true);
                 PendingIntent showIntent = mNextAlarm.getShowIntent();
                 mActivityStarter.startPendingIntentDismissingKeyguard(showIntent);
-            } else {
-                mActivityStarter.postStartActivityDismissingKeyguard(new Intent(
-                        AlarmClock.ACTION_SHOW_ALARMS), 0);
+           } else {
+                Uri.Builder builder = CalendarContract.CONTENT_URI.buildUpon();
+                builder.appendPath("time");
+                builder.appendPath(Long.toString(System.currentTimeMillis()));
+                Intent todayIntent = new Intent(Intent.ACTION_VIEW, builder.build());
+                mActivityStarter.postStartActivityDismissingKeyguard(todayIntent, 0);
             }
         }
     }
