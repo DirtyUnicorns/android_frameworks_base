@@ -55,6 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Перезагрузка</string>
   <string name="quick_settings_reboot_recovery_label">Режим восстановления</string>
+  <string name="quick_settings_reboot_bootloader_label">Загрузчик</string>
   <string name="quick_settings_poweroff_label">Выключить</string>
   <string name="quick_settings_screenshot_label">Снимок экрана</string>
   <string name="quick_settings_region_screenshot_label">Частичный снимок экрана</string>
@@ -110,4 +111,8 @@
   <!-- Smart pixels QS tile -->
   <string name="quick_settings_smart_pixels">Умные пиксели</string>
   <string name="quick_settings_smart_pixels_on_power_save">Автоматическое включение умных пикселей</string>
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
 </resources>

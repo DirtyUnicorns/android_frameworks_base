@@ -55,6 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">重启</string>
   <string name="quick_settings_reboot_recovery_label">恢复模式</string>
+  <string name="quick_settings_reboot_bootloader_label">引导模式</string>
   <string name="quick_settings_poweroff_label">关机</string>
   <string name="quick_settings_screenshot_label">屏幕截图</string>
   <string name="quick_settings_region_screenshot_label">局部截图</string>
@@ -110,4 +111,8 @@
   <!-- Smart pixels QS tile -->
   <string name="quick_settings_smart_pixels">智能像素</string>
   <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
 </resources>
