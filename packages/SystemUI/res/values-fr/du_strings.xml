@@ -115,4 +115,8 @@
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
+  <!-- Recents kill app -->
+  <string name="recents_app_killed">Application fermée</string>
+  <string name="recents_locked_app_kill_warning">Application verrouillée. Fermeture forcée, mais l\'application est conservée.</string>
+  <string name="recents_kill_error_warning">Impossible de forcer la fermeture de cette application. Abandon.</string>
 </resources>

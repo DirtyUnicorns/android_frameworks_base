@@ -115,4 +115,8 @@
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
+  <!-- Recents kill app -->
+  <string name="recents_app_killed">Alkalmazás kilőve</string>
+  <string name="recents_locked_app_kill_warning">Az alkalmazás zárolva van. Kényszerített leállítás, de nem veti el ezt az alkalmazást.</string>
+  <string name="recents_kill_error_warning">Nem lehet kilőni vagy kényszerítve leállítani ezt az alkalmazást. A művelet megszakítva.</string>
 </resources>
