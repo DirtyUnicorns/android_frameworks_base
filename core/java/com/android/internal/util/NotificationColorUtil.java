@@ -521,7 +521,7 @@ public class NotificationColorUtil {
         int color = resolvedColor;
 
         if (!context.getResources().getBoolean(R.bool.config_allowNotificationIconTextTinting)) {
-            color = context.getColor(R.color.notification_text_default_color);
+            color = context.getColor(R.color.notification_ambient_default_color);
         } else {
             color = NotificationColorUtil.ensureTextContrastOnBlack(color);
         }
