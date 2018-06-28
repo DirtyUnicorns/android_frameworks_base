@@ -4110,13 +4110,14 @@ public final class Settings {
          *    0 - Don't show percentage
          *    1 - Show percentage outside the battery icon
          *    2 - Show percentage inside the battery icon
+         *    3 - Show percentage inside the battery icon, outside when charging
          * @hide
          */
         public static final String SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
 
         /** @hide */
         private static final Validator SHOW_BATTERY_PERCENT_VALIDATOR =
-                new InclusiveIntegerRangeValidator(0, 2);
+                new InclusiveIntegerRangeValidator(0, 3);
 
         /**
          * Custom button brightness value for manual mode
