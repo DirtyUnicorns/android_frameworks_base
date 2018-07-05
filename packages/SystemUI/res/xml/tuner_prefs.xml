@@ -84,6 +84,10 @@
             android:defaultValue="false" />
 
         <com.android.systemui.tuner.StatusBarSwitch
+            android:key="data_saver"
+            android:title="@string/data_saver" />
+
+        <com.android.systemui.tuner.StatusBarSwitch
             android:key="vpn"
             android:title="@string/status_bar_vpn" />
 
