@@ -65,7 +65,7 @@
   <string name="caffeine_info_title">Was ist das?</string>
   <string name="caffeine_info_message">Die Koffein-Kachel sorgt dafür, dass der Bildschirm auch ohne Benutzung an bleibt.\n\nBitte beachte, dass sich der Timer zurücksetzt, wenn der Bildschirm ausgeschaltet wird.</string>
   <string name="theme_info_title">Was ist das?</string>
-  <string name="theme_info_message">Die Themen Kachel ist eine einzigartige aber einfach zu bedienende Kachel, die dem Benutzer erlaubt, den Akzent oder Stil der Benutzeroberfläche zu ändern.\n\nUm zwischen den Akzenten und Stilen umzuschalten, die Kachel länger drücken und dann erneut antippen um aus den angebotenen Optionen auszuwählen.</string>
+  <string name="theme_info_message">Die Themen-Kachel ist eine einzigartige, aber einfach zu bedienende Kachel, die dem Benutzer erlaubt, den Akzent oder Stil der Benutzeroberfläche zu ändern.\n\nUm zwischen den Akzenten und Stilen umzuschalten, die Kachel länger drücken und dann erneut antippen um aus den angebotenen Optionen auszuwählen.</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">Ziehe oder tippe, um Kacheln hinzuzufügen</string>
   <!-- Navigation bar Tile -->
@@ -109,7 +109,7 @@
   <string name="keyguard_plugged_in_turbo_power_charging">TurboPower verbunden</string>
   <string name="keyguard_plugged_in_turbo_charging">Schnelles Aufladen</string>
   <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels">Smart Pixels</string>
   <string name="quick_settings_smart_pixels_on_power_save">Smart Pixels automatisch einschalten</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
@@ -117,6 +117,6 @@
          [CHAR LIMIT=4] -->
   <!-- Recents kill app -->
   <string name="recents_app_killed">App beendet</string>
-  <string name="recents_locked_app_kill_warning">App ist gesperrt. Erzwinge das Anhalten aber nicht das Schließen der App.</string>
+  <string name="recents_locked_app_kill_warning">App ist gesperrt. Erzwinge das Anhalten, aber nicht das Schließen der App.</string>
   <string name="recents_kill_error_warning">Konnte das Beenden der App nicht erzwingen. Vorgang abgebrochen.</string>
 </resources>

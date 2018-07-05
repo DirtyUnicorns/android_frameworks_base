@@ -117,6 +117,6 @@
          [CHAR LIMIT=4] -->
   <!-- Recents kill app -->
   <string name="recents_app_killed">Приложение закрыто</string>
-  <string name="recents_locked_app_kill_warning">App is locked. Force stopping but not dismissing this app.</string>
-  <string name="recents_kill_error_warning">Couldn\'t kill or force stop this app. Operation aborted.</string>
+  <string name="recents_locked_app_kill_warning">Приложение заблокировано. Принудительная остановка, но не выгружает это приложение.</string>
+  <string name="recents_kill_error_warning">Не удалось принудительно остановить это приложение. Операция прервана.</string>
 </resources>
