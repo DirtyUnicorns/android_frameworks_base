@@ -33,14 +33,14 @@
   <string name="global_action_restart_recovery">Återställning</string>
   <string name="global_action_restart_bootloader">Starthanterare</string>
   <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Hot</string>
+  <string name="global_action_restart_hot">Mjukstart</string>
   <string name="global_action_screenshot">Skärmdump</string>
   <!-- Screenshot Delete Toast -->
   <string name="delete_screenshot_toast">Skärmdump raderad</string>
   <!-- Battery saver tile -->
   <string name="battery_saver_qs_tile_fully_charged">Fulladdad</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+  <string name="keyguard_indication_dash_charging_time">Dash laddning (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> till full)</string>
   <string name="keyguard_plugged_in_dash_charging">Dash laddning</string>
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
   <string name="accessibility_data_connection_hspap">HSPA+</string>
@@ -55,68 +55,68 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Starta om</string>
   <string name="quick_settings_reboot_recovery_label">Återställning</string>
-  <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
-  <string name="quick_settings_poweroff_label">Power off</string>
+  <string name="quick_settings_reboot_bootloader_label">Starthanterare</string>
+  <string name="quick_settings_poweroff_label">Stäng av</string>
   <string name="quick_settings_screenshot_label">Skärmdump</string>
-  <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+  <string name="quick_settings_region_screenshot_label">Partiell skärmdump</string>
   <string name="quick_settings_caffeine_label">Koffein</string>
   <string name="accessibility_quick_settings_caffeine_off">Koffein av</string>
   <string name="accessibility_quick_settings_caffeine_on">Koffein på</string>
   <string name="caffeine_info_title">Vad är det här?</string>
-  <string name="caffeine_info_message">The Caffeine tile is a simple tile that you could switch on to keep your screen on after being idle.\n\nPlease note that the tile\'s state will reset itself after turning the screen off.</string>
-  <string name="theme_info_title">What is this?</string>
-  <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or style.\n\nTo change between accents and styles, simply long press on the tile and then press again to select from the options offered.</string>
+  <string name="caffeine_info_message">Panelen koffein är en enkel panel som du kan slå på för att hålla din skärm på efter att skärmen är aktiv.\n\nVänligen observera att panelens status kommer att återställas efter att stängt av skärmen.</string>
+  <string name="theme_info_title">Vad är detta?</string>
+  <string name="theme_info_message">Tema panelen är en unik men lättanvänt panel som tillåter användaren att ändra systemet accent eller stil.\n\nFör att förändra mellan accenter och stilar, tryck länge på panelen och tryck sedan på den igen för att välja från de alternativ som erbjuds.</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Drag or tap to add tiles</string>
+  <string name="drag_or_tap_to_add_tiles">Dra eller tryck för att lägga till brickor</string>
   <!-- Navigation bar Tile -->
-  <string name="quick_settings_navigation_bar">Navigation bar</string>
+  <string name="quick_settings_navigation_bar">Navigationsfält</string>
   <string name="quick_settings_smartbar">SmartBar</string>
   <string name="quick_settings_fling">Fling</string>
-  <string name="quick_settings_navigation_default">Stock</string>
-  <string name="quick_settings_navigation_disabled">Disabled</string>
+  <string name="quick_settings_navigation_default">Standard</string>
+  <string name="quick_settings_navigation_disabled">Avaktiverad</string>
   <!-- Theme tile -->
-  <string name="systemui_theme_style_title">Style</string>
-  <string name="systemui_theme_style_auto">Automatic</string>
-  <string name="systemui_theme_style_light">Light</string>
-  <string name="systemui_theme_style_dark">Dark</string>
+  <string name="systemui_theme_style_title">Stil</string>
+  <string name="systemui_theme_style_auto">Automatisk</string>
+  <string name="systemui_theme_style_light">Ljust</string>
+  <string name="systemui_theme_style_dark">Mörkt</string>
   <string name="quick_settings_theme_tile_title">Accent</string>
-  <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
-  <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
-  <string name="quick_settings_theme_tile_color_default">Default</string>
-  <string name="quick_settings_theme_tile_color_red">Red</string>
-  <string name="quick_settings_theme_tile_color_pink">Pink</string>
-  <string name="quick_settings_theme_tile_color_purple">Purple</string>
-  <string name="quick_settings_theme_tile_color_deep_purple">Deep purple</string>
+  <string name="quick_settings_theme_tile_accent_detail_title">Välj färg</string>
+  <string name="quick_settings_theme_tile_style_detail_title">Välj stil</string>
+  <string name="quick_settings_theme_tile_color_default">Standard</string>
+  <string name="quick_settings_theme_tile_color_red">Röd</string>
+  <string name="quick_settings_theme_tile_color_pink">Rosa</string>
+  <string name="quick_settings_theme_tile_color_purple">Lila</string>
+  <string name="quick_settings_theme_tile_color_deep_purple">Mörklila</string>
   <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-  <string name="quick_settings_theme_tile_color_blue">Blue</string>
-  <string name="quick_settings_theme_tile_color_light_blue">Light blue</string>
+  <string name="quick_settings_theme_tile_color_blue">Blå</string>
+  <string name="quick_settings_theme_tile_color_light_blue">Ljusblå</string>
   <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
-  <string name="quick_settings_theme_tile_color_teal">Teal</string>
-  <string name="quick_settings_theme_tile_color_green">Green</string>
-  <string name="quick_settings_theme_tile_color_light_green">Light green</string>
+  <string name="quick_settings_theme_tile_color_teal">Blågrön</string>
+  <string name="quick_settings_theme_tile_color_green">Grön</string>
+  <string name="quick_settings_theme_tile_color_light_green">Ljusgrön</string>
   <string name="quick_settings_theme_tile_color_lime">Lime</string>
-  <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
-  <string name="quick_settings_theme_tile_color_amber">Amber</string>
+  <string name="quick_settings_theme_tile_color_yellow">Gul</string>
+  <string name="quick_settings_theme_tile_color_amber">Bärnsten</string>
   <string name="quick_settings_theme_tile_color_orange">Orange</string>
-  <string name="quick_settings_theme_tile_color_deep_orange">Deep orange</string>
-  <string name="quick_settings_theme_tile_color_brown">Brown</string>
-  <string name="quick_settings_theme_tile_color_grey">Grey</string>
-  <string name="quick_settings_theme_tile_color_blue_grey">Blue grey</string>
-  <string name="quick_settings_theme_tile_color_black">Black</string>
-  <string name="quick_settings_theme_tile_color_white">White</string>
+  <string name="quick_settings_theme_tile_color_deep_orange">Mörkorange</string>
+  <string name="quick_settings_theme_tile_color_brown">Brun</string>
+  <string name="quick_settings_theme_tile_color_grey">Grå</string>
+  <string name="quick_settings_theme_tile_color_blue_grey">Blågrå</string>
+  <string name="quick_settings_theme_tile_color_black">Svart</string>
+  <string name="quick_settings_theme_tile_color_white">Vit</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
+  <string name="keyguard_indication_turbo_power_time">TurboPower ansluten (<xliff:g id="charging_time_left">%s</xliff:g> innan fullt)</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower ansluten</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turboladdning</string>
   <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Smart pixels</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+  <string name="quick_settings_smart_pixels">Smarta Pixlar</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-aktiverad smarta pixlar</string>
   <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Recents kill app -->
-  <string name="recents_app_killed">App killed</string>
-  <string name="recents_locked_app_kill_warning">App is locked. Force stopping but not dismissing this app.</string>
-  <string name="recents_kill_error_warning">Couldn\'t kill or force stop this app. Operation aborted.</string>
+  <string name="recents_app_killed">App tvångsavslutad</string>
+  <string name="recents_locked_app_kill_warning">Appen är låst. Tvångsavsluta men inte avfärda denna app.</string>
+  <string name="recents_kill_error_warning">Kunde inte stänga eller tvångsavsluta denna app. Operationen avbröts.</string>
 </resources>

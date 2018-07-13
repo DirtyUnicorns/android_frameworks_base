@@ -24,14 +24,14 @@
   <string name="reboot_title">再起動</string>
   <string name="reboot_message">システムを再起動中</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Your vendor image does not match the system. Please flash the <xliff:g id="string">%s</xliff:g> vendor image for your device</string>
+  <string name="system_error_vendorprint">ベンダーイメージがシステムと一致しません。お使いの端末に <xliff:g id="string">%s</xliff:g> ベンダーイメージを導入してください。</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">control navigation editor</string>
+  <string name="permlab_toggleNavigationEditor">ナビゲーションバーエディターの制御</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
+  <string name="permdesc_toggleNavigationEditor">アプリのナビゲーションバーエディターの制御を許可する</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">access font manager</string>
+  <string name="permlab_accessFontManager">フォントマネージャーにアクセス</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
-  <string name="app_blacklist">Blacklist app</string>
+  <string name="permdesc_accessFontManager">アプリのフォントマネージャーへのアクセスを許可する</string>
+  <string name="app_blacklist">アプリのブラックリスト</string>
 </resources>

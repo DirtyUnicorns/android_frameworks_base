@@ -117,7 +117,7 @@ DU SWAG</string>
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Recents kill app -->
-  <string name="recents_app_killed">App killed</string>
-  <string name="recents_locked_app_kill_warning">App is locked. Force stopping but not dismissing this app.</string>
-  <string name="recents_kill_error_warning">Couldn\'t kill or force stop this app. Operation aborted.</string>
+  <string name="recents_app_killed">Aplicativo encerrado</string>
+  <string name="recents_locked_app_kill_warning">Aplicativo está bloqueado. Forçar a interrupção, mas não descartar este aplicativo.</string>
+  <string name="recents_kill_error_warning">Não foi possível encerrar ou forçar a interrupção deste app. Operação abortada.</string>
 </resources>

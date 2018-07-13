@@ -55,7 +55,7 @@
   <!-- QS Tiles -->
   <string name="quick_settings_reboot_label">Reiniciar</string>
   <string name="quick_settings_reboot_recovery_label">Recuperació</string>
-  <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+  <string name="quick_settings_reboot_bootloader_label">Gestor d\'arrencada</string>
   <string name="quick_settings_poweroff_label">Apaga</string>
   <string name="quick_settings_screenshot_label">Captura de pantalla</string>
   <string name="quick_settings_region_screenshot_label">Captura de pantalla parcial</string>
@@ -116,7 +116,7 @@
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
   <!-- Recents kill app -->
-  <string name="recents_app_killed">App killed</string>
-  <string name="recents_locked_app_kill_warning">App is locked. Force stopping but not dismissing this app.</string>
-  <string name="recents_kill_error_warning">Couldn\'t kill or force stop this app. Operation aborted.</string>
+  <string name="recents_app_killed">App matada</string>
+  <string name="recents_locked_app_kill_warning">L\'aplicació està bloquejada. Forçada la parada però no descartada aquesta aplicació.</string>
+  <string name="recents_kill_error_warning">No puc matar o forçar l\'aturada d\'aquesta app. Operació cancel·lada.</string>
 </resources>
