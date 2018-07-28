@@ -18,6 +18,13 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Statusbar round corners padding -->
+    <dimen name="rounded_corner_content_padding_alt">0dp</dimen>
+
+    <!-- Power menu padding -->
+    <dimen name="custom_global_actions_bottom_padding">90dp</dimen>
+    <dimen name="custom_global_actions_top_padding">100dp</dimen>
+
     <!-- Big clock dozing -->
     <dimen name="dozing_big_clock_padding" format="float">0.38</dimen>
 
