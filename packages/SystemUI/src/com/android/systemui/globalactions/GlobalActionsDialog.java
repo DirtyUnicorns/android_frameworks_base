@@ -33,15 +33,12 @@ import com.android.systemui.statusbar.phone.ScrimController;
 import com.android.systemui.volume.VolumeDialogMotion.LogAccelerateInterpolator;
 import com.android.systemui.volume.VolumeDialogMotion.LogDecelerateInterpolator;
 
-import android.animation.ValueAnimator;
-import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.Dialog;
 import android.app.IActivityManager;
 import android.app.WallpaperManager;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -112,13 +109,13 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
      * see config.xml config_globalActionList */
     private static final String GLOBAL_ACTION_KEY_POWER = "power";
     private static final String GLOBAL_ACTION_KEY_AIRPLANE = "airplane";
-    private static final String GLOBAL_ACTION_KEY_BUGREPORT = "bugreport";
-    private static final String GLOBAL_ACTION_KEY_SILENT = "silent";
-    private static final String GLOBAL_ACTION_KEY_USERS = "users";
-    private static final String GLOBAL_ACTION_KEY_SETTINGS = "settings";
-    private static final String GLOBAL_ACTION_KEY_LOCKDOWN = "lockdown";
-    private static final String GLOBAL_ACTION_KEY_VOICEASSIST = "voiceassist";
-    private static final String GLOBAL_ACTION_KEY_ASSIST = "assist";
+    //private static final String GLOBAL_ACTION_KEY_BUGREPORT = "bugreport";
+    //private static final String GLOBAL_ACTION_KEY_SILENT = "silent";
+    //private static final String GLOBAL_ACTION_KEY_USERS = "users";
+    //private static final String GLOBAL_ACTION_KEY_SETTINGS = "settings";
+    //private static final String GLOBAL_ACTION_KEY_LOCKDOWN = "lockdown";
+    //private static final String GLOBAL_ACTION_KEY_VOICEASSIST = "voiceassist";
+    //private static final String GLOBAL_ACTION_KEY_ASSIST = "assist";
     private static final String GLOBAL_ACTION_KEY_RESTART = "restart";
     private static final String GLOBAL_ACTION_KEY_ADVANCED = "advanced";
     private static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
@@ -290,9 +287,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
             }
 
             public boolean showDuringKeyguard() {
-                boolean showlocked = Settings.System.getIntForUser(mContext.getContentResolver(),
+                return Settings.System.getIntForUser(mContext.getContentResolver(),
                         Settings.System.POWERMENU_LS_AIRPLANE, 0, UserHandle.USER_CURRENT) == 1;
-                return showlocked;
             }
 
             public boolean onLongPress() {
@@ -312,9 +308,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
                 mWindowManagerFuncs, mHandler) {
 
             public boolean showDuringKeyguard() {
-                boolean showlocked = Settings.System.getIntForUser(mContext.getContentResolver(),
+                return Settings.System.getIntForUser(mContext.getContentResolver(),
                         Settings.System.POWERMENU_LS_ADVANCED_REBOOT, 0, UserHandle.USER_CURRENT) == 1;
-                return showlocked;
             }
 
             public boolean showBeforeProvisioning() {
@@ -400,27 +395,27 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
                         Settings.System.POWERMENU_AIRPLANE, 0, UserHandle.USER_CURRENT) != 0 && !isInLockTaskMode()) {
                     mItems.add(mAirplaneModeOn);
                 }
-            } else if (GLOBAL_ACTION_KEY_BUGREPORT.equals(actionKey)) {
-                //if (Settings.Global.getInt(mContext.getContentResolver(),
-                //        Settings.Global.BUGREPORT_IN_POWER_MENU, 0) != 0 && isCurrentUserOwner()) {
-                //    mItems.add(new BugReportAction());
-                //}
+            /*} else if (GLOBAL_ACTION_KEY_BUGREPORT.equals(actionKey)) {
+                if (Settings.Global.getInt(mContext.getContentResolver(),
+                        Settings.Global.BUGREPORT_IN_POWER_MENU, 0) != 0 && isCurrentUserOwner()) {
+                    mItems.add(new BugReportAction());
+                }
             } else if (GLOBAL_ACTION_KEY_SILENT.equals(actionKey)) {
-                //if (mShowSilentToggle) {
-                //    mItems.add(mSilentModeAction);
-                //}
+                if (mShowSilentToggle) {
+                    mItems.add(mSilentModeAction);
+                }
             } else if (GLOBAL_ACTION_KEY_USERS.equals(actionKey)) {
-                //if (SystemProperties.getBoolean("fw.power_user_switcher", false)) {
-                //    addUsersToMenu(mItems);
-                //}
+                if (SystemProperties.getBoolean("fw.power_user_switcher", false)) {
+                    addUsersToMenu(mItems);
+                }
             } else if (GLOBAL_ACTION_KEY_SETTINGS.equals(actionKey)) {
-                //mItems.add(getSettingsAction());
+                mItems.add(getSettingsAction());
             } else if (GLOBAL_ACTION_KEY_LOCKDOWN.equals(actionKey)) {
-                //mItems.add(getLockdownAction());
+                mItems.add(getLockdownAction());
             } else if (GLOBAL_ACTION_KEY_VOICEASSIST.equals(actionKey)) {
-                //mItems.add(getVoiceAssistAction());
+                mItems.add(getVoiceAssistAction());
             } else if (GLOBAL_ACTION_KEY_ASSIST.equals(actionKey)) {
-                //mItems.add(getAssistAction());
+                mItems.add(getAssistAction());*/
             } else if (GLOBAL_ACTION_KEY_RESTART.equals(actionKey)) {
                 if (Settings.System.getIntForUser(mContext.getContentResolver(),
                         Settings.System.POWERMENU_REBOOT, 1, UserHandle.USER_CURRENT) == 1) {
@@ -479,11 +474,11 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
         @Override
         public boolean onLongPress() {
-            //UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
-            //if (!um.hasUserRestriction(UserManager.DISALLOW_SAFE_BOOT)) {
-            //    mWindowManagerFuncs.reboot(true);
-            //    return true;
-            //}
+            /*UserManager um = (UserManager) mContext.getSystemService(Context.USER_SERVICE);
+            if (!um.hasUserRestriction(UserManager.DISALLOW_SAFE_BOOT)) {
+                mWindowManagerFuncs.reboot(true);
+                return true;
+            }*/
             return false;
         }
 
@@ -522,9 +517,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
         @Override
         public boolean showDuringKeyguard() {
-            boolean showlocked = Settings.System.getIntForUser(mContext.getContentResolver(),
+            return Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.POWERMENU_LS_REBOOT, 1, UserHandle.USER_CURRENT) == 1;
-            return showlocked;
         }
 
         @Override
@@ -560,9 +554,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
         @Override
         public boolean showDuringKeyguard() {
-            boolean showlocked = Settings.System.getIntForUser(mContext.getContentResolver(),
+            return Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.POWERMENU_LS_SCREENSHOT, 0, UserHandle.USER_CURRENT) == 1;
-            return showlocked;
         }
 
         @Override

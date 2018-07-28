@@ -42,7 +42,6 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 public class GlobalActionsImpl implements GlobalActions {
 
     private static final float SHUTDOWN_SCRIM_ALPHA = 0.95f;
-    private static final float CUSTOM_SHUTDOWN_SCRIM_ALPHA = 0.00f;
 
     private final Context mContext;
     private final KeyguardMonitor mKeyguardMonitor;

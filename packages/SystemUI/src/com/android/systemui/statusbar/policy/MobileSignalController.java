@@ -137,7 +137,6 @@ public class MobileSignalController extends SignalController<
            resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.ROAMING_INDICATOR_ICON),
                   false, this, UserHandle.USER_ALL);
-           updateSettings();
         }
 
         @Override
@@ -160,16 +159,7 @@ public class MobileSignalController extends SignalController<
                     mapIconSets();
                     updateTelephony();
             }
-            updateSettings();
         }
-    }
-
-    private void updateSettings() {
-        ContentResolver resolver = mContext.getContentResolver();
-        boolean mShowLteFourGee = Settings.System.getIntForUser(resolver,
-                Settings.System.SHOW_LTE_FOURGEE, 0, UserHandle.USER_CURRENT) == 1;
-        boolean mRoamingIconAllowed = Settings.System.getIntForUser(resolver,
-                Settings.System.ROAMING_INDICATOR_ICON, 1, UserHandle.USER_CURRENT) == 1;
     }
 
     public void setConfiguration(Config config) {
