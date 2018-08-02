@@ -17,21 +17,21 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
-  <string name="reboot_to_recovery_title">Recovery</string>
-  <string name="reboot_to_recovery_message">Rebooting to recovery</string>
-  <string name="reboot_to_bootloader_title">Bootloader</string>
-  <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
-  <string name="reboot_title">Reboot</string>
-  <string name="reboot_message">Rebooting system</string>
+  <string name="reboot_to_recovery_title">復原模式</string>
+  <string name="reboot_to_recovery_message">重新啟動至恢復模式</string>
+  <string name="reboot_to_bootloader_title">引導裝載模式</string>
+  <string name="reboot_to_bootloader_message">重新啟動至引導裝載模式</string>
+  <string name="reboot_title">重新開機</string>
+  <string name="reboot_message">正在重新啟動系統</string>
   <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Your vendor image does not match the system. Please flash the <xliff:g id="string">%s</xliff:g> vendor image for your device</string>
+  <string name="system_error_vendorprint">您的供應者映像檔與系統不相符。 請刷入您的裝置 <xliff:g id="string">%s</xliff:g> 專用的供應者映像檔。</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_toggleNavigationEditor">control navigation editor</string>
+  <string name="permlab_toggleNavigationEditor">控制導覽列編輯器</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
+  <string name="permdesc_toggleNavigationEditor">允許應用程式控制導覽列編輯器。</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">access font manager</string>
+  <string name="permlab_accessFontManager">存取字型管理器</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
-  <string name="app_blacklist">Blacklist app</string>
+  <string name="permdesc_accessFontManager">允許應用程式存取字型管理器</string>
+  <string name="app_blacklist">應用程式黑名單</string>
 </resources>
