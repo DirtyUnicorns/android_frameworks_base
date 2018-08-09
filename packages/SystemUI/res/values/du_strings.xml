@@ -105,4 +105,6 @@
     <string name="nav_bar_layout_inverse_title">Swap buttons</string>
     <string name="nav_bar_layout_inverse_summary">Swap the order of recents and back buttons</string>
 
+    <!-- Ambient Display Pixel-Like string -->
+    <string name="ambientmusic_songinfo">%s by %s</string>
 </resources>
