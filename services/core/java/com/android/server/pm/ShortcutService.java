@@ -132,6 +132,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -1535,6 +1536,24 @@ public class ShortcutService extends IShortcutService.Stub {
                 "Ephemeral apps can't use ShortcutManager");
     }
 
+    private void verifyShortcutInfoPackage(String callerPackage, ShortcutInfo si) {
+        if (si == null) {
+            return;
+        }
+        if (!Objects.equals(callerPackage, si.getPackage())) {
+            android.util.EventLog.writeEvent(0x534e4554, "109824443", -1, "");
+            throw new SecurityException("Shortcut package name mismatch");
+        }
+    }
+
+    private void verifyShortcutInfoPackages(
+            String callerPackage, List<ShortcutInfo> list) {
+        final int size = list.size();
+        for (int i = 0; i < size; i++) {
+            verifyShortcutInfoPackage(callerPackage, list.get(i));
+        }
+    }
+
     // Overridden in unit tests to execute r synchronously.
     void injectPostToHandler(Runnable r) {
         mHandler.post(r);
@@ -1682,6 +1701,7 @@ public class ShortcutService extends IShortcutService.Stub {
         verifyCaller(packageName, userId);
 
         final List<ShortcutInfo> newShortcuts = (List<ShortcutInfo>) shortcutInfoList.getList();
+        verifyShortcutInfoPackages(packageName, newShortcuts);
         final int size = newShortcuts.size();
 
         synchronized (mLock) {
@@ -1733,6 +1753,7 @@ public class ShortcutService extends IShortcutService.Stub {
         verifyCaller(packageName, userId);
 
         final List<ShortcutInfo> newShortcuts = (List<ShortcutInfo>) shortcutInfoList.getList();
+        verifyShortcutInfoPackages(packageName, newShortcuts);
         final int size = newShortcuts.size();
 
         synchronized (mLock) {
@@ -1813,6 +1834,7 @@ public class ShortcutService extends IShortcutService.Stub {
         verifyCaller(packageName, userId);
 
         final List<ShortcutInfo> newShortcuts = (List<ShortcutInfo>) shortcutInfoList.getList();
+        verifyShortcutInfoPackages(packageName, newShortcuts);
         final int size = newShortcuts.size();
 
         synchronized (mLock) {
@@ -1872,6 +1894,7 @@ public class ShortcutService extends IShortcutService.Stub {
         Preconditions.checkNotNull(shortcut);
         Preconditions.checkArgument(shortcut.isEnabled(), "Shortcut must be enabled");
         verifyCaller(packageName, userId);
+        verifyShortcutInfoPackage(packageName, shortcut);
 
         final Intent ret;
         synchronized (mLock) {
@@ -1893,6 +1916,7 @@ public class ShortcutService extends IShortcutService.Stub {
     private boolean requestPinItem(String packageName, int userId, ShortcutInfo shortcut,
             AppWidgetProviderInfo appWidget, Bundle extras, IntentSender resultIntent) {
         verifyCaller(packageName, userId);
+        verifyShortcutInfoPackage(packageName, shortcut);
 
         final boolean ret;
         synchronized (mLock) {
