@@ -23,6 +23,7 @@ import android.content.Context;
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
 import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -37,6 +38,8 @@ import android.view.WindowManagerGlobal;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import java.util.Locale;
 
 public class Utils {
 
@@ -159,5 +162,10 @@ public class Utils {
         } catch (RemoteException ex) {
         }
         return hasNavbar;
+
+    // Check for Chinese language
+    public static boolean isChineseLanguage() {
+        return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
+               Locale.CHINESE.getLanguage());
     }
 }
