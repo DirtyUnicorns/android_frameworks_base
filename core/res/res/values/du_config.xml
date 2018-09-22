@@ -29,7 +29,7 @@
     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
     </string-array>
 
-     <!-- Names of the key handler classes -->
+    <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
     </string-array>
 
@@ -42,5 +42,9 @@
 
     <!-- True if the gesture service should be started at system start -->
     <bool name="config_enableGestureService">false</bool>
+
+    <!-- Full screen aspect ratio -->
+    <bool name="config_haveHigherAspectRatioScreen">false</bool>
+    <item name="config_screenAspectRatio" format="float" type="dimen">2.1</item>
 
 </resources>
