@@ -173,9 +173,9 @@
             android:exported="true"
             android:permission="android.permission.MANAGE_DOCUMENTS"
             android:enabled="false">
-            <intent-filter>
+            <!--intent-filter>
                 <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
-            </intent-filter>
+            </intent-filter-->
         </provider>
 
         <activity
