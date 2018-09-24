@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.systemui.statusbar.phone;
+package com.android.internal.statusbar;
 
 import android.content.om.IOverlayManager;
 import android.content.om.OverlayInfo;
