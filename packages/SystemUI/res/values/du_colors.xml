@@ -41,6 +41,13 @@
     <color name="quick_settings_theme_tile_blue_grey">#607D8B</color>
     <color name="quick_settings_theme_tile_black">#000000</color>
     <color name="quick_settings_theme_tile_white">#ffffff</color>
+    <color name="quick_settings_theme_tile_user_one">#900000</color>
+    <color name="quick_settings_theme_tile_user_two">#42069a</color>
+    <color name="quick_settings_theme_tile_user_three">#1976D2</color>
+    <color name="quick_settings_theme_tile_user_four">#42f4aa</color>
+    <color name="quick_settings_theme_tile_user_five">#0EE898</color>
+    <color name="quick_settings_theme_tile_user_six">#FFC27B</color>
+    <color name="quick_settings_theme_tile_user_seven">#FFCC00</color>
 
 </resources>
 

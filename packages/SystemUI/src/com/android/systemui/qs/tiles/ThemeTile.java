@@ -17,6 +17,7 @@
 package com.android.systemui.qs.tiles;
 
 import android.app.ActivityManager;
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -98,16 +99,30 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
                 R.string.quick_settings_theme_tile_color_grey));
         sThemeItems.add(new ThemeTileItem(19, R.color.quick_settings_theme_tile_blue_grey,
                 R.string.quick_settings_theme_tile_color_blue_grey));
+        sThemeItems.add(new ThemeTileItem(22, R.color.quick_settings_theme_tile_user_one,
+                R.string.quick_settings_theme_tile_color_user_one));
+        sThemeItems.add(new ThemeTileItem(23, R.color.quick_settings_theme_tile_user_two,
+                R.string.quick_settings_theme_tile_color_user_two));
+        sThemeItems.add(new ThemeTileItem(24, R.color.quick_settings_theme_tile_user_three,
+                R.string.quick_settings_theme_tile_color_user_three));
+        sThemeItems.add(new ThemeTileItem(25, R.color.quick_settings_theme_tile_user_four,
+                R.string.quick_settings_theme_tile_color_user_four));
+        sThemeItems.add(new ThemeTileItem(26, R.color.quick_settings_theme_tile_user_five,
+                R.string.quick_settings_theme_tile_color_user_five));
+        sThemeItems.add(new ThemeTileItem(27, R.color.quick_settings_theme_tile_user_six,
+                R.string.quick_settings_theme_tile_color_user_six));
+        sThemeItems.add(new ThemeTileItem(28, R.color.quick_settings_theme_tile_user_seven,
+                R.string.quick_settings_theme_tile_color_user_seven));
     }
 
     static final List<ThemeTileItem> sStyleItems = new ArrayList<ThemeTileItem>();
     static {
-        sStyleItems.add(new ThemeTileItem(0, -1,
-                R.string.system_theme_style_auto, Settings.System.SYSTEM_THEME));
-        sStyleItems.add(new ThemeTileItem(1, -1,
-                R.string.system_theme_style_light, Settings.System.SYSTEM_THEME));
-        sStyleItems.add(new ThemeTileItem(2, -1,
-                R.string.system_theme_style_dark, Settings.System.SYSTEM_THEME));
+        sStyleItems.add(new ThemeTileItem(UiModeManager.MODE_NIGHT_AUTO, -1,
+                R.string.system_theme_style_auto));
+        sStyleItems.add(new ThemeTileItem(UiModeManager.MODE_NIGHT_YES, -1,
+                R.string.system_theme_style_dark));
+        sStyleItems.add(new ThemeTileItem(UiModeManager.MODE_NIGHT_NO, -1,
+                R.string.system_theme_style_light));
     }
 
     private enum Mode {
@@ -117,12 +132,14 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
     private IOverlayManager mOverlayManager;
     private int mCurrentUserId;
     private Mode mMode;
+    private static UiModeManager mUiModeManager;
 
     public ThemeTile(QSHost host) {
         super(host);
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
         mCurrentUserId = ActivityManager.getCurrentUser();
+        mUiModeManager = mContext.getSystemService(UiModeManager.class);
         mMode = Mode.ACCENT;
     }
 
@@ -150,6 +167,10 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
         public void commit(Context context) {
             Settings.System.putIntForUser(context.getContentResolver(),
                     uri, settingsVal, UserHandle.USER_CURRENT);
+        }
+
+        public void styleCommit(Context context) {
+            mUiModeManager.setNightMode(settingsVal);
         }
 
         public QSTile.Icon getIcon(Context context) {
@@ -275,7 +296,11 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
                 return;
             ThemeTileItem themeItem = (ThemeTileItem) item.tag;
             showDetail(false);
-            themeItem.commit(mContext);
+            if (mMode == Mode.ACCENT) {
+                themeItem.commit(mContext);
+            } else {
+                themeItem.styleCommit(mContext);
+            }
         }
     }
 
