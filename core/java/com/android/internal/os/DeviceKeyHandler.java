@@ -22,5 +22,5 @@ public interface DeviceKeyHandler {
      * @param event The key event to be handled
      * @return If the event is consume
      */
-    public boolean handleKeyEvent(KeyEvent event);
+    public KeyEvent handleKeyEvent(KeyEvent event);
 }
