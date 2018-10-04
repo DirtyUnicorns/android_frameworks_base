@@ -61,4 +61,6 @@
     <!-- Bluetooth service -->
    <java-symbol type="string" name="bluetooth_airplane_mode_toast" />
 
+  <!-- Package Manager -->
+  <java-symbol type="array" name="config_disabledComponents" />
 </resources>
