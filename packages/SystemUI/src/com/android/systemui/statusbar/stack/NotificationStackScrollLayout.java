@@ -3994,11 +3994,15 @@ public class NotificationStackScrollLayout extends ViewGroup
     }
 
     private void updateAntiBurnInTranslation() {
-        float x = mAntiBurnInOffsetX * mDarkAmount;
-        if (!onKeyguard()) {
-            x += getTranslationX();
+        if (mContext.getApplicationContext().getResources().getBoolean(R.bool.tablets_notifications_quick_fix)) {
+            float x = mAntiBurnInOffsetX * mDarkAmount;
+            if (!onKeyguard()) {
+                x += getTranslationX();
+            }
+            setTranslationX(x);
+        } else {
+            setTranslationX(mAntiBurnInOffsetX * mDarkAmount);
         }
-        setTranslationX(x);
     }
 
     /**
