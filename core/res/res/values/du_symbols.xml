@@ -16,6 +16,9 @@
 -->
 <resources>
 
+  <!-- Screen off delay -->
+  <java-symbol type="integer" name="config_screen_off_delay" />
+
   <!-- Device keyhandlers -->
   <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
   <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
