@@ -19,10 +19,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Power menu -->
-    <string name="reboot_to_recovery_title" translatable="false">Recovery</string>
-    <string name="reboot_to_recovery_message" translatable="false">Restarting to recovery</string>
-    <string name="reboot_to_bootloader_title" translatable="false">Bootloader</string>
-    <string name="reboot_to_bootloader_message" translatable="false">Restarting to bootloader</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Restarting to recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Restarting to bootloader</string>
     <string name="reboot_title">Restart</string>
     <string name="reboot_message">Restarting system</string>
 
