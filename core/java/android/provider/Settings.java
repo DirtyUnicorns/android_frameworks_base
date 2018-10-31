@@ -4131,6 +4131,11 @@ public final class Settings {
         public static final String QS_TILE_STYLE = "qs_tile_style";
 
         /**
+         * @hide
+         */
+        public static final String FULL_GESTURE_NAVBAR = "full_gesture_navbar";
+
+        /**
          * 0 - fullscreen
          * 1 - partial
          * @hide
