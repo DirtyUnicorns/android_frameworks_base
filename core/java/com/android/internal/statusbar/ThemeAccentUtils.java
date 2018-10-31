@@ -69,10 +69,11 @@ public class ThemeAccentUtils {
     };
 
     private static final String[] QS_TILE_THEMES = {
-        "com.android.systemui.qstile.default", // 0
-        "com.android.systemui.qstile.circletrim", // 1
-        "com.android.systemui.qstile.twotonecircletrim", // 2
-        "com.android.systemui.qstile.squircletrim", // 3
+        "default", // 0
+        "com.android.systemui.qstile.square", // 1
+        "com.android.systemui.qstile.roundedsquare", // 2
+        "com.android.systemui.qstile.squircle", // 3
+        "com.android.systemui.qstile.teardrop", // 4
     };
 
     // Unloads the stock dark theme
@@ -205,7 +206,7 @@ public class ThemeAccentUtils {
     // Switches qs tile style to user selected.
     public static void updateTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
         if (qsTileStyle == 0) {
-            stockTileStyle(om, userId);
+            unlockQsTileStyles(om, userId);
         } else {
             try {
                 om.setEnabled(QS_TILE_THEMES[qsTileStyle],
@@ -214,8 +215,9 @@ public class ThemeAccentUtils {
             }
         }
     }
-    // Switches qs tile style back to stock.
-    public static void stockTileStyle(IOverlayManager om, int userId) {
+
+    // Unload all the qs tile styles
+    public static void unlockQsTileStyles(IOverlayManager om, int userId) {
         // skip index 0
         for (int i = 1; i < QS_TILE_THEMES.length; i++) {
             String qstiletheme = QS_TILE_THEMES[i];
