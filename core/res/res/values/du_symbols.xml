@@ -30,6 +30,7 @@
   <java-symbol type="color" name="power_menu_advanced_recovery" />
   <java-symbol type="color" name="power_menu_advanced_system_restart_ui" />
   <java-symbol type="color" name="power_menu_screenshot" />
+  <java-symbol type="array" name="config_custom_globalActionsList" />
 
   <!-- Screen off delay -->
   <java-symbol type="integer" name="config_screen_off_delay" />
