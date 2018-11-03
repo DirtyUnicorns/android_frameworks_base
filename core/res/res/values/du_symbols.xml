@@ -24,6 +24,7 @@
   <java-symbol type="string" name="reboot_title" />
   <java-symbol type="string" name="reboot_message" />
   <java-symbol type="color" name="power_menu_power_off" />
+  <java-symbol type="color" name="power_menu_hot_reboot" />
   <java-symbol type="color" name="power_menu_restart" />
   <java-symbol type="color" name="power_menu_restart_advanced" />
   <java-symbol type="color" name="power_menu_advanced_bootloader" />

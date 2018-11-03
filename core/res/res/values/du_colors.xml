@@ -18,6 +18,7 @@
 
     <!-- Power menu -->
     <color name="power_menu_power_off">#ff202020</color>
+    <color name="power_menu_hot_reboot">#ff202020</color>
     <color name="power_menu_restart">#ff202020</color>
     <color name="power_menu_restart_advanced">#ff202020</color>
     <color name="power_menu_advanced_bootloader">#ff202020</color>

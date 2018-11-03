@@ -23,6 +23,7 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_hot">Hot</string>
 
     <!-- Theme tile -->
     <string name="system_theme_style_title">Style</string>
