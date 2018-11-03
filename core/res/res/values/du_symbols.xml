@@ -30,6 +30,7 @@
   <java-symbol type="color" name="power_menu_advanced_bootloader" />
   <java-symbol type="color" name="power_menu_advanced_recovery" />
   <java-symbol type="color" name="power_menu_advanced_system_restart_ui" />
+  <java-symbol type="color" name="power_menu_lockdown" />
   <java-symbol type="color" name="power_menu_screenshot" />
   <java-symbol type="array" name="config_custom_globalActionsList" />
 
