@@ -28,6 +28,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
     protected int mCellMarginHorizontal;
     protected int mCellMarginVertical;
     protected int mSidePadding;
+    protected boolean mShowTitles = true;
 
     protected final ArrayList<TileRecord> mRecords = new ArrayList<>();
     private int mCellMarginTop;
@@ -98,9 +99,11 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
         mCellMarginTop = res.getDimensionPixelSize(R.dimen.qs_tile_margin_top);
         mSidePadding = res.getDimensionPixelOffset(R.dimen.qs_tile_layout_margin_side);
 
-        if (Settings.System.getIntForUser(resolver,
+        boolean showTitles = Settings.System.getIntForUser(resolver,
                 Settings.System.QS_TILE_TITLE_VISIBILITY, 1,
-                UserHandle.USER_CURRENT) == 1) {
+                UserHandle.USER_CURRENT) == 1;
+        mShowTitles = showTitles;
+        if (showTitles) {
             mCellHeight = mContext.getResources().getDimensionPixelSize(R.dimen.qs_tile_height);
         } else {
             mCellHeight = mContext.getResources().getDimensionPixelSize(R.dimen.qs_tile_height_wo_label);
@@ -180,5 +183,10 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
     private int getColumnStart(int column) {
         return getPaddingStart() + mSidePadding + mCellMarginHorizontal / 2 +
                 column *  (mCellWidth + mCellMarginHorizontal);
+    }
+
+    @Override
+    public boolean isShowTitles() {
+        return mShowTitles;
     }
 }
