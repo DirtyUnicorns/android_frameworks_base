@@ -213,6 +213,9 @@
     <uses-permission android:name="android.permission.SHUTDOWN" />
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
 
+    <!-- permission necessary to hide non-system overlay windows from covering up the SystemUI -->
+    <uses-permission android:name="android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
