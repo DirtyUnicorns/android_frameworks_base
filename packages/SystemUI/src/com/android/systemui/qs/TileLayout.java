@@ -87,11 +87,11 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
         final int columns;
         if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             columns = Settings.System.getIntForUser(resolver,
-                    Settings.System.QS_COLUMNS_PORTRAIT, 5,
+                    Settings.System.QS_COLUMNS_PORTRAIT, 3,
                     UserHandle.USER_CURRENT);
         } else {
             columns = Settings.System.getIntForUser(resolver,
-                    Settings.System.QS_COLUMNS_LANDSCAPE, 5,
+                    Settings.System.QS_COLUMNS_LANDSCAPE, 4,
                     UserHandle.USER_CURRENT);
         }
         mCellMarginHorizontal = res.getDimensionPixelSize(R.dimen.qs_tile_margin_horizontal);
