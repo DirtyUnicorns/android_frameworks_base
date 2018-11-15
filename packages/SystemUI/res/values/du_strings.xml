@@ -26,13 +26,13 @@
     <string name="global_action_restart_hot">Hot</string>
 
     <!-- Theme tile -->
-    <string name="system_theme_style_title">Style</string>
+    <string name="system_theme_style_title">Theme</string>
     <string name="system_theme_style_auto">Automatic</string>
     <string name="system_theme_style_light">Light</string>
     <string name="system_theme_style_dark">Dark</string>
     <string name="quick_settings_theme_tile_title">Accent</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
-    <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Select accent</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Select theme</string>
     <string name="quick_settings_theme_tile_color_default">Default</string>
     <string name="quick_settings_theme_tile_color_red">Red</string>
     <string name="quick_settings_theme_tile_color_pink">Pink</string>
@@ -63,7 +63,7 @@
     <string name="quick_settings_theme_tile_color_user_six">Sandy</string>
     <string name="quick_settings_theme_tile_color_user_seven">Rams</string>
     <string name="theme_info_title">What is this?</string>
-    <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or style.\n\nTo change between accents and styles, simply long press on the tile and then press again to select from the options offered.</string>
+    <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or theme.\n\nTo change between accents and themes, simply long press on the tile and then press again to select from the options offered.</string>
 
     <!-- Screenshot tile -->
     <string name="screenshot_abort_title">No screenshot taken</string>
