@@ -349,6 +349,16 @@
                     android:resource="@string/summary_empty"/-->
         </activity>
 
+        <activity android:name=".tuner.NavbarActivity"
+                  android:enabled="true"
+                  android:icon="@drawable/tuner"
+                  android:theme="@style/CustomTunerSettings"
+                  android:label="@string/systemui_tuner_navbar_title"
+                  android:parentActivityName="com.dirtyunicorns.tweaks.DirtyTweaks"
+                  android:process=":tuner"
+                  android:exported="true">
+        </activity>
+
         <activity-alias android:name=".DemoMode"
                   android:targetActivity=".tuner.TunerActivity"
                   android:icon="@drawable/tuner"
