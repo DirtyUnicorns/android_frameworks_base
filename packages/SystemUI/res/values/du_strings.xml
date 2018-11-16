@@ -21,6 +21,9 @@
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Screenshot deleted</string>
 
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Drag or tap to add/remove tiles</string>
+
     <!-- Power menu -->
     <string name="global_action_restart_advanced">Advanced</string>
     <string name="global_action_restart_recovery">Recovery</string>
