@@ -31,6 +31,9 @@
     <string name="global_action_restart_ui">SystemUI</string>
     <string name="global_action_restart_hot">Hot</string>
 
+    <!-- SystemUI tuner -->
+    <string name="systemui_tuner_navbar_title">Stock navbar</string>
+
     <!-- Theme tile -->
     <string name="system_theme_style_title">Theme</string>
     <string name="system_theme_style_auto">Automatic</string>
