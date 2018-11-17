@@ -28,9 +28,7 @@ import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.input.InputManager;
 import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Handler;
-import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
@@ -45,6 +43,7 @@ import android.view.WindowManagerGlobal;
 import com.android.internal.R;
 import com.android.internal.statusbar.IStatusBarService;
 
+import java.lang.reflect.Method;
 import java.util.Locale;
 
 public class Utils {
@@ -125,8 +124,8 @@ public class Utils {
 
     // Check for Chinese language
     public static boolean isChineseLanguage() {
-       return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
-               Locale.CHINESE.getLanguage());
+        return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
+                Locale.CHINESE.getLanguage());
     }
 
     // Method to turn off the screen
@@ -184,12 +183,12 @@ public class Utils {
     public static void doHotReboot() {
         try {
             final IActivityManager am =
-                  ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
+                    ActivityManagerNative.asInterface(ServiceManager.checkService("activity"));
             if (am != null) {
                 am.restart();
             }
         } catch (RemoteException e) {
-      }
+        }
     }
 
     // Method to take screenshots
@@ -202,6 +201,7 @@ public class Utils {
         }
     }
 
+    // Method to sendKeycode
     public static void sendKeycode(int keycode, Handler h) {
         long when = SystemClock.uptimeMillis();
         final KeyEvent evDown = new KeyEvent(when, when, KeyEvent.ACTION_DOWN, keycode, 0,
@@ -225,6 +225,7 @@ public class Utils {
         }, 20);
     }
 
+    // Method to move keyboard cursor
     public static void moveKbCursor(int action, boolean right) {
         int code = right ? KeyEvent.KEYCODE_DPAD_RIGHT : KeyEvent.KEYCODE_DPAD_LEFT;
         long downTime = System.currentTimeMillis();
@@ -235,5 +236,23 @@ public class Utils {
                 InputDevice.SOURCE_KEYBOARD);
         InputManager.getInstance().injectInputEvent(ev,
                 InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
+    }
+
+    // Method to detect navigation bar is in use
+    public static boolean hasNavigationBar() {
+        boolean hasNavbar = false;
+        try {
+            Class<?> windowManagerGlobalClass = Class.forName("android.view.WindowManagerGlobal");
+            Method getWmServiceMethod = windowManagerGlobalClass.getDeclaredMethod("getWindowManagerService");
+            getWmServiceMethod.setAccessible(true);
+            Object iWindowManager = getWmServiceMethod.invoke(null);
+            Class<?> iWindowManagerClass = iWindowManager.getClass();
+            Method hasNavBarMethod = iWindowManagerClass.getDeclaredMethod("hasNavigationBar");
+            hasNavBarMethod.setAccessible(true);
+            hasNavbar = (Boolean) hasNavBarMethod.invoke(iWindowManager);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return hasNavbar;
     }
 }
