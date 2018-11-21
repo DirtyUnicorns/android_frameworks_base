@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (C) 2018 The Dirty Unicorns Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 2 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- App error dialog -->
+    <string name="aerr_copy">Copier l\'URL du journal de plantage</string>
+    <string name="url_copy_success">URL copiée</string>
+    <string name="url_copy_failed">Une erreur s\'est produite lors du téléversement du journal sur Dogbin</string>
+
+    <!-- Power menu -->
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Redémarrage Recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Redémarrage Bootloader</string>
+    <string name="reboot_title">Redémarrer</string>
+    <string name="reboot_message">Redémarrage Système</string>
+    <string name="global_action_lockdown">Écran de déverrouillage</string>
+
+    <string name="volume_dialog_ringer_guidance_silent_no_media">Son désactivé pour les appels et les notifications et les fichiers multimédia</string>
+
+    <!-- strings.xml -->
+    <string name="media_route_button_content_description">Diffuser</string>
+    <string name="media_route_chooser_title_for_remote_display">Diffuser l\'écran sur l\'appareil</string>
+
+</resources>
