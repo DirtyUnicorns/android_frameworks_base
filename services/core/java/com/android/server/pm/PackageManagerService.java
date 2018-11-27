@@ -281,6 +281,7 @@ import com.android.internal.logging.MetricsLogger;
 import com.android.internal.os.IParcelFileDescriptorFactory;
 import com.android.internal.os.SomeArgs;
 import com.android.internal.os.Zygote;
+import com.android.internal.statusbar.ThemeAccentUtils;
 import com.android.internal.telephony.CarrierAppUtils;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.ConcurrentUtils;
@@ -8441,12 +8442,6 @@ public class PackageManagerService extends IPackageManager.Stub
         }
     }
 
-    private String[] systemOverlayPackages = {"SysuiDarkTheme",
-                                              "DisplayCutoutEmulationCorner",
-                                              "DisplayCutoutEmulationDouble",
-                                              "DisplayCutoutEmulationNarrow",
-                                              "DisplayCutoutEmulationWide"};
-
     private void scanDirLI(File scanDir, int parseFlags, int scanFlags, long currentTime) {
         final File[] files = scanDir.listFiles();
         if (ArrayUtils.isEmpty(files)) {
@@ -8472,7 +8467,7 @@ public class PackageManagerService extends IPackageManager.Stub
                 }
                 // Ignore vendor overlays that should live on system/app
                 if ((scanDir.getPath() == VENDOR_OVERLAY_DIR || scanDir.getPath() == PRODUCT_OVERLAY_DIR)
-                        && Arrays.asList(systemOverlayPackages).contains(file.getName())){
+                    && Arrays.asList(ThemeAccentUtils.BLACKLIST_VENDOR_OVERLAYS).contains(file.getName())){
                     continue;
                 }
                 parallelPackageParser.submit(file, parseFlags);
