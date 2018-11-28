@@ -1882,7 +1882,7 @@ public class WallpaperManager {
             }
         }
 
-        flat = context.getString(com.android.internal.R.string.default_wallpaper_component);
+        flat = context.getString(com.android.internal.R.string.default_wallpaper_component_custom);
         if (!TextUtils.isEmpty(flat)) {
             final ComponentName cn = ComponentName.unflattenFromString(flat);
             if (cn != null) {

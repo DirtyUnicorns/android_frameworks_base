@@ -16,6 +16,9 @@
 -->
 <resources>
 
+  <!-- Wallpaper component -->
+  <java-symbol type="string" name="default_wallpaper_component_custom" />
+
   <!-- ChooserActivity blacklist -->
   <java-symbol type="array" name="resolver_target_actions_pin_custom" />
   <java-symbol type="array" name="resolver_target_actions_unpin_custom" />

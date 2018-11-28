@@ -25,6 +25,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Wallpaper component -->
+    <string name="default_wallpaper_component_custom" translatable="false">@null</string>
+
     <!-- Power menu -->
     <string-array translatable="false" name="config_custom_globalActionsList">
         <item>power</item>
@@ -75,4 +78,5 @@
 
     <!-- Ambient display music ticker -->
     <bool name="config_canForceDozeNotifications">true</bool>
+
 </resources>
