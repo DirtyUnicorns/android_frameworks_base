@@ -4550,6 +4550,11 @@ public final class Settings {
          */
         public static final String ANIM_TILE_INTERPOLATOR = "anim_tile_interpolator";
 
+        /**
+         * Whether to display our du logo in the statusbar for extra swag
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO = "status_bar_logo";
 
         /**
         * @hide
@@ -4776,6 +4781,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(KEY_APP_SWITCH_DOUBLE_TAP_ACTION);
             PRIVATE_SETTINGS.add(KEY_CAMERA_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_CAMERA_DOUBLE_TAP_ACTION);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
         }
 
         /**
