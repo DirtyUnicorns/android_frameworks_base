@@ -43,6 +43,7 @@ public class ThemeAccentUtils {
         "com.android.settings.theme.dark", // 1
         "com.android.settings.intelligence.theme.dark", // 2
         "com.android.gboard.theme.dark", // 3
+        "com.google.intelligence.sense.theme.dark", // 4
     };
 
     // Accents
