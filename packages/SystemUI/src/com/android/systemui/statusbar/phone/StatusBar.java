@@ -4028,15 +4028,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                 unfuckBlackWhiteAccent();
                 ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useDarkTheme);
             });
-        } else {
-            try {
-                mOverlayManager.setEnabled("com.google.intelligence.sense.theme.light",
-                        !useDarkTheme, mLockscreenUserManager.getCurrentUserId());
-                mOverlayManager.setEnabled("com.android.gboard.theme.light",
-                        !useDarkTheme, mLockscreenUserManager.getCurrentUserId());
-            } catch (RemoteException e) {
-                Log.w(TAG, "Can't change theme", e);
-            }
         }
 
         // Lock wallpaper defines the color of the majority of the views, hence we'll use it
