@@ -30,18 +30,24 @@ import android.animation.ValueAnimator;
 import android.annotation.DrawableRes;
 import android.annotation.StyleRes;
 import android.app.StatusBarManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.database.ContentObserver;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Point;
 import android.graphics.Rect;
 import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.PowerManager;
 import android.os.SystemProperties;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -83,9 +89,6 @@ import com.android.systemui.stackdivider.Divider;
 import com.android.systemui.statusbar.policy.DeadZone;
 import com.android.systemui.statusbar.policy.KeyButtonDrawable;
 import com.android.systemui.statusbar.policy.TintedKeyButtonDrawable;
-import com.android.systemui.tuner.TunerService;
-
-import lineageos.providers.LineageSettings;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -97,12 +100,9 @@ import static com.android.systemui.shared.system.NavigationBarCompat.HIT_TARGET_
 import static com.android.systemui.shared.system.NavigationBarCompat.HIT_TARGET_ROTATION;
 
 public class NavigationBarView extends FrameLayout implements PluginListener<NavGesture>,
-        PulseObserver, TunerService.Tunable {
+        PulseObserver {
     final static boolean DEBUG = false;
     final static String TAG = "StatusBar/NavBarView";
-
-    private static final String NAVIGATION_BAR_MENU_ARROW_KEYS =
-            "lineagesystem:" + LineageSettings.System.NAVIGATION_BAR_MENU_ARROW_KEYS;
 
     // slippery nav bar when everything is disabled, e.g. during setup
     final static boolean SLIPPERY_WHEN_DISABLED = true;
@@ -180,6 +180,7 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
     private int mRotateBtnStyle = R.style.RotateButtonCCWStart90;
 
     private boolean mShowDpadArrowKeys;
+    private SettingsObserver mSettingsObserver;
 
     private class NavTransitionListener implements TransitionListener {
         private boolean mBackTransitioning;
@@ -320,6 +321,8 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
         mButtonDispatchers.put(R.id.menu_container,
                 new ButtonDispatcher(R.id.menu_container));
         mDeadZone = new DeadZone(this);
+
+        mSettingsObserver = new SettingsObserver(new Handler());
     }
 
     public BarTransitions getBarTransitions() {
@@ -1268,9 +1271,8 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
         onPluginDisconnected(null); // Create default gesture helper
         Dependency.get(PluginManager.class).addPluginListener(this,
                 NavGesture.class, false /* Only one */);
-        final TunerService tunerService = Dependency.get(TunerService.class);
-        tunerService.addTunable(this, NAVIGATION_BAR_MENU_ARROW_KEYS);
         setUpSwipeUpOnboarding(isQuickStepSwipeUpEnabled());
+        mSettingsObserver.observe();
     }
 
     @Override
@@ -1281,14 +1283,7 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
             mGestureHelper.destroy();
         }
         setUpSwipeUpOnboarding(false);
-    }
-
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        if (NAVIGATION_BAR_MENU_ARROW_KEYS.equals(key)) {
-            mShowDpadArrowKeys = newValue == null || Integer.parseInt(newValue) == 1;
-            setNavigationIconHints(mNavigationIconHints);
-        }
+        mSettingsObserver.unobserve();
     }
 
     private void setUpSwipeUpOnboarding(boolean connectedToOverviewProxy) {
@@ -1383,6 +1378,34 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
 
         getDpadView().findViewById(R.id.dpad_left).setVisibility(visibility);
         getDpadView().findViewById(R.id.dpad_right).setVisibility(visibility);
+    }
+
+    class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            mContext.getContentResolver().registerContentObserver(
+                  Settings.System.getUriFor(Settings.System.NAVIGATION_BAR_MENU_ARROW_KEYS),
+                  false, this, UserHandle.USER_ALL);
+            update();
+        }
+
+        void unobserve() {
+            mContext.getContentResolver().unregisterContentObserver(this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            update();
+        }
+
+        public void update() {
+            mShowDpadArrowKeys = Settings.System.getIntForUser(getContext().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_MENU_ARROW_KEYS, 0, UserHandle.USER_CURRENT) == 1;
+            setNavigationIconHints(mNavigationIconHints);
+        }
     }
 
     private final Consumer<Boolean> mDockedListener = exists -> mHandler.post(() -> {
