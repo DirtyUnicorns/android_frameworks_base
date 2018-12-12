@@ -54,7 +54,7 @@ import com.android.systemui.shared.system.NavigationBarCompat;
 
 public class KeyButtonView extends ImageView implements ButtonInterface {
     private static final String TAG = KeyButtonView.class.getSimpleName();
-    public static final int CURSOR_FLAGS = KeyEvent.FLAG_SOFT_KEYBOARD
+    private static final int CURSOR_REPEAT_FLAGS = KeyEvent.FLAG_SOFT_KEYBOARD
             | KeyEvent.FLAG_KEEP_TOUCH_MODE;
 
     private final boolean mPlaySounds;
@@ -78,9 +78,9 @@ public class KeyButtonView extends ImageView implements ButtonInterface {
             if (isPressed()) {
                 // Log.d("KeyButtonView", "longpressed: " + this);
                 if (mCode == KeyEvent.KEYCODE_DPAD_LEFT || mCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
-                    sendEvent(KeyEvent.ACTION_UP, CURSOR_FLAGS,
+                    sendEvent(KeyEvent.ACTION_UP, CURSOR_REPEAT_FLAGS,
                             System.currentTimeMillis(), false);
-                    sendEvent(KeyEvent.ACTION_DOWN, CURSOR_FLAGS,
+                    sendEvent(KeyEvent.ACTION_DOWN, CURSOR_REPEAT_FLAGS,
                             System.currentTimeMillis(), false);
                     postDelayed(mCheckLongPress, ViewConfiguration.getKeyRepeatDelay());
                 } else if (isLongClickable()) {
@@ -308,15 +308,22 @@ public class KeyButtonView extends ImageView implements ButtonInterface {
     }
 
     void sendEvent(int action, int flags, long when) {
+        sendEvent(action, flags, when, true);
+    }
+
+    void sendEvent(int action, int flags, long when, boolean applyDefaultFlags) {
         mMetricsLogger.write(new LogMaker(MetricsEvent.ACTION_NAV_BUTTON_EVENT)
                 .setType(MetricsEvent.TYPE_ACTION)
                 .setSubtype(mCode)
                 .addTaggedData(MetricsEvent.FIELD_NAV_ACTION, action)
                 .addTaggedData(MetricsEvent.FIELD_FLAGS, flags));
         final int repeatCount = (flags & KeyEvent.FLAG_LONG_PRESS) != 0 ? 1 : 0;
+        if (applyDefaultFlags) {
+            flags |= KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY;
+        }
         final KeyEvent ev = new KeyEvent(mDownTime, when, action, mCode, repeatCount,
                 0, KeyCharacterMap.VIRTUAL_KEYBOARD, 0,
-                flags | KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY,
+                flags,
                 InputDevice.SOURCE_NAVIGATION_BAR);
         InputManager.getInstance().injectInputEvent(ev,
                 InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
