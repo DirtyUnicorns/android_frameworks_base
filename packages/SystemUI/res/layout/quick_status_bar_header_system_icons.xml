@@ -55,6 +55,7 @@
         android:layout_marginEnd="2dp"
         android:singleLine="false"
         android:lineSpacingMultiplier="1.2"
+        systemui:showDark="false"
         android:gravity="right|center_vertical"/>
 
     <com.android.systemui.BatteryMeterView
