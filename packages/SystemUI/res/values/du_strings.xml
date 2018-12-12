@@ -93,4 +93,8 @@
     <string name="accessibility_dpad_left">Cursor left</string>
     <string name="accessibility_dpad_right">Cursor right</string>
 
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse_title">Swap buttons</string>
+    <string name="nav_bar_layout_inverse_summary">Swap the order of recents and back buttons</string>
+
 </resources>
