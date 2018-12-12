@@ -54,6 +54,8 @@ import com.android.systemui.shared.system.NavigationBarCompat;
 
 public class KeyButtonView extends ImageView implements ButtonInterface {
     private static final String TAG = KeyButtonView.class.getSimpleName();
+    public static final int CURSOR_FLAGS = KeyEvent.FLAG_SOFT_KEYBOARD
+            | KeyEvent.FLAG_KEEP_TOUCH_MODE;
 
     private final boolean mPlaySounds;
     private int mContentDescriptionRes;
@@ -75,7 +77,13 @@ public class KeyButtonView extends ImageView implements ButtonInterface {
         public void run() {
             if (isPressed()) {
                 // Log.d("KeyButtonView", "longpressed: " + this);
-                if (isLongClickable()) {
+                if (mCode == KeyEvent.KEYCODE_DPAD_LEFT || mCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+                    sendEvent(KeyEvent.ACTION_UP, CURSOR_FLAGS,
+                            System.currentTimeMillis(), false);
+                    sendEvent(KeyEvent.ACTION_DOWN, CURSOR_FLAGS,
+                            System.currentTimeMillis(), false);
+                    postDelayed(mCheckLongPress, ViewConfiguration.getKeyRepeatDelay());
+                } else if (isLongClickable()) {
                     // Just an old-fashioned ImageView
                     performLongClick();
                     mLongClicked = true;
@@ -215,7 +223,10 @@ public class KeyButtonView extends ImageView implements ButtonInterface {
                 // Use raw X and Y to detect gestures in case a parent changes the x and y values
                 mTouchDownX = (int) ev.getRawX();
                 mTouchDownY = (int) ev.getRawY();
-                if (mCode != 0) {
+                if (mCode == KeyEvent.KEYCODE_DPAD_LEFT || mCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
+                    sendEvent(KeyEvent.ACTION_DOWN, KeyEvent.FLAG_VIRTUAL_HARD_KEY
+                            | KeyEvent.FLAG_KEEP_TOUCH_MODE, mDownTime, false);
+                } else if (mCode != 0) {
                     sendEvent(KeyEvent.ACTION_DOWN, 0, mDownTime);
                 } else {
                     // Provide the same haptic feedback that the system offers for virtual keys.
