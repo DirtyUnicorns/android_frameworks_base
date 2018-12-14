@@ -207,7 +207,7 @@ public class Utils {
         final KeyEvent evDown = new KeyEvent(when, when, KeyEvent.ACTION_DOWN, keycode, 0,
                 0, KeyCharacterMap.VIRTUAL_KEYBOARD, 0,
                 KeyEvent.FLAG_FROM_SYSTEM | KeyEvent.FLAG_VIRTUAL_HARD_KEY,
-                InputDevice.SOURCE_KEYBOARD);
+                InputDevice.SOURCE_NAVIGATION_BAR);
         final KeyEvent evUp = KeyEvent.changeAction(evDown, KeyEvent.ACTION_UP);
         h.post(new Runnable() {
             @Override
@@ -233,7 +233,7 @@ public class Utils {
         final KeyEvent ev = new KeyEvent(downTime, when, action, code, 0,
                 0, KeyCharacterMap.VIRTUAL_KEYBOARD, 0,
                 (KeyEvent.FLAG_SOFT_KEYBOARD | KeyEvent.FLAG_KEEP_TOUCH_MODE),
-                InputDevice.SOURCE_KEYBOARD);
+                InputDevice.SOURCE_NAVIGATION_BAR);
         InputManager.getInstance().injectInputEvent(ev,
                 InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
     }
