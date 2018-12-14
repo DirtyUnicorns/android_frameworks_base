@@ -1376,8 +1376,18 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
         final int visibility = mShowDpadArrowKeys && (mNavigationIconHints
                 & StatusBarManager.NAVIGATION_HINT_BACK_ALT) != 0 ? View.VISIBLE : View.GONE;
 
-        getDpadView().findViewById(R.id.dpad_left).setVisibility(visibility);
-        getDpadView().findViewById(R.id.dpad_right).setVisibility(visibility);
+        if (isFullGestureMode()) {
+            getDpadView().findViewById(R.id.dpad_left).setVisibility(View.GONE);
+            getDpadView().findViewById(R.id.dpad_right).setVisibility(View.GONE);
+        } else {
+            getDpadView().findViewById(R.id.dpad_left).setVisibility(visibility);
+            getDpadView().findViewById(R.id.dpad_right).setVisibility(visibility);
+        }
+
+        if ( isQuickStepSwipeUpEnabled()) {
+            getDpadView().findViewById(R.id.dpad_left).setVisibility(visibility);
+            getDpadView().findViewById(R.id.dpad_right).setVisibility(visibility);
+        }
     }
 
     class SettingsObserver extends ContentObserver {
