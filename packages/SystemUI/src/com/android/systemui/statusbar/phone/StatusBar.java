@@ -907,15 +907,19 @@ public class StatusBar extends SystemUI implements DemoMode,
             mNotificationPanelDebugText.setVisibility(View.VISIBLE);
         }
 
+        boolean navigationBar = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.NAVIGATION_BAR_ENABLED, 1) == 1;
+
         try {
             boolean showNav = mWindowManagerService.needsNavigationBar();
             if (DEBUG) Log.v(TAG, "needsNavigationBar=" + showNav);
-            if (showNav) {
+            if (showNav && navigationBar) {
                 createNavigationBar();
             }
         } catch (RemoteException ex) {
             // no window manager? good luck with that
         }
+
         mScreenPinningNotify = new ScreenPinningNotify(mContext);
         mStackScroller.setLongPressListener(mEntryManager.getNotificationLongClicker());
         mStackScroller.setStatusBar(this);
