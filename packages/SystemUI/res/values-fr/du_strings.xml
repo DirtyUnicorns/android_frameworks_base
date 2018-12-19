@@ -33,7 +33,7 @@
     <string name="global_action_restart_hot">Hot Reboot</string>
 
     <!-- SystemUI tuner -->
-    <string name="systemui_tuner_navbar_title">Barre de navigation système</string>
+    <string name="systemui_tuner_navbar_title">Disposition</string>
 
   <!-- Theme tile -->
   <string name="system_theme_style_title">Thème</string>
@@ -87,10 +87,77 @@
     <string name="quick_settings_immersive_tile_navbar">Barre de navigation masquée</string>
     <string name="quick_settings_immersive_tile_full">Complet</string>
 
-    <!-- Caffeine tile -->
-    <string name="quick_settings_caffeine_label">Caféine</string>
-
     <!-- strings.xml -->
     <string name="quick_settings_cast_title">Diffuser</string>
     <string name="quick_settings_cast_device_default_description">Prêt à diffuser</string>
+
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse_title">Inverser les boutons</string>
+    <string name="nav_bar_layout_inverse_summary">Inverser l\'ordre des boutons Applications récentes et Retour</string>
+
+    <!-- Advanced restart menu -->
+    <!-- Button to restart the device, within the Restart Options dialog -->
+    <string name="global_action_restart_system">Système</string>
+
+    <!-- Button to restart the device into download mode, within the Restart Options dialog -->
+    <string name="global_action_restart_download">Download</string>
+
+    <!-- Restart progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_progress">Redémarrage en cours\u2026</string>
+    <!-- Restart to recovery mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_recovery_progress">Redémarrage Recovery en cours\u2026</string>
+    <!-- Restart to bootloader mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_bootloader_progress">Redémarrage Bootloader en cours\u2026</string>
+    <!-- Restart to download mode progress dialog. This is shown if the user chooses to restart the device. -->
+    <string name="global_action_restart_download_progress">Redémarrage Download en cours\u2026</string>
+
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Actuel</string>
+
+    <!-- Custom QS tiles -->
+    <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">ADB par le réseau</string>
+
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Mode Veille</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Mode Veille désactivé</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Mode Veille activé</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Mode Veille désactivé</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">>Mode Veille activé</string>
+
+    <!-- Caffeine QS tile -->
+    <string name="quick_settings_caffeine_label">Caféine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caféine désactivé</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caféine activé</string>
+
+    <!-- Heads up QS tile -->
+    <string name="quick_settings_heads_up_label">Notifications flottantes</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifications flottantes désactivées</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifications flottantes désactivées</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifications flottantes activées</string>
+
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Mode Lecture</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mode Lecture activé</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mode Lecture désactivé</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Mode Lecture activé</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Mode Lecture désactivé</string>
+
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Synchronisation</string>
+    <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée</string>
+    <string name="accessibility_quick_settings_sync_on">Synchronisation activée</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronisation désactivée</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronisation activée</string>
+
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Partage connexion USB</string>
+
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panneau Volume</string>
+
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Flèche gauche</string>
+    <string name="accessibility_dpad_right">Flèche droite</string>
 </resources>
