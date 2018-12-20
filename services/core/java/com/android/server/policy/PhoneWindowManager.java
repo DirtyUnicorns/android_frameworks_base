@@ -1089,16 +1089,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
-    private void toggleFlashLight() {
-        performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
-        Utils.toggleCameraFlash();
-    }
-
-    private void toggleClearNotifications() {
-        performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
-        Utils.clearAllNotifications();
-    }
-
     private UEventObserver mHDMIObserver = new UEventObserver() {
         @Override
         public void onUEvent(UEventObserver.UEvent event) {
@@ -9855,6 +9845,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case NavbarUtilities.KEY_ACTION_CLEAR_NOTIFICATIONS:
                 toggleClearNotifications();
                 break;
+            case NavbarUtilities.KEY_ACTION_VOLUME_PANEL:
+                toggleVolumePanel();
+                break;
         }
     }
 
@@ -9882,5 +9875,23 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 NavbarUtilities.launchCamera();
                 break;
         }
+    }
+
+    // Flashlight
+    private void toggleFlashLight() {
+        performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
+        Utils.toggleCameraFlash();
+    }
+
+    // Clear notifications
+    private void toggleClearNotifications() {
+        performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
+        Utils.clearAllNotifications();
+    }
+
+    // Volume panel
+    private void toggleVolumePanel() {
+        performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
+        Utils.toggleVolumePanel(mContext);
     }
 }

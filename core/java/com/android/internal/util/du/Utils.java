@@ -28,6 +28,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.hardware.input.InputManager;
+import android.media.AudioManager;
 import android.net.ConnectivityManager;
 import android.os.Handler;
 import android.os.PowerManager;
@@ -143,18 +144,23 @@ public class Utils {
     }
 
     public static void toggleCameraFlash() {
-        FireActions.toggleCameraFlash();
+        Actions.toggleCameraFlash();
     }
 
     public static void clearAllNotifications() {
-        FireActions.clearAllNotifications();
+        Actions.clearAllNotifications();
     }
 
-    private static final class FireActions {
+    public static void toggleVolumePanel(Context context) {
+        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        am.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
+    }
+
+    private static final class Actions {
         private static IStatusBarService mStatusBarService = null;
 
         private static IStatusBarService getStatusBarService() {
-            synchronized (FireActions.class) {
+            synchronized (Actions.class) {
                 if (mStatusBarService == null) {
                     mStatusBarService = IStatusBarService.Stub.asInterface(
                             ServiceManager.getService("statusbar"));
@@ -163,7 +169,7 @@ public class Utils {
             }
         }
 
-        public static void toggleCameraFlash() {
+        static void toggleCameraFlash() {
             IStatusBarService service = getStatusBarService();
             if (service != null) {
                 try {
@@ -174,7 +180,7 @@ public class Utils {
             }
         }
 
-        public static void clearAllNotifications() {
+        static void clearAllNotifications() {
             IStatusBarService service = getStatusBarService();
             if (service != null) {
                 try {
