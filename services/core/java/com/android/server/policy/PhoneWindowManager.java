@@ -9844,6 +9844,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case NavbarUtilities.KEY_ACTION_SPLIT_SCREEN:
                 NavbarUtilities.toggleSplitScreen();
                 break;
+            case NavbarUtilities.KEY_ACTION_FLASHLIGHT:
+                toggleFlashLight();
+                break;
         }
     }
 
