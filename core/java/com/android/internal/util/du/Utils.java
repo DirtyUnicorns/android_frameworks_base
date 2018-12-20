@@ -17,6 +17,7 @@
 package com.android.internal.util.du;
 
 import android.Manifest;
+import android.app.ActivityManager;
 import android.app.ActivityManagerNative;
 import android.app.IActivityManager;
 import android.content.Context;
@@ -145,6 +146,10 @@ public class Utils {
         FireActions.toggleCameraFlash();
     }
 
+    public static void clearAllNotifications() {
+        FireActions.clearAllNotifications();
+    }
+
     private static final class FireActions {
         private static IStatusBarService mStatusBarService = null;
 
@@ -163,6 +168,17 @@ public class Utils {
             if (service != null) {
                 try {
                     service.toggleCameraFlash();
+                } catch (RemoteException e) {
+                    // do nothing.
+                }
+            }
+        }
+
+        public static void clearAllNotifications() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.onClearAllNotifications(ActivityManager.getCurrentUser());
                 } catch (RemoteException e) {
                     // do nothing.
                 }

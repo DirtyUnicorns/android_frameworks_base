@@ -1094,6 +1094,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         Utils.toggleCameraFlash();
     }
 
+    private void toggleClearNotifications() {
+        performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
+        Utils.clearAllNotifications();
+    }
+
     private UEventObserver mHDMIObserver = new UEventObserver() {
         @Override
         public void onUEvent(UEventObserver.UEvent event) {
@@ -9846,6 +9851,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case NavbarUtilities.KEY_ACTION_FLASHLIGHT:
                 toggleFlashLight();
+                break;
+            case NavbarUtilities.KEY_ACTION_CLEAR_NOTIFICATIONS:
+                toggleClearNotifications();
                 break;
         }
     }
