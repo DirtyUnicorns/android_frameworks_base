@@ -9848,6 +9848,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case NavbarUtilities.KEY_ACTION_VOLUME_PANEL:
                 toggleVolumePanel();
                 break;
+            case NavbarUtilities.KEY_ACTION_SCREEN_OFF:
+                toggleScreenOff();
+                break;
         }
     }
 
@@ -9893,5 +9896,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void toggleVolumePanel() {
         performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
         Utils.toggleVolumePanel(mContext);
+    }
+
+    // Sleep
+    private void toggleScreenOff() {
+        performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
+        Utils.switchScreenOff(mContext);
     }
 }
