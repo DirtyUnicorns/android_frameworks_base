@@ -156,6 +156,10 @@ public class Utils {
         am.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
     }
 
+    public static void Notifications() {
+        Actions.Notifications();
+    }
+
     private static final class Actions {
         private static IStatusBarService mStatusBarService = null;
 
@@ -185,6 +189,17 @@ public class Utils {
             if (service != null) {
                 try {
                     service.onClearAllNotifications(ActivityManager.getCurrentUser());
+                } catch (RemoteException e) {
+                    // do nothing.
+                }
+            }
+        }
+
+        static void Notifications() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.expandNotificationsPanel();
                 } catch (RemoteException e) {
                     // do nothing.
                 }

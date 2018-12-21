@@ -9851,6 +9851,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case NavbarUtilities.KEY_ACTION_SCREEN_OFF:
                 toggleScreenOff();
                 break;
+            case NavbarUtilities.KEY_ACTION_NOTIFICATIONS:
+                toggleNotifications();
+                break;
         }
     }
 
@@ -9902,5 +9905,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void toggleScreenOff() {
         performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
         Utils.switchScreenOff(mContext);
+    }
+
+    // Notifications
+    private void toggleNotifications() {
+        performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
+        Utils.Notifications();
     }
 }

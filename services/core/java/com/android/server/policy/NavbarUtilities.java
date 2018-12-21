@@ -41,6 +41,7 @@ public class NavbarUtilities {
     public static final int KEY_ACTION_CLEAR_NOTIFICATIONS = 10;
     public static final int KEY_ACTION_VOLUME_PANEL = 11;
     public static final int KEY_ACTION_SCREEN_OFF = 12;
+    public static final int KEY_ACTION_NOTIFICATIONS = 13;
 
     // Special values, used internal only.
     public static final int KEY_ACTION_HOME = 100;
@@ -126,6 +127,7 @@ public class NavbarUtilities {
             KEY_ACTION_CLEAR_NOTIFICATIONS,
             KEY_ACTION_VOLUME_PANEL,
             KEY_ACTION_SCREEN_OFF,
+            KEY_ACTION_NOTIFICATIONS,
     };
 
     /**
