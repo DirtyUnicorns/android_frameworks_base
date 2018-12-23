@@ -21,6 +21,7 @@ import static android.app.StatusBarManager.DISABLE_SYSTEM_INFO;
 import android.annotation.Nullable;
 import android.app.Fragment;
 import android.app.StatusBarManager;
+import android.content.ContentResolver;
 import android.database.ContentObserver;
 import android.os.Bundle;
 import android.os.Handler;
@@ -69,6 +70,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private StatusBar mStatusBarComponent;
     private DarkIconManager mDarkIconManager;
     private View mOperatorNameFrame;
+    private ContentResolver mContentResolver;
 
     // DU Logo
     private ImageView mDULogo;
@@ -80,13 +82,13 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             super(handler);
         }
 
-         void observe() {
-            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+        void observe() {
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO),
                     false, this, UserHandle.USER_ALL);
         }
 
-         @Override
+        @Override
         public void onChange(boolean selfChange) {
             updateSettings(true);
         }
@@ -104,6 +106,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContentResolver = getContext().getContentResolver();
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
         mNetworkController = Dependency.get(NetworkController.class);
         mStatusBarComponent = SysUiServiceProvider.getComponent(getContext(), StatusBar.class);
@@ -381,7 +384,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void updateSettings(boolean animate) {
         mShowLogo = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
+                mContentResolver, Settings.System.STATUS_BAR_LOGO, 0,
                 UserHandle.USER_CURRENT) == 1;
         if (mNotificationIconAreaInner != null) {
             if (mShowLogo) {
@@ -391,6 +394,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             } else {
                 animateHiddenState(mDULogo, View.GONE, animate);
             }
-      }
-   }
+        }
+    }
 }
