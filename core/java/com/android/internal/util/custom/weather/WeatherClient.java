@@ -43,7 +43,8 @@ public class WeatherClient {
 
     public static final String SERVICE_PACKAGE = "org.pixelexperience.weather.client";
     private static final String SERVICE_PACKAGE_PERMISSION = SERVICE_PACKAGE + ".READ_WEATHER";
-    public static final Uri WEATHER_URI = Uri.parse("content://org.pixelexperience.weather.client.provider/weather");
+    public static final Uri WEATHER_URI =
+            Uri.parse("content://org.pixelexperience.weather.client.provider/weather");
     public static final int WEATHER_UPDATE_SUCCESS = 0; // Success
     public static final int WEATHER_UPDATE_RUNNING = 1; // Update running
     public static final int WEATHER_UPDATE_ERROR = 2; // Error
@@ -82,9 +83,11 @@ public class WeatherClient {
                 onScreenOff();
             } else if (Intent.ACTION_SCREEN_ON.equals(intent.getAction())) {
                 onScreenOn();
-            } else if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()) || updateIntentAction.equals(intent.getAction())) {
+            } else if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction()) ||
+                    updateIntentAction.equals(intent.getAction())) {
                 updateWeatherAndNotify();
-            } else if (Intent.ACTION_TIME_CHANGED.equals(intent.getAction()) || Intent.ACTION_TIMEZONE_CHANGED.equals(intent.getAction())) {
+            } else if (Intent.ACTION_TIME_CHANGED.equals(intent.getAction()) ||
+                    Intent.ACTION_TIMEZONE_CHANGED.equals(intent.getAction())) {
                 resetScheduledAlarm();
                 updateWeatherAndNotify();
             }
@@ -93,9 +96,11 @@ public class WeatherClient {
 
     public WeatherClient(Context context) {
         mContext = context;
-        mContext.enforceCallingOrSelfPermission(SERVICE_PACKAGE_PERMISSION, "Missing or invalid weather permission: " + SERVICE_PACKAGE_PERMISSION);
+        mContext.enforceCallingOrSelfPermission(SERVICE_PACKAGE_PERMISSION,
+                "Missing or invalid weather permission: " + SERVICE_PACKAGE_PERMISSION);
         updateIntentAction = "updateIntentAction_" + Integer.toString(getRandomInt());
-        pendingWeatherUpdate = PendingIntent.getBroadcast(mContext, getRandomInt(), new Intent(updateIntentAction), 0);
+        pendingWeatherUpdate = PendingIntent.getBroadcast(
+                mContext, getRandomInt(), new Intent(updateIntentAction), 0);
         mObserver = new ArrayList<>();
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_SCREEN_OFF);
@@ -149,7 +154,8 @@ public class WeatherClient {
     }
 
     private boolean needsUpdate() {
-        boolean lastUpdatedExpired = System.currentTimeMillis() - lastUpdated > WEATHER_UPDATE_INTERVAL;
+        boolean lastUpdatedExpired =
+                System.currentTimeMillis() - lastUpdated > WEATHER_UPDATE_INTERVAL;
         return mWeatherInfo.getStatus() != WEATHER_UPDATE_SUCCESS || lastUpdatedExpired;
     }
 
@@ -201,10 +207,6 @@ public class WeatherClient {
     }
 
     private void updateWeatherData() {
-        if (!isAvailable(mContext)) {
-            isRunning = false;
-            return;
-        }
         isRunning = true;
         Cursor c = mContext.getContentResolver().query(WEATHER_URI, PROJECTION_DEFAULT_WEATHER,
                 null, null, null);
@@ -303,10 +305,14 @@ public class WeatherClient {
             conditions.put("rain", R.drawable.weather_rain);
             conditions.put("windy", R.drawable.weather_windy);
             conditions.put("snow", R.drawable.weather_snow);
-            conditions.put("scattered-thunderstorms", R.drawable.weather_isolated_scattered_thunderstorms);
-            conditions.put("scattered-thunderstorms-night", R.drawable.weather_isolated_scattered_thunderstorms_night);
-            conditions.put("isolated-thunderstorms", R.drawable.weather_isolated_scattered_thunderstorms);
-            conditions.put("isolated-thunderstorms-night", R.drawable.weather_isolated_scattered_thunderstorms_night);
+            conditions.put("scattered-thunderstorms",
+                    R.drawable.weather_isolated_scattered_thunderstorms);
+            conditions.put("scattered-thunderstorms-night",
+                    R.drawable.weather_isolated_scattered_thunderstorms_night);
+            conditions.put("isolated-thunderstorms",
+                    R.drawable.weather_isolated_scattered_thunderstorms);
+            conditions.put("isolated-thunderstorms-night",
+                    R.drawable.weather_isolated_scattered_thunderstorms_night);
             conditions.put("thunderstorms", R.drawable.weather_thunderstorms);
             conditions.put("foggy", R.drawable.weather_foggy);
             for (String condition : conditions.keySet()) {
