@@ -129,7 +129,7 @@ public class NavbarUtilities {
             KEY_ACTION_SCREEN_OFF,
             KEY_ACTION_NOTIFICATIONS,
             KEY_ACTION_POWER_MENU,
-            KEY_ACTION_SCREENSHOT,
+            KEY_ACTION_SCREENSHOT
     };
 
     /**
