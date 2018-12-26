@@ -4071,7 +4071,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         // Custom event handling for supported key codes.
-        if (NavbarUtilities.canApplyCustomPolicy(keyCode) && !isCustomSource) {
+        if (!Utils.isInLockTaskMode() && NavbarUtilities.canApplyCustomPolicy(keyCode) && !isCustomSource) {
             if ((menuKey || appSwitchKey) && keyguardOn) {
                 // Don't handle the key.
                 return -1;
@@ -6629,13 +6629,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
                 // Don't allow key events from hw keys when navbar is enabled.
                 return 0;
-            } else if (!interactive) {
+            } else if (!interactive && !Utils.isInLockTaskMode()) {
                 if (DEBUG_INPUT) {
                     Log.d(TAG, "interceptKeyBeforeQueueing(): key policy: screen not interactive, discard hw event.");
                 }
                 // Ensure nav keys are handled on full interactive screen only.
                 return 0;
-            } else if (interactive) {
+            } else if (interactive && !Utils.isInLockTaskMode()) {
                 if (!down) {
                     // Make sure we consume hw key events properly. Discard them
                     // here if the event is already been consumed. This case can

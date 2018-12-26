@@ -142,8 +142,8 @@
     <integer name="config_doubleTapOnBackKeyBehavior">0</integer>
     <integer name="config_longPressOnAssistKeyBehavior">0</integer>
     <integer name="config_doubleTapOnAssistKeyBehavior">0</integer>
-    <integer name="config_longPressOnAppSwitchKeyBehavior">8</integer>
-    <integer name="config_doubleTapOnAppSwitchKeyBehavior">7</integer>
+    <integer name="config_longPressOnAppSwitchKeyBehavior">7</integer>
+    <integer name="config_doubleTapOnAppSwitchKeyBehavior">6</integer>
     <integer name="config_longPressOnCameraKeyBehavior">0</integer>
     <integer name="config_doubleTapOnCameraKeyBehavior">0</integer>
 
