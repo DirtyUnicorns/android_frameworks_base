@@ -4145,31 +4145,6 @@ public final class Settings {
         /** @hide */
         private static final Validator NAVIGATION_BAR_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
-        /**
-         * Value for button brightness.
-         * This is an integer value in a range between 0 and 255.
-         *      0 = off
-         *    255 = default
-         *    255 = max
-         * @hide
-         */
-        public static final String BUTTON_BRIGHTNESS = "button_brightness";
-
-        /** @hide */
-        public static final Validator BUTTON_BRIGHTNESS_VALIDATOR =
-            new SettingsValidators.InclusiveIntegerRangeValidator(0, 255);
-
-        /**
-         * Whether user can enable/disable button brightness.
-         * <p>
-         * Type: int (0 for false, 1 for true)
-         * @hide
-         */
-        public static final String BUTTON_BRIGHTNESS_ENABLED = "button_brightness_enabled";
-
-        /** @hide */
-        private static final Validator BUTTON_BRIGHTNESS_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
-
         /** Action to perform when the home key is long-pressed.
          * (Default can be configured via config_longPressOnHardwareHomeBehavior)
          * 0 - Nothing
@@ -4294,6 +4269,60 @@ public final class Settings {
         /** @hide */
         private static final Validator WEATHER_LOCKSCREEN_UNIT_VALIDATOR =
                BOOLEAN_VALIDATOR;
+
+        /**
+         * Custom button brightness value for manual mode
+         *
+         * @hide
+         */
+        public static final String CUSTOM_BUTTON_BRIGHTNESS = "custom_button_brightness";
+
+        /** @hide */
+        private static final Validator CUSTOM_BUTTON_BRIGHTNESS_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * use same value for buttons as for screen (manual and auto mode)
+         *
+         * @hide
+         */
+        public static final String CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS =
+                "custom_button_use_screen_brightness";
+
+        /** @hide */
+        private static final Validator CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * disable all button brightness (manual and auto mode)
+         *
+         * @hide
+         */
+        public static final String BUTTON_BACKLIGHT_ENABLE = "button_backlight_enable";
+
+        /** @hide */
+        private static final Validator BUTTON_BACKLIGHT_ENABLE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Timeout value for button lights. 0 = disabled
+         * @hide
+         */
+        public static final String BUTTON_BACKLIGHT_TIMEOUT = "button_backlight_timeout";
+
+        /** @hide */
+        private static final Validator BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
+        /**
+         * @hide
+         */
+        public static final String BUTTON_BACKLIGHT_ON_TOUCH_ONLY =
+                "button_backlight_on_touch_only";
+
+        /** @hide */
+        private static final Validator BUTTON_BACKLIGHT_ON_TOUCH_ONLY_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
@@ -4670,7 +4699,12 @@ public final class Settings {
             SHOW_BATTERY_PERCENT,
             NOTIFICATION_VIBRATION_INTENSITY,
             HAPTIC_FEEDBACK_INTENSITY,
-            DISPLAY_COLOR_MODE
+            DISPLAY_COLOR_MODE,
+            CUSTOM_BUTTON_BRIGHTNESS,
+            CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS,
+            BUTTON_BACKLIGHT_ENABLE,
+            BUTTON_BACKLIGHT_TIMEOUT,
+            BUTTON_BACKLIGHT_ON_TOUCH_ONLY
         };
 
         /**
@@ -4787,8 +4821,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_ENABLED);
-            PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS);
-            PRIVATE_SETTINGS.add(BUTTON_BRIGHTNESS_ENABLED);
             PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION);
             PRIVATE_SETTINGS.add(KEY_HOME_DOUBLE_TAP_ACTION);
             PRIVATE_SETTINGS.add(KEY_MENU_LONG_PRESS_ACTION);
@@ -4804,6 +4836,11 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
             PRIVATE_SETTINGS.add(WEATHER_LOCKSCREEN_UNIT);
             PRIVATE_SETTINGS.add(FACE_AUTO_UNLOCK);
+            PRIVATE_SETTINGS.add(CUSTOM_BUTTON_BRIGHTNESS);
+            PRIVATE_SETTINGS.add(CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS);
+            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ENABLE);
+            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
+            PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ON_TOUCH_ONLY);
         }
 
         /**
@@ -4894,10 +4931,18 @@ public final class Settings {
             VALIDATORS.put(WIFI_STATIC_DNS2, WIFI_STATIC_DNS2_VALIDATOR);
             VALIDATORS.put(SHOW_BATTERY_PERCENT, SHOW_BATTERY_PERCENT_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_ENABLED, NAVIGATION_BAR_ENABLED_VALIDATOR);
-            VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
-            VALIDATORS.put(BUTTON_BRIGHTNESS_ENABLED, BUTTON_BRIGHTNESS_ENABLED_VALIDATOR);
             VALIDATORS.put(WEATHER_LOCKSCREEN_UNIT, WEATHER_LOCKSCREEN_UNIT_VALIDATOR);
             VALIDATORS.put(FACE_AUTO_UNLOCK, FACE_AUTO_UNLOCK_VALIDATOR);
+            VALIDATORS.put(CUSTOM_BUTTON_BRIGHTNESS,
+                    CUSTOM_BUTTON_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS,
+                    CUSTOM_BUTTON_USE_SCREEN_BRIGHTNESS_VALIDATOR);
+            VALIDATORS.put(BUTTON_BACKLIGHT_ENABLE,
+                    BUTTON_BACKLIGHT_ENABLE_VALIDATOR);
+            VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT,
+                    BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
+            VALIDATORS.put(BUTTON_BACKLIGHT_ON_TOUCH_ONLY,
+                    BUTTON_BACKLIGHT_ON_TOUCH_ONLY_VALIDATOR);
         }
 
         /**
@@ -12792,7 +12837,7 @@ public final class Settings {
             PRIVATE_DNS_SPECIFIER,
             SOFT_AP_TIMEOUT_ENABLED,
             ZEN_DURATION,
-            CHARGING_VIBRATION_ENABLED,
+            CHARGING_VIBRATION_ENABLED
         };
 
         /**
