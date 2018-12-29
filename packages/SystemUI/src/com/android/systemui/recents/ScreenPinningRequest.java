@@ -245,19 +245,19 @@ public class ScreenPinningRequest implements View.OnClickListener {
             boolean touchExplorationEnabled = mAccessibilityService.isTouchExplorationEnabled();
             int descriptionStringResId;
             if (recentsVisible) {
-                mLayout.findViewById(R.id.screen_pinning_recents_group).setVisibility(VISIBLE);
+                mLayout.findViewById(R.id.screen_pinning_recents_group).setVisibility(INVISIBLE);
                 mLayout.findViewById(R.id.screen_pinning_home_bg_light).setVisibility(INVISIBLE);
                 mLayout.findViewById(R.id.screen_pinning_home_bg).setVisibility(INVISIBLE);
                 descriptionStringResId = touchExplorationEnabled
-                        ? R.string.screen_pinning_description_accessible
-                        : R.string.screen_pinning_description;
+                        ? R.string.screen_pinning_description_accessible_custom
+                        : R.string.screen_pinning_description_custom;
             } else {
                 mLayout.findViewById(R.id.screen_pinning_recents_group).setVisibility(INVISIBLE);
-                mLayout.findViewById(R.id.screen_pinning_home_bg_light).setVisibility(VISIBLE);
-                mLayout.findViewById(R.id.screen_pinning_home_bg).setVisibility(VISIBLE);
+                mLayout.findViewById(R.id.screen_pinning_home_bg_light).setVisibility(INVISIBLE);
+                mLayout.findViewById(R.id.screen_pinning_home_bg).setVisibility(INVISIBLE);
                 descriptionStringResId = touchExplorationEnabled
-                        ? R.string.screen_pinning_description_recents_invisible_accessible
-                        : R.string.screen_pinning_description_recents_invisible;
+                        ? R.string.screen_pinning_description_recents_invisible_accessible_custom
+                        : R.string.screen_pinning_description_recents_invisible_custom;
             }
 
             if (navigationBarView != null) {
@@ -268,14 +268,14 @@ public class ScreenPinningRequest implements View.OnClickListener {
                 ((ImageView) mLayout.findViewById(R.id.screen_pinning_back_icon))
                         .setImageDrawable(navigationBarView.getBackDrawable(lightContext,
                                 darkContext));
-                ((ImageView) mLayout.findViewById(R.id.screen_pinning_home_icon))
+                /*((ImageView) mLayout.findViewById(R.id.screen_pinning_home_icon))
                         .setImageDrawable(navigationBarView.getHomeDrawable(lightContext,
                                 darkContext));
                 if (recentsVisible) {
                     ((ImageView) mLayout.findViewById(R.id.screen_pinning_recents_icon))
                             .setImageDrawable(navigationBarView.getRecentsDrawable(lightContext,
                                     darkContext));
-                }
+                }*/
             }
 
             ((TextView) mLayout.findViewById(R.id.screen_pinning_description))
