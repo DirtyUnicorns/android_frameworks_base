@@ -513,6 +513,7 @@ public class KeyguardStatusView extends GridLayout implements
 
     public void updateAll() {
         updateSettings();
+        mKeyguardSlice.updateSettings();
         mKeyguardSlice.refresh();
     }
 
