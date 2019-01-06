@@ -219,6 +219,11 @@ public class KeyguardStatusView extends GridLayout implements
         mClockView.setElegantTextHeight(false);
     }
 
+    public void onThemeChanged(boolean useDarkTheme) {
+        mCustomClockView.onThemeChanged(useDarkTheme, true);
+        mDuClockView.onThemeChanged(useDarkTheme, true);
+    }
+
     /**
      * Moves clock and separator, adjusting margins when slice content changes.
      */
