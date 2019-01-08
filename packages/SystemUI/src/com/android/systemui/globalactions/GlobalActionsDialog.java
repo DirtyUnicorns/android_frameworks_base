@@ -88,6 +88,7 @@ import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
 import com.android.internal.util.EmergencyAffordanceManager;
 import com.android.internal.util.ScreenshotHelper;
+import com.android.internal.util.du.ActionUtils;
 import com.android.internal.util.du.Utils;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.systemui.Dependency;
@@ -1340,7 +1341,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         switch (type) {
             case RESTART_HOT_BUTTON:
                 h.sendEmptyMessage(MESSAGE_DISMISS);
-                Utils.doHotReboot();
+                ActionUtils.doHotReboot();
                 break;
             case RESTART_RECOVERY_BUTTON:
                 h.sendEmptyMessage(MESSAGE_DISMISS);

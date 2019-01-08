@@ -288,6 +288,7 @@ import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.ScreenshotHelper;
 import com.android.internal.util.ScreenShapeHelper;
+import com.android.internal.util.du.ActionUtils;
 import com.android.internal.util.du.Utils;
 import com.android.internal.widget.PointerLocationView;
 import com.android.server.GestureLauncherService;
@@ -1048,7 +1049,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     final float distance = event.values[0];
                     if (distance >= PROXIMITY_DISTANCE_THRESHOLD ||
                             distance >= mProximitySensor.getMaximumRange()) {
-                        Utils.toggleCameraFlash();
+                        ActionUtils.toggleCameraFlash();
                     }
                 }
 
@@ -1087,7 +1088,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mHandler.sendMessageDelayed(newMsg, mProximityTimeOut);
             runPostProximityCheck();
         } else {
-            Utils.toggleCameraFlash();
+            ActionUtils.toggleCameraFlash();
         }
     }
 
@@ -9205,13 +9206,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     public void sendCustomAction(Intent intent) {
         String action = intent.getAction();
         if (action != null) {
-            if (Utils.INTENT_SCREENSHOT.equals(action)) {
+            if (ActionUtils.INTENT_SCREENSHOT.equals(action)) {
                 mContext.enforceCallingOrSelfPermission(ACCESS_SURFACE_FLINGER,
                         TAG + "sendCustomAction permission denied");
                 mHandler.removeCallbacks(mScreenshotRunnable);
                 mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_FULLSCREEN);
                 mHandler.post(mScreenshotRunnable);
-            } else if (Utils.INTENT_REGION_SCREENSHOT.equals(action)) {
+            } else if (ActionUtils.INTENT_REGION_SCREENSHOT.equals(action)) {
                 mContext.enforceCallingOrSelfPermission(ACCESS_SURFACE_FLINGER,
                         TAG + "sendCustomAction permission denied");
                 mHandler.removeCallbacks(mScreenshotRunnable);
@@ -9854,25 +9855,25 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 NavbarUtilities.toggleSplitScreen();
                 break;
             case NavbarUtilities.KEY_ACTION_FLASHLIGHT:
-                Utils.toggleCameraFlash();
+                ActionUtils.toggleCameraFlash();
                 break;
             case NavbarUtilities.KEY_ACTION_CLEAR_NOTIFICATIONS:
-                Utils.clearAllNotifications();
+                ActionUtils.clearAllNotifications();
                 break;
             case NavbarUtilities.KEY_ACTION_VOLUME_PANEL:
-                Utils.toggleVolumePanel(mContext);
+                ActionUtils.toggleVolumePanel(mContext);
                 break;
             case NavbarUtilities.KEY_ACTION_SCREEN_OFF:
-                Utils.switchScreenOff(mContext);
+                ActionUtils.switchScreenOff(mContext);
                 break;
             case NavbarUtilities.KEY_ACTION_NOTIFICATIONS:
-                Utils.Notifications();
+                ActionUtils.Notifications();
                 break;
             case NavbarUtilities.KEY_ACTION_POWER_MENU:
                 triggerVirtualKeypress(KeyEvent.KEYCODE_POWER, false, true);
                 break;
             case NavbarUtilities.KEY_ACTION_SCREENSHOT:
-                Utils.takeScreenshot(true);
+                ActionUtils.takeScreenshot(true);
                 break;
         }
     }
