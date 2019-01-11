@@ -41,4 +41,7 @@
     <string name="media_route_button_content_description">Diffuser</string>
     <string name="media_route_chooser_title_for_remote_display">Diffuser l\'écran sur l\'appareil</string>
 
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Votre \"vendor.img\" est obsolète. Veuillez installer la version <xliff:g id="string">%s</xliff:g></string>
+
 </resources>
