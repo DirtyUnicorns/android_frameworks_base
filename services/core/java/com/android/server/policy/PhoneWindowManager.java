@@ -9867,13 +9867,16 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 ActionUtils.switchScreenOff(mContext);
                 break;
             case NavbarUtilities.KEY_ACTION_NOTIFICATIONS:
-                ActionUtils.Notifications();
+                ActionUtils.toggleNotifications();
                 break;
             case NavbarUtilities.KEY_ACTION_POWER_MENU:
                 triggerVirtualKeypress(KeyEvent.KEYCODE_POWER, false, true);
                 break;
             case NavbarUtilities.KEY_ACTION_SCREENSHOT:
                 ActionUtils.takeScreenshot(true);
+                break;
+            case NavbarUtilities.KEY_ACTION_QS_PANEL:
+                ActionUtils.toggleQsPanel();
                 break;
         }
     }

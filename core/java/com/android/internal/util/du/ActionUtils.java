@@ -93,11 +93,23 @@ public class ActionUtils {
     }
 
     // Toggle notifications panel
-    public static void Notifications() {
+    public static void toggleNotifications() {
         IStatusBarService service = getStatusBarService();
         if (service != null) {
             try {
                 service.expandNotificationsPanel();
+            } catch (RemoteException e) {
+                // do nothing.
+            }
+        }
+    }
+
+    // Toggle qs panel
+    public static void toggleQsPanel() {
+        IStatusBarService service = getStatusBarService();
+        if (service != null) {
+            try {
+                service.expandSettingsPanel(null);
             } catch (RemoteException e) {
                 // do nothing.
             }
