@@ -145,6 +145,9 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
     private boolean mFullGestureMode;
     private boolean mDt2s;
 
+    private final int ON = 1;
+    private final int OFF = 0;
+
     private GestureHelper mGestureHelper;
     private final DeadZone mDeadZone;
     private boolean mDeadZoneConsuming = false;
@@ -1379,15 +1382,17 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
         final int visibility = mShowDpadArrowKeys && (mNavigationIconHints
                 & StatusBarManager.NAVIGATION_HINT_BACK_ALT) != 0 ? View.VISIBLE : View.GONE;
 
-        if (isFullGestureMode()) {
-            getDpadView().findViewById(R.id.dpad_left).setVisibility(View.GONE);
-            getDpadView().findViewById(R.id.dpad_right).setVisibility(View.GONE);
-        } else {
-            getDpadView().findViewById(R.id.dpad_left).setVisibility(visibility);
-            getDpadView().findViewById(R.id.dpad_right).setVisibility(visibility);
-        }
+        final int defaultValue = getResources()
+                .getBoolean(com.android.internal.R.bool.config_swipe_up_gesture_default) ? ON : OFF;
+        final int swipeUpEnabled = Settings.Secure.getInt(getContext().getContentResolver(),
+                Settings.Secure.SWIPE_UP_TO_SWITCH_APPS_ENABLED, defaultValue);
 
-        if ( isQuickStepSwipeUpEnabled()) {
+        if (swipeUpEnabled != OFF) {
+            getDpadView().findViewById(R.id.dpad_left).setVisibility(
+                !fullGestureModeEnabled() ? visibility: View.GONE);
+            getDpadView().findViewById(R.id.dpad_right).setVisibility(
+                !fullGestureModeEnabled() ? visibility: View.GONE);
+        } else {
             getDpadView().findViewById(R.id.dpad_left).setVisibility(visibility);
             getDpadView().findViewById(R.id.dpad_right).setVisibility(visibility);
         }
@@ -1425,4 +1430,9 @@ public class NavigationBarView extends FrameLayout implements PluginListener<Nav
         mDockedStackExists = exists;
         updateRecentsIcon();
     });
+
+    private boolean fullGestureModeEnabled() {
+        return Settings.System.getInt(getContext().getContentResolver(),
+                Settings.System.FULL_GESTURE_NAVBAR, OFF) == ON;
+    }
 }
