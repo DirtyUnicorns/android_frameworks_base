@@ -208,4 +208,14 @@ public class Utils {
         float px = 24 * (metrics.densityDpi / 160f);
         return result > Math.round(px);
     }
+
+    // Dimension converter (dp to px)
+    public static int dpToPx(Context context, int dp) {
+        return (int) ((dp * context.getResources().getDisplayMetrics().density) + 0.5);
+    }
+
+    // Dimension converter (px to dp)
+    public static int pxToDp(Context context, int px) {
+        return (int) ((px / context.getResources().getDisplayMetrics().density) + 0.5);
+    }
 }
