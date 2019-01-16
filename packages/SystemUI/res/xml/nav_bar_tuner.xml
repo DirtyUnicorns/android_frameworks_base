@@ -15,6 +15,7 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
     xmlns:sysui="http://schemas.android.com/apk/res-auto"
     android:title="@string/systemui_tuner_navbar_title">
 
@@ -64,26 +65,17 @@
         android:summary="%s"
         android:title="@string/right_icon" /-->
 
-    <ListPreference
-        android:entries="@array/navigation_bar_dimension_entries"
-        android:entryValues="@array/navigation_bar_dimension_values"
+    <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
         android:key="navigation_bar_height"
-        android:title="@string/navigation_bar_height_title"
-        android:persistent="false" />
+        android:title="@string/navigation_bar_height_title" />
 
-    <ListPreference
-        android:entries="@array/navigation_bar_dimension_entries"
-        android:entryValues="@array/navigation_bar_dimension_values"
+    <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
         android:key="navigation_bar_height_landscape"
-        android:title="@string/navigation_bar_height_landscape_title"
-        android:persistent="false" />
+        android:title="@string/navigation_bar_height_title" />
 
-    <ListPreference
-        android:entries="@array/navigation_bar_dimension_entries"
-        android:entryValues="@array/navigation_bar_dimension_values"
+    <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
         android:key="navigation_bar_width"
-        android:title="@string/navigation_bar_width_title"
-        android:persistent="false" />
+        android:title="@string/navigation_bar_width_title" />
 
     <com.android.systemui.tuner.TunerSwitch
         android:key="sysui_nav_bar_inverse"

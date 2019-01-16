@@ -29,12 +29,13 @@ import static com.android.systemui.statusbar.phone.NavigationBarInflaterView.ext
 
 import android.annotation.Nullable;
 import android.app.AlertDialog;
-import android.app.DialogFragment;
+import android.content.ContentResolver;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.provider.Settings;
 import android.support.v7.preference.ListPreference;
 import android.support.v7.preference.Preference;
@@ -54,6 +55,8 @@ import com.android.systemui.tuner.TunerService.Tunable;
 
 import com.android.internal.util.du.Utils;
 
+import com.dirtyunicorns.support.preferences.CustomSeekBarPreference;
+
 import java.util.ArrayList;
 
 public class NavBarTuner extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
@@ -66,13 +69,9 @@ public class NavBarTuner extends PreferenceFragment implements Preference.OnPref
     private static final String KEYCODE = "keycode";
     private static final String ICON = "icon";
 
-    private static final String PREF_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
-    private static final String PREF_NAVIGATION_BAR_HEIGHT_LANDSCAPE = "navigation_bar_height_landscape";
-    private static final String PREF_NAVIGATION_BAR_WIDTH = "navigation_bar_width";
-
-    ListPreference mNavigationBarHeight;
-    ListPreference mNavigationBarHeightLandscape;
-    ListPreference mNavigationBarWidth;
+    CustomSeekBarPreference mNavigationBarHeight;
+    CustomSeekBarPreference mNavigationBarHeightLandscape;
+    CustomSeekBarPreference mNavigationBarWidth;
 
     private static final int[][] ICONS = new int[][]{
             {R.drawable.ic_qs_circle, R.string.tuner_circle},
@@ -92,27 +91,42 @@ public class NavBarTuner extends PreferenceFragment implements Preference.OnPref
         super.onCreate(savedInstanceState);
 
         PreferenceScreen prefSet = getPreferenceScreen();
+        final ContentResolver resolver = getActivity().getContentResolver();
 
-        mNavigationBarHeight = (ListPreference) findPreference(PREF_NAVIGATION_BAR_HEIGHT);
+        int nav_height = Settings.System.getIntForUser(resolver,
+                Settings.System.NAVIGATION_BAR_HEIGHT, 48, UserHandle.USER_CURRENT);
+        mNavigationBarHeight = (CustomSeekBarPreference) findPreference("navigation_bar_height");
+        mNavigationBarHeight.setMin(1);
+        mNavigationBarHeight.setMax(100);
+        mNavigationBarHeight.setValue(nav_height);
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
 
-        mNavigationBarHeightLandscape =
-                (ListPreference) findPreference(PREF_NAVIGATION_BAR_HEIGHT_LANDSCAPE);
+        int nav_height_land = Settings.System.getIntForUser(resolver,
+                Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE, 48, UserHandle.USER_CURRENT);
+        mNavigationBarHeightLandscape = (CustomSeekBarPreference) findPreference(
+                "navigation_bar_height_landscape");
         if (Utils.isPhone(getActivity())) {
             prefSet.removePreference(mNavigationBarHeightLandscape);
             mNavigationBarHeightLandscape = null;
         } else {
+            mNavigationBarHeightLandscape.setMin(1);
+            mNavigationBarHeightLandscape.setMax(100);
+            mNavigationBarHeightLandscape.setValue(nav_height_land);
             mNavigationBarHeightLandscape.setOnPreferenceChangeListener(this);
         }
 
-        mNavigationBarWidth = (ListPreference) findPreference(PREF_NAVIGATION_BAR_WIDTH);
+        int nav_width = Settings.System.getIntForUser(resolver,
+                Settings.System.NAVIGATION_BAR_WIDTH, 48, UserHandle.USER_CURRENT);
+        mNavigationBarWidth = (CustomSeekBarPreference) findPreference("navigation_bar_width");
         if (!Utils.isPhone(getActivity())) {
             prefSet.removePreference(mNavigationBarWidth);
             mNavigationBarWidth = null;
         } else {
+            mNavigationBarWidth.setMin(1);
+            mNavigationBarWidth.setMax(100);
+            mNavigationBarWidth.setValue(nav_width);
             mNavigationBarWidth.setOnPreferenceChangeListener(this);
         }
-        updateDimensionValues();
     }
 
     @Override
@@ -275,61 +289,25 @@ public class NavBarTuner extends PreferenceFragment implements Preference.OnPref
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference == mNavigationBarWidth) {
-            int index = mNavigationBarWidth.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NAVIGATION_BAR_WIDTH,
-                    Integer.parseInt((String) newValue));
-            updateDimensionValues();
-            return true;
-        } else if (preference == mNavigationBarHeight) {
-            int index = mNavigationBarHeight.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NAVIGATION_BAR_HEIGHT,
-                    Integer.parseInt((String) newValue));
-            updateDimensionValues();
+        if (preference == mNavigationBarHeight) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT, val,
+                    UserHandle.USER_CURRENT);
             return true;
         } else if (preference == mNavigationBarHeightLandscape) {
-            int index = mNavigationBarHeightLandscape.findIndexOfValue((String) newValue);
-            Settings.System.putInt(getActivity().getContentResolver(), Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE,
-                    Integer.parseInt((String) newValue));
-            updateDimensionValues();
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE, val,
+                    UserHandle.USER_CURRENT);
+            return true;
+        } else if (preference == mNavigationBarWidth) {
+            int val = (Integer) newValue;
+            Settings.System.putIntForUser(getActivity().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_WIDTH, val,
+                    UserHandle.USER_CURRENT);
             return true;
         }
         return false;
-    }
-
-    private void updateDimensionValues() {
-        int navigationBarHeight = Settings.System.getInt(getActivity().getContentResolver(),
-                Settings.System.NAVIGATION_BAR_HEIGHT, -1);
-        if (navigationBarHeight == -1) {
-            navigationBarHeight = (int) (getResources().getDimension(
-                    com.android.internal.R.dimen.navigation_bar_height)
-                    / getResources().getDisplayMetrics().density);
-        }
-        mNavigationBarHeight.setValue(String.valueOf(navigationBarHeight));
-        mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntry());
-
-        if (mNavigationBarHeightLandscape != null) {
-            int navigationBarHeightLandscape = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE, -1);
-            if (navigationBarHeightLandscape == -1) {
-                navigationBarHeightLandscape = (int) (getResources().getDimension(
-                        com.android.internal.R.dimen.navigation_bar_height_landscape)
-                        / getResources().getDisplayMetrics().density);
-            }
-            mNavigationBarHeightLandscape.setValue(String.valueOf(navigationBarHeightLandscape));
-            mNavigationBarHeightLandscape.setSummary(mNavigationBarHeightLandscape.getEntry());
-        }
-
-        if (mNavigationBarWidth != null) {
-            int navigationBarWidth = Settings.System.getInt(getActivity().getContentResolver(),
-                    Settings.System.NAVIGATION_BAR_WIDTH, -1);
-            if (navigationBarWidth == -1) {
-                navigationBarWidth = (int) (getResources().getDimension(
-                        com.android.internal.R.dimen.navigation_bar_width)
-                        / getResources().getDisplayMetrics().density);
-            }
-            mNavigationBarWidth.setValue(String.valueOf(navigationBarWidth));
-            mNavigationBarWidth.setSummary(mNavigationBarWidth.getEntry());
-        }
     }
 }

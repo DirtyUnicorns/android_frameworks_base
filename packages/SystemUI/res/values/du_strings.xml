@@ -114,16 +114,6 @@
 
     <!-- Navbar Dimensions -->
     <string name="navigation_bar_height_title">Height</string>
-    <string name="navigation_bar_height_landscape_title">Height</string>
     <string name="navigation_bar_width_title">Width</string>
-    <string name="navigation_bar_size_36_dp">36 dp</string>
-    <string name="navigation_bar_size_30_dp">30 dp</string>
-    <string name="navigation_bar_size_24_dp">24 dp</string>
-    <string name="navigation_bar_size_52_dp">52 dp</string>
-    <string name="navigation_bar_size_48_dp_default">48 dp (default)</string>
-    <string name="navigation_bar_size_44_dp">44 dp</string>
-    <string name="navigation_bar_size_40_dp">40 dp</string>
-    <string name="navigation_bar_size_42_dp">42 dp</string>
-    <string name="navigation_bar_size_0_dp">0 dp (off)</string>
 
 </resources>
