@@ -15,7 +15,6 @@
 -->
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settings="http://schemas.android.com/apk/res-auto"
     xmlns:sysui="http://schemas.android.com/apk/res-auto"
     android:title="@string/systemui_tuner_navbar_title">
 
@@ -66,16 +65,13 @@
         android:title="@string/right_icon" /-->
 
     <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
-        android:key="navigation_bar_height"
-        android:title="@string/navigation_bar_height_title" />
+        android:key="navigation_bar_height" />
 
     <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
-        android:key="navigation_bar_height_landscape"
-        android:title="@string/navigation_bar_height_title" />
+        android:key="navigation_bar_height_landscape" />
 
     <com.dirtyunicorns.support.preferences.CustomSeekBarPreference
-        android:key="navigation_bar_width"
-        android:title="@string/navigation_bar_width_title" />
+        android:key="navigation_bar_width" />
 
     <com.android.systemui.tuner.TunerSwitch
         android:key="sysui_nav_bar_inverse"

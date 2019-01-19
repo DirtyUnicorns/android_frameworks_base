@@ -114,6 +114,8 @@
 
     <!-- Navbar Dimensions -->
     <string name="navigation_bar_height_title">Height</string>
+    <string name="navigation_bar_height_tablets_portrait_title">Height (portrait)</string>
+    <string name="navigation_bar_height_tablets_landscape_title">Height (landscape)</string>
     <string name="navigation_bar_width_title">Width</string>
 
 </resources>

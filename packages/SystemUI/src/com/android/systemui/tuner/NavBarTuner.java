@@ -96,6 +96,9 @@ public class NavBarTuner extends PreferenceFragment implements Preference.OnPref
         int nav_height = Settings.System.getIntForUser(resolver,
                 Settings.System.NAVIGATION_BAR_HEIGHT, 48, UserHandle.USER_CURRENT);
         mNavigationBarHeight = (CustomSeekBarPreference) findPreference("navigation_bar_height");
+        mNavigationBarHeight.setTitle(Utils.isPhone(getContext()) ?
+                R.string.navigation_bar_height_title :
+                R.string.navigation_bar_height_tablets_portrait_title);
         mNavigationBarHeight.setMin(1);
         mNavigationBarHeight.setMax(100);
         mNavigationBarHeight.setValue(nav_height);
@@ -109,6 +112,8 @@ public class NavBarTuner extends PreferenceFragment implements Preference.OnPref
             prefSet.removePreference(mNavigationBarHeightLandscape);
             mNavigationBarHeightLandscape = null;
         } else {
+            mNavigationBarHeightLandscape.setTitle(
+                    R.string.navigation_bar_height_tablets_landscape_title);
             mNavigationBarHeightLandscape.setMin(1);
             mNavigationBarHeightLandscape.setMax(100);
             mNavigationBarHeightLandscape.setValue(nav_height_land);
@@ -122,6 +127,7 @@ public class NavBarTuner extends PreferenceFragment implements Preference.OnPref
             prefSet.removePreference(mNavigationBarWidth);
             mNavigationBarWidth = null;
         } else {
+            mNavigationBarWidth.setTitle(R.string.navigation_bar_width_title);
             mNavigationBarWidth.setMin(1);
             mNavigationBarWidth.setMax(100);
             mNavigationBarWidth.setValue(nav_width);
