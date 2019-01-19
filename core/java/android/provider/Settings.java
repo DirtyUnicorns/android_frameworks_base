@@ -8468,6 +8468,13 @@ public final class Settings {
         };
 
         /**
+         * Whether to show or hide the keyguard multiuser switch
+         *
+         * @hide
+         */
+        public static final String KEYGUARD_MULTIUSER_SWITCH = "keyguard_multiuser_switch";
+
+        /**
          * Whether to display the power menu in a secured lockscreen
          *
          * @hide
