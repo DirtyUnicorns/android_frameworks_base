@@ -277,11 +277,6 @@ public class NavigationBarInflaterView extends FrameLayout
             newLayout = getDefaultLayout();
         }
         String[] sets = newLayout.split(GRAVITY_SEPARATOR, 3);
-        if (sets.length != 3) {
-            Log.d(TAG, "Invalid layout.");
-            newLayout = getDefaultLayout();
-            sets = newLayout.split(GRAVITY_SEPARATOR, 3);
-        }
         String[] start = sets[0].split(BUTTON_SEPARATOR);
         String[] center = sets[1].split(BUTTON_SEPARATOR);
         String[] end = sets[2].split(BUTTON_SEPARATOR);
@@ -293,6 +288,14 @@ public class NavigationBarInflaterView extends FrameLayout
             Collections.reverse(newStart);
             Collections.reverse(newCenter);
             Collections.reverse(newEnd);
+            start = swapLeftAndRight((String[]) newStart.toArray());
+            center = swapLeftAndRight((String[]) newCenter.toArray());
+            end = swapLeftAndRight((String[]) newEnd.toArray());
+        } else {
+            clearViews();
+            List<String> newStart = Arrays.asList(start);
+            List<String> newCenter = Arrays.asList(center);
+            List<String> newEnd = Arrays.asList(end);
             start = swapLeftAndRight((String[]) newStart.toArray());
             center = swapLeftAndRight((String[]) newCenter.toArray());
             end = swapLeftAndRight((String[]) newEnd.toArray());
