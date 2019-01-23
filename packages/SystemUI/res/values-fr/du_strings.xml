@@ -109,8 +109,14 @@
     <string name="ambientmusic_songinfo">%s par %s</string>
 
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time">Rechargement Dash… (Complètement chargé dans (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Rechargement Dash en cours… (Complètement chargé dans (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">Rechargement Dash</string>
+
+    <!-- Navbar Dimensions -->
+    <string name="navigation_bar_height_title">Hauteur</string>
+    <string name="navigation_bar_height_tablets_portrait_title">Hauteur (portrait)</string>
+    <string name="navigation_bar_height_tablets_landscape_title">Hauteur (paysage)</string>
+    <string name="navigation_bar_width_title">Largeur</string>
 
     <!-- strings.xml -->
     <string name="quick_settings_cast_title">Diffuser</string>
