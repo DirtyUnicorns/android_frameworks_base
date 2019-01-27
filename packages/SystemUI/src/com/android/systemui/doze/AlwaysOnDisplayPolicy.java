@@ -54,7 +54,7 @@ public class AlwaysOnDisplayPolicy {
     /**
      * Integer array to map ambient brightness type to real screen brightness.
      *
-     * @see Settings.Global#ALWAYS_ON_DISPLAY_CONSTANTS
+     * @see Settings.Global#ALWAYS_ON_DISPLAY_CONSTANTS_CUST
      * @see #KEY_SCREEN_BRIGHTNESS_ARRAY
      */
     public int[] screenBrightnessArray;
@@ -126,6 +126,8 @@ public class AlwaysOnDisplayPolicy {
     private final class SettingsObserver extends ContentObserver {
         private final Uri ALWAYS_ON_DISPLAY_CONSTANTS_URI
                 = Settings.Global.getUriFor(Settings.Global.ALWAYS_ON_DISPLAY_CONSTANTS);
+        private final Uri ALWAYS_ON_DISPLAY_CONSTANTS_CUST_URI
+                = Settings.System.getUriFor(Settings.System.ALWAYS_ON_DISPLAY_CONSTANTS_CUST);
 
         SettingsObserver(Handler handler) {
             super(handler);
@@ -134,6 +136,8 @@ public class AlwaysOnDisplayPolicy {
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
             resolver.registerContentObserver(ALWAYS_ON_DISPLAY_CONSTANTS_URI,
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(ALWAYS_ON_DISPLAY_CONSTANTS_CUST_URI,
                     false, this, UserHandle.USER_ALL);
             update(null);
         }
@@ -144,11 +148,11 @@ public class AlwaysOnDisplayPolicy {
         }
 
         public void update(Uri uri) {
+            final Resources resources = mContext.getResources();
+
             if (uri == null || ALWAYS_ON_DISPLAY_CONSTANTS_URI.equals(uri)) {
-                final Resources resources = mContext.getResources();
                 final String value = Settings.Global.getString(mContext.getContentResolver(),
                         Settings.Global.ALWAYS_ON_DISPLAY_CONSTANTS);
-
                 try {
                     mParser.setString(value);
                 } catch (IllegalArgumentException e) {
@@ -165,12 +169,23 @@ public class AlwaysOnDisplayPolicy {
                         DEFAULT_WALLPAPER_FADE_OUT_MS);
                 wallpaperVisibilityDuration = mParser.getLong(KEY_WALLPAPER_VISIBILITY_MS,
                         DEFAULT_WALLPAPER_VISIBILITY_MS);
-                screenBrightnessArray = mParser.getIntArray(KEY_SCREEN_BRIGHTNESS_ARRAY,
-                        resources.getIntArray(
-                                R.array.config_doze_brightness_sensor_to_brightness));
                 dimmingScrimArray = mParser.getIntArray(KEY_DIMMING_SCRIM_ARRAY,
                         resources.getIntArray(
                                 R.array.config_doze_brightness_sensor_to_scrim_opacity));
+            }
+
+            if (uri == null || ALWAYS_ON_DISPLAY_CONSTANTS_CUST_URI.equals(uri)) {
+                final String value = Settings.System.getString(mContext.getContentResolver(),
+                        Settings.System.ALWAYS_ON_DISPLAY_CONSTANTS_CUST);
+                try {
+                    mParser.setString(value);
+                } catch (IllegalArgumentException e) {
+                    Log.e(TAG, "Bad Custom AOD constants");
+                }
+
+                screenBrightnessArray = mParser.getIntArray(KEY_SCREEN_BRIGHTNESS_ARRAY,
+                        resources.getIntArray(
+                                R.array.config_doze_brightness_sensor_to_brightness));
             }
         }
     }
