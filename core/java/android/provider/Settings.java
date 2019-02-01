@@ -4649,14 +4649,19 @@ public final class Settings {
         public static final String SEEK_BAR_BATTERY_CHARGE_LEVEL_SOUND = "battery_level_charge_seek_bar";
 
         /**
-         * show carrier in statusbar. The value is
-         * int (1: Show or 0: Hide).
+         * Status bar carrier label
+         * 0: Hide
+         * 1: Display on keyguard status bar
+         * 2: Display on normal status bar
+         * 3: Enabled for both
+         * @hide
          */
-        public static final String STATUS_BAR_CARRIER = "status_bar_carrier";
+        public static final String STATUS_BAR_SHOW_CARRIER = "status_bar_show_carrier";
 
         /**
          * custom carrier label. The value is
          * String.
+         * @hide
          */
         public static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
 
