@@ -363,7 +363,8 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
     }
 
     private void updateVisibility() {
-        if (mIsEnabled && mTrafficVisible && mSystemIconVisible) {
+        if (!Utils.hasNotch(mContext) && mIsEnabled &&
+                mTrafficVisible && mSystemIconVisible) {
             setVisibility(View.VISIBLE);
         } else {
             setVisibility(View.GONE);
