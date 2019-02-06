@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Elmyra -->
+    <item type="id" name="elmyra_feedback_background"/>
+    <item type="id" name="elmyra_feedback_blue"/>
+    <item type="id" name="elmyra_feedback_green"/>
+    <item type="id" name="elmyra_feedback_red"/>
+    <item type="id" name="elmyra_feedback_view"/>
+    <item type="id" name="elmyra_feedback_yellow"/>
+
+</resources>
