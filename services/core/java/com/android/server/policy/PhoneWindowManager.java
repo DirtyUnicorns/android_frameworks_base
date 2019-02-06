@@ -1214,7 +1214,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             updateSettings();
         }
 
-        @Override public void onChange(boolean selfChange) {
+        @Override
+        public void onChange(boolean selfChange) {
             updateSettings();
             updateRotation(false);
         }
@@ -2855,67 +2856,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 updateOrientationListenerLp(); // Enable, disable the orientation listener
             }
 
-            mNavigationBarHeight =
-                    Settings.System.getIntForUser(mContext.getContentResolver(),
-                            Settings.System.NAVIGATION_BAR_HEIGHT, -2,
-                            UserHandle.USER_CURRENT);
-            if (mNavigationBarHeight == -2) {
-                mNavigationBarHeight = mContext.getResources().getDimensionPixelSize(
-                        com.android.internal.R.dimen.navigation_bar_height);
-            } else {
-                mNavigationBarHeight =
-                        Utils.dpToPx(mContext, mNavigationBarHeight);
-            }
-
-            mNavigationBarHeightLandscape =
-                    Settings.System.getIntForUser(mContext.getContentResolver(),
-                            Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE, -2,
-                            UserHandle.USER_CURRENT);
-            if (mNavigationBarHeightLandscape == -2) {
-                mNavigationBarHeightLandscape = mContext.getResources().getDimensionPixelSize(
-                        com.android.internal.R.dimen.navigation_bar_height_landscape);
-            } else {
-                mNavigationBarHeightLandscape =
-                        Utils.dpToPx(mContext, mNavigationBarHeightLandscape);
-            }
-
-            mNavigationBarWidth =
-                    Settings.System.getIntForUser(mContext.getContentResolver(),
-                            Settings.System.NAVIGATION_BAR_WIDTH, -2,
-                            UserHandle.USER_CURRENT);
-            if (mNavigationBarWidth == -2) {
-                mNavigationBarWidth = mContext.getResources().getDimensionPixelSize(
-                        com.android.internal.R.dimen.navigation_bar_width);
-            } else {
-                mNavigationBarWidth =
-                        Utils.dpToPx(mContext, mNavigationBarWidth);
-            }
-
-            if (!hasNavigationBar()) {
-                // Set the navigation bar's dimensions to 0
-                mNavigationBarWidthForRotationDefault[mPortraitRotation]
-                        = mNavigationBarWidthForRotationDefault[mUpsideDownRotation]
-                        = mNavigationBarWidthForRotationDefault[mLandscapeRotation]
-                        = mNavigationBarWidthForRotationDefault[mSeascapeRotation]
-                        = mNavigationBarHeightForRotationDefault[mPortraitRotation]
-                        = mNavigationBarHeightForRotationDefault[mUpsideDownRotation]
-                        = mNavigationBarHeightForRotationDefault[mLandscapeRotation]
-                        = mNavigationBarHeightForRotationDefault[mSeascapeRotation] = 0;
-            } else {
-                // Height of the navigation bar when presented horizontally at bottom
-                mNavigationBarHeightForRotationDefault[mPortraitRotation] =
-                mNavigationBarHeightForRotationDefault[mUpsideDownRotation] = mNavigationBarHeight;
-
-                mNavigationBarHeightForRotationDefault[mLandscapeRotation] =
-                mNavigationBarHeightForRotationDefault[mSeascapeRotation] = mNavigationBarHeightLandscape;
-
-                // Width of the navigation bar when presented vertically along one side
-                mNavigationBarWidthForRotationDefault[mPortraitRotation] =
-                mNavigationBarWidthForRotationDefault[mUpsideDownRotation] =
-                mNavigationBarWidthForRotationDefault[mLandscapeRotation] =
-                mNavigationBarWidthForRotationDefault[mSeascapeRotation] = mNavigationBarWidth;
-            }
-
             // Configure wake gesture.
             boolean wakeGestureEnabledSetting = Settings.Secure.getIntForUser(resolver,
                     Settings.Secure.WAKE_GESTURE_ENABLED, 0,
@@ -2991,6 +2931,67 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mGlobalActionsOnLockDisable = Settings.Secure.getIntForUser(resolver,
                     Settings.Secure.SECURED_LOCK_POWER_MENU, 1,
                     UserHandle.USER_CURRENT) != 0;
+
+            mNavigationBarHeight =
+                    Settings.System.getIntForUser(mContext.getContentResolver(),
+                            Settings.System.NAVIGATION_BAR_HEIGHT, -2,
+                            UserHandle.USER_CURRENT);
+            if (mNavigationBarHeight == -2) {
+                mNavigationBarHeight = mContext.getResources().getDimensionPixelSize(
+                        com.android.internal.R.dimen.navigation_bar_height);
+            } else {
+                mNavigationBarHeight =
+                        Utils.dpToPx(mContext, mNavigationBarHeight);
+            }
+
+            mNavigationBarHeightLandscape =
+                    Settings.System.getIntForUser(mContext.getContentResolver(),
+                            Settings.System.NAVIGATION_BAR_HEIGHT_LANDSCAPE, -2,
+                            UserHandle.USER_CURRENT);
+            if (mNavigationBarHeightLandscape == -2) {
+                mNavigationBarHeightLandscape = mContext.getResources().getDimensionPixelSize(
+                        com.android.internal.R.dimen.navigation_bar_height_landscape);
+            } else {
+                mNavigationBarHeightLandscape =
+                        Utils.dpToPx(mContext, mNavigationBarHeightLandscape);
+            }
+
+            mNavigationBarWidth =
+                    Settings.System.getIntForUser(mContext.getContentResolver(),
+                            Settings.System.NAVIGATION_BAR_WIDTH, -2,
+                            UserHandle.USER_CURRENT);
+            if (mNavigationBarWidth == -2) {
+                mNavigationBarWidth = mContext.getResources().getDimensionPixelSize(
+                        com.android.internal.R.dimen.navigation_bar_width);
+            } else {
+                mNavigationBarWidth =
+                        Utils.dpToPx(mContext, mNavigationBarWidth);
+            }
+
+            if (!hasNavigationBar()) {
+                // Set the navigation bar's dimensions to 0
+                mNavigationBarWidthForRotationDefault[mPortraitRotation]
+                        = mNavigationBarWidthForRotationDefault[mUpsideDownRotation]
+                        = mNavigationBarWidthForRotationDefault[mLandscapeRotation]
+                        = mNavigationBarWidthForRotationDefault[mSeascapeRotation]
+                        = mNavigationBarHeightForRotationDefault[mPortraitRotation]
+                        = mNavigationBarHeightForRotationDefault[mUpsideDownRotation]
+                        = mNavigationBarHeightForRotationDefault[mLandscapeRotation]
+                        = mNavigationBarHeightForRotationDefault[mSeascapeRotation] = 0;
+            } else {
+                // Height of the navigation bar when presented horizontally at bottom
+                mNavigationBarHeightForRotationDefault[mPortraitRotation] =
+                mNavigationBarHeightForRotationDefault[mUpsideDownRotation] = mNavigationBarHeight;
+
+                mNavigationBarHeightForRotationDefault[mLandscapeRotation] =
+                mNavigationBarHeightForRotationDefault[mSeascapeRotation] = mNavigationBarHeightLandscape;
+
+                // Width of the navigation bar when presented vertically along one side
+                mNavigationBarWidthForRotationDefault[mPortraitRotation] =
+                mNavigationBarWidthForRotationDefault[mUpsideDownRotation] =
+                mNavigationBarWidthForRotationDefault[mLandscapeRotation] =
+                mNavigationBarWidthForRotationDefault[mSeascapeRotation] = mNavigationBarWidth;
+            }
         }
 
         synchronized (mWindowManagerFuncs.getWindowManagerLock()) {
