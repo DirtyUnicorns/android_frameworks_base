@@ -35,6 +35,7 @@ LOCAL_SRC_FILES := \
     $(call all-Iaidl-files-under, $(RELATIVE_FINGERPRINT_PATH))
 
 LOCAL_SRC_FILES += $(call all-java-files-under, ../../../../external/DUI/src)
+LOCAL_SRC_FILES += $(call all-java-files-under, ../../../../external/google/src)
 
 LOCAL_STATIC_ANDROID_LIBRARIES := \
     SystemUIPluginLib \
@@ -61,6 +62,8 @@ LOCAL_STATIC_JAVA_LIBRARIES := \
 LOCAL_JAVA_LIBRARIES := telephony-common \
     android.car
 
+LOCAL_FULL_LIBS_MANIFEST_FILES += external/google/GoogleManifest.xml
+
 LOCAL_PACKAGE_NAME := SystemUI
 LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_CERTIFICATE := platform
@@ -69,6 +72,7 @@ LOCAL_PRIVILEGED_MODULE := true
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res-keyguard $(LOCAL_PATH)/res
 LOCAL_RESOURCE_DIR += external/DUI/res
+LOCAL_RESOURCE_DIR += external/google/res
 
 ifneq ($(INCREMENTAL_BUILDS),)
     LOCAL_PROGUARD_ENABLED := disabled
