@@ -99,7 +99,7 @@ public class NavBarTuner extends PreferenceFragment implements Preference.OnPref
         mNavigationBarHeight.setTitle(Utils.isPhone(getContext()) ?
                 R.string.navigation_bar_height_title :
                 R.string.navigation_bar_height_tablets_portrait_title);
-        mNavigationBarHeight.setMin(1);
+        mNavigationBarHeight.setMin(24);
         mNavigationBarHeight.setMax(100);
         mNavigationBarHeight.setValue(nav_height);
         mNavigationBarHeight.setOnPreferenceChangeListener(this);
@@ -114,7 +114,7 @@ public class NavBarTuner extends PreferenceFragment implements Preference.OnPref
         } else {
             mNavigationBarHeightLandscape.setTitle(
                     R.string.navigation_bar_height_tablets_landscape_title);
-            mNavigationBarHeightLandscape.setMin(1);
+            mNavigationBarHeightLandscape.setMin(24);
             mNavigationBarHeightLandscape.setMax(100);
             mNavigationBarHeightLandscape.setValue(nav_height_land);
             mNavigationBarHeightLandscape.setOnPreferenceChangeListener(this);
@@ -128,7 +128,7 @@ public class NavBarTuner extends PreferenceFragment implements Preference.OnPref
             mNavigationBarWidth = null;
         } else {
             mNavigationBarWidth.setTitle(R.string.navigation_bar_width_title);
-            mNavigationBarWidth.setMin(1);
+            mNavigationBarWidth.setMin(24);
             mNavigationBarWidth.setMax(100);
             mNavigationBarWidth.setValue(nav_width);
             mNavigationBarWidth.setOnPreferenceChangeListener(this);
