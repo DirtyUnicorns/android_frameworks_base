@@ -17,15 +17,15 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Power menu -->
-    <color name="power_menu_power_off">#ff202020</color>
-    <color name="power_menu_hot_reboot">#ff202020</color>
-    <color name="power_menu_restart">#ff202020</color>
-    <color name="power_menu_restart_advanced">#ff202020</color>
-    <color name="power_menu_advanced_bootloader">#ff202020</color>
-    <color name="power_menu_advanced_recovery">#ff202020</color>
-    <color name="power_menu_advanced_system_restart_ui">#ff202020</color>
-    <color name="power_menu_lockdown">#ff202020</color>
-    <color name="power_menu_screenshot">#ff202020</color>
+    <color name="power_menu_power_off">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_hot_reboot">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_restart">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_restart_advanced">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_advanced_bootloader">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_advanced_recovery">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_advanced_system_restart_ui">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_lockdown">@*android:color/accent_device_default_light</color>
+    <color name="power_menu_screenshot">@*android:color/accent_device_default_light</color>
 
     <!-- Resolver -->
     <color name="resolver_list_bg">@android:color/white</color>
