@@ -204,8 +204,9 @@ public class KeyguardSliceProvider extends SliceProvider implements
             Log.d("WeatherClient", "addWeather: Not adding because weather condition image is unknown");
             return;
         }
-        int temperature = mWeatherInfo.getTemperature(!Utils.mccCheck(getContext()));
-        String temperatureText = Utils.mccCheck(getContext()) ?
+        final boolean fahrenheit = Utils.mccCheck(getContext());
+        int temperature = mWeatherInfo.getTemperature(!fahrenheit);
+        String temperatureText = fahrenheit ?
                 Integer.toString(temperature) + "°F" :
                 Integer.toString(temperature) + "°C";
         Icon conditionIcon = Icon.createWithResource(getContext(), mWeatherInfo.getWeatherConditionImage());
