@@ -24,4 +24,6 @@
     <!-- Fix a tablet derp with the notification panel -->
     <bool name="tablets_notifications_quick_fix">false</bool>
 
+    <bool name="has_elmyra_service">false</bool>
+
 </resources>
