@@ -145,6 +145,22 @@ public class ActionUtils {
         }
     }
 
+    // Cycle ringer modes
+    public static void toggleRingerModes (Context context) {
+        AudioManager am = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        switch (am.getRingerMode()) {
+            case AudioManager.RINGER_MODE_SILENT:
+                am.setRingerMode(AudioManager.RINGER_MODE_NORMAL);
+                break;
+            case AudioManager.RINGER_MODE_VIBRATE:
+                am.setRingerMode(AudioManager.RINGER_MODE_SILENT);
+                break;
+            case AudioManager.RINGER_MODE_NORMAL:
+                am.setRingerMode(AudioManager.RINGER_MODE_VIBRATE);
+                break;
+        }
+    }
+
     // Method to sendKeycode
     public static void sendKeycode(int keycode, Handler h) {
         long when = SystemClock.uptimeMillis();
