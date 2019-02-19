@@ -8637,6 +8637,20 @@ public final class Settings {
         public static final String SQUEEZE_SELECTION = "squeeze_selection";
 
         /**
+         * Launch custom application when using the squeeze feature (active edge)
+         *
+         * @hide
+         */
+        public static final String SQUEEZE_CUSTOM_APP = "squeeze_custom_app";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the squeeze feature (active edge)
+         * @hide
+         */
+        public static final String SQUEEZE_CUSTOM_APP_FR_NAME = "squeeze_custom_app_fr_name";
+
+        /**
          * Display style of the status bar battery information
          * 0: Display the battery an icon in portrait mode
          * 2: Display the battery as a circle
