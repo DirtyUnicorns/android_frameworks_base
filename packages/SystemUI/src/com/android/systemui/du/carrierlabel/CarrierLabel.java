@@ -60,7 +60,7 @@ public class CarrierLabel extends TextView implements DarkReceiver {
         the carrier label on the statusbar if for whatever reason
         the user changes notch overlays*/
         int mCarrierLabel = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_SHOW_CARRIER, 0, UserHandle.USER_CURRENT);
+                Settings.System.STATUS_BAR_SHOW_CARRIER, 1, UserHandle.USER_CURRENT);
         if (Utils.hasNotch(mContext)) {
             switch (mCarrierLabel) {
                 case 0:
