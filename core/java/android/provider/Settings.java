@@ -8709,25 +8709,46 @@ public final class Settings {
                 "packages_to_clear_data_before_full_restore";
 
         /**
-         * Select various actions for squeeze gesture
+         * Select various actions for short squeeze gesture
          *
          * @hide
          */
-        public static final String SQUEEZE_SELECTION = "squeeze_selection";
+        public static final String SHORT_SQUEEZE_SELECTION = "short_squeeze_selection";
 
         /**
-         * Launch custom application when using the squeeze feature (active edge)
+         * Select various actions for long squeeze gesture
          *
          * @hide
          */
-        public static final String SQUEEZE_CUSTOM_APP = "squeeze_custom_app";
+        public static final String LONG_SQUEEZE_SELECTION = "long_squeeze_selection";
+
+        /**
+         * Launch custom application when using the short squeeze feature
+         *
+         * @hide
+         */
+        public static final String SHORT_SQUEEZE_CUSTOM_APP = "short_squeeze_custom_app";
 
         /**
          * Display friendly name of custom application launched when
-         * using the squeeze feature (active edge)
+         * using the short queeze feature (active edge)
          * @hide
          */
-        public static final String SQUEEZE_CUSTOM_APP_FR_NAME = "squeeze_custom_app_fr_name";
+        public static final String SHORT_SQUEEZE_CUSTOM_APP_FR_NAME = "short_squeeze_custom_app_fr_name";
+
+        /**
+         * Launch custom application when using the long squeeze feature
+         *
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_CUSTOM_APP = "long_squeeze_custom_app";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long squeeze feature (active edge)
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_CUSTOM_APP_FR_NAME = "long_squeeze_custom_app_fr_name";
 
         /**
          * Display style of the status bar battery information
