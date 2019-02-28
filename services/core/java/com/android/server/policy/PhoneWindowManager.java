@@ -6482,13 +6482,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 ActionUtils.toggleFlashLight();
                 break;
             case NavbarUtilities.KEY_ACTION_CLEAR_NOTIFICATIONS:
-                ActionUtils.toggleClearNotifications();
+                ActionUtils.clearAllNotifications();
                 break;
             case NavbarUtilities.KEY_ACTION_VOLUME_PANEL:
                 ActionUtils.toggleVolumePanel(mContext);
                 break;
             case NavbarUtilities.KEY_ACTION_SCREEN_OFF:
-                ActionUtils.toggleScreenOff(mContext);
+                ActionUtils.switchScreenOff(mContext);
                 break;
             case NavbarUtilities.KEY_ACTION_NOTIFICATIONS:
                 ActionUtils.toggleNotifications();
