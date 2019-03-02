@@ -28,6 +28,7 @@ import android.os.SystemClock;
 import android.os.Vibrator;
 import android.provider.MediaStore;
 import android.view.IWindowManager;
+import android.view.KeyEvent;
 import android.view.WindowManagerGlobal;
 
 import com.android.internal.statusbar.IStatusBarService;
@@ -184,6 +185,17 @@ public class ActionUtils {
         if (service != null) {
             try {
                 service.killForegroundApp();
+            } catch (RemoteException e) {
+                // do nothing.
+            }
+        }
+    }
+
+    public static void sendSystemKeyToStatusBar(int keyCode) {
+        IStatusBarService service = getStatusBarService();
+        if (service != null) {
+            try {
+                service.handleSystemKey(keyCode);
             } catch (RemoteException e) {
                 // do nothing.
             }
