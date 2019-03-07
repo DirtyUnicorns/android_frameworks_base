@@ -366,8 +366,7 @@ public class BatteryMeterView extends LinearLayout implements
                 (int) (batteryWidth * iconScaleFactor), (int) (batteryHeight * iconScaleFactor));
         scaledLayoutParams.setMargins(0, 0, 0, marginBottom);
 
-        mBatteryIconView.setLayoutParams(scaledLayoutParams);
-
+        mBatteryIconView.post(() -> mBatteryIconView.setLayoutParams(scaledLayoutParams));
     }
 
     @Override
