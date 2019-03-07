@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.provider.Settings;
-
+import com.android.internal.util.du.Utils;
 import com.android.systemui.R;
 import com.android.systemui.VendorServices;
 
@@ -29,6 +29,12 @@ public class AppPickerServices extends VendorServices {
             if (action.equals(Intent.ACTION_PACKAGE_REMOVED)) {
 
                 String packageName = intent.getData().getSchemeSpecificPart();
+
+                // If the package is still installed
+                if (Utils.isPackageInstalled(context, packageName)) {
+                    // it's an application update, we can skip the rest.
+                    return;
+                }
 
                 String backLongPress = Settings.System.getString(context.getContentResolver(),
                         Settings.System.KEY_BACK_LONG_PRESS_CUSTOM_APP);
