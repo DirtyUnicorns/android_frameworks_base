@@ -18,16 +18,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App error dialog -->
-    <string name="aerr_copy">Copier l\'URL du journal de plantage</string>
-    <string name="url_copy_success">URL copiée</string>
-    <string name="url_copy_failed">Une erreur s\'est produite lors du téléversement du journal sur Dogbin</string>
+    <string name="aerr_copy">复制崩溃日志链接</string>
+    <string name="url_copy_success">已成功复制链接</string>
+    <string name="url_copy_failed">上传日志到 dogbin 的时候发生了一个错误。</string>
     <!-- Power menu -->
-    <string name="reboot_to_recovery_title">Récupération</string>
-    <string name="reboot_to_recovery_message">Redémarrage Recovery</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Redémarrage Bootloader</string>
-    <string name="reboot_title">Redémarrer</string>
-    <string name="reboot_message">Redémarrage Système</string>
+    <string name="reboot_to_recovery_title">恢复模式</string>
+    <string name="reboot_to_recovery_message">正在重启至恢复模式</string>
+    <string name="reboot_to_bootloader_title">引导模式</string>
+    <string name="reboot_to_bootloader_message">正在重启至引导模式</string>
+    <string name="reboot_title">重启</string>
+    <string name="reboot_message">重新启动系统</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Votre \"vendor.img\" est obsolète. Veuillez installer la version <xliff:g id="string">%s</xliff:g></string>
+    <string name="system_error_vendorprint">您的设备制造商镜像与系统不匹配。请为您的设备刷入 <xliff:g id="string">%s </xliff:g> 设备制造商镜像</string>
 </resources>

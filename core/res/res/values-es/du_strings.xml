@@ -18,16 +18,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App error dialog -->
-    <string name="aerr_copy">Copier l\'URL du journal de plantage</string>
-    <string name="url_copy_success">URL copiée</string>
-    <string name="url_copy_failed">Une erreur s\'est produite lors du téléversement du journal sur Dogbin</string>
+    <string name="aerr_copy">Copiar URL del registro de errores</string>
+    <string name="url_copy_success">URL copiada correctamente</string>
+    <string name="url_copy_failed">Se ha producido un error al cargar el registro en dogbin</string>
     <!-- Power menu -->
-    <string name="reboot_to_recovery_title">Récupération</string>
-    <string name="reboot_to_recovery_message">Redémarrage Recovery</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Reiniciando en modo recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Redémarrage Bootloader</string>
-    <string name="reboot_title">Redémarrer</string>
-    <string name="reboot_message">Redémarrage Système</string>
+    <string name="reboot_to_bootloader_message">Reiniciando en modo bootloader</string>
+    <string name="reboot_title">Reiniciar</string>
+    <string name="reboot_message">Reiniciar sistema</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Votre \"vendor.img\" est obsolète. Veuillez installer la version <xliff:g id="string">%s</xliff:g></string>
+    <string name="system_error_vendorprint">La imagen del fabricante no coincide con la del sistema. Por favor flashea la imagen del fabricante <xliff:g id="string">%s</xliff:g> para este dispositivo</string>
 </resources>

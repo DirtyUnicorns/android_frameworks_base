@@ -18,16 +18,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App error dialog -->
-    <string name="aerr_copy">Copier l\'URL du journal de plantage</string>
-    <string name="url_copy_success">URL copiée</string>
-    <string name="url_copy_failed">Une erreur s\'est produite lors du téléversement du journal sur Dogbin</string>
+    <string name="aerr_copy">Kopírovat URL protokolu o selhání</string>
+    <string name="url_copy_success">URL úspěšně zkopírována</string>
+    <string name="url_copy_failed">Při nahrávání protokolu o selhání došlo k chybě</string>
     <!-- Power menu -->
-    <string name="reboot_to_recovery_title">Récupération</string>
-    <string name="reboot_to_recovery_message">Redémarrage Recovery</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Restartování do recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Redémarrage Bootloader</string>
-    <string name="reboot_title">Redémarrer</string>
-    <string name="reboot_message">Redémarrage Système</string>
+    <string name="reboot_to_bootloader_message">Restartování do bootloaderu</string>
+    <string name="reboot_title">Restartovat</string>
+    <string name="reboot_message">Restartování systému</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Votre \"vendor.img\" est obsolète. Veuillez installer la version <xliff:g id="string">%s</xliff:g></string>
+    <string name="system_error_vendorprint">Váš dodavatel obrazu se neshoduje se systémem. Prosím flashněte obraz pro vaše zařízení <xliff:g id="string">%s </xliff:g></string>
 </resources>
