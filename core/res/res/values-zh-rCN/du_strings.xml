@@ -27,7 +27,7 @@
     <string name="reboot_to_bootloader_title">引导模式</string>
     <string name="reboot_to_bootloader_message">正在重启至引导模式</string>
     <string name="reboot_title">重启</string>
-    <string name="reboot_message">重新启动系统</string>
+    <string name="reboot_message">重启系统中</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
     <string name="system_error_vendorprint">您的设备制造商镜像与系统不匹配。请为您的设备刷入 <xliff:g id="string">%s </xliff:g> 设备制造商镜像</string>
 </resources>

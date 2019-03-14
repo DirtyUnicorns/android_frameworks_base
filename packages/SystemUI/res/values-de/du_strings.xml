@@ -18,12 +18,12 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Screen pinning -->
-    <string name="screen_pinning_description_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_recents_invisible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_accessible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_recents_invisible_accessible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_toast_custom">To unpin this screen, touch &amp; hold Back button</string>
-    <string name="screen_pinning_toast_recents_invisible_custom">To unpin this screen, touch &amp; hold Back button</string>
+    <string name="screen_pinning_description_custom">Der Bildschirm wird so lange angezeigt, bis du die Fixierung aufhebst. Berühre &amp; halte \"Zurück\", um die Fixierung aufzuheben.</string>
+    <string name="screen_pinning_description_recents_invisible_custom">Der Bildschirm wird so lange angezeigt, bis du die Fixierung aufhebst. Berühre &amp; halte \"Zurück\", um die Fixierung aufzuheben.</string>
+    <string name="screen_pinning_description_accessible_custom">Der Bildschirm wird so lange angezeigt, bis du die Fixierung aufhebst. Berühre &amp; halte \"Zurück\", um die Fixierung aufzuheben.</string>
+    <string name="screen_pinning_description_recents_invisible_accessible_custom">Der Bildschirm wird so lange angezeigt, bis du die Fixierung aufhebst. Berühre &amp; halte \"Zurück\", um die Fixierung aufzuheben.</string>
+    <string name="screen_pinning_toast_custom">Um die Fixierung dieses Bildschirms aufzuheben, \"Zurück\" berühren und halten</string>
+    <string name="screen_pinning_toast_recents_invisible_custom">Um die Fixierung dieses Bildschirms aufzuheben, \"Zurück\" berühren und halten</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Screenshot gelöscht</string>
     <!-- QS customizer -->
@@ -56,7 +56,7 @@
     <string name="quick_settings_theme_tile_color_teal">Blaugrün</string>
     <string name="quick_settings_theme_tile_color_green">Grün</string>
     <string name="quick_settings_theme_tile_color_light_green">Hellgrün</string>
-    <string name="quick_settings_theme_tile_color_lime">Lime</string>
+    <string name="quick_settings_theme_tile_color_lime">Hellgrün</string>
     <string name="quick_settings_theme_tile_color_yellow">Gelb</string>
     <string name="quick_settings_theme_tile_color_amber">Bernstein</string>
     <string name="quick_settings_theme_tile_color_orange">Orange</string>
@@ -84,7 +84,7 @@
     <string name="quick_settings_immersive_tile">Immersive Modus</string>
     <string name="quick_settings_immersive_tile_statusbar">Immersive Statusleiste</string>
     <string name="quick_settings_immersive_tile_navbar">Immersive Navigationsleiste</string>
-    <string name="quick_settings_immersive_tile_full">Immersive full</string>
+    <string name="quick_settings_immersive_tile_full">Immersiv voll</string>
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Koffein</string>
     <!-- Navigation bar dpad -->

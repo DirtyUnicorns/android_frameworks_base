@@ -22,7 +22,7 @@
     <string name="url_copy_success">URL copiée</string>
     <string name="url_copy_failed">Une erreur s\'est produite lors du téléversement du journal sur Dogbin</string>
     <!-- Power menu -->
-    <string name="reboot_to_recovery_title">Récupération</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
     <string name="reboot_to_recovery_message">Redémarrage Recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
     <string name="reboot_to_bootloader_message">Redémarrage Bootloader</string>

@@ -20,7 +20,7 @@
     <!-- App error dialog -->
     <string name="aerr_copy">Çökme günlüğü URL\' sini kopyala</string>
     <string name="url_copy_success">URL kopyalama başarılı</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
+    <string name="url_copy_failed">Günlüğü dogbin\'e yüklerken bir hata oluştu</string>
     <!-- Power menu -->
     <string name="reboot_to_recovery_title">Kurtarma</string>
     <string name="reboot_to_recovery_message">Kurtarma modunda yeniden başlatılıyor</string>
@@ -29,5 +29,5 @@
     <string name="reboot_title">Yeniden başlat</string>
     <string name="reboot_message">Sistem yeniden başlatılıyor</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Your vendor image does not match the system. Please flash the <xliff:g id="string">%s</xliff:g> vendor image for your device</string>
+    <string name="system_error_vendorprint">Üretici dosyanız sisteminiz ile eşleşmiyor. Cihazınız için lütfen <xliff:g id="string">%s</xliff:g> üretici dosyasını yükleyin</string>
 </resources>

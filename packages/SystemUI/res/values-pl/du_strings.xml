@@ -21,7 +21,7 @@
     <string name="screen_pinning_description_custom">Ekran będzie widoczny, dopóki go nie odepniesz. Aby to zrobić, kliknij &amp; przytrzymaj Wstecz.</string>
     <string name="screen_pinning_description_recents_invisible_custom">Ekran będzie widoczny, dopóki go nie odepniesz. Aby to zrobić, kliknij &amp; przytrzymaj Wstecz.</string>
     <string name="screen_pinning_description_accessible_custom">Ekran będzie widoczny, dopóki go nie odepniesz. Aby to zrobić, kliknij &amp; przytrzymaj Wstecz.</string>
-    <string name="screen_pinning_description_recents_invisible_accessible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
+    <string name="screen_pinning_description_recents_invisible_accessible_custom">Ekran będzie widoczny, dopóki go nie odepniesz. Aby to zrobić, kliknij i przytrzymaj Wstecz.</string>
     <string name="screen_pinning_toast_custom">Aby odpiąć ten ekran, naciśnij &amp; przytrzymaj Wstecz</string>
     <string name="screen_pinning_toast_recents_invisible_custom">Aby odpiąć ten ekran, naciśnij &amp; przytrzymaj Wstecz</string>
     <!-- Screenshot Delete Toast -->
@@ -30,10 +30,10 @@
     <string name="drag_or_tap_to_add_tiles">Przeciągnij lub dotknij aby dodać/usunąć kafelki</string>
     <!-- Power menu -->
     <string name="global_action_restart_advanced">Zaawansowane</string>
-    <string name="global_action_restart_recovery">Tryb Recovery</string>
-    <string name="global_action_restart_bootloader">Tryb Bootloader</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interfejs</string>
-    <string name="global_action_restart_hot">Gorące</string>
+    <string name="global_action_restart_hot">Szybki</string>
     <!-- SystemUI tuner -->
     <string name="systemui_tuner_navbar_title">Układ</string>
     <!-- Theme tile -->
@@ -73,34 +73,34 @@
     <string name="quick_settings_theme_tile_color_user_five">Gotówka</string>
     <string name="quick_settings_theme_tile_color_user_six">Piaszczysty</string>
     <string name="quick_settings_theme_tile_color_user_seven">Rams</string>
-    <string name="theme_info_title">What is this?</string>
-    <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or theme.\n\nTo change between accents and themes, simply long press on the tile and then press again to select from the options offered.</string>
+    <string name="theme_info_title">Co to jest?</string>
+    <string name="theme_info_message">Kafelek Motywów jest unikalny ale łatwym w obsłudze kafelkiem pozwalającym użytkownikowi na zmianę akcentu lub motywu systemu.\n\nAby zmienić akcent lub motyw, po prostu przytrzymaj dłużej kafelek i wybierz motyw z dostępnych opcji.</string>
     <!-- Screenshot tile -->
-    <string name="screenshot_abort_title">No screenshot taken</string>
-    <string name="screenshot_abort_text">Operation aborted</string>
-    <string name="quick_settings_screenshot_label">Screenshot</string>
-    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+    <string name="screenshot_abort_title">Nie wykonano zrzutu ekranu</string>
+    <string name="screenshot_abort_text">Operacja przerwana</string>
+    <string name="quick_settings_screenshot_label">Zrzut ekranu</string>
+    <string name="quick_settings_region_screenshot_label">Częściowy zrzut ekranu</string>
     <!-- Immersive tile -->
-    <string name="quick_settings_immersive_tile">Immersive mode</string>
-    <string name="quick_settings_immersive_tile_statusbar">Immersive statusbar</string>
-    <string name="quick_settings_immersive_tile_navbar">Immersive navbar</string>
-    <string name="quick_settings_immersive_tile_full">Immersive full</string>
+    <string name="quick_settings_immersive_tile">Tryb pełnoekranowy</string>
+    <string name="quick_settings_immersive_tile_statusbar">Schowaj pasek statusu</string>
+    <string name="quick_settings_immersive_tile_navbar">Schowaj pasek nawigacyjny</string>
+    <string name="quick_settings_immersive_tile_full">Tryb pełnoekranowy</string>
     <!-- Caffeine tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="quick_settings_caffeine_label">Kafeina</string>
     <!-- Navigation bar dpad -->
-    <string name="accessibility_dpad_left">Cursor left</string>
-    <string name="accessibility_dpad_right">Cursor right</string>
+    <string name="accessibility_dpad_left">Kursor lewy</string>
+    <string name="accessibility_dpad_right">Kursor w prawo</string>
     <!-- Button that controls inversion of layout of navigation bar -->
-    <string name="nav_bar_layout_inverse_title">Swap buttons</string>
-    <string name="nav_bar_layout_inverse_summary">Swap the order of recents and back buttons</string>
+    <string name="nav_bar_layout_inverse_title">Zamień przyciski</string>
+    <string name="nav_bar_layout_inverse_summary">Zamień miejscami przyciski panelu ostatnich aplikacji i powrotu</string>
     <!-- Ambient Display Pixel-Like string -->
-    <string name="ambientmusic_songinfo">%s by %s</string>
+    <string name="ambientmusic_songinfo">%s przez %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+    <string name="keyguard_indication_dash_charging_time">&lt;xliff:g id="percentage"&gt;%2$s&lt;/xliff:g&gt; • Szybkie Ładowanie (&lt;xliff:g id="charging_time_left" Na przykład="4 godziny i 2 minuty"&gt;%s&lt;/xliff:g&gt; do naładowania)</string>
+    <string name="keyguard_plugged_in_dash_charging">Szybkie ładowanie</string>
     <!-- Navbar Dimensions -->
-    <string name="navigation_bar_height_title">Height</string>
-    <string name="navigation_bar_height_tablets_portrait_title">Height (portrait)</string>
-    <string name="navigation_bar_height_tablets_landscape_title">Height (landscape)</string>
-    <string name="navigation_bar_width_title">Width</string>
+    <string name="navigation_bar_height_title">Wysokość</string>
+    <string name="navigation_bar_height_tablets_portrait_title">Wysokość (pionowo)</string>
+    <string name="navigation_bar_height_tablets_landscape_title">Wysokość (poziomo)</string>
+    <string name="navigation_bar_width_title">Szerokość</string>
 </resources>

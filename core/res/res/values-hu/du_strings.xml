@@ -20,14 +20,14 @@
     <!-- App error dialog -->
     <string name="aerr_copy">Összeomlási napló URL másolása</string>
     <string name="url_copy_success">Az URL sikeresen másolva</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
+    <string name="url_copy_failed">Hiba történt a napló dogbin-re való feltöltése során</string>
     <!-- Power menu -->
     <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Restarting to recovery</string>
+    <string name="reboot_to_recovery_message">Újraindítás a Recoveryben</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Restarting to bootloader</string>
-    <string name="reboot_title">Restart</string>
-    <string name="reboot_message">Restarting system</string>
+    <string name="reboot_to_bootloader_message">Újraindítás a Bootloaderben</string>
+    <string name="reboot_title">Újraindítás</string>
+    <string name="reboot_message">Rendszer újraindítása</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Your vendor image does not match the system. Please flash the <xliff:g id="string">%s</xliff:g> vendor image for your device</string>
+    <string name="system_error_vendorprint">Úgy tűnik a vendor.img elavult, nem egyezik a rendszerrel. Kérjük, frissítse</string>
 </resources>

@@ -18,16 +18,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App error dialog -->
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
+    <string name="aerr_copy">Skopiuj logi crash\"a URL</string>
+    <string name="url_copy_success">Pomyślnie skopiowano URL</string>
+    <string name="url_copy_failed">Wystąpił błąd podczas przesyłania logów do serwisu dogbin</string>
     <!-- Power menu -->
     <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Restarting to recovery</string>
+    <string name="reboot_to_recovery_message">Restartowanie do recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Restarting to bootloader</string>
-    <string name="reboot_title">Restart</string>
-    <string name="reboot_message">Restarting system</string>
+    <string name="reboot_to_bootloader_message">Restartowanie do bootloadera</string>
+    <string name="reboot_title">Zrestartuj</string>
+    <string name="reboot_message">Zrestartuj system</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Your vendor image does not match the system. Please flash the <xliff:g id="string">%s</xliff:g> vendor image for your device</string>
+    <string name="system_error_vendorprint">Twój obraz vendor jest niezgodny z wersją systemu. Pobierz <xliff:g id="string">%s</xliff:g> obraz vendor dla Twojego urządzenia</string>
 </resources>

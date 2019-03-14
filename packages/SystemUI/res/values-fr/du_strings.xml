@@ -30,7 +30,7 @@
     <string name="drag_or_tap_to_add_tiles">Glisser ou appuyer pour ajouter des tuiles</string>
     <!-- Power menu -->
     <string name="global_action_restart_advanced">Redémarrage optimisé</string>
-    <string name="global_action_restart_recovery">Récupération</string>
+    <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interface</string>
     <string name="global_action_restart_hot">Hot Reboot</string>
