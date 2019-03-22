@@ -18,89 +18,89 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Screen pinning -->
-    <string name="screen_pinning_description_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_recents_invisible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_accessible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_recents_invisible_accessible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_toast_custom">To unpin this screen, touch &amp; hold Back button</string>
-    <string name="screen_pinning_toast_recents_invisible_custom">To unpin this screen, touch &amp; hold Back button</string>
+    <string name="screen_pinning_description_custom">Приложение останется активным, пока вы не отмените блокировку, нажав &amp; и удерживая кнопку \"Назад\".</string>
+    <string name="screen_pinning_description_recents_invisible_custom">Приложение останется активным, пока вы не отмените блокировку, нажав &amp; и удерживая кнопку \"Назад\".</string>
+    <string name="screen_pinning_description_accessible_custom">Приложение останется активным, пока вы не отмените блокировку, нажав &amp; и удерживая кнопку \"Назад\".</string>
+    <string name="screen_pinning_description_recents_invisible_accessible_custom">Приложение останется активным, пока вы не отмените блокировку, нажав &amp; и удерживая кнопку \"Назад\".</string>
+    <string name="screen_pinning_toast_custom">Чтобы открепить экран, нажмите &amp; и удерживайте кнопку \"Назад\"</string>
+    <string name="screen_pinning_toast_recents_invisible_custom">Чтобы открепить экран, нажмите &amp; и удерживайте кнопку \"Назад\"</string>
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Screenshot deleted</string>
+    <string name="delete_screenshot_toast">Снимок экрана удален</string>
     <!-- QS customizer -->
-    <string name="drag_or_tap_to_add_tiles">Drag or tap to add/remove tiles</string>
+    <string name="drag_or_tap_to_add_tiles">Перетащите или нажмите для добавления/удаления плиток</string>
     <!-- Power menu -->
-    <string name="global_action_restart_advanced">Advanced</string>
-    <string name="global_action_restart_recovery">Recovery</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
-    <string name="global_action_restart_hot">Hot</string>
+    <string name="global_action_restart_advanced">Расширенная</string>
+    <string name="global_action_restart_recovery">Режим восстановления</string>
+    <string name="global_action_restart_bootloader">Загрузчик</string>
+    <string name="global_action_restart_ui">Интерфейс</string>
+    <string name="global_action_restart_hot">Мягкая</string>
     <!-- SystemUI tuner -->
-    <string name="systemui_tuner_navbar_title">Layout</string>
+    <string name="systemui_tuner_navbar_title">Макет</string>
     <!-- Theme tile -->
-    <string name="system_theme_style_title">Theme</string>
-    <string name="system_theme_style_auto">Automatic</string>
-    <string name="system_theme_style_light">Light</string>
-    <string name="system_theme_style_dark">Dark</string>
-    <string name="quick_settings_theme_tile_title">Accent</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">Select accent</string>
-    <string name="quick_settings_theme_tile_style_detail_title">Select theme</string>
-    <string name="quick_settings_theme_tile_color_default">Default</string>
-    <string name="quick_settings_theme_tile_color_red">Red</string>
-    <string name="quick_settings_theme_tile_color_pink">Pink</string>
-    <string name="quick_settings_theme_tile_color_purple">Purple</string>
-    <string name="quick_settings_theme_tile_color_deep_purple">Deep purple</string>
-    <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-    <string name="quick_settings_theme_tile_color_blue">Blue</string>
-    <string name="quick_settings_theme_tile_color_light_blue">Light blue</string>
-    <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
-    <string name="quick_settings_theme_tile_color_teal">Teal</string>
-    <string name="quick_settings_theme_tile_color_green">Green</string>
-    <string name="quick_settings_theme_tile_color_light_green">Light green</string>
-    <string name="quick_settings_theme_tile_color_lime">Lime</string>
-    <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
-    <string name="quick_settings_theme_tile_color_amber">Amber</string>
-    <string name="quick_settings_theme_tile_color_orange">Orange</string>
-    <string name="quick_settings_theme_tile_color_deep_orange">Deep orange</string>
-    <string name="quick_settings_theme_tile_color_brown">Brown</string>
-    <string name="quick_settings_theme_tile_color_grey">Grey</string>
-    <string name="quick_settings_theme_tile_color_blue_grey">Blue grey</string>
-    <string name="quick_settings_theme_tile_color_black">Black</string>
-    <string name="quick_settings_theme_tile_color_white">White</string>
+    <string name="system_theme_style_title">Тема</string>
+    <string name="system_theme_style_auto">Автоматическая</string>
+    <string name="system_theme_style_light">Светлая</string>
+    <string name="system_theme_style_dark">Темная</string>
+    <string name="quick_settings_theme_tile_title">Акцент</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Выбрать акцент</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Выбрать тему</string>
+    <string name="quick_settings_theme_tile_color_default">По умолчанию</string>
+    <string name="quick_settings_theme_tile_color_red">Красный</string>
+    <string name="quick_settings_theme_tile_color_pink">Розовый</string>
+    <string name="quick_settings_theme_tile_color_purple">Фиолетовый</string>
+    <string name="quick_settings_theme_tile_color_deep_purple">Тёмно-фиолетовый</string>
+    <string name="quick_settings_theme_tile_color_indigo">Индиго</string>
+    <string name="quick_settings_theme_tile_color_blue">Синий</string>
+    <string name="quick_settings_theme_tile_color_light_blue">Голубой</string>
+    <string name="quick_settings_theme_tile_color_cyan">Бирюзовый</string>
+    <string name="quick_settings_theme_tile_color_teal">Морской волны</string>
+    <string name="quick_settings_theme_tile_color_green">Зеленый</string>
+    <string name="quick_settings_theme_tile_color_light_green">Светло-зелёный</string>
+    <string name="quick_settings_theme_tile_color_lime">Лаймовый</string>
+    <string name="quick_settings_theme_tile_color_yellow">Жёлтый</string>
+    <string name="quick_settings_theme_tile_color_amber">Янтарный</string>
+    <string name="quick_settings_theme_tile_color_orange">Оранжевый</string>
+    <string name="quick_settings_theme_tile_color_deep_orange">Тёмно-оранжевый</string>
+    <string name="quick_settings_theme_tile_color_brown">Коричневый</string>
+    <string name="quick_settings_theme_tile_color_grey">Серый</string>
+    <string name="quick_settings_theme_tile_color_blue_grey">Серо-голубой</string>
+    <string name="quick_settings_theme_tile_color_black">Чёрный</string>
+    <string name="quick_settings_theme_tile_color_white">Белый</string>
     <string name="quick_settings_theme_tile_color_user_one">#StayDirty</string>
-    <string name="quick_settings_theme_tile_color_user_two">Grapes</string>
-    <string name="quick_settings_theme_tile_color_user_three">Blu</string>
-    <string name="quick_settings_theme_tile_color_user_four">Mint</string>
-    <string name="quick_settings_theme_tile_color_user_five">Money</string>
-    <string name="quick_settings_theme_tile_color_user_six">Sandy</string>
-    <string name="quick_settings_theme_tile_color_user_seven">Rams</string>
-    <string name="theme_info_title">What is this?</string>
-    <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or theme.\n\nTo change between accents and themes, simply long press on the tile and then press again to select from the options offered.</string>
+    <string name="quick_settings_theme_tile_color_user_two">Виноград</string>
+    <string name="quick_settings_theme_tile_color_user_three">Синь</string>
+    <string name="quick_settings_theme_tile_color_user_four">Мята</string>
+    <string name="quick_settings_theme_tile_color_user_five">Деньги</string>
+    <string name="quick_settings_theme_tile_color_user_six">Песочный</string>
+    <string name="quick_settings_theme_tile_color_user_seven">Кукуруза</string>
+    <string name="theme_info_title">Что это?</string>
+    <string name="theme_info_message">Плитка \"Темы\" - это уникальная, но простая в использовании плитка, которая позволяет пользователю изменять системный оттенок или стиль.\n\nЧтобы переключиться между оттенками и стилями, просто удерживайте нажатой плитку, а затем ещё раз нажмите на неё, чтобы выбрать из предложенных вариантов.</string>
     <!-- Screenshot tile -->
-    <string name="screenshot_abort_title">No screenshot taken</string>
-    <string name="screenshot_abort_text">Operation aborted</string>
-    <string name="quick_settings_screenshot_label">Screenshot</string>
-    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+    <string name="screenshot_abort_title">Снимок экрана не был снят</string>
+    <string name="screenshot_abort_text">Операция прервана</string>
+    <string name="quick_settings_screenshot_label">Снимок экрана</string>
+    <string name="quick_settings_region_screenshot_label">Частичный снимок экрана</string>
     <!-- Immersive tile -->
-    <string name="quick_settings_immersive_tile">Immersive mode</string>
-    <string name="quick_settings_immersive_tile_statusbar">Immersive statusbar</string>
-    <string name="quick_settings_immersive_tile_navbar">Immersive navbar</string>
-    <string name="quick_settings_immersive_tile_full">Immersive full</string>
+    <string name="quick_settings_immersive_tile">Режим погружения</string>
+    <string name="quick_settings_immersive_tile_statusbar">Строка состояния</string>
+    <string name="quick_settings_immersive_tile_navbar">Панель навигации</string>
+    <string name="quick_settings_immersive_tile_full">Полностью</string>
     <!-- Caffeine tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="quick_settings_caffeine_label">Кофеин</string>
     <!-- Navigation bar dpad -->
-    <string name="accessibility_dpad_left">Cursor left</string>
-    <string name="accessibility_dpad_right">Cursor right</string>
+    <string name="accessibility_dpad_left">Курсор влево</string>
+    <string name="accessibility_dpad_right">Курсор вправо</string>
     <!-- Button that controls inversion of layout of navigation bar -->
-    <string name="nav_bar_layout_inverse_title">Swap buttons</string>
-    <string name="nav_bar_layout_inverse_summary">Swap the order of recents and back buttons</string>
+    <string name="nav_bar_layout_inverse_title">Поменять кнопки местами</string>
+    <string name="nav_bar_layout_inverse_summary">Поменять местами кнопку назад и недавние</string>
     <!-- Ambient Display Pixel-Like string -->
-    <string name="ambientmusic_songinfo">%s by %s</string>
+    <string name="ambientmusic_songinfo">%s %s</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Зарядка Dash (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash-зарядка</string>
     <!-- Navbar Dimensions -->
-    <string name="navigation_bar_height_title">Height</string>
-    <string name="navigation_bar_height_tablets_portrait_title">Height (portrait)</string>
-    <string name="navigation_bar_height_tablets_landscape_title">Height (landscape)</string>
-    <string name="navigation_bar_width_title">Width</string>
+    <string name="navigation_bar_height_title">Высота</string>
+    <string name="navigation_bar_height_tablets_portrait_title">Высота (портрет)</string>
+    <string name="navigation_bar_height_tablets_landscape_title">Height (ландшафт)</string>
+    <string name="navigation_bar_width_title">Ширина</string>
 </resources>
