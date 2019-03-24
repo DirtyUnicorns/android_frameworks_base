@@ -16,6 +16,9 @@
 -->
 <resources>
 
+  <!-- Dreamliner service -->
+  <java-symbol type="bool" name="config_enableDreamlinerService" />
+
   <!-- Wallpaper component -->
   <java-symbol type="string" name="default_wallpaper_component_custom" />
 

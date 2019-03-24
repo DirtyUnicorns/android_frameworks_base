@@ -25,6 +25,9 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Whether the Dreamliner (Pixel Stand) service should be enabled -->
+    <bool name="config_enableDreamlinerService">false</bool>
+
     <!-- Wallpaper component -->
     <string name="default_wallpaper_component_custom" translatable="false">@null</string>
 
