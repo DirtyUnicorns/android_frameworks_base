@@ -2969,7 +2969,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                         Utils.dpToPx(mContext, mNavigationBarWidth);
             }
 
-            if (!hasNavigationBar()) {
+            // If either the navigation bar is disabled or the device doesn't have the navbar.
+            if (!mNavBarEnabled || !mHasNavigationBar) {
                 // Set the navigation bar's dimensions to 0
                 mNavigationBarWidthForRotationDefault[mPortraitRotation]
                         = mNavigationBarWidthForRotationDefault[mUpsideDownRotation]
