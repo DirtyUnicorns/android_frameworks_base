@@ -28,6 +28,8 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.RemoteException;
 import android.os.ServiceManager;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -130,7 +132,11 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
         mUiModeManager = mContext.getSystemService(UiModeManager.class);
-        mMode = Mode.ACCENT;
+        // Get enabled mode
+        String userChoice = Settings.System.getStringForUser(mContext.getContentResolver(),
+                Settings.System.THEME_TILE_ENABLED_MODE,
+                UserHandle.USER_CURRENT);
+        mMode = userChoice != null ? Mode.valueOf(userChoice) : Mode.ACCENT;
     }
 
     private static class ThemeTileItem {
@@ -327,6 +333,9 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
     @Override
     protected void handleLongClick() {
         mMode = mMode == Mode.ACCENT ? Mode.STYLE : Mode.ACCENT;
+        Settings.System.putStringForUser(mContext.getContentResolver(),
+                Settings.System.THEME_TILE_ENABLED_MODE, mMode.name(),
+                UserHandle.USER_CURRENT);
         refreshState();
     }
 
