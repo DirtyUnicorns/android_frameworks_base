@@ -1932,7 +1932,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (SPEW) Log.d(TAG, "handleNavigationKey: " + key);
 
         if (KeyEvent.KEYCODE_MEDIA_PREVIOUS == key || KeyEvent.KEYCODE_MEDIA_NEXT == key) {
-            mMediaManager.onSkipTrackEvent(key, mHandler);
+            mMediaManager.onSkipTrackEvent(key);
             return;
         }
 
