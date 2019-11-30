@@ -15,6 +15,9 @@
 -->
 <resources>
 
+    <!-- Width of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_width">13.5dp</dimen>
+
     <!-- Smartspace -->
     <dimen name="smartspace_icon_shadow">1dp</dimen>
 
