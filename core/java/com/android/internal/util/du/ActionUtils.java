@@ -78,6 +78,15 @@ public class ActionUtils {
         }
     }
 
+    public static void setPartialScreenshot(boolean active) {
+        IStatusBarService service = getStatusBarService();
+        if (service != null) {
+            try {
+                service.setPartialScreenshot(active);
+            } catch (RemoteException e) {}
+        }
+    }
+
     // Screenshots
     public static void takeScreenshot(boolean full) {
         IWindowManager wm = WindowManagerGlobal.getWindowManagerService();

@@ -1758,6 +1758,14 @@ public class StatusBar extends SystemUI implements DemoMode,
         return mPresenter;
     }
 
+    @Override
+    public void setPartialScreenshot(boolean active) {
+        if (getNavigationBarView() != null) {
+            getNavigationBarView().setPartialScreenshot(active);
+        }
+        mNotificationInterruptionStateProvider.setPartialScreenshot(active);
+    }
+
     private CustomSettingsObserver mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
     private class CustomSettingsObserver extends ContentObserver {
 
