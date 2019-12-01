@@ -113,7 +113,8 @@ interface IStatusBarService
     void hideBiometricDialog();
 
     /**
-     * ABC
+     * DU
      */
     void toggleCameraFlash();
+    void setPartialScreenshot(boolean active);
 }
