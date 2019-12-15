@@ -1800,6 +1800,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.LOCKSCREEN_CLOCK_SELECTION),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.System.EDGE_GESTURE_Y_DEAD_ZONE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -1825,16 +1828,19 @@ public class StatusBar extends SystemUI implements DemoMode,
                 setPulseOnNewTracks();
             } else if (uri.equals(Settings.Secure.getUriFor(Settings.Secure.LOCKSCREEN_CLOCK_SELECTION))) {
                 updateKeyguardStatusSettings();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.EDGE_GESTURE_Y_DEAD_ZONE))) {
+                setEdgeGestureDeadZone();
             }
         }
 
-    public void update() {
-        setFpToDismissNotifications();
-        setHideArrowForBackGesture();
-        setQsRowsColumns();
-        setStatusBarWindowViewOptions();
-        setPulseOnNewTracks();
-        updateKeyguardStatusSettings();
+        public void update() {
+            setFpToDismissNotifications();
+            setHideArrowForBackGesture();
+            setQsRowsColumns();
+            setStatusBarWindowViewOptions();
+            setPulseOnNewTracks();
+            updateKeyguardStatusSettings();
+            setEdgeGestureDeadZone();
        }
     }
 
@@ -1846,6 +1852,12 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mQSPanel != null) {
             mQSPanel.updateResources();
             updateQsPanelResources();
+        }
+    }
+
+    private void setEdgeGestureDeadZone() {
+        if (getNavigationBarView() != null) {
+            getNavigationBarView().setEdgeGestureDeadZone();
         }
     }
 
