@@ -32,6 +32,8 @@ import com.android.internal.R;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
+import android.view.IWindowManager;
+import android.view.WindowManagerGlobal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -146,5 +148,16 @@ public class Utils {
         int state = enabled ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED :
                 PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
         pm.setComponentEnabledSetting(componentName, state, PackageManager.DONT_KILL_APP);
+    }
+
+    // Method to detect navigation bar is in use
+    public static boolean hasNavigationBar(Context context) {
+        boolean hasNavbar = false;
+        IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
+        try {
+            hasNavbar = wm.hasNavigationBar(context.getDisplayId());
+        } catch (RemoteException ex) {
+        }
+        return hasNavbar;
     }
 }
