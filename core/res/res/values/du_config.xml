@@ -37,6 +37,7 @@
         <item>power</item>
         <item>restart</item>
         <item>recovery</item>
+        <item>lockdown</item>
         <item>screenshot</item>
     </string-array>
 

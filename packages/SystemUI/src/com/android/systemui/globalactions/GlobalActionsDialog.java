@@ -131,7 +131,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     //private static final String GLOBAL_ACTION_KEY_SILENT = "silent";
     //private static final String GLOBAL_ACTION_KEY_USERS = "users";
     //private static final String GLOBAL_ACTION_KEY_SETTINGS = "settings";
-    //private static final String GLOBAL_ACTION_KEY_LOCKDOWN = "lockdown";
+    private static final String GLOBAL_ACTION_KEY_LOCKDOWN = "lockdown";
     //private static final String GLOBAL_ACTION_KEY_VOICEASSIST = "voiceassist";
     //private static final String GLOBAL_ACTION_KEY_ASSIST = "assist";
     private static final String GLOBAL_ACTION_KEY_RESTART = "restart";
@@ -446,7 +446,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     addUsersToMenu(mItems);
                 }
             } else if (GLOBAL_ACTION_KEY_SETTINGS.equals(actionKey)) {
-                mItems.add(getSettingsAction());
+                mItems.add(getSettingsAction());*/
             } else if (GLOBAL_ACTION_KEY_LOCKDOWN.equals(actionKey)) {
                 if (Settings.Secure.getIntForUser(mContext.getContentResolver(),
                             Settings.Secure.LOCKDOWN_IN_POWER_MENU, 0, getCurrentUser().id) != 0
@@ -454,7 +454,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     mItems.add(getLockdownAction());
                     mHasLockdownButton = true;
                 }
-            } else if (GLOBAL_ACTION_KEY_VOICEASSIST.equals(actionKey)) {
+            /*} else if (GLOBAL_ACTION_KEY_VOICEASSIST.equals(actionKey)) {
                 mItems.add(getVoiceAssistAction());
             } else if (GLOBAL_ACTION_KEY_ASSIST.equals(actionKey)) {
                 mItems.add(getAssistAction());*/
