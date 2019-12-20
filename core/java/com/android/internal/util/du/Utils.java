@@ -25,6 +25,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.hardware.fingerprint.FingerprintManager;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.view.IWindowManager;
@@ -41,6 +42,16 @@ public class Utils {
         ConnectivityManager cm = (ConnectivityManager)context.getSystemService(
                 Context.CONNECTIVITY_SERVICE);
         return (cm.isNetworkSupported(ConnectivityManager.TYPE_MOBILE) == false);
+    }
+
+    // Check to see if device is connected to the internet
+    public static boolean isConnected(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) return false;
+
+        NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+        return wifi.isConnected() || mobile.isConnected();
     }
 
     // Check to see if a package is installed
