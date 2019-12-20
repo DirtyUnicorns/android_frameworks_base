@@ -113,7 +113,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         });
         mToolbar.setOnMenuItemClickListener(this);
         mToolbar.getMenu().add(Menu.NONE, MENU_RESET, 0,
-                mContext.getString(com.android.internal.R.string.reset));
+                mContext.getString(R.string.reset_customizer));
         mToolbar.setTitle(R.string.qs_edit);
         mRecyclerView = findViewById(android.R.id.list);
         mTransparentView = findViewById(R.id.customizer_transparent_view);

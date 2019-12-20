@@ -14,9 +14,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Screen record -->
     <string name="screenrecord_stopdot_label">Show stop dot</string>
     <string name="screenrecord_low_quality_label">Low quality</string>
-        <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">"Screen/Rec"</string>
 
     <!-- Advanced Reboot menu -->
@@ -24,4 +27,8 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">SystemUI</string>
+
+    <!-- QS customizer -->
+    <string name="reset_customizer">Reset order</string>
+
 </resources>
