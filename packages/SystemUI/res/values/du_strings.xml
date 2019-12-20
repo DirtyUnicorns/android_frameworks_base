@@ -21,4 +21,7 @@
     <!-- Label for header of customize QS -->
     <string name="drag_or_tap_to_rearrange_tiles">Hold &amp; drag to rearrange or tap to remove</string>
 
+    <!-- QS customizer -->
+    <string name="reset_customizer">Reset order</string>
+
 </resources>
