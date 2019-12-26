@@ -183,10 +183,11 @@ public class DozeTriggers implements DozeMachine.Part {
                     return;
                 }
                 if (isDoubleTap || isTap) {
-                    if (screenX != -1 && screenY != -1) {
+                    if (!mConfig.deviceHasSoli() && screenX != -1 && screenY != -1) {
                         mDozeHost.onSlpiTap(screenX, screenY, pulseReason);
+                    } else {
+                        gentleWakeUp(pulseReason);
                     }
-                    //gentleWakeUp(pulseReason);
                 } else if (isPickup) {
                     gentleWakeUp(pulseReason);
                 } else {
@@ -205,7 +206,8 @@ public class DozeTriggers implements DozeMachine.Part {
     }
 
     private void gentleWakeUp(int reason) {
-        if (!mConfig.alwaysOnEnabled(UserHandle.USER_CURRENT) && mConfig.isAmbientGestureEnabled(UserHandle.USER_CURRENT)) {
+        if (!mConfig.deviceHasSoli() && !mConfig.alwaysOnEnabled(UserHandle.USER_CURRENT)
+                && mConfig.isAmbientGestureEnabled(UserHandle.USER_CURRENT)) {
             requestPulse(reason, true /* alreadyPerformedProxCheck */, null /* onPulseSupressedListener */);
             return;
         }

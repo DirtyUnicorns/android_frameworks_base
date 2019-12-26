@@ -99,6 +99,7 @@ public class StatusBarWindowView extends FrameLayout {
     private StatusBar mService;
     private final Paint mTransparentSrcPaint = new Paint();
     private FalsingManager mFalsingManager;
+    private AmbientDisplayConfiguration mAmbientConfig;
 
     // Implements the floating action mode for TextView's Cut/Copy/Past menu. Normally provided by
     // DecorView, but since this is a special window we have to roll our own.
@@ -139,13 +140,12 @@ public class StatusBarWindowView extends FrameLayout {
         }
     };
     private final TunerService.Tunable mTunable = (key, newValue) -> {
-        AmbientDisplayConfiguration configuration = new AmbientDisplayConfiguration(mContext);
         switch (key) {
             case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
-                mDoubleTapEnabled = configuration.doubleTapGestureEnabled(UserHandle.USER_CURRENT);
+                mDoubleTapEnabled = mAmbientConfig.doubleTapGestureEnabled(UserHandle.USER_CURRENT);
                 break;
             case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
-                mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
+                mSingleTapEnabled = mAmbientConfig.tapGestureEnabled(UserHandle.USER_CURRENT);
         }
     };
 
@@ -166,6 +166,7 @@ public class StatusBarWindowView extends FrameLayout {
         mFalsingManager = Dependency.get(FalsingManager.class);  // TODO: inject into a controller.
         mGestureDetector = new GestureDetector(context, mGestureListener);
         mStatusBarStateController = Dependency.get(StatusBarStateController.class);
+        mAmbientConfig = new AmbientDisplayConfiguration(mContext);
         Dependency.get(TunerService.class).addTunable(mTunable,
                 Settings.Secure.DOZE_DOUBLE_TAP_GESTURE,
                 Settings.Secure.DOZE_TAP_SCREEN_GESTURE);
@@ -420,7 +421,7 @@ public class StatusBarWindowView extends FrameLayout {
         NotificationStackScrollLayout stackScrollLayout = getStackScrollLayout();
         mIsMusicTickerTap = false;
         if (mService.isDozing()) {
-            if (mService.isDoubleTapOnMusicTicker(ev.getX(), ev.getY())) {
+            if (!mAmbientConfig.deviceHasSoli() && mService.isDoubleTapOnMusicTicker(ev.getX(), ev.getY())) {
                 mIsMusicTickerTap = true;
             }
             if (!mService.isPulsing()) {
