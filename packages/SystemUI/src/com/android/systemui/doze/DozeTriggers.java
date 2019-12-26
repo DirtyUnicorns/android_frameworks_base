@@ -184,7 +184,7 @@ public class DozeTriggers implements DozeMachine.Part {
                 }
                 if (isDoubleTap || isTap) {
                     if (screenX != -1 && screenY != -1) {
-                        mDozeHost.onSlpiTap(screenX, screenY);
+                        mDozeHost.onSlpiTap(screenX, screenY, pulseReason);
                     }
                     //gentleWakeUp(pulseReason);
                 } else if (isPickup) {
@@ -583,8 +583,8 @@ public class DozeTriggers implements DozeMachine.Part {
         }
 
         @Override
-        public void wakeUpFromDoubleTap() {
-            gentleWakeUp(DozeLog.REASON_SENSOR_DOUBLE_TAP);
+        public void wakeUpFromDoubleTap(int pulseReason) {
+            gentleWakeUp(pulseReason);
         }
     };
 }
