@@ -30,6 +30,7 @@
         <permission name="android.permission.GET_APP_OPS_STATS"/>
         <permission name="android.permission.INTERACT_ACROSS_USERS"/>
         <permission name="android.permission.MANAGE_DEBUGGING"/>
+        <permission name="android.permission.MANAGE_SOUND_TRIGGER" />
         <permission name="android.permission.MANAGE_SENSOR_PRIVACY"/>
         <permission name="android.permission.MANAGE_USB"/>
         <permission name="android.permission.MANAGE_USERS"/>
@@ -54,6 +55,7 @@
         <permission name="android.permission.TETHER_PRIVILEGED"/>
         <permission name="android.permission.UPDATE_APP_OPS_STATS"/>
         <permission name="android.permission.USE_RESERVED_DISK"/>
+        <permission name="android.permission.USER_ACTIVITY" />
         <permission name="android.permission.WATCH_APPOPS"/>
         <permission name="android.permission.WRITE_DREAM_STATE"/>
         <permission name="android.permission.WRITE_MEDIA_STORAGE"/>
