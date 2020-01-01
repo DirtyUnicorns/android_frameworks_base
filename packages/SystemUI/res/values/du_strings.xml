@@ -73,5 +73,5 @@
     <string name="quick_settings_adb_network">ADB over Network</string>
     <string name="quick_settings_network_adb_enabled_label">ADB over Network</string>
     <string name="quick_settings_network_adb_disabled_label">ADB over Network</string>
-
+    <string name="adb_network_forced_tcp_warn">ADB network forced enabled on port: <xliff:g id="port">%1$s</xliff:g></string>
 </resources>

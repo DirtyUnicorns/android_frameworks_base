@@ -329,6 +329,8 @@ public final class SystemServer {
     private Future<?> mSensorServiceStart;
     private Future<?> mZygotePreload;
 
+    private int mForcedTcp = -1;
+
     /**
      * Start the sensor service. This is a blocking call and can take time.
      */
@@ -375,6 +377,7 @@ public final class SystemServer {
         }
         @Override
         public void onChange(boolean selfChange) {
+            if (mForcedTcp > 0) return;
             int adbPort = Settings.Secure.getInt(mContentResolver,
                 Settings.Secure.ADB_PORT, 0);
             // setting this will control whether ADB runs on TCP/IP or USB
@@ -1904,8 +1907,14 @@ public final class SystemServer {
         mSystemServiceManager.startService(IncidentCompanionService.class);
         traceEnd();
 
-        // make sure the ADB_ENABLED setting value matches the secure property value
+        // Check if the user wants adbovernet always enabled and he set persist.adb.tcp.port prop
+        // (service.adb.tcp.port gets reset after reboot for security purposes instead)
+        final String persistTcpProp =  SystemProperties.get("persist.adb.tcp.port");
+        if (!TextUtils.isEmpty(persistTcpProp)) {
+            mForcedTcp = Integer.parseInt(persistTcpProp);
+        }
         Settings.Secure.putInt(mContentResolver, Settings.Secure.ADB_PORT,
+                mForcedTcp > 0 ? mForcedTcp :
                 Integer.parseInt(SystemProperties.get("service.adb.tcp.port", "-1")));
 
         // register observer to listen for settings changes

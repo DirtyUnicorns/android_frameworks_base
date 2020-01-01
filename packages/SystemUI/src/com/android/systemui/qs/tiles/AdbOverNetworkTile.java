@@ -23,8 +23,10 @@ import android.net.Uri;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.UserHandle;
+import android.os.SystemProperties;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
+import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.android.systemui.R;
@@ -51,6 +53,8 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
     private final KeyguardMonitor mKeyguard;
 
     private CharSequence mAddressLabel;
+    private CharSequence mForcedTcpWarning;
+    private int mForcedTcp = -1;
 
     @Inject
     public AdbOverNetworkTile(QSHost host, ActivityStarter activityStarter, KeyguardMonitor keyguardMonitor) {
@@ -58,6 +62,11 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
         mController = Dependency.get(NetworkController.class);
         mActivityStarter = activityStarter;
         mKeyguard = keyguardMonitor;
+        final String persistTcpProp =  SystemProperties.get("persist.adb.tcp.port");
+        if (!TextUtils.isEmpty(persistTcpProp)) {
+            mForcedTcp = Integer.parseInt(persistTcpProp);
+            mForcedTcpWarning = mContext.getString(R.string.adb_network_forced_tcp_warn, persistTcpProp);
+        }
     }
 
     @Override
@@ -67,6 +76,10 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleClick() {
+        if (mForcedTcp > 0) {
+            showForcedTcpWarning();
+            return;
+        }
         if (mKeyguard.isSecure() && mKeyguard.isShowing()) {
             mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
                 setAdbNetwork(getState().value);
@@ -83,10 +96,19 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleLongClick() {
+        if (mForcedTcp > 0) {
+            showForcedTcpWarning();
+            return;
+        }
         if (mAddressLabel != null) {
             SysUIToast.makeText(mContext, mAddressLabel,
                 Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void showForcedTcpWarning() {
+        SysUIToast.makeText(mContext, mForcedTcpWarning,
+            Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -141,6 +163,7 @@ public class AdbOverNetworkTile extends QSTileImpl<BooleanState> {
     }
 
     private boolean isAdbNetworkEnabled() {
+        // ADB_PORT already gets persist.adb.tcp.port value, if set, from SystemServer.startOtherServices()
         return Settings.Secure.getInt(mContext.getContentResolver(),
                 Settings.Secure.ADB_PORT, 0) > 0;
     }
