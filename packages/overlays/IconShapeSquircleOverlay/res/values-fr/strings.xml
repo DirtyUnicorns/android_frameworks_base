@@ -17,7 +17,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Square icon overlay -->
-    <string name="icon_shape_square_overlay">Square</string>
+    <!-- Squircle icon shape overlay -->
+    <string name="icon_shape_squircle_overlay">Carrécle</string>
 
 </resources>

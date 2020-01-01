@@ -17,7 +17,7 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Square icon overlay -->
-    <string name="icon_shape_square_overlay">Square</string>
+    <!-- Rounded corner rectangle overlay -->
+    <string name="icon_shape_roundedrect_overlay">Rectangle arrondi</string>
 
 </resources>
