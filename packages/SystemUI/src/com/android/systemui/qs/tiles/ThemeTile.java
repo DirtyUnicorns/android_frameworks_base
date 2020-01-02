@@ -19,6 +19,7 @@ package com.android.systemui.qs.tiles;
 import static android.os.UserHandle.USER_SYSTEM;
 
 import android.app.UiModeManager;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.om.IOverlayManager;
@@ -27,7 +28,6 @@ import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.os.RemoteException;
 import android.os.ServiceManager;
-import android.provider.Settings;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -264,7 +264,8 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
 
         @Override
         public Intent getSettingsIntent() {
-            return new Intent(Settings.ACTION_DISPLAY_SETTINGS);
+            return new Intent().setComponent(new ComponentName(
+                    "com.dirtyunicorns.themes", "com.dirtyunicorns.themes.MainActivity"));
         }
 
         @Override
