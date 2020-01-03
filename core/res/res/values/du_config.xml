@@ -28,10 +28,6 @@
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
     </string-array>
 
-    <!-- Time to give to the proximity sensor before toggling the flashlight with the Power button.
-    Set to -1 to disable the proximity sensor check at all-->
-    <integer name="config_flashlightProximityTimeout">300</integer>
-
     <!-- Advanced reboot menu -->
     <string-array translatable="false" name="config_custom_globalActionsList">
         <item>power</item>

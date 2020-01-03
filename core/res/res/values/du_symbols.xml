@@ -21,8 +21,6 @@
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
-    <java-symbol type="integer" name="config_flashlightProximityTimeout" />
-
     <!-- Advanced Reboot menu -->
     <java-symbol type="string" name="reboot_to_recovery_title" />
     <java-symbol type="string" name="reboot_to_recovery_message" />
