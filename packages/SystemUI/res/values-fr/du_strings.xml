@@ -66,4 +66,7 @@
     <string name="quick_settings_theme_tile_color_teal">Turquoise</string>
     <string name="quick_settings_theme_tile_color_yellow">Jaune</string>
 
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Caféine</string>
+
 </resources>
