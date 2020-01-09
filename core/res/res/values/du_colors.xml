@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2019-2020 The Dirty Unicorns Project
+<!-- Copyright (C) 2019 The Dirty Unicorns Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,16 +13,8 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
 
-    <!-- Themes -->
-    <java-symbol type="color" name="theme_generic_semi_transparent_color" />
-
-    <!-- Custom default wallpaper -->
-    <java-symbol type="drawable" name="custom_default_wallpaper" />
-
-    <!-- Device keyhandlers -->
-    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
-    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+    <color name="theme_generic_semi_transparent_color">#EAFFFFFF</color>
 
 </resources>
