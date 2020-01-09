@@ -30,5 +30,10 @@
     <java-symbol type="string" name="reboot_message" />
     <java-symbol type="array" name="config_custom_globalActionsList" />
 
+    <!-- Soli -->
     <java-symbol type="bool" name="config_has_Soli" />
+
+    <!-- Themes -->
+    <java-symbol type="color" name="theme_generic_semi_transparent_color" />
+
 </resources>
