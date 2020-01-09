@@ -562,7 +562,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     private final class PowerAction extends SinglePressAction implements LongPressAction {
         private PowerAction() {
-            super(R.drawable.ic_lock_power_off,
+            super(com.android.systemui.R.drawable.ic_lock_power_off,
                     R.string.global_action_power_off);
         }
 
@@ -668,7 +668,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     private final class RestartAction extends SinglePressAction implements LongPressAction {
         private RestartAction() {
-            super(R.drawable.ic_restart, R.string.global_action_restart);
+            super(com.android.systemui.R.drawable.ic_restart, R.string.global_action_restart);
         }
 
         @Override
@@ -700,7 +700,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
     private class ScreenshotAction extends SinglePressAction implements LongPressAction {
         public ScreenshotAction() {
-            super(R.drawable.ic_screenshot, com.android.systemui.R.string.global_action_screenshot_cust);
+            super(com.android.systemui.R.drawable.ic_screenshot, com.android.systemui.R.string.global_action_screenshot_cust);
         }
 
         @Override
@@ -919,7 +919,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     }
 
     private Action getLockdownAction() {
-        return new SinglePressAction(R.drawable.ic_lock_lockdown,
+        return new SinglePressAction(com.android.systemui.R.drawable.ic_lock_lockdown,
                 R.string.global_action_lockdown) {
 
             @Override

@@ -44,5 +44,8 @@
     <color name="quick_settings_theme_tile_teal">#FF009688</color>
     <color name="quick_settings_theme_tile_yellow">#FFFFEB3B</color>
 
+    <!-- Power Menu -->
+    <color name="powermenu_icon_tint">@*android:color/accent_device_default_light</color>
+
 </resources>
 
