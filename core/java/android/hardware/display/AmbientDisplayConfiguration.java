@@ -217,16 +217,19 @@ public class AmbientDisplayConfiguration {
         return Settings.Secure.getIntForUser(mContext.getContentResolver(), name, def, user) != 0;
     }
 
+    /** {@hide} */
     public boolean isAmbientGestureEnabled(int user) {
         return !mDeviceHasSoli && Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.AMBIENT_WAKE_GESTURES, 1, user) != 0;
     }
 
+    /** {@hide} */
     public boolean isAmbientTickerEnabled(int user) {
         return Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.PULSE_ON_NEW_TRACKS, 1, user) != 0;
     }
 
+    /** {@hide} */
     public boolean deviceHasSoli() {
         return mDeviceHasSoli;
     }
