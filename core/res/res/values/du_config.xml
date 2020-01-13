@@ -15,16 +15,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Permissions -->
     <string-array translatable="false" name="config_customPermissionsList">
         <item>com.google.android.apps.wellbeing</item>
-        <!-- <item>more packages</item>-->
     </string-array>
 
-    <!-- Paths to the libraries that contain device specific key handlers -->
+    <!-- Key handler -->
     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
     </string-array>
-
-     <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
     </string-array>
 
@@ -38,5 +36,7 @@
         <item>screenrecord</item>
     </string-array>
 
+    <!-- Soli -->
     <bool name="config_has_Soli">false</bool>
+
 </resources>

@@ -431,7 +431,10 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 continue;
             }
             if (GLOBAL_ACTION_KEY_POWER.equals(actionKey)) {
-                mItems.add(new PowerAction());
+                if (Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                            Settings.Secure.POWER_IN_POWER_MENU, 1, getCurrentUser().id) != 0) {
+                    mItems.add(new PowerAction());
+                }
             /*} else if (GLOBAL_ACTION_KEY_AIRPLANE.equals(actionKey)) {
                 mItems.add(mAirplaneModeOn);
             } else if (GLOBAL_ACTION_KEY_BUGREPORT.equals(actionKey)) {
