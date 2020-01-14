@@ -1129,7 +1129,7 @@ public class CarStatusBar extends StatusBar implements CarBatteryController.Batt
      * Returns the {@link Drawable} that represents the wallpaper that the user has currently set.
      */
     private Drawable getDefaultWallpaper() {
-        return mContext.getDrawable(com.android.internal.R.drawable.default_wallpaper);
+        return mContext.getDrawable(com.android.internal.R.drawable.custom_default_wallpaper);
     }
 
     private void setNotificationViewClipBounds(int height) {

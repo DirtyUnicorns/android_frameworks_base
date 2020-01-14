@@ -168,7 +168,7 @@ public class NotificationShellCmdTest extends UiServiceTestCase {
     public void testBigPicture() throws Exception {
         final String aTag = "aTag";
         final String aText = "someText";
-        final String bigPicture = "@android:drawable/default_wallpaper";
+        final String bigPicture = "@android:drawable/custom_default_wallpaper";
         doCmd("notify",
                 "--style", "bigpicture",
                 "--picture", bigPicture,

@@ -1874,7 +1874,7 @@ public class WallpaperManager {
             return null;
         } else {
             whichProp = PROP_WALLPAPER;
-            defaultResId = com.android.internal.R.drawable.default_wallpaper;
+            defaultResId = com.android.internal.R.drawable.custom_default_wallpaper;
         }
         final String path = SystemProperties.get(whichProp);
         if (!TextUtils.isEmpty(path)) {

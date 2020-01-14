@@ -40,4 +40,7 @@
     <!-- Whether device supports an alt. ambient display -->
     <java-symbol type="bool" name="config_alt_ambient_display"/>
 
+    <!-- Custom default wallpaper -->
+    <java-symbol type="drawable" name="custom_default_wallpaper" />
+
 </resources>
