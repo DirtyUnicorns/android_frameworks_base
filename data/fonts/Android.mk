@@ -89,7 +89,7 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := fonts.xml
 LOCAL_MODULE_CLASS := ETC
-LOCAL_PREBUILT_MODULE_FILE := frameworks/base/data/fonts/fonts.xml
+LOCAL_PREBUILT_MODULE_FILE := vendor/themes/fonts/prebuilt/fonts.xml
 
 include $(BUILD_PREBUILT)
 
