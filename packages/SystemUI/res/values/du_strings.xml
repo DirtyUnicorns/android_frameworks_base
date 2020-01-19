@@ -34,6 +34,10 @@
     <string name="screenrecord_low_quality_title">Low quality</string>
     <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
 
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Capture partial screenshot</string>
+    <string name="global_screenshot_selector_cancel_description">Cancel partial screenshot</string>
+
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Screenshot</string>
     <string name="global_action_screenrecord">Screen record</string>
