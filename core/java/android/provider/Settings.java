@@ -8948,6 +8948,13 @@ public final class Settings {
         public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
 
         /**
+         * Whether to display the power menu in a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String SECURED_LOCK_POWER_MENU = "secured_lock_power_menu";
+
+        /**
          * Whether the Power button should be shown in the power menu.
          * @hide
          */
