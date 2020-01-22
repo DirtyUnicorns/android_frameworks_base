@@ -78,6 +78,7 @@ public class ThemesUtils {
             "com.android.theme.font.oneplusslate",
             "com.android.theme.font.samsungone",
             "com.android.theme.font.firasans",
+            "com.android.theme.font.ubuntu",
     };
 
     public static final String[] NAVBAR_STYLES = {
