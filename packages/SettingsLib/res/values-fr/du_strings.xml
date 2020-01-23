@@ -16,6 +16,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Dash Charging -->
+    <string name="power_remaining_dash_charging_duration_only">Rechargement Dash… (Complètement chargé dans (<xliff:g id="time">%1$s</xliff:g>)</string>
+    <string name="battery_info_status_dash_charging">Rechargement Dash</string>
+    <string name="battery_info_status_dash_charging_lower">rechargement dash</string>
+
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smaller">Plus petit</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->

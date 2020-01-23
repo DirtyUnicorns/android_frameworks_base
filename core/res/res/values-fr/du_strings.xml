@@ -23,4 +23,11 @@
     <string name="reboot_title">Redémarrer</string>
     <string name="reboot_message">Redémarrage Système</string>
 
+    <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ADB via le réseau activé</string>
+    <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ADB via USB et le réseau activé</string>
+    <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Appuyer pour désactiver le débogage</string>
+
 </resources>

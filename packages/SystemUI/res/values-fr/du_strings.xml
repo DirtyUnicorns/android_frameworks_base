@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Copyright (C) 2019 The Dirty Unicorns Project
+<!-- Copyright (C) 2019 The Dirty Unicorns Project
 
-  This program is free software: you can redistribute it and/or modify
-  it under the terms of the GNU General Public License as published by
-  the Free Software Foundation, either version 2 of the License, or
-  (at your option) any later version.
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
 
-  This program is distributed in the hope that it will be useful,
-  but WITHOUT ANY WARRANTY; without even the implied warranty of
-  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  GNU General Public License for more details.
+          http://www.apache.org/licenses/LICENSE-2.0
 
-  You should have received a copy of the GNU General Public License
-  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Dash Charging -->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Rechargement Dash en cours… (Complètement chargé dans (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_dash_charging">Rechargement Dash</string>
 
     <!-- Screen record -->
     <string name="screenrecord_stopdot_label">Afficher le témoin</string>
@@ -70,5 +72,11 @@
 
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Caféine</string>
+
+    <!-- ADB over Network tile -->
+    <string name="quick_settings_adb_network">ADB via le réseau</string>
+    <string name="quick_settings_network_adb_enabled_label">ADB via le réseau</string>
+    <string name="quick_settings_network_adb_disabled_label">ADB via le réseau</string>
+    <string name="adb_network_forced_tcp_warn">Activation forcée d\'ADB via le réseau sur le port : <xliff:g id="port">%1$s</xliff:g></string>
 
 </resources>
