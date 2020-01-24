@@ -23,7 +23,7 @@
     <java-symbol type="string" name="config_regularFontFamily" />
 
     <!-- Themes -->
-    <java-symbol type="color" name="theme_generic_semi_transparent_color" />
+    <java-symbol type="color" name="du_themes_qs_inactive_color" />
 
     <!-- Custom default wallpaper -->
     <java-symbol type="drawable" name="custom_default_wallpaper" />
