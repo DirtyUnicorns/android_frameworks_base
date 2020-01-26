@@ -766,10 +766,6 @@ public class NavigationBarView extends FrameLayout implements
         mEdgeBackGestureHandler.setEdgeGestureDeadZone();
     }
 
-    public void setPartialScreenshot(boolean active) {
-        mEdgeBackGestureHandler.setPartialScreenshot(active);
-    }
-
     /**
      * Updates the {@link WindowManager.LayoutParams.FLAG_SLIPPERY} state dependent on if swipe up
      * is enabled, or the notifications is fully opened without being in an animated state. If

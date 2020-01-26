@@ -174,8 +174,7 @@ oneway interface IStatusBar
     void onRecentsAnimationStateChanged(boolean running);
 
     /**
-     * DU
+     * ABC
      */
     void toggleCameraFlash();
-    void setPartialScreenshot(boolean active);
 }

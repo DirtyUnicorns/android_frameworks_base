@@ -87,13 +87,4 @@ public class ActionUtils {
             e.printStackTrace();
         }
     }
-
-    public static void setPartialScreenshot(boolean active) {
-        IStatusBarService service = getStatusBarService();
-        if (service != null) {
-            try {
-                service.setPartialScreenshot(active);
-            } catch (RemoteException e) {}
-       }
-    }
 }
