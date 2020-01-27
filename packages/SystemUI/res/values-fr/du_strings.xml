@@ -19,10 +19,6 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Rechargement Dash en cours… (Complètement chargé dans (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">Rechargement Dash</string>
 
-    <!-- Screen record -->
-    <string name="screenrecord_stopdot_label">Afficher le témoin</string>
-    <string name="screenrecord_low_quality_label">Basse qualité</string>
-
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Capture d\'écran</string>
     <string name="global_action_screenrecord">Enregistrement de l\'écran</string>
