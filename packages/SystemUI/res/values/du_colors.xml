@@ -47,5 +47,9 @@
     <!-- Power Menu -->
     <color name="powermenu_icon_tint">@*android:color/accent_device_default_light</color>
 
-</resources>
+    <!-- Partial screenshot -->
+    <color name="screenshot_partial_layout_background">#20000000</color>
+    <color name="screenshot_partial_capture_background">@*android:color/accent_device_default_light</color>
+    <color name="screenshot_partial_cancel_background">#a0000000</color>
 
+</resources>
