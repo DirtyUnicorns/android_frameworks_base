@@ -230,6 +230,20 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         if (QS_SHOW_BRIGHTNESS.equals(key)) {
             updateViewVisibilityForTuningValue(mBrightnessView, newValue);
         }
+        if (mBrightnessView != null) {
+            removeView(mBrightnessView);
+            addView(mBrightnessView, getBrightnessViewPositionBottom());
+        }
+    }
+
+    private int getBrightnessViewPositionBottom() {
+        for (int i = 0; i < getChildCount(); i++) {
+            View v = getChildAt(i);
+            if (v == mDivider) {
+                return i;
+            }
+        }
+        return 0;
     }
 
     private void updateViewVisibilityForTuningValue(View view, @Nullable String newValue) {
