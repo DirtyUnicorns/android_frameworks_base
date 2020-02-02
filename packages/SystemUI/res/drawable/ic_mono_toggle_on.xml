@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24.000000dp"
+    android:height="24.000000dp"
+    android:viewportWidth="192.000000"
+    android:viewportHeight="192.000000">
+
+    <group
+            android:translateY="192.000000"
+            android:scaleX="0.100000"
+            android:scaleY="-0.100000">
+        <path
+            android:fillColor="#000000"
+            android:strokeWidth="1"
+            android:pathData="M900 1820 c-19 -19 -20 -33 -20 -200 l0 -180 -80 0 -80 0 0 -432 c0 -397 2 -436 19 -473 18 -41 75 -98 117 -117 24 -11 24 -12 24 -175 l0 -163 80 0 80 0 1 163 0 162 47 30 c25 17 60 50 77 73 l30 44 3 444 3 444 -81 0 -80 0 0 178 c0 174 -1 179 -23 200 -30 29 -89 30 -117 2z m140 -700 l0 -160 -80 0 -80 0 0 160 0 160 80 0 80 0 0 -160z m0 -395 c0 -125 -42 -184 -108 -153 -39 19 -52 54 -52 146 l0 82 80 0 80 0 0 -75z" />
+    </group>
+</vector>
