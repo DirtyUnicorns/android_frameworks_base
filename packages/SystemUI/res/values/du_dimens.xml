@@ -15,7 +15,9 @@
 -->
 <resources>
 
-    <!-- Screen record -->
+    <!-- Smartspace -->
+    <dimen name="smartspace_icon_shadow">1dp</dimen>
+
     <dimen name="screenrecord_dot_size">48dp</dimen>
 
     <!-- Qs visibility -->

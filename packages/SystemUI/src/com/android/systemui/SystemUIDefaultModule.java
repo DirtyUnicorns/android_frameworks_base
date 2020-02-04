@@ -30,9 +30,13 @@ import com.android.systemui.power.EnhancedEstimatesImpl;
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.android.systemui.statusbar.NotificationLockscreenUserManagerImpl;
 import com.android.systemui.statusbar.notification.collection.NotificationData;
+import com.android.systemui.statusbar.notification.NotificationEntryManager;
 import com.android.systemui.statusbar.phone.KeyguardEnvironmentImpl;
 import com.android.systemui.statusbar.phone.ShadeController;
 import com.android.systemui.statusbar.phone.StatusBar;
+
+import com.google.android.systemui.NotificationLockscreenUserManagerGoogle;
+import com.google.android.systemui.statusbar.NotificationEntryManagerGoogle;
 
 import javax.inject.Named;
 import javax.inject.Singleton;
@@ -60,10 +64,6 @@ abstract class SystemUIDefaultModule {
     abstract EnhancedEstimates bindEnhancedEstimates(EnhancedEstimatesImpl enhancedEstimates);
 
     @Binds
-    abstract NotificationLockscreenUserManager bindNotificationLockscreenUserManager(
-            NotificationLockscreenUserManagerImpl notificationLockscreenUserManager);
-
-    @Binds
     abstract DockManager bindDockManager(DockManagerImpl dockManager);
 
     @Binds
@@ -82,4 +82,12 @@ abstract class SystemUIDefaultModule {
     static boolean provideAllowNotificationLongPress() {
         return true;
     }
+
+    @Binds
+    abstract NotificationEntryManager bindNotificationEntryManager(
+        NotificationEntryManagerGoogle notificationEntryManagerManager);
+
+    @Binds
+    abstract NotificationLockscreenUserManager bindNotificationLockscreenUserManager(
+        NotificationLockscreenUserManagerGoogle notificationLockscreenUserManager);
 }

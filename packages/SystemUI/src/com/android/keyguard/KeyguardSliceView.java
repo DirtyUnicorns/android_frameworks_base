@@ -68,6 +68,8 @@ import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.wakelock.KeepAwakeAnimationListener;
 
+import com.google.android.systemui.keyguard.KeyguardSliceProviderGoogle;
+
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -397,7 +399,7 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         // We can optimize performance and avoid binder calls when we know that we're bound
         // to a Slice on the same process.
         if (KeyguardSliceProvider.KEYGUARD_SLICE_URI.equals(mKeyguardSliceUri.toString())) {
-            KeyguardSliceProvider instance = KeyguardSliceProvider.getAttachedInstance();
+            KeyguardSliceProvider instance = KeyguardSliceProviderGoogle.getAttachedInstance();
             if (instance != null) {
                 slice = instance.onBindSlice(mKeyguardSliceUri);
             } else {
