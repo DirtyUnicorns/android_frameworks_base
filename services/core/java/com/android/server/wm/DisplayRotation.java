@@ -865,8 +865,8 @@ public class DisplayRotation {
                 shouldUpdateRotation = true;
             }
 
-            final int userRotationAngles = LineageSettings.System.getInt(resolver,
-                    LineageSettings.System.ACCELEROMETER_ROTATION_ANGLES, -1);
+            final int userRotationAngles = Settings.System.getInt(resolver,
+                    Settings.System.ACCELEROMETER_ROTATION_ANGLES, -1);
             if (mUserRotationAngles != userRotationAngles) {
                 mUserRotationAngles = userRotationAngles;
                 shouldUpdateRotation = true;
@@ -987,8 +987,8 @@ public class DisplayRotation {
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.ACCELEROMETER_ROTATION), false, this,
                     UserHandle.USER_ALL);
-            resolver.registerContentObserver(LineageSettings.System.getUriFor(
-                    LineageSettings.System.ACCELEROMETER_ROTATION_ANGLES), false, this,
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.ACCELEROMETER_ROTATION_ANGLES), false, this,
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.USER_ROTATION), false, this,
