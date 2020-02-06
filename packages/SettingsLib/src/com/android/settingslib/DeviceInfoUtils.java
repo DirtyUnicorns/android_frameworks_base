@@ -154,9 +154,13 @@ public class DeviceInfoUtils {
     }
 
     public static String getSecurityPatch() {
+        String patchDu = Build.VERSION.SECURITY_PATCH_DU;
         String patch = Build.VERSION.SECURITY_PATCH;
         if (!"".equals(patch)) {
             try {
+                if (!"".equals(patchDu)){
+                    patch = patchDu;
+                }
                 SimpleDateFormat template = new SimpleDateFormat("yyyy-MM-dd");
                 Date patchDate = template.parse(patch);
                 String format = DateFormat.getBestDateTimePattern(Locale.getDefault(), "dMMMMyyyy");
