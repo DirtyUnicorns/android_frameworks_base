@@ -11,6 +11,9 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff.Mode;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.view.Gravity;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.TrafficStats;
@@ -19,6 +22,10 @@ import android.os.UserHandle;
 import android.os.Message;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.text.Spanned;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -38,21 +45,13 @@ public class NetworkTraffic extends TextView {
     private static final int KB = 1024;
     private static final int MB = KB * KB;
     private static final int GB = MB * KB;
-    private static final String symbol = "B/s";
-
-    private static DecimalFormat decimalFormat = new DecimalFormat("##0.#");
-    static {
-        decimalFormat.setMaximumIntegerDigits(3);
-        decimalFormat.setMaximumFractionDigits(1);
-    }
+    private static final String symbol = "/s";
 
     private boolean mIsEnabled;
     private boolean mAttached;
     private long totalRxBytes;
     private long totalTxBytes;
     private long lastUpdateTime;
-    private int txtSize;
-    private int txtImgPadding;
     private int mAutoHideThreshold;
     private int mTintColor;
 
@@ -82,17 +81,28 @@ public class NetworkTraffic extends TextView {
             if (shouldHide(rxData, txData, timeDelta)) {
                 setText("");
                 setVisibility(View.GONE);
-            } else {
-                // Get information for uplink ready so the line return can be added
-                String output = formatOutput(timeDelta, txData, symbol);
-                // Ensure text size is where it needs to be
-                output += "\n";
-                // Add information for downlink if it's called for
-                output += formatOutput(timeDelta, rxData, symbol);
+            } else if (shouldShowUpload(rxData, txData, timeDelta)) {
+                // Show information for uplink if it's called for
+                CharSequence output = formatOutput(timeDelta, txData, symbol);
 
                 // Update view if there's anything new to show
-                if (!output.contentEquals(getText())) {
-                    setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
+                if (output != getText()) {
+                    setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                    setGravity(Gravity.CENTER);
+                    setMaxLines(2);
+                    setLineSpacing(0.75f, 0.75f);
+                    setText(output);
+                }
+            } else {
+                // Add information for downlink if it's called for
+                CharSequence output = formatOutput(timeDelta, rxData, symbol);
+
+                // Update view if there's anything new to show
+                if (output != getText()) {
+                    setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+                    setGravity(Gravity.CENTER);
+                    setMaxLines(2);
+                    setLineSpacing(0.75f, 0.75f);
                     setText(output);
                 }
                 setVisibility(View.VISIBLE);
@@ -105,25 +115,70 @@ public class NetworkTraffic extends TextView {
             mTrafficHandler.postDelayed(mRunnable, INTERVAL);
         }
 
-        private String formatOutput(long timeDelta, long data, String symbol) {
+        private CharSequence formatOutput(long timeDelta, long data, String symbol) {
             long speed = (long)(data / (timeDelta / 1000F));
-            if (speed < KB) {
-                return decimalFormat.format(speed) + symbol;
-            } else if (speed < MB) {
-                return decimalFormat.format(speed / (float)KB) + 'k' + symbol;
-            } else if (speed < GB) {
-                return decimalFormat.format(speed / (float)MB) + 'M' + symbol;
+
+            return formatDecimal(speed);
+        }
+
+        private CharSequence formatDecimal(long speed) {
+            DecimalFormat mDecimalFormat;
+            String mUnit;
+            String formatSpeed;
+            SpannableString spanUnitString;
+            SpannableString spanSpeedString;
+
+            if (speed >= GB) {
+                mUnit = "GB";
+                mDecimalFormat = new DecimalFormat("0.00");
+                formatSpeed =  mDecimalFormat.format(speed / (float)GB);
+            } else if (speed >= 100 * MB) {
+                mDecimalFormat = new DecimalFormat("000");
+                mUnit = "MB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+            } else if (speed >= 10 * MB) {
+                mDecimalFormat = new DecimalFormat("00.0");
+                mUnit = "MB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+            } else if (speed >= MB) {
+                mDecimalFormat = new DecimalFormat("0.00");
+                mUnit = "MB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+            } else if (speed >= 100 * KB) {
+                mDecimalFormat = new DecimalFormat("000");
+                mUnit = "KB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)KB);
+            } else if (speed >= 10 * KB) {
+                mDecimalFormat = new DecimalFormat("00.0");
+                mUnit = "KB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+            } else {
+                mDecimalFormat = new DecimalFormat("0.00");
+                mUnit = "KB";
+                formatSpeed = mDecimalFormat.format(speed / (float)KB);
             }
-            return decimalFormat.format(speed / (float)GB) + 'G' + symbol;
+            spanSpeedString = new SpannableString(formatSpeed);
+            spanSpeedString.setSpan(new RelativeSizeSpan(0.75f), 0, (formatSpeed).length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+
+            spanUnitString = new SpannableString(mUnit + symbol);
+            spanUnitString.setSpan(new RelativeSizeSpan(0.70f), 0, (mUnit + symbol).length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+            return TextUtils.concat(spanSpeedString, "\n", spanUnitString);
         }
 
         private boolean shouldHide(long rxData, long txData, long timeDelta) {
-            long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KB;
             long speedRxKB = (long)(rxData / (timeDelta / 1000f)) / KB;
+	    long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KB;
             return !getConnectAvailable() ||
                     (speedRxKB < mAutoHideThreshold &&
                     speedTxKB < mAutoHideThreshold);
         }
+
+	private boolean shouldShowUpload(long rxData, long txData, long timeDelta) {
+	    long speedRxKB = (long)(rxData / (timeDelta / 1000f)) / KB;
+            long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KB;
+
+	    return (speedTxKB > speedRxKB);
+	}
     };
 
     private Runnable mRunnable = new Runnable() {
@@ -178,8 +233,6 @@ public class NetworkTraffic extends TextView {
     public NetworkTraffic(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         final Resources resources = getResources();
-        txtSize = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
-        txtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
         mTintColor = resources.getColor(android.R.color.white);
         Handler mHandler = new Handler();
         SettingsObserver settingsObserver = new SettingsObserver(mHandler);
@@ -265,16 +318,6 @@ public class NetworkTraffic extends TextView {
     private void updateTrafficDrawable() {
         int intTrafficDrawable;
         if (mIsEnabled) {
-            intTrafficDrawable = R.drawable.stat_sys_network_traffic_updown;
-        } else {
-            intTrafficDrawable = 0;
-        }
-        if (intTrafficDrawable != 0) {
-            Drawable d = getContext().getDrawable(intTrafficDrawable);
-            d.setColorFilter(mTintColor, Mode.SRC_ATOP);
-            setCompoundDrawablePadding(txtImgPadding);
-            setCompoundDrawablesWithIntrinsicBounds(null, null, d, null);
-        } else {
             setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         }
         setTextColor(mTintColor);
@@ -282,9 +325,9 @@ public class NetworkTraffic extends TextView {
 
     public void onDensityOrFontScaleChanged() {
         final Resources resources = getResources();
-        txtSize = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
-        txtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
-        setCompoundDrawablePadding(txtImgPadding);
+        setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+        setGravity(Gravity.CENTER);
+        setMaxLines(2);
+        setLineSpacing(0.75f, 0.75f);
     }
 }
