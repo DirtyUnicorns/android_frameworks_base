@@ -34,4 +34,7 @@
     <dimen name="global_screenshot_selector_corner_width">8dp</dimen>
     <dimen name="global_screenshot_selector_touch_width">30dp</dimen>
 
+    <!-- Padding after battery level text in status bar, QS, and Keyguard -->
+    <dimen name="battery_level_padding_end">2dp</dimen>
+
 </resources>
