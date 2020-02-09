@@ -235,11 +235,11 @@ public class NetworkTraffic extends TextView {
     }
 
     protected RelativeSizeSpan getSpeedRelativeSizeSpan() {
-        return new RelativeSizeSpan(0.90f);
+        return new RelativeSizeSpan(0.80f);
     }
 
     protected RelativeSizeSpan getUnitRelativeSizeSpan() {
-        return new RelativeSizeSpan(0.80f);
+        return new RelativeSizeSpan(0.75f);
     }
 
     private Runnable mRunnable = new Runnable() {
@@ -335,8 +335,8 @@ public class NetworkTraffic extends TextView {
     }
 
     protected void setSpacingAndFonts() {
-        setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
-        setLineSpacing(0.90f, 0.90f);
+        setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+        setLineSpacing(0.80f, 0.80f);
     }
 
     public void onDensityOrFontScaleChanged() {
