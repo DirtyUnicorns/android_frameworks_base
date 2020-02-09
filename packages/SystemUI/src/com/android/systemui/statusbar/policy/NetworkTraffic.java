@@ -47,13 +47,15 @@ public class NetworkTraffic extends TextView {
     private static final int GB = MB * KB;
     private static final String symbol = "/s";
 
-    private boolean mIsEnabled;
+    protected boolean mIsEnabled;
     private boolean mAttached;
     private long totalRxBytes;
     private long totalTxBytes;
     private long lastUpdateTime;
     private int mAutoHideThreshold;
-    private int mTintColor;
+    protected int mTintColor;
+
+    private boolean mScreenOn = true;
 
     private Handler mTrafficHandler = new Handler() {
         @Override
@@ -87,10 +89,9 @@ public class NetworkTraffic extends TextView {
 
                 // Update view if there's anything new to show
                 if (output != getText()) {
-                    setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
                     setGravity(Gravity.CENTER);
                     setMaxLines(2);
-                    setLineSpacing(0.90f, 0.90f);
+                    setSpacingAndFonts();
                     setText(output);
                 }
             } else {
@@ -99,10 +100,9 @@ public class NetworkTraffic extends TextView {
 
                 // Update view if there's anything new to show
                 if (output != getText()) {
-                    setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
                     setGravity(Gravity.CENTER);
                     setMaxLines(2);
-                    setLineSpacing(0.90f, 0.90f);
+                    setSpacingAndFonts();
                     setText(output);
                 }
                 setVisibility(View.VISIBLE);
@@ -122,64 +122,125 @@ public class NetworkTraffic extends TextView {
         }
 
         private CharSequence formatDecimal(long speed) {
-            DecimalFormat mDecimalFormat;
-            String mUnit;
+            DecimalFormat decimalFormat;
+            String unit;
             String formatSpeed;
             SpannableString spanUnitString;
             SpannableString spanSpeedString;
 
             if (speed >= GB) {
-                mUnit = "GB";
-                mDecimalFormat = new DecimalFormat("0.00");
-                formatSpeed =  mDecimalFormat.format(speed / (float)GB);
+                unit = "GB";
+                decimalFormat = new DecimalFormat("0.00");
+                formatSpeed =  decimalFormat.format(speed / (float)GB);
             } else if (speed >= 100 * MB) {
-                mDecimalFormat = new DecimalFormat("000");
-                mUnit = "MB";
-                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+                decimalFormat = new DecimalFormat("000");
+                unit = "MB";
+                formatSpeed =  decimalFormat.format(speed / (float)MB);
             } else if (speed >= 10 * MB) {
-                mDecimalFormat = new DecimalFormat("00.0");
-                mUnit = "MB";
-                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+                decimalFormat = new DecimalFormat("00.0");
+                unit = "MB";
+                formatSpeed =  decimalFormat.format(speed / (float)MB);
             } else if (speed >= MB) {
-                mDecimalFormat = new DecimalFormat("0.00");
-                mUnit = "MB";
-                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+                decimalFormat = new DecimalFormat("0.00");
+                unit = "MB";
+                formatSpeed =  decimalFormat.format(speed / (float)MB);
             } else if (speed >= 100 * KB) {
-                mDecimalFormat = new DecimalFormat("000");
-                mUnit = "KB";
-                formatSpeed =  mDecimalFormat.format(speed / (float)KB);
+                decimalFormat = new DecimalFormat("000");
+                unit = "KB";
+                formatSpeed =  decimalFormat.format(speed / (float)KB);
             } else if (speed >= 10 * KB) {
-                mDecimalFormat = new DecimalFormat("00.0");
-                mUnit = "KB";
-                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+                decimalFormat = new DecimalFormat("00.0");
+                unit = "KB";
+                formatSpeed =  decimalFormat.format(speed / (float)MB);
             } else {
-                mDecimalFormat = new DecimalFormat("0.00");
-                mUnit = "KB";
-                formatSpeed = mDecimalFormat.format(speed / (float)KB);
+                decimalFormat = new DecimalFormat("0.00");
+                unit = "KB";
+                formatSpeed = decimalFormat.format(speed / (float)KB);
             }
             spanSpeedString = new SpannableString(formatSpeed);
-            spanSpeedString.setSpan(new RelativeSizeSpan(0.90f), 0, (formatSpeed).length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+            spanSpeedString.setSpan(getSpeedRelativeSizeSpan(), 0, (formatSpeed).length(),
+                    Spanned.SPAN_INCLUSIVE_INCLUSIVE);
 
-            spanUnitString = new SpannableString(mUnit + symbol);
-            spanUnitString.setSpan(new RelativeSizeSpan(0.80f), 0, (mUnit + symbol).length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+            spanUnitString = new SpannableString(unit + symbol);
+            spanUnitString.setSpan(getUnitRelativeSizeSpan(), 0, (unit + symbol).length(),
+                    Spanned.SPAN_INCLUSIVE_INCLUSIVE);
             return TextUtils.concat(spanSpeedString, "\n", spanUnitString);
         }
 
         private boolean shouldHide(long rxData, long txData, long timeDelta) {
             long speedRxKB = (long)(rxData / (timeDelta / 1000f)) / KB;
-	    long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KB;
+            long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KB;
             return !getConnectAvailable() ||
                     (speedRxKB < mAutoHideThreshold &&
                     speedTxKB < mAutoHideThreshold);
         }
 
-	private boolean shouldShowUpload(long rxData, long txData, long timeDelta) {
-	    long speedRxKB = (long)(rxData / (timeDelta / 1000f)) / KB;
-            long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KB;
+        private boolean shouldShowUpload(long rxData, long txData, long timeDelta) {
+            long speedRxKB = (long)(rxData / (timeDelta / 1000f)) / KB;
+                long speedTxKB = (long)(txData / (timeDelta / 1000f)) / KB;
 
-	    return (speedTxKB > speedRxKB);
-	}
+            return (speedTxKB > speedRxKB);
+        }
     };
+
+    /*
+     *  @hide
+     */
+    public NetworkTraffic(Context context) {
+        this(context, null);
+    }
+
+    /*
+     *  @hide
+     */
+    public NetworkTraffic(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    /*
+     *  @hide
+     */
+    public NetworkTraffic(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        final Resources resources = getResources();
+        mTintColor = resources.getColor(android.R.color.white);
+        setMode();
+        Handler mHandler = new Handler();
+        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
+        update();
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if (!mAttached) {
+            mAttached = true;
+            IntentFilter filter = new IntentFilter();
+            filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+            filter.addAction(Intent.ACTION_SCREEN_OFF);
+            filter.addAction(Intent.ACTION_SCREEN_ON);
+            mContext.registerReceiver(mIntentReceiver, filter, null, getHandler());
+        }
+        update();
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        if (mAttached) {
+            mContext.unregisterReceiver(mIntentReceiver);
+            mAttached = false;
+        }
+    }
+
+    protected RelativeSizeSpan getSpeedRelativeSizeSpan() {
+        return new RelativeSizeSpan(0.90f);
+    }
+
+    protected RelativeSizeSpan getUnitRelativeSizeSpan() {
+        return new RelativeSizeSpan(0.80f);
+    }
 
     private Runnable mRunnable = new Runnable() {
         @Override
@@ -209,58 +270,7 @@ public class NetworkTraffic extends TextView {
         @Override
         public void onChange(boolean selfChange) {
             setMode();
-            updateSettings();
-        }
-    }
-
-    /*
-     *  @hide
-     */
-    public NetworkTraffic(Context context) {
-        this(context, null);
-    }
-
-    /*
-     *  @hide
-     */
-    public NetworkTraffic(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
-    /*
-     *  @hide
-     */
-    public NetworkTraffic(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        final Resources resources = getResources();
-        mTintColor = resources.getColor(android.R.color.white);
-        Handler mHandler = new Handler();
-        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
-        settingsObserver.observe();
-        setMode();
-        updateSettings();
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        if (!mAttached) {
-            mAttached = true;
-            IntentFilter filter = new IntentFilter();
-            filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
-            filter.addAction(Intent.ACTION_SCREEN_OFF);
-            filter.addAction(Intent.ACTION_SCREEN_ON);
-            mContext.registerReceiver(mIntentReceiver, filter, null, getHandler());
-        }
-        updateSettings();
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        if (mAttached) {
-            mContext.unregisterReceiver(mIntentReceiver);
-            mAttached = false;
+            update();
         }
     }
 
@@ -268,10 +278,14 @@ public class NetworkTraffic extends TextView {
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            if (action != null && action.equals(ConnectivityManager.CONNECTIVITY_ACTION)
-                    || action.equals(Intent.ACTION_SCREEN_ON)) {
-                updateSettings();
-            } else if (action != null && action.equals(Intent.ACTION_SCREEN_OFF)) {
+            if (action == null) return;
+            if (action.equals(ConnectivityManager.CONNECTIVITY_ACTION) && mScreenOn) {
+                update();
+            } else if (action.equals(Intent.ACTION_SCREEN_ON)) {
+                mScreenOn = true;
+                update();
+            } else if (action.equals(Intent.ACTION_SCREEN_OFF)) {
+                mScreenOn = false;
                 clearHandlerCallbacks();
             }
         }
@@ -284,7 +298,7 @@ public class NetworkTraffic extends TextView {
         return network != null;
     }
 
-    private void updateSettings() {
+    private void update() {
         if (mIsEnabled) {
             if (mAttached) {
                 totalRxBytes = TrafficStats.getTotalRxBytes();
@@ -299,7 +313,7 @@ public class NetworkTraffic extends TextView {
         setVisibility(View.GONE);
     }
 
-    private void setMode() {
+    protected void setMode() {
         ContentResolver resolver = mContext.getContentResolver();
         mIsEnabled = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_STATE, 0,
@@ -315,19 +329,18 @@ public class NetworkTraffic extends TextView {
         mTrafficHandler.removeMessages(1);
     }
 
-    private void updateTrafficDrawable() {
-        int intTrafficDrawable;
-        if (mIsEnabled) {
-            setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
-        }
+    protected void updateTrafficDrawable() {
+        setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         setTextColor(mTintColor);
     }
 
-    public void onDensityOrFontScaleChanged() {
-        final Resources resources = getResources();
+    protected void setSpacingAndFonts() {
         setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
-        setGravity(Gravity.CENTER);
-        setMaxLines(2);
         setLineSpacing(0.90f, 0.90f);
+    }
+
+    public void onDensityOrFontScaleChanged() {
+        setSpacingAndFonts();
+        update();
     }
 }
