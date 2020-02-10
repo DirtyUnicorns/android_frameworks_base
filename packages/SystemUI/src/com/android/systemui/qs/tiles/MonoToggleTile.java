@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 package com.android.systemui.qs.tiles;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.UserHandle;
@@ -40,7 +41,7 @@ public class MonoToggleTile extends QSTileImpl<BooleanState> {
     @Override
     public BooleanState newTileState() {
         BooleanState state = new BooleanState();
-        state.handlesLongClick = false;
+        state.handlesLongClick = true;
         return state;
     }
 
@@ -72,7 +73,8 @@ public class MonoToggleTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return null;
+        return new Intent().setComponent(new ComponentName(
+            "com.android.settings", "com.android.settings.Settings$AccessibilitySettingsActivity"));
     }
 
     @Override
