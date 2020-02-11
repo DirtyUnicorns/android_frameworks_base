@@ -105,7 +105,7 @@ public class NetworkTraffic extends TextView {
                     setSpacingAndFonts();
                     setText(output);
                 }
-                setVisibility(View.VISIBLE);
+                makeVisible();
             }
 
             // Post delayed message to refresh in ~1000ms
@@ -182,6 +182,10 @@ public class NetworkTraffic extends TextView {
             return (speedTxKB > speedRxKB);
         }
     };
+
+    protected void makeVisible() {
+        setVisibility(View.VISIBLE);
+    }
 
     /*
      *  @hide
@@ -298,7 +302,7 @@ public class NetworkTraffic extends TextView {
         return network != null;
     }
 
-    private void update() {
+    protected void update() {
         if (mIsEnabled) {
             if (mAttached) {
                 totalRxBytes = TrafficStats.getTotalRxBytes();
