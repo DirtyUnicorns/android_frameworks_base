@@ -9176,6 +9176,48 @@ public final class Settings {
         public static final String LONG_SQUEEZE_SELECTION = "long_squeeze_selection";
 
         /**
+         * Launch custom application when using the short squeeze feature
+         *
+         * @hide
+         */
+        public static final String SHORT_SQUEEZE_CUSTOM_APP = "short_squeeze_custom_app";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the short queeze feature (active edge)
+         * @hide
+         */
+        public static final String SHORT_SQUEEZE_CUSTOM_APP_FR_NAME = "short_squeeze_custom_app_fr_name";
+
+        /**
+         * Launch custom application when using the long squeeze feature
+         *
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_CUSTOM_APP = "long_squeeze_custom_app";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long squeeze feature (active edge)
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_CUSTOM_APP_FR_NAME = "long_squeeze_custom_app_fr_name";
+
+        /**
+         * Launch custom activity when using the short squeeze feature (active edge)
+         *
+         * @hide
+         */
+        public static final String SHORT_SQUEEZE_CUSTOM_ACTIVITY = "short_squeeze_custom_activity";
+
+        /**
+         * Launch custom activity when using the long squeeze feature (active edge)
+         *
+         * @hide
+         */
+        public static final String LONG_SQUEEZE_CUSTOM_ACTIVITY = "long_squeeze_custom_activity";
+
+        /**
          * Setting to determine whether to use the new notification priority handling features.
          * @hide
          */
