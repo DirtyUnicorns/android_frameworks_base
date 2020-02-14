@@ -56,7 +56,7 @@ public class NetworkTraffic extends TextView {
     protected int mTintColor;
 
     private boolean mScreenOn = true;
-
+    protected boolean mVisible = true;
     private ConnectivityManager mConnectivityManager;
 
     private Handler mTrafficHandler = new Handler() {
@@ -85,15 +85,13 @@ public class NetworkTraffic extends TextView {
             if (shouldHide(rxData, txData, timeDelta)) {
                 setText("");
                 setVisibility(View.GONE);
+                mVisible = false;
             } else if (shouldShowUpload(rxData, txData, timeDelta)) {
                 // Show information for uplink if it's called for
                 CharSequence output = formatOutput(timeDelta, txData, symbol);
 
                 // Update view if there's anything new to show
                 if (output != getText()) {
-                    setGravity(Gravity.CENTER);
-                    setMaxLines(2);
-                    setSpacingAndFonts();
                     setText(output);
                 }
             } else {
@@ -102,9 +100,6 @@ public class NetworkTraffic extends TextView {
 
                 // Update view if there's anything new to show
                 if (output != getText()) {
-                    setGravity(Gravity.CENTER);
-                    setMaxLines(2);
-                    setSpacingAndFonts();
                     setText(output);
                 }
                 makeVisible();
@@ -191,6 +186,7 @@ public class NetworkTraffic extends TextView {
 
     protected void makeVisible() {
         setVisibility(View.VISIBLE);
+        mVisible = true;
     }
 
     /*
@@ -315,12 +311,12 @@ public class NetworkTraffic extends TextView {
                 lastUpdateTime = SystemClock.elapsedRealtime();
                 mTrafficHandler.sendEmptyMessage(1);
             }
-            updateTrafficDrawable();
             return;
         } else {
             clearHandlerCallbacks();
         }
         setVisibility(View.GONE);
+        mVisible = false;
     }
 
     protected void setMode() {
@@ -331,7 +327,12 @@ public class NetworkTraffic extends TextView {
         mAutoHideThreshold = Settings.System.getIntForUser(resolver,
                 Settings.System.NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, 1,
                 UserHandle.USER_CURRENT);
+        setGravity(Gravity.CENTER);
+        setMaxLines(2);
+        setSpacingAndFonts();
+        updateTrafficDrawable();
         setVisibility(View.GONE);
+        mVisible = false;
     }
 
     private void clearHandlerCallbacks() {
