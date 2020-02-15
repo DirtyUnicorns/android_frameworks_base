@@ -33,14 +33,10 @@ import javax.inject.Inject;
 
 public class ImmersiveTile extends QSTileImpl<BooleanState> {
 
-    private static final String IMMERSIVE_OFF = "immersive.preconfirms=apps, " +
-            "-com.google.android.googlequicksearchbox";
-    private static final String IMMERSIVE_FULL = "immersive.full=apps, " +
-            "-com.google.android.googlequicksearchbox";
-    private static final String IMMERSIVE_STATUSBAR = "immersive.status=apps, " +
-            "-com.google.android.googlequicksearchbox";
-    private static final String IMMERSIVE_NAVBAR = "immersive.navigation=apps, " +
-            "-com.google.android.googlequicksearchbox";
+    private static final String IMMERSIVE_OFF = "immersive.preconfirms=apps,-com.google.android.googlequicksearchbox";
+    private static final String IMMERSIVE_FULL = "immersive.full=apps, -com.google.android.googlequicksearchbox, -com.android.settings, -com.dirtyunicorns.themes";
+    private static final String IMMERSIVE_STATUSBAR = "immersive.status=apps, -com.google.android.googlequicksearchbox";
+    private static final String IMMERSIVE_NAVBAR = "immersive.navigation=apps, -com.google.android.googlequicksearchbox, -com.android.settings, -com.dirtyunicorns.themes";
 
     private String mMode;
 
