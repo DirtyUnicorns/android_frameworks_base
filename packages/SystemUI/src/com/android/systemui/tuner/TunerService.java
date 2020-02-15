@@ -83,7 +83,7 @@ public abstract class TunerService {
         }
     }
 
-    public static final void showResetRequest(final Context context, final Runnable onDisabled) {
+    /*public static final void showResetRequest(final Context context, final Runnable onDisabled) {
         SystemUIDialog dialog = new SystemUIDialog(context);
         dialog.setShowForAllUsers(true);
         dialog.setMessage(R.string.remove_from_settings_prompt);
@@ -106,7 +106,7 @@ public abstract class TunerService {
             }
         });
         dialog.show();
-    }
+    }*/
 
     public static boolean parseIntegerSwitch(String value, boolean defaultValue) {
         try {

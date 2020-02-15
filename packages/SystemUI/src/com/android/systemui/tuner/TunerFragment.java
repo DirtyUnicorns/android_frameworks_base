@@ -39,26 +39,26 @@ public class TunerFragment extends PreferenceFragment {
 
     private static final String TAG = "TunerFragment";
 
-    private static final String KEY_BATTERY_PCT = "battery_pct";
-    private static final String KEY_PLUGINS = "plugins";
-    private static final CharSequence KEY_DOZE = "doze";
+    //private static final String KEY_BATTERY_PCT = "battery_pct";
+    //private static final String KEY_PLUGINS = "plugins";
+    //private static final CharSequence KEY_DOZE = "doze";
 
-    public static final String SETTING_SEEN_TUNER_WARNING = "seen_tuner_warning";
+    //public static final String SETTING_SEEN_TUNER_WARNING = "seen_tuner_warning";
 
-    private static final String WARNING_TAG = "tuner_warning";
-    private static final String[] DEBUG_ONLY = new String[] {
+    //private static final String WARNING_TAG = "tuner_warning";
+    /*private static final String[] DEBUG_ONLY = new String[] {
             "nav_bar",
             "lockscreen",
             "picture_in_picture",
-    };
+    };*/
 
-    private static final int MENU_REMOVE = Menu.FIRST + 1;
+    //private static final int MENU_REMOVE = Menu.FIRST + 1;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setHasOptionsMenu(true);
+        //setHasOptionsMenu(true);
     }
 
     @Override
@@ -70,7 +70,7 @@ public class TunerFragment extends PreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.tuner_prefs);
-        if (!PluginPrefs.hasPlugins(getContext())) {
+        /*if (!PluginPrefs.hasPlugins(getContext())) {
             getPreferenceScreen().removePreference(findPreference(KEY_PLUGINS));
         }
         if (!alwaysOnAvailable()) {
@@ -88,17 +88,17 @@ public class TunerFragment extends PreferenceFragment {
             if (getFragmentManager().findFragmentByTag(WARNING_TAG) == null) {
                 new TunerWarningFragment().show(getFragmentManager(), WARNING_TAG);
             }
-        }
+        }*/
     }
 
-    private boolean alwaysOnAvailable() {
+    /*private boolean alwaysOnAvailable() {
         return new AmbientDisplayConfiguration(getContext()).alwaysOnAvailable();
-    }
+    }*/
 
     @Override
     public void onResume() {
         super.onResume();
-        getActivity().setTitle(R.string.system_ui_tuner);
+        getActivity().setTitle(R.string.systemui_tuner_icon_manager_title);
 
         MetricsLogger.visibility(getContext(), MetricsEvent.TUNER, true);
     }
@@ -110,12 +110,12 @@ public class TunerFragment extends PreferenceFragment {
         MetricsLogger.visibility(getContext(), MetricsEvent.TUNER, false);
     }
 
-    @Override
+    /*@Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         menu.add(Menu.NONE, MENU_REMOVE, Menu.NONE, R.string.remove_from_settings);
-    }
+    }*/
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
@@ -133,9 +133,9 @@ public class TunerFragment extends PreferenceFragment {
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
-    public static class TunerWarningFragment extends DialogFragment {
+    /*public static class TunerWarningFragment extends DialogFragment {
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
             return new AlertDialog.Builder(getContext())
@@ -149,5 +149,5 @@ public class TunerFragment extends PreferenceFragment {
                         }
                     }).show();
         }
-    }
+    }*/
 }
