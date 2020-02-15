@@ -15,25 +15,28 @@
  */
 package com.android.systemui.tuner;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.DialogFragment;
-import android.content.DialogInterface;
-import android.hardware.display.AmbientDisplayConfiguration;
-import android.os.Build;
+//import android.app.AlertDialog;
+//import android.app.Dialog;
+//import android.app.DialogFragment;
+//import android.content.DialogInterface;
+//import android.hardware.display.AmbientDisplayConfiguration;
+//import android.os.Build;
+import android.content.ContentResolver;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+//import android.view.Menu;
+//import android.view.MenuInflater;
+//import android.view.MenuItem;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.systemui.R;
-import com.android.systemui.shared.plugins.PluginPrefs;
+//import com.android.systemui.shared.plugins.PluginPrefs;
 
 public class TunerFragment extends PreferenceFragment {
 
@@ -54,9 +57,21 @@ public class TunerFragment extends PreferenceFragment {
 
     //private static final int MENU_REMOVE = Menu.FIRST + 1;
 
+    private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
+
+    private SwitchPreference mShowDuLogo;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        PreferenceScreen prefSet = getPreferenceScreen();
+
+        final ContentResolver resolver = getActivity().getContentResolver();
+
+        mShowDuLogo = (SwitchPreference) findPreference(KEY_STATUS_BAR_LOGO);
+        mShowDuLogo.setChecked((Settings.System.getInt(resolver,
+                Settings.System.STATUS_BAR_LOGO, 0) == 1));
 
         //setHasOptionsMenu(true);
     }
@@ -150,4 +165,15 @@ public class TunerFragment extends PreferenceFragment {
                     }).show();
         }
     }*/
+
+    @Override
+    public boolean onPreferenceTreeClick(Preference preference) {
+        if  (preference == mShowDuLogo) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.STATUS_BAR_LOGO, checked ? 1:0);
+            return true;
+        }
+        return super.onPreferenceTreeClick(preference);
+    }
 }
