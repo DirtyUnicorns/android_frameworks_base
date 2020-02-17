@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Dash Charging -->
+    <!-- Dash charging -->
     <string name="power_remaining_dash_charging_duration_only">Rechargement Dash… (Complètement chargé dans (<xliff:g id="time">%1$s</xliff:g>)</string>
     <string name="battery_info_status_dash_charging">Rechargement Dash</string>
     <string name="battery_info_status_dash_charging_lower">rechargement dash</string>
