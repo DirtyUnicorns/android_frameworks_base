@@ -43,6 +43,14 @@
     <string name="global_screenshot_selector_capture_description">Capture partielle d\'écran</string>
     <string name="global_screenshot_selector_cancel_description">Annuler la capture partielle d\'écran</string>
 
+    <!-- Icon manager -->
+    <string name="systemui_tuner_icon_manager_title">Réglages des icônes</string>
+    <string name="misc_statusbar_items_category_title">Divers</string>
+
+    <!-- DU logo -->
+    <string name="du_logo_title">Logo DU</string>
+    <string name="du_logo_summary">Afficher le logo de DU sur la gauche de la barre d\'état</string>
+
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Capture d\'écran</string>
     <string name="global_action_screenrecord">Enregistrement de l\'écran</string>

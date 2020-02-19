@@ -17,7 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <!-- Dash charging -->
+    <!-- Dash Charging -->
     <string name="power_remaining_dash_charging_duration_only">Rechargement Dash… (Complètement chargé dans (<xliff:g id="time">%1$s</xliff:g>)</string>
     <string name="battery_info_status_dash_charging">Rechargement Dash</string>
     <string name="battery_info_status_dash_charging_lower">rechargement dash</string>
@@ -26,4 +26,8 @@
     <string name="screen_zoom_summary_smaller">Plus petit</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smallest">Le plus petit</string>
+
+    <!-- Deep sleep info -->
+    <string name="status_deep_sleep">(Veille profonde : %1$d%2$s)</string>
+
 </resources>
