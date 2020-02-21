@@ -80,4 +80,8 @@
     <java-symbol type="integer" name="config_longPressOnAppSwitchKeyBehavior" />
     <java-symbol type="integer" name="config_longPressOnCameraKeyBehavior" />
 
+    <!-- Button brightness -->
+    <java-symbol type="bool" name="config_button_brightness_support" />
+    <java-symbol type="integer" name="config_button_brightness_default" />
+
 </resources>
