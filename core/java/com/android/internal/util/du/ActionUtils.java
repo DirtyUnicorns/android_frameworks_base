@@ -16,6 +16,7 @@
 
 package com.android.internal.util.du;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioManager;
@@ -78,6 +79,19 @@ public class ActionUtils {
         }
     }
 
+    // Clear notifications
+    public static void clearAllNotifications() {
+        IStatusBarService service = getStatusBarService();
+        if (service != null) {
+            try {
+                service.onClearAllNotifications(ActivityManager.getCurrentUser());
+            } catch (RemoteException e) {
+                // do nothing.
+            }
+        }
+    }
+
+    // Partial screenshot
     public static void setPartialScreenshot(boolean active) {
         IStatusBarService service = getStatusBarService();
         if (service != null) {

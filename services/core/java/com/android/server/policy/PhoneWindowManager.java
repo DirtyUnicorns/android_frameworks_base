@@ -6472,6 +6472,21 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case NavbarUtilities.KEY_ACTION_SPLIT_SCREEN:
                 NavbarUtilities.toggleSplitScreen();
                 break;
+            case NavbarUtilities.KEY_ACTION_FLASHLIGHT:
+                toggleFlashLight();
+                break;
+            case NavbarUtilities.KEY_ACTION_CLEAR_NOTIFICATIONS:
+                toggleClearNotifications();
+                break;
+            case NavbarUtilities.KEY_ACTION_VOLUME_PANEL:
+                toggleVolumePanel();
+                break;
+            case NavbarUtilities.KEY_ACTION_SCREEN_OFF:
+                toggleScreenOff();
+                break;
+            case NavbarUtilities.KEY_ACTION_SCREENSHOT:
+                toggleScreenshot();
+                break;
         }
     }
 
@@ -6527,5 +6542,35 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         } catch (RemoteException|NullPointerException e) {
             // no-op
         }
+    }
+
+    // Flashlight
+    private void toggleFlashLight() {
+        performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true, "Flashlight toggle");
+        ActionUtils.toggleCameraFlash();
+    }
+
+    // Clear notifications
+    private void toggleClearNotifications() {
+        performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true, "Clear-all notifications");
+        ActionUtils.clearAllNotifications();
+    }
+
+    // Volume panel
+    private void toggleVolumePanel() {
+        performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true, "Volume panel");
+        ActionUtils.toggleVolumePanel(mContext);
+    }
+
+    // Screen off
+    private void toggleScreenOff() {
+        performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true, "Screen off");
+        ActionUtils.switchScreenOff(mContext);
+    }
+
+    // Screenshot
+    private void toggleScreenshot() {
+        performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true, "Screenshot");
+        ActionUtils.takeScreenshot(true);
     }
 }
