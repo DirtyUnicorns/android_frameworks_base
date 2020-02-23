@@ -788,6 +788,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     mMovingDisplayToTopKeyTriggered = false;
                     break;
                 case MSG_TOGGLE_TORCH:
+                    performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true, "Flashlight toggle");
                     ActionUtils.toggleCameraFlash();
                     break;
                 case MSG_DISPATCH_VOLKEY_SKIP_TRACK: {
@@ -1321,6 +1322,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         switch (behavior) {
             case MULTI_PRESS_POWER_NOTHING:
                 if ((mTorchActionMode == 1) && (!isScreenOn() || isDozeMode())) {
+                    performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, true, "Flashlight toggle");
                     ActionUtils.toggleCameraFlash();
                 }
                 break;
