@@ -80,19 +80,6 @@ public class NavbarUtilities {
     }
 
     /**
-     * Request camera to be opened.
-     * This goes through status bar service which will check if there
-     * is an app set as default camera app and launch that or trigger
-     * a ResolverActivity to let user chose which camera app to use.
-     */
-    public static void launchCamera() {
-        StatusBarManagerInternal statusbar = getCustomStatusBarManagerInternal();
-        if (statusbar != null) {
-            statusbar.onCameraLaunchGestureDetected(-1);
-        }
-    }
-
-    /**
      * Request current window to enter multiwindow mode.
      */
     public static void toggleSplitScreen() {

@@ -38,7 +38,6 @@ import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserHandle;
-import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
@@ -589,10 +588,10 @@ public class EdgeBackGestureHandler implements DisplayListener {
                 mAssistManager.startAssist(new Bundle() /* args */);
                 break;
             case 2: // Voice search
-                launchVoiceSearch(mContext);
+                ActionUtils.launchVoiceSearch(mContext);
                 break;
             case 3: // Camera
-                launchCamera(mContext);
+                ActionUtils.launchCamera(mContext);
                 break;
             case 4: // Flashlight
                 ActionUtils.toggleCameraFlash();
@@ -646,18 +645,6 @@ public class EdgeBackGestureHandler implements DisplayListener {
             context.startActivity(intent);
         } catch (Exception e) {
         }
-    }
-
-    private static void launchCamera(Context context) {
-        Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        context.startActivity(intent);
-    }
-
-    private void launchVoiceSearch(Context context) {
-        Intent intent = new Intent(Intent.ACTION_SEARCH_LONG_PRESS);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
     }
 
     private void updateEdgePanelPosition(float touchY) {

@@ -6474,7 +6474,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case NavbarUtilities.KEY_ACTION_CAMERA:
                 sendCloseSystemWindows();
-                NavbarUtilities.launchCamera();
+                ActionUtils.launchCamera(mContext);
                 break;
             case NavbarUtilities.KEY_ACTION_LAST_APP:
                 awakenDreams();
@@ -6560,7 +6560,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case NavbarUtilities.KEY_ACTION_CAMERA:
                 sendCloseSystemWindows();
-                NavbarUtilities.launchCamera();
+                ActionUtils.launchCamera(mContext);
                 break;
             case NavbarUtilities.KEY_ACTION_LAST_APP:
                 awakenDreams();
@@ -6640,7 +6640,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case KeyEvent.KEYCODE_CAMERA:
                 sendCloseSystemWindows();
-                NavbarUtilities.launchCamera();
+                ActionUtils.launchCamera(mContext);
                 break;
         }
     }
