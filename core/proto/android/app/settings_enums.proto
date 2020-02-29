@@ -2412,7 +2412,7 @@ enum PageId {
     // OS: Q
     SETTINGS_GESTURE_TAP = 1751;
 
-    // CarbonROM Additions
-    // Panel for Mobile Data
-    PANEL_MOBILE_DATA = 2000;
+    // Settings panels
+    PANEL_MOBILE_DATA = 2002;
+    PANEL_BLUETOOTH = 2003;
 }
