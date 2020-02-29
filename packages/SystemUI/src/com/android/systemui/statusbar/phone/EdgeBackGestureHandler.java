@@ -17,7 +17,10 @@ package com.android.systemui.statusbar.phone;
 
 import static android.view.Display.INVALID_DISPLAY;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ParceledListSlice;
 import android.content.res.Resources;
 import android.graphics.PixelFormat;
@@ -28,12 +31,16 @@ import android.graphics.Region;
 import android.hardware.display.DisplayManager;
 import android.hardware.display.DisplayManager.DisplayListener;
 import android.hardware.input.InputManager;
+import android.os.Bundle;
+import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.UserHandle;
+import android.provider.MediaStore;
 import android.provider.Settings;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.MathUtils;
 import android.util.StatsLog;
@@ -54,8 +61,11 @@ import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
 
+import com.android.internal.util.du.ActionUtils;
+import com.android.internal.util.du.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
+import com.android.systemui.assist.AssistManager;
 import com.android.systemui.bubbles.BubbleController;
 import com.android.systemui.recents.OverviewProxyService;
 import com.android.systemui.shared.system.QuickStepContract;
@@ -171,6 +181,15 @@ public class EdgeBackGestureHandler implements DisplayListener {
     private int mLeftInset;
     private int mRightInset;
 
+    private IntentFilter mIntentFilter;
+
+    private Handler mHandler;
+    private AssistManager mAssistManager;
+    private int mTImeout = 3000; //ms
+    private int mLeftLongSwipeAction;
+    private int mRightLongSwipeAction;
+    private boolean mBlockNextEvent;
+
     public EdgeBackGestureHandler(Context context, OverviewProxyService overviewProxyService) {
         final Resources res = context.getResources();
         mContext = context;
@@ -193,6 +212,13 @@ public class EdgeBackGestureHandler implements DisplayListener {
 
         setEdgeGestureDeadZone();
 
+        mIntentFilter = new IntentFilter();
+        mIntentFilter.addAction(Intent.ACTION_PACKAGE_REMOVED);
+        mIntentFilter.addDataScheme("package");
+
+        mAssistManager = Dependency.get(AssistManager.class);
+        mHandler = new Handler();
+        setLongSwipeOptions();
     }
 
     public void updateCurrentUserResources(Resources res) {
@@ -239,6 +265,59 @@ public class EdgeBackGestureHandler implements DisplayListener {
         }
     }
 
+    private final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if(action.equals(Intent.ACTION_PACKAGE_REMOVED)) {
+                // Get packageName from Uri
+                String packageName = intent.getData().getSchemeSpecificPart();
+                // If the package is still installed
+                if (Utils.isPackageInstalled(context, packageName)) {
+                    // it's an application update, we can skip the rest.
+                    return;
+                }
+                // Get package names currently set as default
+                String leftPackageName = Settings.System.getStringForUser(context.getContentResolver(),
+                        Settings.System.LEFT_LONG_BACK_SWIPE_APP_ACTION,
+                        UserHandle.USER_CURRENT);
+                String rightPackageName = Settings.System.getStringForUser(context.getContentResolver(),
+                        Settings.System.RIGHT_LONG_BACK_SWIPE_APP_ACTION,
+                        UserHandle.USER_CURRENT);
+                // if the package name equals to some set value
+                if(packageName.equals(leftPackageName)) {
+                    // The short application action has to be reset
+                    resetApplicationAction(/* isLeftAction */ true);
+                }
+                if (packageName.equals(rightPackageName)) {
+                    // The long application action has to be reset
+                    resetApplicationAction(/* isLeftAction */ false);
+                }
+            }
+        }
+    };
+
+    private void resetApplicationAction(boolean isLeftAction) {
+        if (isLeftAction) {
+            // Remove stored values
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.LEFT_LONG_BACK_SWIPE_ACTION, /* no action */ 0,
+                    UserHandle.USER_CURRENT);
+            Settings.System.putStringForUser(mContext.getContentResolver(),
+                    Settings.System.LEFT_LONG_BACK_SWIPE_APP_FR_ACTION, /* none */ "",
+                    UserHandle.USER_CURRENT);
+        } else {
+            // Remove stored values
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION, /* no action */ 0,
+                    UserHandle.USER_CURRENT);
+            Settings.System.putStringForUser(mContext.getContentResolver(),
+                    Settings.System.RIGHT_LONG_BACK_SWIPE_APP_FR_ACTION, /* none */ "",
+                    UserHandle.USER_CURRENT);
+        }
+        // statusbar settings observer will trigger mEdgePanel.setLongSwipeOptions()
+    }
+
     private void updateIsEnabled() {
         boolean isEnabled = mIsAttached && mIsGesturalModeEnabled;
         if (isEnabled == mIsEnabled) {
@@ -266,6 +345,7 @@ public class EdgeBackGestureHandler implements DisplayListener {
                 Log.e(TAG, "Failed to unregister window manager callbacks", e);
             }
 
+            mContext.unregisterReceiver(mBroadcastReceiver);
         } else {
             updateDisplaySize();
             mContext.getSystemService(DisplayManager.class).registerDisplayListener(this,
@@ -318,6 +398,7 @@ public class EdgeBackGestureHandler implements DisplayListener {
                             return mSamplingRect;
                         }
                     });
+            mContext.registerReceiver(mBroadcastReceiver, mIntentFilter);
         }
     }
 
@@ -355,6 +436,7 @@ public class EdgeBackGestureHandler implements DisplayListener {
 
     private void cancelGesture(MotionEvent ev) {
         // Send action cancel to reset all the touch events
+        mHandler.removeCallbacksAndMessages(null);
         mAllowGesture = false;
         mInRejectedExclusion = false;
         MotionEvent cancelEv = MotionEvent.obtain(ev);
@@ -383,6 +465,18 @@ public class EdgeBackGestureHandler implements DisplayListener {
         }
     }
 
+    public void setLongSwipeOptions() {
+        mTImeout = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.LONG_BACK_SWIPE_TIMEOUT, 2000,
+            UserHandle.USER_CURRENT);
+        mLeftLongSwipeAction = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.LEFT_LONG_BACK_SWIPE_ACTION, 0,
+            UserHandle.USER_CURRENT);
+        mRightLongSwipeAction = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION, 0,
+            UserHandle.USER_CURRENT);
+    }
+
     private void onMotionEvent(MotionEvent ev) {
         int action = ev.getActionMasked();
         if (action == MotionEvent.ACTION_DOWN) {
@@ -406,14 +500,15 @@ public class EdgeBackGestureHandler implements DisplayListener {
                 mDownPoint.set(ev.getX(), ev.getY());
                 mThresholdCrossed = false;
             }
-        } else if (mAllowGesture) {
+        } else if (mAllowGesture && !mBlockNextEvent) {
             if (!mThresholdCrossed) {
                 if (action == MotionEvent.ACTION_POINTER_DOWN) {
                     // We do not support multi touch for back gesture
                     cancelGesture(ev);
                     return;
                 } else if (action == MotionEvent.ACTION_MOVE) {
-                    if ((ev.getEventTime() - ev.getDownTime()) > mLongPressTimeout) {
+                    int elapsedTime = (int)(ev.getEventTime() - ev.getDownTime());
+                    if (elapsedTime > mLongPressTimeout) {
                         cancelGesture(ev);
                         return;
                     }
@@ -425,6 +520,10 @@ public class EdgeBackGestureHandler implements DisplayListener {
 
                     } else if (dx > dy && dx > mTouchSlop) {
                         mThresholdCrossed = true;
+                        if ((mLeftLongSwipeAction != 0 && mIsOnLeftEdge)
+                                || (mRightLongSwipeAction != 0 && !mIsOnLeftEdge)) {
+                            mHandler.postDelayed(mLongSwipeAction, (mTImeout - elapsedTime));
+                        }
                         // Capture inputs
                         mInputMonitor.pilferPointers();
                     }
@@ -436,6 +535,10 @@ public class EdgeBackGestureHandler implements DisplayListener {
             mEdgePanel.handleTouch(ev);
 
             boolean isUp = action == MotionEvent.ACTION_UP;
+            boolean isCancel = action == MotionEvent.ACTION_CANCEL;
+            if (isUp || isCancel) {
+                mHandler.removeCallbacksAndMessages(null);
+            }
             if (isUp) {
                 boolean performAction = mEdgePanel.shouldTriggerBack();
                 if (performAction) {
@@ -454,13 +557,107 @@ public class EdgeBackGestureHandler implements DisplayListener {
                                 ? StatsLog.BACK_GESTURE__X_LOCATION__LEFT :
                                 StatsLog.BACK_GESTURE__X_LOCATION__RIGHT);
             }
-            if (isUp || action == MotionEvent.ACTION_CANCEL) {
+            if (isUp || isCancel) {
                 mRegionSamplingHelper.stop();
             } else {
                 updateSamplingRect();
                 mRegionSamplingHelper.updateSamplingRect();
             }
+        } else if (mBlockNextEvent) {
+            mBlockNextEvent = false;
+            cancelGesture(ev);
         }
+    }
+
+    private LongSwipeRunnable mLongSwipeAction = new LongSwipeRunnable();
+    private class LongSwipeRunnable implements Runnable {
+        @Override
+        public void run() {
+            mBlockNextEvent = true;
+            mEdgePanel.resetOnDown();
+            triggerAction(mIsOnLeftEdge);
+        }
+    }
+
+    public void triggerAction(boolean isLeftPanel) {
+        int action = isLeftPanel ? mLeftLongSwipeAction : mRightLongSwipeAction;
+        switch (action) {
+            case 0: // No action
+            default:
+                break;
+            case 1: // Assistant
+                mAssistManager.startAssist(new Bundle() /* args */);
+                break;
+            case 2: // Voice search
+                launchVoiceSearch(mContext);
+                break;
+            case 3: // Camera
+                launchCamera(mContext);
+                break;
+            case 4: // Flashlight
+                ActionUtils.toggleCameraFlash();
+                break;
+            case 5: // Application
+                launchApp(mContext, isLeftPanel);
+                break;
+            case 6: // Volume panel
+                ActionUtils.toggleVolumePanel(mContext);
+                break;
+            case 7: // Screen off
+                ActionUtils.switchScreenOff(mContext);
+                break;
+            case 8: // Screenshot
+                ActionUtils.takeScreenshot(true);
+                break;
+            case 9: // Notification panel
+                ActionUtils.toggleNotifications();
+                break;
+            case 10: // QS panel
+                ActionUtils.toggleQsPanel();
+                break;
+            case 11: // Clear notifications
+                ActionUtils.clearAllNotifications();
+                break;
+            case 12: // Ringer modes
+                ActionUtils.toggleRingerModes(mContext);
+                break;
+        }
+    }
+
+    private void launchApp(Context context, boolean isLeftPanel) {
+        Intent intent = null;
+        String packageName = Settings.System.getStringForUser(context.getContentResolver(),
+                isLeftPanel ? Settings.System.LEFT_LONG_BACK_SWIPE_APP_ACTION
+                : Settings.System.RIGHT_LONG_BACK_SWIPE_APP_ACTION,
+                UserHandle.USER_CURRENT);
+        String activity = Settings.System.getStringForUser(context.getContentResolver(),
+                isLeftPanel ? Settings.System.LEFT_LONG_BACK_SWIPE_APP_ACTIVITY_ACTION
+                : Settings.System.RIGHT_LONG_BACK_SWIPE_APP_ACTIVITY_ACTION,
+                UserHandle.USER_CURRENT);
+        boolean launchActivity = activity != null && !TextUtils.equals("NONE", activity);
+        try {
+            if (launchActivity) {
+                intent = new Intent(Intent.ACTION_MAIN);
+                intent.setClassName(packageName, activity);
+            } else {
+                intent = context.getPackageManager().getLaunchIntentForPackage(packageName);
+            }
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(intent);
+        } catch (Exception e) {
+        }
+    }
+
+    private static void launchCamera(Context context) {
+        Intent intent = new Intent(MediaStore.INTENT_ACTION_STILL_IMAGE_CAMERA_SECURE);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        context.startActivity(intent);
+    }
+
+    private void launchVoiceSearch(Context context) {
+        Intent intent = new Intent(Intent.ACTION_SEARCH_LONG_PRESS);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
     private void updateEdgePanelPosition(float touchY) {

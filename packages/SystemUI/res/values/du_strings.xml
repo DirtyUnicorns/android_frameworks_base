@@ -134,4 +134,7 @@
     <string name="quick_settings_monotoggle_tile_mono">Mono audio</string>
     <string name="quick_settings_monotoggle_tile_stereo">Stereo audio</string>
 
+    <!-- Long swipe gesture actions -->
+    <string name="app_picker_dialog_title">Select an app</string>
+
 </resources>
