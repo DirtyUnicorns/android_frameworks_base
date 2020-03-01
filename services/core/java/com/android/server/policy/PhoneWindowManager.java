@@ -6530,6 +6530,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             case NavbarUtilities.KEY_ACTION_RINGER_MODES:
                 ActionUtils.toggleRingerModes(mContext);
                 break;
+            case NavbarUtilities.KEY_ACTION_KILL_APP:
+                ActionUtils.killForegroundApp();
+                break;
         }
     }
 
@@ -6615,6 +6618,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case NavbarUtilities.KEY_ACTION_RINGER_MODES:
                 ActionUtils.toggleRingerModes(mContext);
+                break;
+            case NavbarUtilities.KEY_ACTION_KILL_APP:
+                ActionUtils.killForegroundApp();
                 break;
         }
     }
