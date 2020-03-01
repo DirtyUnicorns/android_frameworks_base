@@ -118,4 +118,5 @@ interface IStatusBarService
      */
     void toggleCameraFlash();
     void setPartialScreenshot(boolean active);
+    void killForegroundApp();
 }
