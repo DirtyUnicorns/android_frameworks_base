@@ -3195,7 +3195,9 @@
 
          The path is assumed to be specified in display coordinates with pixel units and in
          the display's native orientation, with the origin of the coordinate system at the
-         center top of the display.
+         center top of the display. Optionally, you can append either `@left` or `@right` to the
+         end of the path string, in order to change the path origin to either the top left,
+         or top right of the display.
 
          To facilitate writing device-independent emulation overlays, the marker `@dp` can be
          appended after the path string to interpret coordinates in dp instead of px units.
@@ -4262,15 +4264,11 @@
          to have a confirmed way to dismiss the keyboard when desired. -->
     <bool name="config_automotiveHideNavBarForKeyboard">false</bool>
 
-    <!-- pdp data retry for cause 29, 33 and 55-->
-    <bool name="config_pdp_retry_for_29_33_55_enabled">false</bool>
-    <!--pdp data reject retry delay can be configured here -->
-    <integer name="data_retry_delay">-1</integer>
-    <!-- pdp data reject idle timeout delay-->
-    <integer name="data_retry_idle_delay">-1</integer>
-    <!-- pdp data reject dialog string for cause 29, 33 and 55-->
-    <string name="data_conn_status_title"></string>
-    <string name="user_authentication_failed"></string>
-    <string name="service_not_subscribed"></string>
-    <string name="multi_conn_to_same_pdn_not_allowed"></string>
+    <!-- Component name that accepts ACTION_SEND intents for nearby (proximity-based) sharing.
+         Used by ChooserActivity. -->
+    <string translatable="false" name="config_defaultNearbySharingComponent"></string>
+
+    <!-- Boolean indicating whether frameworks needs to reset cell broadcast geo-fencing
+         check after reboot or airplane mode toggling -->
+    <bool translatable="false" name="reset_geo_fencing_check_after_boot_or_apm">false</bool>
 </resources>
