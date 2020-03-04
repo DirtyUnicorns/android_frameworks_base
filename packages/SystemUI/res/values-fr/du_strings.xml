@@ -20,6 +20,14 @@
     <string name="smartspace_now">Maintenant</string>
     <string name="smartspace_pill_text_format">%1$s : %2$s</string>
 
+    <!-- Screen pinning -->
+    <string name="screen_pinning_description_custom">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
+    <string name="screen_pinning_description_recents_invisible_custom">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
+    <string name="screen_pinning_description_accessible_custom">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
+    <string name="screen_pinning_description_recents_invisible_accessible_custom">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
+    <string name="screen_pinning_toast_custom">Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
+    <string name="screen_pinning_toast_recents_invisible_custom">Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
+
     <!-- Dash charging -->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Rechargement Dash en cours… (Complètement chargé dans (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">Rechargement Dash</string>
@@ -63,6 +71,14 @@
 
     <!-- QS customizer -->
     <string name="reset_customizer">Réinitialiser</string>
+
+    <!-- Navbar -->
+    <string name="systemui_tuner_navbar_title">Disposition</string>
+    <string name="navigation_bar_format_title">Format de la barre de navigation</string>
+    <string name="navigation_bar_inverse_title">Inverser les boutons</string>
+    <string name="navigation_bar_inverse_summary">Inverser l\'ordre des boutons Applications récentes et Retour</string>
+    <string name="navigation_bar_accessibility_dpad_left">Flèche gauche</string>
+    <string name="navigation_bar_accessibility_dpad_right">Flèche droite</string>
 
     <!-- Theme tile -->
     <string name="system_theme_style_title">Thème</string>
