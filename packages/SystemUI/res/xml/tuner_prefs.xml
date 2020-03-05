@@ -76,6 +76,12 @@
             android:summary="@string/du_logo_summary"
             android:defaultValue="false" />
 
+        <SwitchPreference
+            android:key="show_lte_fourgee"
+            android:title="@string/show_lte_fourgee_title"
+            android:summary="@string/show_lte_fourgee_summary"
+            android:defaultValue="false" />
+
     </PreferenceCategory>
 
 </PreferenceScreen>

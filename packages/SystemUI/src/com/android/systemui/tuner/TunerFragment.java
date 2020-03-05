@@ -15,18 +15,9 @@
  */
 package com.android.systemui.tuner;
 
-//import android.app.AlertDialog;
-//import android.app.Dialog;
-//import android.app.DialogFragment;
-//import android.content.DialogInterface;
-//import android.hardware.display.AmbientDisplayConfiguration;
-//import android.os.Build;
 import android.content.ContentResolver;
 import android.os.Bundle;
 import android.provider.Settings;
-//import android.view.Menu;
-//import android.view.MenuInflater;
-//import android.view.MenuItem;
 
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
@@ -35,31 +26,19 @@ import androidx.preference.SwitchPreference;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.du.Utils;
+
 import com.android.systemui.R;
-//import com.android.systemui.shared.plugins.PluginPrefs;
 
 public class TunerFragment extends PreferenceFragment {
 
     private static final String TAG = "TunerFragment";
 
-    //private static final String KEY_BATTERY_PCT = "battery_pct";
-    //private static final String KEY_PLUGINS = "plugins";
-    //private static final CharSequence KEY_DOZE = "doze";
-
-    //public static final String SETTING_SEEN_TUNER_WARNING = "seen_tuner_warning";
-
-    //private static final String WARNING_TAG = "tuner_warning";
-    /*private static final String[] DEBUG_ONLY = new String[] {
-            "nav_bar",
-            "lockscreen",
-            "picture_in_picture",
-    };*/
-
-    //private static final int MENU_REMOVE = Menu.FIRST + 1;
-
     private static final String KEY_STATUS_BAR_LOGO = "status_bar_logo";
+    private static final String SHOW_LTE_FOURGEE = "show_lte_fourgee";
 
     private SwitchPreference mShowDuLogo;
+    private SwitchPreference mShowLteFourGee;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +52,13 @@ public class TunerFragment extends PreferenceFragment {
         mShowDuLogo.setChecked((Settings.System.getInt(resolver,
                 Settings.System.STATUS_BAR_LOGO, 0) == 1));
 
-        //setHasOptionsMenu(true);
+        mShowLteFourGee = (SwitchPreference) findPreference(SHOW_LTE_FOURGEE);
+        if (Utils.isWifiOnly(getActivity())) {
+            prefSet.removePreference(mShowLteFourGee);
+        } else {
+            mShowLteFourGee.setChecked((Settings.System.getInt(resolver,
+                    Settings.System.SHOW_LTE_FOURGEE, 0) == 1));
+        }
     }
 
     @Override
@@ -85,86 +70,20 @@ public class TunerFragment extends PreferenceFragment {
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.tuner_prefs);
-        /*if (!PluginPrefs.hasPlugins(getContext())) {
-            getPreferenceScreen().removePreference(findPreference(KEY_PLUGINS));
-        }
-        if (!alwaysOnAvailable()) {
-            getPreferenceScreen().removePreference(findPreference(KEY_DOZE));
-        }
-        if (!Build.IS_DEBUGGABLE) {
-            for (int i = 0; i < DEBUG_ONLY.length; i++) {
-                Preference preference = findPreference(DEBUG_ONLY[i]);
-                if (preference != null) getPreferenceScreen().removePreference(preference);
-            }
-        }
-
-        if (Settings.Secure.getInt(getContext().getContentResolver(), SETTING_SEEN_TUNER_WARNING,
-                0) == 0) {
-            if (getFragmentManager().findFragmentByTag(WARNING_TAG) == null) {
-                new TunerWarningFragment().show(getFragmentManager(), WARNING_TAG);
-            }
-        }*/
     }
-
-    /*private boolean alwaysOnAvailable() {
-        return new AmbientDisplayConfiguration(getContext()).alwaysOnAvailable();
-    }*/
 
     @Override
     public void onResume() {
         super.onResume();
         getActivity().setTitle(R.string.systemui_tuner_icon_manager_title);
-
         MetricsLogger.visibility(getContext(), MetricsEvent.TUNER, true);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-
         MetricsLogger.visibility(getContext(), MetricsEvent.TUNER, false);
     }
-
-    /*@Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        menu.add(Menu.NONE, MENU_REMOVE, Menu.NONE, R.string.remove_from_settings);
-    }*/
-
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                getActivity().finish();
-                return true;
-            case MENU_REMOVE:
-                TunerService.showResetRequest(getContext(), new Runnable() {
-                    @Override
-                    public void run() {
-                        if (getActivity() != null) {
-                            getActivity().finish();
-                        }
-                    }
-                });
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
-
-    /*public static class TunerWarningFragment extends DialogFragment {
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            return new AlertDialog.Builder(getContext())
-                    .setTitle(R.string.tuner_warning_title)
-                    .setMessage(R.string.tuner_warning)
-                    .setPositiveButton(R.string.got_it, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Settings.Secure.putInt(getContext().getContentResolver(),
-                                    SETTING_SEEN_TUNER_WARNING, 1);
-                        }
-                    }).show();
-        }
-    }*/
 
     @Override
     public boolean onPreferenceTreeClick(Preference preference) {
@@ -172,6 +91,11 @@ public class TunerFragment extends PreferenceFragment {
             boolean checked = ((SwitchPreference)preference).isChecked();
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.STATUS_BAR_LOGO, checked ? 1:0);
+            return true;
+        } else if  (preference == mShowLteFourGee) {
+            boolean checked = ((SwitchPreference)preference).isChecked();
+            Settings.System.putInt(getActivity().getContentResolver(),
+                    Settings.System.SHOW_LTE_FOURGEE, checked ? 1:0);
             return true;
         }
         return super.onPreferenceTreeClick(preference);

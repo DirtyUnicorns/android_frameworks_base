@@ -54,6 +54,8 @@
     <!-- Icon manager -->
     <string name="systemui_tuner_icon_manager_title">Icon manager</string>
     <string name="misc_statusbar_items_category_title">Misc</string>
+    <string name="show_lte_fourgee_title">4G/LTE network icon</string>
+    <string name="show_lte_fourgee_summary">Display either the 4G or LTE network icon in the statusbar/QS panel</string>
 
     <!-- DU logo -->
     <string name="du_logo_title">DU swag</string>
