@@ -80,4 +80,11 @@ public class ThemesUtils {
             "com.android.theme.font.firasans",
             "com.android.theme.font.ubuntu",
     };
+
+    public static final String[] NAVBAR_STYLES = {
+            "com.android.theme.navbar.asus",
+            "com.android.theme.navbar.oneplus",
+            "com.android.theme.navbar.oneui",
+            "com.android.theme.navbar.tecno",
+    };
 }
