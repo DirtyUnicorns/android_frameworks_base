@@ -4517,13 +4517,6 @@ public final class Settings {
          */
         public static final String SWAP_NAVIGATION_KEYS = "swap_navigation_keys";
 
-        /** @hide */
-        public static final String GESTURE_PILL_TOGGLE = "gesture_pill_toggle";
-
-        /** @hide */
-        private static final Validator GESTURE_PILL_TOGGLE_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
         /** Width of the navigation handle.
          *  @hide
          */
@@ -5172,7 +5165,6 @@ public final class Settings {
             DISPLAY_COLOR_MODE,
             ALARM_ALERT,
             NOTIFICATION_LIGHT_PULSE,
-            GESTURE_PILL_TOGGLE,
             FORCE_SHOW_NAVBAR,
             NAVIGATION_BAR_ARROW_KEYS,
             CUSTOM_BUTTON_BRIGHTNESS,
@@ -5300,7 +5292,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(EGG_MODE);
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
-            PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
             PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_ARROW_KEYS);
             PRIVATE_SETTINGS.add(KEY_HOME_LONG_PRESS_ACTION);
@@ -5416,7 +5407,6 @@ public final class Settings {
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES,
                     ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
-            VALIDATORS.put(GESTURE_PILL_TOGGLE, GESTURE_PILL_TOGGLE_VALIDATOR);
             VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_ARROW_KEYS,
                     NAVIGATION_BAR_ARROW_KEYS_VALIDATOR);

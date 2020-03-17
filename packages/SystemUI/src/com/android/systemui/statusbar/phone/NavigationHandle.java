@@ -40,6 +40,7 @@ public class NavigationHandle extends View implements ButtonInterface {
     private @ColorInt final int mDarkColor;
     private final int mRadius;
     private final int mBottom;
+    private int mCustomWidth;
     private int mWidth;
 
     private Resources mRes;
@@ -73,14 +74,15 @@ public class NavigationHandle extends View implements ButtonInterface {
         // Draw that bar
         int navHeight = getHeight();
         int height = mRadius * 2;
-        mWidth = (int) getCustomWidth();
+        mWidth = getWidth();
+        mCustomWidth = (int) getCustomWidth();
         int y = (navHeight - mBottom - height);
         int padding = (int) getCustomPadding();
-        canvas.drawRoundRect(padding, y, mWidth + padding, y + height, mRadius, mRadius, mPaint);
+        canvas.drawRoundRect(padding, y, mCustomWidth + padding, y + height, mRadius, mRadius, mPaint);
     }
 
     private double getCustomPadding() {
-        return (getWidth() / 2) - (mWidth / 2);
+        return (mWidth / 2) - (mCustomWidth / 2);
     }
 
     @Override
@@ -110,16 +112,15 @@ public class NavigationHandle extends View implements ButtonInterface {
     }
 
     private double getCustomWidth() {
-        int baseWidth = mRes.getDimensionPixelSize(R.dimen.navigation_home_handle_width);
-
-        String WIDTH_SETTING = "navigation_handle_width";
-        int userSelection = Settings.System.getInt(mResolver, WIDTH_SETTING, 0);
-        if (userSelection == 0) {
-            return baseWidth;
-        } else if (userSelection == 1) {
-            return 1.33 * baseWidth;
-        } else {
-            return 2 * baseWidth;
+        int userSelection = Settings.System.getInt(mResolver, "navigation_handle_width", 1);
+        double finalWidth = 0.0;
+        if (userSelection == 1) {
+            finalWidth = mWidth;
+        } else if (userSelection == 2) {
+            finalWidth = 1.33 * mWidth;
+        } else if (userSelection == 3) {
+            finalWidth = 2 * mWidth;
         }
+        return finalWidth;
     }
 }
