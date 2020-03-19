@@ -32,21 +32,6 @@
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Rechargement Dash en cours… (Complètement chargé dans (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">Rechargement Dash</string>
 
-    <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Démarrer l\'enregistrement de l\'écran ?</string>
-    <string name="screenrecord_dialog_summary">Toutes les informations affichées sur l\'écran et écoutées depuis l\'appareil sont enregistrées. Cela inclut des informations telles que les photos, les messages et toute source audio en cours d\'écoute.</string>
-    <string name="screenrecord_dialog_settings">Réglages</string>
-    <string name="screenrecord_dialog_start">Démarrer l\'enregistrement</string>
-    <string name="screenrecord_dialog_cancel">Annuler</string>
-    <string name="screenrecord_audio_title">Enregistrement audio</string>
-    <string name="screenrecord_audio_summary">Enregistrer également toute source audio en cours d\'écoute</string>
-    <string name="screenrecord_taps_title">Indicateur visuel</string>
-    <string name="screenrecord_taps_summary">Afficher un indicateur visuel là où l\'utilisateur appuie sur l\'écran</string>
-    <string name="screenrecord_stopdot_title">Bouton d\'arrêt</string>
-    <string name="screenrecord_stopdot_summary">Affichez un point rouge pour arrêter l\'enregistrement par simple appuie. Pour déplacer le point rouge vers le côté opposé, effectuer un appuie prolongé.</string>
-    <string name="screenrecord_low_quality_title">Faible qualité</string>
-    <string name="screenrecord_low_quality_summary">Enregistrer en qualité inférieure pour économiser l\'espace de stockage</string>
-
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Capture partielle d\'écran</string>
     <string name="global_screenshot_selector_cancel_description">Annuler la capture partielle d\'écran</string>
