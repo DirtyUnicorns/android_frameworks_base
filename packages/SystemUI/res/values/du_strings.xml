@@ -20,6 +20,9 @@
     <string name="smartspace_now">Now</string>
     <string name="smartspace_pill_text_format">%1$s: %2$s</string>
 
+    <!-- Screenshot toast -->
+    <string name="delete_screenshot_toast">Screenshot deleted</string>
+
     <!-- Screen pinning -->
     <string name="screen_pinning_description_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
     <string name="screen_pinning_description_recents_invisible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>

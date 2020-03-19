@@ -569,6 +569,11 @@ class DeleteImageInBackgroundTask extends AsyncTask<Uri, Void, Void> {
         resolver.delete(screenshotUri, null, null);
         return null;
     }
+
+    @Override
+    protected void onPostExecute(Void params) {
+        Toast.makeText(mContext, R.string.delete_screenshot_toast, Toast.LENGTH_SHORT).show();
+    }
 }
 
 class GlobalScreenshot {
@@ -1232,12 +1237,19 @@ class GlobalScreenshot {
      * Removes the last screenshot.
      */
     public static class DeleteScreenshotReceiver extends BroadcastReceiver {
+        static final int CLOSE_WINDOWS_TIMEOUT_MILLIS = 3000;
         @Override
         public void onReceive(Context context, Intent intent) {
             if (!intent.hasExtra(SCREENSHOT_URI_ID)) {
                 return;
             }
 
+            // Close notification panel
+            try {
+                ActivityManagerWrapper.getInstance().closeSystemWindows(
+                        SYSTEM_DIALOG_REASON_SCREENSHOT).get(
+                        CLOSE_WINDOWS_TIMEOUT_MILLIS, TimeUnit.MILLISECONDS);
+            } catch (TimeoutException | InterruptedException | ExecutionException e) {}
             // Clear the notification when the image is deleted
             cancelScreenshotNotification(context);
 
