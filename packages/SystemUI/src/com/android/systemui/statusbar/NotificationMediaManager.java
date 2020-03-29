@@ -59,6 +59,7 @@ import com.android.internal.statusbar.NotificationVisibility;
 import com.android.systemui.Dependency;
 import com.android.systemui.Dumpable;
 import com.android.systemui.Interpolators;
+import com.android.systemui.R;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.statusbar.notification.NotificationEntryListener;
@@ -145,6 +146,11 @@ public class NotificationMediaManager implements Dumpable {
 
     private String mNowPlayingNotificationKey;
     private String mNowPlayingTrack;
+    private String mForegroundPackage = "";
+    private boolean mMediaIsVisible;
+    private CharSequence mMediaTitle;
+    private CharSequence mMediaArtist;
+    private boolean mShowMediaHeadsup;
 
     private BackDropView mBackdrop;
     private ImageView mBackdropFront;
@@ -238,6 +244,47 @@ public class NotificationMediaManager implements Dumpable {
 
     public void setUpWithPresenter(NotificationPresenter presenter) {
         mPresenter = presenter;
+    }
+
+    public boolean isMediaPlayerNotification(NotificationEntry entry) {
+        mMediaIsVisible = isPlayingState(getMediaControllerPlaybackState(mMediaController));
+        return mShowMediaHeadsup
+                && entry.notification.getKey().equals(mMediaNotificationKey)
+                && mMediaIsVisible
+                // skip media heads up if the player is already in foreground
+                && !entry.notification.getPackageName().toLowerCase().equals(mForegroundPackage);
+    }
+
+    public boolean isNewTrackNotification() {
+        CharSequence title = null;
+        if (mMediaMetadata != null) {
+            title = mMediaMetadata.getText(MediaMetadata.METADATA_KEY_TITLE);
+            if (TextUtils.isEmpty(title)) {
+                title = mContext.getResources().getString(R.string.music_controls_no_title);
+            }
+        }
+        CharSequence artist = mMediaMetadata == null ? null : mMediaMetadata.getText(
+                MediaMetadata.METADATA_KEY_ARTIST);
+
+        // skip media heads up if we were already playing, and track info are unchanged
+        // (e.g. after pausing then playing again)
+        if (TextUtils.equals(title, mMediaTitle) && TextUtils.equals(artist, mMediaArtist)) {
+            return false;
+        }
+
+        mMediaTitle = title;
+        mMediaArtist = artist;
+        return mMediaIsVisible;
+    }
+
+    public void setRunningPackage(String packageName) {
+        mForegroundPackage = packageName.toLowerCase();
+    }
+
+    public void setMediaHeadsup() {
+        mShowMediaHeadsup = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SHOW_MEDIA_HEADS_UP, 0,
+                UserHandle.USER_CURRENT) != 0;
     }
 
     public void onNotificationRemoved(String key) {
