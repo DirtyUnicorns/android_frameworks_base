@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Smartspace -->
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Teď</string>
+    <string name="smartspace_pill_text_format">%1$s: %2$s</string>
+    <!-- Screenshot toast -->
+    <string name="delete_screenshot_toast">Snímek obrazovky byl smazán</string>
+    <!-- Screen pinning -->
+    <string name="screen_pinning_description_custom">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím a podržením tlačítka Zpět.</string>
+    <string name="screen_pinning_description_recents_invisible_custom">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím a podržením tlačítka Zpět.</string>
+    <string name="screen_pinning_description_accessible_custom">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím a podržením tlačítka Zpět.</string>
+    <string name="screen_pinning_description_recents_invisible_accessible_custom">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím a podržením tlačítka Zpět.</string>
+    <string name="screen_pinning_toast_custom">Stisknutím a podržením tlačítka Zpět uvolníte obrazovku</string>
+    <string name="screen_pinning_toast_recents_invisible_custom">Stisknutím a podržením tlačítka Zpět uvolníte obrazovku</string>
+    <!-- Dash charging -->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_dash_charging">DASH nabíjení</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Spustit nahrávání?</string>
+    <string name="screenrecord_dialog_summary">Během nahrávání může systém Android zachytit jakékoli citlivé informace, které jsou viditelné nebo přehrávané na obrazovce vašeho zařízení. To zahrnuje hesla, informace o platbách, fotografie, zprávy a zvuk.</string>
+    <string name="screenrecord_dialog_start">Spustit</string>
+    <string name="screenrecord_dialog_cancel">Zrušit</string>
+    <string name="screenrecord_audio_title">Nahrát zvuk</string>
+    <string name="screenrecord_audio_summary">Pořídit zvukový záznam při nahrávání</string>
+    <string name="screenrecord_taps_title">Zobrazit dotyky na obrazovce</string>
+    <string name="screenrecord_taps_summary">Během nahrávání zobrazit vizuální zpětnou vazbu</string>
+    <string name="screenrecord_stopdot_title">Zobrazit puntík pro zastavení</string>
+    <string name="screenrecord_stopdot_summary">Zobrazit červený puntík pro zastavení nahrávání jediným klepnutím. Dlouhým stiskem ji přesunete na opačnou stranu.</string>
+    <string name="screenrecord_low_quality_title">Nízká kvalita</string>
+    <string name="screenrecord_low_quality_summary">Nahrávání v nižší kvalitě pro ušetření místa v zařízení</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Pořídit částečný snímek obrazovky</string>
+    <string name="global_screenshot_selector_cancel_description">Zrušit částečný snímek obrazovky</string>
+    <!-- Icon manager -->
+    <string name="systemui_tuner_icon_manager_title">Správce ikon</string>
+    <string name="misc_statusbar_items_category_title">Různé</string>
+    <string name="show_lte_fourgee_title">Ikona sítě 4G/LTE</string>
+    <string name="show_lte_fourgee_summary">Zobrazit ikonu 4G nebo LTE ve stavovém řádku/panelu QS</string>
+    <!-- DU logo -->
+    <string name="du_logo_title">Logo DU</string>
+    <string name="du_logo_summary">Dejte všem vědět, že používáte DU, když uvidí vaši obrazovku</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">Snímek obrazovky</string>
+    <string name="global_action_screenrecord">Videozáznam obrazovky</string>
+    <!-- Advanced Reboot menu -->
+    <string name="global_action_restart_advanced">Pokročilé</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <!-- QS customizer -->
+    <string name="reset_customizer">Resetovat pořadí</string>
+    <!-- Navbar -->
+    <string name="systemui_tuner_navbar_title">Rozložení</string>
+    <string name="navigation_bar_format_title">Formát navigačního panelu</string>
+    <string name="navigation_bar_inverse_title">Prohodit tlačítka</string>
+    <string name="navigation_bar_inverse_summary">Prohodit pořadí tlačítek „Nedávné“ a „Zpět“</string>
+    <string name="navigation_bar_accessibility_dpad_left">Kurzor doleva</string>
+    <string name="navigation_bar_accessibility_dpad_right">Kurzor doprava</string>
+    <!-- Theme tile -->
+    <string name="system_theme_style_title">Motiv</string>
+    <string name="system_theme_style_light">Světlý</string>
+    <string name="system_theme_style_dark">Tmavý - Google</string>
+    <string name="system_theme_style_pitchblack">Pitch black</string>
+    <string name="system_theme_style_solarizeddark">Tmavý - Solarized</string>
+    <string name="quick_settings_theme_tile_title">Odstín</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Vyberte odstín</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Vyberte motiv</string>
+    <string name="quick_settings_theme_tile_color_default">Výchozí</string>
+    <string name="quick_settings_theme_tile_color_space">Vesmír</string>
+    <string name="quick_settings_theme_tile_color_purple">Nachová</string>
+    <string name="quick_settings_theme_tile_color_orchid">Orchideová</string>
+    <string name="quick_settings_theme_tile_color_ocean">Oceánská</string>
+    <string name="quick_settings_theme_tile_color_green">Zelená</string>
+    <string name="quick_settings_theme_tile_color_cinnamon">Skořicová</string>
+    <string name="quick_settings_theme_tile_color_amber">Jantarová</string>
+    <string name="quick_settings_theme_tile_color_blue">Modrá</string>
+    <string name="quick_settings_theme_tile_color_bluegrey">Modro šedá</string>
+    <string name="quick_settings_theme_tile_color_brown">Hnědá</string>
+    <string name="quick_settings_theme_tile_color_cyan">Tyrkysová</string>
+    <string name="quick_settings_theme_tile_color_deeporange">Tmavě oranžová</string>
+    <string name="quick_settings_theme_tile_color_deeppurple">Tmavě fialová</string>
+    <string name="quick_settings_theme_tile_color_grey">Šedá</string>
+    <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
+    <string name="quick_settings_theme_tile_color_lightblue">Světle modrá</string>
+    <string name="quick_settings_theme_tile_color_lightgreen">Světle zelená</string>
+    <string name="quick_settings_theme_tile_color_lime">Limetková</string>
+    <string name="quick_settings_theme_tile_color_orange">Oranžová</string>
+    <string name="quick_settings_theme_tile_color_pink">Růžová</string>
+    <string name="quick_settings_theme_tile_color_red">Červená</string>
+    <string name="quick_settings_theme_tile_color_teal">Modrozelená</string>
+    <string name="quick_settings_theme_tile_color_yellow">Žlutá</string>
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <!-- ADB over Network tile -->
+    <string name="quick_settings_adb_network">ADB přes síť</string>
+    <string name="quick_settings_network_adb_enabled_label">ADB přes síť</string>
+    <string name="quick_settings_network_adb_disabled_label">ADB přes síť</string>
+    <string name="adb_network_forced_tcp_warn">Síť ADB vynucena na portu: <xliff:g id="port">%1$s</xliff:g></string>
+    <!-- Immersive tile -->
+    <string name="quick_settings_immersive_tile">Režim celé obrazovky</string>
+    <string name="quick_settings_immersive_tile_statusbar">Pohlcující stavový řádek</string>
+    <string name="quick_settings_immersive_tile_navbar">Pohlcující navigační panel</string>
+    <string name="quick_settings_immersive_tile_full">Pohlcující režim celé obrazovky</string>
+    <!-- Mono/Stereo tile -->
+    <string name="quick_settings_monotoggle_tile">Režim zvuku</string>
+    <string name="quick_settings_monotoggle_tile_mono">Mono</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Stereo</string>
+    <!-- Long swipe gesture actions -->
+    <string name="app_picker_dialog_title">Vybrat aplikaci</string>
+    <string name="recents_app_killed">Aplikace ukončena</string>
+    <string name="nope_cant_kill">Spouštěč nelze ukončit</string>
+</resources>

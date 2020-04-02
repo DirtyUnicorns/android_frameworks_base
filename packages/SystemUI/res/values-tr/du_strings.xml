@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Smartspace -->
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Şimdi</string>
+    <string name="smartspace_pill_text_format">%1$s: %2$s</string>
+    <!-- Screenshot toast -->
+    <string name="delete_screenshot_toast">Ekran görüntüsü silindi</string>
+    <!-- Screen pinning -->
+    <string name="screen_pinning_description_custom">Sabitlemeyi kaldırıncaya kadar görüntüyü korur. Sabitlemeyi kaldırmak için Geri tuşuna dokunun ve basılı tutun.</string>
+    <string name="screen_pinning_description_recents_invisible_custom">Sabitlemeyi kaldırıncaya kadar görüntüyü korur. Sabitlemeyi kaldırmak için Geri tuşuna dokunun ve basılı tutun.</string>
+    <string name="screen_pinning_description_accessible_custom">Sabitlemeyi kaldırıncaya kadar görüntüyü korur. Sabitlemeyi kaldırmak için Geri tuşuna dokunun ve basılı tutun.</string>
+    <string name="screen_pinning_description_recents_invisible_accessible_custom">Sabitlemeyi kaldırıncaya kadar görüntüyü korur. Sabitlemeyi kaldırmak için Geri tuşuna dokunun ve basılı tutun.</string>
+    <string name="screen_pinning_toast_custom">Bu ekranın sabitlemesini kaldırmak için Geri tuşuna dokunun ve basılı tutun</string>
+    <string name="screen_pinning_toast_recents_invisible_custom">Bu ekranın sabitlemesini kaldırmak için Geri tuşuna dokunun ve basılı tutun</string>
+    <!-- Dash charging -->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash şarj oluyor (tam dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> kaldı)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash şarj oluyor</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Kayda başlansın mı?</string>
+    <string name="screenrecord_dialog_summary">Kayıt sırasında Android sistemi, ekranınızda görünen veya cihazınızda oynatılan tüm hassas bilgileri yakalayabilir. Buna şifreler, ödeme bilgileri, fotoğraflar, mesajlar ve ses dahildir.</string>
+    <string name="screenrecord_dialog_start">Başlat</string>
+    <string name="screenrecord_dialog_cancel">Iptal</string>
+    <string name="screenrecord_audio_title">Sesi kaydet</string>
+    <string name="screenrecord_audio_summary">Kayıt sırasında sesi kaydet</string>
+    <string name="screenrecord_taps_title">Ekrana dokunmaları göster</string>
+    <string name="screenrecord_taps_summary">Kayıt sırasında görsel geri bildirim göster</string>
+    <string name="screenrecord_stopdot_title">Durdurma noktasını göster</string>
+    <string name="screenrecord_stopdot_summary">Tek bir dokunuşla kaydı durdurmak için kırmızı bir nokta gösterir. Ters tarafa taşımak için uzun basın.</string>
+    <string name="screenrecord_low_quality_title">Düşük kalite</string>
+    <string name="screenrecord_low_quality_summary">Cihazınızda yer kazanmak için daha düşük kalitede kayıt yapın</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Kısmi ekran görüntüsü yakalama</string>
+    <string name="global_screenshot_selector_cancel_description">Kısmi ekran görüntüsünü iptal et</string>
+    <!-- Icon manager -->
+    <string name="systemui_tuner_icon_manager_title">Simge yöneticisi</string>
+    <string name="misc_statusbar_items_category_title">Çeşitli</string>
+    <string name="show_lte_fourgee_title">4G/LTE ağ simgesi</string>
+    <string name="show_lte_fourgee_summary">Durum çubuğu ve hızlı ayarlarda LTE yerine 4G ağ simgesini göster</string>
+    <!-- DU logo -->
+    <string name="du_logo_title">DU tarzı</string>
+    <string name="du_logo_summary">Herkes ekranınızı gördüğünde DU kullandığınızı bilmesini sağlayın</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">Ekran görüntüsü</string>
+    <string name="global_action_screenrecord">Ekran kaydı</string>
+    <!-- Advanced Reboot menu -->
+    <string name="global_action_restart_advanced">Gelişmiş</string>
+    <string name="global_action_restart_recovery">Kurtarma</string>
+    <string name="global_action_restart_bootloader">Ön yükleyici</string>
+    <string name="global_action_restart_ui">Sistem arayüzü</string>
+    <!-- QS customizer -->
+    <string name="reset_customizer">Düzeni sıfırla</string>
+    <!-- Navbar -->
+    <string name="systemui_tuner_navbar_title">Düzen</string>
+    <string name="navigation_bar_format_title">Gezinme çubuğu biçimi</string>
+    <string name="navigation_bar_inverse_title">Tuşları değiştir</string>
+    <string name="navigation_bar_inverse_summary">Son kullanılanlar ve geri tuşunun yerini değiştirin</string>
+    <string name="navigation_bar_accessibility_dpad_left">Sol imleç</string>
+    <string name="navigation_bar_accessibility_dpad_right">Sağ imleç</string>
+    <!-- Theme tile -->
+    <string name="system_theme_style_title">Tema</string>
+    <string name="system_theme_style_light">Aydınlık</string>
+    <string name="system_theme_style_dark">Google karanlık</string>
+    <string name="system_theme_style_pitchblack">Zifiri karanlık</string>
+    <string name="system_theme_style_solarizeddark">Solarized dark</string>
+    <string name="quick_settings_theme_tile_title">Vurgu rengi</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Vurgu rengi seçin</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Tema seçin</string>
+    <string name="quick_settings_theme_tile_color_default">Varsayılan</string>
+    <string name="quick_settings_theme_tile_color_space">Boşluk</string>
+    <string name="quick_settings_theme_tile_color_purple">Mor</string>
+    <string name="quick_settings_theme_tile_color_orchid">Orkide</string>
+    <string name="quick_settings_theme_tile_color_ocean">Okyanus</string>
+    <string name="quick_settings_theme_tile_color_green">Yeşil</string>
+    <string name="quick_settings_theme_tile_color_cinnamon">Tarçın</string>
+    <string name="quick_settings_theme_tile_color_amber">Koyu sarı</string>
+    <string name="quick_settings_theme_tile_color_blue">Mavi</string>
+    <string name="quick_settings_theme_tile_color_bluegrey">Mavi Gri</string>
+    <string name="quick_settings_theme_tile_color_brown">Kahverengi</string>
+    <string name="quick_settings_theme_tile_color_cyan">Camgöbeği</string>
+    <string name="quick_settings_theme_tile_color_deeporange">Koyu Turuncu</string>
+    <string name="quick_settings_theme_tile_color_deeppurple">Koyu Mor</string>
+    <string name="quick_settings_theme_tile_color_grey">Gri</string>
+    <string name="quick_settings_theme_tile_color_indigo">İndigo</string>
+    <string name="quick_settings_theme_tile_color_lightblue">Açık Mavi</string>
+    <string name="quick_settings_theme_tile_color_lightgreen">Açık Yeşil</string>
+    <string name="quick_settings_theme_tile_color_lime">Limon yeşili</string>
+    <string name="quick_settings_theme_tile_color_orange">Turuncu</string>
+    <string name="quick_settings_theme_tile_color_pink">Pembe</string>
+    <string name="quick_settings_theme_tile_color_red">Kırmızı</string>
+    <string name="quick_settings_theme_tile_color_teal">Yeşilimsi mavi</string>
+    <string name="quick_settings_theme_tile_color_yellow">Sarı</string>
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <!-- ADB over Network tile -->
+    <string name="quick_settings_adb_network">Ağ üzerinden ADB</string>
+    <string name="quick_settings_network_adb_enabled_label">Ağ üzerinden ADB</string>
+    <string name="quick_settings_network_adb_disabled_label">Ağ üzerinden ADB</string>
+    <string name="adb_network_forced_tcp_warn">Bağlantı noktasında ADB ağı zorunlu olarak etkinleştirildi: <xliff:g id="port">%1$s</xliff:g></string>
+    <!-- Immersive tile -->
+    <string name="quick_settings_immersive_tile">Tam ekran modu</string>
+    <string name="quick_settings_immersive_tile_statusbar">Tam ekran durum çubuğu</string>
+    <string name="quick_settings_immersive_tile_navbar">Tam ekran gezinme çubuğu</string>
+    <string name="quick_settings_immersive_tile_full">Tam ekran</string>
+    <!-- Mono/Stereo tile -->
+    <string name="quick_settings_monotoggle_tile">Ses modu</string>
+    <string name="quick_settings_monotoggle_tile_mono">Mono ses</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Stereo ses</string>
+    <!-- Long swipe gesture actions -->
+    <string name="app_picker_dialog_title">Bir uygulama seçin</string>
+    <string name="recents_app_killed">Uygulama sonlandırıldı</string>
+    <string name="nope_cant_kill">Başlatıcı sonlandırılamaz</string>
+</resources>

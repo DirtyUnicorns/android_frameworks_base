@@ -15,22 +15,22 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App error dialog -->
-    <string name="aerr_copy">Copier l\'URL du journal de plantage</string>
-    <string name="url_copy_success">URL copiée</string>
-    <string name="url_copy_failed">Une erreur s\'est produite lors du téléversement du journal sur Dogbin</string>
+    <string name="aerr_copy">Copiar URL del registro de errores</string>
+    <string name="url_copy_success">URL copiada correctamente</string>
+    <string name="url_copy_failed">Se ha producido un error al cargar el registro en dogbin</string>
     <!-- Power menu -->
     <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Redémarrage Recovery</string>
+    <string name="reboot_to_recovery_message">Reiniciando a recovery</string>
     <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Redémarrage Bootloader</string>
-    <string name="reboot_title">Redémarrer</string>
-    <string name="reboot_message">Redémarrage Système</string>
+    <string name="reboot_to_bootloader_message">Reiniciando a bootloader</string>
+    <string name="reboot_title">Reiniciar</string>
+    <string name="reboot_message">Reiniciando sistema</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">ADB via le réseau activé</string>
+    <string name="adb_net_active_notification_title">ADB sobre red activado</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">ADB via USB et le réseau activé</string>
+    <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
     <!-- ADB notification message-->
-    <string name="adb_active_generic_notification_message">Appuyer pour désactiver le débogage</string>
+    <string name="adb_active_generic_notification_message">Tocar para desactivar depuración.</string>
     <!-- Bluetooth service -->
-    <string name="bluetooth_airplane_mode_toast">Le Bluetooth reste activé en mode avion</string>
+    <string name="bluetooth_airplane_mode_toast">Bluetooth seguirá activado en modo avión</string>
 </resources>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2019 The Dirty Unicorns Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Smartspace -->
+    <string name="smartspace_hours_mins">%1$s %2$s</string>
+    <string name="smartspace_now">Сейчас</string>
+    <string name="smartspace_pill_text_format">%1$s: %2$s</string>
+    <!-- Screenshot toast -->
+    <string name="delete_screenshot_toast">Скриншот удален</string>
+    <!-- Screen pinning -->
+    <string name="screen_pinning_description_custom">Приложение останется активным, пока вы не отмените блокировку, нажав &amp; и удерживая кнопку \"Назад\".</string>
+    <string name="screen_pinning_description_recents_invisible_custom">Приложение останется активным, пока вы не отмените блокировку, нажав &amp; и удерживая кнопку \"Назад\".</string>
+    <string name="screen_pinning_description_accessible_custom">Приложение останется активным, пока вы не отмените блокировку, нажав &amp; и удерживая кнопку \"Назад\".</string>
+    <string name="screen_pinning_description_recents_invisible_accessible_custom">Приложение останется активным, пока вы не отмените блокировку, нажав &amp; и удерживая кнопку \"Назад\".</string>
+    <string name="screen_pinning_toast_custom">Чтобы открепить экран, нажмите &amp; и удерживайте кнопку \"Назад\"</string>
+    <string name="screen_pinning_toast_recents_invisible_custom">Чтобы открепить экран, нажмите &amp; и удерживайте кнопку \"Назад\"</string>
+    <!-- Dash charging -->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Быстрая зарядка (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
+    <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
+    <!-- Screen record -->
+    <string name="screenrecord_dialog_title">Начать запись?</string>
+    <string name="screenrecord_dialog_summary">Во время записи Android может захватить любую важную информацию, которая видна на вашем экране или воспроизведена на вашем устройстве. Сюда входят пароли, платежные данные, фотографии, сообщения и аудио.</string>
+    <string name="screenrecord_dialog_start">Начать</string>
+    <string name="screenrecord_dialog_cancel">Отмена</string>
+    <string name="screenrecord_audio_title">Запись аудио</string>
+    <string name="screenrecord_audio_summary">Запись экрана со звуком</string>
+    <string name="screenrecord_taps_title">Показать касания на экране</string>
+    <string name="screenrecord_taps_summary">Показывать визуальную обратную связь при записи</string>
+    <string name="screenrecord_stopdot_title">Показать кнопку остановки</string>
+    <string name="screenrecord_stopdot_summary">Показывать красную кнопку для остановки записи одним касанием. Длительное нажатие для перемещения на другую сторону.</string>
+    <string name="screenrecord_low_quality_title">Низкое качество</string>
+    <string name="screenrecord_low_quality_summary">Запись в пониженном качестве для экономии места на Вашем устройстве</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Частичный скриншот</string>
+    <string name="global_screenshot_selector_cancel_description">Отменить частичный скриншот</string>
+    <!-- Icon manager -->
+    <string name="systemui_tuner_icon_manager_title">Менеджер иконок</string>
+    <string name="misc_statusbar_items_category_title">Разное</string>
+    <string name="show_lte_fourgee_title">4G/LTE иконка сети</string>
+    <string name="show_lte_fourgee_summary">Отображать значок 4G или LTE сети в строке состояния/панели быстрых настроек</string>
+    <!-- DU logo -->
+    <string name="du_logo_title">Лого DU</string>
+    <string name="du_logo_summary">Дайте всем знать, что вы используете DU</string>
+    <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
+    <string name="global_action_screenshot_cust">Скриншот</string>
+    <string name="global_action_screenrecord">Запись экрана</string>
+    <!-- Advanced Reboot menu -->
+    <string name="global_action_restart_advanced">Дополнительно</string>
+    <string name="global_action_restart_recovery">Режим восстановления</string>
+    <string name="global_action_restart_bootloader">Загрузчик</string>
+    <string name="global_action_restart_ui">Системный интерфейс</string>
+    <!-- QS customizer -->
+    <string name="reset_customizer">Сбросить порядок</string>
+    <!-- Navbar -->
+    <string name="systemui_tuner_navbar_title">Расположение</string>
+    <string name="navigation_bar_format_title">Формат navbar</string>
+    <string name="navigation_bar_inverse_title">Поменять кнопки местами</string>
+    <string name="navigation_bar_inverse_summary">Поменять местами кнопку назад и недавние</string>
+    <string name="navigation_bar_accessibility_dpad_left">Курсор влево</string>
+    <string name="navigation_bar_accessibility_dpad_right">Курсор вправо</string>
+    <!-- Theme tile -->
+    <string name="system_theme_style_title">Тема</string>
+    <string name="system_theme_style_light">Светлая</string>
+    <string name="system_theme_style_dark">Тёмный Google</string>
+    <string name="system_theme_style_pitchblack">Тёмно-чёрный</string>
+    <string name="system_theme_style_solarizeddark">Соляризованный темный</string>
+    <string name="quick_settings_theme_tile_title">Акцент</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Выбрать акцент</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Выбрать тему</string>
+    <string name="quick_settings_theme_tile_color_default">По умолчанию</string>
+    <string name="quick_settings_theme_tile_color_space">Космос</string>
+    <string name="quick_settings_theme_tile_color_purple">Фиолетовый</string>
+    <string name="quick_settings_theme_tile_color_orchid">Орхидея</string>
+    <string name="quick_settings_theme_tile_color_ocean">Океан</string>
+    <string name="quick_settings_theme_tile_color_green">Зеленый</string>
+    <string name="quick_settings_theme_tile_color_cinnamon">Корица</string>
+    <string name="quick_settings_theme_tile_color_amber">Янтарный</string>
+    <string name="quick_settings_theme_tile_color_blue">Синий</string>
+    <string name="quick_settings_theme_tile_color_bluegrey">Серо-голубой</string>
+    <string name="quick_settings_theme_tile_color_brown">Коричневый</string>
+    <string name="quick_settings_theme_tile_color_cyan">Бирюзовый</string>
+    <string name="quick_settings_theme_tile_color_deeporange">Темно-оранжевый</string>
+    <string name="quick_settings_theme_tile_color_deeppurple">Темно-фиолетовый</string>
+    <string name="quick_settings_theme_tile_color_grey">Серый</string>
+    <string name="quick_settings_theme_tile_color_indigo">Индиго</string>
+    <string name="quick_settings_theme_tile_color_lightblue">Голубой</string>
+    <string name="quick_settings_theme_tile_color_lightgreen">Салатовый</string>
+    <string name="quick_settings_theme_tile_color_lime">Лаймовый</string>
+    <string name="quick_settings_theme_tile_color_orange">Оранжевый</string>
+    <string name="quick_settings_theme_tile_color_pink">Розовый</string>
+    <string name="quick_settings_theme_tile_color_red">Красный</string>
+    <string name="quick_settings_theme_tile_color_teal">Морской волны</string>
+    <string name="quick_settings_theme_tile_color_yellow">Жёлтый</string>
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <!-- ADB over Network tile -->
+    <string name="quick_settings_adb_network">Режим отладки по сети</string>
+    <string name="quick_settings_network_adb_enabled_label">Режим отладки по сети</string>
+    <string name="quick_settings_network_adb_disabled_label">Режим отладки по сети</string>
+    <string name="adb_network_forced_tcp_warn">Сеть ADB принудительно через порт: <xliff:g id="port">%1$s</xliff:g></string>
+    <!-- Immersive tile -->
+    <string name="quick_settings_immersive_tile">Режим погружения</string>
+    <string name="quick_settings_immersive_tile_statusbar">Строка состояния</string>
+    <string name="quick_settings_immersive_tile_navbar">Панель навигации</string>
+    <string name="quick_settings_immersive_tile_full">Полностью</string>
+    <!-- Mono/Stereo tile -->
+    <string name="quick_settings_monotoggle_tile">Аудио режим</string>
+    <string name="quick_settings_monotoggle_tile_mono">Монофонический звук</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Стереозвук</string>
+    <!-- Long swipe gesture actions -->
+    <string name="app_picker_dialog_title">Выберите приложение</string>
+    <string name="recents_app_killed">Приложение закрыто</string>
+    <string name="nope_cant_kill">Лаунчер не может быть завершён</string>
+</resources>

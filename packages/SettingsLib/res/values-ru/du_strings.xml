@@ -15,13 +15,13 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Dash charging -->
-    <string name="power_remaining_dash_charging_duration_only">Rechargement Dash… (Complètement chargé dans (<xliff:g id="time">%1$s</xliff:g>)</string>
-    <string name="battery_info_status_dash_charging">Rechargement Dash</string>
-    <string name="battery_info_status_dash_charging_lower">rechargement dash</string>
+    <string name="power_remaining_dash_charging_duration_only">Быстрая зарядка (<xliff:g id="time">%1$s</xliff:g> осталось до конца)</string>
+    <string name="battery_info_status_dash_charging">Быстрая зарядка</string>
+    <string name="battery_info_status_dash_charging_lower">быстрая зарядка</string>
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smaller">Plus petit</string>
+    <string name="screen_zoom_summary_smaller">Меньше</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">Le plus petit</string>
+    <string name="screen_zoom_summary_smallest">Наименьший</string>
     <!-- Deep sleep info -->
-    <string name="status_deep_sleep">(Veille profonde : %1$d%2$s)</string>
+    <string name="status_deep_sleep">(Глубокий сон: %1$d%2$s)</string>
 </resources>

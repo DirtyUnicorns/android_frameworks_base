@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2019-2020 The Dirty Unicorns Project
+<!-- Copyright (C) 2019 The Dirty Unicorns Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,15 +14,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
     <!-- Smartspace -->
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="smartspace_now">Maintenant</string>
     <string name="smartspace_pill_text_format">%1$s : %2$s</string>
-
     <!-- Screenshot toast -->
-    <string name="delete_screenshot_toast">Capture d\'écran supprimée</string>
-
+    <string name="delete_screenshot_toast">Screenshot deleted</string>
     <!-- Screen pinning -->
     <string name="screen_pinning_description_custom">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
     <string name="screen_pinning_description_recents_invisible_custom">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
@@ -30,53 +27,43 @@
     <string name="screen_pinning_description_recents_invisible_accessible_custom">Cet écran est épinglé jusqu\'à l\'annulation de l\'opération. Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
     <string name="screen_pinning_toast_custom">Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
     <string name="screen_pinning_toast_recents_invisible_custom">Pour annuler l\'épinglage, effectuer un appui prolongé sur le bouton \"Retour\".</string>
-
     <!-- Dash charging -->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Rechargement Dash en cours… (Complètement chargé dans (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
     <string name="keyguard_plugged_in_dash_charging">Rechargement Dash</string>
-
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Démarrer l\'enregistrement de l\'écran ?</string>
-    <string name="screenrecord_dialog_summary">Toutes les informations affichées sur l\'écran et écoutées depuis l\'appareil sont enregistrées. Cela inclut des informations telles que les photos, les messages et toute source audio en cours d\'écoute.</string>
-    <string name="screenrecord_dialog_settings">Réglages</string>
-    <string name="screenrecord_dialog_start">Démarrer l\'enregistrement</string>
-    <string name="screenrecord_dialog_cancel">Annuler</string>
-    <string name="screenrecord_audio_title">Enregistrement audio</string>
-    <string name="screenrecord_audio_summary">Enregistrer également toute source audio en cours d\'écoute</string>
-    <string name="screenrecord_taps_title">Indicateur visuel</string>
-    <string name="screenrecord_taps_summary">Afficher un indicateur visuel là où l\'utilisateur appuie sur l\'écran</string>
-    <string name="screenrecord_stopdot_title">Bouton d\'arrêt</string>
-    <string name="screenrecord_stopdot_summary">Affichez un point rouge pour arrêter l\'enregistrement par simple appuie. Pour déplacer le point rouge vers le côté opposé, effectuer un appuie prolongé.</string>
-    <string name="screenrecord_low_quality_title">Faible qualité</string>
-    <string name="screenrecord_low_quality_summary">Enregistrer en qualité inférieure pour économiser l\'espace de stockage</string>
-
+    <string name="screenrecord_dialog_title">Start recording?</string>
+    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
+    <string name="screenrecord_dialog_start">Start</string>
+    <string name="screenrecord_dialog_cancel">Cancel</string>
+    <string name="screenrecord_audio_title">Record audio</string>
+    <string name="screenrecord_audio_summary">Record audio while recording</string>
+    <string name="screenrecord_taps_title">Show touches on screen</string>
+    <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
+    <string name="screenrecord_stopdot_title">Show stop dot</string>
+    <string name="screenrecord_stopdot_summary">Show a red dot to stop recording with a single tap. Longpress it to move it to the opposite side.</string>
+    <string name="screenrecord_low_quality_title">Low quality</string>
+    <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description">Capture partielle d\'écran</string>
     <string name="global_screenshot_selector_cancel_description">Annuler la capture partielle d\'écran</string>
-
     <!-- Icon manager -->
     <string name="systemui_tuner_icon_manager_title">Réglages des icônes</string>
     <string name="misc_statusbar_items_category_title">Divers</string>
-    <string name="show_lte_fourgee_title">Icône \"4G\"</string>
-    <string name="show_lte_fourgee_summary">Afficher l\'icône \"4G\" plutôt que \"LTE\" sur la barre d\'état et dans le panneau de configuration rapide</string>
-
+    <string name="show_lte_fourgee_title">4G/LTE network icon</string>
+    <string name="show_lte_fourgee_summary">Display either the 4G or LTE network icon in the statusbar/QS panel</string>
     <!-- DU logo -->
     <string name="du_logo_title">Logo DU</string>
     <string name="du_logo_summary">Afficher le logo de DU sur la gauche de la barre d\'état</string>
-
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
     <string name="global_action_screenshot_cust">Capture d\'écran</string>
     <string name="global_action_screenrecord">Enregistrement de l\'écran</string>
-
     <!-- Advanced Reboot menu -->
     <string name="global_action_restart_advanced">Optimisé</string>
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interface</string>
-
     <!-- QS customizer -->
     <string name="reset_customizer">Réinitialiser</string>
-
     <!-- Navbar -->
     <string name="systemui_tuner_navbar_title">Disposition</string>
     <string name="navigation_bar_format_title">Format de la barre de navigation</string>
@@ -84,7 +71,6 @@
     <string name="navigation_bar_inverse_summary">Inverser l\'ordre des boutons Applications récentes et Retour</string>
     <string name="navigation_bar_accessibility_dpad_left">Flèche gauche</string>
     <string name="navigation_bar_accessibility_dpad_right">Flèche droite</string>
-
     <!-- Theme tile -->
     <string name="system_theme_style_title">Thème</string>
     <string name="system_theme_style_light">Clair</string>
@@ -118,30 +104,24 @@
     <string name="quick_settings_theme_tile_color_red">Rouge</string>
     <string name="quick_settings_theme_tile_color_teal">Turquoise</string>
     <string name="quick_settings_theme_tile_color_yellow">Jaune</string>
-
     <!-- Caffeine tile -->
     <string name="quick_settings_caffeine_label">Caféine</string>
-
     <!-- ADB over Network tile -->
     <string name="quick_settings_adb_network">ADB via le réseau</string>
     <string name="quick_settings_network_adb_enabled_label">ADB via le réseau</string>
     <string name="quick_settings_network_adb_disabled_label">ADB via le réseau</string>
     <string name="adb_network_forced_tcp_warn">Activation forcée d\'ADB via le réseau sur le port : <xliff:g id="port">%1$s</xliff:g></string>
-
     <!-- Immersive tile -->
     <string name="quick_settings_immersive_tile">Mode immersif</string>
     <string name="quick_settings_immersive_tile_statusbar">Barre d\'état masquée</string>
     <string name="quick_settings_immersive_tile_navbar">Barre de navigation masquée</string>
     <string name="quick_settings_immersive_tile_full">Complet</string>
-
     <!-- Mono/Stereo tile -->
     <string name="quick_settings_monotoggle_tile">Réglage audio</string>
     <string name="quick_settings_monotoggle_tile_mono">Mono</string>
     <string name="quick_settings_monotoggle_tile_stereo">Stéréo</string>
-
     <!-- Long swipe gesture actions -->
-    <string name="app_picker_dialog_title">Choisir une application</string>
-    <string name="recents_app_killed">Fermeture forcée de l\'application</string>
-    <string name="nope_cant_kill">Fermeture forcée de l\'écran d\'accueil impossible</string>
-
+    <string name="app_picker_dialog_title">Select an app</string>
+    <string name="recents_app_killed">App killed</string>
+    <string name="nope_cant_kill">Launcher cannot be killed</string>
 </resources>
