@@ -209,7 +209,11 @@ public class EdgeBackGestureHandler implements DisplayListener {
         mLongPressTimeout = Math.min(MAX_LONG_PRESS_TIMEOUT,
                 ViewConfiguration.getLongPressTimeout());
 
-        mNavBarHeight = res.getDimensionPixelSize(R.dimen.navigation_bar_frame_height);
+        // always consider the normal navbar height even if nav is hidden,
+        // so when swiping at the very bottom of the screen to scroll recents apps
+        // the back swipe action is not triggered too at the same time (see isWithinTouchRegion).
+        mNavBarHeight = /*Utils.shouldShowGestureNav(context) ?
+                */res.getDimensionPixelSize(R.dimen.navigation_bar_frame_height)/* : 0*/;
         mMinArrowPosition = res.getDimensionPixelSize(R.dimen.navigation_edge_arrow_min_y);
         mFingerOffset = res.getDimensionPixelSize(R.dimen.navigation_edge_finger_offset);
         updateCurrentUserResources(res);

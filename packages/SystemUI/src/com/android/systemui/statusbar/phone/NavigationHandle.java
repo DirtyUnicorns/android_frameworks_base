@@ -24,7 +24,6 @@ import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.drawable.Drawable;
-import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -40,6 +39,7 @@ public class NavigationHandle extends View implements ButtonInterface {
     private @ColorInt final int mDarkColor;
     private final int mRadius;
     private final int mBottom;
+    private int mUserWidthSelection;
     private int mCustomWidth;
     private int mWidth;
 
@@ -111,14 +111,17 @@ public class NavigationHandle extends View implements ButtonInterface {
     public void setDelayTouchFeedback(boolean shouldDelay) {
     }
 
+    public void setHomehandleWidth(int value) {
+        mUserWidthSelection = value;
+    }
+
     private double getCustomWidth() {
-        int userSelection = Settings.System.getInt(mResolver, "navigation_handle_width", 1);
         double finalWidth = 0.0;
-        if (userSelection == 1) {
+        if (mUserWidthSelection == 2) {
             finalWidth = mWidth;
-        } else if (userSelection == 2) {
+        } else if (mUserWidthSelection == 3) {
             finalWidth = 1.33 * mWidth;
-        } else if (userSelection == 3) {
+        } else if (mUserWidthSelection == 4) {
             finalWidth = 2 * mWidth;
         }
         return finalWidth;

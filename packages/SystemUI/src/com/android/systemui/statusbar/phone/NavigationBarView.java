@@ -64,6 +64,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.FrameLayout;
 
 import com.android.internal.annotations.VisibleForTesting;
+import com.android.internal.util.du.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.DockedStackExistsListener;
 import com.android.systemui.Interpolators;
@@ -82,6 +83,7 @@ import com.android.systemui.statusbar.policy.KeyButtonView;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.function.Consumer;
 
 public class NavigationBarView extends FrameLayout implements
@@ -138,6 +140,7 @@ public class NavigationBarView extends FrameLayout implements
     private boolean mInCarMode = false;
     private boolean mDockedStackExists;
     private boolean mImeVisible;
+    private boolean mShowGestureNavbar;
 
     private final SparseArray<ButtonDispatcher> mButtonDispatchers = new SparseArray<>();
     private final ContextualButtonGroup mContextualButtonGroup;
@@ -270,6 +273,7 @@ public class NavigationBarView extends FrameLayout implements
         mLongClickableAccessibilityButton = false;
         mNavBarMode = Dependency.get(NavigationModeController.class).addListener(this);
         boolean isGesturalMode = isGesturalMode(mNavBarMode);
+        mShowGestureNavbar = Utils.shouldSetNavbarHeight(context);
 
         // Set up the context group of buttons
         mContextualButtonGroup = new ContextualButtonGroup(R.id.menu_container);
@@ -620,6 +624,9 @@ public class NavigationBarView extends FrameLayout implements
         getBackButton().setImageDrawable(backIcon);
 
         updateRecentsIcon();
+        if (mShowGestureNavbar) {
+            updateGestureNavigationHandleWidth();
+        }
 
         // Update arrow buttons
         if (showDpadArrowKeys()) {
@@ -679,7 +686,8 @@ public class NavigationBarView extends FrameLayout implements
         getBackButton().setVisibility(disableBack      ? View.INVISIBLE : View.VISIBLE);
         getHomeButton().setVisibility(disableHome      ? View.INVISIBLE : View.VISIBLE);
         getRecentsButton().setVisibility(disableRecent ? View.INVISIBLE : View.VISIBLE);
-        getHomeHandle().setVisibility(disableHomeHandle ? View.INVISIBLE : View.VISIBLE);
+        getHomeHandle().setVisibility(disableHomeHandle ? View.INVISIBLE
+                : (mShowGestureNavbar ? View.VISIBLE : View.INVISIBLE));
     }
 
     @VisibleForTesting
@@ -959,6 +967,16 @@ public class NavigationBarView extends FrameLayout implements
         mBarTransitions.reapplyDarkIntensity();
     }
 
+    private void updateGestureNavigationHandleWidth() {
+        ArrayList<View> views = getHomeHandle().getViews();
+        final int N = views.size();
+        for (int i = 0; i < N; i++) {
+            if (views.get(i) instanceof NavigationHandle) {
+                ((NavigationHandle) views.get(i)).setHomehandleWidth(getHomehandleWidth());
+            }
+        }
+    }
+
     public void showPinningEnterExitToast(boolean entering) {
         if (entering) {
             mScreenPinningNotify.showPinningStartToast();
@@ -1025,12 +1043,17 @@ public class NavigationBarView extends FrameLayout implements
                             com.android.internal.R.dimen.navigation_bar_height_landscape)
                     : getResources().getDimensionPixelSize(
                             com.android.internal.R.dimen.navigation_bar_height);
-            int frameHeight = getResources().getDimensionPixelSize(
-                    com.android.internal.R.dimen.navigation_bar_frame_height);
-            mBarTransitions.setBackgroundFrame(new Rect(0, frameHeight - height, w, h));
+            int finalHeight = mShowGestureNavbar ? height : 0;
+            int frameHeight = /*mShowGestureNavbar ? */getResources().getDimensionPixelSize(
+                    com.android.internal.R.dimen.navigation_bar_frame_height)/* : 0*/;
+            mBarTransitions.setBackgroundFrame(new Rect(0, frameHeight - finalHeight, w, h));
         }
 
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    public boolean showGestureNavbar() {
+        return mShowGestureNavbar;
     }
 
     private void notifyVerticalChangedListener(boolean newVertical) {
@@ -1234,5 +1257,10 @@ public class NavigationBarView extends FrameLayout implements
     private boolean showDpadArrowKeys() {
         return Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.NAVIGATION_BAR_ARROW_KEYS, 0, UserHandle.USER_CURRENT) != 0;
+    }
+
+    private int getHomehandleWidth() {
+        return Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.NAVIGATION_HANDLE_WIDTH, 2, UserHandle.USER_CURRENT);
     }
 }
