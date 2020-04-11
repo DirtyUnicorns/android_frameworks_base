@@ -15,6 +15,7 @@
 package com.android.systemui.qs;
 
 import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
+import static android.provider.Settings.System.QS_SHOW_BATTERY_PERCENT;
 
 import static com.android.systemui.util.InjectionInflationController.VIEW_CONTEXT;
 
@@ -32,6 +33,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.media.AudioManager;
 import android.os.Handler;
+import android.os.UserHandle;
 import android.provider.AlarmClock;
 import android.provider.Settings;
 import android.service.notification.ZenModeConfig;
@@ -201,9 +203,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
         // Don't need to worry about tuner settings for this icon
         mBatteryRemainingIcon.setIgnoreTunerUpdates(true);
-        // QS will always show the estimate, and BatteryMeterView handles the case where
-        // it's unavailable or charging
-        mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ESTIMATE);
+        mBatteryRemainingIcon.setPercentShowMode(getBatteryPercentMode());
+
         mRingerModeTextView.setSelected(true);
         mNextAlarmTextView.setSelected(true);
     }
@@ -337,6 +338,20 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderTextContainerAlphaAnimator = new TouchAnimator.Builder()
                 .addFloat(mHeaderTextContainerView, "alpha", 0, 0, 1)
                 .build();
+    }
+
+    private int getBatteryPercentMode() {
+        boolean showBatteryPercent = Settings.System
+                .getIntForUser(getContext().getContentResolver(),
+                QS_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT) == 1;
+        int batteryMode = showBatteryPercent ?
+               BatteryMeterView.MODE_ON : BatteryMeterView.MODE_ESTIMATE;
+
+        return batteryMode;
+    }
+
+    public void setBatteryPercentMode() {
+        mBatteryRemainingIcon.setPercentShowMode(getBatteryPercentMode(), true);
     }
 
     public void setExpanded(boolean expanded) {
