@@ -18,9 +18,12 @@
     <!-- ADB notification -->
     <java-symbol type="drawable" name="stat_sys_data_usb_custom" />
 
-    <!-- Light / Regular style fonts -->
+    <!-- Fonts -->
     <java-symbol type="string" name="config_lightFontFamily" />
     <java-symbol type="string" name="config_regularFontFamily" />
+    <java-symbol type="string" name="config_headlineFontFamilyMedium" />
+    <java-symbol type="string" name="config_bodyFontFamily" />
+    <java-symbol type="string" name="config_bodyFontFamilyMedium" />
 
     <!-- Themes -->
     <java-symbol type="color" name="du_themes_qs_inactive_color" />
