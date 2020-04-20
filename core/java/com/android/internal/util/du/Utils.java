@@ -297,4 +297,12 @@ public class Utils {
         float px = 24 * (metrics.densityDpi / 160f);
         return result > Math.round(px);
     }
+
+    // Check if gesture navbar is enabled
+    public static boolean isGestureNavbar() {
+        return Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_narrow_back")
+                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural")
+                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_wide_back")
+                || Utils.isThemeEnabled("com.android.internal.systemui.navbar.gestural_extra_wide_back");
+    }
 }
