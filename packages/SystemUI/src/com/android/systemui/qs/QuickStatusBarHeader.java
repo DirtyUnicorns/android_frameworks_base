@@ -201,6 +201,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         // Tint for the battery icons are handled in setupHost()
         mBatteryRemainingIcon = findViewById(R.id.batteryRemainingIcon);
+        mBatteryRemainingIcon.setIsQsHeader(true);
         mBatteryRemainingIcon.setPercentShowMode(getBatteryPercentMode());
 
         mRingerModeTextView.setSelected(true);
@@ -342,10 +343,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         boolean showBatteryPercent = Settings.System
                 .getIntForUser(getContext().getContentResolver(),
                 QS_SHOW_BATTERY_PERCENT, 0, UserHandle.USER_CURRENT) == 1;
-        int batteryMode = showBatteryPercent ?
+        return showBatteryPercent ?
                BatteryMeterView.MODE_ON : BatteryMeterView.MODE_ESTIMATE;
-
-        return batteryMode;
     }
 
     public void setBatteryPercentMode() {
