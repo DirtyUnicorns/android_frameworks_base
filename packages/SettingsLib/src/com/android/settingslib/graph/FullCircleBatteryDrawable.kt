@@ -29,8 +29,7 @@ import com.android.settingslib.R
 import com.android.settingslib.Utils
 import kotlin.math.min
 
-class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) : Drawable() {
-    private val criticalLevel: Int
+open class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) : Drawable() {
     private val warningString: String
     private val framePaint: Paint
     private val batteryPaint: Paint
@@ -52,9 +51,14 @@ class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) :
     // Dual tone implies that battery level is a clipped overlay over top of the whole shape
     private var dualTone = false
 
+    private var batteryLevel = -1
+
     override fun getIntrinsicHeight() = intrinsicHeight
 
     override fun getIntrinsicWidth() = intrinsicWidth
+
+    open var criticalLevel: Int = context.resources.getInteger(
+            com.android.internal.R.integer.config_criticalBatteryWarningLevel)
 
     var charging = false
         set(value) {
@@ -77,12 +81,6 @@ class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) :
         }
 
     var showPercent = false
-        set(value) {
-            field = value
-            postInvalidate()
-        }
-
-    var batteryLevel = -1
         set(value) {
             field = value
             postInvalidate()
@@ -151,6 +149,19 @@ class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) :
         }
         padding.set(this.padding)
         return true
+    }
+
+    /**
+     * Set the fill level
+     */
+    public open fun setBatteryLevel(l: Int) {
+        batteryLevel = l
+        chargeColor = batteryColorForLevel(batteryLevel)
+        invalidateSelf()
+    }
+
+    public fun getBatteryLevel(): Int {
+        return batteryLevel
     }
 
     private fun getColorForLevel(percent: Int): Int {
@@ -287,9 +298,6 @@ class FullCircleBatteryDrawable(private val context: Context, frameColor: Int) :
         color_levels.recycle()
         color_values.recycle()
         warningString = res.getString(R.string.battery_meter_very_low_overlay_symbol)
-        criticalLevel = res.getInteger(
-            com.android.internal.R.integer.config_criticalBatteryWarningLevel
-        )
         framePaint = Paint(Paint.ANTI_ALIAS_FLAG)
         framePaint.color = frameColor
         framePaint.isDither = true

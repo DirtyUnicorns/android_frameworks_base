@@ -26,8 +26,7 @@ import com.android.settingslib.Utils
 import kotlin.math.max
 import kotlin.math.min
 
-class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Drawable() {
-    private val criticalLevel: Int
+open class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Drawable() {
     private val warningString: String
     private val framePaint: Paint
     private val batteryPaint: Paint
@@ -57,9 +56,14 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
     // Dual tone implies that battery level is a clipped overlay over top of the whole shape
     private var dualTone = false
 
+    private var batteryLevel = -1
+
     override fun getIntrinsicHeight() = intrinsicHeight
 
     override fun getIntrinsicWidth() = intrinsicWidth
+
+    open var criticalLevel: Int = context.resources.getInteger(
+            com.android.internal.R.integer.config_criticalBatteryWarningLevel)
 
     var charging = false
         set(value) {
@@ -74,12 +78,6 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
         }
 
     var showPercent = false
-        set(value) {
-            field = value
-            postInvalidate()
-        }
-
-    var batteryLevel = -1
         set(value) {
             field = value
             postInvalidate()
@@ -121,6 +119,19 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
         }
         padding.set(this.padding)
         return true
+    }
+
+    /**
+     * Set the fill level
+     */
+    public open fun setBatteryLevel(l: Int) {
+        batteryLevel = l
+        chargeColor = batteryColorForLevel(batteryLevel)
+        invalidateSelf()
+    }
+
+    public fun getBatteryLevel(): Int {
+        return batteryLevel
     }
 
     private fun getColorForLevel(percent: Int): Int {
@@ -183,6 +194,7 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
         // set the battery charging color
         batteryPaint.color = batteryColorForLevel(batteryLevel)
         if (charging) { // define the bolt shape
+            boltPaint.color = chargeColor
             val bl = frame.left + frame.width() / 3.0f
             val bt = frame.top + frame.height() / 3.4f
             val br = frame.right - frame.width() / 4.0f
@@ -298,9 +310,6 @@ class CircleBatteryDrawable(private val context: Context, frameColor: Int) : Dra
         color_levels.recycle()
         color_values.recycle()
         warningString = res.getString(R.string.battery_meter_very_low_overlay_symbol)
-        criticalLevel = res.getInteger(
-            com.android.internal.R.integer.config_criticalBatteryWarningLevel
-        )
         framePaint = Paint(Paint.ANTI_ALIAS_FLAG)
         framePaint.color = frameColor
         framePaint.isDither = true
