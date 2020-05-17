@@ -120,6 +120,8 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
     private static final int MSG_PARTIAL_SCREENSHOT_ACTIVE     = 91 << MSG_SHIFT;
     private static final int MSG_TOGGLE_SETTINGS_PANEL         = 100 << MSG_SHIFT;
     private static final int MSG_KILL_FOREGROUND_APP         = 101 << MSG_SHIFT;
+    private static final int MSG_SCREEN_PINNING_STATE_CHANGED  = 102 << MSG_SHIFT;
+    private static final int MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED  = 103 << MSG_SHIFT;
 
     public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
@@ -303,6 +305,10 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
         default void setPartialScreenshot(boolean active) { }
 
         default void killForegroundApp() { }
+
+        default void screenPinningStateChanged(boolean enabled) {}
+
+        default void leftInLandscapeChanged(boolean isLeft) {}
     }
 
     @VisibleForTesting
@@ -868,6 +874,24 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
         }
     }
 
+    @Override
+    public void leftInLandscapeChanged(boolean isLeft) {
+        synchronized (mLock) {
+            mHandler.removeMessages(MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED);
+            mHandler.obtainMessage(MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED,
+                    isLeft ? 1 : 0, 0, null).sendToTarget();
+        }
+    }
+
+    @Override
+    public void screenPinningStateChanged(boolean enabled) {
+        synchronized (mLock) {
+            mHandler.removeMessages(MSG_SCREEN_PINNING_STATE_CHANGED);
+            mHandler.obtainMessage(MSG_SCREEN_PINNING_STATE_CHANGED,
+                    enabled ? 1 : 0, 0, null).sendToTarget();
+        }
+    }
+
     private final class H extends Handler {
         private H(Looper l) {
             super(l);
@@ -1151,6 +1175,16 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
                 case MSG_KILL_FOREGROUND_APP:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).killForegroundApp();
+                    }
+                    break;
+                case MSG_SCREEN_PINNING_STATE_CHANGED:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).screenPinningStateChanged(msg.arg1 != 0);
+                    }
+                    break;
+                case MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).leftInLandscapeChanged(msg.arg1 != 0);
                     }
                     break;
             }
