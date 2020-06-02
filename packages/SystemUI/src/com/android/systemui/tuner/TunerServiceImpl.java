@@ -15,7 +15,7 @@
  */
 package com.android.systemui.tuner;
 
-import static com.android.systemui.Dependency.BG_HANDLER_NAME;
+import static com.android.systemui.Dependency.MAIN_HANDLER_NAME;
 
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
@@ -85,7 +85,7 @@ public class TunerServiceImpl extends TunerService {
     /**
      */
     @Inject
-    public TunerServiceImpl(Context context, @Named(BG_HANDLER_NAME) Handler bgHandler,
+    public TunerServiceImpl(Context context, @Named(MAIN_HANDLER_NAME) Handler mainHandler,
             LeakDetector leakDetector) {
         mContext = context;
         mContentResolver = mContext.getContentResolver();
@@ -94,7 +94,7 @@ public class TunerServiceImpl extends TunerService {
         for (UserInfo user : UserManager.get(mContext).getUsers()) {
             mCurrentUser = user.getUserHandle().getIdentifier();
             if (getValue(TUNER_VERSION, 0) != CURRENT_TUNER_VERSION) {
-                upgradeTuner(getValue(TUNER_VERSION, 0), CURRENT_TUNER_VERSION, bgHandler);
+                upgradeTuner(getValue(TUNER_VERSION, 0), CURRENT_TUNER_VERSION, mainHandler);
             }
         }
 
@@ -116,7 +116,7 @@ public class TunerServiceImpl extends TunerService {
         mUserTracker.stopTracking();
     }
 
-    private void upgradeTuner(int oldVersion, int newVersion, Handler bgHandler) {
+    private void upgradeTuner(int oldVersion, int newVersion, Handler mainHandler) {
         if (oldVersion < 1) {
             String blacklistStr = getValue(StatusBarIconController.ICON_BLACKLIST);
             if (blacklistStr != null) {
