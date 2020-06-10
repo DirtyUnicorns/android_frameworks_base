@@ -22,14 +22,19 @@ import static com.android.systemui.statusbar.NotificationRemoteInputManager.ENAB
 
 import android.app.ActivityManager;
 import android.app.IActivityManager;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
+import android.database.ContentObserver;
 import android.graphics.PixelFormat;
 import android.os.Binder;
+import android.os.Handler;
 import android.os.RemoteException;
 import android.os.SystemProperties;
 import android.os.Trace;
+import android.os.UserHandle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
@@ -87,6 +92,7 @@ public class StatusBarWindowController implements Callback, Dumpable, Configurat
     private boolean mHasTopUiChanged;
     private int mBarHeight;
     private float mScreenBrightnessDoze;
+    private long mCurrentTimeout;
     private final State mCurrentState = new State();
     private OtherwisedCollapsedListener mListener;
     private ForcePluginOpenListener mForcePluginOpenListener;
@@ -191,6 +197,8 @@ public class StatusBarWindowController implements Callback, Dumpable, Configurat
         mBarHeight = barHeight;
         mWindowManager.addView(mStatusBarView, mLp);
         mLpChanged.copyFrom(mLp);
+        SettingsObserver observer = new SettingsObserver(new Handler());
+        observer.observe(mContext);
         onThemeChanged();
     }
 
@@ -320,11 +328,13 @@ public class StatusBarWindowController implements Callback, Dumpable, Configurat
     }
 
     private void applyUserActivityTimeout(State state) {
+        updateSettings();
+
         if (state.isKeyguardShowingAndNotOccluded()
                 && state.statusBarState == StatusBarState.KEYGUARD
                 && !state.qsExpanded) {
             mLpChanged.userActivityTimeout = state.bouncerShowing
-                    ? KeyguardViewMediator.AWAKE_INTERVAL_BOUNCER_MS : mLockScreenDisplayTimeout;
+                    ? KeyguardViewMediator.AWAKE_INTERVAL_BOUNCER_MS : mCurrentTimeout;
         } else {
             mLpChanged.userActivityTimeout = -1;
         }
@@ -744,5 +754,34 @@ public class StatusBarWindowController implements Callback, Dumpable, Configurat
          * Called when mState.forcePluginOpen is changed
          */
         void onChange(boolean forceOpen);
+    }
+
+    private void updateSettings() {
+        final ContentResolver resolver = mContext.getContentResolver();
+
+        mCurrentTimeout = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_TIMEOUT, 15000,
+                UserHandle.USER_CURRENT);
+    }
+
+    private class SettingsObserver extends ContentObserver {
+        public SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        public void observe(Context context) {
+            context.getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_TIMEOUT),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        public void unobserve(Context context) {
+            context.getContentResolver().unregisterContentObserver(this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateSettings();
+        }
     }
 }
