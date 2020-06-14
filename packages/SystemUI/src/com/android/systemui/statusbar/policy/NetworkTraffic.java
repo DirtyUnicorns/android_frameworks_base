@@ -148,7 +148,7 @@ public class NetworkTraffic extends TextView {
             } else if (speed >= 10 * KB) {
                 decimalFormat = new DecimalFormat("00.0");
                 unit = "KB";
-                formatSpeed =  decimalFormat.format(speed / (float)MB);
+                formatSpeed =  decimalFormat.format(speed / (float)KB);
             } else {
                 decimalFormat = new DecimalFormat("0.00");
                 unit = "KB";
