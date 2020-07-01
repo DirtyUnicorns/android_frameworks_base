@@ -102,6 +102,7 @@ import com.android.systemui.statusbar.policy.RotationLockController;
 import com.android.systemui.statusbar.policy.SecurityController;
 import com.android.systemui.statusbar.policy.SensorPrivacyController;
 import com.android.systemui.statusbar.policy.SmartReplyConstants;
+import com.android.systemui.statusbar.policy.TaskHelper;
 import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.policy.ZenModeController;
@@ -299,6 +300,7 @@ public class Dependency {
     @Inject Lazy<FalsingManager> mFalsingManager;
     @Inject Lazy<CustomSettingsService> mCustomSettingsService;
     @Inject Lazy<PulseController> mPulseController;
+    @Inject Lazy<TaskHelper> mTaskHelper;
 
     @Inject
     public Dependency() {
@@ -488,6 +490,7 @@ public class Dependency {
         mProviders.put(INotificationManager.class, mINotificationManager::get);
         mProviders.put(FalsingManager.class, mFalsingManager::get);
         mProviders.put(PulseController.class, mPulseController::get);
+        mProviders.put(TaskHelper.class, mTaskHelper::get);
 
         // TODO(b/118592525): to support multi-display , we start to add something which is
         //                    per-display, while others may be global. I think it's time to add
