@@ -38,7 +38,6 @@ import android.os.RemoteException;
 import android.os.UserHandle;
 import android.service.wallpaper.WallpaperService;
 import android.text.TextUtils;
-//import android.util.Log;
 import android.widget.Toast;
 
 import com.android.internal.os.BackgroundThread;
@@ -61,6 +60,10 @@ import javax.inject.Singleton;
 
 @Singleton
 public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callback {
+    public interface Callback {
+        public void onHomeVisibilityChanged(boolean isVisible);
+    }
+
     private static final String TAG = TaskHelper.class.getSimpleName();
     private static final String SYSTEMUI = "com.android.systemui";
     private static final String SETTINGS = "com.android.settings";
@@ -87,6 +90,8 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
     private IActivityTaskManager mActivityTaskManager;
     private final Injector mInjector;
     private static final int MSG_UPDATE_FOREGROUND_APP = 0;
+    private static final int MSG_UPDATE_CALLBACKS = 1;
+    private final List<Callback> mCallbacks = new ArrayList<>();
 
     private final BroadcastReceiver mDefaultHomeBroadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -113,6 +118,9 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
                 case MSG_UPDATE_FOREGROUND_APP:
                     updateForegroundApp();
                     break;
+                case MSG_UPDATE_CALLBACKS:
+                    updateCallbacks(isLauncherShowing());
+                    break;
             }
         }
     }
@@ -123,6 +131,9 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
         mInjector.getBackgroundThreadHandler().post(new Runnable() {
             public void run() {
                 try {
+                    final boolean isHomeShowingBefore = mTaskComponentName != null
+                            ? isLauncherShowing()
+                            : false;
                     // The foreground app is the top activity of the focused tasks stack.
                     final StackInfo info = mActivityTaskManager.getFocusedStackInfo();
                     mTaskComponentName = info != null ? info.topActivity : null;
@@ -131,6 +142,11 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
                     }
                     mForegroundAppPackageName = mTaskComponentName.getPackageName();
                     mRunningTaskId = info.taskIds[info.taskIds.length - 1];
+                    final boolean isHomeShowingAfter = isLauncherShowing();
+                    if (isHomeShowingBefore != isHomeShowingAfter) {
+                        // MUST call back into main thread
+                        mHandler.sendEmptyMessage(MSG_UPDATE_CALLBACKS);
+                    }
                 } catch (RemoteException e) {
                     // Nothing to do
                 }
@@ -164,6 +180,19 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
         mKeyguardMonitor.addCallback(this);
         mPm = context.getPackageManager();
         updateForegroundApp();
+    }
+
+    public void addCallback(TaskHelper.Callback callback) {
+        mCallbacks.add(callback);
+    }
+
+    public void removeCallback(TaskHelper.Callback callback) {
+        mCallbacks.remove(callback);
+    }
+
+    private void updateCallbacks(boolean isShowing) {
+        mCallbacks.stream()
+                .forEach(o -> ((Callback) o).onHomeVisibilityChanged(isShowing));
     }
 
     @Nullable
@@ -234,6 +263,7 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
     @Override
     public void onKeyguardShowingChanged() {
         mKeyguardShowing = mKeyguardMonitor.isShowing();
+        mHandler.sendEmptyMessage(MSG_UPDATE_FOREGROUND_APP);
     }
 
     public String getForegroundApp() {
