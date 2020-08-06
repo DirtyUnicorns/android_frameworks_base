@@ -46,6 +46,10 @@ import com.android.systemui.statusbar.policy.KeyButtonView;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.tuner.TunerService.Tunable;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 public class NavigationBarInflaterView extends FrameLayout
@@ -180,15 +184,10 @@ public class NavigationBarInflaterView extends FrameLayout
             setNavigationBarLayout(newValue);
         }
         if (NAV_BAR_INVERSE.equals(key)) {
-            mInverseLayout = TunerService.parseIntegerSwitch(newValue, false);
-            updateLayoutInversion();
+            mInverseLayout = newValue != null && Integer.parseInt(newValue) != 0;
+            clearViews();
+            inflateLayout(mCurrentLayout);
         }
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-        updateLayoutInversion();
     }
 
     public void setNavigationBarLayout(String layoutValue) {
@@ -275,20 +274,46 @@ public class NavigationBarInflaterView extends FrameLayout
         }
     }
 
+    private String[] swapLeftAndRight(String[] set) {
+        for (int i = 0; i < set.length; i++) {
+            if (set.equals(LEFT)) {
+                set[i] = RIGHT;
+            } else if (set[i].equals(RIGHT)) {
+                set[i] = LEFT;
+            }
+        }
+        return set;
+    }
+
     protected void inflateLayout(String newLayout) {
         mCurrentLayout = newLayout;
         if (newLayout == null) {
             newLayout = getDefaultLayout();
         }
         String[] sets = newLayout.split(GRAVITY_SEPARATOR, 3);
-        if (sets.length != 3) {
-            Log.d(TAG, "Invalid layout.");
-            newLayout = getDefaultLayout();
-            sets = newLayout.split(GRAVITY_SEPARATOR, 3);
-        }
         String[] start = sets[0].split(BUTTON_SEPARATOR);
         String[] center = sets[1].split(BUTTON_SEPARATOR);
         String[] end = sets[2].split(BUTTON_SEPARATOR);
+        // Invert start, center and end if needed.
+        if (mInverseLayout) {
+            List<String> newStart = Arrays.asList(end);
+            List<String> newCenter = Arrays.asList(center);
+            List<String> newEnd = Arrays.asList(start);
+            Collections.reverse(newStart);
+            Collections.reverse(newCenter);
+            Collections.reverse(newEnd);
+            start = swapLeftAndRight((String[]) newStart.toArray());
+            center = swapLeftAndRight((String[]) newCenter.toArray());
+            end = swapLeftAndRight((String[]) newEnd.toArray());
+        } else {
+            clearViews();
+            List<String> newStart = Arrays.asList(start);
+            List<String> newCenter = Arrays.asList(center);
+            List<String> newEnd = Arrays.asList(end);
+            start = swapLeftAndRight((String[]) newStart.toArray());
+            center = swapLeftAndRight((String[]) newCenter.toArray());
+            end = swapLeftAndRight((String[]) newEnd.toArray());
+        }
         // Inflate these in start to end order or accessibility traversal will be messed up.
         inflateButtons(start, mHorizontal.findViewById(R.id.ends_group),
                 false /* landscape */, true /* start */);
@@ -519,19 +544,6 @@ public class NavigationBarInflaterView extends FrameLayout
 
     private static float convertDpToPx(Context context, float dp) {
         return dp * context.getResources().getDisplayMetrics().density;
-    }
-
-    private void updateLayoutInversion() {
-        if (mInverseLayout) {
-            Configuration config = mContext.getResources().getConfiguration();
-            if (config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
-                setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
-            } else {
-                setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
-            }
-        } else {
-            setLayoutDirection(View.LAYOUT_DIRECTION_INHERIT);
-        }
     }
 
     private boolean showDpadArrowKeys() {
