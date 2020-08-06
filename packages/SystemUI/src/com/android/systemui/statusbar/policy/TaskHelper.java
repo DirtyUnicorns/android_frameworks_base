@@ -272,9 +272,10 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
     }
 
     public boolean isLauncherShowing() {
-        return mTaskComponentName.equals(mDefaultHome)
+        // component name can be null during custom launcher installation process
+        return ((mTaskComponentName != null && mTaskComponentName.equals(mDefaultHome))
                 // boot time check
-                || mDefaultHome.getPackageName().equals(SETTINGS);
+                || (mDefaultHome != null && mDefaultHome.getPackageName().equals(SETTINGS)));
     }
 
     private boolean isPackageLiveWalls(String pkg) {
