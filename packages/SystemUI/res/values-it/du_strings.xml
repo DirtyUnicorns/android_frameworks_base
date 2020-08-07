@@ -15,9 +15,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Label for area where tiles can be added to the qs panel -->
-    <string name="drag_or_tap_to_add_tiles">Hold &amp; drag or tap to add tiles</string>
+    <string name="drag_or_tap_to_add_tiles">Tieni premuto &amp; trascina o tocca per aggiungere tiles</string>
     <!-- Label for header of customize QS -->
-    <string name="drag_or_tap_to_rearrange_tiles">Hold &amp; drag to rearrange or tap to remove</string>
+    <string name="drag_or_tap_to_rearrange_tiles">Tieni premuto &amp; trascina per riorganizzare o tocca per rimuovere</string>
     <!-- Smartspace -->
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="smartspace_now">Ora</string>
@@ -78,7 +78,7 @@
     <!-- Theme tile -->
     <string name="system_theme_style_title">Tema</string>
     <string name="system_theme_style_light">Chiaro</string>
-    <string name="system_theme_style_dark">Google Talk</string>
+    <string name="system_theme_style_dark">Scuro Google</string>
     <string name="system_theme_style_pitchblack">Pitch black</string>
     <string name="system_theme_style_solarizeddark">Solarizzato Scuro</string>
     <string name="quick_settings_theme_tile_title">Colore primario</string>
@@ -126,6 +126,6 @@
     <string name="quick_settings_monotoggle_tile_stereo">Audio stereo</string>
     <!-- Long swipe gesture actions -->
     <string name="app_picker_dialog_title">Seleziona un\'applicazione</string>
-    <string name="recents_app_killed">Termina app</string>
-    <string name="nope_cant_kill">Il Launcher non può essere terminato</string>
+    <string name="task_helper_app_killed">%1$s force stopped</string>
+    <string name="empty_app_killed">App</string>
 </resources>

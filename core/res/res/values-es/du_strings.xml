@@ -28,7 +28,7 @@
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">ADB sobre red activado</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+    <string name="adb_both_active_notification_title">ADB sobre &amp; red USB habilitada</string>
     <!-- ADB notification message-->
     <string name="adb_active_generic_notification_message">Tocar para desactivar depuración.</string>
     <!-- Bluetooth service -->

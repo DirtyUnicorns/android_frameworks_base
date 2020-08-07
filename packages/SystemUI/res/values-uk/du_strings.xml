@@ -15,9 +15,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Label for area where tiles can be added to the qs panel -->
-    <string name="drag_or_tap_to_add_tiles">Hold &amp; drag or tap to add tiles</string>
+    <string name="drag_or_tap_to_add_tiles">Утримуйте &amp; перетягніть або торкніться, щоб додати плитки</string>
     <!-- Label for header of customize QS -->
-    <string name="drag_or_tap_to_rearrange_tiles">Hold &amp; drag to rearrange or tap to remove</string>
+    <string name="drag_or_tap_to_rearrange_tiles">Утримуйте &amp; перетягніть, щоб змінити розташування або торкніться, щоб видалити</string>
     <!-- Smartspace -->
     <string name="smartspace_hours_mins">%1$s, %2$s</string>
     <string name="smartspace_now">Щойно</string>
@@ -25,107 +25,107 @@
     <!-- Screenshot toast -->
     <string name="delete_screenshot_toast">Знімок екрану видалено</string>
     <!-- Screen pinning -->
-    <string name="screen_pinning_description_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_recents_invisible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_accessible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_recents_invisible_accessible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_toast_custom">To unpin this screen, touch &amp; hold Back button</string>
-    <string name="screen_pinning_toast_recents_invisible_custom">To unpin this screen, touch &amp; hold Back button</string>
+    <string name="screen_pinning_description_custom">Ви постійно бачитимете цей екран, доки не відкріпите його. Щоб відкріпити екран, натисніть &amp; і утримуйте кнопку \"Назад\".</string>
+    <string name="screen_pinning_description_recents_invisible_custom">Ви постійно бачитимете цей екран, доки не відкріпите його. Щоб відкріпити екран, натисніть &amp; і утримуйте кнопку \"Назад\".</string>
+    <string name="screen_pinning_description_accessible_custom">Ви постійно бачитимете цей екран, доки не відкріпите його. Щоб відкріпити екран, натисніть &amp; і утримуйте кнопку \"Назад\".</string>
+    <string name="screen_pinning_description_recents_invisible_accessible_custom">Ви постійно бачитимете цей екран, доки не відкріпите його. Щоб відкріпити екран, натисніть &amp; і утримуйте кнопку \"Назад\".</string>
+    <string name="screen_pinning_toast_custom">Щоб відкріпити цей екран, натисніть &amp; і утримуйте кнопку \"Назад\"</string>
+    <string name="screen_pinning_toast_recents_invisible_custom">Щоб відкріпити цей екран, натисніть &amp; і утримуйте кнопку \"Назад\"</string>
     <!-- Dash charging -->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash charging</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Швидка зарядка (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> до повної зарядки)</string>
+    <string name="keyguard_plugged_in_dash_charging">Швидка зарядка</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Start recording?</string>
-    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
-    <string name="screenrecord_dialog_start">Start</string>
-    <string name="screenrecord_dialog_cancel">Cancel</string>
-    <string name="screenrecord_audio_title">Record audio</string>
-    <string name="screenrecord_audio_summary">Record audio while recording</string>
-    <string name="screenrecord_taps_title">Show touches on screen</string>
-    <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
-    <string name="screenrecord_stopdot_title">Show stop dot</string>
-    <string name="screenrecord_stopdot_summary">Show a red dot to stop recording with a single tap. Longpress it to move it to the opposite side.</string>
-    <string name="screenrecord_low_quality_title">Low quality</string>
-    <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
+    <string name="screenrecord_dialog_title">Почати запис?</string>
+    <string name="screenrecord_dialog_summary">Під час запису система Android може захопити будь-яку конфіденційну інформацію, що відображається на вашому екрані або відтворюється на вашому пристрої. Сюди входять паролі, платіжна інформація, фотографії, повідомлення та аудіо.</string>
+    <string name="screenrecord_dialog_start">Розпочати</string>
+    <string name="screenrecord_dialog_cancel">Скасувати</string>
+    <string name="screenrecord_audio_title">Записати аудіо</string>
+    <string name="screenrecord_audio_summary">Запис екрану зі звуком</string>
+    <string name="screenrecord_taps_title">Показувати дотики на екрані</string>
+    <string name="screenrecord_taps_summary">Показувати візуальний відгук під час запису</string>
+    <string name="screenrecord_stopdot_title">Показувати кнопку зупинки</string>
+    <string name="screenrecord_stopdot_summary">Показувати червону кнопку, щоб зупинити запис одним дотиком. Утримуйте її, щоб перемістити на протилежну сторону.</string>
+    <string name="screenrecord_low_quality_title">Низька якість</string>
+    <string name="screenrecord_low_quality_summary">Запис у низькій якості для економії місця на вашому пристрої</string>
     <!-- Partial screenshot -->
-    <string name="global_screenshot_selector_capture_description">Capture partial screenshot</string>
-    <string name="global_screenshot_selector_cancel_description">Cancel partial screenshot</string>
+    <string name="global_screenshot_selector_capture_description">Частковий знімок екрану</string>
+    <string name="global_screenshot_selector_cancel_description">Скасувати частковий знімок екрану</string>
     <!-- Icon manager -->
-    <string name="systemui_tuner_icon_manager_title">Icon manager</string>
-    <string name="misc_statusbar_items_category_title">Misc</string>
-    <string name="show_lte_fourgee_title">4G/LTE network icon</string>
-    <string name="show_lte_fourgee_summary">Display either the 4G or LTE network icon in the statusbar/QS panel</string>
+    <string name="systemui_tuner_icon_manager_title">Менеджер значків</string>
+    <string name="misc_statusbar_items_category_title">Різне</string>
+    <string name="show_lte_fourgee_title">4G/LTE значок мережі</string>
+    <string name="show_lte_fourgee_summary">Відображати значок 4G або LTE мережі в рядку стану/панелі швидких налаштувань</string>
     <!-- DU logo -->
-    <string name="du_logo_title">DU swag</string>
-    <string name="du_logo_summary">Let everyone know that you\'re using DU when they see your screen</string>
+    <string name="du_logo_title">Лого DU</string>
+    <string name="du_logo_summary">Дайте всім знати, що ви використовуєте DU, коли вони бачать ваш екран</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
-    <string name="global_action_screenshot_cust">Screenshot</string>
-    <string name="global_action_screenrecord">Screen record</string>
+    <string name="global_action_screenshot_cust">Знімок екрану</string>
+    <string name="global_action_screenrecord">Запис екрану</string>
     <!-- Advanced Reboot menu -->
-    <string name="global_action_restart_advanced">Advanced</string>
-    <string name="global_action_restart_recovery">Recovery</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_advanced">Додатково</string>
+    <string name="global_action_restart_recovery">Режим відновлення</string>
+    <string name="global_action_restart_bootloader">Завантажувач</string>
+    <string name="global_action_restart_ui">Системний інтерфейс</string>
     <!-- QS customizer -->
-    <string name="reset_customizer">Reset order</string>
+    <string name="reset_customizer">Скинути порядок</string>
     <!-- Navbar -->
-    <string name="systemui_tuner_navbar_title">Layout</string>
-    <string name="navigation_bar_format_title">Navbar format</string>
-    <string name="navigation_bar_inverse_title">Swap buttons</string>
-    <string name="navigation_bar_inverse_summary">Swap the order of recents and back buttons</string>
-    <string name="navigation_bar_accessibility_dpad_left">Cursor left</string>
-    <string name="navigation_bar_accessibility_dpad_right">Cursor right</string>
+    <string name="systemui_tuner_navbar_title">Розкладка</string>
+    <string name="navigation_bar_format_title">Формат navbar</string>
+    <string name="navigation_bar_inverse_title">Поміняти кнопки місцями</string>
+    <string name="navigation_bar_inverse_summary">Поміняти місцями кнопку останніх програм і кнопку «Назад»</string>
+    <string name="navigation_bar_accessibility_dpad_left">Курсор ліворуч</string>
+    <string name="navigation_bar_accessibility_dpad_right">Курсор праворуч</string>
     <!-- Theme tile -->
-    <string name="system_theme_style_title">Theme</string>
-    <string name="system_theme_style_light">Light</string>
-    <string name="system_theme_style_dark">Google dark</string>
-    <string name="system_theme_style_pitchblack">Pitch black</string>
-    <string name="system_theme_style_solarizeddark">Solarized dark</string>
-    <string name="quick_settings_theme_tile_title">Accent</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">Select accent</string>
-    <string name="quick_settings_theme_tile_style_detail_title">Select theme</string>
-    <string name="quick_settings_theme_tile_color_default">Default</string>
-    <string name="quick_settings_theme_tile_color_space">Space</string>
-    <string name="quick_settings_theme_tile_color_purple">Purple</string>
-    <string name="quick_settings_theme_tile_color_orchid">Orchid</string>
-    <string name="quick_settings_theme_tile_color_ocean">Ocean</string>
-    <string name="quick_settings_theme_tile_color_green">Green</string>
-    <string name="quick_settings_theme_tile_color_cinnamon">Cinnamon</string>
-    <string name="quick_settings_theme_tile_color_amber">Amber</string>
-    <string name="quick_settings_theme_tile_color_blue">Blue</string>
-    <string name="quick_settings_theme_tile_color_bluegrey">Blue Grey</string>
-    <string name="quick_settings_theme_tile_color_brown">Brown</string>
-    <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
-    <string name="quick_settings_theme_tile_color_deeporange">Deep Orange</string>
-    <string name="quick_settings_theme_tile_color_deeppurple">Deep Purple</string>
-    <string name="quick_settings_theme_tile_color_grey">Grey</string>
-    <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-    <string name="quick_settings_theme_tile_color_lightblue">Light Blue</string>
-    <string name="quick_settings_theme_tile_color_lightgreen">Light Green</string>
-    <string name="quick_settings_theme_tile_color_lime">Lime</string>
-    <string name="quick_settings_theme_tile_color_orange">Orange</string>
-    <string name="quick_settings_theme_tile_color_pink">Pink</string>
-    <string name="quick_settings_theme_tile_color_red">Red</string>
-    <string name="quick_settings_theme_tile_color_teal">Teal</string>
-    <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
+    <string name="system_theme_style_title">Тема</string>
+    <string name="system_theme_style_light">Світла</string>
+    <string name="system_theme_style_dark">Темна Google</string>
+    <string name="system_theme_style_pitchblack">Насичена чорна</string>
+    <string name="system_theme_style_solarizeddark">Solarized темна</string>
+    <string name="quick_settings_theme_tile_title">Відтінок</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Обрати відтінок</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Обрати тему</string>
+    <string name="quick_settings_theme_tile_color_default">За замовчуванням</string>
+    <string name="quick_settings_theme_tile_color_space">Космос</string>
+    <string name="quick_settings_theme_tile_color_purple">Фіолетовий</string>
+    <string name="quick_settings_theme_tile_color_orchid">Ліловий</string>
+    <string name="quick_settings_theme_tile_color_ocean">Океан</string>
+    <string name="quick_settings_theme_tile_color_green">Зелений</string>
+    <string name="quick_settings_theme_tile_color_cinnamon">Кориця</string>
+    <string name="quick_settings_theme_tile_color_amber">Бурштиновий</string>
+    <string name="quick_settings_theme_tile_color_blue">Синій</string>
+    <string name="quick_settings_theme_tile_color_bluegrey">Синьо-сірий</string>
+    <string name="quick_settings_theme_tile_color_brown">Коричневий</string>
+    <string name="quick_settings_theme_tile_color_cyan">Бірюзовий</string>
+    <string name="quick_settings_theme_tile_color_deeporange">Жовтогарячий</string>
+    <string name="quick_settings_theme_tile_color_deeppurple">Темно-фіолетовий</string>
+    <string name="quick_settings_theme_tile_color_grey">Сірий</string>
+    <string name="quick_settings_theme_tile_color_indigo">Індиґо</string>
+    <string name="quick_settings_theme_tile_color_lightblue">Блакитний</string>
+    <string name="quick_settings_theme_tile_color_lightgreen">Світло-зелений</string>
+    <string name="quick_settings_theme_tile_color_lime">Лаймовий</string>
+    <string name="quick_settings_theme_tile_color_orange">Помаранчевий</string>
+    <string name="quick_settings_theme_tile_color_pink">Рожевий</string>
+    <string name="quick_settings_theme_tile_color_red">Червоний</string>
+    <string name="quick_settings_theme_tile_color_teal">Морської хвилі</string>
+    <string name="quick_settings_theme_tile_color_yellow">Жовтий</string>
     <!-- Caffeine tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="quick_settings_caffeine_label">Заборона сну</string>
     <!-- ADB over Network tile -->
-    <string name="quick_settings_adb_network">ADB over Network</string>
-    <string name="quick_settings_network_adb_enabled_label">ADB over Network</string>
-    <string name="quick_settings_network_adb_disabled_label">ADB over Network</string>
-    <string name="adb_network_forced_tcp_warn">ADB network forced enabled on port: <xliff:g id="port">%1$s</xliff:g></string>
+    <string name="quick_settings_adb_network">Налагодження по мережі</string>
+    <string name="quick_settings_network_adb_enabled_label">Налагодження по мережі</string>
+    <string name="quick_settings_network_adb_disabled_label">Налагодження по мережі</string>
+    <string name="adb_network_forced_tcp_warn">ADB мережа примусово увімкнена через порт: <xliff:g id="port">%1$s</xliff:g></string>
     <!-- Immersive tile -->
-    <string name="quick_settings_immersive_tile">Immersive mode</string>
-    <string name="quick_settings_immersive_tile_statusbar">Immersive statusbar</string>
-    <string name="quick_settings_immersive_tile_navbar">Immersive navbar</string>
-    <string name="quick_settings_immersive_tile_full">Immersive full</string>
+    <string name="quick_settings_immersive_tile">Режим занурення</string>
+    <string name="quick_settings_immersive_tile_statusbar">Приховати рядок стану</string>
+    <string name="quick_settings_immersive_tile_navbar">Приховати панель навігації</string>
+    <string name="quick_settings_immersive_tile_full">Повноекранний режим</string>
     <!-- Mono/Stereo tile -->
-    <string name="quick_settings_monotoggle_tile">Audio mode</string>
-    <string name="quick_settings_monotoggle_tile_mono">Mono audio</string>
-    <string name="quick_settings_monotoggle_tile_stereo">Stereo audio</string>
+    <string name="quick_settings_monotoggle_tile">Аудіорежим</string>
+    <string name="quick_settings_monotoggle_tile_mono">Монозвук</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Стереозвук</string>
     <!-- Long swipe gesture actions -->
-    <string name="app_picker_dialog_title">Select an app</string>
-    <string name="recents_app_killed">App killed</string>
-    <string name="nope_cant_kill">Launcher cannot be killed</string>
+    <string name="app_picker_dialog_title">Оберіть додаток</string>
+    <string name="task_helper_app_killed">%1$s force stopped</string>
+    <string name="empty_app_killed">App</string>
 </resources>
