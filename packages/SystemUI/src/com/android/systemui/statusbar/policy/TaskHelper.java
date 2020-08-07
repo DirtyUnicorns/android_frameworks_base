@@ -41,6 +41,8 @@ import android.text.TextUtils;
 import android.widget.Toast;
 
 import com.android.internal.os.BackgroundThread;
+import com.android.internal.util.du.Utils;
+
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.SysUiServiceProvider;
@@ -222,7 +224,7 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
         if (isLauncherShowing()
                 || !(mContext.checkCallingOrSelfPermission(
                         android.Manifest.permission.FORCE_STOP_PACKAGES) == PackageManager.PERMISSION_GRANTED)
-                || isLockTaskOn()
+                || Utils.isInLockTaskMode()
                 || mKeyguardShowing
                 || mTaskComponentName == null
                 || mTaskComponentName.equals(mRecentsComponentName)
@@ -295,14 +297,6 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
                     return true;
                 }
             }
-        }
-        return false;
-    }
-
-    private static boolean isLockTaskOn() {
-        try {
-            return ActivityManager.getService().isInLockTaskMode();
-        } catch (Exception e) {
         }
         return false;
     }
