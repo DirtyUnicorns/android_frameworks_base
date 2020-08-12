@@ -3546,8 +3546,18 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
                 break;
             case SystemService.PHASE_BOOT_COMPLETED:
                 ensureDeviceOwnerUserStarted(); // TODO Consider better place to do this.
+                setDeviceHostName();
                 break;
         }
+    }
+
+    private void setDeviceHostName() {
+            // Load custom hostname
+            final String hostname = Settings.Secure.getString(mContext.getContentResolver(),
+            Settings.Secure.DEVICE_HOSTNAME);
+            if (hostname != null) {
+                SystemProperties.set("net.hostname", hostname);
+            }
     }
 
     private void onLockSettingsReady() {

@@ -10095,6 +10095,12 @@ public final class Settings {
         public static final String ADB_PORT = "adb_port";
 
         /**
+         * Custom device hostname
+         * @hide
+         */
+        public static final String DEVICE_HOSTNAME = "device_hostname";
+
+        /**
          * This are the settings to be backed up.
          *
          * NOTE: Settings are backed up and restored in the order they appear
