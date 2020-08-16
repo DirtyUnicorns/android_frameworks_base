@@ -61,7 +61,8 @@ import javax.inject.Named;
 import javax.inject.Singleton;
 
 @Singleton
-public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callback {
+public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callback,
+        ConfigurationController.ConfigurationListener {
     public interface Callback {
         public void onHomeVisibilityChanged(boolean isVisible);
     }
@@ -181,6 +182,7 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
         mKeyguardMonitor.addCallback(this);
         mPm = context.getPackageManager();
+        Dependency.get(ConfigurationController.class).addCallback(this);
         updateForegroundApp();
     }
 
@@ -266,6 +268,13 @@ public class TaskHelper implements CommandQueue.Callbacks, KeyguardMonitor.Callb
     public void onKeyguardShowingChanged() {
         mKeyguardShowing = mKeyguardMonitor.isShowing();
         mHandler.sendEmptyMessage(MSG_UPDATE_FOREGROUND_APP);
+    }
+
+    @Override
+    public void onOverlayChanged() {
+        // refresh callback states on theme change. Allow a slight delay
+        // so statusbar can reinflate and settle down
+        mHandler.sendEmptyMessageDelayed(MSG_UPDATE_CALLBACKS, 500);
     }
 
     public String getForegroundApp() {
