@@ -15,13 +15,13 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Dash charging -->
-    <string name="power_remaining_dash_charging_duration_only">Dash charging (<xliff:g id="time">%1$s</xliff:g> left until full)</string>
-    <string name="battery_info_status_dash_charging">Dash charging</string>
-    <string name="battery_info_status_dash_charging_lower">dash charging</string>
+    <string name="power_remaining_dash_charging_duration_only">正在快速充电（剩余 <xliff:g id="time">%1$s</xliff:g> 充满）</string>
+    <string name="battery_info_status_dash_charging">正在快速充电</string>
+    <string name="battery_info_status_dash_charging_lower">正在快速充电</string>
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smaller">Smaller</string>
+    <string name="screen_zoom_summary_smaller">更小</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
-    <string name="screen_zoom_summary_smallest">Smallest</string>
+    <string name="screen_zoom_summary_smallest">最小</string>
     <!-- Deep sleep info -->
-    <string name="status_deep_sleep">(Deep sleep: %1$d%2$s)</string>
+    <string name="status_deep_sleep">（深度睡眠：%1$d%2$s）</string>
 </resources>

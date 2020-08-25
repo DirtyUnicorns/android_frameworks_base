@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Message for updating an existing app [CHAR LIMIT=NONE] -->
-    <string name="old_version_number">Installed version: <xliff:g id="old_version">%1$s</xliff:g></string>
+    <string name="old_version_number">Versão instalada: <xliff:g id="old_version">%1$s</xliff:g></string>
     <!-- Message for updating an existing system app [CHAR LIMIT=NONE] -->
-    <string name="new_version_number">To be installed: <xliff:g id="new_version">%1$s</xliff:g></string>
+    <string name="new_version_number">A ser instalado: <xliff:g id="new_version">%1$s</xliff:g></string>
 </resources>

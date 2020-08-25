@@ -15,7 +15,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Dash charging -->
-    <string name="power_remaining_dash_charging_duration_only">Быстрая зарядка (<xliff:g id="time">%1$s</xliff:g> осталось до конца)</string>
+    <string name="power_remaining_dash_charging_duration_only">Быстрая зарядка (ещё <xliff:g id="time">%1$s</xliff:g>)</string>
     <string name="battery_info_status_dash_charging">Быстрая зарядка</string>
     <string name="battery_info_status_dash_charging_lower">быстрая зарядка</string>
     <!-- Description for the screen zoom level that makes interface elements smaller. [CHAR LIMIT=24] -->

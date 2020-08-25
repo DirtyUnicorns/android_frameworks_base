@@ -15,22 +15,22 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App error dialog -->
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
+    <string name="aerr_copy">复制崩溃日志链接</string>
+    <string name="url_copy_success">已成功复制链接</string>
+    <string name="url_copy_failed">上传日志到 dogbin 时发生错误。</string>
     <!-- Power menu -->
-    <string name="reboot_to_recovery_title">Recovery</string>
-    <string name="reboot_to_recovery_message">Rebooting to recovery</string>
-    <string name="reboot_to_bootloader_title">Bootloader</string>
-    <string name="reboot_to_bootloader_message">Rebooting to bootloader</string>
-    <string name="reboot_title">Reboot</string>
-    <string name="reboot_message">Rebooting system</string>
+    <string name="reboot_to_recovery_title">恢复模式</string>
+    <string name="reboot_to_recovery_message">正在重启至恢复模式</string>
+    <string name="reboot_to_bootloader_title">引导模式</string>
+    <string name="reboot_to_bootloader_message">正在重启至引导模式</string>
+    <string name="reboot_title">重新启动</string>
+    <string name="reboot_message">正在重启至系统</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">ADB over network enabled</string>
+    <string name="adb_net_active_notification_title">网络 ADB 调试已启用</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">ADB over USB &amp; network enabled</string>
+    <string name="adb_both_active_notification_title">USB 和网络 ADB 调试已启用</string>
     <!-- ADB notification message-->
-    <string name="adb_active_generic_notification_message">Touch to disable debugging.</string>
+    <string name="adb_active_generic_notification_message">点按即可关闭调试。</string>
     <!-- Bluetooth service -->
-    <string name="bluetooth_airplane_mode_toast">Bluetooth will stay on during airplane mode</string>
+    <string name="bluetooth_airplane_mode_toast">在飞行模式下，蓝牙将保持开启状态</string>
 </resources>

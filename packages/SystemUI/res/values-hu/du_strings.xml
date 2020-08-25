@@ -15,9 +15,9 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Label for area where tiles can be added to the qs panel -->
-    <string name="drag_or_tap_to_add_tiles">Hold &amp; drag or tap to add tiles</string>
+    <string name="drag_or_tap_to_add_tiles">Tartsa &amp; húzza vagy koppintson a csempék hozzáadásához</string>
     <!-- Label for header of customize QS -->
-    <string name="drag_or_tap_to_rearrange_tiles">Hold &amp; drag to rearrange or tap to remove</string>
+    <string name="drag_or_tap_to_rearrange_tiles">Tartsa &amp; húzza a csempék átrendezéséhez, vagy érintse meg az eltávolításhoz</string>
     <!-- Smartspace -->
     <string name="smartspace_hours_mins">%1$s %2$s</string>
     <string name="smartspace_now">Most</string>
@@ -44,88 +44,88 @@
     <string name="screenrecord_taps_title">Érintések megjelenítése a képernyőn</string>
     <string name="screenrecord_taps_summary">Vizuális visszajelzés megjelenítése felvétel közben</string>
     <string name="screenrecord_stopdot_title">Megállítógomb megjelenítése</string>
-    <string name="screenrecord_stopdot_summary">Show a red dot to stop recording with a single tap. Longpress it to move it to the opposite side.</string>
+    <string name="screenrecord_stopdot_summary">Mutasson egy piros pontot a felvétel leállításához egyetlen érintéssel. Hosszan nyomja meg, hogy az ellenkező oldalra húzza.</string>
     <string name="screenrecord_low_quality_title">Alacsony minőség</string>
     <string name="screenrecord_low_quality_summary">Rögzítsen alacsonyabb minőségű képet a hely megtakarítási érdekében </string>
     <!-- Partial screenshot -->
     <string name="global_screenshot_selector_capture_description"> részleges képernyőkép rögzítése </string>
-    <string name="global_screenshot_selector_cancel_description">Cancel partial screenshot</string>
+    <string name="global_screenshot_selector_cancel_description"> részleges képernyőkép  visszavonása </string>
     <!-- Icon manager -->
-    <string name="systemui_tuner_icon_manager_title">Icon manager</string>
-    <string name="misc_statusbar_items_category_title">Misc</string>
-    <string name="show_lte_fourgee_title">4G/LTE network icon</string>
-    <string name="show_lte_fourgee_summary">Display either the 4G or LTE network icon in the statusbar/QS panel</string>
+    <string name="systemui_tuner_icon_manager_title">Ikonkezelő</string>
+    <string name="misc_statusbar_items_category_title">Egyéb</string>
+    <string name="show_lte_fourgee_title">4G/LTE ikon</string>
+    <string name="show_lte_fourgee_summary">A 4G vagy az LTE hálózati ikon jelenjen meg az állapotsorban és a gyorsbeállítások panelen</string>
     <!-- DU logo -->
-    <string name="du_logo_title">DU swag</string>
-    <string name="du_logo_summary">Let everyone know that you\'re using DU when they see your screen</string>
+    <string name="du_logo_title">DU jelkép</string>
+    <string name="du_logo_summary">Engedje, hogy mindenki láthassa, ha ránéz a képernyőjére, hogy Dirty Unicorns-t használ</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
-    <string name="global_action_screenshot_cust">Screenshot</string>
-    <string name="global_action_screenrecord">Screen record</string>
+    <string name="global_action_screenshot_cust">Képernyőkép</string>
+    <string name="global_action_screenrecord">Képernyő felvétel</string>
     <!-- Advanced Reboot menu -->
-    <string name="global_action_restart_advanced">Advanced</string>
+    <string name="global_action_restart_advanced">Speciális</string>
     <string name="global_action_restart_recovery">Recovery</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_bootloader">Bootloader (Fastboot mód)</string>
+    <string name="global_action_restart_ui">Felhasználói felület</string>
     <!-- QS customizer -->
-    <string name="reset_customizer">Reset order</string>
+    <string name="reset_customizer">Sorrend visszaállítása</string>
     <!-- Navbar -->
-    <string name="systemui_tuner_navbar_title">Layout</string>
-    <string name="navigation_bar_format_title">Navbar format</string>
-    <string name="navigation_bar_inverse_title">Swap buttons</string>
-    <string name="navigation_bar_inverse_summary">Swap the order of recents and back buttons</string>
-    <string name="navigation_bar_accessibility_dpad_left">Cursor left</string>
-    <string name="navigation_bar_accessibility_dpad_right">Cursor right</string>
+    <string name="systemui_tuner_navbar_title">Elrendezés</string>
+    <string name="navigation_bar_format_title">Navigációs sáv típusa</string>
+    <string name="navigation_bar_inverse_title">Gombok felcserélése</string>
+    <string name="navigation_bar_inverse_summary">Előzmények és a vissza gomb sorrendjének felcserélése</string>
+    <string name="navigation_bar_accessibility_dpad_left">Kurzor balra</string>
+    <string name="navigation_bar_accessibility_dpad_right">Kurzor jobbra</string>
     <!-- Theme tile -->
-    <string name="system_theme_style_title">Theme</string>
-    <string name="system_theme_style_light">Light</string>
-    <string name="system_theme_style_dark">Google dark</string>
-    <string name="system_theme_style_pitchblack">Pitch black</string>
-    <string name="system_theme_style_solarizeddark">Solarized dark</string>
-    <string name="quick_settings_theme_tile_title">Accent</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">Select accent</string>
-    <string name="quick_settings_theme_tile_style_detail_title">Select theme</string>
-    <string name="quick_settings_theme_tile_color_default">Default</string>
-    <string name="quick_settings_theme_tile_color_space">Space</string>
-    <string name="quick_settings_theme_tile_color_purple">Purple</string>
-    <string name="quick_settings_theme_tile_color_orchid">Orchid</string>
-    <string name="quick_settings_theme_tile_color_ocean">Ocean</string>
-    <string name="quick_settings_theme_tile_color_green">Green</string>
-    <string name="quick_settings_theme_tile_color_cinnamon">Cinnamon</string>
-    <string name="quick_settings_theme_tile_color_amber">Amber</string>
-    <string name="quick_settings_theme_tile_color_blue">Blue</string>
-    <string name="quick_settings_theme_tile_color_bluegrey">Blue Grey</string>
-    <string name="quick_settings_theme_tile_color_brown">Brown</string>
-    <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
-    <string name="quick_settings_theme_tile_color_deeporange">Deep Orange</string>
-    <string name="quick_settings_theme_tile_color_deeppurple">Deep Purple</string>
-    <string name="quick_settings_theme_tile_color_grey">Grey</string>
-    <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-    <string name="quick_settings_theme_tile_color_lightblue">Light Blue</string>
-    <string name="quick_settings_theme_tile_color_lightgreen">Light Green</string>
+    <string name="system_theme_style_title">Téma</string>
+    <string name="system_theme_style_light">Világos</string>
+    <string name="system_theme_style_dark">Google sötét</string>
+    <string name="system_theme_style_pitchblack">Pitch Black</string>
+    <string name="system_theme_style_solarizeddark">Szolarizált sötét</string>
+    <string name="quick_settings_theme_tile_title">Kiemelőszín</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Kiemelőszín választása</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Válasszon témát</string>
+    <string name="quick_settings_theme_tile_color_default">Alapértelmezett</string>
+    <string name="quick_settings_theme_tile_color_space">Világűr</string>
+    <string name="quick_settings_theme_tile_color_purple">Lila</string>
+    <string name="quick_settings_theme_tile_color_orchid">Orchidea</string>
+    <string name="quick_settings_theme_tile_color_ocean">Óceán</string>
+    <string name="quick_settings_theme_tile_color_green">Zöld</string>
+    <string name="quick_settings_theme_tile_color_cinnamon">Fahéj</string>
+    <string name="quick_settings_theme_tile_color_amber">Borostyán</string>
+    <string name="quick_settings_theme_tile_color_blue">Kék</string>
+    <string name="quick_settings_theme_tile_color_bluegrey">Szürkés-kék</string>
+    <string name="quick_settings_theme_tile_color_brown">Barna</string>
+    <string name="quick_settings_theme_tile_color_cyan">Ciánkék</string>
+    <string name="quick_settings_theme_tile_color_deeporange">Mély narancs</string>
+    <string name="quick_settings_theme_tile_color_deeppurple">Sötét lila</string>
+    <string name="quick_settings_theme_tile_color_grey">Szürke</string>
+    <string name="quick_settings_theme_tile_color_indigo">Indigókék</string>
+    <string name="quick_settings_theme_tile_color_lightblue">Világoskék</string>
+    <string name="quick_settings_theme_tile_color_lightgreen">Világoszöld</string>
     <string name="quick_settings_theme_tile_color_lime">Lime</string>
-    <string name="quick_settings_theme_tile_color_orange">Orange</string>
+    <string name="quick_settings_theme_tile_color_orange">Narancssárga</string>
     <string name="quick_settings_theme_tile_color_pink">Pink</string>
-    <string name="quick_settings_theme_tile_color_red">Red</string>
-    <string name="quick_settings_theme_tile_color_teal">Teal</string>
-    <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
+    <string name="quick_settings_theme_tile_color_red">Vörös</string>
+    <string name="quick_settings_theme_tile_color_teal">Türkiz</string>
+    <string name="quick_settings_theme_tile_color_yellow">Sárga</string>
     <!-- Caffeine tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="quick_settings_caffeine_label">Koffein</string>
     <!-- ADB over Network tile -->
-    <string name="quick_settings_adb_network">ADB over Network</string>
-    <string name="quick_settings_network_adb_enabled_label">ADB over Network</string>
-    <string name="quick_settings_network_adb_disabled_label">ADB over Network</string>
-    <string name="adb_network_forced_tcp_warn">ADB network forced enabled on port: <xliff:g id="port">%1$s</xliff:g></string>
+    <string name="quick_settings_adb_network">ADB hálózaton keresztül</string>
+    <string name="quick_settings_network_adb_enabled_label">ADB hálózaton keresztül</string>
+    <string name="quick_settings_network_adb_disabled_label">ADB hálózaton keresztül</string>
+    <string name="adb_network_forced_tcp_warn">ADB hálózaton keresztül kényszerítetten engedélyezve a <xliff:g id="port">%1$s</xliff:g> porton</string>
     <!-- Immersive tile -->
-    <string name="quick_settings_immersive_tile">Immersive mode</string>
-    <string name="quick_settings_immersive_tile_statusbar">Immersive statusbar</string>
-    <string name="quick_settings_immersive_tile_navbar">Immersive navbar</string>
-    <string name="quick_settings_immersive_tile_full">Immersive full</string>
+    <string name="quick_settings_immersive_tile">Teljes képernyős mód</string>
+    <string name="quick_settings_immersive_tile_statusbar">Teljes képernyős állapotsáv</string>
+    <string name="quick_settings_immersive_tile_navbar">Teljes képernyős navigációs sáv</string>
+    <string name="quick_settings_immersive_tile_full">Teljes képernyős mód</string>
     <!-- Mono/Stereo tile -->
-    <string name="quick_settings_monotoggle_tile">Audio mode</string>
-    <string name="quick_settings_monotoggle_tile_mono">Mono audio</string>
-    <string name="quick_settings_monotoggle_tile_stereo">Stereo audio</string>
+    <string name="quick_settings_monotoggle_tile">Hangmód</string>
+    <string name="quick_settings_monotoggle_tile_mono">Monó hang</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Sztereó hang</string>
     <!-- Long swipe gesture actions -->
-    <string name="app_picker_dialog_title">Select an app</string>
-    <string name="task_helper_app_killed">%1$s force stopped</string>
-    <string name="empty_app_killed">App</string>
+    <string name="app_picker_dialog_title">Alkalmazás kiválasztása</string>
+    <string name="task_helper_app_killed">%1$s kilőve</string>
+    <string name="empty_app_killed">Alkalmazás</string>
 </resources>

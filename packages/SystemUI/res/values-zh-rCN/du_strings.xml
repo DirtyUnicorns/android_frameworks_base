@@ -15,117 +15,117 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Label for area where tiles can be added to the qs panel -->
-    <string name="drag_or_tap_to_add_tiles">Hold &amp; drag or tap to add tiles</string>
+    <string name="drag_or_tap_to_add_tiles">按住并拖动，或点击添加磁贴</string>
     <!-- Label for header of customize QS -->
-    <string name="drag_or_tap_to_rearrange_tiles">Hold &amp; drag to rearrange or tap to remove</string>
+    <string name="drag_or_tap_to_rearrange_tiles">按住并拖动以重新排列，或点击以删除</string>
     <!-- Smartspace -->
     <string name="smartspace_hours_mins">%1$s %2$s</string>
-    <string name="smartspace_now">Now</string>
-    <string name="smartspace_pill_text_format">%1$s: %2$s</string>
+    <string name="smartspace_now">刚刚</string>
+    <string name="smartspace_pill_text_format">%1$s：%2$s</string>
     <!-- Screenshot toast -->
-    <string name="delete_screenshot_toast">Screenshot deleted</string>
+    <string name="delete_screenshot_toast">屏幕截图已删除</string>
     <!-- Screen pinning -->
-    <string name="screen_pinning_description_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_recents_invisible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_accessible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_description_recents_invisible_accessible_custom">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
-    <string name="screen_pinning_toast_custom">To unpin this screen, touch &amp; hold Back button</string>
-    <string name="screen_pinning_toast_recents_invisible_custom">To unpin this screen, touch &amp; hold Back button</string>
+    <string name="screen_pinning_description_custom">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
+    <string name="screen_pinning_description_recents_invisible_custom">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
+    <string name="screen_pinning_description_accessible_custom">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
+    <string name="screen_pinning_description_recents_invisible_accessible_custom">这将会固定显示此屏幕，直到您取消固定为止。触摸并按住“返回”即可取消固定屏幕。</string>
+    <string name="screen_pinning_toast_custom">要取消固定此屏幕，请触摸并按住“返回”按钮。</string>
+    <string name="screen_pinning_toast_recents_invisible_custom">要取消固定此屏幕，请触摸并按住“返回”按钮。</string>
     <!-- Dash charging -->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash charging</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • 快速充电（还需 <xliff:g id="charging_time_left">%s</xliff:g> 充满）</string>
+    <string name="keyguard_plugged_in_dash_charging">正在快速充电</string>
     <!-- Screen record -->
-    <string name="screenrecord_dialog_title">Start recording?</string>
-    <string name="screenrecord_dialog_summary">While recording, Android system can capture any sensitive information that\'s visible on your screen or played on your device. This includes passwords, payment info, photos, messages, and audio.</string>
-    <string name="screenrecord_dialog_start">Start</string>
-    <string name="screenrecord_dialog_cancel">Cancel</string>
-    <string name="screenrecord_audio_title">Record audio</string>
-    <string name="screenrecord_audio_summary">Record audio while recording</string>
-    <string name="screenrecord_taps_title">Show touches on screen</string>
-    <string name="screenrecord_taps_summary">Show visual feedback while recording</string>
-    <string name="screenrecord_stopdot_title">Show stop dot</string>
-    <string name="screenrecord_stopdot_summary">Show a red dot to stop recording with a single tap. Longpress it to move it to the opposite side.</string>
-    <string name="screenrecord_low_quality_title">Low quality</string>
-    <string name="screenrecord_low_quality_summary">Record in a lower quality to save space on your device</string>
+    <string name="screenrecord_dialog_title">开始录制？</string>
+    <string name="screenrecord_dialog_summary">在录制过程中，安卓系统可以捕获在您的屏幕上可见或在您的设备上播放的任何敏感信息。 这包括密码、付款信息、照片、消息和音频。</string>
+    <string name="screenrecord_dialog_start">开始</string>
+    <string name="screenrecord_dialog_cancel">取消</string>
+    <string name="screenrecord_audio_title">录制音频</string>
+    <string name="screenrecord_audio_summary">录制时录制音频</string>
+    <string name="screenrecord_taps_title">显示屏幕上的点按操作</string>
+    <string name="screenrecord_taps_summary">录制时显示视觉反馈</string>
+    <string name="screenrecord_stopdot_title">显示停止圆点</string>
+    <string name="screenrecord_stopdot_summary">显示一个可以单击以停止录制的红点。长按可以将其移动到另一边。</string>
+    <string name="screenrecord_low_quality_title">低质量</string>
+    <string name="screenrecord_low_quality_summary">以较低质量录制以节省设备上的空间</string>
     <!-- Partial screenshot -->
-    <string name="global_screenshot_selector_capture_description">Capture partial screenshot</string>
-    <string name="global_screenshot_selector_cancel_description">Cancel partial screenshot</string>
+    <string name="global_screenshot_selector_capture_description">捕获部分截图</string>
+    <string name="global_screenshot_selector_cancel_description">取消部分截图</string>
     <!-- Icon manager -->
-    <string name="systemui_tuner_icon_manager_title">Icon manager</string>
-    <string name="misc_statusbar_items_category_title">Misc</string>
-    <string name="show_lte_fourgee_title">4G/LTE network icon</string>
-    <string name="show_lte_fourgee_summary">Display either the 4G or LTE network icon in the statusbar/QS panel</string>
+    <string name="systemui_tuner_icon_manager_title">图标管理器</string>
+    <string name="misc_statusbar_items_category_title">杂项</string>
+    <string name="show_lte_fourgee_title">4G/LTE 网络图标</string>
+    <string name="show_lte_fourgee_summary">在状态栏或快速设置面板显示 4G 或 LTE 网络图标</string>
     <!-- DU logo -->
-    <string name="du_logo_title">DU swag</string>
-    <string name="du_logo_summary">Let everyone know that you\'re using DU when they see your screen</string>
+    <string name="du_logo_title">DU 标志</string>
+    <string name="du_logo_summary">让每个看到你手机屏幕的人都知道你正在使用 DU</string>
     <!-- Power menu item for taking a screenshot [CHAR LIMIT=20]-->
-    <string name="global_action_screenshot_cust">Screenshot</string>
-    <string name="global_action_screenrecord">Screen record</string>
+    <string name="global_action_screenshot_cust">屏幕截图</string>
+    <string name="global_action_screenrecord">屏幕录制</string>
     <!-- Advanced Reboot menu -->
-    <string name="global_action_restart_advanced">Advanced</string>
-    <string name="global_action_restart_recovery">Recovery</string>
-    <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_advanced">高级重启</string>
+    <string name="global_action_restart_recovery">恢复模式</string>
+    <string name="global_action_restart_bootloader">引导模式</string>
+    <string name="global_action_restart_ui">系统界面</string>
     <!-- QS customizer -->
-    <string name="reset_customizer">Reset order</string>
+    <string name="reset_customizer">重置排序</string>
     <!-- Navbar -->
-    <string name="systemui_tuner_navbar_title">Layout</string>
-    <string name="navigation_bar_format_title">Navbar format</string>
-    <string name="navigation_bar_inverse_title">Swap buttons</string>
-    <string name="navigation_bar_inverse_summary">Swap the order of recents and back buttons</string>
-    <string name="navigation_bar_accessibility_dpad_left">Cursor left</string>
-    <string name="navigation_bar_accessibility_dpad_right">Cursor right</string>
+    <string name="systemui_tuner_navbar_title">布局</string>
+    <string name="navigation_bar_format_title">导航栏格式</string>
+    <string name="navigation_bar_inverse_title">交换按键</string>
+    <string name="navigation_bar_inverse_summary">交换最近任务与返回按键的位置</string>
+    <string name="navigation_bar_accessibility_dpad_left">光标左移</string>
+    <string name="navigation_bar_accessibility_dpad_right">光标右移</string>
     <!-- Theme tile -->
-    <string name="system_theme_style_title">Theme</string>
-    <string name="system_theme_style_light">Light</string>
-    <string name="system_theme_style_dark">Google dark</string>
-    <string name="system_theme_style_pitchblack">Pitch black</string>
-    <string name="system_theme_style_solarizeddark">Solarized dark</string>
-    <string name="quick_settings_theme_tile_title">Accent</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">Select accent</string>
-    <string name="quick_settings_theme_tile_style_detail_title">Select theme</string>
-    <string name="quick_settings_theme_tile_color_default">Default</string>
-    <string name="quick_settings_theme_tile_color_space">Space</string>
-    <string name="quick_settings_theme_tile_color_purple">Purple</string>
-    <string name="quick_settings_theme_tile_color_orchid">Orchid</string>
-    <string name="quick_settings_theme_tile_color_ocean">Ocean</string>
-    <string name="quick_settings_theme_tile_color_green">Green</string>
-    <string name="quick_settings_theme_tile_color_cinnamon">Cinnamon</string>
-    <string name="quick_settings_theme_tile_color_amber">Amber</string>
-    <string name="quick_settings_theme_tile_color_blue">Blue</string>
-    <string name="quick_settings_theme_tile_color_bluegrey">Blue Grey</string>
-    <string name="quick_settings_theme_tile_color_brown">Brown</string>
-    <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
-    <string name="quick_settings_theme_tile_color_deeporange">Deep Orange</string>
-    <string name="quick_settings_theme_tile_color_deeppurple">Deep Purple</string>
-    <string name="quick_settings_theme_tile_color_grey">Grey</string>
-    <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-    <string name="quick_settings_theme_tile_color_lightblue">Light Blue</string>
-    <string name="quick_settings_theme_tile_color_lightgreen">Light Green</string>
-    <string name="quick_settings_theme_tile_color_lime">Lime</string>
-    <string name="quick_settings_theme_tile_color_orange">Orange</string>
-    <string name="quick_settings_theme_tile_color_pink">Pink</string>
-    <string name="quick_settings_theme_tile_color_red">Red</string>
-    <string name="quick_settings_theme_tile_color_teal">Teal</string>
-    <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
+    <string name="system_theme_style_title">主题</string>
+    <string name="system_theme_style_light">亮色</string>
+    <string name="system_theme_style_dark">谷歌暗色</string>
+    <string name="system_theme_style_pitchblack">漆黑</string>
+    <string name="system_theme_style_solarizeddark">曝光暗色</string>
+    <string name="quick_settings_theme_tile_title">强调色</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">选择强调色</string>
+    <string name="quick_settings_theme_tile_style_detail_title">选择主题</string>
+    <string name="quick_settings_theme_tile_color_default">默认</string>
+    <string name="quick_settings_theme_tile_color_space">太空</string>
+    <string name="quick_settings_theme_tile_color_purple">紫色</string>
+    <string name="quick_settings_theme_tile_color_orchid">淡紫色</string>
+    <string name="quick_settings_theme_tile_color_ocean">海洋</string>
+    <string name="quick_settings_theme_tile_color_green">绿色</string>
+    <string name="quick_settings_theme_tile_color_cinnamon">棕黄色</string>
+    <string name="quick_settings_theme_tile_color_amber">琥珀色</string>
+    <string name="quick_settings_theme_tile_color_blue">蓝色</string>
+    <string name="quick_settings_theme_tile_color_bluegrey">蓝灰色</string>
+    <string name="quick_settings_theme_tile_color_brown">棕色</string>
+    <string name="quick_settings_theme_tile_color_cyan">青色</string>
+    <string name="quick_settings_theme_tile_color_deeporange">深橙色</string>
+    <string name="quick_settings_theme_tile_color_deeppurple">深紫色</string>
+    <string name="quick_settings_theme_tile_color_grey">灰色</string>
+    <string name="quick_settings_theme_tile_color_indigo">靛蓝色</string>
+    <string name="quick_settings_theme_tile_color_lightblue">浅蓝色</string>
+    <string name="quick_settings_theme_tile_color_lightgreen">浅绿色</string>
+    <string name="quick_settings_theme_tile_color_lime">青柠色</string>
+    <string name="quick_settings_theme_tile_color_orange">橙色</string>
+    <string name="quick_settings_theme_tile_color_pink">粉色</string>
+    <string name="quick_settings_theme_tile_color_red">红色</string>
+    <string name="quick_settings_theme_tile_color_teal">鸭绿色</string>
+    <string name="quick_settings_theme_tile_color_yellow">黄色</string>
     <!-- Caffeine tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="quick_settings_caffeine_label">保持亮屏</string>
     <!-- ADB over Network tile -->
-    <string name="quick_settings_adb_network">ADB over Network</string>
-    <string name="quick_settings_network_adb_enabled_label">ADB over Network</string>
-    <string name="quick_settings_network_adb_disabled_label">ADB over Network</string>
-    <string name="adb_network_forced_tcp_warn">ADB network forced enabled on port: <xliff:g id="port">%1$s</xliff:g></string>
+    <string name="quick_settings_adb_network">网络 ADB 调试</string>
+    <string name="quick_settings_network_adb_enabled_label">网络 ADB 调试</string>
+    <string name="quick_settings_network_adb_disabled_label">网络 ADB 调试</string>
+    <string name="adb_network_forced_tcp_warn">端口上强制启用 ADB 网络： <xliff:g id="port">%1$s</xliff:g></string>
     <!-- Immersive tile -->
-    <string name="quick_settings_immersive_tile">Immersive mode</string>
-    <string name="quick_settings_immersive_tile_statusbar">Immersive statusbar</string>
-    <string name="quick_settings_immersive_tile_navbar">Immersive navbar</string>
-    <string name="quick_settings_immersive_tile_full">Immersive full</string>
+    <string name="quick_settings_immersive_tile">沉浸模式</string>
+    <string name="quick_settings_immersive_tile_statusbar">状态栏沉浸</string>
+    <string name="quick_settings_immersive_tile_navbar">导航栏沉浸</string>
+    <string name="quick_settings_immersive_tile_full">完全沉浸</string>
     <!-- Mono/Stereo tile -->
-    <string name="quick_settings_monotoggle_tile">Audio mode</string>
-    <string name="quick_settings_monotoggle_tile_mono">Mono audio</string>
-    <string name="quick_settings_monotoggle_tile_stereo">Stereo audio</string>
+    <string name="quick_settings_monotoggle_tile">音频模式</string>
+    <string name="quick_settings_monotoggle_tile_mono">单声道音频</string>
+    <string name="quick_settings_monotoggle_tile_stereo">立体声</string>
     <!-- Long swipe gesture actions -->
-    <string name="app_picker_dialog_title">Select an app</string>
-    <string name="task_helper_app_killed">%1$s force stopped</string>
-    <string name="empty_app_killed">App</string>
+    <string name="app_picker_dialog_title">选择应用</string>
+    <string name="task_helper_app_killed">%1$s 已停止运行</string>
+    <string name="empty_app_killed">应用</string>
 </resources>

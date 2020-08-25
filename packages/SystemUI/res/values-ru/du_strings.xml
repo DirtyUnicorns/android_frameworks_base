@@ -126,6 +126,6 @@
     <string name="quick_settings_monotoggle_tile_stereo">Стереозвук</string>
     <!-- Long swipe gesture actions -->
     <string name="app_picker_dialog_title">Выберите приложение</string>
-    <string name="task_helper_app_killed">%1$s force stopped</string>
-    <string name="empty_app_killed">App</string>
+    <string name="task_helper_app_killed">%1$s принудительно остановлено</string>
+    <string name="empty_app_killed">Приложение</string>
 </resources>

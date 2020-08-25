@@ -15,14 +15,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- App error dialog -->
-    <string name="aerr_copy">Скопировать URL краш-лога</string>
+    <string name="aerr_copy">Скопировать URL журнала ошибки</string>
     <string name="url_copy_success">URL скопирован успешно</string>
-    <string name="url_copy_failed">Произошла ошибка загрузки лога на dogbin</string>
+    <string name="url_copy_failed">Ошибка загрузки журнала на dogbin</string>
     <!-- Power menu -->
     <string name="reboot_to_recovery_title">Режим восстановления</string>
     <string name="reboot_to_recovery_message">Перезагрузка в режим восстановления</string>
     <string name="reboot_to_bootloader_title">Загрузчик</string>
-    <string name="reboot_to_bootloader_message">Перезагрузка в загрузчик</string>
+    <string name="reboot_to_bootloader_message">Перезагрузка в режим загрузчика</string>
     <string name="reboot_title">Перезагрузка</string>
     <string name="reboot_message">Перезагрузка системы</string>
     <!-- ADB over network notification -->
