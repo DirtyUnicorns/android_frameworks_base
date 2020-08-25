@@ -388,8 +388,6 @@ public class PhoneStatusBarPolicy
             if (mBluetooth.isBluetoothConnected()
                     && (mBluetooth.isBluetoothAudioActive()
                     || !mBluetooth.isBluetoothAudioProfileOnly())) {
-                contentDescription = mContext.getString(
-                        R.string.accessibility_bluetooth_connected);
                 final Collection<CachedBluetoothDevice> devices = mBluetooth.getDevices();
                 if (devices != null) {
                     // get battery level for the first device with battery level support
@@ -406,12 +404,12 @@ public class PhoneStatusBarPolicy
                                 iconId = R.drawable.stat_sys_data_bluetooth_connected;
                             }
                             contentDescription = mContext.getString(R.string.accessibility_bluetooth_connected);
+                            bluetoothVisible = mBluetooth.isBluetoothEnabled();
                             break;
                         }
                     }
                 }
-                bluetoothVisible = mBluetooth.isBluetoothEnabled();
-	    }
+            }
         }
 
         mIconController.setIcon(mSlotBluetooth, iconId, contentDescription);

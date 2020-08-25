@@ -375,7 +375,7 @@
     <string name="permdesc_persistentActivity" product="tablet" msgid="6055271149187369916">"Колдонмого өзүнүн бөлүктөрүн эстутумда туруктуу кармоого уруксат берет.Бул эстутумдун башка колдонмолорго жетиштүүлүгүн чектеши жана телефондун иштешин жайлатышы мүмкүн."</string>
     <string name="permdesc_persistentActivity" product="tv" msgid="2616944406357387366">"Колдонмого эстутумдагы өз бөлүктөрүн туруктуу кылуу мүмкүнчүлүгүн берет. Ушуну менен сыналгы жай иштеп, башка колдонмолорго жеткиликтүү эстутум чектелиши мүмкүн."</string>
     <string name="permdesc_persistentActivity" product="default" msgid="1914841924366562051">"Колдонмого  өзүнүн бөлүктөрүн эстутумда туруктуу кармоого уруксат берет. Бул эстутумдун башка колдонмолорго жетиштүүлүгүн чектеши жана телефондун иштешин жайлатышы мүмкүн."</string>
-    <string name="permlab_foregroundService" msgid="1768855976818467491">"активдүү кызматты иштетүү"</string>
+    <string name="permlab_foregroundService" msgid="1768855976818467491">"алдыңкы пландагы кызматты аткаруу"</string>
     <string name="permdesc_foregroundService" msgid="8720071450020922795">"Колдонмолорго алдынкы пландагы кызматтарды колдонууга уруксат берет."</string>
     <string name="permlab_getPackageSize" msgid="375391550792886641">"колдонмо сактагычынын мейкиндигин өлчөө"</string>
     <string name="permdesc_getPackageSize" msgid="742743530909966782">"Колдонмого өз кодун, дайындарын жана кэш өлчөмдөрүн түшүрүп алуу мүмкүнчүлүгүн берет"</string>
@@ -435,7 +435,7 @@
     <string name="permlab_camera" msgid="6320282492904119413">"сүрөт жана видео тартуу"</string>
     <string name="permdesc_camera" msgid="1354600178048761499">"Бул колдонмо каалаган убакта камера менен сүрөт же видеолорду тарта алат."</string>
     <string name="permlab_cameraOpenCloseListener" msgid="5548732769068109315">"Колдонмого же кызматка камера ачылып же жабылып жатканда чалууларды кабыл алууга уруксат берүү."</string>
-    <string name="permdesc_cameraOpenCloseListener" msgid="2002636131008772908">"Бул колдонмо камера ачылып (аны ачып жаткан колдонмо көрсөтүлгөндө) же жабылып жатканда чалууларды кабыл алат."</string>
+    <string name="permdesc_cameraOpenCloseListener" msgid="5860322671003213710">"Бул колдонмо камера ачылып же жабылып жатканда (колдонмонун таңгагы) чалууларды кабыл алат."</string>
     <string name="permlab_vibrate" msgid="8596800035791962017">"титирөөнү башкаруу"</string>
     <string name="permdesc_vibrate" msgid="8733343234582083721">"Колдонмого дирилдегичти көзөмөлдөө мүмкүнчүлүгүн берет."</string>
     <string name="permlab_callPhone" msgid="1798582257194643320">"телефон номерлерине түз чалуу"</string>
@@ -812,7 +812,7 @@
     <string name="keyguard_password_wrong_pin_code" msgid="8583732939138432793">"PIN-код туура эмес."</string>
     <string name="keyguard_label_text" msgid="3841953694564168384">"Кулпусун ачуу үчүн, Менюна андан соң 0 баскычын басыңыз."</string>
     <string name="emergency_call_dialog_number_for_display" msgid="2978165477085612673">"Өзгөчө кырдаалдар кызматы"</string>
-    <string name="lockscreen_carrier_default" msgid="6192313772955399160">"Интернет жок"</string>
+    <string name="lockscreen_carrier_default" msgid="6192313772955399160">"Байланыш жок"</string>
     <string name="lockscreen_screen_locked" msgid="7364905540516041817">"Экран кулпуланды."</string>
     <string name="lockscreen_instructions_when_pattern_enabled" msgid="7982445492532123308">"Кулпусун ачып же Шашылыш чалуу аткаруу үчүн менюну басыңыз."</string>
     <string name="lockscreen_instructions_when_pattern_disabled" msgid="7434061749374801753">"Бөгөттөн чыгаруу үчүн Менюну басыңыз."</string>
@@ -1247,7 +1247,7 @@
     <string name="wifi_cannot_connect_with_randomized_mac_title" msgid="3638054829636549621">"\"<xliff:g id="SSID">%1$s</xliff:g>\" тармагына туташпай койду"</string>
     <string name="wifi_cannot_connect_with_randomized_mac_message" msgid="1660164954255520914">"Купуялык жөндөөлөрүн өзгөртүү үчүн таптап, кайталап көрүңүз"</string>
     <string name="wifi_disable_mac_randomization_dialog_title" msgid="2850303108790975442">"Купуялык жөндөөлөрүн өзгөртөсүзбү?"</string>
-    <string name="wifi_disable_mac_randomization_dialog_message" msgid="7074701420311731349">"Туташуу үчүн <xliff:g id="SSID">%1$s</xliff:g> MAC дарегиңизди – уникалдуу идентификаторду колдонушу керек. Учурда бул тармактын купуялык жөндөөсү башаламан иретте түзүлгөн идентификаторду колдонууда. \n\nУшуну менен түзмөгүңүздүн жайгашкан жерине жакын жердеги түзмөктөр көз сала алышат."</string>
+    <string name="wifi_disable_mac_randomization_dialog_message" msgid="2434334967976496565">"<xliff:g id="SSID_0">%1$s</xliff:g> түзмөгүңүздүн MAC дарегин, уникалдуу идентификаторуңузду колдонуп туташканы жатат. Ушуну менен түзмөгүңүздүн жайгашкан жерине жакын жердеги түзмөктөр көз сала алышат. \n\nЭгер улантсаңыз, <xliff:g id="SSID_1">%1$s</xliff:g> купуялык жөндөөлөрүңүздү өзгөртүп, кайра туташууга аракет кылат."</string>
     <string name="wifi_disable_mac_randomization_dialog_confirm_text" msgid="8206498512998282366">"Жөндөөнү өзгөртүү"</string>
     <string name="wifi_disable_mac_randomization_dialog_success" msgid="6654175395681450625">"Жөндөө жаңырды. Кайра туташып көрүңүз."</string>
     <string name="wifi_disable_mac_randomization_dialog_failure" msgid="7028090406806909137">"Купуялык жөндөөлөрүн өзгөртүүгө болбойт"</string>
