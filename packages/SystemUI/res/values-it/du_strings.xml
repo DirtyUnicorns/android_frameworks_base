@@ -126,6 +126,6 @@
     <string name="quick_settings_monotoggle_tile_stereo">Audio stereo</string>
     <!-- Long swipe gesture actions -->
     <string name="app_picker_dialog_title">Seleziona un\'applicazione</string>
-    <string name="task_helper_app_killed">%1$s force stopped</string>
+    <string name="task_helper_app_killed">%1$s arrestata forzatamente</string>
     <string name="empty_app_killed">App</string>
 </resources>
