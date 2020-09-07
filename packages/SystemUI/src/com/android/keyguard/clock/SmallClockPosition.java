@@ -25,7 +25,7 @@ import com.android.systemui.R;
 /**
  * Computes preferred position of clock by considering height of status bar and lock icon.
  */
-class SmallClockPosition {
+public class SmallClockPosition {
 
     /**
      * Dimensions used to determine preferred clock position.
@@ -40,7 +40,7 @@ class SmallClockPosition {
      */
     private float mDarkAmount;
 
-    SmallClockPosition(Resources res) {
+    public SmallClockPosition(Resources res) {
         this(res.getDimensionPixelSize(R.dimen.status_bar_height),
                 res.getDimensionPixelSize(R.dimen.keyguard_lock_padding),
                 res.getDimensionPixelSize(R.dimen.keyguard_lock_height),
@@ -66,7 +66,7 @@ class SmallClockPosition {
     /**
      * Gets the preferred Y position accounting for status bar and lock icon heights.
      */
-    int getPreferredY() {
+    public int getPreferredY() {
         // On AOD, clock needs to appear below the status bar with enough room for pixel shifting
         int aodY = mStatusBarHeight + mKeyguardLockHeight + 2 * mKeyguardLockPadding
                 + mBurnInOffsetY;
