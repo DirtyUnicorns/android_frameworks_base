@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="notification_name" translatable="false">Android Neko</string>
-    <string name="notification_channel_name" translatable="false">New cats</string>
+    <string name="notification_channel_name">New cats</string>
     <string name="default_tile_name" translatable="false">\????</string>
-    <string name="notification_title" translatable="false">A cat is here.</string>
-    <string name="default_cat_name" translatable="false">Cat #%s</string>
-    <string name="directory_name" translatable="false">Cats</string>
-    <string name="confirm_delete" translatable="false">Forget %s?</string>
-    <string-array name="food_names" translatable="false">
+    <string name="notification_title">A cat is here.</string>
+    <string name="default_cat_name">Cat #%s</string>
+    <string name="directory_name">Cats</string>
+    <string name="confirm_delete">Forget %s?</string>
+    <string-array name="food_names">
         <item>Empty dish</item>
         <item>Bits</item>
         <item>Fish</item>
@@ -58,14 +58,14 @@
         <item>🍪</item>
         <item>🥧</item>
     </string-array>
-    <string name="control_toy_title" translatable="false">Toy</string>
-    <string name="control_toy_subtitle" translatable="false">Tap to use</string>
-    <string name="control_toy_status" translatable="false">Cat attracted!</string>
-    <string name="control_water_title" translatable="false">Water bubbler</string>
-    <string name="control_water_subtitle" translatable="false">Swipe to fill</string>
-    <string name="control_food_title" translatable="false">Food bowl</string>
-    <string name="control_food_subtitle" translatable="false">Tap to refill</string>
-    <string name="control_food_status_full" translatable="false">Full</string>
-    <string name="control_food_status_empty" translatable="false">Empty</string>
+    <string name="control_toy_title">Toy</string>
+    <string name="control_toy_subtitle">Tap to use</string>
+    <string name="control_toy_status">Cat attracted!</string>
+    <string name="control_water_title">Water bubbler</string>
+    <string name="control_water_subtitle">Swipe to fill</string>
+    <string name="control_food_title">Food bowl</string>
+    <string name="control_food_subtitle">Tap to refill</string>
+    <string name="control_food_status_full">Full</string>
+    <string name="control_food_status_empty">Empty</string>
 </resources>
 

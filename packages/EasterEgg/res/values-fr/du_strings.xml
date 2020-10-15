@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="notification_channel_name">Nouveaux chats</string>
+    <string name="notification_title">Un chat est arrivé</string>
+    <string name="default_cat_name">Chat %s</string>
+    <string name="directory_name">Chats</string>
+    <string name="confirm_delete">Oublier %s ?</string>
+    <string-array name="food_names">
+        <item>Coupelle vide</item>
+        <item>Croquettes</item>
+        <item>Poisson</item>
+        <item>Poulet</item>
+        <item>Dessert</item>
+    </string-array>
+    <string name="control_toy_title">Jouet</string>
+    <string name="control_toy_subtitle">Utiliser</string>
+    <string name="control_toy_status">Chat attiré !</string>
+    <string name="control_water_title">Coupelle d\'eau</string>
+    <string name="control_water_subtitle">Balayez</string>
+    <string name="control_food_title">Coupelle de nourriture</string>
+    <string name="control_food_subtitle">Remplir</string>
+    <string name="control_food_status_full">Pleine</string>
+    <string name="control_food_status_empty">Vide</string>
+</resources>
+
