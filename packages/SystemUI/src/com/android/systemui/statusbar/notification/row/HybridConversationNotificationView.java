@@ -66,7 +66,7 @@ public class HybridConversationNotificationView extends HybridNotificationView {
         mConversationFacePile = requireViewById(com.android.internal.R.id.conversation_face_pile);
         mConversationSenderName = requireViewById(R.id.conversation_notification_sender);
         mFacePileSize = getResources()
-                .getDimensionPixelSize(R.dimen.conversation_single_line_face_pile_size);
+                .getDimensionPixelSize(R.dimen.custom_conversation_single_line_face_pile_size);
         mConversationIconSize = getResources()
                 .getDimensionPixelSize(R.dimen.conversation_single_line_avatar_size);
         mFacePileProtectionWidth = getResources().getDimensionPixelSize(
